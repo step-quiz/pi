@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 7 — Atzar i decisions · fitxa adaptada</title>
+<!--
+  Fitxa adaptada · 4t ESO Aplicades · Unitat 7 (Atzar i decisions) = llibre UD9
+  Alumne amb DIL.
+
+  MATEIXOS CRITERIS QUE LES FITXES ANTERIORS
+  1. El dibuix explica, les paraules només etiqueten. Cap paràgraf.
+  2. Impressió en BLANC I NEGRE. Cap color.
+  3. Cos de 14 pt cap amunt i molt d'aire.
+  4. A cada exercici, el primer apartat ja resolt en lletra manuscrita.
+
+  DECISIÓ PEDAGÒGICA
+  El diagrama d'arbre és un objecte visual i la unitat exclou expressament els
+  nombres combinatoris: comptar branques és comptar, no calcular. La regla de
+  Laplace es fa amb la calculadora i s'expressa en percentatge, que és el
+  format que ell ja domina de la Unitat 2.
+  L'exercici 5 (el joc de fira) i el 6 (els paranys de les apostes) tenen un
+  valor preventiu que va més enllà de les matemàtiques: un perfil amb DIL té
+  més vulnerabilitat davant d'apostes i sortejos. Convé que els faci sencers.
+
+  Imprimir: Ctrl+P, A4, amb «Gràfics de fons» ACTIVAT.
+  Si no vols donar el solucionari, no imprimeixis l'última pàgina.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+
+<p class="no-imprimir" style="max-width:21cm;margin:1rem auto 0;font:14px var(--tipus)"><a href="../fitxes.html">← totes les fitxes</a></p>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-parla" viewBox="0 0 48 48">
+    <path d="M6 9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H21l-10 9V33h-1a4 4 0 0 1-4-4z"
+      fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ==================== FULL 1 ==================== -->
+<div class="full">
+  <div class="previ">Cinc minuts abans, a la SIEI: <b>un dau i una moneda</b></div>
+  <h1>Em convé jugar?</h1>
+  <!--§obertura p.1§--><p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div class="figura"><svg viewBox="0 0 560 170" role="img" aria-label="Gràfic"><rect x="0" y="0" width="560" height="170" fill="#fff"/><line x1="46" y1="78" x2="514" y2="78" stroke="#000" stroke-width="4"/><line x1="46.0" y1="67" x2="46.0" y2="89" stroke="#000" stroke-width="3"/><text x="46.0" y="114" text-anchor="middle" font-size="17" fill="#5E5E5E" font-family="system-ui">0 %</text><line x1="163.0" y1="67" x2="163.0" y2="89" stroke="#000" stroke-width="3"/><text x="163.0" y="114" text-anchor="middle" font-size="17" fill="#5E5E5E" font-family="system-ui">25 %</text><line x1="280.0" y1="67" x2="280.0" y2="89" stroke="#000" stroke-width="3"/><text x="280.0" y="114" text-anchor="middle" font-size="17" fill="#5E5E5E" font-family="system-ui">50 %</text><line x1="397.0" y1="67" x2="397.0" y2="89" stroke="#000" stroke-width="3"/><text x="397.0" y="114" text-anchor="middle" font-size="17" fill="#5E5E5E" font-family="system-ui">75 %</text><line x1="514.0" y1="67" x2="514.0" y2="89" stroke="#000" stroke-width="3"/><text x="514.0" y="114" text-anchor="middle" font-size="17" fill="#5E5E5E" font-family="system-ui">100 %</text><text x="46.0" y="52" text-anchor="middle" font-size="18" font-weight="700" fill="#000" font-family="system-ui">impossible</text><text x="280.0" y="52" text-anchor="middle" font-size="18" font-weight="700" fill="#000" font-family="system-ui">pot passar</text><text x="514.0" y="52" text-anchor="middle" font-size="18" font-weight="700" fill="#000" font-family="system-ui">segur</text><text x="46" y="152" font-size="16" fill="#5E5E5E" font-family="system-ui">com més a la dreta, més fàcil que passi</text></svg></div>
+  <p style="font-size:13pt;color:var(--gris-2);margin:.6rem 0 0">Tot el que pot passar cau en algun punt d'aquesta línia.</p>
+
+  <table style="margin-top:1rem">
+    <tr><th style="width:34%">Si dic…</th><th style="width:66%">Vol dir…</th></tr>
+    <tr><td class="dada">Impossible</td><td class="esq">No pot passar mai. 0 %</td></tr>
+    <tr><td class="dada">Pot passar</td><td class="esq">De vegades sí i de vegades no.</td></tr>
+    <tr><td class="dada">Segur</td><td class="esq">Passa sempre. 100 %</td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center;font-size:16pt;font-weight:700">
+    Cap joc d'atzar no és segur. Si ho fos, no seria un joc.
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 1</div>
+</div>
+
+<!-- ==================== FULL 2 ==================== -->
+<div class="full">
+  <h2>Comptar sense deixar-se'n cap</h2>
+  <p style="font-size:13pt;color:var(--gris-2);margin:0">
+    Un menú amb 2 primers i 3 segons. Quants menús diferents pots fer?</p>
+  <div class="figura"><svg viewBox="0 0 560 330" role="img" aria-label="Gràfic"><rect x="0" y="0" width="560" height="330" fill="#fff"/><circle cx="40" cy="165" r="7" fill="#000"/><line x1="40" y1="165" x2="190" y2="102.5" stroke="#000" stroke-width="2.5"/><rect x="190" y="85.5" width="118" height="34" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="249" y="109.5" text-anchor="middle" font-size="17" font-weight="700" fill="#000" font-family="system-ui">Sopa</text><line x1="308" y1="102.5" x2="330" y2="54.2" stroke="#000" stroke-width="2.5"/><rect x="330" y="39.2" width="112" height="30" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="386" y="60.2" text-anchor="middle" font-size="16" font-weight="700" fill="#000" font-family="system-ui">Pollastre</text><text x="454" y="60.2" font-size="15" fill="#5E5E5E" font-family="system-ui">Sopa + Pollastre</text><line x1="308" y1="102.5" x2="330" y2="102.5" stroke="#000" stroke-width="2.5"/><rect x="330" y="87.5" width="112" height="30" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="386" y="108.5" text-anchor="middle" font-size="16" font-weight="700" fill="#000" font-family="system-ui">Peix</text><text x="454" y="108.5" font-size="15" fill="#5E5E5E" font-family="system-ui">Sopa + Peix</text><line x1="308" y1="102.5" x2="330" y2="150.8" stroke="#000" stroke-width="2.5"/><rect x="330" y="135.8" width="112" height="30" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="386" y="156.8" text-anchor="middle" font-size="16" font-weight="700" fill="#000" font-family="system-ui">Pasta</text><text x="454" y="156.8" font-size="15" fill="#5E5E5E" font-family="system-ui">Sopa + Pasta</text><line x1="40" y1="165" x2="190" y2="247.5" stroke="#000" stroke-width="2.5"/><rect x="190" y="230.5" width="118" height="34" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="249" y="254.5" text-anchor="middle" font-size="17" font-weight="700" fill="#000" font-family="system-ui">Amanida</text><line x1="308" y1="247.5" x2="330" y2="199.2" stroke="#000" stroke-width="2.5"/><rect x="330" y="184.2" width="112" height="30" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="386" y="205.2" text-anchor="middle" font-size="16" font-weight="700" fill="#000" font-family="system-ui">Pollastre</text><text x="454" y="205.2" font-size="15" fill="#5E5E5E" font-family="system-ui">Amanida + Pollastre</text><line x1="308" y1="247.5" x2="330" y2="247.5" stroke="#000" stroke-width="2.5"/><rect x="330" y="232.5" width="112" height="30" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="386" y="253.5" text-anchor="middle" font-size="16" font-weight="700" fill="#000" font-family="system-ui">Peix</text><text x="454" y="253.5" font-size="15" fill="#5E5E5E" font-family="system-ui">Amanida + Peix</text><line x1="308" y1="247.5" x2="330" y2="295.8" stroke="#000" stroke-width="2.5"/><rect x="330" y="280.8" width="112" height="30" rx="7" fill="#F2F2F2" stroke="#000" stroke-width="2.5"/><text x="386" y="301.8" text-anchor="middle" font-size="16" font-weight="700" fill="#000" font-family="system-ui">Pasta</text><text x="454" y="301.8" font-size="15" fill="#5E5E5E" font-family="system-ui">Amanida + Pasta</text></svg></div>
+
+  <div class="cadena" style="justify-content:center">
+    <span class="baula">2 primers</span><span class="fletxa">×</span>
+    <span class="baula">3 segons</span><span class="fletxa">=</span>
+    <span class="baula gris">6 menús</span>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center;font-size:16pt;font-weight:700">
+    Compta les branques del final. Aquestes són totes les possibilitats.
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 2</div>
+</div>
+
+<!-- ==================== FULL 3 ==================== -->
+<div class="full">
+  <h2>Quina probabilitat hi ha?</h2>
+  <p style="font-size:13pt;color:var(--gris-2);margin:0">
+    Tires un dau. Quina probabilitat hi ha de treure un 5?</p>
+
+  <div style="text-align:center;margin:1rem 0">
+    <span class="dau">1</span><span class="dau">2</span><span class="dau">3</span>
+    <span class="dau">4</span><span class="dau" style="border-width:4px">5</span><span class="dau">6</span>
+  </div>
+
+<!--§barra de probabilitat p.3§-->  <p style="font-size:13pt;color:var(--gris-2);margin:.2rem 0">
+    Parteixo la barra en 6 trossos iguals, un per cara.</p>
+  <div class="figura"><svg viewBox="0 0 560 168" role="img" aria-label="Dibuix"><rect x="0" y="0" width="560" height="168" fill="#fff"/><rect x="30.0" y="34" width="83.3" height="50" fill="#fff" stroke="#000" stroke-width="2"/><text x="71.7" y="67" text-anchor="middle" font-size="21" font-weight="400" fill="#000" font-family="system-ui">1</text><rect x="113.3" y="34" width="83.3" height="50" fill="#fff" stroke="#000" stroke-width="2"/><text x="155.0" y="67" text-anchor="middle" font-size="21" font-weight="400" fill="#000" font-family="system-ui">2</text><rect x="196.7" y="34" width="83.3" height="50" fill="#fff" stroke="#000" stroke-width="2"/><text x="238.3" y="67" text-anchor="middle" font-size="21" font-weight="400" fill="#000" font-family="system-ui">3</text><rect x="280.0" y="34" width="83.3" height="50" fill="#fff" stroke="#000" stroke-width="2"/><text x="321.7" y="67" text-anchor="middle" font-size="21" font-weight="400" fill="#000" font-family="system-ui">4</text><rect x="363.3" y="34" width="83.3" height="50" fill="#C4C4C4" stroke="#000" stroke-width="3"/><text x="405.0" y="67" text-anchor="middle" font-size="21" font-weight="800" fill="#000" font-family="system-ui">5</text><rect x="446.7" y="34" width="83.3" height="50" fill="#fff" stroke="#000" stroke-width="2"/><text x="488.3" y="67" text-anchor="middle" font-size="21" font-weight="400" fill="#000" font-family="system-ui">6</text><line x1="30" y1="116" x2="530" y2="116" stroke="#000" stroke-width="2.5"/><line x1="30.0" y1="116" x2="30.0" y2="123" stroke="#000" stroke-width="2"/><line x1="113.3" y1="116" x2="113.3" y2="123" stroke="#000" stroke-width="2"/><line x1="196.7" y1="116" x2="196.7" y2="123" stroke="#000" stroke-width="2"/><line x1="280.0" y1="116" x2="280.0" y2="123" stroke="#000" stroke-width="2"/><line x1="363.3" y1="116" x2="363.3" y2="123" stroke="#000" stroke-width="2"/><line x1="446.7" y1="116" x2="446.7" y2="123" stroke="#000" stroke-width="2"/><line x1="530.0" y1="116" x2="530.0" y2="123" stroke="#000" stroke-width="2"/><text x="30.0" y="143" text-anchor="middle" font-size="16" fill="#5E5E5E" font-family="system-ui">0</text><text x="530.0" y="143" text-anchor="middle" font-size="16" fill="#5E5E5E" font-family="system-ui">100</text><text x="532" y="143" text-anchor="start" font-size="14" fill="#5E5E5E" font-family="system-ui">%</text><line x1="363.3" y1="84" x2="363.3" y2="116" stroke="#000" stroke-width="2" stroke-dasharray="7 5"/><line x1="446.7" y1="84" x2="446.7" y2="116" stroke="#000" stroke-width="2" stroke-dasharray="7 5"/><text x="405.0" y="160" text-anchor="middle" font-size="19" font-weight="800" fill="#000" font-family="system-ui">16,7 %</text></svg></div>
+
+  <table>
+    <tr><th style="width:50%">Compto…</th><th style="width:50%">I surten</th></tr>
+    <tr><td class="dada esq">Els que em van bé</td><td style="font-size:20pt"><b>1</b></td></tr>
+    <tr><td class="dada esq">Tots els que poden sortir</td><td style="font-size:20pt"><b>6</b></td></tr>
+  </table>
+
+  <div class="cadena" style="justify-content:center;margin-top:1rem">
+    <span class="baula">1 ÷ 6</span><span class="fletxa">=</span>
+    <span class="baula gris">0,1666…</span><span class="fletxa">→</span>
+    <span class="baula gris">16,7 %</span>
+  </div>
+
+  <div class="avis puntejat">
+    <div style="font-size:12pt;color:var(--gris-2);margin-bottom:.3rem">Els dos passos</div>
+    Divideix els que et van bé entre tots els que poden sortir.<br>
+    Multiplica per 100 i tindràs el tant per cent.
+    <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg>
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 3</div>
+</div>
+
+<!-- ==================== FULL 4 ==================== -->
+<div class="full">
+  <h2>Per què la casa sempre guanya</h2>
+  <p style="font-size:13pt;color:var(--gris-2);margin:0">
+    Un joc de fira: pagues 1 € per tirar un dau. Si surt un 6, et donen 4 €.</p>
+
+  <table>
+    <tr><th style="width:60%">Si hi jugues 60 vegades…</th><th style="width:40%"></th></tr>
+    <tr><td class="dada esq">Quantes en guanyaràs, més o menys?</td><td style="font-size:19pt"><b>10</b></td></tr>
+    <tr><td class="dada esq">Quant hauràs pagat en total?</td><td style="font-size:19pt"><b>60 €</b></td></tr>
+    <tr><td class="dada esq">Quant hauràs cobrat? (10 × 4 €)</td><td style="font-size:19pt"><b>40 €</b></td></tr>
+    <tr><td class="dada esq">Quant hi has perdut?</td><td style="font-size:22pt"><b>20 €</b></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center;font-size:16.5pt;font-weight:700;line-height:1.5">
+    El joc no està trencat.<br>Està fet així a posta.
+  </div>
+
+  <div class="avis puntejat" style="text-align:center;font-size:15pt">
+    Com més hi jugues, més hi perds. No al revés.
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 4</div>
+</div>
+
+<!-- ==================== FULL 5 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div>
+      <div class="q">Marca si és impossible, si pot passar o si és segur.</div></div>
+
+    <div style="margin-top:.4rem"><span class="apartat">a)</span> Treure un 7 amb un dau de 6 cares.</div>
+    <div class="tria compacta">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">
+        <svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">
+        <path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/></svg></span>Impossible</label>
+      <label><span class="quadret"></span>Pot passar</label>
+      <label><span class="quadret"></span>Segur</label>
+    </div>
+
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Treure un número parell amb un dau.</div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>Impossible</label>
+      <label><span class="quadret"></span>Pot passar</label>
+      <label><span class="quadret"></span>Segur</label>
+    </div>
+
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Que un dau caigui mostrant un número de l'1 al 6.</div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>Impossible</label>
+      <label><span class="quadret"></span>Pot passar</label>
+      <label><span class="quadret"></span>Segur</label>
+    </div>
+
+    <div style="margin-top:1rem"><span class="apartat">d)</span> Treure una bola verda d'una bossa amb boles blanques i negres.</div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>Impossible</label>
+      <label><span class="quadret"></span>Pot passar</label>
+      <label><span class="quadret"></span>Segur</label>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 5</div>
+</div>
+
+<!-- ==================== FULL 6 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div>
+      <div class="q">Completa l'arbre i compta les possibilitats.</div></div>
+    <p style="font-size:13pt;color:var(--gris-2);margin:0">
+      Tires una moneda dues vegades. Escriu <b>C</b> (cara) o <b>X</b> (creu) a cada caixa.</p>
+    <div class="figura"><svg viewBox="0 0 560 280" role="img" aria-label="Gràfic"><rect x="0" y="0" width="560" height="280" fill="#fff"/><circle cx="40" cy="140" r="7" fill="#000"/><line x1="40" y1="140" x2="190" y2="90.0" stroke="#000" stroke-width="2.5"/><rect x="190" y="73.0" width="118" height="34" rx="7" fill="#fff" stroke="#000" stroke-width="2.5"/><line x1="308" y1="90.0" x2="330" y2="60.0" stroke="#000" stroke-width="2.5"/><rect x="330" y="45.0" width="112" height="30" rx="7" fill="#fff" stroke="#000" stroke-width="2.5"/><rect x="452" y="45.0" width="72" height="30" rx="7" fill="#fff" stroke="#D4D4D4" stroke-width="2"/><line x1="308" y1="90.0" x2="330" y2="120.0" stroke="#000" stroke-width="2.5"/><rect x="330" y="105.0" width="112" height="30" rx="7" fill="#fff" stroke="#000" stroke-width="2.5"/><rect x="452" y="105.0" width="72" height="30" rx="7" fill="#fff" stroke="#D4D4D4" stroke-width="2"/><line x1="40" y1="140" x2="190" y2="210.0" stroke="#000" stroke-width="2.5"/><rect x="190" y="193.0" width="118" height="34" rx="7" fill="#fff" stroke="#000" stroke-width="2.5"/><line x1="308" y1="210.0" x2="330" y2="180.0" stroke="#000" stroke-width="2.5"/><rect x="330" y="165.0" width="112" height="30" rx="7" fill="#fff" stroke="#000" stroke-width="2.5"/><rect x="452" y="165.0" width="72" height="30" rx="7" fill="#fff" stroke="#D4D4D4" stroke-width="2"/><line x1="308" y1="210.0" x2="330" y2="240.0" stroke="#000" stroke-width="2.5"/><rect x="330" y="225.0" width="112" height="30" rx="7" fill="#fff" stroke="#000" stroke-width="2.5"/><rect x="452" y="225.0" width="72" height="30" rx="7" fill="#fff" stroke="#D4D4D4" stroke-width="2"/></svg></div>
+
+    <table>
+      <tr><th style="width:60%">En total surten…</th><th style="width:40%">possibilitats</th></tr>
+      <tr><td class="dada esq">2 × 2 =</td><td class="omplir"></td></tr>
+    </table>
+
+    <table style="margin-top:1rem">
+      <tr><th style="width:14%"></th><th style="width:56%">Quantes possibilitats hi ha?</th><th style="width:30%">Compte</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Un menú amb 2 primers i 3 segons</td>
+          <td class="ms">2 × 3 = 6</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">Un menú amb 3 primers i 4 segons</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Un codi de 2 xifres amb els números 1, 2 i 3</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">Tirar un dau i una moneda</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 6</div>
+</div>
+
+<!-- ==================== FULL 7 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div>
+      <div class="q">Calcula la probabilitat en tant per cent.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p style="font-size:13pt;color:var(--gris-2);margin:0">Amb un dau de 6 cares.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:28%">Vull treure…</th>
+          <th style="width:17%">Em van bé</th><th style="width:17%">Poden sortir</th>
+          <th style="width:14%">Divisió</th><th style="width:14%">%</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">un 5</td><td class="ms">1</td>
+          <td class="ms">6</td><td class="ms">1÷6</td><td class="ms">16,7</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">un parell</td><td class="omplir"></td><td class="omplir"></td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">més de 4</td><td class="omplir"></td><td class="omplir"></td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">un número de l'1 al 6</td><td class="omplir"></td><td class="omplir"></td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div>
+      <div class="q">Marca quin dels dos fets és més probable.</div></div>
+
+    <div style="margin-top:.4rem"><span class="apartat">a)</span> Amb un dau:</div>
+    <div class="tria compacta">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">
+        <svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">
+        <path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/></svg></span>Treure parell</label>
+      <label><span class="quadret"></span>Treure un 6</label>
+    </div>
+
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Amb un dau:</div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>Treure més de 2</label>
+      <label><span class="quadret"></span>Treure menys de 3</label>
+    </div>
+
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Amb dues monedes:</div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>Dues cares</label>
+      <label><span class="quadret"></span>Una cara i una creu</label>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 7</div>
+</div>
+
+<!-- ==================== FULL 8 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div>
+      <div class="q">Analitza aquest joc de fira i decideix.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="avis" style="font-size:15.5pt;font-weight:700;text-align:center">
+      Pagues 2 € per tirar un dau.<br>Si surt un 6, et donen 8 €.
+    </div>
+
+    <table>
+      <tr><th style="width:14%"></th><th style="width:54%">Pregunta</th><th style="width:32%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Quina probabilitat hi ha de guanyar?</td>
+          <td class="ms">16,7 %</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">Si tires 60 vegades, quantes en guanyaràs?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Quant hauràs pagat en 60 tirades?</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">Quant hauràs cobrat?</td><td class="omplir"></td></tr>
+      <tr><td><b>e)</b></td><td class="dada esq">Quant hi has perdut?</td><td class="omplir"></td></tr>
+    </table>
+
+    <div class="avis puntejat">
+      <span class="apartat">f)</span>
+      <svg class="ico" style="margin:0 .3rem"><use href="#i-parla"/></svg>
+      Et convé jugar-hi? Per què?
+    </div>
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 8</div>
+</div>
+
+<!-- ==================== FULL 9 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div>
+      <div class="q">Marca si el missatge enganya o si diu la veritat.</div></div>
+
+    <table>
+      <tr><th style="width:12%"></th><th style="width:52%">Algú diu…</th>
+          <th style="width:18%">Enganya</th><th style="width:18%">És veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td>
+          <td class="ms esq">«Ja han sortit 5 vermells seguits, ara toca negre.»</td>
+          <td class="ms">X</td><td></td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">«Com més hi jugues, més possibilitats tens de guanyar.»</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">«Guanyar la loteria és molt difícil.»</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">«Aquest número no ha sortit mai, ara li toca.»</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>e)</b></td><td class="dada esq">«La casa guanya diners perquè el joc està fet així.»</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+
+    <div class="avis puntejat">
+      <span class="apartat">f)</span>
+      <svg class="ico" style="margin:0 .3rem"><use href="#i-parla"/></svg>
+      El dau recorda el que ha sortit abans?
+    </div>
+  </div>
+
+  <div class="avis gruixut">
+    <p class="frase" style="margin:0">En total hi ha <u></u> possibilitats.</p>
+    <p class="frase" style="margin:0">D'aquestes, <u></u> em van bé.</p>
+    <p class="frase" style="margin:0">La probabilitat és del <u></u> %.</p>
+    <p class="frase" style="margin:0">No em convé jugar perquè <u></u> <u></u>.</p>
+  </div>
+
+  <div class="pag">Unitat 7 · pàgina 9</div>
+</div>
+
+<!-- ==================== FULL 10: SOLUCIONARI ==================== -->
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 7 · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> Els exercicis 5 i 6 tenen un valor que va més enllà de les
+    matemàtiques. Un perfil amb DIL té <b>més vulnerabilitat davant d'apostes, sortejos i
+    loteries</b>, i aquesta unitat és l'única del curs que hi treballa directament. Convé
+    que els faci sencers encara que la resta hagi anat més just.
+  </div>
+
+  <h3>1. Impossible, pot passar o segur</h3>
+  <p>a) <b>Impossible</b> &nbsp;·&nbsp; b) <b>Pot passar</b> &nbsp;·&nbsp; c) <b>Segur</b>
+  &nbsp;·&nbsp; d) <b>Impossible</b></p>
+  <p>L'apartat d) és el que costa més: cal adonar-se que si a la bossa no hi ha boles verdes,
+  no n'hi pot sortir cap. Si dubta, feu-l'hi fer amb una bossa i boles de veritat.</p>
+
+  <h3>2. L'arbre</h3>
+  <p><b>Les dues monedes:</b> 2 × 2 = <b>4</b> possibilitats. Les caixes s'han d'omplir així:
+  C-C, C-X, X-C, X-X.</p>
+  <table>
+    <tr><th></th><th>Situació</th><th>Compte</th></tr>
+    <tr><td>a)</td><td>2 primers i 3 segons</td><td>2 × 3 = <b>6</b></td></tr>
+    <tr><td>b)</td><td>3 primers i 4 segons</td><td>3 × 4 = <b>12</b></td></tr>
+    <tr><td>c)</td><td>Codi de 2 xifres amb 1, 2 i 3</td><td>3 × 3 = <b>9</b></td></tr>
+    <tr><td>d)</td><td>Un dau i una moneda</td><td>6 × 2 = <b>12</b></td></tr>
+  </table>
+  <p><b>Error típic a l'apartat c:</b> respondre 6 (sumant 3 + 3) o 3. Ajuda escriure les 9
+  possibilitats en una llista: 11, 12, 13, 21, 22, 23, 31, 32, 33. Comptar-les d'una en una
+  és una via legítima i li és accessible.</p>
+
+  <h3>3. Probabilitat amb el dau</h3>
+  <table>
+    <tr><th></th><th>Vull treure</th><th>Em van bé</th><th>Poden sortir</th><th>Divisió</th><th>%</th></tr>
+    <tr><td>a)</td><td>un 5</td><td>1</td><td>6</td><td>1 ÷ 6</td><td><b>16,7 %</b></td></tr>
+    <tr><td>b)</td><td>un parell (2, 4, 6)</td><td>3</td><td>6</td><td>3 ÷ 6</td><td><b>50 %</b></td></tr>
+    <tr><td>c)</td><td>més de 4 (5, 6)</td><td>2</td><td>6</td><td>2 ÷ 6</td><td><b>33,3 %</b></td></tr>
+    <tr><td>d)</td><td>de l'1 al 6</td><td>6</td><td>6</td><td>6 ÷ 6</td><td><b>100 %</b></td></tr>
+  </table>
+  <p>L'apartat d) val la pena: la probabilitat 100 % és el fet segur de la pàgina 1. Tanca
+  el cercle entre el vocabulari i el número.</p>
+  <p><b>Error típic a l'apartat c:</b> comptar el 4 dins de «més de 4». Feu-li assenyalar els
+  daus dibuixats a la pàgina 3.</p>
+
+  <h3>4. Quin és més probable</h3>
+  <table>
+    <tr><th></th><th>Opcions</th><th>Més probable</th></tr>
+    <tr><td>a)</td><td>parell (50 %) o un 6 (16,7 %)</td><td><b>Parell</b></td></tr>
+    <tr><td>b)</td><td>més de 2 (66,7 %) o menys de 3 (33,3 %)</td><td><b>Més de 2</b></td></tr>
+    <tr><td>c)</td><td>dues cares (25 %) o una cara i una creu (50 %)</td><td><b>Una cara i una creu</b></td></tr>
+  </table>
+  <p><b>L'apartat c) és la trampa de la fitxa</b>, i és una de les confusions més esteses
+  en probabilitat, també entre adults. Sembla que les tres opcions (dues cares, dues creus,
+  una de cada) haurien de ser igual de probables, però «una de cada» es pot donar de dues
+  maneres: cara-creu i creu-cara. Per això val el doble.</p>
+  <p>Aquí l'arbre de l'exercici 2 fa tota la feina: només cal comptar-hi les branques.
+  Val la pena tornar-hi enrere i comptar-les amb ell.</p>
+
+  <h3>5. El joc de fira</h3>
+  <table>
+    <tr><th></th><th>Pregunta</th><th>Resposta</th></tr>
+    <tr><td>a)</td><td>Probabilitat de guanyar</td><td>1 ÷ 6 = <b>16,7 %</b></td></tr>
+    <tr><td>b)</td><td>Guanyades en 60 tirades</td><td>60 ÷ 6 = <b>10</b></td></tr>
+    <tr><td>c)</td><td>Pagat en total</td><td>60 × 2 = <b>120 €</b></td></tr>
+    <tr><td>d)</td><td>Cobrat</td><td>10 × 8 = <b>80 €</b></td></tr>
+    <tr><td>e)</td><td>Perdut</td><td>120 − 80 = <b>40 €</b></td></tr>
+  </table>
+  <p>f) <b>No convé.</b> Assolit si diu una idea com «pago més del que cobro» o «hi perdo
+  diners». No cal cap justificació formal.</p>
+  <p><b>Aquest exercici és el nucli de la unitat per a ell.</b> Tota l'aritmètica és de
+  multiplicar i restar amb calculadora, i el resultat és una decisió clara. Fixeu-vos que
+  el joc sembla generós —et donen 8 € per 2 €, quatre vegades el que pagues— i tot i així
+  s'hi perd. Aquesta és exactament la sensació que exploten les apostes reals.</p>
+
+  <h3>6. Els missatges</h3>
+  <table>
+    <tr><th></th><th>Missatge</th><th>Veredicte</th><th>Per què</th></tr>
+    <tr><td>a)</td><td>«Ara toca negre»</td><td><b>Enganya</b></td><td>La ruleta no recorda res.</td></tr>
+    <tr><td>b)</td><td>«Com més hi jugues, més possibilitats»</td><td><b>Enganya</b></td>
+        <td>Cada tirada és igual. Com més hi jugues, més hi perds.</td></tr>
+    <tr><td>c)</td><td>«Guanyar la loteria és molt difícil»</td><td><b>És veritat</b></td><td></td></tr>
+    <tr><td>d)</td><td>«Aquest número ara li toca»</td><td><b>Enganya</b></td><td>Els números no tenen memòria.</td></tr>
+    <tr><td>e)</td><td>«La casa guanya perquè està fet així»</td><td><b>És veritat</b></td>
+        <td>És exactament el que ha calculat a l'exercici 5.</td></tr>
+  </table>
+  <p>f) <b>No.</b> El dau no recorda res. Assolit si diu una idea com «cada vegada és nova»
+  o «el dau no sap què ha sortit abans».</p>
+  <p>Els apartats a) i d) són <b>la fal·làcia del jugador</b>, el parany més comú de tots.
+  Val la pena que se'l sàpiga dir amb les seves paraules, perquè és el que li trobarà a la
+  vida real.</p>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts tirant el dau i anotant què surt. Amb vint tirades ja es veu que no surt sempre el mateix i que ningú no ho pot fer sortir a voluntat.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <ul>
+    <li>Exercicis 1 i 3 → criteri <b>1.1</b>, assignar probabilitats.</li>
+    <li>Exercici 2 → criteri <b>5.1</b>, comptar de manera sistemàtica amb l'arbre.</li>
+    <li>Exercici 4 → criteri <b>2.1</b>, comparar probabilitats.</li>
+    <li>Exercicis 5 i 6 → criteri <b>1.1</b> i <b>2.1</b>, decidir amb esperit crític.</li>
+  </ul>
+  <p>Fita realista: <b>AS</b>, amb <b>AN</b> possible al recompte amb arbre.</p>
+
+  <h3>Enllaç amb la resta del material</h3>
+  <p><b>Producte «Analistes de l'atzar».</b> Ell fa l'arbre del joc i porta l'experimentació:
+  llançar, comptar i registrar al full de càlcul. Són dues tasques tècniques reals.</p>
+  <p>Base prèvia a la SIEI: <i>3eso-ud2-2</i> (el llenguatge de l'atzar, que és el vocabulari
+  de la pàgina 1), <i>3eso-ud2-3</i> (comptar sense oblidar-se de res) i <i>3eso-ud2-5</i>
+  (la regla de Laplace).</p>
+  <p>A <i>repas-main</i>: full 12, blocs <i>espais_mostrals</i> i <i>laplace</i>. No li obris
+  <i>probabilitat_composta</i> ni <i>condicionada</i>.</p>
+</div>
+
+</body>
+</html>

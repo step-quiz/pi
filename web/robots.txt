@@ -1,0 +1,6 @@
+# Aquest lloc és material de treball d'un alumne concret amb necessitats
+# educatives específiques. No s'ha d'indexar.
+# Si algun dia es vol fer públic, esborra aquest fitxer i la capçalera
+# X-Robots-Tag de _headers.
+User-agent: *
+Disallow: /
