@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 3 — Escales i proporcionalitat · fitxa adaptada</title>
+<!--
+  Fitxa adaptada · 4t ESO Aplicades · Unitat 3 (Proporcionalitat i escales)
+  Alumne amb DIL: nivell d'expressió matemàtica de 3r de primària.
+
+  MATEIXOS CRITERIS QUE LES FITXES DE LES UNITATS 1 I 2
+  1. El dibuix explica, les paraules només etiqueten. Cap paràgraf.
+  2. Impressió en BLANC I NEGRE. Cap color: només grisos, gruix i tipus de traç.
+  3. Cos de 14 pt cap amunt i molt d'aire.
+  4. A cada exercici, el primer apartat ja resolt en lletra manuscrita.
+
+  PER QUÈ AQUESTA UNITAT LI ÉS FAVORABLE
+  Llegir un plànol és geometria visual, que és el seu canal fort (nivell de 2n
+  ESO). El pas que costa és la divisió de la reducció a la unitat, i per això
+  totes les conversions van amb la cadena de tres baules sempre igual:
+  mesura → × o ÷ per l'escala → mesura. La calculadora fa el compte.
+
+  EL PLÀNOL DE LA PÀGINA 7
+  Està dibuixat a escala 1:100 REAL, amb l'SVG dimensionat en centímetres.
+  Si imprimeixes al 100 % (sense «ajustar a la pàgina»), l'alumne el pot
+  mesurar amb regle i li sortiran les mides que diu la taula. Si la impressora
+  escala el full, les mides escrites continuen sent vàlides: l'exercici és la
+  conversió, no el mesurament.
+
+  Imprimir: Ctrl+P, A4, amb «Gràfics de fons» ACTIVAT.
+  Si no vols donar el solucionari, no imprimeixis l'última pàgina.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+
+<p class="no-imprimir" style="max-width:21cm;margin:1rem auto 0;font:14px var(--tipus)"><a href="../fitxes.html">← totes les fitxes</a></p>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-parla" viewBox="0 0 48 48">
+    <path d="M6 9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H21l-10 9V33h-1a4 4 0 0 1-4-4z"
+      fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5">
+      <path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ==================== FULL 1 ==================== -->
+<div class="full">
+  <div class="previ">Cinc minuts abans, a la SIEI: <b>una cinta mètrica i un full quadriculat</b></div>
+  <h1>El món, fet petit</h1>
+  <!--§obertura p.1§--><p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+
+  <div class="avis gruixut" style="margin-top:1.5rem">
+    <div style="font-size:12pt;color:var(--gris-2);margin-bottom:.5rem">Què vol dir 1 : 100</div>
+    <svg viewBox="0 0 620 150" class="centrat" role="img"
+         aria-label="Un centímetre del plànol són cent centímetres de veritat">
+      <rect x="20" y="52" width="34" height="34" fill="#E4E4E4" stroke="#000" stroke-width="3"/>
+      <text x="37" y="112" text-anchor="middle" font-size="17" fill="#5E5E5E" font-family="system-ui">1 cm</text>
+      <text x="37" y="134" text-anchor="middle" font-size="15" fill="#5E5E5E" font-family="system-ui">al plànol</text>
+      <text x="95" y="80" font-size="30" fill="#5E5E5E" font-family="system-ui">→</text>
+      <rect x="150" y="20" width="330" height="98" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+      <text x="315" y="78" text-anchor="middle" font-size="26" font-weight="800" fill="#000" font-family="system-ui">100 cm</text>
+      <text x="315" y="140" text-anchor="middle" font-size="15" fill="#5E5E5E" font-family="system-ui">de veritat</text>
+      <text x="510" y="80" font-size="30" fill="#5E5E5E" font-family="system-ui">=</text>
+      <text x="565" y="90" text-anchor="middle" font-size="30" font-weight="800" fill="#000" font-family="system-ui">1 m</text>
+    </svg>
+  </div>
+
+  <table style="margin-top:1.4rem">
+    <tr><th style="width:34%">Escala</th><th style="width:33%">1 cm del paper són…</th><th style="width:33%">és a dir</th></tr>
+    <tr><td class="dada">1 : 50</td><td>50 cm</td><td><b>0,5 m</b></td></tr>
+    <tr><td class="dada">1 : 100</td><td>100 cm</td><td><b>1 m</b></td></tr>
+    <tr><td class="dada">1 : 200</td><td>200 cm</td><td><b>2 m</b></td></tr>
+    <tr><td class="dada">1 : 500</td><td>500 cm</td><td><b>5 m</b></td></tr>
+  </table>
+
+  <div class="avis" style="margin-top:1.4rem;text-align:center;font-size:17pt;font-weight:700">
+    Com més gran és el número, més petit surt el dibuix.
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 1</div>
+</div>
+
+<!-- ==================== FULL 2 ==================== -->
+<div class="full">
+  <h2>Del plànol a la realitat</h2>
+  <p style="font-size:13pt;color:var(--gris-2);margin:0">
+    Una habitació en un plànol d'escala 1 : 100. Al paper fa 6 cm.</p>
+
+  <svg viewBox="0 0 620 180" class="centrat" role="img" aria-label="Habitació de 6 cm al plànol">
+    <rect x="150" y="30" width="320" height="86" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <line x1="150" y1="146" x2="470" y2="146" stroke="#000" stroke-width="3"/>
+    <path d="M150 139v14M470 139v14" stroke="#000" stroke-width="3"/>
+    <text x="310" y="80" text-anchor="middle" font-size="20" fill="#5E5E5E" font-family="system-ui">habitació</text>
+    <text x="310" y="172" text-anchor="middle" font-size="20" font-weight="700" fill="#000" font-family="system-ui">6 cm</text>
+  </svg>
+
+  <div class="cadena" style="margin-top:1.2rem">
+    <span class="baula">6 cm</span><span class="fletxa">→</span>
+    <span class="fx">× 100</span><span class="fletxa">→</span>
+    <span class="baula gris">600 cm</span><span class="fletxa">→</span>
+    <span class="fx">÷ 100</span><span class="fletxa">→</span>
+    <span class="baula gris">6 m</span>
+  </div>
+
+  <div class="avis puntejat" style="margin-top:1.5rem">
+    <div style="font-size:12pt;color:var(--gris-2);margin-bottom:.3rem">Els dos passos</div>
+    Primer <b>× l'escala</b>, i et queden centímetres de veritat.<br>
+    Després <b>÷ 100</b>, i et queden metres.
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 2</div>
+</div>
+
+<!-- ==================== FULL 3 ==================== -->
+<div class="full">
+  <h2>De la realitat al plànol</h2>
+  <p style="font-size:13pt;color:var(--gris-2);margin:0">
+    Una paret de 8 m. L'has de dibuixar a escala 1 : 200.</p>
+
+  <svg viewBox="0 0 620 190" class="centrat" role="img" aria-label="Paret de 8 metres i el seu dibuix">
+    <line x1="30" y1="46" x2="590" y2="46" stroke="#000" stroke-width="6"/>
+    <text x="310" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#000" font-family="system-ui">8 m de veritat</text>
+    <text x="310" y="106" text-anchor="middle" font-size="30" fill="#5E5E5E" font-family="system-ui">↓</text>
+    <line x1="240" y1="150" x2="380" y2="150" stroke="#000" stroke-width="6"/>
+    <text x="310" y="182" text-anchor="middle" font-size="20" font-weight="700" fill="#000" font-family="system-ui">4 cm al plànol</text>
+  </svg>
+
+  <div class="cadena" style="margin-top:1rem">
+    <span class="baula">8 m</span><span class="fletxa">→</span>
+    <span class="fx">× 100</span><span class="fletxa">→</span>
+    <span class="baula gris">800 cm</span><span class="fletxa">→</span>
+    <span class="fx">÷ 200</span><span class="fletxa">→</span>
+    <span class="baula gris">4 cm</span>
+  </div>
+
+  <div class="avis gruixut" style="margin-top:1.4rem">
+    <div style="font-size:12pt;color:var(--gris-2);margin-bottom:.3rem">Fixa-t'hi</div>
+    Per anar <b>del plànol a la realitat</b> es multiplica.<br>
+    Per anar <b>de la realitat al plànol</b> es divideix.
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 3</div>
+</div>
+
+<!-- ==================== FULL 4 ==================== -->
+<div class="full">
+  <h2>Directa o inversa?</h2>
+
+  <div class="dues-taules" style="margin-top:.6rem">
+    <div>
+      <div style="font-size:15pt;font-weight:800;margin-bottom:.3rem">DIRECTA</div>
+      <div style="font-size:12.5pt;color:var(--gris-2)">Més pomes, més diners.</div>
+      <table class="mini">
+        <tr><th>Pomes</th><th>Preu</th></tr>
+        <tr><td>1 kg</td><td>2 €</td></tr>
+        <tr><td>2 kg</td><td>4 €</td></tr>
+        <tr><td>3 kg</td><td>6 €</td></tr>
+        <tr><td class="sentit">↑</td><td class="sentit">↑</td></tr>
+      </table>
+      <div style="font-size:13pt;text-align:center">Totes dues pugen.</div>
+    </div>
+    <div>
+      <div style="font-size:15pt;font-weight:800;margin-bottom:.3rem">INVERSA</div>
+      <div style="font-size:12.5pt;color:var(--gris-2)">Més pintors, menys dies.</div>
+      <table class="mini">
+        <tr><th>Pintors</th><th>Dies</th></tr>
+        <tr><td>1</td><td>12</td></tr>
+        <tr><td>2</td><td>6</td></tr>
+        <tr><td>3</td><td>4</td></tr>
+        <tr><td class="sentit">↑</td><td class="sentit">↓</td></tr>
+      </table>
+      <div style="font-size:13pt;text-align:center">Una puja i l'altra baixa.</div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="margin-top:1.6rem;font-size:16pt;font-weight:700;line-height:1.8">
+    Si totes dues pugen alhora → <b>DIRECTA</b><br>
+    Si una puja i l'altra baixa → <b>INVERSA</b>
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 4</div>
+</div>
+
+<!-- ==================== FULL 5 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div>
+      <div class="q">Escriu quant val un centímetre del plànol a cada escala.</div></div>
+    <table>
+      <tr><th style="width:12%"></th><th style="width:26%">Escala</th>
+          <th style="width:31%">1 cm són… (cm)</th><th style="width:31%">és a dir (m)</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 100</td>
+          <td class="ms">100 cm</td><td class="ms">1 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 50</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 200</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 500</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>e)</b></td><td class="dada">1 : 25 000</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div>
+      <div class="q">Calcula quant fa de veritat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">Al plànol</th>
+          <th style="width:24%">× escala</th><th style="width:24%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 100</td><td class="ms">6 cm</td>
+          <td class="ms">600 cm</td><td class="ms">6 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 100</td><td class="dada">9,5 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 50</td><td class="dada">8 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 200</td><td class="dada">7 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 5</div>
+</div>
+
+<!-- ==================== FULL 6 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div>
+      <div class="q">Calcula quant ha de fer al plànol.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">De veritat</th>
+          <th style="width:24%">× 100</th><th style="width:24%">Al plànol</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 200</td><td class="ms">8 m</td>
+          <td class="ms">800 cm</td><td class="ms">4 cm</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 100</td><td class="dada">5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 50</td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 500</td><td class="dada">45 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div>
+      <div class="q">Marca si és proporcionalitat directa o inversa.</div></div>
+
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Més quilos de pomes, més diners.</div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">
+        <svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">
+        <path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/></svg></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> Més pintors, menys dies per pintar.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> Més hores de feina, més sou.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+
+    <div style="margin-top:1.1rem"><span class="apartat">d)</span> Més amics per repartir un pastís, menys tros per a cadascú.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 6</div>
+</div>
+
+<!-- ==================== FULL 7 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div>
+      <div class="q">Calcula les mides de veritat de cada espai.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p style="font-size:12.5pt;color:var(--gris-2);margin:0 0 .3rem">Plànol d'un pis a escala 1 : 100.</p>
+
+    <!-- 1 unitat de l'SVG = 1 mm de paper. Amplada 11 cm → viewBox de 110. -->
+    <svg class="real" viewBox="0 0 110 82" role="img" aria-label="Plànol d'un pis amb quatre espais">
+      <g stroke="#000" stroke-width="1" fill="#F2F2F2">
+        <rect x="10" y="8"  width="50" height="40"/>
+        <rect x="60" y="8"  width="40" height="30"/>
+        <rect x="60" y="38" width="20" height="20"/>
+        <rect x="10" y="48" width="30" height="25"/>
+      </g>
+      <g font-family="system-ui" font-size="4.6" fill="#000" text-anchor="middle">
+        <text x="35" y="27">Menjador</text><text x="35" y="34" font-size="3.8" fill="#5E5E5E">5 × 4 cm</text>
+        <text x="80" y="21">Habitació</text><text x="80" y="28" font-size="3.8" fill="#5E5E5E">4 × 3 cm</text>
+        <text x="70" y="47">Bany</text><text x="70" y="53" font-size="3.8" fill="#5E5E5E">2 × 2 cm</text>
+        <text x="25" y="59">Cuina</text><text x="25" y="65" font-size="3.8" fill="#5E5E5E">3 × 2,5 cm</text>
+      </g>
+    </svg>
+
+    <table>
+      <tr><th style="width:12%"></th><th style="width:28%">Espai</th>
+          <th style="width:30%">Al plànol</th><th style="width:30%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Menjador</td>
+          <td class="ms">5 × 4 cm</td><td class="ms">5 × 4 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Habitació</td><td class="dada">4 × 3 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Bany</td><td class="dada">2 × 2 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">Cuina</td><td class="dada">3 × 2,5 cm</td><td class="omplir"></td></tr>
+    </table>
+
+    <div class="avis puntejat">
+      <span class="apartat">e)</span> Quin espai és el més gran? Encercla'l al plànol.
+    </div>
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 7</div>
+</div>
+
+<!-- ==================== FULL 8 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div>
+      <div class="q">Marca quina oferta surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+<!--§pas del preu unitari§-->    <p style="font-size:12.5pt;color:var(--gris-2);margin:0 0 .4rem">
+      Primer baixa a una unitat. Després compara.</p>
+    <div class="cadena" style="justify-content:center;margin:.2rem 0 .6rem">
+      <span class="baula">preu ÷ quantitat</span><span class="fletxa">→</span>
+      <span class="baula gris">preu d&#39;1</span><span class="fletxa">→</span>
+      <span class="baula">compara</span>
+    </div>
+
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Llet.</div>
+    <div class="parella-op">
+      <div class="oferta resolt">Ampolla d'1 L per 0,90 €<br>
+        <span class="ms">0,90 ÷ 1 = <b>0,90 € el litre</b></span></div>
+      <div class="oferta resolt">Pack de 6 L per 5,10 €<br>
+        <span class="ms">5,10 ÷ 6 = <b>0,85 € el litre</b></span></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'ampolla</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">
+        <svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">
+        <path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/></svg></span>El pack</label>
+    </div>
+
+    <div style="margin-top:1.4rem"><span class="apartat">b)</span> Arròs.</div>
+    <div class="parella-op">
+      <div class="oferta">Paquet d'1 kg per 1,80 €<br><b>1,80 ÷ 1 =</b></div>
+      <div class="oferta">Sac de 5 kg per 8,50 €<br><b>8,50 ÷ 5 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>El paquet</label>
+      <label><span class="quadret"></span>El sac</label>
+    </div>
+
+    <div style="margin-top:1.4rem"><span class="apartat">c)</span> Aigua.</div>
+    <div class="parella-op">
+      <div class="oferta">Ampolla d'1,5 L per 0,60 €<br><b>0,60 ÷ 1,5 =</b></div>
+      <div class="oferta">Garrafa de 8 L per 3,60 €<br><b>3,60 ÷ 8 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'ampolla</label>
+      <label><span class="quadret"></span>La garrafa</label>
+    </div>
+
+    <div class="avis puntejat">
+      <span class="apartat">d)</span>
+      <svg class="ico" style="margin:0 .3rem"><use href="#i-parla"/></svg>
+      Explica per què el paquet gran no sempre surt més a compte.
+    </div>
+  </div>
+
+  <div class="avis gruixut">
+    <p class="frase" style="margin:0">L'escala del plànol és 1 : <u></u>.</p>
+    <p class="frase" style="margin:0">Cada centímetre del paper són <u></u> metres.</p>
+    <p class="frase" style="margin:0">Al plànol fa <u></u> cm, o sigui <u></u> m de veritat.</p>
+  </div>
+
+  <div class="pag">Unitat 3 · pàgina 8</div>
+</div>
+
+<!-- ==================== FULL 9: SOLUCIONARI ==================== -->
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 3 · full per al professorat</p>
+
+  <h3>1. Quant val 1 cm del plànol</h3>
+  <table>
+    <tr><th></th><th>Escala</th><th>1 cm són… (cm)</th><th>és a dir (m)</th></tr>
+    <tr><td>a)</td><td>1 : 100</td><td>100 cm</td><td>1 m</td></tr>
+    <tr><td>b)</td><td>1 : 50</td><td>50 cm</td><td>0,5 m</td></tr>
+    <tr><td>c)</td><td>1 : 200</td><td>200 cm</td><td>2 m</td></tr>
+    <tr><td>d)</td><td>1 : 500</td><td>500 cm</td><td>5 m</td></tr>
+    <tr><td>e)</td><td>1 : 25 000</td><td>25 000 cm</td><td>250 m</td></tr>
+  </table>
+  <p><b>Error típic:</b> a l'apartat b, dir que 50 cm són 5 m. Si passa, val la pena tornar
+  a la relació 100 cm = 1 m abans de continuar.</p>
+
+  <h3>2. Quant fa de veritat</h3>
+  <table>
+    <tr><th></th><th>Escala</th><th>Al plànol</th><th>× escala</th><th>De veritat</th></tr>
+    <tr><td>a)</td><td>1 : 100</td><td>6 cm</td><td>600 cm</td><td>6 m</td></tr>
+    <tr><td>b)</td><td>1 : 100</td><td>9,5 cm</td><td>950 cm</td><td>9,5 m</td></tr>
+    <tr><td>c)</td><td>1 : 50</td><td>8 cm</td><td>400 cm</td><td>4 m</td></tr>
+    <tr><td>d)</td><td>1 : 200</td><td>7 cm</td><td>1 400 cm</td><td>14 m</td></tr>
+  </table>
+
+  <h3>3. Quant ha de fer al plànol</h3>
+  <table>
+    <tr><th></th><th>Escala</th><th>De veritat</th><th>× 100</th><th>Al plànol</th></tr>
+    <tr><td>a)</td><td>1 : 200</td><td>8 m</td><td>800 cm</td><td>4 cm</td></tr>
+    <tr><td>b)</td><td>1 : 100</td><td>5 m</td><td>500 cm</td><td>5 cm</td></tr>
+    <tr><td>c)</td><td>1 : 50</td><td>3 m</td><td>300 cm</td><td>6 cm</td></tr>
+    <tr><td>d)</td><td>1 : 500</td><td>45 m</td><td>4 500 cm</td><td>9 cm</td></tr>
+  </table>
+  <p><b>Atenció a l'apartat c.</b> A escala 1 : 50 el dibuix surt <b>més gran</b> que a 1 : 100:
+  3 m fan 6 cm, no 3 cm. És la trampa de la pàgina 1, «com més gran és el número, més petit
+  surt el dibuix», i val la pena aturar-s'hi.</p>
+
+  <h3>4. Directa o inversa</h3>
+  <p>a) <b>Directa</b> &nbsp;·&nbsp; b) <b>Inversa</b> &nbsp;·&nbsp; c) <b>Directa</b>
+  &nbsp;·&nbsp; d) <b>Inversa</b></p>
+  <p>Si dubta, feu-li dir en veu alta les dues meitats de la frase: «més… i més…» o
+  «més… i menys…». La paraula «menys» ja li dona la resposta.</p>
+
+  <h3>5. El plànol del pis (escala 1 : 100)</h3>
+  <table>
+    <tr><th></th><th>Espai</th><th>Al plànol</th><th>De veritat</th><th>Superfície</th></tr>
+    <tr><td>a)</td><td>Menjador</td><td>5 × 4 cm</td><td>5 × 4 m</td><td>20 m²</td></tr>
+    <tr><td>b)</td><td>Habitació</td><td>4 × 3 cm</td><td>4 × 3 m</td><td>12 m²</td></tr>
+    <tr><td>c)</td><td>Bany</td><td>2 × 2 cm</td><td>2 × 2 m</td><td>4 m²</td></tr>
+    <tr><td>d)</td><td>Cuina</td><td>3 × 2,5 cm</td><td>3 × 2,5 m</td><td>7,5 m²</td></tr>
+  </table>
+  <p>e) El <b>menjador</b>. No cal que calculi superfícies: a escala 1 : 100 el més gran del
+  paper és el més gran de veritat, i pot decidir mirant. La columna de superfícies és per si
+  voleu estirar l'exercici amb la calculadora.</p>
+  <p><b>Si vols que el mesuri amb regle:</b> el plànol està dibuixat a escala 1 : 100 real.
+  Imprimeix al 100 %, sense «ajustar a la pàgina», i les mides amb regle coincidiran amb la
+  taula. Si la impressora escala el full, les mides escrites al dibuix continuen valent.</p>
+
+  <h3>6. Quina oferta surt més a compte</h3>
+  <table>
+    <tr><th></th><th>Producte</th><th>Opció petita</th><th>Opció gran</th><th>Guanya</th></tr>
+    <tr><td>a)</td><td>Llet</td><td>0,90 ÷ 1 = 0,90 €/L</td><td>5,10 ÷ 6 = 0,85 €/L</td><td><b>El pack</b></td></tr>
+    <tr><td>b)</td><td>Arròs</td><td>1,80 ÷ 1 = 1,80 €/kg</td><td>8,50 ÷ 5 = 1,70 €/kg</td><td><b>El sac</b></td></tr>
+    <tr><td>c)</td><td>Aigua</td><td>0,60 ÷ 1,5 = 0,40 €/L</td><td>3,60 ÷ 8 = 0,45 €/L</td><td><b>L'ampolla</b></td></tr>
+  </table>
+  <p><b>L'apartat c) és el més important de la fitxa</b>, igual que el 5c de la Unitat 2.
+  Als apartats a) i b) guanya sempre el format gran, i l'alumne se'n fabrica la regla
+  «com més gran, més barat». A l'apartat c) l'ampolla petita surt millor. Si tria la garrafa
+  sense dividir, aquí és on cal aturar-se.</p>
+  <p>d) Assolit si diu una idea com «has de mirar quant val un litre». No cal que ho escrigui.</p>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts mesurant una paret de l'aula i dibuixant-la al quadriculat. L'escala s'entén molt millor quan ha hagut de decidir ell quants quadrets fa un metre.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <ul>
+    <li>Exercicis 1, 2, 3 i 5 → criteri <b>1.1</b>, resoldre situacions reals d'escala.</li>
+    <li>Exercici 4 → criteri <b>5.1</b>, reconèixer el tipus de relació entre dues magnituds.</li>
+    <li>Exercici 6 → criteri <b>2.1</b>, decidir amb dades quina oferta convé.</li>
+  </ul>
+  <p>L'objectiu <b>no és calcular bé</b>: és saber en quin sentit va la conversió i decidir.
+  Un error de divisió no hauria de fer baixar la valoració si la cadena és correcta.</p>
+
+  <h3>Enllaç amb la resta del material</h3>
+  <p>La cadena de tres baules d'aquesta fitxa és exactament la que ensenya el mòdul
+  <b>Escales</b> de la caixa d'eines, que s'obre amb 1 : 100 i 8 cm.</p>
+  <p>Base prèvia a la SIEI si cal: <i>2eso-ud2-1</i>, <i>2eso-ud2-2</i>, <i>2eso-ud2-4</i>
+  (escales) i <i>2eso-ud5-3</i> (semblança i escales). A <i>repas-main</i>: full 8, blocs
+  <i>escales</i> i <i>escales_calcul</i>; full 6, bloc <i>directa_inversa</i>.</p>
+</div>
+
+</body>
+</html>

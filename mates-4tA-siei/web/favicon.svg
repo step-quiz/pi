@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#007AFF"/>
+  <!-- una recta numèrica amb un punt: el gest que travessa tot el material -->
+  <path d="M6 20h20M10 17v6M16 17v6M22 17v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="19" cy="20" r="3.4" fill="#fff"/>
+</svg>

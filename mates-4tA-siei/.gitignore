@@ -1,0 +1,8 @@
+# Artefactes dels generadors: es tornen a fer amb `python3 generadors/gen_grafics*.py`
+generadors/*.json
+
+# Sistema
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
