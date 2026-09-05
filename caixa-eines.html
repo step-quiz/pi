@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="description" content="Vuit plantilles visuals que fan l'aritmètica perquè l'alumnat es concentri en la decisió.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Caixa d'eines · Matemàtiques Aplicades</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- pictogrames, els mateixos que a les fitxes impreses -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-parla" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+    stroke-width="2.2" stroke-linejoin="round">
+    <path d="M4 7a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H14l-7 6v-6a3 3 0 0 1-3-3z"/>
+  </symbol>
+  <symbol id="i-compra" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+    stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M11 10V8a5 5 0 0 1 10 0v2"/><path d="M6 10h20l-2 18H8z"/>
+  </symbol>
+  <symbol id="i-talla" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+    stroke-width="2.2" stroke-linejoin="round">
+    <path d="M3 12h20v6H3z"/><path d="M3 18l3 3 3-3 3 3 3-3 3 3 3-3"/>
+    <path d="M23 11h5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5"/>
+  </symbol>
+</svg>
+
+<div class="pagina">
+<p class="tornar"><a href="index.html">← inici</a></p>
+<header>
+  <h1>Caixa d'eines</h1>
+  <p class="subtitol">Matemàtiques Aplicades</p>
+  <div class="segments" role="tablist" aria-label="Eines">
+    <button class="segment" role="tab" data-mod="recta"    aria-selected="false">Recta</button>
+    <button class="segment" role="tab" data-mod="doble"    aria-selected="false">Doble recta</button>
+    <button class="segment" role="tab" data-mod="factor"   aria-selected="false">Percentatges</button>
+    <button class="segment" role="tab" data-mod="escala"   aria-selected="false">Escales</button>
+    <button class="segment" role="tab" data-mod="parabola" aria-selected="false">Paràboles</button>
+    <button class="segment" role="tab" data-mod="equacio"  aria-selected="false">Equacions</button>
+    <button class="segment" role="tab" data-mod="calc"     aria-selected="false">Calculadora</button>
+    <button class="segment" role="tab" data-mod="frases"   aria-selected="false">Com ho dic</button>
+  </div>
+</header>
+
+<!-- ============ RECTA I ESTIMACIÓ ============ -->
+<section id="mod-recta" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>On cau el nombre?</h2>
+      <p class="ajuda">Tria un nombre i mira entre quins sencers cau.</p></div>
+      <span class="marca" id="recta-marca">Exemple</span></div>
+    <div class="pastilles" id="recta-pastilles"></div>
+    <svg class="llenc" id="recta-svg" viewBox="0 0 660 150" role="img" aria-label="Recta numèrica"></svg>
+    <div class="avis neutre" id="recta-avis" aria-live="polite"></div>
+  </div>
+
+  <div class="targeta">
+    <div class="cap"><div><h2>Quants decimals necessites?</h2>
+      <p class="ajuda">Depèn del que n'hagis de fer. Tria una situació.</p></div></div>
+    <div class="precisio" id="recta-precisio"></div>
+    <hr class="divisor">
+    <div class="et">El nombre sencer</div>
+    <div class="tira" id="recta-tira" aria-hidden="true"></div>
+    <div class="et" style="margin-top:.6rem">Com queda</div>
+    <div class="gran" id="recta-resultat" aria-live="polite">—</div>
+    <div class="et" id="recta-nota" style="margin-top:.35rem" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ DOBLE RECTA NUMÈRICA ============ -->
+<section id="mod-doble" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>Dues coses que van juntes</h2>
+      <p class="ajuda">Mou el punt i mira com es mouen les dues rectes alhora.</p></div>
+      <span class="marca" id="dr-marca">Exemple</span></div>
+    <div class="pastilles" id="dr-pastilles"></div>
+  </div>
+
+  <div class="targeta">
+    <svg class="llenc" id="dr-svg" viewBox="0 0 660 300" role="img"
+      aria-label="Doble recta numèrica"></svg>
+    <div class="passa" style="justify-content:center">
+      <button class="btn tenyit" id="dr-menys" aria-label="Enrere">−</button>
+      <div style="text-align:center;min-width:9rem">
+        <div class="et" id="dr-et-dalt"></div>
+        <div class="gran" id="dr-val-dalt">—</div>
+      </div>
+      <button class="btn tenyit" id="dr-mes" aria-label="Endavant">+</button>
+    </div>
+    <div class="avis neutre" id="dr-lectura" aria-live="polite"></div>
+    <hr class="divisor">
+    <div class="et">I això, escrit amb números</div>
+    <div class="mitja" id="dr-simbolic" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ FACTOR MULTIPLICADOR ============ -->
+<section id="mod-factor" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>Compara dues maneres de pagar</h2>
+      <p class="ajuda">Amb percentatges o amb quotes. Cada canvi de preu és una multiplicació.</p></div>
+      <span class="marca" id="factor-marca">Exemple</span></div>
+    <button class="btn tenyit mini" id="factor-buida">Buida-ho</button>
+  </div>
+  <div class="dues">
+    <div class="targeta" id="opcio-A"></div>
+    <div class="targeta" id="opcio-B"></div>
+  </div>
+  <div class="targeta">
+    <h2>Quina surt més a compte?</h2>
+    <div id="veredicte" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ ESCALA I PLÀNOL ============ -->
+<section id="mod-escala" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>Escala del plànol</h2>
+      <p class="ajuda">Tria l'escala i mira què val cada centímetre.</p></div>
+      <span class="marca">Exemple</span></div>
+    <div class="pastilles" id="escala-pastilles"></div>
+    <hr class="divisor">
+    <div class="et">Amb aquesta escala</div>
+    <div class="gran" id="escala-regla" aria-live="polite">—</div>
+  </div>
+
+  <div class="targeta">
+    <h2>Del plànol a la realitat</h2>
+    <p class="ajuda">Escriu una mesura i l'altra es calcula sola.</p>
+    <div class="fila">
+      <div><span class="camp-et">Al plànol (cm)</span>
+        <input type="number" id="e-planol" value="8" min="0" step="0.1" inputmode="decimal"></div>
+      <div><span class="camp-et">De veritat (m)</span>
+        <input type="number" id="e-real" value="8" min="0" step="0.1" inputmode="decimal"></div>
+    </div>
+    <div class="cadena" id="escala-cadena" aria-live="polite"></div>
+    <svg class="llenc" id="escala-svg" viewBox="0 0 660 190" role="img"
+      aria-label="Rectangle del plànol amb la mesura real"></svg>
+  </div>
+</section>
+
+<!-- ============ PARÀBOLES ============ -->
+<section id="mod-parabola" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>Llegeix la paràbola</h2>
+      <p class="ajuda">Toca sobre el dibuix el que et demana.</p></div>
+      <div class="punts" id="par-punts" aria-label="Progrés"></div></div>
+    <div class="pastilles" id="par-pastilles"></div>
+    <hr class="divisor">
+    <div class="mitja" id="par-tasca"></div>
+    <svg class="llenc" id="par-svg" viewBox="0 0 660 400" role="img"
+      aria-label="Gràfica del fenomen"></svg>
+    <div class="avis neutre" id="par-avis" aria-live="polite"></div>
+    <div style="display:flex;gap:.5rem;margin-top:.85rem;flex-wrap:wrap">
+      <button class="btn tenyit mini" id="par-repeteix">Torna a començar</button>
+      <button class="btn discret mini" id="par-mostra">Mostra-ho tot</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUACIONS: LA BALANÇA ============ -->
+<section id="mod-equacio" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>Prova números a la balança</h2>
+      <p class="ajuda">Canvia la x i mira si les dues bandes queden iguals.</p></div>
+      <span class="marca" id="eq-marca">Exemple</span></div>
+    <div class="pastilles" id="eq-pastilles"></div>
+  </div>
+
+  <div class="targeta">
+    <div class="equacio-gran" id="eq-titol"></div>
+    <svg class="llenc" id="eq-svg" viewBox="0 0 660 300" role="img"
+      aria-label="Balança amb les dues bandes de l'equació"></svg>
+    <div class="passa" style="justify-content:center">
+      <button class="btn tenyit" id="eq-menys" aria-label="Baixa la x">−</button>
+      <div style="text-align:center;min-width:7rem">
+        <div class="et">La x val</div>
+        <div class="gran" id="eq-valor">0</div>
+      </div>
+      <button class="btn tenyit" id="eq-mes" aria-label="Puja la x">+</button>
+    </div>
+    <div class="avis neutre" id="eq-avis" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ CALCULADORA ============ -->
+<section id="mod-calc" class="modul" hidden>
+  <div class="targeta">
+    <div class="cap"><div><h2>Com es fa amb la calculadora</h2>
+      <p class="ajuda">Tria què vols fer i mira quines tecles s'han de prémer.</p></div></div>
+    <div class="pastilles" id="calc-pastilles"></div>
+    <div class="avis neutre" id="calc-context" style="margin-top:.85rem"></div>
+  </div>
+
+  <div class="targeta">
+    <div class="pantalla">
+      <div class="entrada" id="calc-entrada">&nbsp;</div>
+      <div class="lcd"><div class="res" id="calc-res">&nbsp;</div></div>
+    </div>
+
+    <div class="zona-et">Zona de funcions, a dalt</div>
+    <div class="teclat dalt" id="calc-dalt"></div>
+    <div class="zona-et">Zona dels números, a baix</div>
+    <div class="teclat" id="calc-baix"></div>
+
+    <div class="avis neutre" id="calc-llegenda" aria-live="polite"></div>
+    <div class="passa">
+      <button class="btn tenyit mini" id="calc-arrere">Enrere</button>
+      <button class="btn mini" id="calc-endavant">Següent tecla</button>
+      <span class="et" id="calc-progres"></span>
+    </div>
+  </div>
+
+  <div class="targeta">
+    <h2>Què vol dir</h2>
+    <div class="gran" id="calc-final" aria-live="polite">—</div>
+    <hr class="divisor">
+    <p class="ajuda" style="margin:0">A la calculadora, la coma dels decimals s'escriu
+    amb un punt. Nosaltres escrivim 0,8 i ella ensenya 0.8.</p>
+  </div>
+</section>
+
+<!-- ============ COM HO DIC ============ -->
+<section id="mod-frases" class="modul" hidden>
+  <div class="targeta">
+    <h2>De quina unitat parles?</h2>
+    <div class="pastilles" id="frases-pastilles" style="margin-top:.7rem"></div>
+  </div>
+  <div class="targeta">
+    <div class="cap"><div><h2>Omple els buits</h2></div>
+      <span class="marca">Exemple</span></div>
+    <div id="frases-cos"></div>
+    <hr class="divisor">
+    <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+      <button class="btn" id="frases-copia">Copia el text</button>
+      <button class="btn tenyit mini" id="frases-buida">Buida-ho</button>
+      <span class="et" id="frases-avis" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- El nucli primer, els mòduls es registren sols, i app.js sempre l'últim. -->
+<script src="js/nucli.js"></script>
+<script src="js/moduls/recta.js"></script>
+<script src="js/moduls/doble.js"></script>
+<script src="js/moduls/percentatges.js"></script>
+<script src="js/moduls/escales.js"></script>
+<script src="js/moduls/parabola.js"></script>
+<script src="js/moduls/equacio.js"></script>
+<script src="js/moduls/calculadora.js"></script>
+<script src="js/moduls/frases.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Cloudflare Pages · capçaleres del lloc
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  # El lloc parla d'un alumne concret. Fora dels cercadors.
+  # Treu aquesta línia i robots.txt si algun dia es vol públic.
+  X-Robots-Tag: noindex, nofollow
+
+# Els fitxers canvien poc però s'han de poder actualitzar el mateix dia.
+/css/*
+  Cache-Control: public, max-age=3600
+/js/*
+  Cache-Control: public, max-age=3600
+/fitxes/*
+  Cache-Control: public, max-age=3600

@@ -1,0 +1,84 @@
+/* ============================================================================
+   lloc.css · les pàgines de navegació (index.html, fitxes.html)
+   ----------------------------------------------------------------------------
+   Aquestes pàgines són per al DOCENT, no per a l'alumnat: aquí sí que hi pot
+   haver text seguit i densitat normal. La restricció de «cap paràgraf» val
+   només per a les fitxes.
+   ========================================================================== */
+
+
+* { box-sizing: border-box }
+
+body {
+  margin: 0;
+  background: var(--fons);
+  color: var(--etiqueta);
+  font-family: var(--tipus);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pagina { max-width: 52rem; margin: 0 auto; padding: 2rem 1rem 5rem }
+
+h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -.024em; margin: 0; line-height: 1.1 }
+h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.012em; margin: 2.4rem 0 .8rem }
+.subtitol { color: var(--etiqueta-2); margin: .3rem 0 0 }
+.entradeta { color: var(--etiqueta-2); max-width: 40rem; margin: .8rem 0 0 }
+
+a { color: var(--blau); text-decoration: none }
+a:hover { text-decoration: underline }
+.tornar { margin: 0 0 1.2rem; font-size: .95rem }
+
+/* ---------------------------------------------------------- targetes -- */
+
+.graella { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) }
+
+.targeta {
+  background: var(--superficie);
+  border-radius: var(--r-g);
+  padding: 1.1rem 1.15rem 1.2rem;
+  display: block;
+  color: inherit;
+}
+a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .09) }
+
+.targeta h3 { margin: 0; font-size: 1.08rem; font-weight: 700; letter-spacing: -.01em }
+.targeta p  { margin: .35rem 0 0; color: var(--etiqueta-2); font-size: .95rem }
+
+.num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  background: var(--blau-suau); color: var(--blau);
+  font-weight: 700; font-size: .95rem; margin-bottom: .6rem;
+}
+
+/* --------------------------------------------------------- etiquetes -- */
+
+.etiquetes { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .7rem }
+.et {
+  font-size: .76rem; font-weight: 600; border-radius: 999px;
+  padding: .18rem .55rem; background: var(--camp); color: var(--etiqueta-2);
+}
+.et.fita   { background: var(--verd-suau);    color: var(--etiqueta) }
+.et.avis   { background: var(--taronja-suau); color: var(--etiqueta) }
+
+/* ------------------------------------------------------------ detall -- */
+
+.detall { background: var(--superficie); border-radius: var(--r-g); padding: 1.1rem 1.2rem; margin-bottom: .9rem }
+.detall dl { margin: 0; display: grid; grid-template-columns: 9.5rem 1fr; gap: .45rem 1rem; font-size: .95rem }
+.detall dt { color: var(--etiqueta-2) }
+.detall dd { margin: 0 }
+@media (max-width: 34rem) {
+  .detall dl { grid-template-columns: 1fr; gap: .1rem 0 }
+  .detall dt { margin-top: .6rem }
+}
+
+.nota {
+  background: var(--taronja-suau); border-radius: var(--r-m);
+  padding: .85rem 1rem; margin: 1.2rem 0; font-size: .95rem;
+}
+
+hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
+
+.peu { color: var(--etiqueta-3); font-size: .85rem; margin-top: 3rem }

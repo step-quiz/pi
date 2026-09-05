@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 2 — Percentatges i diners · fitxa adaptada</title>
+<!--
+  Fitxa adaptada · Matemàtiques Aplicades · Unitat 2 (Percentatges i matemàtica financera)
+  Alumne amb dificultats de tipus cognitiu: nivell d'expressió matemàtica de 3r de primària.
+
+  MATEIXOS CRITERIS QUE LA FITXA DE LA UNITAT 1
+  1. El dibuix explica, les paraules només etiqueten. Cap paràgraf.
+  2. Impressió en BLANC I NEGRE. Cap color a tot el document: les diferències
+     es fan amb grisos, gruix de línia i tipus de traç.
+  3. Cos de 14 pt cap amunt i molt d'aire.
+  4. A cada exercici, el primer apartat ja resolt en lletra manuscrita.
+
+  PER QUÈ AQUESTA UNITAT LI ÉS ACCESSIBLE
+  El factor multiplicador converteix tot el treball de percentatges en UNA SOLA
+  multiplicació amb calculadora. Elimina el pas on alumnat amb aritmètica de
+  5è es perd: calcular el percentatge i després sumar-lo o restar-lo.
+  Els números de l'exemple resolt (300 €, −20 %, +21 %) són els mateixos amb
+  què s'obre el mòdul «Percentatges» de la caixa d'eines, perquè el paper i la
+  pantalla mostrin el mateix cas.
+
+  LA LLETRA MANUSCRITA
+  Pila de fonts de --manuscrita, amb `cursive` com a darrer recurs. Si vols una
+  lligada concreta i igual a tot arreu, desa el .woff2 al costat d'aquest HTML
+  i descomenta el bloc @font-face de sota.
+
+  Imprimir: Ctrl+P, A4, amb «Gràfics de fons» ACTIVAT perquè es vegin els grisos.
+  Si no vols donar el solucionari, no imprimeixis l'última pàgina.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+
+<p class="no-imprimir" style="max-width:21cm;margin:1rem auto 0;font:14px var(--tipus)"><a href="../fitxes.html">← totes les fitxes</a></p>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-parla" viewBox="0 0 48 48">
+    <path d="M6 9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H21l-10 9V33h-1a4 4 0 0 1-4-4z"
+      fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ==================== FULL 1 ==================== -->
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>monedes i bitllets de joguina</b></div>
+  <h1>Què queda quan rebaixen?</h1>
+  <!--§obertura p.1§--><p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+
+  <p style="font-size:13pt;color:var(--gris-2);margin:1.3rem 0 .2rem">
+    Una bici de 300 €.</p>
+  <div class="figura neta"><svg viewBox="0 0 560 130" role="img" aria-label="Dibuix"><rect x="0" y="0" width="560" height="130" fill="#fff"/><rect x="30" y="46" width="500" height="54" fill="#F2F2F2" stroke="#000" stroke-width="3"/><text x="280.0" y="82" text-anchor="middle" font-size="24" font-weight="800" fill="#000" font-family="system-ui">300 €</text><text x="280.0" y="32" text-anchor="middle" font-size="18" fill="#5E5E5E" font-family="system-ui">tota la bici · 100 %</text></svg></div>
+
+  <p style="font-size:13pt;color:var(--gris-2);margin:1.1rem 0 .2rem">
+    Li fan un 20 % de descompte.</p>
+  <div class="figura neta"><svg viewBox="0 0 560 175" role="img" aria-label="Dibuix"><rect x="0" y="0" width="560" height="175" fill="#fff"/><rect x="30" y="56" width="400.0" height="54" fill="#F2F2F2" stroke="#000" stroke-width="3"/><rect x="430.0" y="56" width="100.0" height="54" fill="#C4C4C4" stroke="#000" stroke-width="3"/><line x1="430.0" y1="110" x2="484.0" y2="56.0" stroke="#000" stroke-width="1.6"/><line x1="443.0" y1="110" x2="497.0" y2="56.0" stroke="#000" stroke-width="1.6"/><line x1="456.0" y1="110" x2="510.0" y2="56.0" stroke="#000" stroke-width="1.6"/><line x1="469.0" y1="110" x2="523.0" y2="56.0" stroke="#000" stroke-width="1.6"/><line x1="482.0" y1="110" x2="530.0" y2="62.0" stroke="#000" stroke-width="1.6"/><line x1="495.0" y1="110" x2="530.0" y2="75.0" stroke="#000" stroke-width="1.6"/><line x1="508.0" y1="110" x2="530.0" y2="88.0" stroke="#000" stroke-width="1.6"/><line x1="521.0" y1="110" x2="530.0" y2="101.0" stroke="#000" stroke-width="1.6"/><text x="230.0" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#000" font-family="system-ui">80 %</text><text x="480.0" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#000" font-family="system-ui">20 %</text><text x="230.0" y="91" text-anchor="middle" font-size="24" font-weight="800" fill="#000" font-family="system-ui">240 €</text><text x="480.0" y="91" text-anchor="middle" font-size="22" font-weight="800" fill="#000" font-family="system-ui">60 €</text><text x="230.0" y="140" text-anchor="middle" font-size="19" fill="#5E5E5E" font-family="system-ui">això queda</text><text x="480.0" y="140" text-anchor="middle" font-size="19" fill="#5E5E5E" font-family="system-ui">això se&#39;n va</text></svg></div>
+
+<!--§barra amb escala§-->  <p style="font-size:13pt;color:var(--gris-2);margin:1.1rem 0 .2rem">
+    Poso una regla de 0 a 100 sota la mateixa barra.</p>
+  <div class="figura neta"><svg viewBox="0 0 560 126" role="img" aria-label="Dibuix"><rect x="0" y="0" width="560" height="126" fill="#fff"/><line x1="30" y1="40" x2="530" y2="40" stroke="#000" stroke-width="2.5"/><line x1="30.0" y1="33" x2="30.0" y2="40" stroke="#000" stroke-width="2"/><text x="30.0" y="26" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">0</text><line x1="130.0" y1="33" x2="130.0" y2="40" stroke="#000" stroke-width="2"/><text x="130.0" y="26" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">60</text><line x1="230.0" y1="33" x2="230.0" y2="40" stroke="#000" stroke-width="2"/><text x="230.0" y="26" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">120</text><line x1="330.0" y1="33" x2="330.0" y2="40" stroke="#000" stroke-width="2"/><text x="330.0" y="26" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">180</text><line x1="430.0" y1="33" x2="430.0" y2="40" stroke="#000" stroke-width="2"/><text x="430.0" y="26" text-anchor="middle" font-size="17" font-weight="800" fill="#000" font-family="system-ui">240</text><line x1="530.0" y1="33" x2="530.0" y2="40" stroke="#000" stroke-width="2"/><text x="530.0" y="26" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">300</text><text x="22" y="45" text-anchor="end" font-size="16" fill="#5E5E5E" font-family="system-ui">€</text><line x1="30" y1="88" x2="530" y2="88" stroke="#000" stroke-width="2.5"/><line x1="30.0" y1="88" x2="30.0" y2="95" stroke="#000" stroke-width="2"/><text x="30.0" y="115" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">0</text><line x1="130.0" y1="88" x2="130.0" y2="95" stroke="#000" stroke-width="2"/><text x="130.0" y="115" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">20</text><line x1="230.0" y1="88" x2="230.0" y2="95" stroke="#000" stroke-width="2"/><text x="230.0" y="115" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">40</text><line x1="330.0" y1="88" x2="330.0" y2="95" stroke="#000" stroke-width="2"/><text x="330.0" y="115" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">60</text><line x1="430.0" y1="88" x2="430.0" y2="95" stroke="#000" stroke-width="2"/><text x="430.0" y="115" text-anchor="middle" font-size="17" font-weight="800" fill="#000" font-family="system-ui">80</text><line x1="530.0" y1="88" x2="530.0" y2="95" stroke="#000" stroke-width="2"/><text x="530.0" y="115" text-anchor="middle" font-size="17" font-weight="400" fill="#5E5E5E" font-family="system-ui">100</text><text x="22" y="93" text-anchor="end" font-size="16" fill="#5E5E5E" font-family="system-ui">%</text><line x1="430.0" y1="40" x2="430.0" y2="88" stroke="#000" stroke-width="3" stroke-dasharray="8 5"/><circle cx="430.0" cy="40" r="5.5" fill="#000"/><circle cx="430.0" cy="88" r="5.5" fill="#000"/></svg></div>
+
+  <div class="avis gruixut" style="margin-top:1.2rem;text-align:center;font-size:17pt;font-weight:700">
+    De cada 100 €, en queden 80.
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 1</div>
+</div>
+
+<!-- ==================== FULL 2 ==================== -->
+<div class="full">
+  <h2>El número que ho fa d'un sol cop</h2>
+  <p style="font-size:13pt;color:var(--gris-2);margin:0">
+    Si de cada 100 en queden 80, quin número és això?</p>
+
+  <div class="cadena" style="justify-content:center;margin-top:1rem">
+    <span class="baula">80 de cada 100</span><span class="fletxa">→</span>
+    <span class="baula gris">80 ÷ 100</span><span class="fletxa">→</span>
+    <span class="fx" style="font-size:19pt">0,8</span>
+  </div>
+
+  <div style="margin-top:1.3rem">
+    <svg viewBox="0 0 300 120" style="max-width:8.6cm;margin:0 auto" role="img"
+         aria-label="La calculadora fa 300 per 0,8">
+      <rect x="4" y="4" width="292" height="112" rx="14" fill="#000"/>
+      <rect x="18" y="18" width="264" height="84" rx="8" fill="#E4E4E4"/>
+      <text x="266" y="52" text-anchor="end" font-size="23" fill="#5E5E5E" font-family="system-ui">300 × 0,8</text>
+      <text x="266" y="88" text-anchor="end" font-size="28" font-weight="800" fill="#000" font-family="system-ui">240</text>
+    </svg>
+  </div>
+
+  <div class="avis puntejat" style="margin-top:1.2rem;text-align:center;font-size:16pt;font-weight:700">
+    Una sola multiplicació i ja tens el preu final.
+  </div>
+
+  <div class="avis gruixut">
+    <div style="font-size:12pt;color:var(--gris-2);margin-bottom:.5rem">Sempre igual</div>
+    <div class="cadena">
+      <span class="baula">− 20 %</span><span class="fletxa">→</span>
+      <span class="baula gris">1 − 0,20</span><span class="fletxa">→</span>
+      <span class="fx">× 0,8</span>
+    </div>
+    <hr style="border:0;border-top:2px solid var(--vora-suau);margin:.9rem 0">
+    <div class="cadena">
+      <span class="baula">+ 21 %</span><span class="fletxa">→</span>
+      <span class="baula gris">1 + 0,21</span><span class="fletxa">→</span>
+      <span class="fx">× 1,21</span>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 2</div>
+</div>
+
+<!-- ==================== FULL 3 ==================== -->
+<div class="full">
+  <h2>Dos canvis seguits</h2>
+
+  <p style="font-size:13pt;color:var(--gris-2);margin:0 0 .3rem">
+    La mateixa bici: primer un 20 % de descompte i després un 21 % d'IVA.</p>
+
+  <div class="cadena" style="margin-top:.8rem">
+    <span class="baula">300 €</span><span class="fletxa">→</span>
+    <span class="fx">× 0,8</span><span class="fletxa">→</span>
+    <span class="baula gris">240 €</span><span class="fletxa">→</span>
+    <span class="fx">× 1,21</span><span class="fletxa">→</span>
+    <span class="baula gris">290,40 €</span>
+  </div>
+
+  <div style="margin-top:1.3rem">
+    <div class="barra-et">300 €</div><div class="barra-preu"><i style="width:100%"></i></div>
+    <div class="barra-et" style="margin-top:.7rem">240 €</div><div class="barra-preu"><i style="width:80%"></i></div>
+    <div class="barra-et" style="margin-top:.7rem">290,40 €</div><div class="barra-preu"><i style="width:96.8%"></i></div>
+  </div>
+
+  <div class="avis gruixut" style="margin-top:1.6rem">
+    <div style="font-size:12pt;color:var(--gris-2);margin-bottom:.4rem">La trampa</div>
+    <div style="font-size:16pt;font-weight:700;line-height:1.5">
+      − 20 % i després + 21 % <u style="text-decoration:none;border-bottom:3px solid #000">no és</u> + 1 %.
+    </div>
+    <div class="cadena" style="margin-top:.7rem">
+      <span class="baula gris">Sumant: 303 €</span>
+      <span class="fletxa">≠</span>
+      <span class="baula">De veritat: 290,40 €</span>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 3</div>
+</div>
+
+<!-- ==================== FULL 4 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div>
+      <div class="q">Escriu el factor que correspon a cada canvi de preu.</div></div>
+    <table>
+      <tr><th style="width:14%"></th><th style="width:30%">Canvi</th>
+          <th style="width:28%">Compte</th><th style="width:28%">Factor</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">− 20 %</td>
+          <td class="ms">1 − 0,20</td><td class="ms">× 0,8</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">− 50 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>e)</b></td><td class="dada">− 5 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div>
+      <div class="q">Calcula el preu final quan hi ha un sol canvi.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:12%"></th><th style="width:20%">Preu</th><th style="width:20%">Canvi</th>
+          <th style="width:22%">Factor</th><th style="width:26%">Preu final</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">300 €</td><td class="ms">− 20 %</td>
+          <td class="ms">× 0,8</td><td class="ms">240 €</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">80 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">45 €</td><td class="dada">− 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">120 €</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 4</div>
+</div>
+
+<!-- ==================== FULL 5 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div>
+      <div class="q">Calcula el preu final quan hi ha dos canvis seguits.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p style="font-size:12.5pt;color:var(--gris-2);margin:0 0 .4rem">
+      Multiplica pel primer factor i, al resultat, multiplica-hi pel segon.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:16%">Preu</th>
+          <th style="width:15%">1r canvi</th><th style="width:15%">2n canvi</th>
+          <th style="width:22%">Els dos factors</th><th style="width:22%">Preu final</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">300 €</td><td class="ms">− 20 %</td>
+          <td class="ms">+ 21 %</td><td class="ms">× 0,8 &nbsp; × 1,21</td><td class="ms">290,40 €</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">200 €</td><td class="dada">− 30 %</td><td class="dada">+ 21 %</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">50 €</td><td class="dada">+ 21 %</td><td class="dada">− 10 %</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">100 €</td><td class="dada">− 10 %</td><td class="dada">− 10 %</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>e)</b></td><td class="dada">400 €</td><td class="dada">− 25 %</td><td class="dada">+ 10 %</td>
+          <td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 5</div>
+</div>
+
+<!-- ==================== FULL 6 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div>
+      <div class="q">Comprova si pujar i baixar el mateix percentatge torna al preu de sortida.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+
+    <div style="margin-top:.8rem"><span class="apartat">a)</span>
+      <span class="et-resolt">Puja un 10 % i després baixa un 10 %.</span></div>
+    <div class="cadena">
+      <span class="baula">100 €</span><span class="fletxa">→</span>
+      <span class="fx">× 1,1</span><span class="fletxa">→</span>
+      <span class="baula ms" style="font-size:15pt">110 €</span><span class="fletxa">→</span>
+      <span class="fx">× 0,9</span><span class="fletxa">→</span>
+      <span class="baula ms" style="font-size:15pt">99 €</span>
+    </div>
+    <div class="et-resolt" style="margin-top:.2rem">No torna als 100 €. En falten 1.</div>
+
+    <div style="margin-top:1.5rem"><span class="apartat">b)</span> Puja un 20 % i després baixa un 20 %.</div>
+    <div class="cadena">
+      <span class="baula">200 €</span><span class="fletxa">→</span>
+      <span class="fx">× 1,2</span><span class="fletxa">→</span>
+      <span class="baula buida"></span><span class="fletxa">→</span>
+      <span class="fx">× 0,8</span><span class="fletxa">→</span>
+      <span class="baula buida"></span>
+    </div>
+
+    <div style="margin-top:1.5rem"><span class="apartat">c)</span> Baixa un 50 % i després puja un 50 %.</div>
+    <div class="cadena">
+      <span class="baula">50 €</span><span class="fletxa">→</span>
+      <span class="fx">× 0,5</span><span class="fletxa">→</span>
+      <span class="baula buida"></span><span class="fletxa">→</span>
+      <span class="fx">× 1,5</span><span class="fletxa">→</span>
+      <span class="baula buida"></span>
+    </div>
+
+    <div style="margin-top:1.5rem"><span class="apartat">d)</span> Marca la frase bona.</div>
+    <div class="tria" style="flex-direction:column">
+      <label style="font-size:15pt;text-align:left"><span class="quadret"></span>
+        Pujar i baixar el mateix % torna al preu de sortida.</label>
+      <label style="font-size:15pt;text-align:left"><span class="quadret"></span>
+        Pujar i baixar el mateix % <b>no</b> torna al preu de sortida.</label>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 6</div>
+</div>
+
+<!-- ==================== FULL 7 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div>
+      <div class="q">Marca quina manera de pagar surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Un mòbil de 300 €.</div>
+    <div class="parella-op">
+      <div class="opcio resolt">Al comptat, amb un 15 % de descompte<br>
+        <span class="ms">300 × 0,85 = <b>255 €</b></span></div>
+      <div class="opcio resolt">A terminis, 12 quotes de 24 €<br>
+        <span class="ms">12 × 24 = <b>288 €</b></span></div>
+    </div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">
+        <svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">
+        <path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/></svg></span>Al comptat</label>
+      <label><span class="quadret"></span>A terminis</label>
+    </div>
+    <div class="et-resolt">Estalvio 33 €.</div>
+
+    <div style="margin-top:1.6rem"><span class="apartat">b)</span> Una bici de 240 €.</div>
+    <div class="parella-op">
+      <div class="opcio">Al comptat, amb un 10 % de descompte<br><b>240 × 0,9 =</b></div>
+      <div class="opcio">A terminis, 6 quotes de 42 €<br><b>6 × 42 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>Al comptat</label>
+      <label><span class="quadret"></span>A terminis</label>
+    </div>
+
+    <div style="margin-top:1.6rem"><span class="apartat">c)</span> Un portàtil de 500 €.</div>
+    <div class="parella-op">
+      <div class="opcio">Al comptat, amb un 5 % de descompte<br><b>500 × 0,95 =</b></div>
+      <div class="opcio">A terminis, 10 quotes de 46 €<br><b>10 × 46 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>Al comptat</label>
+      <label><span class="quadret"></span>A terminis</label>
+    </div>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 7</div>
+</div>
+
+<!-- ==================== FULL 8 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div>
+      <div class="q">Calcula el preu amb IVA.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+
+    <div class="tiquet">
+      <div><span>Auriculars</span><span>40,00</span></div>
+      <div><span>Funda</span><span>25,00</span></div>
+      <div><span>Cable</span><span>60,00</span></div>
+      <hr>
+      <div><span>Pa</span><span>12,00</span></div>
+      <div style="font-size:11pt;color:#5E5E5E"><span>IVA reduït 10 %</span><span></span></div>
+    </div>
+
+    <table>
+      <tr><th style="width:12%"></th><th style="width:30%">Sense IVA</th>
+          <th style="width:20%">IVA</th><th style="width:20%">Factor</th><th style="width:18%">Amb IVA</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">40 €</td><td class="ms">21 %</td>
+          <td class="ms">× 1,21</td><td class="ms">48,40 €</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">25 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">60 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">12 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+
+    <div class="avis puntejat">
+      <span class="apartat">e)</span>
+      <svg class="ico" style="margin:0 .3rem"><use href="#i-parla"/></svg>
+      Explica per què al final pagues més del que diu l'etiqueta.
+    </div>
+  </div>
+
+  <div class="avis gruixut">
+    <p class="frase" style="margin:0">He multiplicat per <u></u> perquè hi ha un <u></u> %.</p>
+    <p class="frase" style="margin:0">L'opció <u></u> costa <u></u> € en total.</p>
+    <p class="frase" style="margin:0">Surt més a compte perquè costa <u></u> € menys.</p>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 8</div>
+</div>
+
+<!-- ==================== FULL 9: SOLUCIONARI ==================== -->
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · full per al professorat</p>
+
+  <div class="abans">
+    <b>L'ordre de les tres primeres pàgines és intencionat.</b> La pàgina 1 no diu la
+    regla: ensenya la barra sencera, la parteix i deixa que en surti «de cada 100 €, en
+    queden 80». La pàgina 2 converteix això en el número 0,8 i, només al final, dona la
+    regla general. El factor ha d'aparèixer com a <b>conclusió del dibuix</b>, no com a
+    recepta que es memoritza abans d'entendre-la.
+    <br><br>
+    Si a classe expliques la regla abans, aquesta seqüència perd el sentit. Val la pena
+    començar preguntant-li només <b>què queda</b> de la barra, i no dir res del factor
+    fins que ho hagi contestat.
+  </div>
+
+  <h3>1. El factor de cada canvi</h3>
+  <table>
+    <tr><th></th><th>Canvi</th><th>Compte</th><th>Factor</th></tr>
+    <tr><td>a)</td><td>− 20 %</td><td>1 − 0,20</td><td>× 0,8</td></tr>
+    <tr><td>b)</td><td>+ 21 %</td><td>1 + 0,21</td><td>× 1,21</td></tr>
+    <tr><td>c)</td><td>− 50 %</td><td>1 − 0,50</td><td>× 0,5</td></tr>
+    <tr><td>d)</td><td>+ 10 %</td><td>1 + 0,10</td><td>× 1,1</td></tr>
+    <tr><td>e)</td><td>− 5 %</td><td>1 − 0,05</td><td>× 0,95</td></tr>
+  </table>
+  <p><b>Error típic:</b> escriure × 0,5 per a un −5 % (confondre 0,05 amb 0,5). Si passa,
+  feu-li llegir el percentatge en veu alta: «cinc centèsimes», no «cinc dècimes».</p>
+
+  <h3>2. Un sol canvi</h3>
+  <table>
+    <tr><th></th><th>Preu</th><th>Canvi</th><th>Factor</th><th>Preu final</th></tr>
+    <tr><td>a)</td><td>300 €</td><td>− 20 %</td><td>× 0,8</td><td>240,00 €</td></tr>
+    <tr><td>b)</td><td>80 €</td><td>+ 21 %</td><td>× 1,21</td><td>96,80 €</td></tr>
+    <tr><td>c)</td><td>45 €</td><td>− 10 %</td><td>× 0,9</td><td>40,50 €</td></tr>
+    <tr><td>d)</td><td>120 €</td><td>+ 10 %</td><td>× 1,1</td><td>132,00 €</td></tr>
+  </table>
+  <p><b>Error típic:</b> multiplicar per 0,2 en comptes de 0,8, és a dir calcular el
+  descompte i quedar-s'hi. Recordeu-li que el factor ja dona el <b>preu final</b>.</p>
+
+  <h3>3. Dos canvis seguits</h3>
+  <table>
+    <tr><th></th><th>Preu</th><th>Canvis</th><th>Factors</th><th>Preu final</th></tr>
+    <tr><td>a)</td><td>300 €</td><td>− 20 % i + 21 %</td><td>× 0,8 &nbsp; × 1,21</td><td>290,40 €</td></tr>
+    <tr><td>b)</td><td>200 €</td><td>− 30 % i + 21 %</td><td>× 0,7 &nbsp; × 1,21</td><td>169,40 €</td></tr>
+    <tr><td>c)</td><td>50 €</td><td>+ 21 % i − 10 %</td><td>× 1,21 &nbsp; × 0,9</td><td>54,45 €</td></tr>
+    <tr><td>d)</td><td>100 €</td><td>− 10 % i − 10 %</td><td>× 0,9 &nbsp; × 0,9</td><td>81,00 €</td></tr>
+    <tr><td>e)</td><td>400 €</td><td>− 25 % i + 10 %</td><td>× 0,75 &nbsp; × 1,1</td><td>330,00 €</td></tr>
+  </table>
+  <p>L'apartat d) és especialment útil: dos descomptes del 10 % <b>no</b> fan un 20 %.
+  Queda 81 €, no 80 €.</p>
+
+  <h3>4. Pujar i baixar el mateix percentatge</h3>
+  <table>
+    <tr><th></th><th>Preu</th><th>Passos</th><th>Final</th><th>Ha tornat?</th></tr>
+    <tr><td>a)</td><td>100 €</td><td>× 1,1 → 110 € &nbsp; × 0,9</td><td>99,00 €</td><td>No, en falta 1 €</td></tr>
+    <tr><td>b)</td><td>200 €</td><td>× 1,2 → 240 € &nbsp; × 0,8</td><td>192,00 €</td><td>No, en falten 8 €</td></tr>
+    <tr><td>c)</td><td>50 €</td><td>× 0,5 → 25 € &nbsp; × 1,5</td><td>37,50 €</td><td>No, en falten 12,50 €</td></tr>
+  </table>
+  <p>d) La bona és la segona: <b>no</b> torna al preu de sortida.</p>
+  <p><b>Per què.</b> No cal que ho justifiqui amb àlgebra. N'hi ha prou que vegi als tres
+  casos que sempre queda per sota, perquè el segon percentatge s'aplica sobre un preu diferent.</p>
+
+  <h3>5. Quina manera de pagar surt més a compte</h3>
+  <table>
+    <tr><th></th><th>Compra</th><th>Al comptat</th><th>A terminis</th><th>Guanya</th><th>Estalvi</th></tr>
+    <tr><td>a)</td><td>Mòbil 300 €</td><td>300 × 0,85 = 255 €</td><td>12 × 24 = 288 €</td>
+        <td><b>Al comptat</b></td><td>33 €</td></tr>
+    <tr><td>b)</td><td>Bici 240 €</td><td>240 × 0,9 = 216 €</td><td>6 × 42 = 252 €</td>
+        <td><b>Al comptat</b></td><td>36 €</td></tr>
+    <tr><td>c)</td><td>Portàtil 500 €</td><td>500 × 0,95 = 475 €</td><td>10 × 46 = 460 €</td>
+        <td><b>A terminis</b></td><td>15 €</td></tr>
+  </table>
+  <p><b>L'apartat c) és el més important de la fitxa.</b> Trenca la regla que l'alumnat
+  s'haurà fabricat als apartats a) i b) —«al comptat sempre és millor»— i l'obliga a
+  calcular en comptes de recordar. Si tria «al comptat» sense fer els números, aquí és
+  on cal aturar-se.</p>
+
+  <h3>6. El preu amb IVA</h3>
+  <table>
+    <tr><th></th><th>Sense IVA</th><th>IVA</th><th>Factor</th><th>Amb IVA</th></tr>
+    <tr><td>a)</td><td>40 €</td><td>21 %</td><td>× 1,21</td><td>48,40 €</td></tr>
+    <tr><td>b)</td><td>25 €</td><td>21 %</td><td>× 1,21</td><td>30,25 €</td></tr>
+    <tr><td>c)</td><td>60 €</td><td>21 %</td><td>× 1,21</td><td>72,60 €</td></tr>
+    <tr><td>d)</td><td>12 €</td><td>10 %</td><td>× 1,1</td><td>13,20 €</td></tr>
+  </table>
+  <p>e) Assolit si diu una idea com «hi afegeixen l'IVA» o «l'impost no hi era». No cal
+  que ho escrigui.</p>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts fent la rebaixa amb diners de veritat: 300 € damunt la taula, aparta'n 60 i mira què queda. La barra de la pàgina 1 és el dibuix d'aquest gest.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <ul>
+    <li>Exercicis 1, 2, 3 i 6 → criteri <b>1.1</b>, modelitzar amb percentatges encadenats.</li>
+    <li>Exercici 4 → criteri <b>2.1</b>, detectar la trampa de sumar percentatges.</li>
+    <li>Exercici 5 → criteri <b>1.1</b> i <b>2.1</b>, decidir amb dades quina opció convé.</li>
+  </ul>
+  <p>L'objectiu <b>no és calcular bé</b>: és triar el factor correcte i decidir. Un error
+  de tecleig a la calculadora no hauria de fer baixar la valoració si el factor és bo.</p>
+
+  <h3>Enllaç amb la resta del material</h3>
+  <p>El cas de la pàgina 3 (300 €, − 20 %, + 21 %) és el mateix amb què s'obre el mòdul
+  <b>Percentatges</b> de la caixa d'eines. L'alumnat pot comprovar-hi la fitxa i, després,
+  posar-hi els seus propis números amb el botó «Buida-ho».</p>
+  <p>Base prèvia a l'aula de suport si cal: <i>1eso-ud4-7</i> (percentatges), <i>2eso-ud2-3</i>
+  (percentatges en context) i <i>2eso-ud2-5</i> (el full de compra intel·ligent).
+  A <i>repas-main</i>: full 6, blocs <i>percentatges</i> i <i>factor_multiplicador</i>.</p>
+</div>
+
+</body>
+</html>
