@@ -269,4 +269,19 @@ svg.real { width: 11cm; max-width: 100%; margin: 0 auto }
   .full { margin: 0; max-width: none; padding: 1.3cm 1.4cm; min-height: 0; page-break-after: always }
   .full:last-child { page-break-after: auto }
   .no-imprimir { display: none }
+
+  /* Ajust d'aire per fer cabre cada pàgina en un A4.
+     Es va mesurar amb un motor de paginació i set pàgines vessaven, entre mig
+     centímetre i vuit. Això les fa cabre SENSE tocar el cos de 14 pt ni treure
+     contingut: només encongeix els dibuixos i estreny el ritme vertical.
+     Si s'hi afegeix contingut, cal tornar a passar `python3 eines/mesura.py`. */
+  .figura   { max-width: 12.6cm }
+  .centrat  { max-width: 12.6cm }
+  .exercici { margin-bottom: 1.4rem }
+  .avis     { margin: .8rem 0; padding: .75rem 1rem }
+  .frase    { line-height: 2.0; margin: .4rem 0 }
+  td.omplir { height: 1.35cm }
+  table     { margin: .4rem 0 }
+  .tasca    { margin-bottom: .45rem }
+  .solucions{ margin: .35rem 0 }
 }

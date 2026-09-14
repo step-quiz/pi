@@ -28,6 +28,7 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | `fitxes.html` | el detall de cada unitat: material previ, regla trencada, fita, recursos |
 | `caixa-eines.html` | l'aplicació, amb vuit mòduls |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
+| `pdf/` | dos PDF per unitat: un per a l'alumnat i un per al professorat |
 | `docs/` | mapa d'adaptació, criteris de disseny, arquitectura i feina pendent |
 | `generadors/` | scripts Python que dibuixen els gràfics SVG de les fitxes |
 
@@ -64,6 +65,29 @@ seves. Les dues que més fàcilment es trenquen sense adonar-se'n:
 - **Cap paràgraf a les pàgines de l'alumnat.** El dibuix explica, les paraules només
   etiqueten. Aquesta regla val per a les fitxes, no per als solucionaris ni per a les
   pàgines de navegació, que són per a l'adult.
+
+---
+
+## Els PDF
+
+Cada unitat té dos PDF a `pdf/`, enllaçats des de `fitxes.html`:
+
+| | |
+|---|---|
+| `udN-alumnat.pdf` | les pàgines que es reparteixen |
+| `udN-solucionari.pdf` | el full del professorat, amb els errors típics i els criteris |
+
+Es tornen a generar amb:
+
+```
+pip install weasyprint --break-system-packages
+python3 generadors/gen_pdf.py
+```
+
+**Si has afegit contingut a una fitxa**, passa abans `python3 eines/mesura.py`: comprova
+que cada pàgina segueixi cabent en un A4. Si alguna vessa, la solució no és encongir la
+lletra —el cos de 14 pt és una restricció del projecte— sinó treure contingut o partir
+la pàgina en dues.
 
 ---
 

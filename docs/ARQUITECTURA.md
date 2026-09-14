@@ -173,6 +173,20 @@ toca. Cada script **imprimeix les seves pròpies comprovacions numèriques** en 
 | `gen_grafics2.py` | diagrames de punts, barres i arbres de la U6 i la U7 |
 | `gen_grafics3.py` | barres de percentatge de la U2 i model d'àrea de la U6 |
 | `gen_grafics4.py` | doble recta de la U2, repartiment de la U6, barra de la U7 |
+| `gen_pdf.py` | els catorze PDF, partint cada fitxa en alumnat i solucionari |
+
+## 6b. Els PDF i l'alçada de les pàgines
+
+Cada bloc `.full` de l'alumnat ha de ser **exactament una pàgina A4**. Això mai s'havia
+verificat amb un motor de paginació, i quan es va fer resulta que set pàgines vessaven,
+entre mig centímetre i vuit.
+
+`eines/mesura.py` renderitza cada pàgina en un full molt alt, mira on acaba el contingut
+i ho compara amb els 27,1 cm útils d'un A4. `generadors/gen_pdf.py` falla si el PDF de
+l'alumnat no té tantes pàgines com blocs té la fitxa.
+
+L'ajust es va fer al `@media print` de `fitxa.css`: dibuixos més petits i ritme vertical
+més estret. **El cos de 14 pt no s'hi toca.** Si una pàgina no cap, s'arregla la fitxa.
 
 Escriuen un `.json` amb els SVG, que s'incrusten a les fitxes substituint marcadors
 `§NOM§`. Els fitxers publicats ja tenen les substitucions fetes; els marcadors que hi

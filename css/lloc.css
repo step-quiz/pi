@@ -79,6 +79,18 @@ a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .0
   padding: .85rem 1rem; margin: 1.2rem 0; font-size: .95rem;
 }
 
+/* --------------------------------------------------- baixar els PDF -- */
+
+.pdf {
+  display: inline-block; margin: .15rem .3rem .15rem 0;
+  background: var(--blau); color: #fff;
+  border-radius: 999px; padding: .32rem .85rem;
+  font-size: .88rem; font-weight: 600;
+}
+.pdf:hover { text-decoration: none; filter: brightness(1.1) }
+/* El del professorat es distingeix del de l'alumnat sense cridar l'atenció. */
+.pdf.sol { background: var(--camp); color: var(--etiqueta-2) }
+
 hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 
 .peu { color: var(--etiqueta-3); font-size: .85rem; margin-top: 3rem }

@@ -10,6 +10,11 @@
   const $ = s => document.querySelector(s);
   const nom = id => (window.MODULS && window.MODULS[id]) || id;
 
+  /** Els dos PDF d'una unitat, generats amb generadors/gen_pdf.py */
+  const pdfs = u =>
+    '<a class="pdf" href="pdf/ud' + u.num + '-alumnat.pdf" download>PDF de l\'alumnat</a> ' +
+    '<a class="pdf sol" href="pdf/ud' + u.num + '-solucionari.pdf" download>PDF del solucionari</a>';
+
   /** Crea un node amb classe i contingut HTML ja compost. */
   function fes(etiqueta, classe, html) {
     const n = document.createElement(etiqueta);
@@ -46,8 +51,9 @@
         '<h3 style="margin:0 0 .8rem"><span class="num" style="margin:0 .5rem 0 0">' + u.num +
           '</span>' + u.titol + "</h3>" +
         "<dl>" +
-          "<dt>Fitxa</dt><dd><a href=\"" + u.fitxa + "\">obre-la</a> · " + u.dates +
-            " · " + u.sessions + " sessions</dd>" +
+          "<dt>Fitxa</dt><dd><a href=\"" + u.fitxa + "\">obre-la al navegador</a> · " +
+            u.dates + " · " + u.sessions + " sessions</dd>" +
+          "<dt>Descarrega</dt><dd>" + pdfs(u) + "</dd>" +
           "<dt>Objectiu nuclear</dt><dd>" + u.objectiu + "</dd>" +
           "<dt>Cinc minuts abans</dt><dd>" + u.material + "</dd>" +
           "<dt>La regla trencada</dt><dd>" + u.trencada + "</dd>" +

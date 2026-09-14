@@ -97,6 +97,25 @@ comprova(app.rindex('js/app.js') > max(app.rindex(f'js/moduls/{c}.js') for c in 
 print(f"  mòduls: {len(registrats)} · marcatge i registre coincideixen: {pestanyes == registrats}")
 print(f"  app.js va l'últim: {app.rindex('js/app.js') > max(app.rindex(f'js/moduls/{c}.js') for c in carregats)}")
 
+print("\nPDF")
+# Un PDF per unitat i per destinatari. Es generen amb generadors/gen_pdf.py.
+falten = []
+for u in range(1, 8):
+    if not os.path.exists(ruta('fitxes', f'ud{u}.html')):
+        continue
+    for mena in ('alumnat', 'solucionari'):
+        f = ruta('pdf', f'ud{u}-{mena}.pdf')
+        if not os.path.exists(f) or os.path.getsize(f) < 2000:
+            falten.append(f'ud{u}-{mena}.pdf')
+comprova(not falten, f"PDF que falten o buits: {falten}")
+
+# El recompte de pàgines NO es fa aquí: WeasyPrint comprimeix els objectes del
+# PDF i qualsevol intent de comptar-les llegint els bytes dona zero i deixa
+# passar errors sense dir res. Qui ho comprova de debò és generadors/gen_pdf.py,
+# que compara les pàgines generades amb els blocs .full de la fitxa i s'atura si
+# no quadren.
+print(f"  PDF presents: {14 - len(falten)}/14")
+
 print("\nDESPLEGAMENT")
 # Encadenar CSS amb @import bloqueja el pintat: tokens.css s'enllaça des de l'HTML.
 for c in sorted(glob.glob(ruta('css', '*.css'))):
