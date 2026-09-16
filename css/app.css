@@ -6,8 +6,7 @@
    Les variables viuen a tokens.css, que també porta el mode fosc.
    ========================================================================== */
 
-@media (prefers-color-scheme:dark){
-  *{box-sizing:border-box}
+*{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--fons);color:var(--etiqueta);font-family:var(--tipus);
@@ -21,7 +20,7 @@ h2{font-size:1.32rem;font-weight:700;letter-spacing:-.012em;margin:0 0 .1rem;lin
 .ajuda{color:var(--etiqueta-2);font-size:.95rem;margin:0 0 .9rem;line-height:1.4}
 
 /* ---- control segmentat ---- */
-.segments{display:flex;gap:.2rem;background:var(--segment-fons);border-radius:999px;
+.segments{display:flex;gap:.2rem;background:var(--segment);border-radius:999px;
   padding:.25rem;margin:1.1rem 0 1.4rem;overflow-x:auto;scrollbar-width:none}
 .segments::-webkit-scrollbar{display:none}
 .segment{flex:0 0 auto;border:0;background:transparent;color:var(--etiqueta-2);

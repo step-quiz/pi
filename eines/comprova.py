@@ -5,8 +5,10 @@
 
 Verifica les regles que és fàcil trencar sense adonar-se'n: que les fitxes no
 tinguin cap color, que l'HTML tanqui bé, que la numeració de pàgines sigui
-seguida, que cada fitxa porti el rètol de material i la pregunta d'obertura, i
-que els mòduls declarats al marcatge de l'app siguin els que es registren.
+seguida, que cada fitxa porti el rètol de material i la pregunta d'obertura,
+que els mòduls declarats al marcatge de l'app siguin els que es registren, i
+que els fulls d'estil tanquin totes les claus i no facin servir variables que
+no existeixen.
 """
 import re, sys, glob, os
 from html.parser import HTMLParser
@@ -115,6 +117,68 @@ comprova(not falten, f"PDF que falten o buits: {falten}")
 # que compara les pàgines generades amb els blocs .full de la fitxa i s'atura si
 # no quadren.
 print(f"  PDF presents: {14 - len(falten)}/14")
+
+print("\nFULLS D'ESTIL")
+# Una clau sense tancar no dona cap error visible: el navegador la tanca al final
+# del fitxer i tot el que ve després queda dins d'aquell bloc. Així es va trencar
+# app.css: un «@media (prefers-color-scheme:dark){» obert a dalt de tot feia que
+# la caixa d'eines només tingués estils amb el mode fosc activat.
+def claus_desaparellades(text):
+    """Problemes de claus, amb la línia on són. Salta comentaris i cadenes."""
+    linies, pila, errors = text.split('\n'), [], []
+    i, n, linia = 0, len(text), 1
+    while i < n:
+        c = text[i]
+        if text.startswith('/*', i):
+            fi = text.find('*/', i + 2)
+            if fi == -1:
+                errors.append(f"comentari obert a la línia {linia} que no es tanca mai")
+                break
+            linia += text.count('\n', i, fi)
+            i = fi + 2
+            continue
+        if c in '"\'':
+            fi = i + 1
+            while fi < n and text[fi] not in (c, '\n'):
+                fi += 2 if text[fi] == '\\' else 1
+            linia += text.count('\n', i, fi)
+            i = fi + 1 if fi < n and text[fi] == c else fi
+            continue
+        if c == '\n':
+            linia += 1
+        elif c == '{':
+            pila.append(linia)
+        elif c == '}':
+            if pila:
+                pila.pop()
+            else:
+                errors.append(f"clau de tancament sobrant a la línia {linia}")
+        i += 1
+    errors += [f"clau oberta a la línia {l} que no es tanca mai: «{linies[l - 1].strip()[:50]}»"
+               for l in pila]
+    return errors
+
+fulls = sorted(glob.glob(ruta('css', '*.css')))
+for c in fulls:
+    errors = claus_desaparellades(open(c, encoding='utf-8').read())
+    comprova(not errors, f"{os.path.basename(c)}: " + "; ".join(errors))
+    print(f"  {os.path.basename(c):12} claus {'ok' if not errors else 'ERROR · ' + errors[0]}")
+
+# Una variable que no existeix tampoc avisa: la propietat es queda sense efecte.
+# Així la barra de pestanyes s'havia quedat sense fons (--segment-fons). Les que
+# porten valor de reserva, var(--x, …), no compten.
+fonts = (fulls + glob.glob(ruta('js', '**', '*.js'), recursive=True)
+         + glob.glob(ruta('*.html')) + glob.glob(ruta('fitxes', '*.html')))
+textos = {f: open(f, encoding='utf-8').read() for f in fonts}
+definides = {v for t in textos.values() for v in re.findall(r'(--[\w-]+)\s*:', t)}
+sense_definir = {}
+for f, t in textos.items():
+    for v in re.findall(r'var\(\s*(--[\w-]+)\s*\)', t):
+        if v not in definides:
+            sense_definir.setdefault(v, set()).add(os.path.relpath(f, ARREL))
+comprova(not sense_definir, "variables CSS que no estan definides enlloc: " +
+         "; ".join(f"{v} a {', '.join(sorted(fs))}" for v, fs in sorted(sense_definir.items())))
+print(f"  variables usades sense definir: {len(sense_definir)}")
 
 print("\nDESPLEGAMENT")
 # Encadenar CSS amb @import bloqueja el pintat: tokens.css s'enllaça des de l'HTML.
