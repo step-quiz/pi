@@ -193,38 +193,44 @@
 <section id="mod-calc" class="modul" hidden>
   <div class="targeta">
     <div class="cap"><div><h2>Com es fa amb la calculadora</h2>
-      <p class="ajuda">Tria què vols fer i mira quines tecles s'han de prémer.</p></div></div>
+      <p class="ajuda">Tria què vols fer.</p></div></div>
     <div class="pastilles" id="calc-pastilles"></div>
-    <div class="avis neutre" id="calc-context" style="margin-top:.85rem"></div>
+    <p class="context" id="calc-context"></p>
   </div>
 
-  <div class="targeta">
+  <!-- Un sol pas ha de cabre a la pantalla sense fer scroll: ordre, teclat i
+       botó d'avançar, tot junt. L'ordre va ABANS del teclat, no després. -->
+  <div class="targeta pas-calc">
+    <p class="com-va">Prem la tecla a la teva calculadora.
+      Després toca <b>Següent tecla</b>.</p>
+
     <div class="pantalla">
       <div class="entrada" id="calc-entrada">&nbsp;</div>
       <div class="lcd"><div class="res" id="calc-res">&nbsp;</div></div>
     </div>
 
-    <div class="zona-et">Zona de funcions, a dalt</div>
-    <div class="teclat dalt" id="calc-dalt"></div>
-    <div class="zona-et">Zona dels números, a baix</div>
-    <div class="teclat" id="calc-baix"></div>
+    <div class="ordre" aria-live="polite">
+      <span class="tecla-gran" id="calc-tecla">—</span>
+      <span class="que" id="calc-llegenda"></span>
+    </div>
 
-    <div class="avis neutre" id="calc-llegenda" aria-live="polite"></div>
     <div class="passa">
       <button class="btn tenyit mini" id="calc-arrere">Enrere</button>
       <button class="btn mini" id="calc-endavant">Següent tecla</button>
       <span class="et" id="calc-progres"></span>
     </div>
-  </div>
 
-  <div class="targeta">
-    <h2>Què vol dir</h2>
-    <div class="gran" id="calc-final" aria-live="polite">—</div>
-    <hr class="divisor">
-    <p class="ajuda" style="margin:0">A la calculadora, la coma dels decimals s'escriu
-    amb un punt. Nosaltres escrivim 0,8 i ella ensenya 0.8.</p>
+    <div class="mapa">
+      <div class="zona-et">A dalt, amb les funcions</div>
+      <div class="teclat dalt" id="calc-dalt"></div>
+      <div class="zona-et">A baix, amb els números</div>
+      <div class="teclat" id="calc-baix"></div>
+    </div>
+
+    <div class="avis be" id="calc-final" hidden></div>
   </div>
 </section>
+
 
 <!-- ============ COM HO DIC ============ -->
 <section id="mod-frases" class="modul" hidden>

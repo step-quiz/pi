@@ -145,6 +145,32 @@ la tasca 0 vagi la primera.
 
 ---
 
+## 4b. El mòdul de la calculadora: un pas, una pantalla
+
+Aquest mòdul té una restricció que els altres no tenen: **un pas ha de cabre sencer
+a la finestra, sense fer scroll**. El bucle és «prem la tecla a la calculadora de
+veritat i avança aquí», i si per veure l'ordre, el teclat i el botó cal moure la
+pàgina, es perd el lligam entre les tres coses.
+
+Per això, dins de `.pas-calc`:
+
+1. una frase fixa que diu el bucle, perquè sense dir-ho no s'endevina;
+2. la pantalla de la calculadora **amb la mida que té** — es va ampliar un 20 % a
+   petició del docent i no s'ha de tocar;
+3. **l'ordre del pas abans del teclat**: la tecla amb un rètol gran i què vol dir.
+   Amb la tecla a la vista no cal encertar-la al mapa per saber quina és;
+4. els botons, just després de l'ordre;
+5. el mapa del teclat al final, que serveix per **situar** la tecla a l'aparell.
+
+El pas fa uns 630 px. En una finestra de 1080p hi cap amb marge; abans en feia uns
+1.050 i no hi cabia.
+
+**Dues coses que criden l'atenció sense molestar.** La tecla del pas batega
+(`@keyframes bategar`) i **es pot tocar per avançar**, igual que el botó: així el
+gest de «prem aquesta tecla» i el d'avançar són el mateix. El botó fa una sacsejada
+curta cada 3,4 s amb un anell que s'esvaeix (`@keyframes crida`). Totes dues
+animacions es desactiven amb `prefers-reduced-motion`.
+
 ## 5. Afegir una unitat
 
 **1.** Una entrada a `dades/unitats.js`. Els índexs es refan sols.

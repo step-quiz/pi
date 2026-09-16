@@ -26,27 +26,27 @@
   ];
 
   const CASOS_CALC = [
-    { et: "Rebaixa del 20 %",
+    { et: "Rebaixa 20 %",
       context: "Una samarreta de 25 € amb un 20 % de descompte.",
       passos: [{ k: "2" }, { k: "5" }, { k: "×" }, { k: "0" }, { k: SEP_DECIMAL }, { k: "8" },
                { k: "=", res: "20" }],
       final: "La samarreta costa 20 €." },
-    { et: "Afegir l'IVA",
+    { et: "IVA",
       context: "Uns auriculars de 40 € sense IVA. L'IVA és del 21 %.",
       passos: [{ k: "4" }, { k: "0" }, { k: "×" }, { k: "1" }, { k: SEP_DECIMAL }, { k: "2" },
                { k: "1" }, { k: "=", res: "48.4" }],
       final: "Amb l'IVA costen 48,40 €." },
-    { et: "Dos canvis seguits",
+    { et: "Dos canvis",
       context: "Una bici de 300 €: primer un 20 % de descompte i després el 21 % d'IVA.",
       passos: [{ k: "3" }, { k: "0" }, { k: "0" }, { k: "×" }, { k: "0" }, { k: SEP_DECIMAL },
                { k: "8" }, { k: "×" }, { k: "1" }, { k: SEP_DECIMAL }, { k: "2" }, { k: "1" },
                { k: "=", res: "290.4" }],
       final: "La bici costa 290,40 €." },
-    { et: "Total a terminis",
+    { et: "Terminis",
       context: "Un mòbil a terminis: 12 quotes de 24 € cadascuna.",
       passos: [{ k: "1" }, { k: "2" }, { k: "×" }, { k: "2" }, { k: "4" }, { k: "=", res: "288" }],
       final: "En total pagues 288 €." },
-    { et: "Arrel quadrada",
+    { et: "Arrel",
       context: "Quant fa √7?",
       passos: [{ k: "√" }, { k: "7" }, { k: "=", res: "√7" },
                { k: "FORMAT", res: "2.6457513" }],
@@ -62,31 +62,61 @@
       .join("");
   }
   function llegendaDe(k, i) {
-    if (k === "=") return "Prem igual.";
+    if (k === "=") return "Prem-la i mira el resultat.";
     if (k === "FORMAT") return "Aquesta tecla ensenya els decimals.";
-    if (k === "×") return "Prem multiplicar.";
+    if (k === "×") return "És el signe de multiplicar.";
     if (k === SEP_DECIMAL) return "El punt fa de coma.";
-    if (k === "√") return "Prem l'arrel quadrada.";
+    if (k === "√") return "És l'arrel quadrada.";
     const jaHiHaOperador = cas.passos.slice(0, i).some(p => p.k === "×");
-    return jaHiHaOperador ? "Escriu el factor, xifra a xifra." : "Escriu el número, xifra a xifra.";
+    return jaHiHaOperador ? "Escriu el factor, xifra a xifra."
+                          : "Escriu el número, xifra a xifra.";
   }
 
-  function pintaCalc() {
+  /** Nom llegible de la tecla per al rètol gran. */
+  function nomTecla(k) {
+    if (k === SEP_DECIMAL) return "punt";
+    return k;
+  }
+
+function pintaCalc() {
     const actual = cas.passos[pas];
+    const ultim = pas === cas.passos.length - 1;
+
     $("#calc-entrada").textContent = entradaFinsA(pas) || "\u00A0";
     const res = cas.passos.slice(0, pas + 1).reduce((a, p) => p.res ?? a, null);
     $("#calc-res").textContent = res ?? "\u00A0";
 
-    $$(".tecla").forEach(t => t.classList.toggle("ara", t.dataset.k === actual.k));
+    // el rètol gran: la tecla que toca, sense haver de buscar-la al mapa
+    const rotul = $("#calc-tecla");
+    rotul.textContent = nomTecla(actual.k);
+    rotul.classList.toggle("llarga", nomTecla(actual.k).length > 3);
     $("#calc-llegenda").textContent = llegendaDe(actual.k, pas);
+
+    // el mapa: la tecla del pas batega i es pot tocar per avançar
+    $$(".tecla").forEach(t => t.classList.toggle("ara", t.dataset.k === actual.k));
+
     $("#calc-progres").textContent = "Tecla " + (pas + 1) + " de " + cas.passos.length;
     $("#calc-arrere").disabled = pas === 0;
-    $("#calc-endavant").disabled = pas === cas.passos.length - 1;
-    $("#calc-endavant").textContent = pas === cas.passos.length - 1 ? "Ja està" : "Següent tecla";
-    $("#calc-final").textContent = pas === cas.passos.length - 1 ? cas.final : "—";
+
+    const endavant = $("#calc-endavant");
+    endavant.disabled = false;
+    endavant.textContent = ultim ? "Torna a començar" : "Següent tecla";
+    // Mentre queden tecles, el botó demana que el toquin. Al final, no.
+    endavant.classList.toggle("crida", !ultim);
+
+    const final = $("#calc-final");
+    final.hidden = !ultim;
+    final.textContent = ultim ? cas.final : "";
   }
 
-  function iniciaCalc() {
+  /** Avança un pas, o torna a començar si ja s'ha acabat. */
+  function seguent() {
+    if (pas < cas.passos.length - 1) pas++;
+    else pas = 0;
+    pintaCalc();
+  }
+
+function iniciaCalc() {
     if ($("#calc-pastilles").children.length) return;
 
     const munta = (cont, llista) => {

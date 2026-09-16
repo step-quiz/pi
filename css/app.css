@@ -131,22 +131,75 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 /* ---- equacions ---- */
 .equacio-gran{font-size:1.7rem;font-weight:700;letter-spacing:-.01em;text-align:center;margin:.2rem 0 .3rem}
 
-/* ---- calculadora ---- */
-.pantalla{background:#1C1C1E;border-radius:19px;padding:1.08rem 1.2rem;margin:.3rem 0 1.2rem}
+/* ---- calculadora ----
+   Un pas ha de cabre sencer a la pantalla. Es prem la tecla a la calculadora
+   de veritat i s'avança aquí; si per veure l'ordre, el teclat i el botó cal
+   fer scroll, es perd el lligam entre les tres coses. Per això tot està
+   comprimit i l'ordre va abans del teclat. La mida de la pantalla de la
+   calculadora NO es toca: es va ampliar un 20 % a petició del docent. */
+
+.pantalla{background:#1C1C1E;border-radius:16px;padding:.7rem .9rem;margin:.2rem 0 .7rem}
 .pantalla .entrada{color:#9BB3A6;font-size:1.26rem;text-align:right;min-height:1.92rem;
   font-variant-numeric:tabular-nums;word-break:break-all}
-.pantalla .lcd{background:#CBE0D5;border-radius:11px;padding:.66rem .96rem;margin-top:.6rem}
+.pantalla .lcd{background:#CBE0D5;border-radius:11px;padding:.5rem .9rem;margin-top:.4rem}
 .pantalla .res{color:#12211A;font-size:2.52rem;font-weight:700;text-align:right;
   letter-spacing:-.02em;min-height:2.88rem;font-variant-numeric:tabular-nums;word-break:break-all}
-.zona-et{font-size:.82rem;color:var(--etiqueta-2);margin:.9rem 0 .35rem}
-.teclat{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
-.teclat.dalt{grid-template-columns:repeat(2,1fr);max-width:16rem}
-.tecla{background:var(--camp);color:var(--etiqueta);border:0;border-radius:12px;
-  min-height:48px;font:inherit;font-size:1.05rem;font-weight:600;display:flex;
-  align-items:center;justify-content:center;transition:background .15s,color .15s,transform .15s}
+
+.context{color:var(--etiqueta-2);font-size:.95rem;margin:.7rem 0 0;line-height:1.35}
+
+/* La instrucció del bucle, sempre a la vista: sense aquesta frase no queda
+   clar que les tecles es premen a l'aparell de veritat i que aquí només
+   s'avança. */
+.com-va{margin:0 0 .7rem;font-size:1rem;line-height:1.35;color:var(--etiqueta)}
+.com-va b{color:var(--blau)}
+
+/* L'ordre del pas: la tecla, gran, i què vol dir. Amb la tecla a la vista no
+   cal encertar-la al mapa del teclat per saber quina és. */
+.ordre{display:flex;align-items:center;gap:.8rem;background:var(--blau-suau);
+  border-radius:var(--r-m);padding:.55rem .7rem}
+.tecla-gran{flex:0 0 auto;min-width:3.4rem;height:3rem;border-radius:11px;
+  background:var(--blau);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;font-weight:700;letter-spacing:-.01em;padding:0 .5rem}
+.tecla-gran.llarga{font-size:.9rem}
+.ordre .que{font-size:1.05rem;font-weight:600;line-height:1.3}
+
+.passa{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
+
+/* El mapa del teclat: serveix per situar la tecla a l'aparell de veritat.
+   És més petit que abans perquè el pas càpiga sencer. */
+.mapa{margin-top:.9rem}
+.zona-et{font-size:.8rem;color:var(--etiqueta-2);margin:.7rem 0 .3rem}
+.teclat{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem}
+.teclat.dalt{grid-template-columns:repeat(2,1fr);max-width:15rem}
+.tecla{background:var(--camp);color:var(--etiqueta);border:0;border-radius:10px;
+  min-height:40px;font:inherit;font-size:1rem;font-weight:600;display:flex;
+  align-items:center;justify-content:center;
+  transition:background .15s,color .15s,transform .15s,box-shadow .15s}
 .tecla.op{color:var(--blau)}
-.tecla.petita{font-size:.82rem}
-.tecla.ara{background:var(--blau);color:#fff;transform:scale(1.06)}
-.passa{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.tecla.petita{font-size:.78rem}
+
+/* La tecla del pas batega i es pot tocar: tocar-la avança, igual que el botó. */
+.tecla.ara{background:var(--blau);color:#fff;cursor:pointer;
+  animation:bategar 1.8s ease-in-out infinite}
+@keyframes bategar{
+  0%,100%{transform:scale(1.04);box-shadow:0 0 0 0 rgba(0,122,255,.5)}
+  70%    {transform:scale(1.08);box-shadow:0 0 0 9px rgba(0,122,255,0)}
+}
+
+/* El botó demana que el toquin: quiet quasi tot el cicle i, de tant en tant,
+   una sacsejada curta amb un anell que s'esvaeix. Suau però visible. */
+.btn.crida{animation:crida 3.4s ease-in-out infinite}
+@keyframes crida{
+  0%,74%{transform:none;box-shadow:0 0 0 0 rgba(0,122,255,.55)}
+  79%   {transform:translateX(-2.5px)}
+  84%   {transform:translateX(2.5px)}
+  89%   {transform:translateX(-1.5px)}
+  94%   {transform:translateX(1.5px);box-shadow:0 0 0 10px rgba(0,122,255,0)}
+  100%  {transform:none;box-shadow:0 0 0 0 rgba(0,122,255,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tecla.ara,.btn.crida{animation:none}
+  .tecla.ara{transform:scale(1.06)}
+}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
