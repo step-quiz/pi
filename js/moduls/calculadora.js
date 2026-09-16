@@ -21,7 +21,7 @@
     { k: "7" }, { k: "8" }, { k: "9" }, { k: "DEL", petita: true }, { k: "AC", petita: true },
     { k: "4" }, { k: "5" }, { k: "6" }, { k: "×", op: true }, { k: "÷", op: true },
     { k: "1" }, { k: "2" }, { k: "3" }, { k: "+", op: true }, { k: "−", op: true },
-    { k: "0" }, { k: SEP_DECIMAL }, { k: "×10ˣ", petita: true }, { k: "Ans", petita: true },
+    { k: "0" }, { k: SEP_DECIMAL }, { k: "×10ˣ", petita: true }, { k: "Ans", ans: true },
     { k: "=", op: true }
   ];
 
@@ -61,36 +61,13 @@
       .map(p => p.k).filter(k => k !== "=" && k !== "FORMAT" && k !== "AC" && k !== "DEL")
       .join("");
   }
-  function llegendaDe(k, i) {
-    if (k === "=") return "Prem-la i mira el resultat.";
-    if (k === "FORMAT") return "Aquesta tecla ensenya els decimals.";
-    if (k === "×") return "És el signe de multiplicar.";
-    if (k === SEP_DECIMAL) return "El punt fa de coma.";
-    if (k === "√") return "És l'arrel quadrada.";
-    const jaHiHaOperador = cas.passos.slice(0, i).some(p => p.k === "×");
-    return jaHiHaOperador ? "Escriu el factor, xifra a xifra."
-                          : "Escriu el número, xifra a xifra.";
-  }
-
-  /** Nom llegible de la tecla per al rètol gran. */
-  function nomTecla(k) {
-    if (k === SEP_DECIMAL) return "punt";
-    return k;
-  }
-
-function pintaCalc() {
+  function pintaCalc() {
     const actual = cas.passos[pas];
     const ultim = pas === cas.passos.length - 1;
 
     $("#calc-entrada").textContent = entradaFinsA(pas) || "\u00A0";
     const res = cas.passos.slice(0, pas + 1).reduce((a, p) => p.res ?? a, null);
     $("#calc-res").textContent = res ?? "\u00A0";
-
-    // el rètol gran: la tecla que toca, sense haver de buscar-la al mapa
-    const rotul = $("#calc-tecla");
-    rotul.textContent = nomTecla(actual.k);
-    rotul.classList.toggle("llarga", nomTecla(actual.k).length > 3);
-    $("#calc-llegenda").textContent = llegendaDe(actual.k, pas);
 
     // el mapa: la tecla del pas batega i es pot tocar per avançar
     $$(".tecla").forEach(t => t.classList.toggle("ara", t.dataset.k === actual.k));
@@ -122,7 +99,8 @@ function iniciaCalc() {
     const munta = (cont, llista) => {
       llista.forEach(t => {
         const b = document.createElement("div");
-        b.className = "tecla" + (t.op ? " op" : "") + (t.petita ? " petita" : "");
+        b.className = "tecla" + (t.op ? " op" : "") + (t.ans ? " ans" : "")
+                     + (t.petita ? " petita" : "");
         b.dataset.k = t.k;
         b.textContent = t.et || t.k;
         cont.appendChild(b);

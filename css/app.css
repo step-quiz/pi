@@ -138,30 +138,41 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
    comprimit i l'ordre va abans del teclat. La mida de la pantalla de la
    calculadora NO es toca: es va ampliar un 20 % a petició del docent. */
 
-.pantalla{background:#1C1C1E;border-radius:16px;padding:.7rem .9rem;margin:.2rem 0 .7rem}
-.pantalla .entrada{color:#9BB3A6;font-size:1.26rem;text-align:right;min-height:1.92rem;
+/* El cos ja no és negre absolut, sinó un gris fosc. */
+.pantalla{background:#35353A;border-radius:16px;padding:.7rem .9rem;margin:.2rem 0 .7rem}
+.pantalla .entrada{color:#C3D6CB;font-size:1.64rem;text-align:right;min-height:2.3rem;
   font-variant-numeric:tabular-nums;word-break:break-all}
 .pantalla .lcd{background:#CBE0D5;border-radius:11px;padding:.5rem .9rem;margin-top:.4rem}
+/* L'alçada del rètol del resultat, un 10 % més baixa. El cos de la xifra no
+   canvia: el que s'estreny és la caixa, no el número. */
 .pantalla .res{color:#12211A;font-size:2.52rem;font-weight:700;text-align:right;
-  letter-spacing:-.02em;min-height:2.88rem;font-variant-numeric:tabular-nums;word-break:break-all}
+  letter-spacing:-.02em;line-height:1.08;min-height:2.6rem;
+  font-variant-numeric:tabular-nums;word-break:break-all}
 
-.context{color:var(--etiqueta-2);font-size:.95rem;margin:.7rem 0 0;line-height:1.35}
+/* Dues columnes: el triador de casos a un costat i el pas a l'altre. Amb el
+   triador a dalt, el pas començava a 190 px de l'inici i no hi cabia. */
+#mod-calc:not([hidden]){display:grid;grid-template-columns:13.5rem 1fr;
+  gap:1rem;align-items:start}
+@media (max-width:46rem){
+  #mod-calc:not([hidden]){grid-template-columns:1fr}
+  .triador .pastilles{flex-direction:row}
+}
+.triador{background:var(--superficie);border-radius:var(--r-g);padding:1rem 1rem 1.1rem;
+  position:sticky;top:1rem}
+.triador h2{font-size:1.12rem;margin-bottom:.8rem}
+.triador .pastilles{flex-direction:column;align-items:stretch}
+.triador .pastilla{text-align:center}
+
+.context{color:var(--etiqueta-2);font-size:.95rem;margin:.8rem 0 0;line-height:1.35}
+/* La confusió més habitual, on no competeix amb el pas. */
+.peu-nota{color:var(--etiqueta-3);font-size:.85rem;line-height:1.3;margin:.9rem 0 0;
+  padding-top:.7rem;border-top:1px solid var(--separador)}
 
 /* La instrucció del bucle, sempre a la vista: sense aquesta frase no queda
    clar que les tecles es premen a l'aparell de veritat i que aquí només
    s'avança. */
 .com-va{margin:0 0 .7rem;font-size:1rem;line-height:1.35;color:var(--etiqueta)}
 .com-va b{color:var(--blau)}
-
-/* L'ordre del pas: la tecla, gran, i què vol dir. Amb la tecla a la vista no
-   cal encertar-la al mapa del teclat per saber quina és. */
-.ordre{display:flex;align-items:center;gap:.8rem;background:var(--blau-suau);
-  border-radius:var(--r-m);padding:.55rem .7rem}
-.tecla-gran{flex:0 0 auto;min-width:3.4rem;height:3rem;border-radius:11px;
-  background:var(--blau);color:#fff;display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;font-weight:700;letter-spacing:-.01em;padding:0 .5rem}
-.tecla-gran.llarga{font-size:.9rem}
-.ordre .que{font-size:1.05rem;font-weight:600;line-height:1.3}
 
 .passa{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
 
@@ -175,7 +186,9 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
   min-height:40px;font:inherit;font-size:1rem;font-weight:600;display:flex;
   align-items:center;justify-content:center;
   transition:background .15s,color .15s,transform .15s,box-shadow .15s}
+/* Les tecles d'operació i Ans, un 30 % més grans que la resta. */
 .tecla.op{color:var(--blau)}
+.tecla.op,.tecla.ans{font-size:1.3rem}
 .tecla.petita{font-size:.78rem}
 
 /* La tecla del pas batega i es pot tocar: tocar-la avança, igual que el botó. */

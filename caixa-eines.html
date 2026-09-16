@@ -191,15 +191,17 @@
 
 <!-- ============ CALCULADORA ============ -->
 <section id="mod-calc" class="modul" hidden>
-  <div class="targeta">
-    <div class="cap"><div><h2>Com es fa amb la calculadora</h2>
-      <p class="ajuda">Tria què vols fer.</p></div></div>
+
+  <!-- El selector de casos va en una columna lateral: així el pas sencer
+       —pantalla, botons i teclat— cap a la finestra sense fer scroll. -->
+  <aside class="triador">
+    <h2>Com es fa amb la calculadora</h2>
     <div class="pastilles" id="calc-pastilles"></div>
     <p class="context" id="calc-context"></p>
-  </div>
+    <p class="peu-nota">A la calculadora, la coma dels decimals
+      s'escriu amb un punt.</p>
+  </aside>
 
-  <!-- Un sol pas ha de cabre a la pantalla sense fer scroll: ordre, teclat i
-       botó d'avançar, tot junt. L'ordre va ABANS del teclat, no després. -->
   <div class="targeta pas-calc">
     <p class="com-va">Prem la tecla a la teva calculadora.
       Després toca <b>Següent tecla</b>.</p>
@@ -207,11 +209,6 @@
     <div class="pantalla">
       <div class="entrada" id="calc-entrada">&nbsp;</div>
       <div class="lcd"><div class="res" id="calc-res">&nbsp;</div></div>
-    </div>
-
-    <div class="ordre" aria-live="polite">
-      <span class="tecla-gran" id="calc-tecla">—</span>
-      <span class="que" id="calc-llegenda"></span>
     </div>
 
     <div class="passa">
@@ -230,6 +227,7 @@
     <div class="avis be" id="calc-final" hidden></div>
   </div>
 </section>
+
 
 
 <!-- ============ COM HO DIC ============ -->

@@ -149,27 +149,34 @@ la tasca 0 vagi la primera.
 
 Aquest mòdul té una restricció que els altres no tenen: **un pas ha de cabre sencer
 a la finestra, sense fer scroll**. El bucle és «prem la tecla a la calculadora de
-veritat i avança aquí», i si per veure l'ordre, el teclat i el botó cal moure la
-pàgina, es perd el lligam entre les tres coses.
+veritat i avança aquí», i si per veure el teclat i el botó cal moure la pàgina, es
+perd el lligam entre les dues coses.
 
-Per això, dins de `.pas-calc`:
+**Dues columnes.** `#mod-calc` és una graella: el triador de casos va en un
+`<aside class="triador">` enganxat a l'esquerra i el pas a la dreta. Amb el triador
+a sobre, el pas començava a 190 px de l'inici i no hi cabia. Per sota de 46 rem
+les dues columnes s'apilen i les pastilles tornen a fila.
 
-1. una frase fixa que diu el bucle, perquè sense dir-ho no s'endevina;
-2. la pantalla de la calculadora **amb la mida que té** — es va ampliar un 20 % a
-   petició del docent i no s'ha de tocar;
-3. **l'ordre del pas abans del teclat**: la tecla amb un rètol gran i què vol dir.
-   Amb la tecla a la vista no cal encertar-la al mapa per saber quina és;
-4. els botons, just després de l'ordre;
-5. el mapa del teclat al final, que serveix per **situar** la tecla a l'aparell.
+**Ordre dins del pas:** la frase que diu el bucle, la pantalla de la calculadora,
+els botons i, al final, el mapa del teclat, que serveix per **situar** la tecla a
+l'aparell. El pas fa uns 440 px.
 
-El pas fa uns 630 px. En una finestra de 1080p hi cap amb marge; abans en feia uns
-1.050 i no hi cabia.
-
-**Dues coses que criden l'atenció sense molestar.** La tecla del pas batega
+**Dues coses criden l'atenció sense molestar.** La tecla del pas batega
 (`@keyframes bategar`) i **es pot tocar per avançar**, igual que el botó: així el
 gest de «prem aquesta tecla» i el d'avançar són el mateix. El botó fa una sacsejada
 curta cada 3,4 s amb un anell que s'esvaeix (`@keyframes crida`). Totes dues
-animacions es desactiven amb `prefers-reduced-motion`.
+s'aturen amb `prefers-reduced-motion`.
+
+**Mides que no s'han de tocar sense demanar-ho.** La pantalla de la calculadora i
+les tecles d'operació tenen mides fixades pel docent: l'entrada un 30 % més gran que
+la base, el rètol del resultat un 10 % més baix i les tecles `× ÷ + − Ans =` un 30 %
+més grans. El cos de la pantalla és gris fosc, no negre.
+
+**Què no hi ha, i és a posta.** No hi ha cap rètol que expliqui pas per pas què vol
+dir la tecla: hi era i es va treure perquè afegia text a una pantalla que n'havia de
+tenir poc. Qui guia és la tecla que batega, la frase del bucle i el comptador
+«Tecla n de m». L'única nota que queda és la de la coma decimal, i viu a la columna
+del triador, on no competeix amb el pas.
 
 ## 5. Afegir una unitat
 
