@@ -34,15 +34,18 @@
 <header>
   <h1>Caixa d'eines</h1>
   <p class="subtitol">Matemàtiques Aplicades</p>
+  <!-- data-tasca: el número dels enllaços filtrats, caixa-eines?task=n (vegeu js/app.js).
+       La tasca 0 es mostra sempre i va la primera. Un número que ja s'ha enviat a
+       l'alumnat no es canvia mai: un mòdul nou pren el següent número lliure. -->
   <div class="segments" role="tablist" aria-label="Eines">
-    <button class="segment" role="tab" data-mod="recta"    aria-selected="false">Recta</button>
-    <button class="segment" role="tab" data-mod="doble"    aria-selected="false">Doble recta</button>
-    <button class="segment" role="tab" data-mod="factor"   aria-selected="false">Percentatges</button>
-    <button class="segment" role="tab" data-mod="escala"   aria-selected="false">Escales</button>
-    <button class="segment" role="tab" data-mod="parabola" aria-selected="false">Paràboles</button>
-    <button class="segment" role="tab" data-mod="equacio"  aria-selected="false">Equacions</button>
-    <button class="segment" role="tab" data-mod="calc"     aria-selected="false">Calculadora</button>
-    <button class="segment" role="tab" data-mod="frases"   aria-selected="false">Com ho dic</button>
+    <button class="segment" role="tab" data-tasca="0" data-mod="calc"     aria-selected="false">Calculadora</button>
+    <button class="segment" role="tab" data-tasca="1" data-mod="recta"    aria-selected="false">Recta</button>
+    <button class="segment" role="tab" data-tasca="2" data-mod="doble"    aria-selected="false">Doble recta</button>
+    <button class="segment" role="tab" data-tasca="3" data-mod="factor"   aria-selected="false">Percentatges</button>
+    <button class="segment" role="tab" data-tasca="4" data-mod="escala"   aria-selected="false">Escales</button>
+    <button class="segment" role="tab" data-tasca="5" data-mod="parabola" aria-selected="false">Paràboles</button>
+    <button class="segment" role="tab" data-tasca="6" data-mod="equacio"  aria-selected="false">Equacions</button>
+    <button class="segment" role="tab" data-tasca="7" data-mod="frases"   aria-selected="false">Com ho dic</button>
   </div>
 </header>
 

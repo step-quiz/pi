@@ -15,7 +15,9 @@
      1. crea js/moduls/<nom>.js amb l'embolcall
         (function(){ "use strict"; const {$, ...} = CE;  ...  CE.registra("id", inicia); })();
      2. posa-hi el <script src> a caixa-eines.html;
-     3. afegeix el <button class="segment" data-mod="id"> i la <section id="mod-id">.
+     3. afegeix el <button class="segment" data-tasca="n" data-mod="id">, amb el
+        següent número lliure (surt als enllaços ?task=n i no es renumera mai),
+        i la <section id="mod-id">.
    No cal tocar app.js.
    ========================================================================== */
 

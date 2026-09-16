@@ -34,6 +34,27 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 ---
 
+## Enllaços per a l'alumnat
+
+Per enviar una sola eina, afegeix `?task=n` a l'adreça de la caixa d'eines, per exemple
+`https://pi.step-quiz.net/caixa-eines?task=2`. Es veuen dues pestanyes: la Calculadora,
+sempre la primera, i la tasca triada, que és la que s'obre. Sense `?task` es veu tot.
+
+| n | tasca |
+|---|---|
+| 0 | Calculadora (surt sempre) |
+| 1 | Recta |
+| 2 | Doble recta |
+| 3 | Percentatges |
+| 4 | Escales |
+| 5 | Paràboles |
+| 6 | Equacions |
+| 7 | Com ho dic |
+
+Els números no canvien mai, perquè ja poden ser en enllaços enviats.
+
+---
+
 ## El principi
 
 > Aquest alumnat pot arribar a la **decisió** que demana el currículum. No pot arribar

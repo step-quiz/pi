@@ -116,10 +116,11 @@ Tres passos i no cal tocar `app.js`.
 })();
 ```
 
-**2.** A `caixa-eines.html`, el botó i la secció:
+**2.** A `caixa-eines.html`, el botó i la secció. El botó porta el següent número de
+tasca lliure:
 
 ```html
-<button class="segment" role="tab" data-mod="xxx" aria-selected="false">Nom</button>
+<button class="segment" role="tab" data-tasca="8" data-mod="xxx" aria-selected="false">Nom</button>
 ...
 <section id="mod-xxx" class="modul" hidden> … </section>
 ```
@@ -133,6 +134,14 @@ muntats.
 **Convenció que fan servir tots.** El mòdul **s'obre ja resolt** amb un exemple marcat
 amb `<span class="marca">Exemple</span>`, i un botó el buida per al cas de l'alumnat.
 És el mateix criteri que «el primer apartat ja resolt» de les fitxes.
+
+**Enllaços filtrats per a l'alumnat.** `caixa-eines.html?task=n` mostra només la tasca 0
+(la Calculadora), sempre la primera, i la tasca `n`, que és la que s'obre. Sense `?task`
+es veu la caixa sencera; amb `?task=0` o un número que no existeix, només la Calculadora.
+En mode filtrat no es fa servir el mòdul desat a `localStorage` i s'amaga l'enllaç a
+l'inici. Els números viuen a l'atribut `data-tasca` i ja són en enllaços enviats: **no es
+renumeren mai**, ni quan es treu un mòdul. El test comprova que no se'n repeteixi cap i que
+la tasca 0 vagi la primera.
 
 ---
 

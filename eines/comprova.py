@@ -99,6 +99,18 @@ comprova(app.rindex('js/app.js') > max(app.rindex(f'js/moduls/{c}.js') for c in 
 print(f"  mòduls: {len(registrats)} · marcatge i registre coincideixen: {pestanyes == registrats}")
 print(f"  app.js va l'últim: {app.rindex('js/app.js') > max(app.rindex(f'js/moduls/{c}.js') for c in carregats)}")
 
+# Els números de tasca surten als enllaços que el docent envia (caixa-eines?task=n).
+# Cada pestanya en porta un, sense repetir-se, i la tasca 0 va la primera perquè es
+# mostra sempre. Un número ja enviat no es canvia mai: un mòdul nou pren el següent.
+pestanyes_html = re.findall(r'<button[^>]*class="segment"[^>]*>', app)
+numeros = [(re.search(r'data-tasca="([^"]*)"', b) or [None, None])[1] for b in pestanyes_html]
+mods = [(re.search(r'data-mod="(\w+)"', b) or [None, '?'])[1] for b in pestanyes_html]
+tasques_ok = (bool(numeros) and all(n is not None and re.fullmatch(r'0|[1-9]\d*', n) for n in numeros)
+              and len(set(numeros)) == len(numeros) and numeros[0] == "0")
+comprova(tasques_ok, f"data-tasca de les pestanyes: {numeros} "
+                     "(cal un número a cada una, sense repetir, i el 0 el primer)")
+print("  tasques: " + " · ".join(f"{n} {m}" for n, m in zip(numeros, mods)))
+
 print("\nPDF")
 # Un PDF per unitat i per destinatari. Es generen amb generadors/gen_pdf.py.
 falten = []
