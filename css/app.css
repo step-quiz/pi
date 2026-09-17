@@ -128,6 +128,30 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .frase select{font:inherit;font-family:var(--tipus);background:var(--camp);color:var(--etiqueta);
   border:0;border-radius:8px;padding:.3rem .5rem;min-height:38px;font-weight:600}
 
+/* ---- subtasques: una tasca partida en 1.1, 1.2, 1.3… ----
+   La barra va enganxada a dalt perquè les fletxes siguin sempre a mà sense
+   haver de tornar a pujar, que és el problema que ja vam tenir amb el mòdul
+   de la calculadora. */
+.subbarra{display:flex;align-items:center;gap:.7rem;background:var(--superficie);
+  border-radius:999px;padding:.4rem .5rem;margin-bottom:1rem;
+  position:sticky;top:.6rem;z-index:5;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.sub-rotul{flex:1;text-align:center;font-size:1rem;line-height:1.25}
+.sub-rotul b{color:var(--blau);margin-right:.35rem}
+.subbarra .btn{min-width:3rem;font-size:1.4rem;line-height:1;padding:.4rem .9rem}
+.subbarra .btn:disabled{opacity:.35}
+
+/* La pantalla de calculadora, en versió reduïda per als exercicis on només
+   fa de suport i no és el protagonista. */
+.pantalla.petita{padding:.5rem .8rem;margin-bottom:.6rem}
+.pantalla.petita .entrada{font-size:1.2rem;min-height:1.6rem}
+.pantalla.petita .lcd{padding:.35rem .8rem}
+.pantalla.petita .res{font-size:1.9rem;min-height:2.1rem}
+
+/* Dues respostes grans, per decidir sense escriure. */
+.tria-gran{display:flex;gap:.7rem;margin:.9rem 0}
+.tria-gran .btn{flex:1}
+.btn.gran{font-size:1.2rem;padding:1rem;min-height:64px;border-radius:var(--r-m)}
+
 /* ---- equacions ---- */
 .equacio-gran{font-size:1.7rem;font-weight:700;letter-spacing:-.01em;text-align:center;margin:.2rem 0 .3rem}
 

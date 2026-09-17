@@ -10,6 +10,7 @@
    primera, i la tasca n. Els números són l'atribut data-tasca de cada botó.
      - Sense ?task es veu la caixa sencera, com sempre.
      - ?task=0, o un número que no existeix: només la tasca 0.
+     - ?task=1.2 obre la tasca 1 directament per la subtasca 2.
      - S'obre directament la tasca n.
      - No es llegeix ni s'escriu el mòdul desat: en un ordinador compartit,
        cada persona entraria on ho va deixar l'anterior.
@@ -45,9 +46,15 @@
     const valor = new URLSearchParams(location.search).get("task");
     if (valor === null) return null;
 
+    // «1» obre la tasca 1; «1.2» obre directament la subtasca 1.2, que és el que
+    // permet enviar un exercici concret i no la tasca sencera.
+    const parts = valor.trim().split(".");
+    const bo = parts.length <= 2 && parts.every(x => /^\d+$/.test(x));
+    CE.subDemanada = (bo && parts.length === 2) ? Number(parts[1]) : null;
+
     const tasca = n => botons.find(b => b.dataset.tasca === n);
     const base = tasca("0");
-    const triada = /^\d+$/.test(valor.trim()) ? tasca(String(Number(valor))) : undefined;
+    const triada = bo ? tasca(String(Number(parts[0]))) : undefined;
     if (!triada) console.warn("CE: ?task=" + valor + " no és cap tasca; només es mostra la tasca 0");
 
     const visibles = [...new Set([base, triada])].filter(Boolean);

@@ -15,6 +15,9 @@
      1. crea js/moduls/<nom>.js amb l'embolcall
         (function(){ "use strict"; const {$, ...} = CE;  ...  CE.registra("id", inicia); })();
      2. posa-hi el <script src> a caixa-eines.html;
+     Si el mòdul té subtasques, cada panell va dins d'un
+     <div class="subtasca" data-sub="n" data-nom="…"> i s'hi crida CE.subtasques().
+
      3. afegeix el <button class="segment" data-tasca="n" data-mod="id">, amb el
         següent número lliure (surt als enllaços ?task=n i no es renumera mai),
         i la <section id="mod-id">.
@@ -85,6 +88,41 @@ window.CE = (function () {
     });
   }
 
+  /** Panells numerats dins d'un mòdul: la «tasca 1» passa a ser 1.1, 1.2, 1.3…
+      Cada panell és un <div class="subtasca" data-sub="n" data-nom="…">, i la
+      barra de fletxes és .sub-enrere / .sub-rotul / .sub-avant.
+      El mòdul només ha de dir què vol fer quan se n'ensenya un; la navegació,
+      el rètol i els botons desactivats van d'aquí.
+      Es pot cridar diverses vegades: torna a lligar els botons i prou. */
+  function subtasques(arrel, aoMostrar) {
+    const panells = $$(".subtasca", arrel);
+    if (!panells.length) return null;
+
+    const enrere = $(".sub-enrere", arrel);
+    const avant = $(".sub-avant", arrel);
+    const rotul = $(".sub-rotul", arrel);
+    // el número de tasca surt de la pestanya, per no repetir-lo al marcatge
+    const pestanya = $('.segment[data-mod="' + arrel.id.replace("mod-", "") + '"]');
+    const tasca = pestanya ? pestanya.dataset.tasca : "";
+    let ara = 1;
+
+    function mostra(n) {
+      ara = Math.max(1, Math.min(panells.length, Number(n) || 1));
+      panells.forEach(p => { p.hidden = Number(p.dataset.sub) !== ara; });
+      if (enrere) enrere.disabled = ara === 1;
+      if (avant) avant.disabled = ara === panells.length;
+      if (rotul) {
+        rotul.innerHTML = "<b>" + tasca + "." + ara + "</b> " +
+          (panells[ara - 1].dataset.nom || "");
+      }
+      if (aoMostrar) aoMostrar(ara);
+    }
+
+    if (enrere) enrere.onclick = () => mostra(ara - 1);
+    if (avant) avant.onclick = () => mostra(ara + 1);
+    return { mostra, quantes: panells.length, actual: () => ara };
+  }
+
   const moduls = {};
   /** Cada mòdul es dona d'alta amb el seu identificador i la funció d'arrencada.
       La funció s'ha de poder cridar diverses vegades sense duplicar res. */
@@ -93,5 +131,6 @@ window.CE = (function () {
     moduls[id] = inicia;
   }
 
-  return { $, $$, num, fix, euros, memoria, el, icona, pastilles, moduls, registra };
+  return { $, $$, num, fix, euros, memoria, el, icona, pastilles,
+           subtasques, moduls, registra };
 })();

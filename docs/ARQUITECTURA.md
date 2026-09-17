@@ -145,6 +145,52 @@ la tasca 0 vagi la primera.
 
 ---
 
+## 4a. Subtasques: una tasca partida en 1.1, 1.2, 1.3…
+
+Un mòdul pot tenir diversos exercicis dins. La navegació és genèrica i està al
+nucli, de manera que qualsevol mòdul ho pot fer sense codi propi.
+
+**Marcatge.** Dins de la `<section>`, una barra i els panells:
+
+```html
+<div class="subbarra">
+  <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+  <span class="sub-rotul"></span>
+  <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+</div>
+<div class="subtasca" data-sub="1" data-nom="Nom curt">…</div>
+<div class="subtasca" data-sub="2" data-nom="Nom curt" hidden>…</div>
+```
+
+**Al mòdul**, una sola crida. La funció d'arrencada de cada panell es crida el
+primer cop que s'ensenya, no abans:
+
+```js
+const ARRENCA = { 1: iniciaA, 2: iniciaB, 3: iniciaC };
+const jaFetes = new Set();
+let subActual = null;
+
+function inicia() {
+  const subs = CE.subtasques($("#mod-xxx"), n => {
+    subActual = n;
+    if (!jaFetes.has(n)) { ARRENCA[n](); jaFetes.add(n); }
+  });
+  subs.mostra(subActual || CE.subDemanada || 1);
+}
+```
+
+`subActual` fa que, en tornar a la pestanya, es reprengui on s'estava.
+
+**Enllaços.** `?task=1` obre la tasca 1 per l'exercici 1; **`?task=1.3` obre
+directament el tercer**. És el que permet enviar un exercici concret i no la
+tasca sencera. Si el número no existeix o el format no és `n` ni `n.m`, es cau a
+la tasca 0, com sempre.
+
+**El número de subtasca no es renumera mai**, per la mateixa raó que el de tasca:
+els enllaços viuen en fulls fotocopiats. Si una subtasca es retira, el seu número
+es deixa buit. El test comprova que vagin seguides des de l'1 i que cadascuna
+tingui `data-nom`.
+
 ## 4b. El mòdul de la calculadora: un pas, una pantalla
 
 Aquest mòdul té una restricció que els altres no tenen: **un pas ha de cabre sencer

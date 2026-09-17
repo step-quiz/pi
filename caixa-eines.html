@@ -51,27 +51,106 @@
 
 <!-- ============ RECTA I ESTIMACIÓ ============ -->
 <section id="mod-recta" class="modul" hidden>
-  <div class="targeta">
-    <div class="cap"><div><h2>On cau el nombre?</h2>
-      <p class="ajuda">Escull un nombre. Observa quins nombres enters té més a prop.</p></div>
-      <span class="marca" id="recta-marca">Exemple</span></div>
-    <div class="pastilles" id="recta-pastilles"></div>
-    <svg class="llenc" id="recta-svg" viewBox="0 0 660 150" role="img" aria-label="Recta numèrica"></svg>
-    <div class="avis neutre" id="recta-avis" aria-live="polite"></div>
+
+  <!-- La tasca 1 és una seqüència: 1.1, 1.2, 1.3, 1.4. La navegació la porta
+       CE.subtasques(); aquí només calen els panells i la barra de fletxes. -->
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
-  <div class="targeta">
-    <div class="cap"><div><h2>Quants decimals necessites?</h2>
-      <p class="ajuda">Depèn del que n'hagis de fer. Tria una situació.</p></div></div>
-    <div class="precisio" id="recta-precisio"></div>
-    <hr class="divisor">
-    <div class="et">El nombre amb totes les xifres decimals</div>
-    <div class="tira" id="recta-tira" aria-hidden="true"></div>
-    <div class="et" style="margin-top:.6rem">Aproximem el nombre:</div>
-    <div class="gran" id="recta-resultat" aria-live="polite">—</div>
-    <div class="et" id="recta-nota" style="margin-top:.35rem" aria-live="polite"></div>
+  <!-- ..................... 1.1 ..................... -->
+  <div class="subtasca" data-sub="1" data-nom="On cau el nombre?">
+    <div class="targeta">
+      <div class="cap"><div><h2>On cau el nombre?</h2>
+        <p class="ajuda">Tria un nombre i mira entre quins sencers cau.</p></div>
+        <span class="marca" id="recta-marca">Exemple</span></div>
+      <div class="pastilles" id="recta-pastilles"></div>
+      <svg class="llenc" id="recta-svg" viewBox="0 0 660 150" role="img" aria-label="Recta numèrica"></svg>
+      <div class="avis neutre" id="recta-avis" aria-live="polite"></div>
+    </div>
+
+    <div class="targeta">
+      <div class="cap"><div><h2>Quants decimals necessites?</h2>
+        <p class="ajuda">Depèn del que n'hagis de fer. Tria una situació.</p></div></div>
+      <div class="precisio" id="recta-precisio"></div>
+      <hr class="divisor">
+      <div class="et">El nombre sencer</div>
+      <div class="tira" id="recta-tira" aria-hidden="true"></div>
+      <div class="et" style="margin-top:.6rem">Com queda</div>
+      <div class="gran" id="recta-resultat" aria-live="polite">—</div>
+      <div class="et" id="recta-nota" style="margin-top:.35rem" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ..................... 1.2 ..................... -->
+  <div class="subtasca" data-sub="2" data-nom="Posa'l a la recta" hidden>
+    <div class="targeta">
+      <h2>Posa'l a la recta</h2>
+      <p class="ajuda">Toca la recta on et sembla que cau aquest nombre.</p>
+
+      <div class="pantalla petita">
+        <div class="entrada" id="posa-nom">&nbsp;</div>
+        <div class="lcd"><div class="res" id="posa-valor">&nbsp;</div></div>
+      </div>
+
+      <svg class="llenc" id="posa-svg" viewBox="0 0 660 160" role="img"
+        aria-label="Recta numèrica per tocar"></svg>
+      <div class="avis neutre" id="posa-avis" aria-live="polite"></div>
+      <div class="passa">
+        <button class="btn mini" id="posa-altre">Un altre nombre</button>
+        <span class="et" id="posa-compte"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ..................... 1.3 ..................... -->
+  <div class="subtasca" data-sub="3" data-nom="S'acaba o no s'acaba?" hidden>
+    <div class="targeta">
+      <h2>S'acaba o no s'acaba?</h2>
+      <p class="ajuda">Mira els decimals de la pantalla i decideix.</p>
+
+      <div class="pantalla">
+        <div class="entrada" id="acaba-nom">&nbsp;</div>
+        <div class="lcd"><div class="res" id="acaba-valor">&nbsp;</div></div>
+      </div>
+
+      <div class="tria-gran">
+        <button class="btn gran" data-resp="si">S'acaba</button>
+        <button class="btn gran tenyit" data-resp="no">No s'acaba</button>
+      </div>
+      <div class="avis neutre" id="acaba-avis" aria-live="polite"></div>
+      <div class="passa">
+        <button class="btn mini" id="acaba-altre">Un altre</button>
+        <span class="et" id="acaba-compte"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ..................... 1.4 ..................... -->
+  <div class="subtasca" data-sub="4" data-nom="Quant costa arrodonir" hidden>
+    <div class="targeta">
+      <h2>Quant costa arrodonir</h2>
+      <p class="ajuda">Compres corda. Mira què passa si demanes metres sencers.</p>
+
+      <div class="pastilles" id="cost-preus"></div>
+
+      <div class="passa" style="justify-content:center;margin-top:1rem">
+        <button class="btn tenyit" id="cost-menys" aria-label="Menys corda">−</button>
+        <div style="text-align:center;min-width:8rem">
+          <div class="et">Necessites</div>
+          <div class="gran" id="cost-metres">—</div>
+        </div>
+        <button class="btn tenyit" id="cost-mes" aria-label="Més corda">+</button>
+      </div>
+
+      <div class="passos" id="cost-barres"></div>
+      <div class="avis be" id="cost-avis" aria-live="polite"></div>
+    </div>
   </div>
 </section>
+
 
 <!-- ============ DOBLE RECTA NUMÈRICA ============ -->
 <section id="mod-doble" class="modul" hidden>

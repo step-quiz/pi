@@ -43,7 +43,7 @@ sempre la primera, i la tasca triada, que és la que s'obre. Sense `?task` es ve
 | n | tasca |
 |---|---|
 | 0 | Calculadora (surt sempre) |
-| 1 | Recta |
+| 1 | Recta · té 4 exercicis: `?task=1.1` a `?task=1.4` |
 | 2 | Doble recta |
 | 3 | Percentatges |
 | 4 | Escales |

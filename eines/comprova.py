@@ -111,6 +111,25 @@ comprova(tasques_ok, f"data-tasca de les pestanyes: {numeros} "
                      "(cal un número a cada una, sense repetir, i el 0 el primer)")
 print("  tasques: " + " · ".join(f"{n} {m}" for n, m in zip(numeros, mods)))
 
+print("\nSUBTASQUES")
+# Un mòdul partit en 1.1, 1.2… necessita la barra de fletxes i panells numerats
+# de manera seguida des de l'1, perquè els enllaços ?task=1.3 apuntin on toca.
+for m in re.findall(r'<section id="mod-(\w+)"[^>]*>(.*?)</section>', app, re.S):
+    nom, cos = m
+    subs = [int(x) for x in re.findall(r'class="subtasca"[^>]*data-sub="(\d+)"', cos)]
+    if not subs:
+        continue
+    comprova(subs == list(range(1, len(subs) + 1)),
+             f"mod-{nom}: les subtasques van {subs}, han d'anar 1, 2, 3…")
+    comprova(len(set(subs)) == len(subs), f"mod-{nom}: hi ha subtasques repetides")
+    for peca in ("sub-enrere", "sub-avant", "sub-rotul"):
+        comprova(peca in cos, f"mod-{nom} té subtasques però li falta .{peca}")
+    noms = re.findall(r'class="subtasca"[^>]*data-nom="([^"]*)"', cos)
+    comprova(len(noms) == len(subs) and all(noms), f"mod-{nom}: hi ha subtasques sense data-nom")
+    print(f"  mod-{nom}: {len(subs)} subtasques, numerades bé i amb nom")
+if not re.search(r'class="subtasca"', app):
+    print("  cap mòdul en té")
+
 print("\nPDF")
 # Un PDF per unitat i per destinatari. Es generen amb generadors/gen_pdf.py.
 falten = []

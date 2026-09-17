@@ -109,5 +109,195 @@
     pintaRecta(); pintaTira();
   }
 
-  CE.registra("recta", iniciaRecta);
+
+  /* ==================== 1.2 · Posa'l a la recta ====================
+     Col·locar un nombre és pur canal visual, que és el punt fort d'aquest
+     alumnat. El valor decimal es dona fet: aquí no s'avalua calcular, sinó
+     situar. */
+  const PER_POSAR = [
+    { et: "√5",  v: Math.sqrt(5) },  { et: "√7",  v: Math.sqrt(7) },
+    { et: "√11", v: Math.sqrt(11) }, { et: "π",   v: Math.PI },
+    { et: "√20", v: Math.sqrt(20) }, { et: "√30", v: Math.sqrt(30) },
+    { et: "7/2", v: 3.5 },           { et: "√2",  v: Math.SQRT2 }
+  ];
+  const POSA_MAX = 6, POSA_TOL = 0.25;
+  let posaAra = null, posaFets = 0, posaEncerts = 0, posaTocat = null;
+
+  function pintaPosa() {
+    const svg = $("#posa-svg"); svg.textContent = "";
+    const x0 = 34, x1 = 626, y = 84;
+    const px = t => x0 + t / POSA_MAX * (x1 - x0);
+    const gris = "var(--etiqueta-3)", sec = "var(--etiqueta-2)";
+
+    svg.appendChild(el("line", { x1: x0, y1: y, x2: x1, y2: y,
+      style: "stroke:" + gris, "stroke-width": 3, "stroke-linecap": "round" }));
+    for (let i = 0; i <= POSA_MAX; i++) {
+      svg.appendChild(el("line", { x1: px(i), y1: y - 10, x2: px(i), y2: y + 10,
+        style: "stroke:" + gris, "stroke-width": 2 }));
+      svg.appendChild(el("text", { x: px(i), y: y + 38, "text-anchor": "middle",
+        "font-size": 19, style: "fill:" + sec, "font-family": "inherit" }, i));
+    }
+    if (posaTocat !== null) {
+      const encert = Math.abs(posaTocat - posaAra.v) <= POSA_TOL;
+      svg.appendChild(el("line", { x1: px(posaTocat), y1: y - 34, x2: px(posaTocat), y2: y + 10,
+        style: "stroke:var(--" + (encert ? "verd" : "taronja") + ")", "stroke-width": 4,
+        "stroke-linecap": "round" }));
+      svg.appendChild(el("text", { x: px(posaTocat), y: y - 42, "text-anchor": "middle",
+        "font-size": 17, "font-weight": 700,
+        style: "fill:var(--" + (encert ? "verd" : "taronja") + ")",
+        "font-family": "inherit" }, "aquí"));
+      if (!encert) {   // ensenyar on era, per veure la distància
+        svg.appendChild(el("circle", { cx: px(posaAra.v), cy: y, r: 9, style: "fill:var(--blau)" }));
+        svg.appendChild(el("text", { x: px(posaAra.v), y: y + 62, "text-anchor": "middle",
+          "font-size": 17, "font-weight": 700, style: "fill:var(--blau)",
+          "font-family": "inherit" }, posaAra.et));
+      }
+    }
+    const capa = el("rect", { x: 0, y: 0, width: 660, height: 160, fill: "transparent",
+      style: "cursor:pointer" });
+    capa.addEventListener("click", ev => {
+      if (posaTocat !== null) return;                 // ja contestat
+      const r = svg.getBoundingClientRect();
+      const t = ((ev.clientX - r.left) / r.width * 660 - x0) / (x1 - x0) * POSA_MAX;
+      posaTocat = Math.max(0, Math.min(POSA_MAX, t));
+      posaFets++;
+      const d = Math.abs(posaTocat - posaAra.v);
+      const avis = $("#posa-avis");
+      if (d <= POSA_TOL) {
+        posaEncerts++;
+        avis.className = "avis be";
+        avis.innerHTML = "<b>Molt bé.</b> " + posaAra.et + " cau entre " +
+          Math.floor(posaAra.v) + " i " + (Math.floor(posaAra.v) + 1) + ".";
+      } else {
+        avis.className = "avis pensa";
+        avis.innerHTML = "Era una mica més a la <b>" +
+          (posaTocat < posaAra.v ? "dreta" : "esquerra") + "</b>. Mira on cau.";
+      }
+      pintaPosa(); marcadorPosa();
+    });
+    svg.appendChild(capa);
+  }
+
+  function marcadorPosa() {
+    $("#posa-compte").textContent = posaFets ? posaEncerts + " de " + posaFets : "";
+  }
+
+  function nouPosa() {
+    let n; do { n = PER_POSAR[Math.floor(Math.random() * PER_POSAR.length)]; }
+    while (posaAra && n.et === posaAra.et);
+    posaAra = n; posaTocat = null;
+    $("#posa-nom").textContent = n.et;
+    $("#posa-valor").textContent = fix(n.v, 4);
+    const avis = $("#posa-avis");
+    avis.className = "avis neutre";
+    avis.textContent = "Toca la recta.";
+    pintaPosa(); marcadorPosa();
+  }
+
+  function iniciaPosa() {
+    $("#posa-altre").onclick = nouPosa;
+    nouPosa();
+  }
+
+  /* ==================== 1.3 · S'acaba o no s'acaba? ====================
+     L'arrel d'un quadrat perfecte dona un nombre exacte; la resta, no. És una
+     decisió de sí o no, sense escriure res, i de passada s'aprèn la llista de
+     quadrats perfectes. */
+  const ARRELS = [
+    { et: "√9", v: 3, acaba: true },   { et: "√16", v: 4, acaba: true },
+    { et: "√25", v: 5, acaba: true },  { et: "√36", v: 6, acaba: true },
+    { et: "√49", v: 7, acaba: true },  { et: "√64", v: 8, acaba: true },
+    { et: "√2", v: Math.SQRT2 },       { et: "√5", v: Math.sqrt(5) },
+    { et: "√7", v: Math.sqrt(7) },     { et: "√10", v: Math.sqrt(10) },
+    { et: "√20", v: Math.sqrt(20) },   { et: "π", v: Math.PI }
+  ];
+  let acabaAra = null, acabaFets = 0, acabaEncerts = 0, acabaTancat = false;
+
+  function nouAcaba() {
+    let n; do { n = ARRELS[Math.floor(Math.random() * ARRELS.length)]; }
+    while (acabaAra && n.et === acabaAra.et);
+    acabaAra = n; acabaTancat = false;
+    $("#acaba-nom").textContent = n.et;
+    $("#acaba-valor").textContent = n.acaba ? fix(n.v, 0) : fix(n.v, 7) + "…";
+    const avis = $("#acaba-avis");
+    avis.className = "avis neutre";
+    avis.textContent = "Mira els decimals i tria.";
+  }
+
+  function responAcaba(diuQueAcaba) {
+    if (acabaTancat) return;
+    acabaTancat = true; acabaFets++;
+    const bo = diuQueAcaba === !!acabaAra.acaba;
+    if (bo) acabaEncerts++;
+    const avis = $("#acaba-avis");
+    avis.className = bo ? "avis be" : "avis pensa";
+    avis.innerHTML = (bo ? "<b>Sí.</b> " : "<b>No.</b> ") + (acabaAra.acaba
+      ? acabaAra.et + " és exactament <b>" + fix(acabaAra.v, 0) + "</b>: s'acaba."
+      : acabaAra.et + " no s'acaba mai, per molts decimals que hi posis.");
+    $("#acaba-compte").textContent = acabaEncerts + " de " + acabaFets;
+  }
+
+  function iniciaAcaba() {
+    $$('#mod-recta .tria-gran .btn').forEach(b => {
+      b.onclick = () => responAcaba(b.dataset.resp === "si");
+    });
+    $("#acaba-altre").onclick = nouAcaba;
+    nouAcaba();
+  }
+
+  /* ==================== 1.4 · Quant costa arrodonir ====================
+     Arrodonir cap amunt no és gratis. És l'exercici 6 de la fitxa, i enllaça
+     amb la Unitat 2: una decisió que té preu. */
+  const PREUS = [{ et: "Corda · 2,35 €/m", v: 2.35 }, { et: "Cinta · 1,80 €/m", v: 1.80 },
+                 { et: "Cable · 0,90 €/m", v: 0.90 }];
+  let costPreu = PREUS[0].v, costM = 3.7;
+
+  function pintaCost() {
+    $("#cost-metres").textContent = num(costM, 1) + " m";
+    // A la caixa es cobra en cèntims: s'arrodoneix cada import ABANS de restar.
+    // Si es restés en cru sortiria 0,71 € on la fitxa de la unitat diu 0,70 €.
+    const cents = v => Math.round(v * 100) / 100;
+    const just = cents(costM * costPreu);
+    const amunt = cents(Math.ceil(costM - 1e-9) * costPreu);
+    const maxim = Math.max(just, amunt, 0.01);
+    const cont = $("#cost-barres"); cont.textContent = "";
+
+    [["El que necessites: " + num(costM, 1) + " m", just, "base"],
+     ["Arrodonit amunt: " + Math.ceil(costM - 1e-9) + " m", amunt, "amunt"]
+    ].forEach(([et, v, cl]) => {
+      const d = document.createElement("div"); d.className = "pas";
+      d.innerHTML = '<div class="pas-cap"><span>' + et + "</span><b>" + euros(v) + "</b></div>";
+      const b = document.createElement("div");
+      b.className = "barra " + cl;
+      b.style.width = Math.max(2, v / maxim * 100) + "%";
+      d.appendChild(b); cont.appendChild(d);
+    });
+
+    const dif = amunt - just;
+    $("#cost-avis").innerHTML = dif < 0.005
+      ? "Demanes metres justos: no pagues res de més."
+      : "Pagues <b>" + euros(dif) + "</b> de més.";
+  }
+
+  function iniciaCost() {
+    pastilles($("#cost-preus"), PREUS, it => { costPreu = it.v; pintaCost(); });
+    $("#cost-menys").onclick = () => { costM = Math.max(0.1, +(costM - 0.1).toFixed(1)); pintaCost(); };
+    $("#cost-mes").onclick = () => { costM = Math.min(9.9, +(costM + 0.1).toFixed(1)); pintaCost(); };
+    pintaCost();
+  }
+
+  /* ---- navegació entre 1.1, 1.2, 1.3 i 1.4 ---- */
+  const ARRENCA = { 1: iniciaRecta, 2: iniciaPosa, 3: iniciaAcaba, 4: iniciaCost };
+  const jaFetes = new Set();
+  let subActual = null;
+
+  function iniciaTasca1() {
+    const subs = CE.subtasques($("#mod-recta"), n => {
+      subActual = n;
+      if (!jaFetes.has(n)) { ARRENCA[n](); jaFetes.add(n); }
+    });
+    subs.mostra(subActual || CE.subDemanada || 1);
+  }
+
+  CE.registra("recta", iniciaTasca1);
 })();
