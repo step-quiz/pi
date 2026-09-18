@@ -18,101 +18,95 @@
 
 window.TEXTOS = {
 
-  /* ---------------- 1.1 · observar on cau un nombre ---------------- */
   "1.1": {
-    nom:       "On cau el nombre?",
-    titol:     "On cau el nombre?",
-    ajuda:     "Tria un nombre i mira entre quins sencers cau.",
-    marca:     "Exemple",
-    situa:     "És entre *{baix}* i *{alt}*, i més a prop del *{prop}*.",
-    titol2:    "Quants decimals necessites?",
-    ajuda2:    "Depèn del que n'hagis de fer. Tria una situació.",
-    et_sencer: "El nombre sencer",
-    et_queda:  "Com queda",
-    us_dic:    "Ho dic",
-    us_compro: "Ho compro",
-    us_tallo:  "Ho tallo",
-    decimal:   "decimal",
-    decimals:  "decimals",
-    puja:      "L'última xifra puja, perquè la següent és 5 o més.",
-    igual:     "L'última xifra es queda igual."
+    nom:       'On està situat el nombre?',
+    titol:     'On està situat el nombre?',
+    ajuda:     'Escull un nombre. Observa entre quins nombres enters està situat.',
+    marca:     '',
+    situa:     'El nombre està entre *{baix}* i *{alt}*, més a prop del *{prop}*.',
+    titol2:    'Si volem aproximar el nombre 2,6457513, quants decimals fem servir?',
+    ajuda2:    'Depèn de la situació situació, fem servir més decimals o menys decimals. Exemples:',
+    et_sencer: 'El nombre',
+    et_queda:  'Hem aproximat el nombre',
+    us_dic:    'Dic el nombre a una altra persona',
+    us_compro: 'Faig una compra i necessito dir els € però també els cèntims',
+    us_tallo:  'Vull tallar una fusta i necessito 3 decimals',
+    decimal:   'decimal',
+    decimals:  'decimals',
+    puja:      'L\'última xifra puja, perquè la següent xifra és 5 o més.',
+    igual:     'L\'última xifra es queda igual.'
   },
 
-  /* ---------------- 1.2 · col·locar-lo a la recta ---------------- */
   "1.2": {
-    nom:      "Posa'l a la recta",
-    titol:    "Posa'l a la recta",
-    ajuda:    "Toca la recta on et sembla que cau aquest nombre.",
-    comenca:  "Toca la recta.",
-    aqui:     "aquí",
-    encert:   "*Molt bé.* {nom} cau entre {baix} i {alt}.",
-    fallada:  "Era una mica més a la *{banda}*. Mira on cau.",
-    dreta:    "dreta",
-    esquerra: "esquerra",
-    altre:    "Un altre nombre"
+    nom:      'Situa un nombre a la recta real',
+    titol:    'Situa un nombre a la recta real',
+    ajuda:    'Has de tocar el lloc de la recta horitzontal on tu creus que hi haurà aquest nombre.',
+    comenca:  'On creus que hi haurà el nombre?',
+    aqui:     'aquí',
+    encert:   '*Molt bé.* {nom} està situat entre els nombres {baix} i {alt}.',
+    fallada:  'Era una mica més cap a la *{banda}*. Mira bé la recta i el nombre.',
+    dreta:    'dreta',
+    esquerra: 'esquerra',
+    altre:    'Un altre nombre'
   },
 
-  /* ---------------- 1.3 · s'acaba o no s'acaba ---------------- */
   "1.3": {
-    nom:       "S'acaba o no s'acaba?",
-    titol:     "S'acaba o no s'acaba?",
-    ajuda:     "Mira els decimals de la pantalla i decideix.",
-    comenca:   "Mira els decimals i tria.",
-    boto_si:   "S'acaba",
-    boto_no:   "No s'acaba",
-    encert_si: "*Sí.* {nom} és exactament *{valor}*: s'acaba.",
-    error_si:  "*No.* {nom} és exactament *{valor}*: s'acaba.",
-    encert_no: "*Sí.* {nom} no s'acaba mai, per molts decimals que hi posis.",
-    error_no:  "*No.* {nom} no s'acaba mai, per molts decimals que hi posis.",
-    altre:     "Un altre"
+    nom:       'Té infinits decimals, o no?',
+    titol:     'Té infinits decimals, o no?',
+    ajuda:     'Mira els decimals de la pantalla i decideix la teva resposta.',
+    comenca:   'Escull una resposta',
+    boto_si:   'El nombre de decimals s\'acaba',
+    boto_no:   'El nombre de decimals no s\'acaba mai',
+    encert_si: '*Sí.* {nom} és exactament *{valor}*: el nombre de decimals s\'acaba.',
+    error_si:  '*No.* {nom} és exactament *{valor}*: el nombre de decimals s\'acaba.',
+    encert_no: '*Sí.* {nom} no s\'acaba mai, per molts decimals que hi posis.',
+    error_no:  '*No.* {nom} no s\'acaba mai, per molts decimals que hi posis.',
+    altre:     'Un altre exemple? Clica aquí'
   },
 
-  /* ---------------- 1.4 · el preu d'arrodonir ---------------- */
   "1.4": {
-    nom:           "Quant costa arrodonir",
-    titol:         "Quant costa arrodonir",
-    ajuda:         "Compres corda. Mira què passa si demanes metres sencers.",
-    et_necessites: "Necessites",
-    mat_1:         "Corda",
-    mat_2:         "Cinta",
-    mat_3:         "Cable",
-    mat_etiqueta:  "{nom} · {preu}/m",
-    barra_just:    "El que necessites: {m} m",
-    barra_amunt:   "Arrodonit amunt: {m} m",
-    just:          "Demanes metres justos: no pagues res de més.",
-    de_mes:        "Pagues *{dif}* de més."
+    nom:           'Arrodonim i calculem preus',
+    titol:         'Arrodonim i calculem preus',
+    ajuda:         'Necessites comprar corda, però a la botiga només venen per metres sencers: 1m, o 2m, o 3m, ...',
+    et_necessites: 'Necessites',
+    mat_1:         'Corda',
+    mat_2:         'Cinta',
+    mat_3:         'Cable',
+    mat_etiqueta:  '{nom} · {preu}/m',
+    barra_just:    'Necessites exactament això: {m} m',
+    barra_amunt:   'Però has de comprar això (arrodonit cap amunt): {m} m',
+    just:          'Demanes metres justos: no pagues res de més.',
+    de_mes:        'Pagues *{dif}* de més, perquè has hagut d\'arrodonir.'
   },
 
-  /* ---------------- 1.5 · el valor de cada xifra ---------------- */
   "1.5": {
-    nom:        "Cada xifra val una cosa",
-    titol:      "Cada xifra val una cosa",
-    ajuda:      "Toca una xifra i mira quant val.",
-    comenca:    "Toca una xifra de la taula.",
-    val:        "El *{xifra}* és a les *{lloc}*. Val *{quant}*.",
-    et_suma:    "El nombre, trossejat",
-    centenes:   "centenes",
-    desenes:    "desenes",
-    unitats:    "unitats",
-    decimes:    "dècimes",
-    centesimes: "centèsimes",
-    millesimes: "mil·lèsimes"
+    nom:        'Cada xifra significa una cosa diferents',
+    titol:      'Cada xifra significa una cosa diferents',
+    ajuda:      'Selecciona una xifra i mira quin és el seu valor.',
+    comenca:    'Selecciona una xifra de la taula.',
+    val:        'El *{xifra}* és a les *{lloc}*. Val *{quant}*.',
+    et_suma:    'Aquí tenim el nombre explicat d\'una altra manera',
+    centenes:   'centenes',
+    desenes:    'desenes',
+    unitats:    'unitats',
+    decimes:    'dècimes',
+    centesimes: 'centèsimes',
+    millesimes: 'mil·lèsimes'
   },
 
-  /* ---------------- 1.6 · canviar d'unitat mou la coma ---------------- */
   "1.6": {
-    nom:       "Canviar d'unitat mou la coma",
-    titol:     "Canviar d'unitat mou la coma",
-    ajuda:     "Tria una unitat de l'escala i mira on va la coma.",
-    et_mesura: "La mateixa llargada, escrita d'una altra manera",
-    surto:     "surto d'aquí",
-    igual:     "*{a}* i *{b}* són la mateixa llargada.",
-    valor:     "La longitud val *{a}*.",
-    mateixa:   "Aquesta és la unitat de partida: la coma no es mou.",
-    dreta:     "Has baixat *{graons}* graons: la coma es mou *{graons}* llocs a la *dreta*.",
-    esquerra:  "Has pujat *{graons}* graons: la coma es mou *{graons}* llocs a l'*esquerra*.",
-    dreta1:    "Has baixat *1* graó: la coma es mou *1* lloc a la *dreta*.",
-    esquerra1: "Has pujat *1* graó: la coma es mou *1* lloc a l'*esquerra*."
+    nom:       'Canvis d\'unitats',
+    titol:     'Canvis d\'unitats',
+    ajuda:     'Tria una unitat i observa què passa amb la coma decimal.',
+    et_mesura: 'És la mateixa longitud, però amb una unitat diferent',
+    surto:     'surto d\'aquí',
+    igual:     '*{a}* i *{b}* són exactament la mateixa longitud.',
+    valor:     'La longitud val *{a}*.',
+    mateixa:   'Aquesta és la unitat de partida: la coma no es mou.',
+    dreta:     'La coma es mou *{graons}* llocs a la *dreta*.',
+    esquerra:  'La coma es mou *{graons}* llocs a l\'*esquerra*.',
+    dreta1:    'La coma es mou *1* lloc a la *dreta*.',
+    esquerra1: 'La coma es mou *1* lloc a l\'*esquerra*.'
   }
 };
 
