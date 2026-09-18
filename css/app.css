@@ -144,9 +144,13 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .vp-cel.plena{cursor:pointer}
 .vp-cel:not(.plena){background:transparent;box-shadow:inset 0 0 0 2px var(--separador)}
 .vp-cel.triada{background:var(--blau);color:#fff;transform:scale(1.06)}
-.vp-coma{flex:0 0 auto;align-self:flex-end;width:1.1rem;height:3.2rem;
+/* La coma: negra com les xifres, un 20 % més gran (2,2 → 2,64 rem) i estirada
+   amb transform perquè quedi més prima i més llarga sense canviar de glif.
+   transform no afecta la caixa, i per això la columna s'eixampla a mà. */
+.vp-coma{flex:0 0 auto;align-self:flex-end;width:1.5rem;height:3.2rem;
   display:flex;align-items:flex-end;justify-content:center;
-  font-size:2.2rem;font-weight:700;line-height:.8;color:var(--taronja)}
+  font-size:2.64rem;font-weight:400;line-height:.8;color:var(--etiqueta);
+  transform:scaleX(.72) scaleY(1.6);transform-origin:center bottom}
 
 /* La descomposició: un nombre decimal és una suma. */
 .trossos{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}

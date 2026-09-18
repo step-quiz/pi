@@ -439,7 +439,10 @@
       zona.addEventListener("click", () => { uUnitat = i; pintaUnitat(); });
       svg.appendChild(zona);
     });
-    const graons = 3 - uUnitat;                 // positiu: baixar per l'escala
+    // L'índex creix cap avall de l'escala (0 = km … 3 = m … 6 = mm), de manera
+    // que baixar és restar-hi la posició del metre, no al revés. Amb el signe
+    // canviat, l'app deia que de m a cm es puja i la coma va a l'esquerra.
+    const graons = uUnitat - 3;                 // positiu: baixar per l'escala
     if (graons !== 0) {
       const xa = x0 + 3 * ample + ample / 2, xb = x0 + uUnitat * ample + ample / 2;
       svg.appendChild(el("path", {
@@ -455,11 +458,15 @@
       mov.className = "avis neutre"; mov.innerHTML = txt("1.6.mateixa");
     } else {
       mov.className = "avis pensa";
-      mov.innerHTML = txt(graons > 0 ? "1.6.dreta" : "1.6.esquerra",
-        { graons: Math.abs(graons) });
+      // amb un sol graó cal el singular: «1 graons» no es pot deixar passar
+      const quants = Math.abs(graons);
+      mov.innerHTML = txt("1.6." + (graons > 0 ? "dreta" : "esquerra") +
+        (quants === 1 ? "1" : ""), { graons: quants });
     }
-    $("#unitat-igual").innerHTML = txt("1.6.igual",
-      { a: uMesura.et, b: valor + " " + u.et });
+    // Sense canvi d'unitat, «3,47 m i 3,47 m són la mateixa llargada» no diu res.
+    $("#unitat-igual").innerHTML = graons === 0
+      ? txt("1.6.valor", { a: uMesura.et })
+      : txt("1.6.igual", { a: uMesura.et, b: valor + " " + u.et });
   }
 
   function iniciaUnitat() {

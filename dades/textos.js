@@ -107,9 +107,12 @@ window.TEXTOS = {
     et_mesura: "La mateixa llargada, escrita d'una altra manera",
     surto:     "surto d'aquí",
     igual:     "*{a}* i *{b}* són la mateixa llargada.",
+    valor:     "La longitud val *{a}*.",
     mateixa:   "Aquesta és la unitat de partida: la coma no es mou.",
     dreta:     "Has baixat *{graons}* graons: la coma es mou *{graons}* llocs a la *dreta*.",
-    esquerra:  "Has pujat *{graons}* graons: la coma es mou *{graons}* llocs a l'*esquerra*."
+    esquerra:  "Has pujat *{graons}* graons: la coma es mou *{graons}* llocs a l'*esquerra*.",
+    dreta1:    "Has baixat *1* graó: la coma es mou *1* lloc a la *dreta*.",
+    esquerra1: "Has pujat *1* graó: la coma es mou *1* lloc a l'*esquerra*."
   }
 };
 
@@ -199,8 +202,11 @@ window.TEXTOS_GUIA = {
     et_mesura: ["Rètol sobre la mesura gran", []],
     surto:     ["Nota damunt la unitat de partida", []],
     igual:     ["Les dues escriptures són la mateixa llargada", ["a", "b"]],
+    valor:     ["Quan encara no s'ha canviat d'unitat", ["a"]],
     mateixa:   ["Quan la unitat triada ja és la de partida", []],
-    dreta:     ["Baixant graons per l'escala", ["graons"]],
-    esquerra:  ["Pujant graons per l'escala", ["graons"]]
+    dreta:     ["Baixant dos graons o més", ["graons"]],
+    esquerra:  ["Pujant dos graons o més", ["graons"]],
+    dreta1:    ["Baixant un sol graó, en singular", []],
+    esquerra1: ["Pujant un sol graó, en singular", []]
   }
 };
