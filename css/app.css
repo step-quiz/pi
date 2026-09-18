@@ -128,6 +128,34 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .frase select{font:inherit;font-family:var(--tipus);background:var(--camp);color:var(--etiqueta);
   border:0;border-radius:8px;padding:.3rem .5rem;min-height:38px;font-weight:600}
 
+/* ---- 1.5 · taula del valor posicional ----
+   Les columnes són l'objecte que explica el concepte: la mateixa xifra val una
+   cosa diferent segons on cau. La coma té columna pròpia, estreta, perquè es
+   vegi que no és una xifra. */
+.posicional{display:flex;align-items:flex-end;gap:.25rem;margin:1rem 0 .3rem;
+  overflow-x:auto;padding-bottom:.2rem}
+.vp-col{flex:1 1 0;min-width:3.4rem;text-align:center}
+.vp-nom{font-size:.72rem;line-height:1.2;color:var(--etiqueta-2);
+  min-height:2.2em;display:flex;align-items:flex-end;justify-content:center}
+.vp-cel{margin-top:.3rem;height:3.2rem;border-radius:var(--r-p);background:var(--camp);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;font-weight:700;font-variant-numeric:tabular-nums;
+  transition:background .15s,color .15s,transform .15s}
+.vp-cel.plena{cursor:pointer}
+.vp-cel:not(.plena){background:transparent;box-shadow:inset 0 0 0 2px var(--separador)}
+.vp-cel.triada{background:var(--blau);color:#fff;transform:scale(1.06)}
+.vp-coma{flex:0 0 auto;align-self:flex-end;width:1.1rem;height:3.2rem;
+  display:flex;align-items:flex-end;justify-content:center;
+  font-size:2.2rem;font-weight:700;line-height:.8;color:var(--taronja)}
+
+/* La descomposició: un nombre decimal és una suma. */
+.trossos{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}
+.tros{background:var(--camp);border-radius:var(--r-p);padding:.3rem .7rem;
+  font-size:1.15rem;font-weight:600;font-variant-numeric:tabular-nums}
+.tros.triada{background:var(--blau);color:#fff}
+.tros.total{background:var(--verd-suau)}
+.mes{color:var(--etiqueta-2);font-size:1.1rem;font-weight:600}
+
 /* ---- subtasques: una tasca partida en 1.1, 1.2, 1.3… ----
    La barra va enganxada a dalt perquè les fletxes siguin sempre a mà sense
    haver de tornar a pujar, que és el problema que ja vam tenir amb el mòdul

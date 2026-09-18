@@ -2,7 +2,8 @@
    Es registra sol; app.js no en sap res més que l'identificador. */
 (function () {
   "use strict";
-  const { $, $$, num, fix, euros, el, icona, pastilles, memoria } = CE;
+  const { $, $$, num, fix, euros, el, icona, pastilles, memoria, txt,
+          omplirTextos } = CE;
 
   /* El primer nombre és el model, el mateix √7 de la fitxa de la Unitat 1. */
   const NOMBRES = [
@@ -14,9 +15,9 @@
   ];
   /* Els mateixos tres usos que a la fitxa impresa, amb els mateixos decimals. */
   const USOS = [
-    { id: "parla",  et: "Ho dic",     dec: 1, frase: "De paraula no cal ser exacte." },
-    { id: "compra", et: "Ho compro",  dec: 2, frase: "A la botiga es ven per centímetres." },
-    { id: "talla",  et: "Ho tallo",   dec: 3, frase: "Si talles, el mil·límetre compta." }
+    { id: "parla",  clau: "1.1.us_dic",    dec: 1 },
+    { id: "compra", clau: "1.1.us_compro", dec: 2 },
+    { id: "talla",  clau: "1.1.us_tallo",  dec: 3 }
   ];
   let rectaV = NOMBRES[0].v, rectaUs = null, rectaModel = true;
 
@@ -44,8 +45,7 @@
       "font-weight": 600, style: "fill:" + tinta, "font-family": "inherit" }, fix(rectaV, 4)));
 
     const prop = (rectaV - baix) < 0.5 ? baix : alt;
-    $("#recta-avis").innerHTML = "És entre <b>" + baix + "</b> i <b>" + alt +
-      "</b>, i més a prop del <b>" + prop + "</b>.";
+    $("#recta-avis").innerHTML = txt("1.1.situa", { baix, alt, prop });
   }
 
   function pintaTira() {
@@ -73,9 +73,7 @@
        resultat (per exemple, es conserva 2,64 però queda 2,65). */
     const nota = $("#recta-nota");
     if (dec === null) { nota.textContent = ""; return; }
-    nota.textContent = (fix(rectaV, dec) !== s.slice(0, tall))
-      ? "L'última xifra puja, perquè la següent és 5 o més."
-      : "L'última xifra es queda igual.";
+    nota.innerHTML = txt(fix(rectaV, dec) !== s.slice(0, tall) ? "1.1.puja" : "1.1.igual");
   }
 
   function iniciaRecta() {
@@ -93,9 +91,10 @@
       const b = document.createElement("button");
       b.setAttribute("aria-pressed", i === 1);         // el model: «Ho compro», 2 decimals
       b.appendChild(icona("i-" + u.id, 28));
-      const e = document.createElement("div"); e.className = "et"; e.textContent = u.et;
+      const e = document.createElement("div"); e.className = "et";
+      e.innerHTML = txt(u.clau);
       const d = document.createElement("div"); d.style.fontWeight = 600;
-      d.textContent = u.dec + (u.dec === 1 ? " decimal" : " decimals");
+      d.innerHTML = u.dec + " " + txt(u.dec === 1 ? "1.1.decimal" : "1.1.decimals");
       b.append(e, d);
       b.onclick = () => {
         $$("button", cont).forEach(x => x.setAttribute("aria-pressed", "false"));
@@ -145,7 +144,7 @@
       svg.appendChild(el("text", { x: px(posaTocat), y: y - 42, "text-anchor": "middle",
         "font-size": 17, "font-weight": 700,
         style: "fill:var(--" + (encert ? "verd" : "taronja") + ")",
-        "font-family": "inherit" }, "aquí"));
+        "font-family": "inherit" }, txt("1.2.aqui")));
       if (!encert) {   // ensenyar on era, per veure la distància
         svg.appendChild(el("circle", { cx: px(posaAra.v), cy: y, r: 9, style: "fill:var(--blau)" }));
         svg.appendChild(el("text", { x: px(posaAra.v), y: y + 62, "text-anchor": "middle",
@@ -166,12 +165,12 @@
       if (d <= POSA_TOL) {
         posaEncerts++;
         avis.className = "avis be";
-        avis.innerHTML = "<b>Molt bé.</b> " + posaAra.et + " cau entre " +
-          Math.floor(posaAra.v) + " i " + (Math.floor(posaAra.v) + 1) + ".";
+        avis.innerHTML = txt("1.2.encert", { nom: posaAra.et,
+          baix: Math.floor(posaAra.v), alt: Math.floor(posaAra.v) + 1 });
       } else {
         avis.className = "avis pensa";
-        avis.innerHTML = "Era una mica més a la <b>" +
-          (posaTocat < posaAra.v ? "dreta" : "esquerra") + "</b>. Mira on cau.";
+        avis.innerHTML = txt("1.2.fallada", { banda:
+          txt(posaTocat < posaAra.v ? "1.2.dreta" : "1.2.esquerra") });
       }
       pintaPosa(); marcadorPosa();
     });
@@ -190,7 +189,7 @@
     $("#posa-valor").textContent = fix(n.v, 4);
     const avis = $("#posa-avis");
     avis.className = "avis neutre";
-    avis.textContent = "Toca la recta.";
+    avis.innerHTML = txt("1.2.comenca");
     pintaPosa(); marcadorPosa();
   }
 
@@ -221,7 +220,7 @@
     $("#acaba-valor").textContent = n.acaba ? fix(n.v, 0) : fix(n.v, 7) + "…";
     const avis = $("#acaba-avis");
     avis.className = "avis neutre";
-    avis.textContent = "Mira els decimals i tria.";
+    avis.innerHTML = txt("1.3.comenca");
   }
 
   function responAcaba(diuQueAcaba) {
@@ -231,9 +230,8 @@
     if (bo) acabaEncerts++;
     const avis = $("#acaba-avis");
     avis.className = bo ? "avis be" : "avis pensa";
-    avis.innerHTML = (bo ? "<b>Sí.</b> " : "<b>No.</b> ") + (acabaAra.acaba
-      ? acabaAra.et + " és exactament <b>" + fix(acabaAra.v, 0) + "</b>: s'acaba."
-      : acabaAra.et + " no s'acaba mai, per molts decimals que hi posis.");
+    const quina = (bo ? "encert" : "error") + (acabaAra.acaba ? "_si" : "_no");
+    avis.innerHTML = txt("1.3." + quina, { nom: acabaAra.et, valor: fix(acabaAra.v, 0) });
     $("#acaba-compte").textContent = acabaEncerts + " de " + acabaFets;
   }
 
@@ -248,8 +246,14 @@
   /* ==================== 1.4 · Quant costa arrodonir ====================
      Arrodonir cap amunt no és gratis. És l'exercici 6 de la fitxa, i enllaça
      amb la Unitat 2: una decisió que té preu. */
-  const PREUS = [{ et: "Corda · 2,35 €/m", v: 2.35 }, { et: "Cinta · 1,80 €/m", v: 1.80 },
-                 { et: "Cable · 0,90 €/m", v: 0.90 }];
+  // El preu és dada del codi; de textos.js només en surt el nom, de manera que
+  // canviar-ne el text no pot fer que l'etiqueta digui un preu que no és.
+  const PREUS = [{ clau: "1.4.mat_1", v: 2.35 },
+                 { clau: "1.4.mat_2", v: 1.80 },
+                 { clau: "1.4.mat_3", v: 0.90 }]
+    .map(m => Object.assign({}, m, {
+      get et() { return txt("1.4.mat_etiqueta", { nom: txt(m.clau), preu: euros(m.v) }); }
+    }));
   let costPreu = PREUS[0].v, costM = 3.7;
 
   function pintaCost() {
@@ -262,8 +266,8 @@
     const maxim = Math.max(just, amunt, 0.01);
     const cont = $("#cost-barres"); cont.textContent = "";
 
-    [["El que necessites: " + num(costM, 1) + " m", just, "base"],
-     ["Arrodonit amunt: " + Math.ceil(costM - 1e-9) + " m", amunt, "amunt"]
+    [[txt("1.4.barra_just",  { m: num(costM, 1) }),              just,  "base"],
+     [txt("1.4.barra_amunt", { m: Math.ceil(costM - 1e-9) }), amunt, "amunt"]
     ].forEach(([et, v, cl]) => {
       const d = document.createElement("div"); d.className = "pas";
       d.innerHTML = '<div class="pas-cap"><span>' + et + "</span><b>" + euros(v) + "</b></div>";
@@ -275,8 +279,8 @@
 
     const dif = amunt - just;
     $("#cost-avis").innerHTML = dif < 0.005
-      ? "Demanes metres justos: no pagues res de més."
-      : "Pagues <b>" + euros(dif) + "</b> de més.";
+      ? txt("1.4.just")
+      : txt("1.4.de_mes", { dif: euros(dif) });
   }
 
   function iniciaCost() {
@@ -286,12 +290,191 @@
     pintaCost();
   }
 
-  /* ---- navegació entre 1.1, 1.2, 1.3 i 1.4 ---- */
-  const ARRENCA = { 1: iniciaRecta, 2: iniciaPosa, 3: iniciaAcaba, 4: iniciaCost };
+
+  /* ==================== 1.5 · Cada xifra val una cosa ====================
+     El valor posicional, amb la taula de columnes com a objecte visual. Cada
+     xifra es pot tocar i diu què val. La descomposició de sota (3 + 0,4 + 0,07)
+     és el contingut de debò: un nombre decimal és una suma. */
+
+  // Els nombres es guarden com a xifres + exponent: 347 amb exp −2 és 3,47.
+  // Així tota la feina és moure la coma, mai multiplicar decimals, que és
+  // justament on es perd aquest alumnat.
+  const LLOCS = { 2: "1.5.centenes", 1: "1.5.desenes", 0: "1.5.unitats",
+                  "-1": "1.5.decimes", "-2": "1.5.centesimes", "-3": "1.5.millesimes" };
+  const COLUMNES = [2, 1, 0, -1, -2, -3];
+  const NOMBRES_VP = [
+    { et: "3,47",  d: "347",  e: -2 },
+    { et: "12,5",  d: "125",  e: -1 },
+    { et: "0,08",  d: "8",    e: -2 },
+    { et: "105,3", d: "1053", e: -1 },
+    { et: "2,015", d: "2015", e: -3 }
+  ];
+  let vpAra = NOMBRES_VP[0], vpTriada = null;
+
+  /** Escriu xifres × 10^exp com a decimal, movent la coma i sense fer servir
+      aritmètica de coma flotant, que arrossegaria errors. */
+  function decimal(xifres, exp) {
+    if (/^0+$/.test(xifres)) return "0";     // el zero val zero a qualsevol columna
+    let d = xifres.replace(/^0+(?=\d)/, "");
+    if (exp >= 0) return d + "0".repeat(exp);
+    const k = -exp;
+    if (d.length > k) {
+      const ent = d.slice(0, d.length - k), dec = d.slice(d.length - k).replace(/0+$/, "");
+      return dec ? ent + "," + dec : ent;
+    }
+    const dec = ("0".repeat(k - d.length) + d).replace(/0+$/, "");
+    return dec ? "0," + dec : "0";
+  }
+
+  /** L'exponent de cada xifra: la de més a la dreta té l'exponent del nombre. */
+  const expDe = (i, n) => n.e + (n.d.length - 1 - i);
+
+  function pintaValor() {
+    const taula = $("#valor-taula"); taula.textContent = "";
+    const ocupades = {};
+    [...vpAra.d].forEach((x, i) => { ocupades[expDe(i, vpAra)] = { x, i }; });
+
+    COLUMNES.forEach(exp => {
+      if (exp === -1) {                                 // la columna de la coma
+        const c = document.createElement("div");
+        c.className = "vp-coma"; c.textContent = ",";
+        taula.appendChild(c);
+      }
+      const col = document.createElement("div");
+      col.className = "vp-col";
+      const cap = document.createElement("div");
+      cap.className = "vp-nom"; cap.innerHTML = txt(LLOCS[exp]);
+      const cel = document.createElement("div");
+      cel.className = "vp-cel";
+      const dada = ocupades[exp];
+      if (dada) {
+        cel.textContent = dada.x;
+        cel.classList.add("plena");
+        if (vpTriada === dada.i) cel.classList.add("triada");
+        cel.onclick = () => { vpTriada = dada.i; pintaValor(); };
+      }
+      col.append(cap, cel);
+      taula.appendChild(col);
+    });
+
+    const avis = $("#valor-avis");
+    if (vpTriada === null) {
+      avis.className = "avis neutre";
+      avis.innerHTML = txt("1.5.comenca");
+    } else {
+      const exp = expDe(vpTriada, vpAra);
+      avis.className = "avis be";
+      avis.innerHTML = txt("1.5.val", {
+        xifra: vpAra.d[vpTriada],
+        lloc: txt(LLOCS[exp]),
+        quant: decimal(vpAra.d[vpTriada], exp)
+      });
+    }
+
+    const suma = $("#valor-suma"); suma.textContent = "";
+    [...vpAra.d].forEach((x, i) => {
+      if (x === "0") return;
+      const t = document.createElement("span");
+      t.className = "tros" + (vpTriada === i ? " triada" : "");
+      t.textContent = decimal(x, expDe(i, vpAra));
+      if (suma.children.length) {
+        const mes = document.createElement("span");
+        mes.className = "mes"; mes.textContent = "+";
+        suma.appendChild(mes);
+      }
+      suma.appendChild(t);
+    });
+    const ig = document.createElement("span");
+    ig.className = "mes"; ig.textContent = "=";
+    const tot = document.createElement("span");
+    tot.className = "tros total"; tot.textContent = vpAra.et;
+    suma.append(ig, tot);
+  }
+
+  function iniciaValor() {
+    pastilles($("#valor-nombres"), NOMBRES_VP, it => {
+      vpAra = it; vpTriada = null; pintaValor();
+    });
+    pintaValor();
+  }
+
+  /* ==================== 1.6 · Canviar d'unitat mou la coma ====================
+     La mateixa llargada escrita de set maneres. Cada graó de l'escala és un lloc
+     de coma, i per això aquest exercici i el 1.5 són el mateix objecte: el que
+     canvia de columna és la xifra, no la quantitat. */
+  const ESCALA = [
+    { et: "km", p: 3 }, { et: "hm", p: 2 }, { et: "dam", p: 1 }, { et: "m", p: 0 },
+    { et: "dm", p: -1 }, { et: "cm", p: -2 }, { et: "mm", p: -3 }
+  ];
+  const MESURES = [
+    { et: "3,47 m", d: "347", e: -2 }, { et: "0,8 m", d: "8", e: -1 },
+    { et: "12,5 m", d: "125", e: -1 }, { et: "250 m", d: "250", e: 0 }
+  ];
+  let uMesura = MESURES[0], uUnitat = 3;      // índex 3 = metres, la de partida
+
+  function pintaUnitat() {
+    const u = ESCALA[uUnitat];
+    const valor = decimal(uMesura.d, uMesura.e - u.p);
+    $("#unitat-gran").textContent = valor + " " + u.et;
+
+    // l'escala, amb la unitat de partida i la triada marcades
+    const svg = $("#unitat-escala"); svg.textContent = "";
+    const x0 = 30, ample = (600 - 30) / ESCALA.length, y = 42, alt = 46;
+    ESCALA.forEach((e, i) => {
+      const x = x0 + i * ample;
+      const tria = i === uUnitat, sortida = i === 3;
+      svg.appendChild(el("rect", { x: x + 3, y, width: ample - 6, height: alt, rx: 9,
+        style: "fill:var(--" + (tria ? "blau" : "camp") + ")" }));
+      svg.appendChild(el("text", { x: x + ample / 2, y: y + 30, "text-anchor": "middle",
+        "font-size": 20, "font-weight": 700, "font-family": "inherit",
+        style: "fill:" + (tria ? "#fff" : "var(--etiqueta)") }, e.et));
+      if (sortida && !tria) {
+        svg.appendChild(el("text", { x: x + ample / 2, y: y - 10, "text-anchor": "middle",
+          "font-size": 14, "font-family": "inherit",
+          style: "fill:var(--etiqueta-2)" }, txt("1.6.surto")));
+      }
+      // cada graó es pot tocar: és com es tria la unitat
+      const zona = el("rect", { x: x + 3, y: y - 16, width: ample - 6, height: alt + 32,
+        fill: "transparent", style: "cursor:pointer" });
+      zona.addEventListener("click", () => { uUnitat = i; pintaUnitat(); });
+      svg.appendChild(zona);
+    });
+    const graons = 3 - uUnitat;                 // positiu: baixar per l'escala
+    if (graons !== 0) {
+      const xa = x0 + 3 * ample + ample / 2, xb = x0 + uUnitat * ample + ample / 2;
+      svg.appendChild(el("path", {
+        d: "M " + xa + " " + (y + alt + 14) + " L " + xb + " " + (y + alt + 14),
+        style: "stroke:var(--taronja)", "stroke-width": 3, "stroke-linecap": "round" }));
+      svg.appendChild(el("text", { x: (xa + xb) / 2, y: y + alt + 38, "text-anchor": "middle",
+        "font-size": 16, "font-weight": 700, "font-family": "inherit",
+        style: "fill:var(--taronja)" }, (graons > 0 ? "▶ " : "◀ ") + Math.abs(graons)));
+    }
+
+    const mov = $("#unitat-moviment");
+    if (graons === 0) {
+      mov.className = "avis neutre"; mov.innerHTML = txt("1.6.mateixa");
+    } else {
+      mov.className = "avis pensa";
+      mov.innerHTML = txt(graons > 0 ? "1.6.dreta" : "1.6.esquerra",
+        { graons: Math.abs(graons) });
+    }
+    $("#unitat-igual").innerHTML = txt("1.6.igual",
+      { a: uMesura.et, b: valor + " " + u.et });
+  }
+
+  function iniciaUnitat() {
+    pastilles($("#unitat-mesures"), MESURES, it => { uMesura = it; pintaUnitat(); });
+    pintaUnitat();
+  }
+
+  /* ---- navegació entre les subtasques ---- */
+  const ARRENCA = { 1: iniciaRecta, 2: iniciaPosa, 3: iniciaAcaba, 4: iniciaCost,
+                    5: iniciaValor, 6: iniciaUnitat };
   const jaFetes = new Set();
   let subActual = null;
 
   function iniciaTasca1() {
+    omplirTextos($("#mod-recta"));      // les frases del marcatge, de textos.js
     const subs = CE.subtasques($("#mod-recta"), n => {
       subActual = n;
       if (!jaFetes.has(n)) { ARRENCA[n](); jaFetes.add(n); }

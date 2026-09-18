@@ -145,6 +145,42 @@ la tasca 0 vagi la primera.
 
 ---
 
+## 3b. Les frases: `dades/textos.js`
+
+**Cap frase que llegeixi l'alumnat viu al codi ni al marcatge.** Totes són a
+`dades/textos.js`, en un sol objecte. El marcatge hi apunta i el codi les demana:
+
+```html
+<h2 data-text="1.2.titol"></h2>
+```
+```js
+avis.innerHTML = txt("1.2.encert", { nom: "√5", baix: 2, alt: 3 });
+```
+
+`CE.omplirTextos(arrel)` omple tots els `[data-text]` d'un tros de pàgina, i es
+crida un cop quan arrenca el mòdul.
+
+**Dues convencions** que fan que les frases es puguin editar sense saber
+programar: `*entre asteriscs*` surt en negreta, i `{això}` és un forat que
+s'omple amb una dada. Si una clau no existeix, `txt()` retorna `[1.2.titol]`, que
+canta prou per adonar-se'n de seguida sense petar.
+
+**`textos.html`** és una pàgina per al professorat: ensenya cada frase en un camp
+amb una nota de on surt, avisa en vermell si hi falta un forat, i dona el fitxer
+ja muntat per substituir `dades/textos.js`. La capçalera i el bloc `TEXTOS_GUIA`
+del fitxer es tornen a escriure tal com són: la pàgina només canvia les frases.
+
+**On no van les frases.** Els `aria-label` es queden al marcatge: són text
+d'accessibilitat, no el que es llegeix a la pantalla. I les dades que mouen un
+càlcul —els preus del material de l'exercici 1.4, per exemple— es queden al codi;
+de `textos.js` en surt només el nom, de manera que canviar-ne el text no pot fer
+que l'etiqueta digui un preu que no és.
+
+**El test** comprova que tota clau que es demana existeixi, que cada frase tingui
+la seva línia a `TEXTOS_GUIA` i que no n'hi hagi cap sense fer servir. Compte: hi
+ha claus que es munten (`"1.3." + quina`, o el `.nom` que llegeix el nucli), i la
+comprovació les té en compte; si no, delataria vint frases que sí que s'usen.
+
 ## 4a. Subtasques: una tasca partida en 1.1, 1.2, 1.3…
 
 Un mòdul pot tenir diversos exercicis dins. La navegació és genèrica i està al
@@ -190,6 +226,35 @@ la tasca 0, com sempre.
 els enllaços viuen en fulls fotocopiats. Si una subtasca es retira, el seu número
 es deixa buit. El test comprova que vagin seguides des de l'1 i que cadascuna
 tingui `data-nom`.
+
+## 4c. El valor posicional i el sistema mètric (1.5 i 1.6)
+
+Aquests dos exercicis són **el mateix objecte vist dues vegades**, i per això van
+seguits: canviar d'unitat no canvia la llargada, només mou la coma dins de la
+taula de columnes.
+
+- **1.5** ensenya la taula (centenes → mil·lèsimes) amb una xifra per columna.
+  Tocar-ne una diu què val, i a sota hi ha la descomposició: `3 + 0,4 + 0,07`.
+  Un nombre decimal és una suma, i aquí es veu.
+- **1.6** posa la mateixa mesura a l'escala `km hm dam m dm cm mm`. Es toca un
+  graó i la mesura es reescriu; es diu quants graons s'han mogut i cap a on va
+  la coma.
+
+**Res de tot això fa servir aritmètica de coma flotant.** Les mesures es guarden
+com a **xifres + exponent** (`{ d: "347", e: -2 }` és 3,47) i la funció
+`decimal(xifres, exp)` escriu el resultat movent la coma sobre la cadena. Dos
+motius: és exactament l'operació que s'està ensenyant, i és exacta. Amb càlcul
+normal, `3,47 × 10` dona `34.699999999999996` i la pantalla mentiria.
+
+Dos casos que s'han hagut d'arreglar i que convé no desfer:
+
+- `decimal("0", exp)` retornava `"00"` per a l'exponent 1, i tocant el zero de
+  105,3 deia «val 00». El zero val zero a qualsevol columna.
+- A 1.4, el preu del material no surt de `textos.js` sinó del codi, perquè
+  canviar-ne el text no pugui fer que l'etiqueta digui un preu que no és.
+
+Les 28 conversions possibles (4 mesures × 7 unitats) es comproven contra el
+càlcul normal i coincideixen totes.
 
 ## 4b. El mòdul de la calculadora: un pas, una pantalla
 

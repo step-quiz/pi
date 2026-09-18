@@ -61,34 +61,34 @@
   </div>
 
   <!-- ..................... 1.1 ..................... -->
-  <div class="subtasca" data-sub="1" data-nom="On cau el nombre?">
+  <div class="subtasca" data-sub="1">
     <div class="targeta">
-      <div class="cap"><div><h2>On cau el nombre?</h2>
-        <p class="ajuda">Tria un nombre i mira entre quins sencers cau.</p></div>
-        <span class="marca" id="recta-marca">Exemple</span></div>
+      <div class="cap"><div><h2 data-text="1.1.titol"></h2>
+        <p class="ajuda" data-text="1.1.ajuda"></p></div>
+        <span class="marca" id="recta-marca" data-text="1.1.marca"></span></div>
       <div class="pastilles" id="recta-pastilles"></div>
       <svg class="llenc" id="recta-svg" viewBox="0 0 660 150" role="img" aria-label="Recta numèrica"></svg>
       <div class="avis neutre" id="recta-avis" aria-live="polite"></div>
     </div>
 
     <div class="targeta">
-      <div class="cap"><div><h2>Quants decimals necessites?</h2>
-        <p class="ajuda">Depèn del que n'hagis de fer. Tria una situació.</p></div></div>
+      <div class="cap"><div><h2 data-text="1.1.titol2"></h2>
+        <p class="ajuda" data-text="1.1.ajuda2"></p></div></div>
       <div class="precisio" id="recta-precisio"></div>
       <hr class="divisor">
-      <div class="et">El nombre sencer</div>
+      <div class="et" data-text="1.1.et_sencer"></div>
       <div class="tira" id="recta-tira" aria-hidden="true"></div>
-      <div class="et" style="margin-top:.6rem">Com queda</div>
+      <div class="et" style="margin-top:.6rem" data-text="1.1.et_queda"></div>
       <div class="gran" id="recta-resultat" aria-live="polite">—</div>
       <div class="et" id="recta-nota" style="margin-top:.35rem" aria-live="polite"></div>
     </div>
   </div>
 
   <!-- ..................... 1.2 ..................... -->
-  <div class="subtasca" data-sub="2" data-nom="Posa'l a la recta" hidden>
+  <div class="subtasca" data-sub="2" hidden>
     <div class="targeta">
-      <h2>Posa'l a la recta</h2>
-      <p class="ajuda">Toca la recta on et sembla que cau aquest nombre.</p>
+      <h2 data-text="1.2.titol"></h2>
+      <p class="ajuda" data-text="1.2.ajuda"></p>
 
       <div class="pantalla petita">
         <div class="entrada" id="posa-nom">&nbsp;</div>
@@ -99,17 +99,17 @@
         aria-label="Recta numèrica per tocar"></svg>
       <div class="avis neutre" id="posa-avis" aria-live="polite"></div>
       <div class="passa">
-        <button class="btn mini" id="posa-altre">Un altre nombre</button>
+        <button class="btn mini" id="posa-altre" data-text="1.2.altre"></button>
         <span class="et" id="posa-compte"></span>
       </div>
     </div>
   </div>
 
   <!-- ..................... 1.3 ..................... -->
-  <div class="subtasca" data-sub="3" data-nom="S'acaba o no s'acaba?" hidden>
+  <div class="subtasca" data-sub="3" hidden>
     <div class="targeta">
-      <h2>S'acaba o no s'acaba?</h2>
-      <p class="ajuda">Mira els decimals de la pantalla i decideix.</p>
+      <h2 data-text="1.3.titol"></h2>
+      <p class="ajuda" data-text="1.3.ajuda"></p>
 
       <div class="pantalla">
         <div class="entrada" id="acaba-nom">&nbsp;</div>
@@ -117,29 +117,29 @@
       </div>
 
       <div class="tria-gran">
-        <button class="btn gran" data-resp="si">S'acaba</button>
-        <button class="btn gran tenyit" data-resp="no">No s'acaba</button>
+        <button class="btn gran" data-resp="si" data-text="1.3.boto_si"></button>
+        <button class="btn gran tenyit" data-resp="no" data-text="1.3.boto_no"></button>
       </div>
       <div class="avis neutre" id="acaba-avis" aria-live="polite"></div>
       <div class="passa">
-        <button class="btn mini" id="acaba-altre">Un altre</button>
+        <button class="btn mini" id="acaba-altre" data-text="1.3.altre"></button>
         <span class="et" id="acaba-compte"></span>
       </div>
     </div>
   </div>
 
   <!-- ..................... 1.4 ..................... -->
-  <div class="subtasca" data-sub="4" data-nom="Quant costa arrodonir" hidden>
+  <div class="subtasca" data-sub="4" hidden>
     <div class="targeta">
-      <h2>Quant costa arrodonir</h2>
-      <p class="ajuda">Compres corda. Mira què passa si demanes metres sencers.</p>
+      <h2 data-text="1.4.titol"></h2>
+      <p class="ajuda" data-text="1.4.ajuda"></p>
 
       <div class="pastilles" id="cost-preus"></div>
 
       <div class="passa" style="justify-content:center;margin-top:1rem">
         <button class="btn tenyit" id="cost-menys" aria-label="Menys corda">−</button>
         <div style="text-align:center;min-width:8rem">
-          <div class="et">Necessites</div>
+          <div class="et" data-text="1.4.et_necessites"></div>
           <div class="gran" id="cost-metres">—</div>
         </div>
         <button class="btn tenyit" id="cost-mes" aria-label="Més corda">+</button>
@@ -147,6 +147,41 @@
 
       <div class="passos" id="cost-barres"></div>
       <div class="avis be" id="cost-avis" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ..................... 1.5 ..................... -->
+  <div class="subtasca" data-sub="5" hidden>
+    <div class="targeta">
+      <h2 data-text="1.5.titol"></h2>
+      <p class="ajuda" data-text="1.5.ajuda"></p>
+
+      <div class="pastilles" id="valor-nombres"></div>
+      <div class="posicional" id="valor-taula"></div>
+      <div class="avis neutre" id="valor-avis" aria-live="polite"></div>
+
+      <hr class="divisor">
+      <div class="et" data-text="1.5.et_suma"></div>
+      <div class="trossos" id="valor-suma" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ..................... 1.6 ..................... -->
+  <div class="subtasca" data-sub="6" hidden>
+    <div class="targeta">
+      <h2 data-text="1.6.titol"></h2>
+      <p class="ajuda" data-text="1.6.ajuda"></p>
+
+      <div class="pastilles" id="unitat-mesures"></div>
+
+      <div class="et" data-text="1.6.et_mesura" style="margin-top:1rem"></div>
+      <div class="gran" id="unitat-gran" aria-live="polite">—</div>
+
+      <svg class="llenc" id="unitat-escala" viewBox="0 0 660 132" role="img"
+        aria-label="Escala de les unitats de llargada"></svg>
+
+      <div class="avis neutre" id="unitat-moviment" aria-live="polite"></div>
+      <div class="avis be" id="unitat-igual" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -330,6 +365,7 @@
 </div>
 
 <!-- El nucli primer, els mòduls es registren sols, i app.js sempre l'últim. -->
+<script src="dades/textos.js"></script>
 <script src="js/nucli.js"></script>
 <script src="js/moduls/recta.js"></script>
 <script src="js/moduls/doble.js"></script>

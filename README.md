@@ -28,6 +28,8 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | `fitxes.html` | el detall de cada unitat: material previ, regla trencada, fita, recursos |
 | `caixa-eines.html` | l'aplicació, amb vuit mòduls |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
+| `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |
+| `textos.html` | pàgina per canviar-les sense tocar codi |
 | `pdf/` | dos PDF per unitat: un per a l'alumnat i un per al professorat |
 | `docs/` | mapa d'adaptació, criteris de disseny, arquitectura i feina pendent |
 | `generadors/` | scripts Python que dibuixen els gràfics SVG de les fitxes |
@@ -43,7 +45,7 @@ sempre la primera, i la tasca triada, que és la que s'obre. Sense `?task` es ve
 | n | tasca |
 |---|---|
 | 0 | Calculadora (surt sempre) |
-| 1 | Recta · té 4 exercicis: `?task=1.1` a `?task=1.4` |
+| 1 | Recta · té 6 exercicis: `?task=1.1` a `?task=1.6` |
 | 2 | Doble recta |
 | 3 | Percentatges |
 | 4 | Escales |

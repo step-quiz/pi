@@ -16,7 +16,12 @@
         (function(){ "use strict"; const {$, ...} = CE;  ...  CE.registra("id", inicia); })();
      2. posa-hi el <script src> a caixa-eines.html;
      Si el mòdul té subtasques, cada panell va dins d'un
-     <div class="subtasca" data-sub="n" data-nom="…"> i s'hi crida CE.subtasques().
+     <div class="subtasca" data-sub="n"> i s'hi crida CE.subtasques().
+
+   LES FRASES NO VAN AL CODI NI AL MARCATGE
+     Viuen a dades/textos.js. Al marcatge, data-text="1.2.titol"; al codi,
+     CE.txt("1.2.encert", { nom: "√5" }). Així es poden canviar totes des d'un
+     sol fitxer, o des de textos.html.
 
      3. afegeix el <button class="segment" data-tasca="n" data-mod="id">, amb el
         següent número lliure (surt als enllaços ?task=n i no es renumera mai),
@@ -88,6 +93,25 @@ window.CE = (function () {
     });
   }
 
+  /** Una frase de dades/textos.js, amb els forats {x} omplerts i els
+      *asteriscs* convertits en negreta. La clau és «grup.nom»: txt("1.2.encert").
+      Si la frase no hi és, retorna la clau entre claudàtors, que canta prou
+      per adonar-se'n de seguida sense petar. */
+  function txt(clau, valors) {
+    const i = clau.lastIndexOf(".");
+    const grup = (window.TEXTOS || {})[clau.slice(0, i)] || {};
+    let t = grup[clau.slice(i + 1)];
+    if (t == null) return "[" + clau + "]";
+    if (valors) for (const k in valors) t = t.split("{" + k + "}").join(valors[k]);
+    return t.replace(/\*([^*]+)\*/g, "<b>$1</b>");
+  }
+
+  /** Omple tots els elements amb data-text="clau" d'un tros de pàgina.
+      Així el marcatge no porta cap frase a dins. */
+  function omplirTextos(arrel) {
+    $$("[data-text]", arrel).forEach(n => { n.innerHTML = txt(n.dataset.text); });
+  }
+
   /** Panells numerats dins d'un mòdul: la «tasca 1» passa a ser 1.1, 1.2, 1.3…
       Cada panell és un <div class="subtasca" data-sub="n" data-nom="…">, i la
       barra de fletxes és .sub-enrere / .sub-rotul / .sub-avant.
@@ -113,7 +137,7 @@ window.CE = (function () {
       if (avant) avant.disabled = ara === panells.length;
       if (rotul) {
         rotul.innerHTML = "<b>" + tasca + "." + ara + "</b> " +
-          (panells[ara - 1].dataset.nom || "");
+          txt(tasca + "." + ara + ".nom").replace(/^\[.*\]$/, "");
       }
       if (aoMostrar) aoMostrar(ara);
     }
@@ -132,5 +156,5 @@ window.CE = (function () {
   }
 
   return { $, $$, num, fix, euros, memoria, el, icona, pastilles,
-           subtasques, moduls, registra };
+           txt, omplirTextos, subtasques, moduls, registra };
 })();

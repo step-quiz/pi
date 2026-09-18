@@ -111,6 +111,42 @@ comprova(tasques_ok, f"data-tasca de les pestanyes: {numeros} "
                      "(cal un número a cada una, sense repetir, i el 0 el primer)")
 print("  tasques: " + " · ".join(f"{n} {m}" for n, m in zip(numeros, mods)))
 
+print("\nFRASES")
+# Les frases viuen a dades/textos.js. El marcatge i el codi només hi apunten:
+# si una clau no existeix, a la pantalla surt «[1.2.titol]», i això s'ha de
+# detectar aquí i no a classe.
+textos = open(ruta('dades', 'textos.js'), encoding='utf-8').read()
+def claus_de(bloc):
+    out = set()
+    for grup, cos in re.findall(r'"(\d+\.\d+)":\s*\{(.*?)\n  \}', bloc, re.S):
+        for nom in re.findall(r'^\s{4}(\w+):', cos, re.M):
+            out.add(grup + "." + nom)
+    return out
+
+tall = textos.index("window.TEXTOS_GUIA")
+definides = claus_de(textos[:tall])
+guiades = claus_de(textos[tall:])
+
+# Les claus no sempre s'escriuen senceres: n'hi ha que es munten amb un
+# prefix («1.3.» + quina) o amb el sufix «.nom» des del nucli. Si no es té en
+# compte, l'avís d'orfes en delata vint que sí que es fan servir i s'acaba
+# ignorant, que és pitjor que no tenir-lo.
+usades = set(re.findall(r'data-text="([\d.]+\w+)"', app))
+prefixos = set()
+for f in sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)):
+    codi = open(f, encoding='utf-8').read()
+    usades |= set(re.findall(r'"(\d+\.\d+\.\w+)"', codi))
+    prefixos |= set(re.findall(r'"(\d+\.\d+)\."', codi))
+
+comprova(not (usades - definides), f"frases que es demanen i no existeixen: {sorted(usades - definides)}")
+comprova(not (definides - guiades), f"frases sense explicació a TEXTOS_GUIA: {sorted(definides - guiades)}")
+
+orfes = sorted(c for c in definides - usades
+               if not c.endswith(".nom")                 # les llegeix el nucli
+               and c.rsplit(".", 1)[0] not in prefixos)  # clau muntada amb prefix
+print(f"  frases definides: {len(definides)} · totes les que es demanen existeixen: {not (usades - definides)}")
+print(f"  frases sense fer servir: {orfes if orfes else 'cap'}")
+
 print("\nSUBTASQUES")
 # Un mòdul partit en 1.1, 1.2… necessita la barra de fletxes i panells numerats
 # de manera seguida des de l'1, perquè els enllaços ?task=1.3 apuntin on toca.
@@ -124,9 +160,12 @@ for m in re.findall(r'<section id="mod-(\w+)"[^>]*>(.*?)</section>', app, re.S):
     comprova(len(set(subs)) == len(subs), f"mod-{nom}: hi ha subtasques repetides")
     for peca in ("sub-enrere", "sub-avant", "sub-rotul"):
         comprova(peca in cos, f"mod-{nom} té subtasques però li falta .{peca}")
-    noms = re.findall(r'class="subtasca"[^>]*data-nom="([^"]*)"', cos)
-    comprova(len(noms) == len(subs) and all(noms), f"mod-{nom}: hi ha subtasques sense data-nom")
-    print(f"  mod-{nom}: {len(subs)} subtasques, numerades bé i amb nom")
+    pestanya = re.search(r'data-tasca="(\d+)" data-mod="' + nom + '"', app)
+    if pestanya:
+        for n in subs:
+            clau = pestanya.group(1) + "." + str(n) + ".nom"
+            comprova(clau in definides, f"falta la frase {clau} a dades/textos.js")
+    print(f"  mod-{nom}: {len(subs)} subtasques, numerades bé i amb nom a textos.js")
 if not re.search(r'class="subtasca"', app):
     print("  cap mòdul en té")
 
