@@ -269,13 +269,23 @@ Res del contingut ha canviat en aquesta reorganització.
    python3 eines/mesura.py          # cada pàgina ha de cabre en un A4
    python3 generadors/gen_pdf.py    # falla sol si el PDF no té tantes pàgines com blocs
    ```
+   
+   ```   
+   cd /workspaces/pi
+   python3 eines/comprova.py        # última passada, ha de dir "Tot correcte."
+   git status                       # mira què ha canviat abans de res
+   git add -A
+   git commit -m "Accessibilitat i generalització: retroacció literal, passos amb principi i final, contrast WCAG 2.2 AA, Lectura Fàcil, resum amb codi de verificació,   pàgina «A la vida de cada dia» i teclat a la calculadora"
+   git push
+   ```
+
 
    Les pàgines noves es van mesurar amb Chromium, que dona alçades un 10 % altes perquè no
    hi ha la font Carlito. Amb aquesta mesura, la més plena és la de la U3 (27,4 cm) i queda
    per sota de quatre pàgines que ja existien i que `mesura.py` ja havia donat per bones
    (fins a 30,3 cm amb el mateix criteri). Tot i així, **qui mana és `mesura.py`**.
 
-2. **El teclat del mòdul Calculadora**, pendent de contrastar amb una Casio fx-82SP CW
+1. **El teclat del mòdul Calculadora**, pendent de contrastar amb una Casio fx-82SP CW
    real. El que s'ha corregit amb el manual oficial ja no cal comprovar-ho: la tecla
    d'executar és **EXE** (abans el mòdul deia `=`, que no existeix a l'aparell), la
    pantalla dona 10 xifres (√7 = `2.645751311`, abans en deia 7) i en escriure el decimal
@@ -288,15 +298,15 @@ Res del contingut ha canviat en aquesta reorganització.
    - si el símbol decimal dels **resultats** és punt o coma (constant `SEP_DECIMAL`);
    - la posició de `√` i de `SHIFT` al mapa del teclat. La tecla `FORMAT` s'ha tret: obre
      un menú del qual no es pot estar segur sense l'aparell, i amb `E Mat/S Decimal` no cal.
-3. **Les gràfiques antigues de `gen_grafics.py`.** L'etiqueta de l'eix vertical sortia fora
+2. **Les gràfiques antigues de `gen_grafics.py`.** L'etiqueta de l'eix vertical sortia fora
    del dibuix i es llegia «ra (m)» en comptes de «altura (m)». Està corregit al generador i
    les vuit gràfiques enganxades a `fitxes/ud5.html` s'han substituït per les noves. L'única
    que no s'ha pogut substituir és `PILOTA_GRAN` (la de la pàgina 1 de la U5): la versió que
    hi ha a la fitxa no coincideix amb la que genera l'script, segurament perquè es va
    retocar a mà. Si algun dia es regenera, mira-la abans.
-4. **No hi ha mòdul d'estadística ni d'atzar.** Per a la U6 l'eina és el full de càlcul,
+3. **No hi ha mòdul d'estadística ni d'atzar.** Per a la U6 l'eina és el full de càlcul,
    que l'alumnat ja fa servir al nivell del grup. Per a la U7, un arbre interactiu seria
    l'addició natural, i `VERIFICACIO-MATHISVISUAL.md` §6 avisa que allà no hi ha res per
    copiar de fora.
-5. **El graó «raó → taxa» de la U3.** Ja hi ha el pas del preu unitari, però es podria
+4. **El graó «raó → taxa» de la U3.** Ja hi ha el pas del preu unitari, però es podria
    marcar més com a pas propi.
