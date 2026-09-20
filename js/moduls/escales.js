@@ -38,7 +38,7 @@
       "font-weight": 600, style: "fill:var(--etiqueta-2)", "font-family": "inherit" },
       num(pl, 2) + " cm al plànol"));
     svg.appendChild(el("text", { x: 34 + w / 2, y: 178, "text-anchor": "middle", "font-size": 22,
-      "font-weight": 600, style: "fill:var(--blau)", "font-family": "inherit" },
+      "font-weight": 600, style: "fill:var(--blau-text)", "font-family": "inherit" },
       num(re, 2) + " m de veritat"));
   }
 

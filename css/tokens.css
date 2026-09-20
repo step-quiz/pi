@@ -46,19 +46,28 @@
   --camp:       #E9E9EF;
   --segment:    #E4E4EA;
 
+  /* CONTRAST (WCAG 2.2, nivell AA). Tots aquests valors estan triats perquè
+     passin, i eines/comprova.py ho torna a calcular cada vegada:
+       text ≥ 4,5:1   ·   xifres grans i elements gràfics ≥ 3:1
+     Abans, el text secundari feia 3,6:1, el blanc sobre el blau dels botons
+     4,0:1, i el verd i el taronja 2,2:1. Si canvies un color, passa el test. */
   --etiqueta:   #1C1C1E;
-  --etiqueta-2: rgba(60, 60, 67, .62);
-  --etiqueta-3: rgba(60, 60, 67, .32);
-  --separador:  rgba(60, 60, 67, .16);
+  --etiqueta-2: rgba(60, 60, 67, .78);   /* text secundari: 5,0:1 fins i tot sobre --camp */
+  --etiqueta-3: rgba(60, 60, 67, .56);   /* traços i xifres apagades: 3,1:1 */
+  --separador:  rgba(60, 60, 67, .16);   /* només línies decoratives */
 
-  --blau:       #007AFF;
-  --verd:       #34C759;
-  --taronja:    #FF9500;
-  --vermell:    #FF3B30;
+  /* --blau és el fons dels botons i els traços; --blau-text és el blau de les
+     lletres. En mode clar són el mateix color. En mode fosc no poden ser-ho: un
+     blau prou fosc perquè s'hi llegeixi el blanc no es llegeix sobre negre. */
+  --blau:       #0062CC;
+  --blau-text:  #0062CC;
+  --verd:       #1F7A36;
+  --taronja:    #A85100;
+  --vermell:    #C8102E;
 
-  --blau-suau:    rgba(0, 122, 255, .12);
-  --verd-suau:    rgba(52, 199, 89, .14);
-  --taronja-suau: rgba(255, 149, 0, .14);
+  --blau-suau:    rgba(0, 98, 204, .12);
+  --verd-suau:    rgba(31, 122, 54, .13);
+  --taronja-suau: rgba(168, 81, 0, .12);
 
   --r-g: 20px;
   --r-m: 14px;
@@ -77,16 +86,17 @@
     --segment:    #2C2C2E;
 
     --etiqueta:   #FFF;
-    --etiqueta-2: rgba(235, 235, 245, .62);
-    --etiqueta-3: rgba(235, 235, 245, .32);
+    --etiqueta-2: rgba(235, 235, 245, .70);
+    --etiqueta-3: rgba(235, 235, 245, .46);
     --separador:  rgba(84, 84, 88, .6);
 
-    --blau:    #0A84FF;
-    --verd:    #30D158;
-    --taronja: #FF9F0A;
-    --vermell: #FF453A;
+    --blau:      #1A6FDB;   /* fons de botó: el blanc hi fa 4,8:1 */
+    --blau-text: #5AA7FF;   /* lletra blava sobre fons fosc: 6,8:1 */
+    --verd:      #30D158;
+    --taronja:   #FF9F0A;
+    --vermell:   #FF453A;
 
-    --blau-suau:    rgba(10, 132, 255, .22);
+    --blau-suau:    rgba(26, 111, 219, .30);
     --verd-suau:    rgba(48, 209, 88, .22);
     --taronja-suau: rgba(255, 159, 10, .22);
   }

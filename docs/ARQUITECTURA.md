@@ -41,8 +41,12 @@ fa servir. El test ho comprova.
 │   ├── app.css             la caixa d'eines                (importa tokens)
 │   └── lloc.css            index.html i fitxes.html        (importa tokens)
 │
+├── verifica.html           pàgina del professorat: llegir els codis de verificació
+│
 ├── js/
 │   ├── nucli.js            l'objecte global CE i el registre de mòduls
+│   ├── codi.js             el codi de verificació: fer-lo i llegir-lo
+│   ├── tasca.js            el motor de les tasques tancades: passos, represa, resum
 │   ├── app.js              navegació de la caixa d'eines
 │   ├── lloc.js             construeix els índexs a partir de les dades
 │   └── moduls/             un fitxer per mòdul, vuit en total
@@ -51,9 +55,11 @@ fa servir. El test ho comprova.
 │   └── unitats.js          font única: les set unitats amb tota la metadada
 │
 ├── fitxes/                 ud1.html … ud7.html
-├── generadors/             els scripts Python que dibuixen els SVG
-├── eines/comprova.py       el test del projecte
-├── generadors/             els scripts Python que dibuixen els SVG
+├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF
+├── eines/
+│   ├── comprova.py         el test del projecte, sense dependències
+│   ├── mesura.py           si cada pàgina cap en un A4          (WeasyPrint)
+│   └── auditoria.py        dianes i contrast dins del navegador (Playwright)
 └── docs/                   la documentació
 ```
 
@@ -61,7 +67,8 @@ fa servir. El test ho comprova.
 
 ```
 tokens.css ← s'enllaça des de l'HTML, ABANS de fitxa.css / app.css / lloc.css
-nucli.js   ← js/moduls/*.js  ← app.js
+nucli.js   ← codi.js, tasca.js ← js/moduls/*.js ← app.js
+textos.js  ← tasca.js, js/moduls/*.js
 unitats.js ← lloc.js
 ```
 
@@ -268,9 +275,27 @@ perd el lligam entre les dues coses.
 a sobre, el pas començava a 190 px de l'inici i no hi cabia. Per sota de 46 rem
 les dues columnes s'apilen i les pastilles tornen a fila.
 
-**Ordre dins del pas:** la frase que diu el bucle, la pantalla de la calculadora,
-els botons i, al final, el mapa del teclat, que serveix per **situar** la tecla a
-l'aparell. El pas fa uns 440 px.
+**Ordre dins del pas:** el rètol de progrés, la frase que diu el bucle, la pantalla
+de la calculadora, els botons i, al final, el mapa del teclat, que serveix per
+**situar** la tecla a l'aparell. El pas fa uns 440 px.
+
+**La tecla és EXE, no «=».** El mòdul està contrastat amb el manual oficial de la
+fx-82SP CW: la tecla d'executar es diu EXE i no hi ha cap tecla `=`; la pantalla
+dona 10 xifres (√7 surt `2.645751311`); en escriure, el decimal **sempre** és un
+punt, i el menú «Símbolo decimal» només canvia com surten els resultats. Dues
+constants a dalt del mòdul recullen com estan configurades les calculadores del
+centre: `ENTRADA_SORTIDA` (`"E Mat/S Decimal"`, el que recomanem, o `"E Mat/S Mat"`,
+el de fàbrica, que afegeix SHIFT abans d'EXE quan el resultat no és sencer) i
+`SEP_DECIMAL`. La tecla `FORMAT` ja no surt al mapa: obre un menú del qual no es pot
+estar segur sense l'aparell a la mà, i amb `E Mat/S Decimal` no cal. Una
+autocomprovació avisa per consola si un cas demana una tecla que no és al mapa.
+
+**El teclat de l'ordinador.** Prémer la mateixa tecla al teclat físic avança el pas
+(mapa `TECLAT`: xifres, la coma també val per al punt, `* x /` `:` `+ -`, Retorn per
+EXE, Retrocés per DEL, Esc per AC, i les fletxes ← → per moure's entre passos). Una
+tecla equivocada no fa res i no diu res: aquí no s'avalua. En triar un cas, el focus
+va al botó del pas; si no, el Retorn tornava a disparar la pastilla i el cas
+començava de nou.
 
 **Dues coses criden l'atenció sense molestar.** La tecla del pas batega
 (`@keyframes bategar`) i **es pot tocar per avançar**, igual que el botó: així el
@@ -285,9 +310,67 @@ més grans. El cos de la pantalla és gris fosc, no negre.
 
 **Què no hi ha, i és a posta.** No hi ha cap rètol que expliqui pas per pas què vol
 dir la tecla: hi era i es va treure perquè afegia text a una pantalla que n'havia de
-tenir poc. Qui guia és la tecla que batega, la frase del bucle i el comptador
-«Tecla n de m». L'única nota que queda és la de la coma decimal, i viu a la columna
-del triador, on no competeix amb el pas.
+tenir poc. Qui guia és la tecla que batega, la frase del bucle i el rètol
+«Tecla 3 de 7: prem ×». L'única nota que queda és la de la coma decimal, i viu a la
+columna del triador, on no competeix amb el pas.
+
+---
+
+## 4d. Les tasques tancades: `js/tasca.js`
+
+Cinc tasques (Calculadora, 1.2, 1.3, Paràboles i Equacions) comparteixen un motor.
+Abans, cada mòdul feia el seu comptador i el seu «Un altre» i la tasca no s'acabava
+mai: no hi havia manera de saber si algú havia fet cinc exercicis o cinquanta, ni de
+dir-li que ja estava. El motor dona quatre coses:
+
+**1 · Un principi i un final visibles.** El rètol `Inici ● ● ○ ○ ○ Final` amb
+«Pas 2 de 5» al costat. El pas d'ara és un anell més gran i els fets són cercles
+plens: la diferència es veu per la forma, no només pel color.
+
+**2 · Un sol pas a la vista.** El mòdul pinta el pas i prou. A les Paràboles això vol
+dir que el dibuix es buida entre passos: el vèrtex que s'ha trobat no es queda a la
+pantalla mentre es busquen els talls. Al final, el dibuix sencer les ajunta totes,
+que és la conclusió.
+
+**3 · La retroacció sempre amb la mateixa forma**, amb `CE.retroaccio(node, tipus,
+cos, pista)`:
+
+| tipus | què escriu |
+|---|---|
+| `encert` | «Correcte.» i què ha passat |
+| `error` | «Incorrecte.» + «Ara provem-ho d'una altra manera.» + una pista que és un camí diferent |
+| `mostra` | «Incorrecte.» i la resposta, quan ja no queden intents |
+| `be` / `no` | un estat que no és una resposta: «x = 2 no és una solució» |
+
+La paraula «Incorrecte» hi és a posta i no s'ha de suavitzar: el que suavitza és el
+que ve després. A les Equacions **provar un valor no és contestar**, i per això allà
+no surt mai «Incorrecte».
+
+**4 · Un final amb resum i codi.** En acabar, el pas es canvia per una targeta:
+«Has acabat», la frase del resultat, els recomptes (quants passos, quants al primer
+intent, quants amb pista, quants amb la resposta ensenyada), el **codi de
+verificació** i dos botons, imprimir el resum i tornar a començar. Imprimir posa una
+còpia de la targeta a `#zona-impressio`, fill directe del `<body>`, i el `@media
+print` d'`app.css` amaga tota la resta.
+
+**La represa.** El progrés es desa a `localStorage` amb la clau `pi-tasca:1.2` i
+caduca als 30 dies. **Mai es reprèn sol**: en tornar, la tasca pregunta, diu el dia
+en què es va desar i ofereix «Comença de nou», perquè l'ordinador pot ser compartit.
+Si no hi ha cap pas fet, no pregunta res i comença.
+
+### `js/codi.js`, el codi de verificació
+
+`K7Q-M2X-9RT`: nou caràcters en Base32 de Crockford, sense I, L, O ni U perquè no es
+puguin confondre en copiar-los a mà. Hi caben la tasca, la subtasca, el cas, el dia
+del curs i tres recomptes, més 9 bits de control. La càrrega es barreja amb una
+màscara reversible treta del control; sense això, tots els codis d'una mateixa tasca
+començaven igual i semblaven un error.
+
+**Què és i què no és.** No és un xifratge i no ho ha de semblar: detecta un caràcter
+mal copiat (en falla un de cada 280, mesurat provant-los tots) i fa que inventar-se'n
+un no sigui fàcil. Res més. `verifica.html` el llegeix, un o molts alhora, tolerant
+minúscules, guions i espais, i posa nom a la tasca i al cas amb el catàleg que
+registren els mateixos mòduls (`CE.registraCataleg`).
 
 ## 5. Afegir una unitat
 
@@ -326,6 +409,7 @@ toca. Cada script **imprimeix les seves pròpies comprovacions numèriques** en 
 | `gen_grafics2.py` | diagrames de punts, barres i arbres de la U6 i la U7 |
 | `gen_grafics3.py` | barres de percentatge de la U2 i model d'àrea de la U6 |
 | `gen_grafics4.py` | doble recta de la U2, repartiment de la U6, barra de la U7 |
+| `gen_grafics5.py` | doble recta del mapa (U3) i les dues paràboles de «A la vida de cada dia» (U5) |
 | `gen_pdf.py` | els catorze PDF, partint cada fitxa en alumnat i solucionari |
 
 ## 6b. Els PDF i l'alçada de les pàgines
@@ -351,8 +435,24 @@ i desfer una inserció.
 ## 7. Comprovacions
 
 `python3 eines/comprova.py` verifica, per a les set fitxes: cap valor cromàtic, HTML ben
-tancat, numeració de pàgines seguida, rètol de material i obertura presents. I per a
-l'app: que els identificadors del marcatge coincideixin amb els mòduls registrats i que
-no hi hagi recursos remots.
+tancat, numeració de pàgines seguida, rètol de material, obertura i pàgina «A la vida de
+cada dia» presents. I per a l'app: que els identificadors del marcatge coincideixin amb
+els mòduls registrats i que no hi hagi recursos remots. A més:
 
-Convé passar-lo abans de publicar res.
+| Secció | Què mira |
+|---|---|
+| FRASES | que cap `data-text` ni cap `txt()` demani una frase que no existeix, i que no en sobri cap |
+| LECTURA FÀCIL | frases de més de 20 paraules, paraules repetides, «clica aquí», xifres romanes, hores de 24 h i majúscules (UNE 153101:2018 EX) |
+| CONTRAST | 17 parelles de color de `tokens.css`, en mode clar i fosc, amb els mínims de la WCAG 2.2 AA |
+
+No té cap dependència: es pot passar a qualsevol ordinador. Convé fer-ho abans de
+publicar res.
+
+`python3 eines/auditoria.py` és la segona xarxa, i necessita Playwright. Obre la caixa
+d'eines en un Chromium de veritat, en mode clar i fosc i a dues amplades, i mesura el que
+només es pot mesurar amb el navegador: la mida real de cada diana tàctil (WCAG 2.2 SC
+2.5.8, mínim 24 × 24 px), el contrast de cada text **amb el fons compost capa a capa**, i
+que cap element enfocable no es quedi sense indicador de focus. Inclou els estats difícils
+(un error amb pista, el resum final), que és on solen aparèixer els problemes.
+
+    python3 eines/auditoria.py --md /tmp/informe.md

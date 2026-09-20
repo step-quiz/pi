@@ -352,7 +352,58 @@
   <div class="pag">Unitat 2 · pàgina 8</div>
 </div>
 
-<!-- ==================== FULL 9 ==================== -->
+<!-- ==================== FULL 9: A LA VIDA DE CADA DIA ====================
+     Un context de la vida de cada dia i una segona situació on la mateixa
+     decisió s'ha de tornar a prendre en un escenari diferent. Si el que
+     s'ha après només és el procediment de la unitat, la segona situació ho
+     ensenya. Vegeu docs/CRITERIS-DISSENY.md, regla 9. -->
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">7</div>
+      <div class="q">Calcula què pagues de cada manera i marca la més barata.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+
+    <div style="margin-top:.4rem"><span class="apartat">a)</span> Unes bambes de 80 €.</div>
+    <div class="parella-op">
+      <div class="opcio resolt">A la botiga, amb un 20 % de descompte<br>
+        <span class="ms">80 × 0,8 = <b>64 €</b></span></div>
+      <div class="opcio resolt">Per internet, 70 € amb un 10 % de descompte<br>
+        <span class="ms">70 × 0,9 = <b>63 €</b></span></div>
+    </div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>A la botiga</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">
+        <svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">
+        <path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/></svg></span>Per internet</label>
+    </div>
+    <div class="et-resolt">Estalvio 1 €, encara que el descompte sigui més petit.</div>
+
+    <div style="margin-top:1.3rem"><span class="apartat">b)</span> El gimnàs, durant un mes.</div>
+    <div class="parella-op">
+      <div class="opcio">Abonament de 40 €, amb un 25 % de descompte per a joves<br>
+        40 × 0,75 =</div>
+      <div class="opcio">Entrada de dia, 3 € cada vegada. Hi vas 12 dies<br>
+        12 × 3 =</div>
+    </div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>L'abonament</label>
+      <label><span class="quadret"></span>Les entrades</label>
+    </div>
+
+    <div class="avis puntejat" style="border-style:dashed;background:#fff;margin-top:1.3rem">
+      <span class="apartat">c)</span>
+      <svg class="ico" style="margin:0 .3rem"><use href="#i-parla"/></svg>
+      Explica per què el descompte més gran no sempre guanya.
+    </div>
+  </div>
+
+  <div class="pag">Unitat 2 · pàgina 9</div>
+</div>
+
+<!-- ==================== FULL 10 ==================== -->
 <div class="full">
   <h2>Com ho dic</h2>
   <p style="font-size:13pt;color:var(--gris-2);margin:0">
@@ -364,10 +415,10 @@
     <p class="frase" style="margin:0">Surt més a compte perquè costa <u></u> € menys.</p>
   </div>
 
-  <div class="pag">Unitat 2 · pàgina 9</div>
+  <div class="pag">Unitat 2 · pàgina 10</div>
 </div>
 
-<!-- ==================== FULL 10: SOLUCIONARI ==================== -->
+<!-- ==================== FULL 11: SOLUCIONARI ==================== -->
 <div class="full sol">
   <h1 style="font-size:19pt">Solucionari</h1>
   <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · full per al professorat</p>
@@ -456,6 +507,21 @@
   <p>e) Assolit si diu una idea com «hi afegeixen l'IVA» o «l'impost no hi era». No cal
   que ho escrigui.</p>
 
+  <h3>7. A la vida de cada dia · quina manera surt més barata</h3>
+  <table>
+    <tr><th></th><th>Situació</th><th>Primera opció</th><th>Segona opció</th><th>Guanya</th></tr>
+    <tr><td>a)</td><td>Bambes de 80 €</td><td>80 × 0,8 = 64 €</td><td>70 × 0,9 = 63 €</td><td>Per internet</td></tr>
+    <tr><td>b)</td><td>Gimnàs, un mes</td><td>40 × 0,75 = 30 €</td><td>12 × 3 = 36 €</td><td>L'abonament</td></tr>
+  </table>
+  <p><b>Error típic:</b> triar el descompte més gran sense calcular. A l'apartat a el 20 %
+  perd contra el 10 %, perquè s'apliquen a preus diferents. És exactament la decisió de
+  l'exercici 5, però amb dues botigues en comptes de dues maneres de pagar.</p>
+  <p><b>Això és el que mostra si ho ha entès:</b> l'apartat b no parla de botigues sinó d'un
+  servei, i barreja un factor (0,75) amb una multiplicació de quotes (12 × 3). Si el fa bé,
+  el factor ja no està lligat a «rebaixes a una botiga».</p>
+  <p>c) Assolit si diu una idea com «depèn del preu de sortida» o «un 20 % de 80 no és el
+  mateix que un 10 % de 70». No cal que ho escrigui.</p>
+
   <h3>El graó físic, abans de la pàgina 1</h3>
   <p>Cinc minuts fent la rebaixa amb diners de veritat: 300 € damunt la taula, aparta'n 60 i mira què queda. La barra de la pàgina 1 és el dibuix d'aquest gest.</p>
 
@@ -464,6 +530,7 @@
     <li>Exercicis 1, 2, 3 i 6 → criteri <b>1.1</b>, modelitzar amb percentatges encadenats.</li>
     <li>Exercici 4 → criteri <b>2.1</b>, detectar la trampa de sumar percentatges.</li>
     <li>Exercici 5 → criteri <b>1.1</b> i <b>2.1</b>, decidir amb dades quina opció convé.</li>
+    <li>Exercici 7 → criteri <b>6.1</b>, comparar dues maneres de pagar fora de la botiga.</li>
   </ul>
   <p>L'objectiu <b>no és calcular bé</b>: és triar el factor correcte i decidir. Un error
   de tecleig a la calculadora no hauria de fer baixar la valoració si el factor és bo.</p>

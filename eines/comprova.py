@@ -5,10 +5,12 @@
 
 Verifica les regles que és fàcil trencar sense adonar-se'n: que les fitxes no
 tinguin cap color, que l'HTML tanqui bé, que la numeració de pàgines sigui
-seguida, que cada fitxa porti el rètol de material i la pregunta d'obertura,
-que els mòduls declarats al marcatge de l'app siguin els que es registren, i
-que els fulls d'estil tanquin totes les claus i no facin servir variables que
-no existeixen.
+seguida, que cada fitxa porti el rètol de material, la pregunta d'obertura i
+la pàgina de la vida de cada dia, que els mòduls declarats al marcatge de
+l'app siguin els que es registren, que els fulls d'estil tanquin totes les
+claus i no facin servir variables que no existeixen, que les frases de
+l'alumnat segueixin les regles de Lectura Fàcil que es poden comprovar soles,
+i que els colors de la pantalla tinguin el contrast que demana la WCAG 2.2 AA.
 """
 import re, sys, glob, os
 from html.parser import HTMLParser
@@ -75,6 +77,9 @@ for f in sorted(glob.glob(ruta('fitxes', '*.html'))):
     comprova(enllac and not inline, f"{nom}: no enllaça css/fitxa.css o encara té <style>")
     comprova(s.count('class="previ"') == 1, f"{nom}: falta el rètol de material")
     comprova(s.count('Què hi veus?') == 1, f"{nom}: falta la pregunta d'obertura")
+    # La pàgina de la vida de cada dia: un context real i una segona situació
+    # amb la mateixa decisió, perquè el que s'aprèn no es quedi lligat a un cas.
+    comprova(s.count('class="full vida"') == 1, f"{nom}: falta la pàgina «A la vida de cada dia»")
     print(f"  {nom:12} {len(pags)} pàg · html {'ok' if estructura else 'ERROR'}"
           f" · color {'cap' if not color else color} · css extern {enllac and not inline}")
 
@@ -88,7 +93,7 @@ seccions = sorted({m for m in re.findall(r'<section id="mod-(\w+)"', app)})
 fitxers = sorted(glob.glob(ruta('js', 'moduls', '*.js')))
 registrats = sorted({re.search(r'CE\.registra\("(\w+)"', open(x, encoding='utf-8').read()).group(1)
                      for x in fitxers})
-carregats = re.findall(r'js/moduls/([\w-]+)\.js', app)
+carregats = re.findall(r'<script src="js/moduls/([\w-]+)\.js"', app)
 
 comprova(pestanyes == seccions == registrats,
          f"identificadors descompassats: marcatge {pestanyes} · registrats {registrats}")
@@ -116,9 +121,12 @@ print("\nFRASES")
 # si una clau no existeix, a la pantalla surt «[1.2.titol]», i això s'ha de
 # detectar aquí i no a classe.
 textos = open(ruta('dades', 'textos.js'), encoding='utf-8').read()
+# Els grups poden ser «1.2» (una subtasca), «5» (una tasca sense subtasques) o
+# «comu» (frases compartides). El nom del grup és tot el que va abans de
+# l'últim punt de la clau, igual que fa CE.txt().
 def claus_de(bloc):
     out = set()
-    for grup, cos in re.findall(r'"(\d+\.\d+)":\s*\{(.*?)\n  \}', bloc, re.S):
+    for grup, cos in re.findall(r'^  "([\w.]+)":\s*\{(.*?)\n  \}', bloc, re.S | re.M):
         for nom in re.findall(r'^\s{4}(\w+):', cos, re.M):
             out.add(grup + "." + nom)
     return out
@@ -131,12 +139,17 @@ guiades = claus_de(textos[tall:])
 # prefix («1.3.» + quina) o amb el sufix «.nom» des del nucli. Si no es té en
 # compte, l'avís d'orfes en delata vint que sí que es fan servir i s'acaba
 # ignorant, que és pitjor que no tenir-lo.
-usades = set(re.findall(r'data-text="([\d.]+\w+)"', app))
+grups = sorted({c.rsplit(".", 1)[0] for c in definides}, key=len, reverse=True)
+g = "(?:" + "|".join(re.escape(x) for x in grups) + ")"
+usades = set(re.findall(r'data-text="(' + g + r'\.\w+)"', app))
 prefixos = set()
 for f in sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)):
     codi = open(f, encoding='utf-8').read()
-    usades |= set(re.findall(r'"(\d+\.\d+\.\w+)"', codi))
-    prefixos |= set(re.findall(r'"(\d+\.\d+)\."', codi))
+    # Una clau entre cometes que no va seguida d'un «+» (si hi va, és un prefix).
+    # El nom comença per una lletra: així "0.01", que és un número, no compta
+    # com a clau del grup «0».
+    usades |= set(re.findall(r'"(' + g + r'\.[A-Za-z_]\w*)"(?!\s*\+)', codi))
+    prefixos |= set(re.findall(r'"(' + g + r')\.\w*"\s*\+', codi))
 
 comprova(not (usades - definides), f"frases que es demanen i no existeixen: {sorted(usades - definides)}")
 comprova(not (definides - guiades), f"frases sense explicació a TEXTOS_GUIA: {sorted(definides - guiades)}")
@@ -146,6 +159,55 @@ orfes = sorted(c for c in definides - usades
                and c.rsplit(".", 1)[0] not in prefixos)  # clau muntada amb prefix
 print(f"  frases definides: {len(definides)} · totes les que es demanen existeixen: {not (usades - definides)}")
 print(f"  frases sense fer servir: {orfes if orfes else 'cap'}")
+
+print("\nLECTURA FÀCIL")
+# Les regles de la norma UNE 153101:2018 EX que es poden comprovar sense llegir.
+# Les altres (una idea per frase, res de metàfores, la mateixa paraula per a la
+# mateixa cosa) són a la capçalera de dades/textos.js i les ha de mirar una persona.
+#   Falla: una frase de més de 20 paraules, una paraula repetida seguida
+#          («situació situació»), «clica aquí», xifres romanes, hores de 24 h
+#          o paraules senceres en majúscules que no siguin sigles conegudes.
+#   Avisa: frases de més de 15 paraules, i parèntesis o punt i coma.
+SIGLES = {"IVA", "EXE", "SHIFT", "FORMAT", "DEL", "AC", "CONFIG"}
+ROMANS = re.compile(r'^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$')
+
+def frases_de(bloc):
+    """{clau: text} de window.TEXTOS, desfent les cometes escapades."""
+    out = {}
+    for grup, cos in re.findall(r'^  "([\w.]+)":\s*\{(.*?)\n  \}', bloc, re.S | re.M):
+        for nom, val in re.findall(r"^\s{4}(\w+):\s*'((?:[^'\\]|\\.)*)'", cos, re.M):
+            out[grup + "." + nom] = re.sub(r"\\(.)", r"\1", val)
+    return out
+
+avisos_lf, falles_lf = [], []
+for clau, t in frases_de(textos[:tall]).items():
+    net = re.sub(r"\{\w+\}", "X", t.replace("*", ""))
+    for frase in re.split(r"(?<=[.!?])\s+", net):
+        paraules = re.findall(r"[\w·'’√π]+", frase)
+        if len(paraules) > 20:
+            falles_lf.append(f"{clau}: frase de {len(paraules)} paraules")
+        elif len(paraules) > 15:
+            avisos_lf.append(f"{clau}: frase de {len(paraules)} paraules")
+    if re.search(r"\b(\w+)\s+\1\b", net, re.I):
+        falles_lf.append(f"{clau}: paraula repetida («{re.search(r'\b(\w+)\s+\1\b', net, re.I).group(0)}»)")
+    if re.search(r"\bclica\b|\bclic\b", net, re.I):
+        falles_lf.append(f"{clau}: «clica aquí» no diu on porta")
+    if re.search(r"\b([01]?\d|2[0-3]):[0-5]\d\b", net):
+        falles_lf.append(f"{clau}: hora en format de 24 h")
+    for p in re.findall(r"\b[A-ZÀ-Ú]{2,}\b", net):
+        if p in SIGLES:
+            continue
+        if ROMANS.match(p):
+            falles_lf.append(f"{clau}: xifra romana «{p}»")
+        elif len(p) >= 3:
+            falles_lf.append(f"{clau}: paraula en majúscules «{p}»")
+    if re.search(r"[;()]", net):
+        avisos_lf.append(f"{clau}: parèntesis o punt i coma")
+for f in falles_lf:
+    comprova(False, "Lectura Fàcil · " + f)
+print(f"  frases revisades: {len(frases_de(textos[:tall]))} · errors: {len(falles_lf)} · avisos: {len(avisos_lf)}")
+for a in avisos_lf:
+    print("    avís ·", a)
 
 print("\nSUBTASQUES")
 # Un mòdul partit en 1.1, 1.2… necessita la barra de fletxes i panells numerats
@@ -249,6 +311,72 @@ for f, t in textos.items():
 comprova(not sense_definir, "variables CSS que no estan definides enlloc: " +
          "; ".join(f"{v} a {', '.join(sorted(fs))}" for v, fs in sorted(sense_definir.items())))
 print(f"  variables usades sense definir: {len(sense_definir)}")
+
+print("\nCONTRAST (WCAG 2.2 AA)")
+# Es calcula a partir de css/tokens.css, en mode clar i en mode fosc. Els colors
+# amb transparència es componen sobre el fons on es fan servir de debò.
+#   text normal ≥ 4,5:1   ·   xifres grans i elements gràfics ≥ 3:1
+# Si canvies un color de la paleta de pantalla, aquest és l'avís que ho detecta.
+def lineal(c):
+    c /= 255
+    return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+def lluminancia(r):
+    return 0.2126 * lineal(r[0]) + 0.7152 * lineal(r[1]) + 0.0722 * lineal(r[2])
+
+def contrast(a, b):
+    la, lb = lluminancia(a), lluminancia(b)
+    return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
+
+def a_rgb(valor, sota=(255, 255, 255)):
+    valor = valor.strip()
+    m = re.fullmatch(r"#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})", valor)
+    if m:
+        return rgb(valor)
+    m = re.fullmatch(r"rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+))?\s*\)", valor)
+    if not m:
+        raise ValueError(valor)
+    alfa = float(m.group(4) or 1)
+    return tuple(round(int(m.group(i + 1)) * alfa + sota[i] * (1 - alfa)) for i in range(3))
+
+tokens = open(ruta('css', 'tokens.css'), encoding='utf-8').read()
+clar = dict(re.findall(r"(--[\w-]+):\s*([^;]+);", tokens[:tokens.index("@media")]))
+fosc = dict(clar, **dict(re.findall(r"(--[\w-]+):\s*([^;]+);", tokens[tokens.index("@media"):])))
+
+PARELLES = [   # (primer pla, fons, mínim, on es fa servir)
+    ("--etiqueta",   "--superficie", 4.5, "text principal"),
+    ("--etiqueta-2", "--superficie", 4.5, "text secundari: ajudes, rètols"),
+    ("--etiqueta-2", "--fons",       4.5, "text secundari sobre el fons de la pàgina"),
+    ("--etiqueta-2", "--camp",       4.5, "avisos neutres i pastilles"),
+    ("--etiqueta-3", "--superficie", 3.0, "traços dels eixos i xifres apagades (grans)"),
+    ("#FFFFFF",      "--blau",       4.5, "lletra dels botons blaus"),
+    ("--blau",       "--superficie", 3.0, "punts i línies blaves dels dibuixos"),
+    ("--blau-text",  "--superficie", 4.5, "lletra blava: enllaços, marques"),
+    ("--blau-text",  "--fons",       4.5, "enllaços sobre el fons de la pàgina"),
+    ("--blau-text",  "--blau-suau",  4.5, "botons tenyits i etiqueta «Exemple»"),
+    ("--blau-text",  "--camp",       4.5, "tecles d'operació de la calculadora"),
+    ("--superficie", "--verd",       4.5, "rètol «Final» quan la tasca s'ha acabat"),
+    ("--verd",       "--superficie", 4.5, "lletra verda dels dibuixos"),
+    ("--taronja",    "--superficie", 4.5, "lletra taronja dels dibuixos"),
+    ("--vermell",    "--superficie", 4.5, "xifres vermelles de la balança"),
+    ("--etiqueta",   "--verd-suau",  4.5, "avisos de «Correcte»"),
+    ("--etiqueta",   "--taronja-suau", 4.5, "avisos de «Incorrecte» i notes"),
+]
+for nom_mode, paleta in (("clar", clar), ("fosc", fosc)):
+    sup = a_rgb(paleta["--superficie"])
+    def valor(v, sota):
+        return a_rgb(v if v.startswith("#") else paleta[v], sota)
+    pitjor = None
+    for pp, fons, minim, on in PARELLES:
+        base = a_rgb(paleta[fons]) if fons in ("--fons", "--camp") else sup
+        fons_rgb = valor(fons, sup)
+        r = contrast(valor(pp, fons_rgb if fons in ("--fons", "--camp") else base), fons_rgb)
+        comprova(r >= minim, f"contrast en mode {nom_mode}: {pp} sobre {fons} fa {r:.2f}:1 "
+                             f"i en cal {minim}:1 ({on})")
+        if pitjor is None or r / minim < pitjor[0] / pitjor[1]:
+            pitjor = (r, minim, pp, fons)
+    print(f"  mode {nom_mode}: {len(PARELLES)} parelles · la més justa, {pitjor[2]} sobre "
+          f"{pitjor[3]}: {pitjor[0]:.2f}:1 (mínim {pitjor[1]}:1)")
 
 print("\nDESPLEGAMENT")
 # Encadenar CSS amb @import bloqueja el pintat: tokens.css s'enllaça des de l'HTML.

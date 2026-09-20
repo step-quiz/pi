@@ -94,6 +94,38 @@ Els pictogrames de precisió de la U1, els 300 € de la U2, el 1:100 amb 8 cm d
 corresponent de la caixa d'eines. No és estètic: evita que hagi d'aprendre dues vegades
 el mateix.
 
+## 9. Una pàgina «A la vida de cada dia» a cada unitat
+
+L'última pàgina abans de «Com ho dic» és sempre la mateixa mena de pàgina, i porta sempre
+el mateix títol. Hi ha dues coses:
+
+- **un context de la vida de cada dia** on la decisió de la unitat es torna a prendre fora
+  de l'embolcall amb què s'ha après (no la corda de la ferreteria sinó els pots de pintura,
+  no el joc de la fira sinó una rasca i la ruleta d'un joc de mòbil);
+- **una segona situació** amb la mateixa decisió en un escenari diferent, i sovint amb la
+  resposta contrària.
+
+Això segon és el que té valor per avaluar. Si algú ha memoritzat el procediment de la
+unitat, la primera situació encara li surt bé; la segona, no. Exemples:
+
+| Unitat | La segona situació | Què delata |
+|---|---|---|
+| 1 | 11 € i entrades de 3 € | arrodonir **cap avall**, després de tota una unitat cap amunt |
+| 2 | l'abonament del gimnàs | el factor fora d'una botiga, barrejat amb quotes |
+| 3 | «amb 350 g, per a quantes persones?» | la proporció al revés |
+| 4 | la planta d'un pàrquing | el **negatiu** és la solució que té sentit |
+| 5 | el cable d'un pont | vèrtex mínim i **cap** punt de tall, sense avisar |
+| 6 | el camí a l'institut | aquí la mitjana **sí** que explica les dades |
+| 7 | la ruleta d'un joc de mòbil | el mateix compte quan no hi ha diners a la vista |
+
+Cada solucionari ho diu explícitament, amb l'epígraf **«Això és el que mostra si ho ha
+entès»**, i el criteri d'avaluació d'aquests exercicis és el **6.1**, connectar el món real
+amb les matemàtiques, no el de calcular.
+
+La pàgina va **abans** de «Com ho dic» i **després** de tots els exercicis: primer es fa la
+feina, després es diu. I segueix les vuit regles anteriors sense excepció, també la del
+primer apartat resolt en lletra manuscrita.
+
 ---
 
 ## L'obertura i el graó físic

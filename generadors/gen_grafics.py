@@ -46,7 +46,9 @@ def graf(a, b, c, xmin, xmax, ymin, ymax, xstep, ystep,
     if etiqx:
         o.append(f'<text x="{W-MR:.0f}" y="{H-8:.0f}" text-anchor="end" font-size="15" fill="#5E5E5E" font-family="system-ui">{etiqx}</text>')
     if etiqy:
-        o.append(f'<text x="{px(x0)-9:.0f}" y="{MT-8:.0f}" text-anchor="end" font-size="15" fill="#5E5E5E" font-family="system-ui">{etiqy}</text>')
+        # A la dreta de l'eix i cap endins. Abans anava a l'esquerra i acabava
+        # al marge: «altura (m)» sortia fora del dibuix i es llegia «ra (m)».
+        o.append(f'<text x="{px(x0)+6:.0f}" y="{MT-8:.0f}" font-size="15" fill="#5E5E5E" font-family="system-ui">{etiqy}</text>')
 
     # corba, retallada al marc
     trams, actual = [], []
@@ -77,40 +79,43 @@ def graf(a, b, c, xmin, xmax, ymin, ymax, xstep, ystep,
 # ---- les paràboles de la fitxa ----
 G = {}
 
-# pilota: h = -5t^2 + 10t   vèrtex (1,5)  talls 0 i 2
-G["PILOTA_GRAN"] = graf(-5, 10, 0, 0, 2.4, 0, 6, 0.5, 1, "temps (s)", "altura (m)",
-                        punts=[(1, 5, 8, "(1 , 5)"), (0, 0, 7, ""), (2, 0, 7, "")], eix=1, dec_x=1)
-G["PILOTA"] = graf(-5, 10, 0, 0, 2.4, 0, 6, 0.5, 1, "temps (s)", "altura (m)", dec_x=1)
+# Les gràfiques només es generen quan s'executa l'script. Així gen_grafics5.py
+# pot importar graf() i dibuixar-ne de noves amb exactament el mateix aspecte.
+if __name__ == "__main__":
+    # pilota: h = -5t^2 + 10t   vèrtex (1,5)  talls 0 i 2
+    G["PILOTA_GRAN"] = graf(-5, 10, 0, 0, 2.4, 0, 6, 0.5, 1, "temps (s)", "altura (m)",
+                            punts=[(1, 5, 8, "(1 , 5)"), (0, 0, 7, ""), (2, 0, 7, "")], eix=1, dec_x=1)
+    G["PILOTA"] = graf(-5, 10, 0, 0, 2.4, 0, 6, 0.5, 1, "temps (s)", "altura (m)", dec_x=1)
 
-# sortidor: h = -0.5x^2 + 2x   vèrtex (2,2)  talls 0 i 4
-G["SORTIDOR"] = graf(-0.5, 2, 0, 0, 4.6, 0, 3, 1, 0.5, "distància (m)", "altura (m)", dec_y=1)
+    # sortidor: h = -0.5x^2 + 2x   vèrtex (2,2)  talls 0 i 4
+    G["SORTIDOR"] = graf(-0.5, 2, 0, 0, 4.6, 0, 3, 1, 0.5, "distància (m)", "altura (m)", dec_y=1)
 
-# tarifa: c = x^2 - 8x + 20   vèrtex (4,4)  cap tall
-G["TARIFA"] = graf(1, -8, 20, 0, 8, 0, 22, 1, 2, "peces", "cost (€)")
+    # tarifa: c = x^2 - 8x + 20   vèrtex (4,4)  cap tall
+    G["TARIFA"] = graf(1, -8, 20, 0, 8, 0, 22, 1, 2, "peces", "cost (€)")
 
-# coet: h = -5t^2 + 20t   vèrtex (2,20)  talls 0 i 4
-G["COET"] = graf(-5, 20, 0, 0, 4.4, 0, 22, 1, 2, "temps (s)", "altura (m)")
+    # coet: h = -5t^2 + 20t   vèrtex (2,20)  talls 0 i 4
+    G["COET"] = graf(-5, 20, 0, 0, 4.4, 0, 22, 1, 2, "temps (s)", "altura (m)")
 
-# obertures
-G["AVALL"] = graf(-1, 4, 0, -0.5, 4.5, -1, 5, 1, 1, "", "")
-G["AMUNT"] = graf(1, -4, 4, -0.5, 4.5, -1, 5, 1, 1, "", "")
+    # obertures
+    G["AVALL"] = graf(-1, 4, 0, -0.5, 4.5, -1, 5, 1, 1, "", "")
+    G["AMUNT"] = graf(1, -4, 4, -0.5, 4.5, -1, 5, 1, 1, "", "")
 
-# talls = solucions
-G["EQ1"] = graf(1, -5, 6, -0.4, 5.4, -2, 7, 1, 1, "x", "y")
-G["EQ2"] = graf(1, 0, -4, -3.2, 3.2, -5, 6, 1, 1, "x", "y")
+    # talls = solucions
+    G["EQ1"] = graf(1, -5, 6, -0.4, 5.4, -2, 7, 1, 1, "x", "y")
+    G["EQ2"] = graf(1, 0, -4, -3.2, 3.2, -5, 6, 1, 1, "x", "y")
 
-import json, pathlib
-pathlib.Path("grafics.json").write_text(json.dumps(G), encoding="utf-8")
+    import json, pathlib
+    pathlib.Path("grafics.json").write_text(json.dumps(G), encoding="utf-8")
 
-print("Gràfiques generades:", ", ".join(G))
-for nom, (a, b, c) in {"pilota": (-5, 10, 0), "sortidor": (-0.5, 2, 0), "tarifa": (1, -8, 20),
-                       "coet": (-5, 20, 0), "EQ1": (1, -5, 6), "EQ2": (1, 0, -4)}.items():
-    vx = -b / (2 * a); vy = a * vx * vx + b * vx + c
-    disc = b * b - 4 * a * c
-    if disc >= 0:
-        r = disc ** .5
-        talls = sorted([(-b + r) / (2 * a), (-b - r) / (2 * a)])
-        talls = [round(t + 0, 4) for t in talls]
-    else:
-        talls = "cap"
-    print(f"  {nom:9} vèrtex ({vx:g} , {vy:g})  talls {talls}  s'obre {'avall' if a < 0 else 'amunt'}")
+    print("Gràfiques generades:", ", ".join(G))
+    for nom, (a, b, c) in {"pilota": (-5, 10, 0), "sortidor": (-0.5, 2, 0), "tarifa": (1, -8, 20),
+                           "coet": (-5, 20, 0), "EQ1": (1, -5, 6), "EQ2": (1, 0, -4)}.items():
+        vx = -b / (2 * a); vy = a * vx * vx + b * vx + c
+        disc = b * b - 4 * a * c
+        if disc >= 0:
+            r = disc ** .5
+            talls = sorted([(-b + r) / (2 * a), (-b - r) / (2 * a)])
+            talls = [round(t + 0, 4) for t in talls]
+        else:
+            talls = "cap"
+        print(f"  {nom:9} vèrtex ({vx:g} , {vy:g})  talls {talls}  s'obre {'avall' if a < 0 else 'amunt'}")

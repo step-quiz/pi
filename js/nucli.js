@@ -15,18 +15,22 @@
      1. crea js/moduls/<nom>.js amb l'embolcall
         (function(){ "use strict"; const {$, ...} = CE;  ...  CE.registra("id", inicia); })();
      2. posa-hi el <script src> a caixa-eines.html;
+     3. afegeix el <button class="segment" data-tasca="n" data-mod="id">, amb el
+        següent número lliure (surt als enllaços ?task=n i no es renumera mai),
+        i la <section id="mod-id">.
      Si el mòdul té subtasques, cada panell va dins d'un
      <div class="subtasca" data-sub="n"> i s'hi crida CE.subtasques().
+     No cal tocar app.js.
 
    LES FRASES NO VAN AL CODI NI AL MARCATGE
      Viuen a dades/textos.js. Al marcatge, data-text="1.2.titol"; al codi,
      CE.txt("1.2.encert", { nom: "√5" }). Així es poden canviar totes des d'un
      sol fitxer, o des de textos.html.
 
-     3. afegeix el <button class="segment" data-tasca="n" data-mod="id">, amb el
-        següent número lliure (surt als enllaços ?task=n i no es renumera mai),
-        i la <section id="mod-id">.
-   No cal tocar app.js.
+   ELS ALTRES DOS FITXERS COMPARTITS
+     js/codi.js   el codi de verificació (CE.codi), que també llegeix verifica.html;
+     js/tasca.js  les tasques amb passos: inici, «pas X de Y», final, progrés desat
+                  i retroacció literal (CE.tasca, CE.retroaccio).
    ========================================================================== */
 
 window.CE = (function () {
@@ -49,16 +53,38 @@ window.CE = (function () {
   const euros = x => fix(x, 2) + " €";
 
   /** localStorage protegit: en previsualitzacions o amb cookies bloquejades no
-      existeix, i llavors es fa servir un objecte en memòria. */
+      existeix, i llavors es fa servir un objecte en memòria. Cada operació va
+      dins d'un try: el disc ple o una pestanya privada no han de trencar l'app. */
   const memoria = (() => {
     try {
       localStorage.setItem("__p", "1"); localStorage.removeItem("__p");
-      return { get: k => localStorage.getItem(k), set: (k, v) => localStorage.setItem(k, v) };
+      const prova = f => { try { return f(); } catch (e) { return null; } };
+      return { get: k => prova(() => localStorage.getItem(k)),
+               set: (k, v) => prova(() => localStorage.setItem(k, v)),
+               esborra: k => prova(() => localStorage.removeItem(k)) };
     } catch (e) {
       const m = {};
-      return { get: k => m[k] ?? null, set: (k, v) => { m[k] = v; } };
+      return { get: k => m[k] ?? null, set: (k, v) => { m[k] = v; },
+               esborra: k => { delete m[k]; } };
     }
   })();
+
+  /** Una data escrita sencera: «dilluns 21 de setembre de 2026».
+      Lectura Fàcil demana els dies i els mesos amb lletres, sense xifres ni
+      barres. Es fa a mà i no amb Intl perquè cada navegador hi posa comes o
+      majúscules diferents, i la frase ha de ser sempre la mateixa. */
+  const DIES = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
+  const MESOS = ["de gener", "de febrer", "de març", "d'abril", "de maig", "de juny", "de juliol",
+                 "d'agost", "de setembre", "d'octubre", "de novembre", "de desembre"];
+  const diaLlarg = d => DIES[d.getDay()] + " " + d.getDate() + " " + MESOS[d.getMonth()] +
+                        " de " + d.getFullYear();
+
+  /** El catàleg de tasques que poden donar codi de verificació. Cada mòdul hi
+      diu el nom de la tasca, el dels seus casos i què vol dir cada recompte del
+      codi. Així verifica.html pot posar nom a un codi sense duplicar res: carrega
+      els mòduls i els llegeix d'aquí. */
+  const cataleg = {};
+  function registraCataleg(id, fitxa) { cataleg[id] = fitxa; }
 
   const SVGNS = "http://www.w3.org/2000/svg";
   /** Crea un node SVG. Els colors es passen dins de `style` amb var(--…) perquè
@@ -156,5 +182,6 @@ window.CE = (function () {
   }
 
   return { $, $$, num, fix, euros, memoria, el, icona, pastilles,
-           txt, omplirTextos, subtasques, moduls, registra };
+           txt, omplirTextos, subtasques, moduls, registra,
+           diaLlarg, cataleg, registraCataleg };
 })();

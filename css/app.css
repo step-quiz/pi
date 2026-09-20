@@ -33,19 +33,32 @@ h2{font-size:1.32rem;font-weight:700;letter-spacing:-.012em;margin:0 0 .1rem;lin
 .targeta{background:var(--superficie);border-radius:var(--r-g);padding:1.15rem 1.15rem 1.25rem;
   margin-bottom:1rem}
 .cap{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.7rem}
-.marca{font-size:.78rem;font-weight:700;letter-spacing:.01em;color:var(--blau);
+.marca{font-size:.78rem;font-weight:700;letter-spacing:.01em;color:var(--blau-text);
   background:var(--blau-suau);border-radius:999px;padding:.25rem .6rem;white-space:nowrap;flex:0 0 auto}
+/* Una marca sense text era una taca blava sense sentit (la de l'1.1 és buida). */
+.marca:empty{display:none}
 .divisor{height:1px;background:var(--separador);margin:1rem 0;border:0}
 
 /* ---- controls ---- */
 .btn{border:0;border-radius:999px;font:inherit;font-weight:600;cursor:pointer;
   padding:.62rem 1.15rem;min-height:44px;background:var(--blau);color:#fff;
   display:inline-flex;align-items:center;gap:.4rem;transition:opacity .15s}
-.btn.tenyit{background:var(--blau-suau);color:var(--blau)}
+.btn.tenyit{background:var(--blau-suau);color:var(--blau-text)}
 .btn.discret{background:var(--camp);color:var(--etiqueta-2)}
 .btn:active{opacity:.62}
+/* Un botó desactivat s'ha de veure desactivat: si sembla actiu i no fa res,
+   l'alumnat no sap si s'ha equivocat. La WCAG no demana contrast als
+   controls inactius; aquí es fan més clars i sense ombra de clic. */
+.btn:disabled{opacity:.38;cursor:not-allowed}
+.btn:disabled:active{opacity:.38}
 .btn.mini{padding:.4rem .8rem;min-height:36px;font-size:.9rem}
-:focus-visible{outline:3px solid var(--blau);outline-offset:2px;border-radius:6px}
+/* FOCUS. Visible sempre que s'arriba amb el teclat, també als dibuixos que ara
+   es fan servir amb fletxes (la recta de l'1.2 i la paràbola). Es fa amb el blau
+   de lletra perquè en mode fosc el blau dels botons quedaria massa fosc. */
+:focus-visible{outline:3px solid var(--blau-text);outline-offset:2px;border-radius:6px}
+svg.llenc:focus-visible{outline-offset:4px;border-radius:12px}
+/* Amb el ratolí o el dit, el dibuix rep el focus però no ha de sortir el marc. */
+svg.llenc:focus:not(:focus-visible){outline:none}
 
 .pastilles{display:flex;flex-wrap:wrap;gap:.45rem}
 .pastilla{border:0;background:var(--camp);color:var(--etiqueta);border-radius:999px;
@@ -77,7 +90,7 @@ input[type=number],input[type=text]{font:inherit;font-family:var(--tipus);border
   padding:.85rem .4rem;cursor:pointer;font:inherit;color:var(--etiqueta);text-align:center;
   min-height:44px;transition:background .18s}
 .precisio button[aria-pressed="true"]{background:var(--blau);color:#fff}
-.precisio button[aria-pressed="true"] .et{color:rgba(255,255,255,.8)}
+.precisio button[aria-pressed="true"] .et{color:#fff}
 .precisio svg{width:28px;height:28px;margin:0 auto .25rem;display:block}
 
 /* ---- llistes de canvis (mòdul factor) ---- */
@@ -86,7 +99,7 @@ input[type=number],input[type=text]{font:inherit;font-family:var(--tipus);border
   padding:.55rem 0;border-bottom:1px solid var(--separador);font-size:1rem}
 .canvis li:last-child{border-bottom:0}
 .canvis .factor{font-weight:600;color:var(--etiqueta-2)}
-.buit{color:var(--etiqueta-3);font-size:.95rem;padding:.6rem 0}
+.buit{color:var(--etiqueta-2);font-size:.95rem;padding:.6rem 0}
 
 .passos{margin-top:.9rem}
 .pas{margin-bottom:.6rem}
@@ -111,13 +124,9 @@ input[type=number],input[type=text]{font:inherit;font-family:var(--tipus);border
 .cadena{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 0}
 .baula{background:var(--camp);border-radius:var(--r-p);padding:.5rem .8rem;
   font-size:1.15rem;font-weight:600}
-.baula.final{background:var(--blau-suau);color:var(--blau)}
+.baula.final{background:var(--blau-suau);color:var(--blau-text)}
 .oper{color:var(--etiqueta-2);font-size:1rem;font-weight:600}
 
-/* ---- progrés (mòdul paràbola) ---- */
-.punts{display:flex;gap:.4rem;align-items:center}
-.punts i{width:8px;height:8px;border-radius:50%;background:var(--etiqueta-3);display:block}
-.punts i.fet{background:var(--blau)}
 
 svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manipulation}
 
@@ -168,7 +177,7 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
   border-radius:999px;padding:.4rem .5rem;margin-bottom:1rem;
   position:sticky;top:.6rem;z-index:5;box-shadow:0 1px 6px rgba(0,0,0,.06)}
 .sub-rotul{flex:1;text-align:center;font-size:1rem;line-height:1.25}
-.sub-rotul b{color:var(--blau);margin-right:.35rem}
+.sub-rotul b{color:var(--blau-text);margin-right:.35rem}
 .subbarra .btn{min-width:3rem;font-size:1.4rem;line-height:1;padding:.4rem .9rem}
 .subbarra .btn:disabled{opacity:.35}
 
@@ -209,26 +218,31 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
    triador a dalt, el pas començava a 190 px de l'inici i no hi cabia. */
 #mod-calc:not([hidden]){display:grid;grid-template-columns:13.5rem 1fr;
   gap:1rem;align-items:start}
-@media (max-width:46rem){
-  #mod-calc:not([hidden]){grid-template-columns:1fr}
-  .triador .pastilles{flex-direction:row}
-}
 .triador{background:var(--superficie);border-radius:var(--r-g);padding:1rem 1rem 1.1rem;
   position:sticky;top:1rem}
 .triador h2{font-size:1.12rem;margin-bottom:.8rem}
 .triador .pastilles{flex-direction:column;align-items:stretch}
 .triador .pastilla{text-align:center}
+/* Amb una sola columna, el triador va a sobre i NO s'enganxa: enganxat, tapava
+   el pas quan es baixava la pàgina. I les pastilles van en fila, perquè en
+   columna el pas quedava a sota de tot. (Aquesta regla ha d'anar després de
+   les de dalt: abans hi anava davant i no feia res.) */
+@media (max-width:46rem){
+  #mod-calc:not([hidden]){grid-template-columns:1fr}
+  .triador{position:static}
+  .triador .pastilles{flex-direction:row;flex-wrap:wrap}
+}
 
 .context{color:var(--etiqueta-2);font-size:.95rem;margin:.8rem 0 0;line-height:1.35}
 /* La confusió més habitual, on no competeix amb el pas. */
-.peu-nota{color:var(--etiqueta-3);font-size:.85rem;line-height:1.3;margin:.9rem 0 0;
+.peu-nota{color:var(--etiqueta-2);font-size:.85rem;line-height:1.3;margin:.9rem 0 0;
   padding-top:.7rem;border-top:1px solid var(--separador)}
 
 /* La instrucció del bucle, sempre a la vista: sense aquesta frase no queda
    clar que les tecles es premen a l'aparell de veritat i que aquí només
    s'avança. */
 .com-va{margin:0 0 .7rem;font-size:1rem;line-height:1.35;color:var(--etiqueta)}
-.com-va b{color:var(--blau)}
+.com-va b{color:var(--blau-text)}
 
 .passa{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
 
@@ -243,7 +257,7 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
   align-items:center;justify-content:center;
   transition:background .15s,color .15s,transform .15s,box-shadow .15s}
 /* Les tecles d'operació i Ans, un 30 % més grans que la resta. */
-.tecla.op{color:var(--blau)}
+.tecla.op{color:var(--blau-text)}
 .tecla.op,.tecla.ans{font-size:1.3rem}
 .tecla.petita{font-size:.78rem}
 
@@ -254,6 +268,10 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
   0%,100%{transform:scale(1.04);box-shadow:0 0 0 0 rgba(0,122,255,.5)}
   70%    {transform:scale(1.08);box-shadow:0 0 0 9px rgba(0,122,255,0)}
 }
+
+/* Un flaix quan la tecla s'ha premut al teclat de l'ordinador. És un canvi de
+   color, no de moviment: es manté també amb el moviment reduït. */
+.tecla.ara.premuda{background:var(--verd);color:var(--superficie)}
 
 /* El botó demana que el toquin: quiet quasi tot el cicle i, de tant en tant,
    una sacsejada curta amb un anell que s'esvaeix. Suau però visible. */
@@ -266,9 +284,84 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
   94%   {transform:translateX(1.5px);box-shadow:0 0 0 10px rgba(0,122,255,0)}
   100%  {transform:none;box-shadow:0 0 0 0 rgba(0,122,255,0)}
 }
+/* ============================================================ passos ====
+   Les tasques tancades (js/tasca.js): 1.2, 1.3, Paràboles, Equacions i
+   Calculadora. Un rètol diu on s'és, un sol pas es veu alhora i el final es
+   distingeix a primer cop d'ull. */
+
+/* Inici ● ● ○ ○ ○ Final   Pas 2 de 5
+   El pas d'ara és un anell més gran; els fets, cercles plens. La diferència es
+   veu per la forma, no només pel color. */
+.recorregut{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.1rem 0 .9rem;
+  font-size:.9rem}
+.recorregut .fita{font-size:.78rem;font-weight:700;border-radius:999px;padding:.15rem .6rem;
+  background:var(--camp);color:var(--etiqueta-2)}
+/* Sobre el verd, la lletra és el color de la superfície: blanca en mode clar,
+   on el verd és fosc, i gairebé negra en mode fosc, on el verd és clar. */
+.recorregut.acabat .fita.fi{background:var(--verd);color:var(--superficie)}
+.punts-pas{display:flex;align-items:center;gap:.32rem;flex-wrap:wrap}
+.punts-pas i{width:12px;height:12px;border-radius:50%;display:block;
+  box-shadow:inset 0 0 0 2px var(--etiqueta-3)}
+.punts-pas i.fet{background:var(--blau);box-shadow:none}
+.punts-pas i.ara{width:16px;height:16px;box-shadow:inset 0 0 0 3px var(--blau)}
+.punts-pas i.fet.ara{background:var(--blau)}
+.rotul-pas{margin-left:auto;font-weight:600;color:var(--etiqueta)}
+.rotul-pas b{color:var(--blau-text)}
+
+/* La pista va a la línia de sota: una idea per línia. */
+.avis .pista{display:block;margin-top:.45rem}
+
+/* La pregunta de continuar una tasca a mitges. */
+.represa{padding:.2rem 0 .4rem}
+.represa-q{font-size:1.12rem;font-weight:600;line-height:1.35;margin:0 0 .3rem}
+.represa-dia{color:var(--etiqueta-2);margin:0 0 1rem}
+.represa-botons{display:flex;gap:.7rem;flex-wrap:wrap}
+.represa-botons .btn{flex:1 1 12rem;justify-content:center}
+.represa-nota{color:var(--etiqueta-2);font-size:.9rem;margin:.9rem 0 0}
+
+/* El final: «Has acabat», el resum i el codi. */
+.final-tasca{background:var(--verd-suau);border-radius:var(--r-m);padding:1rem 1.1rem 1.15rem;
+  margin-top:.9rem}
+.final-tasca:focus{outline:none}
+.final-tasca:focus-visible{outline:3px solid var(--blau-text);outline-offset:2px}
+.final-cap{font-size:1.45rem;font-weight:700;margin:0 0 .35rem}
+.final-cap::before{content:"✓";display:inline-block;margin-right:.45rem;color:var(--verd)}
+.final-frase{font-size:1.12rem;font-weight:600;margin:0 0 .75rem}
+.final-dades{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1rem;margin:0 0 .9rem}
+.final-dades dt{color:var(--etiqueta-2)}
+.final-dades dd{margin:0;font-weight:600}
+/* El codi es copia a mà: lletra de pas fix, perquè el 0 i la O no s'assemblin. */
+.final-codi{background:var(--superficie);border-radius:var(--r-p);padding:.7rem .9rem}
+.final-codi span{display:block;font-size:.85rem;color:var(--etiqueta-2)}
+.final-codi b{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:1.9rem;letter-spacing:.1em;font-weight:700}
+.final-nota{margin:.6rem 0 1rem}
+.final-nom{display:none}
+.final-botons{display:flex;gap:.6rem;flex-wrap:wrap}
+.final-botons .btn.tenyit{background:var(--superficie)}
+
+/* Imprimir només el resum (botó «Imprimeix el resum»): js/tasca.js en posa una
+   còpia a #zona-impressio i marca el <body>. La resta de la pàgina no surt. */
+#zona-impressio{display:none}
+@media print{
+  body.imprimeix-resum > *:not(#zona-impressio){display:none!important}
+  body.imprimeix-resum{background:#fff}
+  body.imprimeix-resum #zona-impressio{display:block;color:#000;font-size:14pt}
+  #zona-impressio .final-tasca{background:#fff;border:2px solid #000;margin:0}
+  #zona-impressio .final-cap::before{color:#000}
+  #zona-impressio .final-codi{border:2px solid #000}
+  #zona-impressio .final-dades dt,#zona-impressio .final-codi span{color:#000}
+  #zona-impressio .final-botons,#zona-impressio .final-nota{display:none}
+  #zona-impressio .final-nom{display:block;margin:1rem 0 .8rem;padding-bottom:1.2rem;
+    border-bottom:1.5px solid #000;font-weight:600}
+}
+
+/* ============================================================ moviment ====
+   Qui ha demanat menys moviment al sistema no veu cap animació ni transició.
+   La tecla del pas continua destacada, però quieta i una mica més gran. */
 @media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition:none!important;scroll-behavior:auto!important}
   .tecla.ara,.btn.crida{animation:none}
   .tecla.ara{transform:scale(1.06)}
 }
-
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -226,6 +226,31 @@ dir-l'hi: aquesta sí que la va voler aprovar.
 
 ---
 
+## 10a. El que s'ha fet en aquesta sessió
+
+Set blocs de feina d'accessibilitat i millora pedagògica. Tot passa `eines/comprova.py`,
+`eines/auditoria.py` (0 problemes en 56 estats) i les proves funcionals en Chromium.
+
+| Bloc | Què s'ha fet |
+|---|---|
+| Retroacció literal | «Correcte.» / «Incorrecte.» sempre amb la mateixa forma, i la pista proposa **un camí diferent**, no repeteix la consigna |
+| Passos | rètol `Inici ● ● ○ ○ ○ Final` i «Pas 2 de 5» a cinc tasques; **un sol pas a la vista** |
+| Contrast i dianes | paleta de pantalla refeta (17 parelles, clar i fosc), `:focus-visible` a tot arreu, `prefers-reduced-motion` ampliat, botons desactivats que es veuen desactivats |
+| Lectura Fàcil | `dades/textos.js` reescrit amb UNE 153101 i literalitat TEA, i el test ho comprova a cada passada |
+| Resum i codi | targeta final amb recomptes, codi de verificació imprimible i `verifica.html` per llegir-lo |
+| A la vida de cada dia | una pàgina nova a cada fitxa: context real i segona situació per veure si generalitza |
+| Teclat | el mòdul Calculadora contrastat amb el manual oficial (EXE, 10 xifres, punt decimal) i operable amb el teclat de l'ordinador |
+
+**Resolt d'aquesta llista:** «si els mòduls acumulen o buiden la pantalla entre passos».
+Ara es buida a les Paràboles (i a la resta de tasques amb passos), i el dibuix sencer
+només surt al final, com a conclusió.
+
+També s'han fet accessibles amb teclat els dos dibuixos que només es podien tocar: la
+recta de l'1.2 (fletxes i Retorn) i la paràbola (un cursor que llisca per la corba amb 40
+salts, de manera que cau exactament al vèrtex i als talls).
+
+---
+
 ## 10. Estat després de reorganitzar el projecte
 
 El material s'ha convertit en un projecte estàtic amb responsabilitats separades: el CSS
@@ -235,15 +260,43 @@ Res del contingut ha canviat en aquesta reorganització.
 
 **El que continua obert**, per ordre de valor:
 
-1. **Si els mòduls de l'app acumulen o buiden la pantalla entre passos.** És l'única
-   troballa de `VERIFICACIO-MATHISVISUAL.md` que segueix sense comprovar. Buidar redueix
-   la càrrega, i la càrrega és el coll d'ampolla d'aquest alumnat.
+1. **Regenerar els catorze PDF.** Les set fitxes tenen una pàgina nova, «A la vida de cada
+   dia», i els PDF de `pdf/` encara no la porten: no s'han pogut regenerar perquè al
+   contenidor no hi ha xarxa i WeasyPrint no s'hi pot instal·lar. L'ordre és aquest:
+
+   ```
+   pip install weasyprint --break-system-packages
+   python3 eines/mesura.py          # cada pàgina ha de cabre en un A4
+   python3 generadors/gen_pdf.py    # falla sol si el PDF no té tantes pàgines com blocs
+   ```
+
+   Les pàgines noves es van mesurar amb Chromium, que dona alçades un 10 % altes perquè no
+   hi ha la font Carlito. Amb aquesta mesura, la més plena és la de la U3 (27,4 cm) i queda
+   per sota de quatre pàgines que ja existien i que `mesura.py` ja havia donat per bones
+   (fins a 30,3 cm amb el mateix criteri). Tot i així, **qui mana és `mesura.py`**.
+
 2. **El teclat del mòdul Calculadora**, pendent de contrastar amb una Casio fx-82SP CW
-   real: la disposició de tecles i l'etiqueta `FORMAT`. Hi ha la constant `SEP_DECIMAL`
-   per si les calculadores del centre estan configurades amb coma.
-3. **No hi ha mòdul d'estadística ni d'atzar.** Per a la U6 l'eina és el full de càlcul,
+   real. El que s'ha corregit amb el manual oficial ja no cal comprovar-ho: la tecla
+   d'executar és **EXE** (abans el mòdul deia `=`, que no existeix a l'aparell), la
+   pantalla dona 10 xifres (√7 = `2.645751311`, abans en deia 7) i en escriure el decimal
+   sempre és un punt. Queda per mirar **amb l'aparell a la mà**:
+
+   - com estan configurades les calculadores del centre (menú CONFIG → Config cálculo →
+     Entrada/Salida). El mòdul assumeix `E Mat/S Decimal` a la constant `ENTRADA_SORTIDA`;
+     si estan de fàbrica (`E Mat/S Mat`), canvia-la i els casos afegiran sols SHIFT abans
+     d'EXE quan el resultat no sigui sencer;
+   - si el símbol decimal dels **resultats** és punt o coma (constant `SEP_DECIMAL`);
+   - la posició de `√` i de `SHIFT` al mapa del teclat. La tecla `FORMAT` s'ha tret: obre
+     un menú del qual no es pot estar segur sense l'aparell, i amb `E Mat/S Decimal` no cal.
+3. **Les gràfiques antigues de `gen_grafics.py`.** L'etiqueta de l'eix vertical sortia fora
+   del dibuix i es llegia «ra (m)» en comptes de «altura (m)». Està corregit al generador i
+   les vuit gràfiques enganxades a `fitxes/ud5.html` s'han substituït per les noves. L'única
+   que no s'ha pogut substituir és `PILOTA_GRAN` (la de la pàgina 1 de la U5): la versió que
+   hi ha a la fitxa no coincideix amb la que genera l'script, segurament perquè es va
+   retocar a mà. Si algun dia es regenera, mira-la abans.
+4. **No hi ha mòdul d'estadística ni d'atzar.** Per a la U6 l'eina és el full de càlcul,
    que l'alumnat ja fa servir al nivell del grup. Per a la U7, un arbre interactiu seria
    l'addició natural, i `VERIFICACIO-MATHISVISUAL.md` §6 avisa que allà no hi ha res per
    copiar de fora.
-4. **El graó «raó → taxa» de la U3.** Ja hi ha el pas del preu unitari, però es podria
+5. **El graó «raó → taxa» de la U3.** Ja hi ha el pas del preu unitari, però es podria
    marcar més com a pas propi.

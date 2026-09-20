@@ -2,8 +2,8 @@
    Es registra sol; app.js no en sap res més que l'identificador. */
 (function () {
   "use strict";
-  const { $, $$, num, fix, euros, el, icona, pastilles, memoria, txt,
-          omplirTextos } = CE;
+  const { $, $$, num, fix, euros, el, icona, pastilles, txt,
+          omplirTextos, retroaccio } = CE;
 
   /* El primer nombre és el model, el mateix √7 de la fitxa de la Unitat 1. */
   const NOMBRES = [
@@ -109,25 +109,44 @@
   }
 
 
-  /* ==================== 1.2 · Posa'l a la recta ====================
+  /* ==================== 1.2 · Situa el nombre a la recta ====================
      Col·locar un nombre és pur canal visual, que és el punt fort d'aquest
      alumnat. El valor decimal es dona fet: aquí no s'avalua calcular, sinó
-     situar. */
+     situar.
+
+     UNA TASCA TANCADA DE CINC NOMBRES, un cada vegada: Inici ● ○ ○ ○ ○ Final.
+       · encert al primer intent            → «Correcte.»
+       · primer error → «Incorrecte. Ara provem-ho d'una altra manera.» i la
+         pista: la recta marca l'interval entre els dos nombres sencers, que és
+         l'estratègia de l'exercici 1.1, i diu cap a quina banda és;
+       · segon error  → l'app ensenya on és, i es passa al següent.
+     Amb el teclat: el tabulador porta a la recta, les fletxes mouen el cursor
+     d'una dècima (amb Maj., de mitja unitat) i Retorn o Espai el deixen anar. */
   const PER_POSAR = [
     { et: "√5",  v: Math.sqrt(5) },  { et: "√7",  v: Math.sqrt(7) },
     { et: "√11", v: Math.sqrt(11) }, { et: "π",   v: Math.PI },
     { et: "√20", v: Math.sqrt(20) }, { et: "√30", v: Math.sqrt(30) },
     { et: "7/2", v: 3.5 },           { et: "√2",  v: Math.SQRT2 }
   ];
-  const POSA_MAX = 6, POSA_TOL = 0.25;
-  let posaAra = null, posaFets = 0, posaEncerts = 0, posaTocat = null;
+  const POSA_MAX = 6, POSA_TOL = 0.25, POSA_N = 5;
+  let posa = null;                                   // la tasca de passos
+  let posaAra = null, posaTocat = null, posaIntents = 0, posaCursor = null;
 
   function pintaPosa() {
     const svg = $("#posa-svg"); svg.textContent = "";
     const x0 = 34, x1 = 626, y = 84;
     const px = t => x0 + t / POSA_MAX * (x1 - x0);
     const gris = "var(--etiqueta-3)", sec = "var(--etiqueta-2)";
+    const e = posa.estat(), res = e.res[e.pas];
+    const baix = Math.floor(posaAra.v);
+    // prop de les vores, l'etiqueta s'alinea cap endins perquè no es talli
+    const ancora = x => (x > 560 ? "end" : x < 100 ? "start" : "middle");
 
+    // la pista del primer error: l'interval entre els dos nombres sencers
+    if (posaIntents >= 1 && res !== "be" && res !== "pista") {
+      svg.appendChild(el("rect", { x: px(baix), y: y - 16, width: px(baix + 1) - px(baix), height: 32,
+        rx: 7, style: "fill:var(--blau-suau)" }));
+    }
     svg.appendChild(el("line", { x1: x0, y1: y, x2: x1, y2: y,
       style: "stroke:" + gris, "stroke-width": 3, "stroke-linecap": "round" }));
     for (let i = 0; i <= POSA_MAX; i++) {
@@ -137,71 +156,122 @@
         "font-size": 19, style: "fill:" + sec, "font-family": "inherit" }, i));
     }
     if (posaTocat !== null) {
-      const encert = Math.abs(posaTocat - posaAra.v) <= POSA_TOL;
+      const bo = res === "be" || res === "pista";
+      const color = "var(--" + (bo ? "verd" : "taronja") + ")";
       svg.appendChild(el("line", { x1: px(posaTocat), y1: y - 34, x2: px(posaTocat), y2: y + 10,
-        style: "stroke:var(--" + (encert ? "verd" : "taronja") + ")", "stroke-width": 4,
-        "stroke-linecap": "round" }));
-      svg.appendChild(el("text", { x: px(posaTocat), y: y - 42, "text-anchor": "middle",
-        "font-size": 17, "font-weight": 700,
-        style: "fill:var(--" + (encert ? "verd" : "taronja") + ")",
+        style: "stroke:" + color, "stroke-width": 4, "stroke-linecap": "round" }));
+      svg.appendChild(el("text", { x: px(posaTocat), y: y - 42, "text-anchor": ancora(px(posaTocat)),
+        "font-size": 17, "font-weight": 700, style: "fill:" + color,
         "font-family": "inherit" }, txt("1.2.aqui")));
-      if (!encert) {   // ensenyar on era, per veure la distància
-        svg.appendChild(el("circle", { cx: px(posaAra.v), cy: y, r: 9, style: "fill:var(--blau)" }));
-        svg.appendChild(el("text", { x: px(posaAra.v), y: y + 62, "text-anchor": "middle",
-          "font-size": 17, "font-weight": 700, style: "fill:var(--blau)",
-          "font-family": "inherit" }, posaAra.et));
-      }
+    }
+    if (res === "mostrat") {                        // on era, per veure la distància
+      svg.appendChild(el("circle", { cx: px(posaAra.v), cy: y, r: 9, style: "fill:var(--blau)" }));
+      svg.appendChild(el("text", { x: px(posaAra.v), y: y + 62, "text-anchor": ancora(px(posaAra.v)),
+        "font-size": 17, "font-weight": 700, style: "fill:var(--blau-text)",
+        "font-family": "inherit" }, posaAra.et));
+    }
+    if (posaCursor !== null && res == null) {       // el cursor de teclat
+      svg.appendChild(el("line", { x1: px(posaCursor), y1: y - 30, x2: px(posaCursor), y2: y + 12,
+        style: "stroke:var(--etiqueta)", "stroke-width": 3, "stroke-dasharray": "5 4" }));
     }
     const capa = el("rect", { x: 0, y: 0, width: 660, height: 160, fill: "transparent",
       style: "cursor:pointer" });
     capa.addEventListener("click", ev => {
-      if (posaTocat !== null) return;                 // ja contestat
       const r = svg.getBoundingClientRect();
-      const t = ((ev.clientX - r.left) / r.width * 660 - x0) / (x1 - x0) * POSA_MAX;
-      posaTocat = Math.max(0, Math.min(POSA_MAX, t));
-      posaFets++;
-      const d = Math.abs(posaTocat - posaAra.v);
-      const avis = $("#posa-avis");
-      if (d <= POSA_TOL) {
-        posaEncerts++;
-        avis.className = "avis be";
-        avis.innerHTML = txt("1.2.encert", { nom: posaAra.et,
-          baix: Math.floor(posaAra.v), alt: Math.floor(posaAra.v) + 1 });
-      } else {
-        avis.className = "avis pensa";
-        avis.innerHTML = txt("1.2.fallada", { banda:
-          txt(posaTocat < posaAra.v ? "1.2.dreta" : "1.2.esquerra") });
-      }
-      pintaPosa(); marcadorPosa();
+      tocaPosa(((ev.clientX - r.left) / r.width * 660 - x0) / (x1 - x0) * POSA_MAX);
     });
     svg.appendChild(capa);
   }
 
-  function marcadorPosa() {
-    $("#posa-compte").textContent = posaFets ? posaEncerts + " de " + posaFets : "";
+  function tocaPosa(t) {
+    const e = posa.estat();
+    if (!e || e.acabada || posa.resolt()) return;
+    posaTocat = Math.max(0, Math.min(POSA_MAX, t));
+    const baix = Math.floor(posaAra.v), alt = baix + 1, avis = $("#posa-avis");
+
+    if (Math.abs(posaTocat - posaAra.v) <= POSA_TOL) {
+      posa.anota(posaIntents === 0 ? "be" : "pista");
+      retroaccio(avis, "encert", txt("1.2.encert", { nom: posaAra.et, baix, alt }));
+    } else if (posaIntents === 0) {
+      posaIntents = 1;
+      retroaccio(avis, "error", "", txt("1.2.pista", { baix, alt,
+        banda: txt(posaTocat < posaAra.v ? "1.2.dreta" : "1.2.esquerra") }));
+    } else {
+      posaIntents = 2;
+      posa.anota("mostrat");
+      retroaccio(avis, "mostra", txt("1.2.mostra", { nom: posaAra.et, baix, alt }));
+    }
+    $("#posa-seguent").disabled = !posa.resolt();
+    pintaPosa();
   }
 
-  function nouPosa() {
-    let n; do { n = PER_POSAR[Math.floor(Math.random() * PER_POSAR.length)]; }
-    while (posaAra && n.et === posaAra.et);
-    posaAra = n; posaTocat = null;
-    $("#posa-nom").textContent = n.et;
-    $("#posa-valor").textContent = fix(n.v, 4);
+  function pasPosa(i, e) {
+    posaAra = PER_POSAR[e.extra.ordre[i]];
+    posaTocat = null; posaIntents = 0; posaCursor = null;
+    $("#posa-nom").textContent = posaAra.et;
+    $("#posa-valor").textContent = fix(posaAra.v, 4);
     const avis = $("#posa-avis");
     avis.className = "avis neutre";
     avis.innerHTML = txt("1.2.comenca");
-    pintaPosa(); marcadorPosa();
+    const seguent = $("#posa-seguent");
+    seguent.disabled = true;
+    seguent.innerHTML = txt(posa.esUltim() ? "comu.acaba" : "comu.seguent");
+    pintaPosa();
+  }
+
+  function teclatPosa(ev) {
+    const e = posa.estat();
+    if (!e || e.acabada || posa.resolt()) return;
+    const dir = { ArrowLeft: -1, ArrowDown: -1, ArrowRight: 1, ArrowUp: 1 }[ev.key];
+    if (dir) {
+      ev.preventDefault();
+      const salt = ev.shiftKey ? 0.5 : 0.1;
+      posaCursor = Math.round(Math.max(0, Math.min(POSA_MAX, (posaCursor ?? 0) + dir * salt)) * 10) / 10;
+      pintaPosa();
+    } else if (ev.key === "Home" || ev.key === "End") {
+      ev.preventDefault();
+      posaCursor = ev.key === "Home" ? 0 : POSA_MAX;
+      pintaPosa();
+    } else if (ev.key === "Enter" || ev.key === " ") {
+      ev.preventDefault();
+      if (posaCursor === null) { posaCursor = 0; pintaPosa(); return; }
+      tocaPosa(posaCursor);
+    }
   }
 
   function iniciaPosa() {
-    $("#posa-altre").onclick = nouPosa;
-    nouPosa();
+    posa = CE.tasca({
+      tasca: 1, sub: 2,
+      recorregut: $("#posa-recorregut"),
+      represa: $("#posa-represa"),
+      final: $("#posa-final"),
+      cos: [$("#posa-cos")],
+      desa: true,
+      valida: e => e.total === POSA_N && Array.isArray(e.extra.ordre) &&
+                   e.extra.ordre.every(i => PER_POSAR[i] !== undefined),
+      nom: () => "1.2 · " + txt("1.2.nom"),
+      pinta: pasPosa
+    });
+    $("#posa-seguent").onclick = () => posa.seguent();
+    const svg = $("#posa-svg");
+    svg.addEventListener("keydown", teclatPosa);
+    svg.addEventListener("blur", () => { if (posaCursor !== null) { posaCursor = null; pintaPosa(); } });
+    // cinc nombres diferents, en un ordre nou cada vegada
+    posa.inicia(() => ({ total: POSA_N, extra: {
+      ordre: CE.barreja(PER_POSAR.map((_, i) => i)).slice(0, POSA_N) } }));
   }
 
-  /* ==================== 1.3 · S'acaba o no s'acaba? ====================
+  /* ==================== 1.3 · Els decimals s'acaben? ====================
      L'arrel d'un quadrat perfecte dona un nombre exacte; la resta, no. És una
      decisió de sí o no, sense escriure res, i de passada s'aprèn la llista de
-     quadrats perfectes. */
+     quadrats perfectes.
+
+     UNA TASCA TANCADA DE SIS ARRELS: tres que s'acaben i tres que no, barrejades.
+     Si són totes del mateix tipus, contestar sempre el mateix botó encerta, i
+     això no és el que es vol veure.
+       · primer error → «Incorrecte. Ara provem-ho d'una altra manera.» i la
+         pista porta a mirar els tres punts (…) del final de la pantalla;
+       · el segon intent ja és l'altre botó, i compta com a encert amb pista. */
   const ARRELS = [
     { et: "√9", v: 3, acaba: true },   { et: "√16", v: 4, acaba: true },
     { et: "√25", v: 5, acaba: true },  { et: "√36", v: 6, acaba: true },
@@ -210,37 +280,64 @@
     { et: "√7", v: Math.sqrt(7) },     { et: "√10", v: Math.sqrt(10) },
     { et: "√20", v: Math.sqrt(20) },   { et: "π", v: Math.PI }
   ];
-  let acabaAra = null, acabaFets = 0, acabaEncerts = 0, acabaTancat = false;
+  const ACABA_N = 6;
+  let acaba = null, acabaAra = null, acabaErrors = 0;
 
-  function nouAcaba() {
-    let n; do { n = ARRELS[Math.floor(Math.random() * ARRELS.length)]; }
-    while (acabaAra && n.et === acabaAra.et);
-    acabaAra = n; acabaTancat = false;
-    $("#acaba-nom").textContent = n.et;
-    $("#acaba-valor").textContent = n.acaba ? fix(n.v, 0) : fix(n.v, 7) + "…";
+  function pasAcaba(i, e) {
+    acabaAra = ARRELS[e.extra.ordre[i]];
+    acabaErrors = 0;
+    $("#acaba-nom").textContent = acabaAra.et;
+    $("#acaba-valor").textContent = acabaAra.acaba ? fix(acabaAra.v, 0) : fix(acabaAra.v, 7) + "…";
     const avis = $("#acaba-avis");
     avis.className = "avis neutre";
     avis.innerHTML = txt("1.3.comenca");
+    const seguent = $("#acaba-seguent");
+    seguent.disabled = true;
+    seguent.innerHTML = txt(acaba.esUltim() ? "comu.acaba" : "comu.seguent");
   }
 
   function responAcaba(diuQueAcaba) {
-    if (acabaTancat) return;
-    acabaTancat = true; acabaFets++;
-    const bo = diuQueAcaba === !!acabaAra.acaba;
-    if (bo) acabaEncerts++;
+    const e = acaba.estat();
+    if (!e || e.acabada || acaba.resolt()) return;
     const avis = $("#acaba-avis");
-    avis.className = bo ? "avis be" : "avis pensa";
-    const quina = (bo ? "encert" : "error") + (acabaAra.acaba ? "_si" : "_no");
-    avis.innerHTML = txt("1.3." + quina, { nom: acabaAra.et, valor: fix(acabaAra.v, 0) });
-    $("#acaba-compte").textContent = acabaEncerts + " de " + acabaFets;
+    const valors = { nom: acabaAra.et, valor: fix(acabaAra.v, 0) };
+    const explica = txt(acabaAra.acaba ? "1.3.encert_si" : "1.3.encert_no", valors);
+
+    if (diuQueAcaba === !!acabaAra.acaba) {
+      acaba.anota(acabaErrors === 0 ? "be" : "pista");
+      retroaccio(avis, "encert", explica);
+    } else if (acabaErrors === 0) {
+      acabaErrors = 1;
+      retroaccio(avis, "error", "", txt(acabaAra.acaba ? "1.3.pista_si" : "1.3.pista_no", valors));
+    } else {                                        // el mateix botó equivocat dues vegades
+      acaba.anota("mostrat");
+      retroaccio(avis, "mostra", explica);
+    }
+    $("#acaba-seguent").disabled = !acaba.resolt();
   }
 
   function iniciaAcaba() {
+    acaba = CE.tasca({
+      tasca: 1, sub: 3,
+      recorregut: $("#acaba-recorregut"),
+      represa: $("#acaba-represa"),
+      final: $("#acaba-final"),
+      cos: [$("#acaba-cos")],
+      desa: true,
+      valida: e => e.total === ACABA_N && Array.isArray(e.extra.ordre) &&
+                   e.extra.ordre.every(i => ARRELS[i] !== undefined),
+      nom: () => "1.3 · " + txt("1.3.nom"),
+      pinta: pasAcaba
+    });
     $$('#mod-recta .tria-gran .btn').forEach(b => {
       b.onclick = () => responAcaba(b.dataset.resp === "si");
     });
-    $("#acaba-altre").onclick = nouAcaba;
-    nouAcaba();
+    $("#acaba-seguent").onclick = () => acaba.seguent();
+
+    const exactes = ARRELS.map((a, i) => i).filter(i => ARRELS[i].acaba);
+    const infinits = ARRELS.map((a, i) => i).filter(i => !ARRELS[i].acaba);
+    acaba.inicia(() => ({ total: ACABA_N, extra: { ordre: CE.barreja(
+      CE.barreja(exactes).slice(0, ACABA_N / 2).concat(CE.barreja(infinits).slice(0, ACABA_N / 2))) } }));
   }
 
   /* ==================== 1.4 · Quant costa arrodonir ====================
@@ -490,4 +587,9 @@
   }
 
   CE.registra("recta", iniciaTasca1);
+
+  // Les dues subtasques que donen codi de verificació, per a verifica.html.
+  const RECOMPTES = [txt("comu.r_passos"), txt("comu.r_primer"), txt("comu.r_pista")];
+  CE.registraCataleg("1.2", { nom: txt("1.2.nom"), recomptes: RECOMPTES, resta: txt("comu.r_mostrat") });
+  CE.registraCataleg("1.3", { nom: txt("1.3.nom"), recomptes: RECOMPTES, resta: txt("comu.r_mostrat") });
 })();

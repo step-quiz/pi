@@ -84,24 +84,30 @@
     </div>
   </div>
 
-  <!-- ..................... 1.2 ..................... -->
+  <!-- ..................... 1.2 .....................
+       Una tasca tancada de cinc nombres (js/tasca.js): el rètol de progrés,
+       la pregunta de continuar i el resum final van als tres contenidors. -->
   <div class="subtasca" data-sub="2" hidden>
     <div class="targeta">
       <h2 data-text="1.2.titol"></h2>
       <p class="ajuda" data-text="1.2.ajuda"></p>
+      <div id="posa-recorregut"></div>
+      <div class="represa" id="posa-represa" hidden></div>
 
-      <div class="pantalla petita">
-        <div class="entrada" id="posa-nom">&nbsp;</div>
-        <div class="lcd"><div class="res" id="posa-valor">&nbsp;</div></div>
-      </div>
+      <div id="posa-cos">
+        <div class="pantalla petita">
+          <div class="entrada" id="posa-nom">&nbsp;</div>
+          <div class="lcd"><div class="res" id="posa-valor">&nbsp;</div></div>
+        </div>
 
-      <svg class="llenc" id="posa-svg" viewBox="0 0 660 160" role="img"
-        aria-label="Recta numèrica per tocar"></svg>
-      <div class="avis neutre" id="posa-avis" aria-live="polite"></div>
-      <div class="passa">
-        <button class="btn mini" id="posa-altre" data-text="1.2.altre"></button>
-        <span class="et" id="posa-compte"></span>
+        <svg class="llenc" id="posa-svg" viewBox="0 0 660 160" tabindex="0"
+          aria-label="Recta numèrica per tocar. Amb el teclat, mou el cursor amb les fletxes i prem Retorn."></svg>
+        <div class="avis neutre" id="posa-avis" aria-live="polite"></div>
+        <div class="passa">
+          <button class="btn" id="posa-seguent" disabled></button>
+        </div>
       </div>
+      <div class="final-tasca" id="posa-final" hidden></div>
     </div>
   </div>
 
@@ -110,21 +116,25 @@
     <div class="targeta">
       <h2 data-text="1.3.titol"></h2>
       <p class="ajuda" data-text="1.3.ajuda"></p>
+      <div id="acaba-recorregut"></div>
+      <div class="represa" id="acaba-represa" hidden></div>
 
-      <div class="pantalla">
-        <div class="entrada" id="acaba-nom">&nbsp;</div>
-        <div class="lcd"><div class="res" id="acaba-valor">&nbsp;</div></div>
-      </div>
+      <div id="acaba-cos">
+        <div class="pantalla">
+          <div class="entrada" id="acaba-nom">&nbsp;</div>
+          <div class="lcd"><div class="res" id="acaba-valor">&nbsp;</div></div>
+        </div>
 
-      <div class="tria-gran">
-        <button class="btn gran" data-resp="si" data-text="1.3.boto_si"></button>
-        <button class="btn gran tenyit" data-resp="no" data-text="1.3.boto_no"></button>
+        <div class="tria-gran">
+          <button class="btn gran" data-resp="si" data-text="1.3.boto_si"></button>
+          <button class="btn gran tenyit" data-resp="no" data-text="1.3.boto_no"></button>
+        </div>
+        <div class="avis neutre" id="acaba-avis" aria-live="polite"></div>
+        <div class="passa">
+          <button class="btn" id="acaba-seguent" disabled></button>
+        </div>
       </div>
-      <div class="avis neutre" id="acaba-avis" aria-live="polite"></div>
-      <div class="passa">
-        <button class="btn mini" id="acaba-altre" data-text="1.3.altre"></button>
-        <span class="et" id="acaba-compte"></span>
-      </div>
+      <div class="final-tasca" id="acaba-final" hidden></div>
     </div>
   </div>
 
@@ -261,45 +271,56 @@
 
 <!-- ============ PARÀBOLES ============ -->
 <section id="mod-parabola" class="modul" hidden>
+  <!-- Tres passos, un cada vegada: vèrtex, talls i eix (js/moduls/parabola.js). -->
   <div class="targeta">
-    <div class="cap"><div><h2>Llegeix la paràbola</h2>
-      <p class="ajuda">Toca sobre el dibuix el que et demana.</p></div>
-      <div class="punts" id="par-punts" aria-label="Progrés"></div></div>
+    <div class="cap"><div><h2 data-text="5.titol"></h2>
+      <p class="ajuda" data-text="5.ajuda"></p></div>
+      <span class="marca" id="par-marca" data-text="comu.exemple"></span></div>
     <div class="pastilles" id="par-pastilles"></div>
     <hr class="divisor">
-    <div class="mitja" id="par-tasca"></div>
-    <svg class="llenc" id="par-svg" viewBox="0 0 660 400" role="img"
-      aria-label="Gràfica del fenomen"></svg>
-    <div class="avis neutre" id="par-avis" aria-live="polite"></div>
-    <div style="display:flex;gap:.5rem;margin-top:.85rem;flex-wrap:wrap">
-      <button class="btn tenyit mini" id="par-repeteix">Torna a començar</button>
-      <button class="btn discret mini" id="par-mostra">Mostra-ho tot</button>
+    <div id="par-recorregut"></div>
+    <div class="represa" id="par-represa" hidden></div>
+    <div id="par-cos">
+      <div class="mitja" id="par-tasca" aria-live="polite"></div>
+      <svg class="llenc" id="par-svg" viewBox="0 0 660 400" tabindex="0"
+        aria-label="Gràfica del fenomen. Amb el teclat, les fletxes mouen un cercle per la corba i Retorn toca on és."></svg>
+      <div class="avis neutre" id="par-avis" aria-live="polite"></div>
+      <div class="passa" id="par-botons">
+        <button class="btn" id="par-seguent" disabled></button>
+        <button class="btn tenyit mini" id="par-repeteix" data-text="5.repeteix"></button>
+        <button class="btn discret mini" id="par-mostra" data-text="5.mostra_tot"></button>
+      </div>
     </div>
+    <div class="final-tasca" id="par-final" hidden></div>
   </div>
 </section>
 
 <!-- ============ EQUACIONS: LA BALANÇA ============ -->
 <section id="mod-equacio" class="modul" hidden>
   <div class="targeta">
-    <div class="cap"><div><h2>Prova números a la balança</h2>
-      <p class="ajuda">Canvia la x i mira si les dues bandes queden iguals.</p></div>
-      <span class="marca" id="eq-marca">Exemple</span></div>
+    <div class="cap"><div><h2 data-text="6.titol"></h2>
+      <p class="ajuda" data-text="6.ajuda"></p></div>
+      <span class="marca" id="eq-marca" data-text="comu.exemple"></span></div>
     <div class="pastilles" id="eq-pastilles"></div>
   </div>
 
   <div class="targeta">
-    <div class="equacio-gran" id="eq-titol"></div>
-    <svg class="llenc" id="eq-svg" viewBox="0 0 660 300" role="img"
-      aria-label="Balança amb les dues bandes de l'equació"></svg>
-    <div class="passa" style="justify-content:center">
-      <button class="btn tenyit" id="eq-menys" aria-label="Baixa la x">−</button>
-      <div style="text-align:center;min-width:7rem">
-        <div class="et">La x val</div>
-        <div class="gran" id="eq-valor">0</div>
+    <div id="eq-recorregut" hidden></div>
+    <div id="eq-cos">
+      <div class="equacio-gran" id="eq-titol"></div>
+      <svg class="llenc" id="eq-svg" viewBox="0 0 660 300" role="img"
+        aria-label="Balança amb les dues bandes de l'equació"></svg>
+      <div class="passa" style="justify-content:center">
+        <button class="btn tenyit" id="eq-menys" aria-label="Baixa la x">−</button>
+        <div style="text-align:center;min-width:7rem">
+          <div class="et" data-text="6.x_val"></div>
+          <div class="gran" id="eq-valor">0</div>
+        </div>
+        <button class="btn tenyit" id="eq-mes" aria-label="Puja la x">+</button>
       </div>
-      <button class="btn tenyit" id="eq-mes" aria-label="Puja la x">+</button>
+      <div class="avis neutre" id="eq-avis" aria-live="polite"></div>
     </div>
-    <div class="avis neutre" id="eq-avis" aria-live="polite"></div>
+    <div class="final-tasca" id="eq-final" hidden></div>
   </div>
 </section>
 
@@ -309,36 +330,40 @@
   <!-- El selector de casos va en una columna lateral: així el pas sencer
        —pantalla, botons i teclat— cap a la finestra sense fer scroll. -->
   <aside class="triador">
-    <h2>Com es fa amb la calculadora</h2>
+    <h2 data-text="0.titol"></h2>
     <div class="pastilles" id="calc-pastilles"></div>
     <p class="context" id="calc-context"></p>
-    <p class="peu-nota">A la calculadora, la coma dels decimals
-      s'escriu amb un punt.</p>
+    <p class="peu-nota" data-text="0.nota_punt"></p>
+    <p class="peu-nota" id="calc-nota-teclat" data-text="0.teclat_pc" hidden></p>
   </aside>
 
+  <!-- Un pas és una tecla. El rètol diu «Tecla 3 de 7: prem ×» i, en acabar,
+       el pas es canvia pel resum (js/tasca.js). -->
   <div class="targeta pas-calc">
-    <p class="com-va">Prem la tecla a la teva calculadora.
-      Després toca <b>Següent tecla</b>.</p>
+    <div id="calc-recorregut"></div>
+    <div id="calc-cos">
+      <p class="com-va" data-text="0.com_va"></p>
 
-    <div class="pantalla">
-      <div class="entrada" id="calc-entrada">&nbsp;</div>
-      <div class="lcd"><div class="res" id="calc-res">&nbsp;</div></div>
+      <div class="pantalla">
+        <div class="entrada" id="calc-entrada">&nbsp;</div>
+        <div class="lcd"><div class="res" id="calc-res">&nbsp;</div></div>
+      </div>
+
+      <div class="passa">
+        <button class="btn tenyit mini" id="calc-arrere" data-text="0.enrere"></button>
+        <button class="btn mini" id="calc-endavant" data-text="0.seguent"></button>
+      </div>
+
+      <!-- El mapa només serveix per situar la tecla a l'aparell: el rètol ja
+           diu quina és, i per això el mapa s'amaga als lectors de pantalla. -->
+      <div class="mapa" aria-hidden="true">
+        <div class="zona-et" data-text="0.dalt"></div>
+        <div class="teclat dalt" id="calc-dalt"></div>
+        <div class="zona-et" data-text="0.baix"></div>
+        <div class="teclat" id="calc-baix"></div>
+      </div>
     </div>
-
-    <div class="passa">
-      <button class="btn tenyit mini" id="calc-arrere">Enrere</button>
-      <button class="btn mini" id="calc-endavant">Següent tecla</button>
-      <span class="et" id="calc-progres"></span>
-    </div>
-
-    <div class="mapa">
-      <div class="zona-et">A dalt, amb les funcions</div>
-      <div class="teclat dalt" id="calc-dalt"></div>
-      <div class="zona-et">A baix, amb els números</div>
-      <div class="teclat" id="calc-baix"></div>
-    </div>
-
-    <div class="avis be" id="calc-final" hidden></div>
+    <div class="final-tasca" id="calc-final" hidden></div>
   </div>
 </section>
 
@@ -364,9 +389,13 @@
 </section>
 </div>
 
-<!-- El nucli primer, els mòduls es registren sols, i app.js sempre l'últim. -->
+<!-- Les frases i el nucli primer; després el codi de verificació i les tasques,
+     que fan servir tots els mòduls; els mòduls es registren sols, i app.js
+     sempre l'últim. -->
 <script src="dades/textos.js"></script>
 <script src="js/nucli.js"></script>
+<script src="js/codi.js"></script>
+<script src="js/tasca.js"></script>
 <script src="js/moduls/recta.js"></script>
 <script src="js/moduls/doble.js"></script>
 <script src="js/moduls/percentatges.js"></script>

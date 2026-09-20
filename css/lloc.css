@@ -26,7 +26,7 @@ h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.012em; margin: 2.4re
 .subtitol { color: var(--etiqueta-2); margin: .3rem 0 0 }
 .entradeta { color: var(--etiqueta-2); max-width: 40rem; margin: .8rem 0 0 }
 
-a { color: var(--blau); text-decoration: none }
+a { color: var(--blau-text); text-decoration: none }
 a:hover { text-decoration: underline }
 .tornar { margin: 0 0 1.2rem; font-size: .95rem }
 
@@ -49,7 +49,7 @@ a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .0
 .num {
   display: inline-flex; align-items: center; justify-content: center;
   width: 1.9rem; height: 1.9rem; border-radius: 50%;
-  background: var(--blau-suau); color: var(--blau);
+  background: var(--blau-suau); color: var(--blau-text);
   font-weight: 700; font-size: .95rem; margin-bottom: .6rem;
 }
 
