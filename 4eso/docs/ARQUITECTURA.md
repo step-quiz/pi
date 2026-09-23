@@ -29,8 +29,11 @@ fa servir. El test ho comprova.
 
 ## 2. Els fitxers
 
+Tot és dins de `4eso/`. `_headers`, `robots.txt`, `404.html` i `favicon.svg` són a l'arrel del
+repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
+`comu/examens/nucli.js`.
+
 ```
-├── _headers  robots.txt  404.html  favicon.svg
 ├── index.html              portada
 ├── fitxes.html             índex detallat de les set unitats
 ├── caixa-eines.html        l'aplicació: només marcatge
@@ -55,7 +58,8 @@ fa servir. El test ho comprova.
 │   └── unitats.js          font única: les set unitats amb tota la metadada
 │
 ├── fitxes/                 ud1.html … ud7.html
-├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF
+├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF,
+│                           i examens/udN.js, el contingut de cada examen DOCX
 ├── eines/
 │   ├── comprova.py         el test del projecte, sense dependències
 │   ├── mesura.py           si cada pàgina cap en un A4          (WeasyPrint)

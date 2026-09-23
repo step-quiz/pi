@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Comprovacions del projecte. Es passa abans de publicar res.
 
-    python3 eines/comprova.py
+    python3 4eso/eines/comprova.py      (des de l'arrel del repositori)
 
 Verifica les regles que és fàcil trencar sense adonar-se'n: que les fitxes no
 tinguin cap color, que l'HTML tanqui bé, que la numeració de pàgines sigui
@@ -15,7 +15,8 @@ i que els colors de la pantalla tinguin el contrast que demana la WCAG 2.2 AA.
 import re, sys, glob, os
 from html.parser import HTMLParser
 
-ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # la carpeta del curs
+REPO = os.path.dirname(ARREL)          # l'arrel: els cursos, comu/ i el desplegament
 BUIDES = {'area','base','br','col','embed','hr','img','input','link','meta','source',
           'track','wbr','path','circle','rect','line','text','use','stop','polygon',
           'polyline','ellipse'}
@@ -393,33 +394,36 @@ comprova(not md, f"hi ha enllaços a Markdown des de les pàgines: {md}")
 print(f"  enllaços a .md des de les pàgines: {len(md)}")
 
 for necessari in ('_headers', 'robots.txt', '404.html', 'favicon.svg', '.gitignore'):
-    comprova(os.path.exists(ruta(necessari)), f"falta {necessari}")
+    comprova(os.path.exists(os.path.join(REPO, necessari)), f"falta {necessari} a l'arrel")
 print("  fitxers de desplegament: tots presents")
 
 print("\nANONIMAT")
 # El material no ha d'anomenar mai el curs, el tipus d'aula ni el diagnòstic,
 # ni parlar d'un alumne en singular. Es descriu alumnat amb dificultats de
-# tipus cognitiu, i prou.
-PROHIBITS = [r"4t ESO", r"4ESO", r"4t d'ESO", r"4t A\b", r"\bde 4t\b",
-             r"\bSIEI\b", r"\bDIL\b", r"4eso", r"discapacitat intel",
+# tipus cognitiu, i prou. Es mira tot el repositori, perquè tot es publica.
+# L'excepció són els noms de carpeta 4eso/ i 1eso/: fan visible el curs a les
+# adreces, i és una decisió presa. Per això «4eso» només passa dins d'una ruta,
+# amb una barra al costat; en el text, continua prohibit.
+PROHIBITS = [r"4t ESO", r"(?<![/\w])4eso(?![/\w])", r"4t d'ESO", r"4t A\b", r"\bde 4t\b",
+             r"\bSIEI\b", r"\bDIL\b", r"discapacitat intel",
              r"\bl'alumne\b", r"\bun alumne\b", r"\baquest alumne\b"]
 trobats = []
-for f in (glob.glob(os.path.join(ARREL, '**', '*.md'), recursive=True)
-          + glob.glob(os.path.join(ARREL, '**', '*.html'), recursive=True)
-          + glob.glob(os.path.join(ARREL, '**', '*.js'), recursive=True)
-          + glob.glob(os.path.join(ARREL, '**', '*.css'), recursive=True)):
+for f in (glob.glob(os.path.join(REPO, '**', '*.md'), recursive=True)
+          + glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True)
+          + glob.glob(os.path.join(REPO, '**', '*.js'), recursive=True)
+          + glob.glob(os.path.join(REPO, '**', '*.css'), recursive=True)):
     text = open(f, encoding='utf-8').read()
     for patro in PROHIBITS:
         for m in re.finditer(patro, text, re.I):
-            trobats.append((os.path.relpath(f, ARREL), m.group(0)))
+            trobats.append((os.path.relpath(f, REPO), m.group(0)))
 comprova(not trobats, f"termes que trenquen l'anonimat: {trobats[:6]}")
 print(f"  termes que trencarien l'anonimat: {len(trobats)}")
 
 print("\nDEPENDÈNCIES EXTERNES")
 remots = []
-for f in glob.glob(ruta('**', '*.html'), recursive=True) + glob.glob(ruta('css', '*.css')):
+for f in glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True) + glob.glob(ruta('css', '*.css')):
     for u in re.findall(r'(?:src|href)="(https?://[^"]+)"', open(f, encoding='utf-8').read()):
-        remots.append((os.path.relpath(f, ARREL), u))
+        remots.append((os.path.relpath(f, REPO), u))
 comprova(not remots, f"recursos remots: {remots}")
 print(f"  recursos remots: {len(remots)}")
 

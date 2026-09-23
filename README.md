@@ -1,166 +1,137 @@
-# Matemàtiques Aplicades · material adaptat
+# Material adaptat de matemàtiques
 
-Material de matemàtiques per a **alumnat amb dificultats de tipus cognitiu** que fa una
-part de les hores a l'**aula de suport** i l'altra a l'aula ordinària, en l'itinerari
-d'**Aplicades**.
+Material de matemàtiques per a **alumnat amb dificultats de tipus cognitiu**: fitxes
+imprimibles, una caixa d'eines digital, exàmens adaptats en Word i la documentació que
+explica per què tot és com és.
 
-Set fitxes imprimibles, una caixa d'eines digital i la documentació que explica per què
-tot és com és.
+Cada curs té la seva carpeta, perquè els recursos d'un curs i els de l'altre no són els
+mateixos. El que serveix per a tots dos és a `comu/`.
+
+---
+
+## L'estructura
+
+| Carpeta o fitxer | Què hi ha |
+|---|---|
+| `4eso/` | Tot el material d'aquest curs: les set fitxes, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
+| `1eso/` | El material de 1r d'ESO, quan es faci. Vegeu [`1eso/README.md`](1eso/README.md) |
+| `comu/` | El que comparteixen els dos cursos: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
+| `index.html` | La porta d'entrada: ara porta a `4eso/` |
+| `404.html` | La pàgina d'adreça equivocada. També porta les adreces d'abans a `4eso/` |
+| `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
+| `LICENSE`, `LLICENCIA.md` | Les llicències |
+| `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub |
+
+Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `css/`, `js/`, `dades/`, `pdf/`,
+`docs/`, `eines/` i `generadors/`. Les ordres de la seva documentació s'executen des de
+dins: `cd 4eso/`.
 
 ---
 
 ## Com s'obre
 
-Doble clic a `index.html`. No cal servidor, ni instal·lar res, ni cap dependència.
+Doble clic a `index.html`: porta a `4eso/index.html`. No cal servidor ni instal·lar res.
 
 ## On es publica
 
-GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formulari buits**.
-És un lloc estàtic corrent: no hi ha res a compilar. Vegeu `docs/DESPLEGAMENT.md`.
+GitHub → Cloudflare Pages → `pi.step-quiz.net`, amb tots els camps del formulari buits: es
+publica tot el repositori. La caixa d'eines de `4eso/` és a
+`https://pi.step-quiz.net/4eso/caixa-eines`.
+
+**Els enllaços que ja s'han enviat a l'alumnat continuen funcionant.** Una adreça d'abans,
+com `https://pi.step-quiz.net/caixa-eines?task=2`, porta sola a la mateixa pàgina dins de
+`4eso/`, amb el `?task` inclòs. Ho fa la `404.html` de l'arrel.
 
 ---
 
-## Què hi ha
+## Els exàmens en DOCX
 
-| | |
+Cada unitat pot tenir un examen adaptat en Word: un document per a l'alumnat i un
+solucionari per al professorat. Es fan amb un programa perquè una IA no escriu un DOCX a
+mà: sempre escriu un programa que el fabrica. El programa té dues peces, i les regles són
+en un document a part:
+
+| Fitxer | Què hi ha |
 |---|---|
-| `index.html` | portada: les set unitats i les eines |
-| `fitxes.html` | el detall de cada unitat: material previ, regla trencada, fita, recursos |
-| `caixa-eines.html` | l'aplicació, amb vuit mòduls |
-| `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
-| `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
-| `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |
-| `textos.html` | pàgina per canviar-les sense tocar codi |
-| `pdf/` | dos PDF per unitat: un per a l'alumnat i un per al professorat |
-| `docs/` | mapa d'adaptació, criteris de disseny, arquitectura i feina pendent |
-| `generadors/` | scripts Python que dibuixen els gràfics SVG i generen els PDF |
-| `eines/` | el test del projecte, la mesura de les pàgines i l'auditoria d'accessibilitat |
+| `comu/examens/nucli.js` | El motor: la pàgina, les lletres, els grisos, les peces de l'examen, els dibuixos i les comprovacions. És el mateix per a tots els cursos |
+| `4eso/generadors/examens/ud1.js` | El contingut de l'examen de la UD1. Cada unitat té el seu fitxer: `ud2.js`, `ud3.js`… |
+| `comu/docs/EXAMENS-DOCX.md` | Les regles: com ha de ser l'examen i per què, i el procediment pas a pas |
+| `4eso/generadors/examens-privat.json` | El curs i l'adaptació que surten a l'examen imprès. Només a l'ordinador de qui genera l'examen: no es puja mai |
 
----
+Ara hi ha l'examen de la **UD1**. Les unitats 2 a 7 encara no en tenen.
 
-## Enllaços per a l'alumnat
+### Fer l'examen d'una unitat nova amb una IA
 
-Per enviar una sola eina, afegeix `?task=n` a l'adreça de la caixa d'eines, per exemple
-`https://pi.step-quiz.net/caixa-eines?task=2`. Es veuen dues pestanyes: la Calculadora,
-sempre la primera, i la tasca triada, que és la que s'obre. Sense `?task` es veu tot.
+És la manera recomanada: no cal instal·lar res.
 
-| n | tasca |
-|---|---|
-| 0 | Calculadora (surt sempre) |
-| 1 | Recta · té 6 exercicis: `?task=1.1` a `?task=1.6` |
-| 2 | Doble recta |
-| 3 | Percentatges |
-| 4 | Escales |
-| 5 | Paràboles |
-| 6 | Equacions |
-| 7 | Com ho dic |
+1. Baixa el repositori en zip: a GitHub, «Code» → «Download ZIP».
+2. Obre una conversa nova i adjunta-hi dos fitxers: el zip del repositori i l'examen de la
+   UD1 tal com l'has deixat a Google Docs, baixat en DOCX («Fitxer» → «Baixa» →
+   «Microsoft Word»). És el model, i porta a dins les fonts Caveat i Nova Mono.
+3. Enganxa-hi aquesta instrucció. Canvia `N` pel número de la unitat i omple les dues
+   dades privades, que no són en cap fitxer del repositori:
 
-Els números no canvien mai, perquè ja poden ser en enllaços enviats.
+   ```
+   Fes l'examen adaptat de la UDN en DOCX (alumnat i solucionari).
 
----
+   T'adjunto el repositori i l'examen de la UD1 exportat de Google Docs. És el model,
+   i porta les fonts Caveat i Nova Mono a word/fonts/.
 
-## El principi
+   1. Llegeix comu/docs/EXAMENS-DOCX.md i segueix-lo pas a pas.
+   2. El contingut surt de 4eso/fitxes/udN.html i del seu solucionari. Quatre apartats
+      per exercici: a) resolt, i b), c) i d). Al solucionari, marca «nou» els que no
+      siguin a la fitxa.
+   3. Fes 4eso/generadors/examens/udN.js a partir de ud1.js, amb el motor comú
+      comu/examens/nucli.js. Si toques el motor, ud1.js ha de continuar sortint igual.
+   4. Les dades privades van només a 4eso/generadors/examens-privat.json, mai en cap
+      altre fitxer. Curs: «…». Adaptació: «…».
+   5. Passa els DOCX a PDF, mira cada pàgina i passa python3 4eso/eines/comprova.py.
+   6. Lliura'm els dos DOCX, la llista d'apartats nous i un zip per pujar a _uploads/
+      amb els fitxers nous o canviats, amb els camins des de l'arrel del repositori.
+   ```
 
-> Aquest alumnat pot arribar a la **decisió** que demana el currículum. No pot arribar
-> al **càlcul** ni a la **redacció** del nivell del grup.
+4. Revisa els dos DOCX a Google Docs.
+5. Puja a la carpeta `_uploads/` el zip que et doni la IA, des del web de GitHub: «Add
+   file» → «Upload files» → «Commit changes». En un minut, els fitxers queden al seu lloc,
+   i la unitat nova ja té el seu `udN.js` per a la pròxima vegada.
 
-I Matemàtiques Aplicades és, precisament, la matèria de decidir amb dades. Amb el càlcul
-descarregat a la calculadora i l'expressió bastida amb frases model, la competència
-nuclear li és accessible de veritat.
+### Tornar a fer un examen que ja existeix
 
-El perfil és desigual, i tot el material en surt:
+Si la unitat ja té el seu `udN.js` (per exemple, per canviar-hi un número), també ho pot
+fer una IA: adjunta el zip del repositori i demana-li «Genera l'examen de la UDN amb
+4eso/generadors/examens/udN.js», amb les dues dades privades.
 
-| Canal | Nivell |
-|---|---|
-| Visió gràfica, esquemes, geometria | 2n ESO |
-| Manipulació aritmètica i algebraica | 5è de primària |
-| Expressar idees matemàtiques amb frases | 3r de primària |
-| Informàtica i anglès | el del grup |
+També es pot fer al Codespace, des de l'arrel del repositori:
 
----
-
-## Abans de tocar res
-
-Llegeix **`docs/CRITERIS-DISSENY.md`**. Hi ha vuit regles que no són preferències
-d'estil: són el resultat d'iterar amb el docent i algunes van sortir de correccions
-seves. Les dues que més fàcilment es trenquen sense adonar-se'n:
-
-- **Blanc i negre estricte a les fitxes.** S'imprimeixen en B/N i no se sap com quedarien
-  els colors. Hi ha un test que ho comprova: `python3 eines/comprova.py`.
-- **Cap paràgraf a les pàgines de l'alumnat.** El dibuix explica, les paraules només
-  etiqueten. Aquesta regla val per a les fitxes, no per als solucionaris ni per a les
-  pàgines de navegació, que són per a l'adult.
-
----
-
-## Els PDF
-
-Cada unitat té dos PDF a `pdf/`, enllaçats des de `fitxes.html`:
-
-| | |
-|---|---|
-| `udN-alumnat.pdf` | les pàgines que es reparteixen |
-| `udN-solucionari.pdf` | el full del professorat, amb els errors típics i els criteris |
-
-Es tornen a generar amb:
-
-```
-pip install weasyprint --break-system-packages
-python3 generadors/gen_pdf.py
+```bash
+npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5
+NODE_PATH=/tmp/eines/node_modules node 4eso/generadors/examens/ud1.js
 ```
 
-**Si has afegit contingut a una fitxa**, passa abans `python3 eines/mesura.py`: comprova
-que cada pàgina segueixi cabent en un A4. Si alguna vessa, la solució no és encongir la
-lletra —el cos de 14 pt és una restricció del projecte— sinó treure contingut o partir
-la pàgina en dues.
-
-> ⚠ **Els PDF d'ara no porten la pàgina «A la vida de cada dia».** Es va afegir a les set
-> fitxes i els PDF no s'han pogut regenerar (calen WeasyPrint i la font Carlito). Fes
-> `python3 eines/mesura.py` i després `python3 generadors/gen_pdf.py` abans de repartir-ne
-> cap. Les pàgines noves es van mesurar amb Chromium i totes queden per sota de les
-> pàgines més plenes que ja hi havia, però qui mana és `mesura.py`.
+La primera línia instal·la les dues llibreries fora del repositori, i només cal el primer
+cop de cada Codespace. La segona fa els dos DOCX a `4eso/docx/`: clic dret → «Download».
+Per posar-hi el curs i l'adaptació, abans cal crear `4eso/generadors/examens-privat.json`
+(vegeu l'apartat 10 de `comu/docs/EXAMENS-DOCX.md`); sense aquest fitxer, l'examen surt
+en versió anònima.
 
 ---
 
 ## Comprovacions
 
-```
-python3 eines/comprova.py
-```
-
-Verifica que les fitxes no tinguin cap valor cromàtic, que l'HTML tanqui bé, que la
-numeració de pàgines sigui seguida, que cada fitxa porti el rètol de material, l'obertura
-i la pàgina «A la vida de cada dia», i que els mòduls declarats a `caixa-eines.html`
-coincideixin amb els que es registren de debò. També revisa les frases de l'alumnat amb
-les regles de Lectura Fàcil que es poden comprovar soles i calcula el contrast de la
-paleta de pantalla (WCAG 2.2 AA).
-
-```
-pip install playwright --break-system-packages && python3 -m playwright install chromium
-python3 eines/auditoria.py
+```bash
+python3 4eso/eines/comprova.py
 ```
 
-Obre l'app en un navegador de veritat i mesura les dianes tàctils i el contrast real de
-cada text, en mode clar i fosc, a 320 px i a escriptori. Ara mateix: **0 problemes en 56
-estats**.
+Ha de dir «Tot correcte.». Comprova les fitxes, la caixa d'eines i el desplegament, i que
+cap fitxer del repositori anomeni el curs, el tipus d'aula o un diagnòstic. Els noms de
+carpeta `4eso/` i `1eso/` en són l'única excepció: fan visible el curs a les adreces, i és
+una decisió presa.
 
 ---
 
-## Estat
+## El material de 1r d'ESO
 
-Set unitats completes. Vuit mòduls a la caixa d'eines.
-
-Cada fitxa acaba amb una pàgina **«A la vida de cada dia»**: un context real i una segona
-situació on la mateixa decisió s'ha de tornar a prendre en un escenari diferent. Cinc
-tasques de la caixa d'eines (Calculadora, 1.2, 1.3, Paràboles i Equacions) són tasques
-tancades, amb passos, retroacció literal, resum final i un codi de verificació que es
-llegeix a `verifica.html`.
-
-**Pendent**, documentat a `docs/CONTINUAR.md`:
-
-- **regenerar els catorze PDF** perquè incloguin la pàgina nova (`mesura.py` i `gen_pdf.py`);
-- contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real;
-- no hi ha mòdul d'estadística ni d'atzar (per a la U6 l'eina és el full de càlcul).
+Vegeu [`1eso/README.md`](1eso/README.md).
 
 <!-- atribucio-centre:inici -->
 

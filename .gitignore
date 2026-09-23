@@ -1,5 +1,6 @@
-# Artefactes dels generadors: es tornen a fer amb `python3 generadors/gen_grafics*.py`
-generadors/*.json
+# Artefactes dels generadors: es tornen a fer amb `python3 generadors/gen_grafics*.py`,
+# des de la carpeta de cada curs. Aquí hi ha també examens-privat.json, que no es puja mai.
+**/generadors/*.json
 
 # Sistema
 __pycache__/

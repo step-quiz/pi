@@ -4,8 +4,9 @@ Com es fa l'examen adaptat de cada unitat en Word. El model és el de la UD1, ta
 va revisar el docent a Google Docs el 23/9/2026: tot el que diu aquest document surt
 d'aquella revisió, i on una regla és una decisió seva, s'hi diu.
 
-Aquest document no substitueix `CRITERIS-DISSENY.md` ni l'apartat 8 de
-`MAPA-ADAPTACIO.md`: els aplica a l'examen.
+Aquest document no substitueix `4eso/docs/CRITERIS-DISSENY.md` ni l'apartat 8 de
+`4eso/docs/MAPA-ADAPTACIO.md`: els aplica a l'examen. Val per als dos cursos: el motor és
+comú, i cada curs hi posa el seu contingut.
 
 ---
 
@@ -13,16 +14,19 @@ Aquest document no substitueix `CRITERIS-DISSENY.md` ni l'apartat 8 de
 
 | Fitxer | Què hi ha |
 |---|---|
-| `generadors/examens/nucli.js` | La maquinària comuna: pàgina, lletra, grisos, peces, dibuixos i comprovacions |
-| `generadors/examens/ud1.js` | El contingut de la UD1. És el model per a les altres unitats |
-| `generadors/examens-privat.json` | El curs i l'adaptació. **No es puja mai**: el `.gitignore` ja el deixa fora |
-| `docx/` | On surten els dos DOCX. Tampoc es puja, perquè porten les dades privades |
+| `comu/examens/nucli.js` | La maquinària comuna: pàgina, lletra, grisos, peces, dibuixos i comprovacions |
+| `4eso/generadors/examens/ud1.js` | El contingut de la UD1. És el model per a les altres unitats |
+| `4eso/generadors/examens-privat.json` | El curs i l'adaptació. **No es puja mai**: el `.gitignore` ja el deixa fora |
+| `4eso/docx/` | On surten els dos DOCX. Tampoc es puja, perquè porten les dades privades |
+
+Per a `1eso/`, el mateix dins de la seva carpeta (`1eso/generadors/examens/udN.js`,
+`1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor.
 
 Per fer l'examen d'una unitat, des de l'arrel del repositori, al Codespace:
 
 ```bash
 npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5
-NODE_PATH=/tmp/eines/node_modules node generadors/examens/ud1.js
+NODE_PATH=/tmp/eines/node_modules node 4eso/generadors/examens/ud1.js
 ```
 
 Les llibreries s'instal·len a `/tmp`, fora del repositori, perquè no hi entri cap
@@ -136,8 +140,8 @@ altres. Totes dues són gratuïtes a Google Fonts.
 
 ## 7. Com es fa l'examen d'una unitat nova
 
-1. **Llegir** aquest document, `CRITERIS-DISSENY.md`, l'apartat 8 de
-   `MAPA-ADAPTACIO.md`, la fitxa de la unitat i el seu solucionari.
+1. **Llegir** aquest document, `CRITERIS-DISSENY.md` i l'apartat 8 de
+   `MAPA-ADAPTACIO.md` (a `4eso/docs/`), la fitxa de la unitat i el seu solucionari.
 2. **Triar els apartats**: per a cada exercici de la fitxa, l'a) resolt i tres més.
    Anotar quins són nous.
 3. **Copiar `ud1.js` a `udN.js`** i canviar-hi el contingut. Les peces que el nucli no té
@@ -156,7 +160,7 @@ altres. Totes dues són gratuïtes a Google Fonts.
    exercici, sencer a la seva pàgina; cap taula partida; cap apartat sense opcions.
 6. **Repassar el text**: cada xifra i cada frase triada de la fitxa hi és i està bé, i el
    solucionari quadra amb l'alumnat.
-7. **Passar `python3 eines/comprova.py`.**
+7. **Passar `python3 4eso/eines/comprova.py`.**
 8. **Lliurar** els dos DOCX i dir quins apartats són nous.
 
 ---
@@ -193,7 +197,8 @@ són, se'n posa unes altres i la previsualització enganya. Es copien a `~/.font
 
 ## 10. Les dades privades
 
-`generadors/examens-privat.json`, només a l'ordinador de qui genera l'examen:
+`4eso/generadors/examens-privat.json` (cada curs té el seu), només a l'ordinador de qui
+genera l'examen:
 
 ```json
 {

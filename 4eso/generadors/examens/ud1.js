@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /*
-  generadors/examens/ud1.js · examen de la Unitat 1 (Nombres reals)
+  4eso/generadors/examens/ud1.js · examen de la Unitat 1 (Nombres reals)
   ---------------------------------------------------------------------------
-  Només hi ha el contingut: la maquinària és a nucli.js i les regles, a
-  docs/EXAMENS-DOCX.md. És el model de referència per a les altres unitats.
+  Només hi ha el contingut: la maquinària és a comu/examens/nucli.js i les
+  regles, a comu/docs/EXAMENS-DOCX.md. És el model de referència per a les altres unitats.
 
-      node generadors/examens/ud1.js        →  docx/examen-ud1-alumnat.docx
-                                                docx/examen-ud1-solucionari.docx
+      node 4eso/generadors/examens/ud1.js   →  4eso/docx/examen-ud1-alumnat.docx
+                                                4eso/docx/examen-ud1-solucionari.docx
 
   D'on surt cada cosa:
   · El format i les frases, de la revisió que el docent va fer de l'examen a
@@ -17,7 +17,7 @@
 */
 "use strict";
 
-const X = require("./nucli");
+const X = require("../../../comu/examens/nucli");
 const { dada, ms, sol, MIDA } = X;
 
 const alumnat = [

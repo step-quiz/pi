@@ -1,18 +1,19 @@
 /*
-  generadors/examens/nucli.js · la maquinària comuna dels exàmens en DOCX
+  comu/examens/nucli.js · la maquinària comuna dels exàmens en DOCX
   ---------------------------------------------------------------------------
-  Cada unitat té un fitxer amb el seu contingut (ud1.js, ud2.js…). Aquest nucli
+  Cada unitat té un fitxer amb el seu contingut (ud1.js, ud2.js…), a la carpeta
+  generadors/examens/ del seu curs (4eso/, 1eso/), i aquest nucli
   hi posa tot el que no depèn de la unitat: la pàgina, la lletra, els grisos,
   les peces (capçalera d'exercici, taula de resposta, opcions per marcar…), els
   dibuixos calculats i les comprovacions.
 
-  Abans de tocar res, llegiu docs/EXAMENS-DOCX.md. Hi ha les decisions que el
+  Abans de tocar res, llegiu comu/docs/EXAMENS-DOCX.md. Hi ha les decisions que el
   docent va prendre en revisar l'examen de la UD1 (23/9/2026) i el perquè de
   cada peça. Les regles d'aquí dalt en són la traducció a codi.
 
-  Tot el que hi ha en aquest fitxer ha de passar eines/comprova.py: ni el curs
-  ni el diagnòstic no hi poden sortir. Van a generadors/examens-privat.json,
-  que no es puja mai (.gitignore el deixa fora).
+  Tot el que hi ha en aquest fitxer ha de passar 4eso/eines/comprova.py: ni el
+  curs ni el diagnòstic no hi poden sortir. Van a generadors/examens-privat.json,
+  dins de la carpeta del curs, que no es puja mai (.gitignore el deixa fora).
 */
 "use strict";
 
@@ -28,7 +29,9 @@ const {
   TableLayoutType, LineRuleType, PageNumber, LevelFormat, HeadingLevel,
 } = docx;
 
-const ARREL = path.resolve(__dirname, "..", "..");
+/* ARREL és la carpeta del curs de l'examen que s'executa: per a
+   4eso/generadors/examens/ud1.js, és 4eso/. El nucli és a comu/ i serveix per a tots. */
+const ARREL = path.resolve(path.dirname(require.main ? require.main.filename : process.argv[1]), "..", "..");
 
 /* ---------------------------------------------------------- dades privades -- */
 /* Curs i adaptació: només a l'examen imprès, mai al repositori. */
@@ -524,7 +527,7 @@ function document({ titol, tema, mida, fills, peu }) {
   /* Els estils de títol de Word vénen en blau: aquí tots van en negre. */
   return new Document({
     creator: "Matemàtiques Aplicades · material adaptat", title: titol, subject: tema,
-    description: "Generat amb generadors/examens (docs/EXAMENS-DOCX.md).",
+    description: "Generat amb comu/examens/nucli.js (comu/docs/EXAMENS-DOCX.md).",
     styles: {
       default: {
         document: { run: { font: LLETRA, size: mig(mida), color: G.tinta, language: { value: "ca-ES" } },

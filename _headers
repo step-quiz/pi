@@ -8,9 +8,9 @@
   X-Robots-Tag: noindex, nofollow
 
 # Els fitxers canvien poc però s'han de poder actualitzar el mateix dia.
-/css/*
+/4eso/css/*
   Cache-Control: public, max-age=3600
-/js/*
+/4eso/js/*
   Cache-Control: public, max-age=3600
-/fitxes/*
+/4eso/fitxes/*
   Cache-Control: public, max-age=3600

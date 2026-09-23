@@ -3,10 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Les adreces d'abans de les carpetes (/caixa-eines?task=2, /fitxes/ud1.html…)
+   porten a la mateixa pàgina dins de /4eso/, amb el ?task i tot: els enllaços
+   que ja té l'alumnat no es trenquen. */
+(function () {
+  var p = location.pathname;
+  if (p.indexOf("/4eso/") !== 0 && p.indexOf("/1eso/") !== 0 && p.indexOf("/comu/") !== 0) {
+    location.replace("/4eso" + p + location.search + location.hash);
+  }
+})();
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <title>Aquesta pàgina no hi és</title>
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/lloc.css">
+<link rel="stylesheet" href="/4eso/css/tokens.css">
+<link rel="stylesheet" href="/4eso/css/lloc.css">
 </head>
 <body>
 <div class="pagina">
