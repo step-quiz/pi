@@ -24,7 +24,7 @@ Els tests vigilen les que es poden comprovar soles. La llista és al final.
 | 6 | **Obertura: «Què hi veus?»**, abans del primer dibuix. Es respon mirant i dient | Comença per on tothom pot entrar |
 | 7 | **El graó físic**: cinc minuts amb material de debò a l'aula de suport, abans de la fitxa. Una línia per a l'adult a dalt de la primera pàgina (`.previ`) | La fitxa arriba quan la idea ja s'ha tocat |
 | 8 | **El mateix cas al paper i a la pantalla**, i el mateix objecte que fa servir el grup | Qui canvia d'aula no canvia de problema |
-| 9 | **«A la vida de cada dia»**: una pàgina per unitat amb un context real i una segona situació amb la mateixa decisió | El que s'aprèn no es queda lligat a un sol cas |
+| 9 | **«A la vida de cada dia»**: una pàgina a cada fitxa amb un context real i una segona situació amb la mateixa decisió. Una unitat pot tenir més d'una fitxa | El que s'aprèn no es queda lligat a un sol cas |
 | 10 | **La regla trencada**: un exercici on el procediment que s'acaba de fer no serveix. Aquí amb condicions: vegeu la regla G | Obliga a mirar, no a repetir |
 
 ---

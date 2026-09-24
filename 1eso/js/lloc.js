@@ -31,16 +31,25 @@
 
   function graellaUnitats(cont) {
     UNITATS.forEach(function (u) {
-      const d = fes(u.fitxa ? "a" : "div", "targeta");
-      if (u.fitxa) d.href = u.fitxa;
+      // Les fitxes de la unitat. Amb una de sola, tota la targeta és l'enllaç;
+      // amb més d'una, la targeta porta la llista, en l'ordre de classe.
+      const fitxes = u.fitxes || (u.fitxa ? [{ fitxa: u.fitxa, titol: u.titol }] : []);
+      const una = fitxes.length === 1;
+      const d = fes(una ? "a" : "div", "targeta");
+      if (una) d.href = fitxes[0].fitxa;
+      const llista = fitxes.length > 1
+        ? '<ol class="enllacos-fitxes">' + fitxes.map(function (f) {
+            return '<li><a href="' + f.fitxa + '">' + f.titol + "</a></li>";
+          }).join("") + "</ol>"
+        : "";
       d.innerHTML =
         '<span class="num">' + u.num + "</span>" +
         "<h3>" + u.titol + "</h3>" +
-        "<p>" + u.nucli + "</p>" +
+        "<p>" + u.nucli + "</p>" + llista +
         '<div class="etiquetes">' +
           '<span class="et">' + u.dates + "</span>" +
-          (u.fitxa ? '<span class="et fita">Fitxa feta</span>'
-                   : '<span class="et">En preparació</span>') +
+          (fitxes.length ? '<span class="et fita">' + (una ? "Fitxa feta" : fitxes.length + " fitxes fetes") + "</span>"
+                         : '<span class="et">En preparació</span>') +
           // Sense enllaç: quan hi ha fitxa, la targeta sencera ja és un enllaç.
           (u.tasques ? '<span class="et fita">Caixa d\'eines · tasques ' + u.tasques.join(", ") +
                        "</span>" : "") +

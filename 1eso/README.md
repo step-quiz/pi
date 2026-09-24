@@ -57,7 +57,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta. Ara hi ha la de les taules de multiplicar |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`). Ara hi ha la de la unitat 1: rectangles i quadrats |
+| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les dues de la unitat 1: rectangles i quadrats, i centenes, desenes i unitats |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeix la portada |
 | `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada) i `app.css` (la caixa) |
@@ -110,8 +110,10 @@ de `dades/unitats.js`. Després, `gen_pdf.py` i `comprova.py`.
 
 **Una fitxa:** `fitxes/udN.html`, amb el rètol del graó físic (`.previ`), l'obertura «Què hi
 veus?», les pàgines de la unitat, «A la vida de cada dia» (`.full.vida`) i el solucionari
-(`.full.sol`). A `dades/unitats.js`, `fitxa: "fitxes/udN.html"`. Després, `mesura.py`,
-`gen_pdf.py` i `comprova.py`.
+(`.full.sol`). A `dades/unitats.js`, a la llista `fitxes` de la unitat, amb el camí i el títol.
+Una unitat en pot tenir més d'una, en l'ordre de classe: la segona i les següents es diuen
+`udN-nom.html` (per exemple, `ud1-nombres.html`). Després, `mesura.py`, `gen_pdf.py` i
+`comprova.py`.
 
 En tots dos casos, cada bloc `.full` acaba amb un `</div>` a principi de línia, i els `</div>`
 de dins van sagnats: és com els generadors saben on acaba cada pàgina.

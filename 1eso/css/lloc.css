@@ -100,3 +100,7 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 .enllacos-tasca { list-style: none; margin: .5rem 0 0; padding: 0; display: grid; gap: .35rem }
 .enllacos-tasca li { display: flex; gap: .6rem; align-items: baseline }
 .enllacos-tasca a { min-width: 5.2rem; display: inline-block; padding: .15rem 0 }
+
+/* Les fitxes d'una unitat que en té més d'una, en l'ordre de classe */
+.enllacos-fitxes { margin: .5rem 0 .2rem; padding-left: 1.4rem; display: grid; gap: .3rem }
+.enllacos-fitxes a { display: inline; line-height: 1.5 }   /* inline: el número de la llista va amb la primera línia */

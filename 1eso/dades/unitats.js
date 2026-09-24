@@ -15,7 +15,10 @@
      material     el graó físic de l'aula de suport, abans de la fitxa
      criteris     els criteris de la SA del grup, com a referència. L'avaluació
                   es fa amb els criteris propis del PI
-     fitxa        "fitxes/udN.html" quan existeixi; fins llavors, null
+     fitxes       les fitxes de la unitat, en l'ordre de classe. Cada una té dos
+                  camps: fitxa (el camí, fitxes/udN.html) i titol. Una unitat en pot
+                  tenir més d'una: la segona i les següents es diuen udN-nom.html.
+                  Sense cap, []
      tasques      les tasques de la caixa d'eines de la unitat (caixa-eines?task=n),
                   si en té. eines/comprova.py mira que existeixin
 
@@ -33,7 +36,10 @@ window.UNITATS = [
            "3² és un quadrat de 3 per 3.",
     material: "Miniblocs: fer el rectangle de 3 per 4 i comptar-ne els quadrets.",
     criteris: "1.3, 2.1, 8.1",
-    fitxa: "fitxes/ud1.html",
+    fitxes: [
+      { fitxa: "fitxes/ud1.html", titol: "Rectangles de quadrets" },
+      { fitxa: "fitxes/ud1-nombres.html", titol: "Centenes, desenes i unitats" }
+    ],
     tasques: [0, 1, 2, 3, 4]
   },
   {
@@ -45,7 +51,7 @@ window.UNITATS = [
            "Un nombre primer només en fa un: una fila.",
     material: "Miniblocs: fer tots els rectangles de 12, i després els de 7.",
     criteris: "1.4, 3.2, 4.2, 5.2",
-    fitxa: null
+    fitxes: []
   },
   {
     num: 3,
@@ -55,7 +61,7 @@ window.UNITATS = [
     nucli: "L'àrea és comptar quadrets. Mig quadret és 1/2.",
     material: "Quadrícula: comptar els quadrets d'una figura i ajuntar dues meitats.",
     criteris: "1.2, 5.2, 6.1, 9.1",
-    fitxa: null
+    fitxes: []
   },
   {
     num: 4,
@@ -66,7 +72,7 @@ window.UNITATS = [
            "Un percentatge és quants quadrets de cada 100.",
     material: "Miniblocs: repartir 12 en 3 grups iguals. Quadrícula de 100: pintar-ne 25.",
     criteris: "1.3, 2.1, 5.1, 6.1",
-    fitxa: null
+    fitxes: []
   },
   {
     num: 5,
@@ -77,7 +83,7 @@ window.UNITATS = [
            "L'arrel és el costat del quadrat.",
     material: "Quadrícula de 100: pintar una columna i un quadret. Fer un quadrat de 9 miniblocs.",
     criteris: "5.1, 7.1, 8.1",
-    fitxa: null
+    fitxes: []
   },
   {
     num: 6,
@@ -87,7 +93,7 @@ window.UNITATS = [
     nucli: "Polígons al geoplà. El perímetre és comptar costats de quadret.",
     material: "Geoplà: fer un rectangle i resseguir-ne la vora comptant.",
     criteris: "1.1, 3.1, 5.1, 6.1, 7.1, 9.1",
-    fitxa: null
+    fitxes: []
   },
   {
     num: 7,
@@ -97,7 +103,7 @@ window.UNITATS = [
     nucli: "Patrons de quadrets: quants en té la figura següent.",
     material: "Miniblocs: fer les tres primeres figures d'un patró i la quarta.",
     criteris: "2.1, 3.1, 4.1, 5.1, 7.2",
-    fitxa: null
+    fitxes: []
   }
 ];
 
