@@ -9,6 +9,16 @@
     "font": "fitxes/ud1.html",
     "pagines": 9
   },
+  "ud1-nombres-alumnat.pdf": {
+    "empremta": "78c18996d29c29db848817172965ac8ce086a46692c254c4b83ecc503534175f",
+    "font": "fitxes/ud1-nombres.html",
+    "pagines": 6
+  },
+  "ud1-nombres-solucionari.pdf": {
+    "empremta": "78c18996d29c29db848817172965ac8ce086a46692c254c4b83ecc503534175f",
+    "font": "fitxes/ud1-nombres.html",
+    "pagines": 2
+  },
   "ud1-solucionari.pdf": {
     "empremta": "3bf017a5d28b67764f1f74b1a09c8a59cfdd56497e411726b9fd4185b71fa3da",
     "font": "fitxes/ud1.html",
