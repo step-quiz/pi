@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="description" content="Cinc eines per fer matemàtiques amb la quadrícula de quadrets.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Caixa d'eines · Matemàtiques</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div class="pagina">
+<p class="tornar"><a href="index.html">← inici</a></p>
+<header>
+  <h1>Caixa d'eines</h1>
+  <p class="subtitol">Matemàtiques</p>
+  <!-- data-tasca: el número dels enllaços filtrats, caixa-eines?task=n (vegeu js/app.js).
+       La tasca 0 es mostra sempre i va la primera. Un número que ja s'ha enviat a
+       l'alumnat no es canvia mai: un mòdul nou pren el següent número lliure. -->
+  <div class="segments" role="tablist" aria-label="Eines">
+    <button class="segment" role="tab" data-tasca="0" data-mod="taules" aria-selected="false">Taules</button>
+    <button class="segment" role="tab" data-tasca="1" data-mod="rect" aria-selected="false">Rectangles</button>
+    <button class="segment" role="tab" data-tasca="2" data-mod="quadrat" aria-selected="false">Quadrats</button>
+    <button class="segment" role="tab" data-tasca="3" data-mod="cdu" aria-selected="false">Nombres</button>
+    <button class="segment" role="tab" data-tasca="4" data-mod="ordre" aria-selected="false">Ordre</button>
+  </div>
+</header>
+
+<!-- ================================================= 0 · TAULES ======== -->
+<section id="mod-taules" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 0.1 · la targeta de les taules, amb el rectangle de cada fila -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="0.1.titol"></h2><p class="ajuda" data-text="0.1.ajuda"></p></div>
+        <span class="marca" id="tt-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles numeros" id="tt-pastilles" role="group" aria-label="Taules"></div>
+      <div class="taula-i-dibuix">
+        <div>
+          <h3 class="taula-nom" id="tt-nom"></h3>
+          <div class="llista-taula" id="tt-llista"></div>
+        </div>
+        <div>
+          <svg class="llenc quadricula" id="tt-svg" viewBox="0 0 340 340" role="img"></svg>
+          <div class="lectura" id="tt-lectura" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="clau-us" id="tt-clau"></div>
+    </div>
+  </div>
+
+  <!-- 0.2 · tasca tancada: busca cinc multiplicacions a la taula -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="0.2.titol"></h2>
+      <p class="ajuda" data-text="0.2.ajuda"></p>
+      <div id="tb-recorregut"></div>
+      <div class="represa" id="tb-represa" hidden></div>
+      <div id="tb-cos">
+        <p class="pregunta-gran" id="tb-pregunta"></p>
+        <div class="pastilles numeros" id="tb-pastilles" role="group" aria-label="Taules"></div>
+        <h3 class="taula-nom" id="tb-nom"></h3>
+        <div class="llista-taula" id="tb-llista"></div>
+        <div class="avis neutre" id="tb-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="tb-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="tb-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== 1 · RECTANGLES ======== -->
+<section id="mod-rect" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 1.1 · fes un rectangle: tocar, comptadors o fletxes -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="1.1.titol"></h2><p class="ajuda" data-text="1.1.ajuda"></p></div>
+        <span class="marca" id="r1-marca" data-text="comu.exemple"></span>
+      </div>
+      <svg class="llenc quadricula toca" id="r1-svg" viewBox="0 0 340 340" role="img" tabindex="0"></svg>
+      <div class="comptadors"><div id="r1-files"></div><div id="r1-cols"></div></div>
+      <div class="lectura" id="r1-lectura" aria-live="polite"></div>
+      <div class="passa"><button class="btn tenyit mini" id="r1-buida" data-text="comu.buida"></button></div>
+    </div>
+  </div>
+
+  <!-- 1.2 · tasca tancada: el rectangle d'una multiplicació -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="1.2.titol"></h2>
+      <p class="ajuda" data-text="1.2.ajuda"></p>
+      <div id="r2-recorregut"></div>
+      <div class="represa" id="r2-represa" hidden></div>
+      <div id="r2-cos">
+        <p class="pregunta-gran" id="r2-pregunta"></p>
+        <svg class="llenc quadricula toca" id="r2-svg" viewBox="0 0 340 340" tabindex="0"
+             role="img" aria-label="Quadrícula de 10 per 10. Toca el quadret on acaba el rectangle."></svg>
+        <div class="avis neutre" id="r2-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="r2-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="r2-final" hidden></div>
+    </div>
+  </div>
+
+  <!-- 1.3 · gira el rectangle: la propietat commutativa -->
+  <div class="subtasca" data-sub="3" hidden>
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="1.3.titol"></h2><p class="ajuda" data-text="1.3.ajuda"></p></div>
+        <span class="marca" id="r3-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="r3-pastilles" role="group" aria-label="Multiplicacions"></div>
+      <svg class="llenc" id="r3-svg" viewBox="0 0 370 320" role="img" style="max-width:24rem"></svg>
+      <div class="passa"><button class="btn" id="r3-gira"></button></div>
+      <div class="lectura" id="r3-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 1.4 · parteix el rectangle pel 10: la propietat distributiva -->
+  <div class="subtasca" data-sub="4" hidden>
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="1.4.titol"></h2><p class="ajuda" data-text="1.4.ajuda"></p></div>
+        <span class="marca" id="r4-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="r4-pastilles" role="group" aria-label="Multiplicacions"></div>
+      <svg class="llenc" id="r4-svg" viewBox="0 0 500 300" role="img" style="max-width:34rem"></svg>
+      <div class="passa"><button class="btn" id="r4-parteix"></button></div>
+      <div class="lectura" id="r4-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================ 2 · QUADRATS ======== -->
+<section id="mod-quadrat" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 2.1 · el quadrat d'un nombre: 3² és un quadrat de 3 per 3 -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="2.1.titol"></h2><p class="ajuda" data-text="2.1.ajuda"></p></div>
+        <span class="marca" id="q1-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles numeros" id="q1-pastilles" role="group" aria-label="Costat del quadrat"></div>
+      <svg class="llenc quadricula" id="q1-svg" viewBox="0 0 340 340" role="img"></svg>
+      <div class="lectura" id="q1-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 2.2 · tasca tancada: quin dibuix és? 3² no és 3 · 2 -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="2.2.titol"></h2>
+      <p class="ajuda" data-text="2.2.ajuda"></p>
+      <div id="q2-recorregut"></div>
+      <div class="represa" id="q2-represa" hidden></div>
+      <div id="q2-cos">
+        <p class="pregunta-gran" id="q2-pregunta"></p>
+        <div class="opcions-dibuix" id="q2-opcions"></div>
+        <div class="avis neutre" id="q2-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="q2-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="q2-final" hidden></div>
+    </div>
+  </div>
+
+  <!-- 2.3 · el costat del quadrat: l'arrel quadrada -->
+  <div class="subtasca" data-sub="3" hidden>
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="2.3.titol"></h2><p class="ajuda" data-text="2.3.ajuda"></p></div>
+        <span class="marca" id="q3-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="q3-quants"></div></div>
+      <svg class="llenc quadricula" id="q3-svg" viewBox="0 0 340 340" role="img"></svg>
+      <div class="lectura" id="q3-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= 3 · NOMBRES ======== -->
+<section id="mod-cdu" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 3.1 · centenes, desenes i unitats amb blocs de quadrets -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="3.1.titol"></h2><p class="ajuda" data-text="3.1.ajuda"></p></div>
+        <span class="marca" id="n1-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="n1-c"></div><div id="n1-d"></div><div id="n1-u"></div></div>
+      <div class="blocs" id="n1-blocs" role="img"></div>
+      <div class="lectura" id="n1-lectura" aria-live="polite"></div>
+      <div id="n1-taula"></div>
+      <div class="lectura" id="n1-nombre" aria-live="polite"></div>
+      <div class="llegenda">
+        <p data-text="3.1.llegenda_u"></p>
+        <p data-text="3.1.llegenda_d"></p>
+        <p data-text="3.1.llegenda_c"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3.2 · tasca tancada: fes el nombre amb blocs -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="3.2.titol"></h2>
+      <p class="ajuda" data-text="3.2.ajuda"></p>
+      <div id="n2-recorregut"></div>
+      <div class="represa" id="n2-represa" hidden></div>
+      <div id="n2-cos">
+        <p class="pregunta-gran" id="n2-pregunta"></p>
+        <div class="comptadors"><div id="n2-c"></div><div id="n2-d"></div><div id="n2-u"></div></div>
+        <div class="blocs" id="n2-blocs" aria-hidden="true"></div>
+        <div class="passa"><button class="btn" id="n2-comprova" data-text="comu.comprova"></button></div>
+        <div id="n2-taula" hidden></div>
+        <div class="avis neutre" id="n2-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="n2-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="n2-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================== 4 · ORDRE ======== -->
+<section id="mod-ordre" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 4.1 · mira l'ordre: primer i després, amb el dibuix -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="4.1.titol"></h2><p class="ajuda" data-text="4.1.ajuda"></p></div>
+        <span class="marca" id="o1-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="o1-pastilles" role="group" aria-label="Operacions"></div>
+      <p class="expressio" id="o1-expr"></p>
+      <svg class="llenc" id="o1-svg" viewBox="0 0 320 240" role="img" style="max-width:22rem"></svg>
+      <div class="lectura" id="o1-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 4.2 · tasca tancada: què es fa primer? -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="4.2.titol"></h2>
+      <p class="ajuda" data-text="4.2.ajuda"></p>
+      <div id="o2-recorregut"></div>
+      <div class="represa" id="o2-represa" hidden></div>
+      <div id="o2-cos">
+        <div class="expressio" id="o2-expr"></div>
+        <div class="avis neutre" id="o2-avis" aria-live="polite"></div>
+        <svg class="llenc" id="o2-svg" viewBox="0 0 320 240" role="img" style="max-width:22rem" hidden></svg>
+        <div class="lectura" id="o2-passos" hidden></div>
+        <div class="passa"><button class="btn" id="o2-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="o2-final" hidden></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- Les frases i el nucli primer; després el codi de verificació, les tasques
+     i la quadrícula, que fan servir tots els mòduls; els mòduls es registren
+     sols, i app.js sempre l'últim. -->
+<script src="dades/textos.js"></script>
+<script src="js/nucli.js"></script>
+<script src="js/codi.js"></script>
+<script src="js/tasca.js"></script>
+<script src="js/quadricula.js"></script>
+<script src="js/moduls/taules.js"></script>
+<script src="js/moduls/rectangles.js"></script>
+<script src="js/moduls/quadrats.js"></script>
+<script src="js/moduls/nombres.js"></script>
+<script src="js/moduls/ordre.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

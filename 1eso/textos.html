@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Pàgina per al professorat: canviar les frases que llegeix l'alumnat.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Canviar les frases</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/lloc.css">
+<style>
+  /* Estils propis d'aquesta pàgina: no s'usen enlloc més i per això no van
+     a css/lloc.css. */
+  .grup { background: var(--superficie); border-radius: var(--r-g);
+          padding: 1.1rem 1.2rem 1.3rem; margin-bottom: 1rem }
+  .grup h2 { margin: 0 0 .2rem; font-size: 1.15rem }
+  .grup .on { color: var(--etiqueta-2); font-size: .9rem; margin: 0 0 1rem }
+
+  .frase { padding: .75rem 0; border-top: 1px solid var(--separador) }
+  .frase:first-of-type { border-top: 0 }
+  .frase label { display: block; font-size: .92rem; font-weight: 600; margin-bottom: .1rem }
+  /* --etiqueta-3 és per a traços (3:1): per a lletra cal --etiqueta-2 (4,5:1) */
+  .frase .clau { color: var(--etiqueta-2); font-weight: 400; font-size: .82rem }
+  .frase textarea {
+    width: 100%; font: inherit; font-size: 1rem; line-height: 1.4;
+    background: var(--camp); color: var(--etiqueta);
+    border: 0; border-radius: var(--r-p); padding: .55rem .7rem; resize: vertical;
+    min-height: 2.6rem;
+  }
+  .frase textarea:focus-visible { outline: 3px solid var(--blau); outline-offset: 2px }
+  .frase .forats { font-size: .82rem; color: var(--etiqueta-2); margin-top: .25rem }
+  .frase .previ { font-size: .95rem; margin-top: .3rem }
+  .frase.malament textarea { box-shadow: inset 0 0 0 2px var(--vermell) }
+  .frase.malament .forats { color: var(--vermell); font-weight: 600 }
+
+  /* la barra, sobre blanc: el blau suau dels botons, sobre el gris del fons, no
+     arriba a 4,5:1 amb la lletra blava */
+  .barra { position: sticky; bottom: 0; background: var(--superficie);
+           padding: .9rem 0; margin-top: 1rem;
+           border-top: 1px solid var(--separador);
+           display: flex; gap: .6rem; align-items: center; flex-wrap: wrap }
+  .btn { border: 0; border-radius: 999px; font: inherit; font-weight: 600;
+         padding: .62rem 1.15rem; min-height: 44px; background: var(--blau);
+         color: #fff; cursor: pointer }
+  .btn.tenyit { background: var(--blau-suau); color: var(--blau-text) }
+  .btn:active { opacity: .62 }
+  .avis-barra { font-size: .9rem; color: var(--etiqueta-2) }
+  .avis-barra.malament { color: var(--vermell); font-weight: 600 }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <p class="tornar"><a href="index.html">← inici</a></p>
+  <h1>Canviar les frases</h1>
+  <p class="subtitol">Tot el que llegeix l'alumnat a la caixa d'eines</p>
+
+  <div class="nota">
+    <b>Com funciona.</b> Canvia el text dels camps i, quan acabis, prem
+    <b>Descarrega el fitxer</b>. Et baixarà un <code>textos.js</code> que has de
+    posar a la carpeta <code>dades/</code> substituint el que hi ha. Res més.
+    <br><br>
+    <b>Dues regles.</b> El text entre <code>*asteriscs*</code> surt en negreta.
+    I <code>{això}</code> és un forat que s'omple sol amb un número o unes paraules:
+    <b>no el canviïs de nom ni l'esborris</b>, perquè la frase perdria la dada.
+    <code>{rect}</code> s'omple amb «3 files de 4 quadrets» i <code>{quadrets}</code>,
+    amb «12 quadrets»: el singular i l'apòstrof («1 quadret», «d'1») ja surten bé sols.
+    Si te'n descuides un, el camp es posa en vermell i el botó de descàrrega
+    t'avisa.
+  </div>
+
+  <div id="grups"></div>
+
+  <div class="barra">
+    <button class="btn" id="baixa">Descarrega el fitxer</button>
+    <button class="btn tenyit" id="copia">Copia'l al porta-retalls</button>
+    <button class="btn tenyit" id="desfes">Torna als textos actuals</button>
+    <span class="avis-barra" id="estat"></span>
+  </div>
+
+</div>
+
+<script src="dades/textos.js"></script>
+<script>
+"use strict";
+(function () {
+  const $ = s => document.querySelector(s);
+  const ORIGINAL = JSON.parse(JSON.stringify(window.TEXTOS));
+  const GUIA = window.TEXTOS_GUIA || {};
+  const ON = {
+    "comu": "Frases que comparteixen totes les tasques: retroacció, passos, represa, resum final i les paraules que canvien en singular",
+    "0.1": "Taules · 0.1 · la taula de multiplicar i el seu rectangle",
+    "0.2": "Taules · 0.2 · tasca tancada: trobar el resultat a la taula",
+    "1.1": "Rectangles · 1.1 · fer un rectangle a la quadrícula",
+    "1.2": "Rectangles · 1.2 · tasca tancada: el rectangle d'una multiplicació",
+    "1.3": "Rectangles · 1.3 · girar el rectangle (3 · 4 = 4 · 3)",
+    "1.4": "Rectangles · 1.4 · partir el rectangle pel 10",
+    "2.1": "Quadrats · 2.1 · el quadrat d'un nombre (3²)",
+    "2.2": "Quadrats · 2.2 · tasca tancada: quin dibuix és",
+    "2.3": "Quadrats · 2.3 · el costat del quadrat (l'arrel quadrada)",
+    "3.1": "Nombres · 3.1 · centenes, desenes i unitats",
+    "3.2": "Nombres · 3.2 · tasca tancada: fer el nombre amb blocs",
+    "4.1": "Ordre · 4.1 · què es fa primer, amb el dibuix",
+    "4.2": "Ordre · 4.2 · tasca tancada: tocar l'operació que es fa primer"
+  };
+
+  /** Com es veurà la frase: negreta i forats amb un valor d'exemple. */
+  function mostra(t, forats) {
+    let v = t;
+    forats.forEach(f => { v = v.split("{" + f + "}").join("…"); });
+    return v.replace(/\*([^*]+)\*/g, "<b>$1</b>");
+  }
+
+  function pinta() {
+    const cont = $("#grups");
+    cont.textContent = "";
+    Object.keys(TEXTOS).forEach(grup => {
+      const caixa = document.createElement("div");
+      caixa.className = "grup";
+      caixa.innerHTML = "<h2>" + grup + "</h2>" +
+        '<p class="on">' + (ON[grup] || "") + "</p>";
+
+      Object.keys(TEXTOS[grup]).forEach(nom => {
+        const guia = (GUIA[grup] && GUIA[grup][nom]) || ["", []];
+        const forats = guia[1] || [];
+        const f = document.createElement("div");
+        f.className = "frase";
+        f.innerHTML =
+          "<label>" + guia[0] +
+            ' <span class="clau">' + grup + "." + nom + "</span></label>" +
+          "<textarea rows=\"1\"></textarea>" +
+          (forats.length
+            ? '<div class="forats">Ha de portar: ' +
+                forats.map(x => "<code>{" + x + "}</code>").join(" ") + "</div>"
+            : "") +
+          '<div class="previ"></div>';
+
+        const area = f.querySelector("textarea");
+        area.value = TEXTOS[grup][nom];
+        area.style.height = "auto";
+
+        function refresca() {
+          TEXTOS[grup][nom] = area.value;
+          const falten = forats.filter(x => !area.value.includes("{" + x + "}"));
+          f.classList.toggle("malament", falten.length > 0);
+          if (falten.length) {
+            f.querySelector(".forats").innerHTML = "Hi falta: " +
+              falten.map(x => "<code>{" + x + "}</code>").join(" ");
+          } else if (forats.length) {
+            f.querySelector(".forats").innerHTML = "Ha de portar: " +
+              forats.map(x => "<code>{" + x + "}</code>").join(" ");
+          }
+          f.querySelector(".previ").innerHTML = mostra(area.value, forats);
+          area.style.height = area.scrollHeight + "px";
+          comptaErrors();
+        }
+        area.addEventListener("input", refresca);
+        caixa.appendChild(f);
+        requestAnimationFrame(refresca);
+      });
+      cont.appendChild(caixa);
+    });
+  }
+
+  function comptaErrors() {
+    const n = document.querySelectorAll(".frase.malament").length;
+    const estat = $("#estat");
+    estat.classList.toggle("malament", n > 0);
+    estat.textContent = n === 0 ? ""
+      : n === 1 ? "Hi ha 1 frase amb un forat que falta."
+                : "Hi ha " + n + " frases amb forats que falten.";
+    return n;
+  }
+
+  /** Reconstrueix el fitxer sencer, amb la capçalera i la guia intactes. */
+  function fitxer() {
+    const cometes = t => "'" + t.replace(/\\/g, "\\\\").replace(/'/g, "\\'") + "'";
+    let cos = "window.TEXTOS = {\n";
+    Object.keys(TEXTOS).forEach((grup, ig, tots) => {
+      cos += '\n  "' + grup + '": {\n';
+      const noms = Object.keys(TEXTOS[grup]);
+      const ample = Math.max.apply(null, noms.map(n => n.length));
+      noms.forEach((nom, i) => {
+        cos += "    " + nom + ":" + " ".repeat(ample - nom.length + 1) +
+               cometes(TEXTOS[grup][nom]) + (i < noms.length - 1 ? "," : "") + "\n";
+      });
+      cos += "  }" + (ig < tots.length - 1 ? "," : "") + "\n";
+    });
+    cos += "};\n";
+
+    return (window.__CAP || CAP_PER_DEFECTE) + cos + (window.__GUIA || guiaComText());
+  }
+
+  /* Obrint aquesta pàgina amb doble clic (file://), el navegador no deixa llegir
+     dades/textos.js amb fetch, i el fitxer descarregat sortia sense la capçalera
+     ni la guia: textos.html ja no sabia explicar les frases i el test fallava.
+     Si passa, la guia es torna a escriure a partir de l'objecte que ja hi ha a
+     memòria, que és el mateix contingut. */
+  const CAP_PER_DEFECTE =
+    "/* dades/textos.js · TOTES les frases que llegeix l'alumnat.\n" +
+    "   Fitxer escrit per textos.html. Les regles d'edició i d'escriptura són a\n" +
+    "   docs/ARQUITECTURA.md (apartat 4). */\n\n";
+
+  function guiaComText() {
+    let t = "\n/* ============================================================================\n" +
+            "   D'AQUÍ CAP AVALL NO CAL TOCAR RES.\n" +
+            "   Són les explicacions que fa servir textos.html per dir on surt cada frase i\n" +
+            "   quins forats {} necessita.\n" +
+            "   ========================================================================== */\n\n" +
+            "window.TEXTOS_GUIA = {\n";
+    const grups = Object.keys(GUIA);
+    grups.forEach((grup, ig) => {
+      t += '  "' + grup + '": {\n';
+      const noms = Object.keys(GUIA[grup]);
+      const ample = Math.max.apply(null, noms.map(n => n.length));
+      noms.forEach((nom, i) => {
+        const [desc, forats] = GUIA[grup][nom];
+        t += "    " + nom + ":" + " ".repeat(ample - nom.length + 1) +
+             "[" + JSON.stringify(desc) + ", " + JSON.stringify(forats || []) + "]" +
+             (i < noms.length - 1 ? "," : "") + "\n";
+      });
+      t += "  }" + (ig < grups.length - 1 ? "," : "") + "\n";
+    });
+    return t + "};\n";
+  }
+
+  function desa(nom, text) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "text/javascript" }));
+    a.download = nom;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  $("#baixa").onclick = () => {
+    if (comptaErrors() > 0 &&
+        !confirm("Hi ha frases amb forats que falten. El vols descarregar igualment?")) return;
+    desa("textos.js", fitxer());
+    $("#estat").textContent = "Descarregat. Posa'l a dades/ substituint el que hi ha.";
+  };
+
+  $("#copia").onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(fitxer());
+      $("#estat").textContent = "Copiat.";
+    } catch (e) {
+      $("#estat").textContent = "No s'ha pogut copiar; fes servir la descàrrega.";
+    }
+  };
+
+  $("#desfes").onclick = () => {
+    Object.keys(ORIGINAL).forEach(g => { window.TEXTOS[g] = Object.assign({}, ORIGINAL[g]); });
+    pinta();
+    $("#estat").textContent = "Tornat als textos que hi ha ara al projecte.";
+  };
+
+  // La capçalera i la guia del fitxer es tornen a escriure tal com són: aquesta
+  // pàgina només canvia les frases, no el que les explica.
+  fetch("dades/textos.js").then(r => r.text()).then(t => {
+    const i = t.indexOf("window.TEXTOS = {");
+    const j = t.indexOf("/* ====", i);
+    window.__CAP = i > 0 ? t.slice(0, i) : "";
+    window.__GUIA = j > 0 ? "\n" + t.slice(j) : "";
+  }).catch(() => { window.__CAP = ""; window.__GUIA = ""; });
+
+  pinta();
+})();
+</script>
+</body>
+</html>

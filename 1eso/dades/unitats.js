@@ -16,6 +16,8 @@
      criteris     els criteris de la SA del grup, com a referència. L'avaluació
                   es fa amb els criteris propis del PI
      fitxa        "fitxes/udN.html" quan existeixi; fins llavors, null
+     tasques      les tasques de la caixa d'eines de la unitat (caixa-eines?task=n),
+                  si en té. eines/comprova.py mira que existeixin
 
    Camps d'una targeta de consulta:
      id, titol, descripcio, fitxer (l'HTML), pdf, unitat (on neix)
@@ -31,7 +33,8 @@ window.UNITATS = [
            "3² és un quadrat de 3 per 3.",
     material: "Miniblocs: fer el rectangle de 3 per 4 i comptar-ne els quadrets.",
     criteris: "1.3, 2.1, 8.1",
-    fitxa: null
+    fitxa: null,
+    tasques: [0, 1, 2, 3, 4]
   },
   {
     num: 2,

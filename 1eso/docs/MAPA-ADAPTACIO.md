@@ -71,7 +71,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
-| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules feta. Fitxa per fer |
+| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules i caixa d'eines fetes. Fitxa per fer |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Per fer |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
@@ -88,7 +88,48 @@ decimals periòdics). De cada una només s'agafa el nucli. La resta no es rebaix
 
 ---
 
-## 5. L'avaluació
+## 5. La unitat 1, activitat per activitat
+
+**El pla de la caixa d'eines el va validar el docent el 23 de setembre de 2026: cinc eines.**
+Taules, rectangles, quadrats, nombres i ordre de les operacions. El nucli de la fitxa continua
+sent una proposta fins que s'escrigui.
+
+Les catorze activitats del grup, i què en fa aquest material. «Fitxa» vol dir que hi ha d'anar
+quan s'escrigui; la caixa ja hi és.
+
+| Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
+|---|---|---|---|
+| 1_1 i 1_3 · Taules de multiplicar | Completar les taules, triar les més difícils de recordar, el número que falta (7 · … = 56) | Les taules no es recorden: es busquen a la targeta. Triar les més difícils de recordar no hi és, perquè res no es demana de memòria. El número que falta es busca a la fila de la targeta | Targeta · caixa 0.1 i 0.2 · fitxa |
+| 1_4 · Propietats de la multiplicació | Commutativa, el zero, multiplicar per 10 i per 100, distributiva (7 · 101 = 700 + 7) | Commutativa: el rectangle girat. El zero: 0 files, cap quadret. Distributiva: partir pel 10, 3 · 12 = 30 + 6. Per 10 sí; per 100, no: passa de 999 | Caixa 1.1, 1.3 i 1.4 · fitxa |
+| 1_5 i 1_15 · Repàs | Els mateixos continguts, i marcar les multiplicacions mal fetes | Els mateixos casos. Marcar les multiplicacions mal fetes, amb la targeta al davant, és un bon exercici de fitxa | Fitxa |
+| 1_6 i l'examen de la unitat | Exàmens | Un examen DOCX amb el motor comú, amb la targeta al davant | Per fer |
+| 1_7 · El nom d'un nombre | La taula de posicions fins als bilions, escriure el nombre en lletres, la regla del guionet (D-U-C) | Fins al 999: quadrats de 100, columnes de 10 i quadrets solts, la taula de les xifres i el nom en lletres. La regla D-U-C es veu en cada nom | Caixa 3.1 i 3.2 · fitxa |
+| 1_8 · Les formes de les potències | Les últimes xifres de les potències de 2 i de 3, i el patró que fan | Fora: les potències passen de 999 | — |
+| 1_9 · Potències | Base i exponent, «elevat a», «al quadrat», l'error 3² = 6, les potències de 10 | Només el quadrat: 3² és un quadrat de 3 per 3. L'error 3² = 6 es desmunta amb el dibuix. 10 · 10 = 100 surt als blocs | Caixa 2.1, 2.2 i 3.1 · fitxa |
+| 1_11 · Propietats de les potències | El producte de potències de la mateixa base, la potència d'una potència | Fora | — |
+| 1_13 · Arrels quadrades | Les exactes, i les no exactes entre dos nombres (√13 és entre 3 i 4) | L'arrel és el costat del quadrat: √16 = 4. Amb 13 quadrets no es fa cap quadrat, i √13 és entre 3 i 4 | Caixa 2.3 · fitxa |
+| 1_14 · Jerarquia de les operacions | L'ordre, amb parèntesis, potències, restes i divisions | Sumes i multiplicacions, amb parèntesi i sense. La resta, fora | Caixa 4.1 i 4.2 · fitxa |
+| 1_16 · Què he après? | Una autoavaluació de tots els continguts | Una graella semblant, amb els nuclis d'aquest material i en accions que es veuen | Fitxa |
+
+**Queda fora, i per què.** No es rebaixa: no hi és.
+
+- Els nombres de més de 999: els milers, els milions i els bilions de la taula de posicions, i
+  multiplicar per 100 i per 1.000 (regla D).
+- La propietat associativa: amb un rectangle no es veu, perquè és pla. Caldria una capsa de
+  cubs. Si es vol, es pot tocar amb miniblocs a l'aula de suport.
+- Les potències que no són quadrats, les seves últimes xifres i les seves propietats.
+- A l'ordre de les operacions: les potències, les restes i les divisions.
+
+**Per decidir amb el docent quan es faci la fitxa:**
+
+- Si la fitxa porta les cinc parts de la caixa, o només el nucli (rectangles i quadrats) i les
+  altres tres es treballen amb la caixa.
+- Si el número que falta (7 · … = 56) ha de ser també una subtasca de la caixa, la 0.3. Es fa
+  amb la targeta: la taula del 7 i baixar fins al 56.
+
+---
+
+## 6. L'avaluació
 
 Amb els criteris del PI. Cada solucionari acaba amb «Què mirar per avaluar»: accions que es
 veuen, sempre amb la targeta al davant, escrites perquè es puguin passar al PI tal com són.
@@ -97,7 +138,7 @@ Mai no s'avalua el que es recorda, sinó el que es fa amb la targeta al davant.
 
 ---
 
-## 6. Els exàmens
+## 7. Els exàmens
 
 Quan en calguin, amb el motor comú, [`../../comu/examens/nucli.js`](../../comu/examens/nucli.js),
 i les regles de [`../../comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md). El contingut

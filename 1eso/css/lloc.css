@@ -95,3 +95,8 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 
 /* --etiqueta-2 i no --etiqueta-3: és text, i ha de fer 4,5:1 */
 .peu { color: var(--etiqueta-2); font-size: .85rem; margin-top: 3rem }
+
+/* La llista d'enllaços ?task=n de la caixa d'eines */
+.enllacos-tasca { list-style: none; margin: .5rem 0 0; padding: 0; display: grid; gap: .35rem }
+.enllacos-tasca li { display: flex; gap: .6rem; align-items: baseline }
+.enllacos-tasca a { min-width: 5.2rem; display: inline-block; padding: .15rem 0 }

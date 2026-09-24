@@ -1,13 +1,14 @@
 # Criteris de disseny
 
-Les regles de tot el que s'imprimeix a `1eso/`: les fitxes i les targetes de consulta. Cada
-regla porta el seu perquè. Si una regla s'ha de trencar, primer es canvia aquí.
+Les regles de tot el material de `1eso/`: el que s'imprimeix (les fitxes i les targetes de
+consulta) i la caixa d'eines de la pantalla. Cada regla porta el seu perquè. Si una regla s'ha de
+trencar, primer es canvia aquí.
 
 Hi ha dues menes de regles: les que venen del material de `4eso/`, que es mantenen, i les
 pròpies d'aquest material, que surten del punt de partida descrit a
 [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md).
 
-`eines/comprova.py` vigila les que es poden comprovar soles. La llista és al final.
+Els tests vigilen les que es poden comprovar soles. La llista és al final.
 
 ---
 
@@ -134,19 +135,52 @@ idea, dibuixada a la quadrícula, i es valida amb el docent abans d'escriure la 
 
 ---
 
-## 3. Què comprova `eines/comprova.py` i què no
+## 3. La pantalla: la caixa d'eines
 
-**Ho comprova sol:** el blanc i negre; que l'HTML tanqui; la numeració de pàgines i de cares;
+Totes les regles del paper valen igual a la pantalla: un sol model (A), res de memòria (B),
+sense calculadora (C), els nombres (D), el punt (E), una consigna per frase (F), la regla
+trencada (G), el llenguatge (I) i cap «adaptat», ni al títol de la pestanya (J). A més, la
+pantalla té les seves. Com està feta la caixa és a [`ARQUITECTURA.md`](ARQUITECTURA.md).
+
+| # | Regla | Per què |
+|---|---|---|
+| M | **Cada eina s'obre ja resolta**, amb la marca «Exemple». El cas és el del paper: 7 · 8 a les taules, 3 · 4 als rectangles, 3² als quadrats, 243 als nombres i 2 + 3 · 4 a l'ordre | És la regla 4 a la pantalla, i la regla 8: qui passa del paper a la pantalla troba el mateix cas |
+| N | **La tasca 0 és la targeta de les taules**, i surt sempre al costat de l'eina triada | No hi ha calculadora (regla C): l'eina de tot el curs és la targeta (regla B) |
+| O | **La creu «×» no surt a la pantalla.** El pont amb la creu de primària es fa una sola vegada, a la clau de la targeta de paper | Un sol lloc per al pont. A la pantalla, el punt i prou |
+| P | **Tocar és contestar.** Només quan la resposta demana diversos tocs hi ha un botó «Comprova» (la 3.2) | Cap pas amagat entre fer i contestar |
+| Q | **La resposta no es veu mentre es fa.** La 3.2 no ensenya el nombre fins que es comprova; la 2.2 no ensenya els rètols fins que es toca | Si es veu, la tasca es resol provant fins que coincideix |
+| R | **El que és bo és bo.** El rectangle girat (5 files de 2 per 2 · 5) i la fila girada (7 · 6 per 6 · 7) compten com a correctes | Tenen els mateixos quadrets. Dir «Incorrecte» a una resposta bona ensenya una regla falsa |
+| S | **Les tasques tancades**: cinc passos, un a la vista, amb l'inici i el final marcats. «Correcte.», o bé «Incorrecte.» seguit d'«Ara provem-ho d'una altra manera.» i d'una pista que és un camí diferent. Al segon error, la caixa ensenya la resposta. Acaben amb un resum i un codi de verificació | Saber quant falta i quan s'ha acabat treu càrrega. El codi deixa rastre de la feina sense haver-la de corregir en directe |
+| T | **La regla trencada surt del dibuix.** El dibuix tocat es queda amb el seu rètol («4 · 2 = 8. No és un quadrat») i el pas acaba amb les dues formes a la vista. A la 2.2, les preguntes n² i n · 2 van barrejades | És la regla G. Si totes fossin n², tocar sempre el dibuix més gran encertaria |
+| U | **Les frases són a `dades/textos.js`**, en Lectura Fàcil, i es poden canviar sense tocar el codi, des de `textos.html` | Qui coneix l'alumnat ha de poder canviar una paraula sense programar |
+| V | **Accessible**: WCAG 2.2 AA (contrast, botons de 24 × 24 px com a mínim, focus visible), amb el teclat, en clar i en fosc, i sense animacions si el sistema demana moviment reduït | S'ha de poder fer servir amb qualsevol aparell i de qualsevol manera |
+
+---
+
+## 4. Què comproven els tests i què no
+
+**`eines/comprova.py` ho comprova sol:** el blanc i negre; que l'HTML tanqui; la numeració de pàgines i de cares;
 el rètol del graó físic, l'obertura, la pàgina de la vida i el solucionari de cada fitxa; el
 punt per multiplicar; que cap nombre de l'alumnat passi de 999; frases de més de 20 paraules
 (i avís a partir de 15), paraules repetides, majúscules i xifres romanes; el llenguatge de la
 taula de la regla I (com a avís); «adaptat»; que cada multiplicació, suma i resta escrita
 estigui bé, també al solucionari; que el text manuscrit només porti caràcters que Caveat té;
 que cada PDF sigui el que sortiria ara; els fulls d'estil; el contrast de la pantalla; els
-enllaços; l'anonimat; les dependències externes, i les dades.
+enllaços; l'anonimat; les dependències externes, i les dades. De la caixa d'eines: que
+pestanyes, seccions i mòduls coincideixin i es carreguin en l'ordre bo; els números de tasca;
+que cada frase que es demana existeixi i tingui explicació; les regles de Lectura Fàcil a totes
+les frases; les subtasques; que no hi hagi «×» ni «x» de multiplicar, cap nombre de més de 999
+ni cap «adaptat», i que la memòria del navegador comenci per `pi1-` i la sal sigui pròpia.
+
+**Amb un navegador** (`eines/prova_caixa.py` i `eines/auditoria.py`): que la caixa funcioni de
+punta a punta, amb encerts, errors, pistes, resums i codis; que el text que surt de debò no
+trenqui cap regla (cap frase sense definir, cap «×», fins a 999); que les sumes de les dades no
+portin i les multiplicacions siguin de la targeta; el contrast aplicat, la mida de cada botó i el
+focus, en clar i en fosc, al mòbil i a l'ordinador.
 
 **Ho ha de mirar una persona:** que hi hagi una sola consigna per frase; que les sumes i restes
 no portin; que el model sigui la quadrícula; que el símbol surti del dibuix; que la regla
 trencada es desmunti amb el dibuix; la mateixa paraula per a la mateixa cosa; que el
-solucionari es pugui seguir sense ser de matemàtiques. I sobretot, **el paper**: imprimir-ho i
-mirar-ho.
+solucionari es pugui seguir sense ser de matemàtiques. De la caixa: que s'entengui què s'ha de
+tocar; que cinc passos sigui la mida bona; que les pistes ajudin de debò. I sobretot, **el
+paper**: imprimir-ho i mirar-ho; i **l'aula**: veure-ho fer servir.

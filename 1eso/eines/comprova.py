@@ -11,6 +11,13 @@ fàcil trencar sense adonar-se'n:
     les frases segueixen les regles de Lectura Fàcil que es poden comprovar
     soles, i cap multiplicació, suma o resta escrita no està malament;
   · el text manuscrit només porta caràcters que la lletra Caveat sap dibuixar;
+  · la caixa d'eines: cada pestanya té la seva secció i el seu mòdul, les
+    tasques es numeren sense repetir-se i amb el 0 el primer, cada frase que es
+    demana existeix a dades/textos.js i té la seva explicació, les frases passen
+    les regles de Lectura Fàcil que es poden comprovar soles, i a la pantalla
+    també es multiplica amb «·», cap nombre passa de 999 i res no diu «adaptat»;
+    la memòria del navegador comença per «pi1-» i la sal del codi no és la de
+    l'altra caixa;
   · cada PDF és el que sortiria ara de la seva font (empremtes.json);
   · els fulls d'estil tanquen les claus i no fan servir variables inexistents,
     i els colors de la pantalla tenen el contrast que demana la WCAG 2.2 AA;
@@ -379,6 +386,171 @@ if os.path.exists(fitxer_lletra):
     print(f"  {rel(fitxer_lletra)}: {len(te)} caràcters · {n_ms} caràcters manuscrits comprovats")
 
 # --------------------------------------------------------------------------
+print("\nCAIXA D'EINES")
+# La mateixa arquitectura que la caixa de 4eso/ (docs/ARQUITECTURA.md). Els
+# números de tasca surten als enllaços que el docent envia (caixa-eines?task=n):
+# un número ja enviat no es canvia mai.
+# --------------------------------------------------------------------------
+CAIXA = ruta('caixa-eines.html')
+TEXTOS_JS = ruta('dades', 'textos.js')
+if not os.path.exists(CAIXA):
+    print("  encara no n'hi ha")
+else:
+    app = llegeix(CAIXA)
+    e = Estructura(); e.feed(app)
+    comprova(not e.err and not e.pila, "caixa-eines.html: HTML mal tancat")
+
+    pestanyes = sorted(set(re.findall(r'data-mod="(\w+)"', app)))
+    seccions = sorted(set(re.findall(r'<section id="mod-(\w+)"', app)))
+    fitxers_mod = sorted(glob.glob(ruta('js', 'moduls', '*.js')))
+    registrats = sorted({m.group(1) for x in fitxers_mod
+                         for m in [re.search(r'CE\.registra\("(\w+)"', llegeix(x))] if m})
+    carregats = re.findall(r'<script src="js/moduls/([\w-]+)\.js"', app)
+    comprova(pestanyes == seccions == registrats,
+             f"identificadors descompassats: pestanyes {pestanyes} · seccions {seccions} · registrats {registrats}")
+    comprova(sorted(carregats) == sorted(os.path.basename(x)[:-3] for x in fitxers_mod),
+             "hi ha mòduls a js/moduls que no es carreguen, o a l'inrevés")
+    ordre_bo = ['dades/textos.js', 'js/nucli.js', 'js/codi.js', 'js/tasca.js', 'js/quadricula.js']
+    posicions = [app.find(f'src="{x}"') for x in ordre_bo]
+    comprova(all(x >= 0 for x in posicions) and posicions == sorted(posicions),
+             "els scripts base van en aquest ordre: " + ", ".join(ordre_bo))
+    darrer = app.rfind('src="js/app.js"')
+    comprova(darrer > max([app.rfind(f'js/moduls/{c}.js') for c in carregats] + [-1]),
+             "js/app.js s'ha de carregar després de tots els mòduls")
+    comprova('href="../favicon.svg"' in app, "caixa-eines.html: la icona és ../favicon.svg")
+    pestanyes_html = re.findall(r'<button[^>]*class="segment"[^>]*>', app)
+    numeros = [(re.search(r'data-tasca="([^"]*)"', b) or [None, None])[1] for b in pestanyes_html]
+    mods = [(re.search(r'data-mod="(\w+)"', b) or [None, '?'])[1] for b in pestanyes_html]
+    comprova(bool(numeros) and all(n is not None and re.fullmatch(r'0|[1-9]\d*', n) for n in numeros)
+             and len(set(numeros)) == len(numeros) and numeros[0] == "0",
+             f"data-tasca de les pestanyes: {numeros} (un número a cada una, sense repetir, i el 0 el primer)")
+    comprova(mods[:1] == ['taules'], "la tasca 0 ha de ser la de les taules: és la que surt sempre")
+    print(f"  mòduls: {len(registrats)} · marcatge, registre i scripts coincideixen: "
+          f"{pestanyes == seccions == registrats}")
+    print("  tasques: " + " · ".join(f"{n} {m}" for n, m in zip(numeros, mods)))
+
+    # ----------------------------------------------------------------------
+    print("\nFRASES")
+    # Les frases viuen a dades/textos.js. Si una clau no existeix, a la pantalla
+    # surt «[1.2.titol]»: s'ha de veure aquí i no a classe.
+    # ----------------------------------------------------------------------
+    textos_js = llegeix(TEXTOS_JS)
+
+    def claus_de(bloc):
+        out = set()
+        for grup, cos in re.findall(r'^  "([\w.]+)":\s*\{(.*?)\n  \}', bloc, re.S | re.M):
+            for nom in re.findall(r'^\s{4}(\w+):', cos, re.M):
+                out.add(grup + "." + nom)
+        return out
+
+    def frases_de(bloc):
+        out = {}
+        for grup, cos in re.findall(r'^  "([\w.]+)":\s*\{(.*?)\n  \}', bloc, re.S | re.M):
+            for nom, val in re.findall(r"^\s{4}(\w+):\s*'((?:[^'\\]|\\.)*)'", cos, re.M):
+                out[grup + "." + nom] = re.sub(r"\\(.)", r"\1", val)
+        return out
+
+    tall = textos_js.index("window.TEXTOS_GUIA")
+    definides_t = claus_de(textos_js[:tall])
+    guiades = claus_de(textos_js[tall:])
+    grups = sorted({c.rsplit(".", 1)[0] for c in definides_t}, key=len, reverse=True)
+    g = "(?:" + "|".join(re.escape(x) for x in grups) + ")"
+    usades = set(re.findall(r'data-text="(' + g + r'\.\w+)"', app))
+    prefixos = set()
+    for f in sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)):
+        codi = llegeix(f)
+        usades |= set(re.findall(r'"(' + g + r'\.[A-Za-z_]\w*)"(?!\s*\+)', codi))
+        prefixos |= set(re.findall(r'"(' + g + r')\.\w*"\s*\+', codi))
+        # claus muntades amb una variable: txt("3.1.et_" + k)
+        prefixos |= {m for m in re.findall(r'"(' + g + r'\.\w+_)"\s*\+', codi)}
+    comprova(not (usades - definides_t), f"frases que es demanen i no existeixen: {sorted(usades - definides_t)}")
+    comprova(not (definides_t - guiades), f"frases sense explicació a TEXTOS_GUIA: {sorted(definides_t - guiades)}")
+    comprova(not (guiades - definides_t), f"explicacions de frases que no existeixen: {sorted(guiades - definides_t)}")
+    orfes = sorted(c for c in definides_t - usades
+                   if not c.endswith(".nom")
+                   and c.rsplit(".", 1)[0] not in prefixos
+                   and not any(c.startswith(pf) for pf in prefixos))
+    avisa(not orfes, f"frases que no fa servir ningú: {orfes}")
+    print(f"  frases definides: {len(definides_t)} · totes les que es demanen existeixen: "
+          f"{not (usades - definides_t)} · sense fer servir: {orfes if orfes else 'cap'}")
+
+    # ----------------------------------------------------------------------
+    print("\nLECTURA FÀCIL")
+    # Les regles de la norma UNE 153101:2018 EX que es poden comprovar soles.
+    #   Falla: una frase de més de 20 paraules, una paraula repetida seguida,
+    #          «clica», xifres romanes, hores de 24 h o paraules en majúscules.
+    #   Avisa: frases de més de 15 paraules, i parèntesis o punt i coma.
+    # ----------------------------------------------------------------------
+    n_lf = 0
+    for clau, t in frases_de(textos_js[:tall]).items():
+        n_lf += 1
+        net = re.sub(r"\{\w+\}", "X", t.replace("*", ""))
+        for frase in re.split(r"(?<=[.!?])\s+", net):
+            paraules = re.findall(r"[\w·'’√]+", frase)
+            comprova(len(paraules) <= 20, f"Lectura Fàcil · {clau}: frase de {len(paraules)} paraules")
+            avisa(len(paraules) <= 15 or len(paraules) > 20, f"Lectura Fàcil · {clau}: frase de {len(paraules)} paraules")
+        rep = re.search(r"\b(\w+)\s+\1\b", net, re.I)
+        comprova(not rep, f"Lectura Fàcil · {clau}: paraula repetida («{rep.group(0) if rep else ''}»)")
+        comprova(not re.search(r"\bclica\b|\bclic\b", net, re.I), f"Lectura Fàcil · {clau}: «clica» no diu on porta")
+        comprova(not re.search(r"\b([01]?\d|2[0-3]):[0-5]\d\b", net), f"Lectura Fàcil · {clau}: hora de 24 h")
+        for pm in re.findall(r"\b[A-ZÀ-Ú]{2,}\b", net):
+            if pm in SIGLES:
+                continue
+            comprova(not ROMANS.match(pm), f"Lectura Fàcil · {clau}: xifra romana «{pm}»")
+            comprova(ROMANS.match(pm) or len(pm) < 3, f"Lectura Fàcil · {clau}: paraula en majúscules «{pm}»")
+        avisa(not re.search(r"[;()]", net), f"Lectura Fàcil · {clau}: parèntesis o punt i coma")
+    print(f"  frases revisades: {n_lf}")
+
+    # ----------------------------------------------------------------------
+    print("\nSUBTASQUES")
+    # Cada mòdul és 1.1, 1.2… amb la barra de fletxes, els panells numerats de
+    # l'1 endavant i el nom a dades/textos.js: així ?task=1.3 va on toca.
+    # ----------------------------------------------------------------------
+    for nom, cos in re.findall(r'<section id="mod-(\w+)"[^>]*>(.*?)</section>', app, re.S):
+        subs = [int(x) for x in re.findall(r'class="subtasca"[^>]*data-sub="(\d+)"', cos)]
+        if not subs:
+            continue
+        comprova(subs == list(range(1, len(subs) + 1)), f"mod-{nom}: les subtasques van {subs}, han d'anar 1, 2, 3…")
+        for peca in ("sub-enrere", "sub-avant", "sub-rotul"):
+            comprova(peca in cos, f"mod-{nom} té subtasques però li falta .{peca}")
+        pestanya = re.search(r'data-tasca="(\d+)" data-mod="' + nom + '"', app)
+        if pestanya:
+            for n in subs:
+                comprova(f"{pestanya.group(1)}.{n}.nom" in definides_t,
+                         f"falta la frase {pestanya.group(1)}.{n}.nom a dades/textos.js")
+        print(f"  mod-{nom}: {len(subs)} subtasques")
+
+    # ----------------------------------------------------------------------
+    print("\nLA PANTALLA")
+    # Les regles del curs valen igual a la pantalla que al paper
+    # (docs/CRITERIS-DISSENY.md). Aquí es miren a les frases i al marcatge; el
+    # text que surt de debò el mira eines/prova_caixa.py.
+    # ----------------------------------------------------------------------
+    frases_t = frases_de(textos_js[:tall])
+    vist = "\n".join(frases_t.values()) + "\n" + re.sub(r"<[^>]+>", " ", app)
+    comprova("×" not in vist, "a la caixa no hi ha d'haver «×»: es multiplica amb «·»")
+    comprova(not re.search(r"\d\s*[xX]\s*\d", vist), "a la caixa una «x» multiplica")
+    grans = sorted({int(n) for n in re.findall(r"(?<![\d.,])\d+(?![\d,])", "\n".join(frases_t.values())) if int(n) > 999})
+    comprova(not grans, f"frases de la caixa amb nombres de més de 999: {grans}")
+    for clau, t in frases_t.items():
+        for patro, per_que in LLENGUATGE:
+            avisa(not re.search(patro, t), f"{clau}: {per_que}")
+    for f in [CAIXA, TEXTOS_JS]:
+        comprova(not re.search(r"adapta", llegeix(f), re.I), f"{rel(f)}: l'alumnat no ha de llegir «adaptat»")
+    js_tot = {f: llegeix(f) for f in glob.glob(ruta('js', '**', '*.js'), recursive=True)}
+    claus_mem = [(rel(f), k) for f, t in js_tot.items()
+                 for k in re.findall(r'(?:CLAU\s*=|clau\s*=\s*cfg\s*=>)\s*"([^"]+)"', t)]
+    comprova(claus_mem and all(k.startswith("pi1-") for _, k in claus_mem),
+             f"les claus de la memòria del navegador han de començar per «pi1-»: {claus_mem}")
+    sal = re.search(r'const SAL = "([^"]+)"', js_tot.get(ruta('js', 'codi.js'), ''))
+    sal_altra = re.search(r'const SAL = "([^"]+)"', llegeix(os.path.join(REPO, '4eso', 'js', 'codi.js'))) \
+        if os.path.exists(os.path.join(REPO, '4eso', 'js', 'codi.js')) else None
+    comprova(bool(sal) and (not sal_altra or sal.group(1) != sal_altra.group(1)),
+             "js/codi.js ha de tenir una SAL pròpia, diferent de la de l'altra caixa")
+    print(f"  cap «×» ni «x» de multiplicar · cap nombre de més de 999 · claus del navegador: "
+          f"{', '.join(sorted({k for _, k in claus_mem}))} · sal pròpia: {bool(sal)}")
+
+# --------------------------------------------------------------------------
 print("\nPDF")
 # Cada PDF ha de ser el que sortiria ara de la seva font. gen_pdf.py desa
 # l'empremta de la font i de tot el que en decideix l'aspecte.
@@ -460,7 +632,8 @@ for c in fulls:
 
 # Una variable que no existeix tampoc avisa: la propietat es queda sense efecte.
 # Les que porten valor de reserva, var(--x, …), no compten.
-fonts_css = fulls + glob.glob(ruta('**', '*.html'), recursive=True) + glob.glob(ruta('js', '*.js'))
+fonts_css = (fulls + glob.glob(ruta('**', '*.html'), recursive=True) +
+             glob.glob(ruta('js', '**', '*.js'), recursive=True))
 textos = {f: llegeix(f) for f in fonts_css}
 definides = {v for t in textos.values() for v in re.findall(r'(--[\w-]+)\s*:', t)}
 sense_definir = {}
@@ -516,14 +689,25 @@ PARELLES = [   # (primer pla, fons, mínim, on es fa servir a index.html)
     ("--blau-text",  "--blau-suau",    4.5, "número de la unitat"),
     ("--etiqueta",   "--verd-suau",    4.5, "etiqueta verda"),
     ("--etiqueta",   "--taronja-suau", 4.5, "nota taronja"),
+    # la caixa d'eines (css/app.css)
+    ("--etiqueta",   "--camp",         4.5, "caixa: pastilles i botons grisos"),
+    ("--etiqueta",   "--segment",      4.5, "caixa: pestanyes"),
+    ("--etiqueta-2", "--segment",      4.5, "caixa: pestanya no triada"),
+    ("--superficie", "--verd",         4.5, "caixa: «Final» quan s'ha acabat"),
+    ("--blau",       "--superficie",   3.0, "caixa: traç dels quadrets"),
+    ("--taronja",    "--superficie",   3.0, "caixa: traç de la segona part i dels errors"),
+    ("--etiqueta-3", "--superficie",   3.0, "caixa: traç discontinu dels llocs buits"),
 ]
+# Els fons opacs de pàgina: el text transparent es compon sobre ells, i no sobre
+# el blanc de la targeta, com fa el navegador.
+OPACS = ("--fons", "--camp", "--segment")
 for nom_mode, paleta in (("clar", clar), ("fosc", fosc)):
     sup = a_rgb(paleta["--superficie"])
     pitjor = None
     for pp, fons, minim, on in PARELLES:
-        base = a_rgb(paleta[fons]) if fons in ("--fons", "--camp") else sup
+        base = a_rgb(paleta[fons]) if fons in OPACS else sup
         fons_rgb = a_rgb(paleta[fons], sup) if not fons.startswith('#') else rgb(fons)
-        pp_rgb = rgb(pp) if pp.startswith('#') else a_rgb(paleta[pp], fons_rgb if fons in ("--fons", "--camp") else base)
+        pp_rgb = rgb(pp) if pp.startswith('#') else a_rgb(paleta[pp], fons_rgb if fons in OPACS else base)
         r = contrast(pp_rgb, fons_rgb)
         comprova(r >= minim, f"contrast en mode {nom_mode}: {pp} sobre {fons} fa {r:.2f}:1 "
                              f"i en cal {minim}:1 ({on})")
@@ -622,7 +806,16 @@ for u in fitxers_t + pdfs_t:
     comprova(os.path.exists(ruta(u)), f"dades/unitats.js apunta a {u}, que no existeix")
 for f in TARGETES:
     comprova(rel(f) in fitxers_t, f"{rel(f)} no surt a dades/unitats.js")
-print(f"  unitats: {len(nums)} · amb fitxa: {len(fitxes_dades)} · targetes: {len(fitxers_t)}")
+# Les tasques de la caixa que diu cada unitat han d'existir a caixa-eines.html.
+tasques_dades = {int(n) for grup in re.findall(r'tasques:\s*\[([^\]]*)\]', dades)
+                 for n in re.findall(r'\d+', grup)}
+if tasques_dades:
+    a_la_caixa = {int(n) for n in re.findall(r'data-tasca="(\d+)"', llegeix(ruta('caixa-eines.html')))} \
+        if os.path.exists(ruta('caixa-eines.html')) else set()
+    comprova(tasques_dades <= a_la_caixa, f"dades/unitats.js cita tasques que la caixa no té: "
+                                          f"{sorted(tasques_dades - a_la_caixa)}")
+print(f"  unitats: {len(nums)} · amb fitxa: {len(fitxes_dades)} · targetes: {len(fitxers_t)} · "
+      f"tasques de la caixa citades: {len(tasques_dades)}")
 
 # --------------------------------------------------------------------------
 print()

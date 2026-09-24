@@ -22,21 +22,48 @@ Doble clic a `index.html`. No cal servidor ni instal·lar res. Publicat, és a
 
 ---
 
+## La caixa d'eines
+
+Les eines de pantalla de la unitat 1, amb el mateix dibuix que el paper: la quadrícula. S'obre
+amb doble clic a `caixa-eines.html`. Publicada, és a `https://pi.step-quiz.net/1eso/caixa-eines`.
+
+Per a l'alumnat es fa servir un enllaç que només ensenya una eina. Sempre hi surt també la
+pestanya Taules, que és la targeta de les taules a la pantalla:
+
+| Enllaç | Què obre |
+|---|---|
+| `caixa-eines?task=0` | Taules: 0.1 La taula · 0.2 Troba el resultat a la taula |
+| `caixa-eines?task=1` | Rectangles: 1.1 Fes un rectangle · 1.2 El rectangle d'una multiplicació · 1.3 Gira el rectangle · 1.4 Parteix el rectangle |
+| `caixa-eines?task=2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat |
+| `caixa-eines?task=3` | Nombres: 3.1 Centenes, desenes i unitats · 3.2 Fes el nombre |
+| `caixa-eines?task=4` | Ordre: 4.1 Mira l'ordre · 4.2 Què es fa primer? |
+
+Afegint el número de la subtasca s'hi va directament: `caixa-eines?task=1.2`. Les tasques
+tancades (0.2, 1.2, 2.2, 3.2 i 4.2) acaben amb un codi de verificació, que es llegeix a
+`verifica.html`. Les frases es canvien a `textos.html`.
+
+Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
+
+---
+
 ## Què hi ha
 
 | | |
 |---|---|
-| `index.html` | La portada: les targetes de consulta i les set unitats |
+| `index.html` | La portada: les targetes de consulta, la caixa d'eines i les set unitats |
+| `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
+| `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
+| `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta. Ara hi ha la de les taules de multiplicar |
 | `fitxes/` | Les fitxes de cada unitat, quan es facin (`udN.html`) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeix la portada |
-| `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper) i `lloc.css` (la portada) |
+| `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada) i `app.css` (la caixa) |
 | `js/lloc.js` | Pinta la portada a partir de les dades |
 | `fonts/` | La lletra manuscrita, Caveat, i la seva llicència |
-| `eines/` | El test, la mesura de l'A4 i `paper.py`, que comparteixen amb el generador |
+| `eines/` | El test, la mesura de l'A4, `paper.py` (que comparteixen amb el generador) i els dos tests de la caixa |
 | `generadors/gen_pdf.py` | Fa els PDF |
-| `docs/` | Els criteris de disseny, el mapa d'adaptació i l'estat de la feina |
+| `docs/` | Els criteris de disseny, el mapa d'adaptació, l'arquitectura de la caixa i l'estat de la feina |
 
 Els fulls d'estil són una còpia dels de `4eso/`, no un enllaç: si aquells canvien, aquests no
 s'han de moure.
@@ -61,6 +88,16 @@ python3 1eso/generadors/gen_pdf.py                  # torna a fer els PDF
 `comprova.py` sap si un PDF és d'abans de l'últim canvi, i ho diu. Què comprova i què no és al
 final de [`docs/CRITERIS-DISSENY.md`](docs/CRITERIS-DISSENY.md).
 
+Si canvies la caixa d'eines, també els dos tests que la fan servir en un navegador. Necessiten
+Playwright i Chromium:
+
+```bash
+pip install playwright --break-system-packages      # només el primer cop de cada Codespace
+python3 -m playwright install --with-deps chromium  # ídem
+python3 1eso/eines/prova_caixa.py                   # que funcioni: ha de dir «Tot correcte.»
+python3 1eso/eines/auditoria.py                     # accessibilitat: ha de dir «0 problemes»
+```
+
 ---
 
 ## Com s'afegeix
@@ -76,6 +113,9 @@ veus?», les pàgines de la unitat, «A la vida de cada dia» (`.full.vida`) i e
 
 En tots dos casos, cada bloc `.full` acaba amb un `</div>` a principi de línia, i els `</div>`
 de dins van sagnats: és com els generadors saben on acaba cada pàgina.
+
+**Una eina o una subtasca de la caixa:** vegeu [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md),
+apartat 7.
 
 ---
 

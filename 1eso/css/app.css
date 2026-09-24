@@ -1,0 +1,285 @@
+/* ============================================================================
+   app.css · la caixa d'eines
+   ----------------------------------------------------------------------------
+   La mateixa estètica que la caixa de 4eso/: fons gris agrupat, superfícies
+   blanques sense vora, cantonades grans, un sol color d'accent i la resta
+   només com a estat. Les variables viuen a tokens.css, que també porta el mode
+   fosc. Aquest full NO toca tokens.css: canviar-lo faria vell el PDF de la
+   targeta (eines/paper.py en fa l'empremta).
+
+   Sense calculadora: aquí el protagonista és la quadrícula de quadrets.
+   ========================================================================== */
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fons);color:var(--etiqueta);font-family:var(--tipus);
+  font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums}
+.pagina{max-width:46rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+
+h1{font-size:2.05rem;font-weight:700;letter-spacing:-.024em;margin:0;line-height:1.1}
+.subtitol{color:var(--etiqueta-2);font-size:1rem;margin:.2rem 0 0}
+h2{font-size:1.32rem;font-weight:700;letter-spacing:-.012em;margin:0 0 .1rem;line-height:1.25}
+h3{font-size:1.1rem;font-weight:700;margin:0 0 .5rem}
+.ajuda{color:var(--etiqueta-2);font-size:.98rem;margin:0 0 .9rem;line-height:1.4}
+.tornar{margin:0 0 .8rem;font-size:.95rem}
+.tornar a{color:var(--blau-text);text-decoration:none;display:inline-block;min-height:24px}
+.tornar a:hover{text-decoration:underline}
+
+/* ---- control segmentat ---- */
+.segments{display:flex;gap:.2rem;background:var(--segment);border-radius:999px;
+  padding:.25rem;margin:1.1rem 0 1.4rem;overflow-x:auto;scrollbar-width:none}
+.segments::-webkit-scrollbar{display:none}
+.segment{flex:0 0 auto;border:0;background:transparent;color:var(--etiqueta-2);
+  font:inherit;font-size:.95rem;font-weight:600;border-radius:999px;padding:.55rem 1rem;
+  cursor:pointer;white-space:nowrap;min-height:44px;transition:background .18s,color .18s}
+.segment[aria-selected="true"]{background:var(--superficie);color:var(--etiqueta);
+  box-shadow:0 1px 3px rgba(0,0,0,.09)}
+
+/* ---- targetes ---- */
+.targeta{background:var(--superficie);border-radius:var(--r-g);padding:1.15rem 1.15rem 1.25rem;
+  margin-bottom:1rem}
+.cap{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.7rem}
+.marca{font-size:.78rem;font-weight:700;letter-spacing:.01em;color:var(--blau-text);
+  background:var(--blau-suau);border-radius:999px;padding:.25rem .6rem;white-space:nowrap;flex:0 0 auto}
+.marca:empty{display:none}
+
+/* ---- controls ---- */
+.btn{border:0;border-radius:999px;font:inherit;font-weight:600;cursor:pointer;
+  padding:.62rem 1.15rem;min-height:44px;background:var(--blau);color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;transition:opacity .15s}
+.btn.tenyit{background:var(--blau-suau);color:var(--blau-text)}
+.btn:active{opacity:.62}
+/* Un botó desactivat s'ha de veure desactivat: si sembla actiu i no fa res,
+   l'alumnat no sap si s'ha equivocat. */
+.btn:disabled{opacity:.38;cursor:not-allowed}
+.btn:disabled:active{opacity:.38}
+.btn.mini{padding:.4rem .9rem;min-height:40px;font-size:.95rem}
+.btn.rodo{width:48px;height:48px;padding:0;font-size:1.6rem;line-height:1}
+/* FOCUS. Visible sempre que s'arriba amb el teclat, també a la quadrícula. */
+:focus-visible{outline:3px solid var(--blau-text);outline-offset:2px;border-radius:6px}
+svg.llenc:focus-visible{outline-offset:4px;border-radius:12px}
+svg.llenc:focus:not(:focus-visible){outline:none}
+
+.pastilles{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 .9rem}
+.pastilla{border:0;background:var(--camp);color:var(--etiqueta);border-radius:999px;
+  padding:.5rem 1rem;font:inherit;font-size:1.05rem;font-weight:600;cursor:pointer;min-height:44px}
+.pastilla[aria-pressed="true"]{background:var(--blau);color:#fff}
+.pastilles.numeros .pastilla{min-width:48px;padding:.5rem .6rem}
+
+.passa{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem}
+
+/* ---- avisos ---- */
+.avis{border-radius:var(--r-m);padding:.8rem .95rem;margin-top:.85rem;font-size:1.05rem;line-height:1.45}
+.avis.neutre{background:var(--camp);color:var(--etiqueta-2)}
+.avis.be{background:var(--verd-suau)}
+.avis.pensa{background:var(--taronja-suau)}
+.avis .pista{display:block;margin-top:.45rem}
+
+/* ============================================================ quadrícula ====
+   Un quadret és igual a tot arreu. El blau és el rectangle que es compta; el
+   taronja, la segona part o l'intent equivocat. Mai només el color: el
+   quadret equivocat també porta el rètol de sota, i el que falta, traç
+   discontinu. */
+svg.llenc{display:block;width:100%;height:auto;margin:.4rem auto;touch-action:manipulation;
+  font-family:var(--tipus)}
+svg.quadricula{max-width:22rem}
+svg.toca{cursor:pointer}
+.q{fill:var(--blau-suau);stroke:var(--blau);stroke-width:1.6}
+.q.b,.q.mal{fill:var(--taronja-suau);stroke:var(--taronja)}
+.q.falta{fill:none;stroke:var(--etiqueta-3);stroke-width:1.4;stroke-dasharray:3 3}
+.q-fons{fill:var(--superficie)}
+.q-linia{stroke:var(--separador);stroke-width:1}
+.q-num{fill:var(--etiqueta-2);font-weight:500}
+.q-num.viu{fill:var(--blau-text);font-weight:700}
+.q-pista{fill:var(--blau-suau);stroke:var(--blau-text);stroke-width:2}
+.q-contorn{fill:none;stroke:var(--blau-text);stroke-width:3.5;stroke-dasharray:8 5}
+.q-cursor{fill:none;stroke:var(--etiqueta);stroke-width:2.5;stroke-dasharray:5 4}
+.q-text{fill:var(--etiqueta)}
+.q-text.fort{font-weight:700}
+.q-clau path{fill:none;stroke:var(--etiqueta-2);stroke-width:1.6}
+.q-tall{stroke:var(--taronja);stroke-width:2.5;stroke-dasharray:6 5}
+
+/* 1.3: el rectangle gira de debò, sobre el seu centre. */
+.gira{transform-box:fill-box;transform-origin:center;transition:transform .7s ease-in-out}
+.gira.girant{transform:rotate(90deg)}
+/* 1.4: el tros de la dreta s'aparta i els rètols canvien. */
+.tros{transition:transform .5s ease-in-out}
+.tros .q{transition:fill .4s,stroke .4s}
+.partit .tros{transform:translateX(18px)}
+.partit .tros .q{fill:var(--taronja-suau);stroke:var(--taronja)}
+.nomes-partit{opacity:0;transition:opacity .3s}
+.partit .nomes-partit{opacity:1;transition-delay:.35s}
+.partit .nomes-sencer{opacity:0}
+.nomes-sencer{transition:opacity .2s}
+
+/* ---- sota del dibuix: primer les paraules, al final el símbol ---- */
+.lectura{margin-top:.6rem}
+.lectura .paraules,.lectura-bloc .paraules{margin:.2rem 0;font-size:1.1rem;line-height:1.4}
+.lectura .simbol,.lectura-bloc .simbol{margin:.35rem 0 .5rem;font-size:2rem;font-weight:700;
+  letter-spacing:-.01em;line-height:1.15;color:var(--etiqueta)}
+.lectura .simbol.llarg,.lectura-bloc .simbol.llarg{font-size:1.45rem}
+
+/* ---- comptadors [−] 3 [+] ---- */
+.comptadors{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;margin:.6rem 0}
+.comptador{display:flex;flex-direction:column;gap:.3rem}
+.comptador-et{font-size:.95rem;font-weight:600;color:var(--etiqueta)}
+.comptador-et small{display:block;font-size:.85rem;font-weight:400;color:var(--etiqueta-2)}
+.comptador-fila{display:flex;align-items:center;gap:.5rem}
+.comptador-valor{min-width:2.4ch;text-align:center;font-size:1.7rem;font-weight:700}
+
+/* ================================================================ taules ====
+   Les files de la targeta: 7 · 8 = 56, alineades en columnes, i una línia fina
+   després de la cinquena. */
+.taula-i-dibuix{display:grid;gap:1rem}
+@media (min-width:46rem){.taula-i-dibuix{grid-template-columns:minmax(12rem,15rem) 1fr;align-items:start}}
+.taula-nom{font-size:1.15rem;margin:0 0 .4rem}
+.llista-taula{display:flex;flex-direction:column;gap:.15rem}
+.llista-taula p.buit{color:var(--etiqueta-2);margin:.4rem 0}
+.fila-taula{display:grid;grid-template-columns:2ch 1.4ch 2ch 1.4ch 3ch;justify-content:start;
+  align-items:center;gap:.35rem;border:0;background:transparent;color:var(--etiqueta);
+  font:inherit;font-size:1.3rem;font-weight:500;text-align:right;border-radius:var(--r-p);
+  padding:.25rem .8rem;min-height:42px;cursor:pointer;font-variant-numeric:tabular-nums}
+.fila-taula .op,.fila-taula .eq{text-align:center;color:var(--etiqueta-2)}
+.fila-taula .p{font-weight:700}
+.fila-taula.cinc{border-bottom:1.5px solid var(--separador);border-radius:var(--r-p) var(--r-p) 0 0}
+.fila-taula:hover{background:var(--camp)}
+.fila-taula[aria-pressed="true"]{background:var(--blau-suau);color:var(--blau-text)}
+.fila-taula[aria-pressed="true"] .op,.fila-taula[aria-pressed="true"] .eq{color:var(--blau-text)}
+.fila-taula.tocada{background:var(--taronja-suau);color:var(--etiqueta)}
+.fila-taula.tocada .op,.fila-taula.tocada .eq{color:var(--etiqueta)}
+.fila-taula.bona{background:var(--verd-suau);color:var(--etiqueta);box-shadow:inset 0 0 0 2px var(--verd)}
+.fila-taula.bona .op,.fila-taula.bona .eq{color:var(--etiqueta)}
+
+/* La clau de la targeta, cara 2: com es busca. */
+.clau-us{background:var(--camp);border-radius:var(--r-m);padding:.8rem 1rem;margin-top:1rem}
+.clau-us .clau-q{font-weight:700;margin:0 0 .3rem}
+.clau-us ol{margin:0;padding-left:1.4rem}
+.clau-us li{margin:.15rem 0}
+
+/* La pregunta d'una tasca tancada, gran. */
+.pregunta-gran{font-size:1.7rem;font-weight:700;letter-spacing:-.01em;margin:.2rem 0 .8rem}
+
+/* =============================================================== quadrats ====
+   2.2: dos dibuixos per triar. El rètol de sota només surt quan ja s'ha
+   tocat, perquè no sigui la resposta escrita. */
+.opcions-dibuix{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.4rem 0}
+.opcio-dibuix{border:0;background:var(--camp);border-radius:var(--r-m);padding:.6rem;
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.3rem;min-height:44px;
+  color:var(--etiqueta);font:inherit}
+.opcio-dibuix svg{width:100%;height:auto;max-width:12rem;display:block}
+.opcio-dibuix .peu-dibuix{font-size:1.25rem;font-weight:700}
+.opcio-dibuix.bona{background:var(--verd-suau);box-shadow:inset 0 0 0 3px var(--verd)}
+.opcio-dibuix.mal{background:var(--taronja-suau);box-shadow:inset 0 0 0 3px var(--taronja)}
+.opcio-dibuix:disabled{cursor:default}
+
+/* ================================================================ nombres ====
+   Els blocs: tres zones que baixen de línia a la pantalla estreta. */
+.blocs{display:flex;flex-wrap:wrap;align-items:flex-start;gap:1rem 1.6rem;margin:.8rem 0 .4rem}
+.zona{display:flex;flex-direction:column;gap:.35rem}
+.zona-et{font-size:.9rem;font-weight:700;color:var(--etiqueta-2)}
+.zona-dibuix svg{display:block;max-width:100%;height:auto}
+.zona-peu{font-size:.95rem;color:var(--etiqueta)}
+.llegenda{color:var(--etiqueta-2);font-size:.95rem;margin:.6rem 0 0}
+.llegenda p{margin:.1rem 0}
+
+/* La taula de posicions: Centenes | Desenes | Unitats. */
+.posicional{display:flex;align-items:flex-end;gap:.35rem;margin:.9rem 0 .3rem;max-width:20rem}
+.vp-col{flex:1 1 0;min-width:4.4rem;text-align:center}
+.vp-nom{font-size:.85rem;line-height:1.2;color:var(--etiqueta-2)}
+.vp-cel{margin-top:.3rem;height:3.2rem;border-radius:var(--r-p);background:var(--camp);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ================================================================== ordre ====
+   L'expressió gran. El que es fa primer va ressaltat; a la 4.2, els signes són
+   botons grans. */
+.expressio{font-size:2rem;font-weight:700;letter-spacing:.01em;margin:.3rem 0 .6rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .4rem}
+.expressio .op{color:var(--etiqueta-2);font-weight:600}
+.expressio mark.primer{background:var(--blau-suau);color:var(--blau-text);border-radius:var(--r-p);
+  padding:0 .35rem;display:inline-flex;gap:.25rem .4rem;align-items:center}
+.expressio mark.primer .op{color:var(--blau-text)}
+.signe{border:0;background:var(--blau-suau);color:var(--blau-text);font:inherit;font-weight:700;
+  font-size:2rem;min-width:56px;min-height:56px;border-radius:var(--r-m);cursor:pointer;line-height:1}
+/* El punt volat és un glif petit: al botó es fa més gran perquè es vegi i es pugui tocar. */
+.signe[data-op="mult"]{font-size:3.2rem;font-weight:900}
+.signe.mal{background:var(--taronja-suau);color:var(--etiqueta);box-shadow:inset 0 0 0 3px var(--taronja)}
+.signe:disabled{cursor:not-allowed}
+
+/* ============================================================ passos ====
+   Les tasques tancades (js/tasca.js). Un rètol diu on s'és, un sol pas es veu
+   alhora i el final es distingeix a primer cop d'ull. */
+.recorregut{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.1rem 0 .9rem;
+  font-size:.9rem}
+.recorregut .fita{font-size:.78rem;font-weight:700;border-radius:999px;padding:.15rem .6rem;
+  background:var(--camp);color:var(--etiqueta-2)}
+.recorregut.acabat .fita.fi{background:var(--verd);color:var(--superficie)}
+.punts-pas{display:flex;align-items:center;gap:.32rem;flex-wrap:wrap}
+.punts-pas i{width:12px;height:12px;border-radius:50%;display:block;
+  box-shadow:inset 0 0 0 2px var(--etiqueta-3)}
+.punts-pas i.fet{background:var(--blau);box-shadow:none}
+.punts-pas i.ara{width:16px;height:16px;box-shadow:inset 0 0 0 3px var(--blau)}
+.punts-pas i.fet.ara{background:var(--blau)}
+.rotul-pas{margin-left:auto;font-weight:600;color:var(--etiqueta)}
+.rotul-pas b{color:var(--blau-text)}
+
+.represa{padding:.2rem 0 .4rem}
+.represa-q{font-size:1.12rem;font-weight:600;line-height:1.35;margin:0 0 .3rem}
+.represa-dia{color:var(--etiqueta-2);margin:0 0 1rem}
+.represa-botons{display:flex;gap:.7rem;flex-wrap:wrap}
+.represa-botons .btn{flex:1 1 12rem;justify-content:center}
+.represa-nota{color:var(--etiqueta-2);font-size:.9rem;margin:.9rem 0 0}
+
+.final-tasca{background:var(--verd-suau);border-radius:var(--r-m);padding:1rem 1.1rem 1.15rem;
+  margin-top:.9rem}
+.final-tasca:focus{outline:none}
+.final-tasca:focus-visible{outline:3px solid var(--blau-text);outline-offset:2px}
+.final-cap{font-size:1.45rem;font-weight:700;margin:0 0 .35rem}
+.final-cap::before{content:"✓";display:inline-block;margin-right:.45rem;color:var(--verd)}
+.final-frase{font-size:1.12rem;font-weight:600;margin:0 0 .75rem}
+.final-dades{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1rem;margin:0 0 .9rem}
+.final-dades dt{color:var(--etiqueta-2)}
+.final-dades dd{margin:0;font-weight:600}
+.final-codi{background:var(--superficie);border-radius:var(--r-p);padding:.7rem .9rem}
+.final-codi span{display:block;font-size:.85rem;color:var(--etiqueta-2)}
+.final-codi b{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:1.9rem;letter-spacing:.1em;font-weight:700}
+.final-nota{margin:.6rem 0 1rem}
+.final-nom{display:none}
+.final-botons{display:flex;gap:.6rem;flex-wrap:wrap}
+.final-botons .btn.tenyit{background:var(--superficie)}
+
+/* ---- subtasques: una tasca partida en 1.1, 1.2, 1.3… ----
+   La barra va enganxada a dalt perquè les fletxes siguin sempre a mà. */
+.subbarra{display:flex;align-items:center;gap:.7rem;background:var(--superficie);
+  border-radius:999px;padding:.4rem .5rem;margin-bottom:1rem;
+  position:sticky;top:.6rem;z-index:5;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.sub-rotul{flex:1;text-align:center;font-size:1rem;line-height:1.25}
+.sub-rotul b{color:var(--blau-text);margin-right:.35rem}
+.subbarra .btn{min-width:3rem;font-size:1.4rem;line-height:1;padding:.4rem .9rem}
+.subbarra .btn:disabled{opacity:.35}
+
+/* Imprimir només el resum: js/tasca.js en posa una còpia a #zona-impressio. */
+#zona-impressio{display:none}
+@media print{
+  body.imprimeix-resum > *:not(#zona-impressio){display:none!important}
+  body.imprimeix-resum{background:#fff}
+  body.imprimeix-resum #zona-impressio{display:block;color:#000;font-size:14pt}
+  #zona-impressio .final-tasca{background:#fff;border:2px solid #000;margin:0}
+  #zona-impressio .final-cap::before{color:#000}
+  #zona-impressio .final-codi{border:2px solid #000}
+  #zona-impressio .final-dades dt,#zona-impressio .final-codi span{color:#000}
+  #zona-impressio .final-botons,#zona-impressio .final-nota{display:none}
+  #zona-impressio .final-nom{display:block;margin:1rem 0 .8rem;padding-bottom:1.2rem;
+    border-bottom:1.5px solid #000;font-weight:600}
+}
+
+/* ============================================================ moviment ====
+   Qui ha demanat menys moviment al sistema no veu cap animació: el rectangle
+   es gira i es parteix de cop. */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition:none!important;scroll-behavior:auto!important}
+}

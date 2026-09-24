@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="description" content="Pàgina per al professorat: llegir els codis de verificació que dona la caixa d'eines.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Llegir codis de verificació</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/lloc.css">
+<style>
+  /* Estils propis d'aquesta pàgina: no s'usen enlloc més i per això no van
+     a css/lloc.css. */
+  .entrada { background: var(--superficie); border-radius: var(--r-g); padding: 1.1rem 1.2rem 1.2rem }
+  .entrada label { display: block; font-weight: 600; margin-bottom: .35rem }
+  .entrada textarea {
+    width: 100%; min-height: 6.5rem; resize: vertical; border: 0; border-radius: var(--r-p);
+    background: var(--camp); color: var(--etiqueta); padding: .6rem .75rem;
+    font: 1.15rem/1.5 ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    letter-spacing: .06em; text-transform: uppercase;
+  }
+  .entrada textarea:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px }
+  .entrada .peu-camp { color: var(--etiqueta-2); font-size: .9rem; margin: .4rem 0 0 }
+
+  .resultats { margin-top: 1.2rem; overflow-x: auto }
+  .resultats table { width: 100%; border-collapse: collapse; background: var(--superficie);
+                     border-radius: var(--r-m); overflow: hidden; font-size: .95rem }
+  .resultats th, .resultats td { text-align: left; padding: .55rem .7rem;
+                                 border-bottom: 1px solid var(--separador); vertical-align: top }
+  .resultats th { color: var(--etiqueta-2); font-weight: 600; font-size: .85rem }
+  .resultats tr:last-child td { border-bottom: 0 }
+  .resultats code { font-size: 1rem; letter-spacing: .06em }
+  .estat { font-weight: 700; white-space: nowrap }
+  .estat.bo { color: var(--verd) }
+  .estat.mal { color: var(--vermell) }
+  .recomptes { margin: 0; padding: 0; list-style: none }
+  .buit-res { color: var(--etiqueta-2); margin: 1rem 0 0 }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <p class="tornar"><a href="index.html">← inici</a></p>
+  <h1>Llegir codis de verificació</h1>
+  <p class="subtitol">Els codis que dona la caixa d'eines quan s'acaba una tasca</p>
+
+  <div class="nota">
+    <b>Què porta un codi.</b> La tasca, el dia i els resultats: quants passos,
+    quants correctes al primer intent i quants amb una pista. No porta cap nom ni surt de l'ordinador: el codi es copia a mà o
+    s'imprimeix, i aquí es torna a llegir. Nou caràcters en tres grups, per
+    exemple <code>K7Q-M2X-9RT</code>.
+    <br><br>
+    <b>Què no és.</b> No és un xifratge. Detecta un caràcter mal copiat (en falla
+    un de cada 280, aproximadament) i fa que inventar-se'n un no sigui fàcil, i
+    prou. Per això, com qualsevol evidència, val més llegit al costat del que has
+    vist fer a classe.
+    <br><br>
+    <b>Només d'aquesta caixa.</b> Un codi de la caixa d'eines de l'altra carpeta del
+    repositori surt aquí com a no vàlid, i a l'inrevés: cada caixa té la seva clau.
+  </div>
+
+  <div class="entrada">
+    <label for="codis">Escriu o enganxa un codi o més</label>
+    <textarea id="codis" spellcheck="false" autocomplete="off" autocapitalize="characters"
+      placeholder="K7Q-M2X-9RT"></textarea>
+    <p class="peu-camp">Un per línia. Els guions, els espais i les minúscules no
+      importen, i una O o una I es llegeixen com a 0 i 1.</p>
+  </div>
+
+  <div class="resultats" id="resultats" aria-live="polite"></div>
+
+</div>
+
+<!-- Les frases, el nucli i el codi; després els mòduls, però NOMÉS perquè
+     registrin el seu catàleg (noms de tasques i de casos). No s'arrenca cap
+     mòdul: això només ho fa app.js, que aquí no es carrega. -->
+<script src="dades/textos.js"></script>
+<script src="js/nucli.js"></script>
+<script src="js/codi.js"></script>
+<script src="js/tasca.js"></script>
+<script src="js/quadricula.js"></script>
+<script src="js/moduls/taules.js"></script>
+<script src="js/moduls/rectangles.js"></script>
+<script src="js/moduls/quadrats.js"></script>
+<script src="js/moduls/nombres.js"></script>
+<script src="js/moduls/ordre.js"></script>
+<script>
+"use strict";
+(function () {
+  const $ = s => document.querySelector(s);
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /** Els codis que hi ha al text. Cada línia es neteja de guions i espais,
+      perquè un codi copiat a mà sovint porta espais entre els grups
+      («2T2 H0K 8P2»). Si en queda un múltiple de nou caràcters, són codis
+      seguits; si no, la línia es mostra tal com és i surt com a no vàlida. */
+  function trossos(text) {
+    const codis = [];
+    text.toUpperCase().split(/[\n,;]+/).forEach(linia => {
+      const net = linia.replace(/[^0-9A-Z]/g, "");
+      if (!net) return;
+      if (net.length % 9 !== 0) { codis.push(linia.trim()); return; }
+      for (let i = 0; i < net.length; i += 9) {
+        const c = net.slice(i, i + 9);
+        codis.push(c.slice(0, 3) + "-" + c.slice(3, 6) + "-" + c.slice(6));
+      }
+    });
+    return codis;
+  }
+
+  /** Una fila de la taula per a un codi. */
+  function fila(codi) {
+    const d = CE.codi.llegeix(codi);
+    if (!d) {
+      return "<tr><td><code>" + esc(codi) + '</code></td><td colspan="3">No es pot llegir. Mira si ' +
+        "s'ha copiat bé: són nou caràcters, sense I, L, O ni U.</td>" +
+        '<td class="estat mal">No vàlid</td></tr>';
+    }
+    const id = d.sub ? d.tasca + "." + d.sub : String(d.tasca);
+    const f = CE.cataleg[id];
+    const nom = f ? f.nom : "Tasca " + id;
+    const cas = f && f.casos ? " · " + (f.casos[d.cas] || "cas " + d.cas) : "";
+    const valors = [d.a, d.b, d.c];
+    let recomptes = "";
+    if (f && f.recomptes) {
+      recomptes = f.recomptes.map((et, i) => "<li>" + esc(et) + ": <b>" + valors[i] + "</b></li>").join("");
+      // el que queda és el que l'app va haver d'ensenyar
+      if (f.resta) recomptes += "<li>" + esc(f.resta) + ": <b>" + Math.max(0, d.a - d.b - d.c) + "</b></li>";
+    } else {
+      recomptes = "<li>" + valors.join(" · ") + "</li>";
+    }
+    return "<tr><td><code>" + esc(codi) + "</code></td>" +
+      "<td>" + esc(id) + " · " + esc(nom + cas) + "</td>" +
+      "<td>" + esc(CE.diaLlarg(d.data)) + "</td>" +
+      '<td><ul class="recomptes">' + recomptes + "</ul></td>" +
+      '<td class="estat bo">Vàlid</td></tr>';
+  }
+
+  function pinta() {
+    const codis = trossos($("#codis").value);
+    const cont = $("#resultats");
+    if (!codis.length) {
+      cont.innerHTML = '<p class="buit-res">Aquí sortirà què diu cada codi.</p>';
+      return;
+    }
+    cont.innerHTML = "<table><thead><tr><th>Codi</th><th>Tasca</th><th>Dia</th>" +
+      "<th>Resultats</th><th>Estat</th></tr></thead><tbody>" +
+      codis.map(fila).join("") + "</tbody></table>";
+  }
+
+  $("#codis").addEventListener("input", pinta);
+  pinta();
+})();
+</script>
+</body>
+</html>

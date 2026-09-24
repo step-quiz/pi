@@ -2,7 +2,8 @@
    lloc.js · construeix la portada a partir de dades/unitats.js
    ----------------------------------------------------------------------------
    Dues graelles: les targetes de consulta i les set unitats. Una unitat sense
-   fitxa encara surt a la graella, però no s'hi pot clicar.
+   fitxa encara surt a la graella, però no s'hi pot clicar. Si la unitat té
+   tasques a la caixa d'eines, la targeta ho diu.
    ========================================================================== */
 
 (function () {
@@ -40,6 +41,9 @@
           '<span class="et">' + u.dates + "</span>" +
           (u.fitxa ? '<span class="et fita">Fitxa feta</span>'
                    : '<span class="et">En preparació</span>') +
+          // Sense enllaç: quan hi ha fitxa, la targeta sencera ja és un enllaç.
+          (u.tasques ? '<span class="et fita">Caixa d\'eines · tasques ' + u.tasques.join(", ") +
+                       "</span>" : "") +
         "</div>";
       cont.appendChild(d);
     });
