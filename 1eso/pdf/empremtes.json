@@ -5,7 +5,7 @@
     "pagines": 2
   },
   "ud1-alumnat.pdf": {
-    "empremta": "3bf017a5d28b67764f1f74b1a09c8a59cfdd56497e411726b9fd4185b71fa3da",
+    "empremta": "470b0f3e4b420ac607f6e4147ef9afdd93d5d134e288cfa36ca5bb30de7292e0",
     "font": "fitxes/ud1.html",
     "pagines": 9
   },
@@ -19,8 +19,18 @@
     "font": "fitxes/ud1-nombres.html",
     "pagines": 2
   },
+  "ud1-ordre-alumnat.pdf": {
+    "empremta": "78c21d422d3b3b84b777e51b92a6ec624fdd3734491fd4d52f1d2175101d1404",
+    "font": "fitxes/ud1-ordre.html",
+    "pagines": 6
+  },
+  "ud1-ordre-solucionari.pdf": {
+    "empremta": "78c21d422d3b3b84b777e51b92a6ec624fdd3734491fd4d52f1d2175101d1404",
+    "font": "fitxes/ud1-ordre.html",
+    "pagines": 2
+  },
   "ud1-solucionari.pdf": {
-    "empremta": "3bf017a5d28b67764f1f74b1a09c8a59cfdd56497e411726b9fd4185b71fa3da",
+    "empremta": "470b0f3e4b420ac607f6e4147ef9afdd93d5d134e288cfa36ca5bb30de7292e0",
     "font": "fitxes/ud1.html",
     "pagines": 3
   }
