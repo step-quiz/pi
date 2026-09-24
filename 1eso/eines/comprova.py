@@ -9,7 +9,8 @@ fàcil trencar sense adonar-se'n:
   · el paper és en blanc i negre, l'HTML tanca bé i les pàgines van seguides;
   · a les pàgines de l'alumnat es multiplica amb «·», cap nombre passa de 999,
     les frases segueixen les regles de Lectura Fàcil que es poden comprovar
-    soles, i cap multiplicació, suma o resta escrita no està malament;
+    soles, i cap igualtat escrita no està malament, calculada
+    sencera amb l'ordre de les operacions (el que és ratllat no es comprova);
   · el text manuscrit només porta caràcters que la lletra Caveat sap dibuixar;
   · la caixa d'eines: cada pestanya té la seva secció i el seu mòdul, les
     tasques es numeren sense repetir-se i amb el 0 el primer, cada frase que es
@@ -172,6 +173,50 @@ def tot_el_text(fitxer):
     return ' '.join(' '.join(''.join(t for t, _ in tros).split()) for tros in trossos(fitxer))
 
 
+class TextCalcul(HTMLParser):
+    """El text tal com es llegeix un càlcul. Les cel·les d'una mateixa fila de taula
+    van seguides: a la targeta, «7 · 8 = 56» són cinc cel·les. Però cada paràgraf,
+    cada fila i cada rètol d'un dibuix és un tros a part (¶): un buit per escriure
+    no pot enganxar un «=» al número del paràgraf de sota.
+    El que és ratllat (.ratllat) no hi és: és una igualtat falsa a posta, com
+    l'error típic que descriu un solucionari («3² = 6»)."""
+    SUAUS = {'td', 'th'}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.parts, self.pila = [], []
+
+    def _vora(self, t):
+        self.parts.append(' ' if t in self.SUAUS else (' ¶ ' if t in BLOC else ''))
+
+    def handle_starttag(self, t, a):
+        self._vora(t)
+        if t not in BUIDES_HTML:
+            classes = (dict(a).get('class') or '').split()
+            self.pila.append((t, t in AMAGAT or 'ratllat' in classes))
+
+    def handle_startendtag(self, t, a):
+        self._vora(t)
+
+    def handle_endtag(self, t):
+        self._vora(t)
+        for i in range(len(self.pila) - 1, -1, -1):
+            if self.pila[i][0] == t:
+                del self.pila[i:]
+                break
+
+    def handle_data(self, d):
+        if not any(fora for _, fora in self.pila):
+            self.parts.append(d)
+
+
+def text_de_calcul(fitxer):
+    e = TextCalcul()
+    e.feed(llegeix(fitxer))
+    e.close()
+    return ' '.join(''.join(e.parts).split())
+
+
 def rgb(h):
     h = h.lstrip('#')
     h = ''.join(c * 2 for c in h) if len(h) == 3 else h
@@ -249,6 +294,122 @@ def caracters_de_la_lletra(cami):
                     if glif0 + (c - ini):
                         codis.add(c)
     return codis
+
+
+# --------------------------------------------------------------------------
+# Les igualtats escrites, calculades de debò.
+# Un tros de càlcul és una tira de números, signes (· + − -), parèntesis, ² i √,
+# amb algun «=». Dins d'un tros, dos números seguits sense signe entremig són dues
+# operacions diferents (les files d'una taula, les cel·les d'una fila), i s'hi
+# talla. Cada banda es calcula amb l'ordre de les operacions: el parèntesi, el
+# quadrat i l'arrel, la multiplicació, i la suma i la resta al final. Totes les
+# bandes han de donar el mateix. Una banda buida és un buit per omplir: no es
+# comprova. Una banda que no es pot llegir (una arrel que no és exacta, per
+# exemple) fa que la igualtat es deixi estar, perquè no se'n pot dir res.
+# --------------------------------------------------------------------------
+TROS_CALCUL = re.compile(r'[\d(√][\d\s·+−\-()²√=]*[\d)²]')
+PECES_CALCUL = re.compile(r'\d+|[·+−\-()²√=]')
+
+
+def valor_de(peces):
+    """Calcula una llista de peces. Retorna un enter, o None si no es pot llegir."""
+    pos = [0]
+
+    def mira():
+        return peces[pos[0]] if pos[0] < len(peces) else None
+
+    def pren():
+        pos[0] += 1
+        return peces[pos[0] - 1]
+
+    def primari():
+        p = mira()
+        if p is None:
+            raise ValueError
+        if p == '(':
+            pren()
+            v = suma()
+            if mira() != ')':
+                raise ValueError
+            pren()
+            return v
+        if p == '√':
+            pren()
+            v = potencia()
+            arrel = int(round(v ** 0.5)) if v >= 0 else -1
+            if arrel * arrel != v:
+                raise ValueError
+            return arrel
+        if p.isdecimal():
+            pren()
+            return int(p)
+        raise ValueError
+
+    def potencia():
+        v = primari()
+        while mira() == '²':
+            pren()
+            v = v * v
+        return v
+
+    def producte():
+        v = potencia()
+        while mira() == '·':
+            pren()
+            v = v * potencia()
+        return v
+
+    def suma():
+        v = producte()
+        while mira() in ('+', '−', '-'):
+            op = pren()
+            w = producte()
+            v = v + w if op == '+' else v - w
+        return v
+
+    try:
+        v = suma()
+        return v if pos[0] == len(peces) else None
+    except (ValueError, IndexError):
+        return None
+
+
+def igualtats(text):
+    """Les igualtats del text que es poden comprovar: (com està escrita, valors)."""
+    for tros in TROS_CALCUL.findall(text):
+        if '=' not in tros:
+            continue
+        peces = PECES_CALCUL.findall(tros)
+        trams, ara = [], []
+        for p in peces:
+            obre = p.isdecimal() or p in ('(', '√')
+            tanca = bool(ara) and (ara[-1].isdecimal() or ara[-1] in (')', '²'))
+            if obre and tanca:
+                trams.append(ara)
+                ara = []
+            ara.append(p)
+        trams.append(ara)
+        for tram in trams:
+            if '=' not in tram:
+                continue
+            bandes, banda = [], []
+            for p in tram:
+                if p == '=':
+                    bandes.append(banda)
+                    banda = []
+                else:
+                    banda.append(p)
+            bandes.append(banda)
+            plenes = [b for b in bandes if b]
+            if len(plenes) < 2:
+                continue
+            valors = [valor_de(b) for b in plenes]
+            if any(v is None for v in valors):
+                continue
+            escrit = " = ".join(" ".join(b) for b in plenes)
+            for a, b in (("( ", "("), (" )", ")"), (" ²", "²"), ("√ ", "√")):
+                escrit = escrit.replace(a, b)
+            yield escrit, valors
 
 
 # --------------------------------------------------------------------------
@@ -345,12 +506,13 @@ for f in PAPER:
             avisa(not re.search(patro, frase, re.I), f"{nom}: {explicacio}")
 
     # Cap operació escrita pot estar malament: ni a l'alumnat ni al solucionari.
+    # Es calcula cada igualtat sencera, amb l'ordre de les operacions: «2 + 3 · 4 = 14»,
+    # «(2 + 3) · 4 = 20», «3² = 3 · 3 = 9», «√16 = 4».
     text = tot_el_text(f)
-    for a, op, b, r in re.findall(r'(\d+)\s*([·+−-])\s*(\d+)\s*=\s*(\d+)', text):
+    for escrit, valors in igualtats(text_de_calcul(f)):
         n_operacions += 1
-        a, b, r = int(a), int(b), int(r)
-        bo = {'·': a * b, '+': a + b, '−': a - b, '-': a - b}[op]
-        comprova(bo == r, f"{nom}: {a} {op} {b} = {r} està malament (és {bo})")
+        comprova(len(set(valors)) == 1,
+                 f"{nom}: {escrit} està malament (cada banda dona {', '.join(map(str, valors))})")
 
     # La targeta de les taules ha de tenir les cent, ni una més ni una menys.
     if os.path.basename(f) == 'taules.html':

@@ -71,7 +71,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
-| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines i dues fitxes fetes. Falten els PDF de les fitxes |
+| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines i tres fitxes fetes. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Per fer |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
@@ -108,7 +108,7 @@ quan s'escrigui; la caixa ja hi és.
 | 1_9 · Potències | Base i exponent, «elevat a», «al quadrat», l'error 3² = 6, les potències de 10 | Només el quadrat: 3² és un quadrat de 3 per 3. L'error 3² = 6 es desmunta amb el dibuix. 10 · 10 = 100 surt als blocs | Caixa 2.1, 2.2 i 3.1 · fitxa 1 |
 | 1_11 · Propietats de les potències | El producte de potències de la mateixa base, la potència d'una potència | Fora | — |
 | 1_13 · Arrels quadrades | Les exactes, i les no exactes entre dos nombres (√13 és entre 3 i 4) | L'arrel és el costat del quadrat: √16 = 4. Amb 13 quadrets no es fa cap quadrat, i √13 és entre 3 i 4 | Caixa 2.3 · fitxa 1 |
-| 1_14 · Jerarquia de les operacions | L'ordre, amb parèntesis, potències, restes i divisions | Sumes i multiplicacions, amb parèntesi i sense. La resta, fora | Caixa 4.1 i 4.2 · fitxa |
+| 1_14 · Jerarquia de les operacions | L'ordre, amb parèntesis, potències, restes i divisions | Sumes i multiplicacions, amb parèntesi i sense. La resta, fora | Caixa 4.1 i 4.2 · fitxa 3 |
 | 1_16 · Què he après? | Una autoavaluació de tots els continguts | Una graella semblant, amb els nuclis d'aquest material i en accions que es veuen | Fitxa |
 
 **Les fitxes de la unitat 1**, en l'ordre del grup. Una unitat pot tenir més d'una fitxa: així
@@ -118,7 +118,7 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
 |---|---|---|---|
 | 1 · `ud1.html` | Rectangles de quadrets: llegir-los, pintar-los, girar-los i partir-los; el quadrat d'un nombre; l'arrel com a costat | 1_4, 1_9, 1_13 | Feta |
 | 2 · `ud1-nombres.html` | Centenes, desenes i unitats fins al 999, el nom dels nombres i el zero | 1_7 | Feta |
-| 3 | L'ordre de les operacions: sumes i multiplicacions, amb parèntesi i sense | 1_14 | Per fer |
+| 3 · `ud1-ordre.html` | L'ordre de les operacions: sumes i multiplicacions, amb parèntesi i sense | 1_14 | Feta |
 | 4 | Repàs: el número que falta i les multiplicacions mal fetes, amb la targeta; «Què he après?» | 1_1, 1_3, 1_5, 1_15, 1_16 | Per fer |
 | Examen | En DOCX, amb el motor comú, amb la targeta al davant | 1_6 i examen | Per fer |
 
@@ -143,6 +143,8 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
   resolts, un 30% més gran. Val per a totes les fitxes (regla 4).
 - 24 de setembre de 2026: la segona fitxa, centenes, desenes i unitats, per a l'activitat 1_7 del
   grup. Una unitat pot tenir més d'una fitxa.
+- 24 de setembre de 2026: la tercera fitxa, l'ordre de les operacions, per a l'activitat 1_14 del
+  grup.
 - 24 de setembre de 2026, després d'una revisió externa: a la 0.1, tota la taula plegada darrere
   d'un botó; a la 3.1, fora les repeticions; `verifica.html`, sense l'evolució dels codis, de
   moment.

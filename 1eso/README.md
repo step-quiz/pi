@@ -57,7 +57,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta. Ara hi ha la de les taules de multiplicar |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les dues de la unitat 1: rectangles i quadrats, i centenes, desenes i unitats |
+| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les tres de la unitat 1: rectangles i quadrats; centenes, desenes i unitats, i l'ordre de les operacions |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeix la portada |
 | `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada) i `app.css` (la caixa) |

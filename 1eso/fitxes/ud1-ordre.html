@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 1 · L'ordre de les operacions</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 1 · Nombres naturals · L'ordre de les operacions
+  La tercera fitxa de la unitat. Adapta l'activitat 1_14 del grup
+  («Jerarquia»): sumes i multiplicacions, amb parèntesi i sense. Les
+  potències, les restes i les divisions de l'activitat del grup queden fora.
+
+  Els casos, els dibuixos i les frases són els de la tasca 4 de la caixa
+  d'eines (regla 8): 2 + 3 · 4 és l'exemple de la 4.1, i les operacions dels
+  exercicis surten de la llista de la 4.2. Totes les sumes es fan sense
+  portar-ne, i totes les multiplicacions són de la targeta.
+
+  La regla trencada és fer-ho d'esquerra a dreta: 2 + 3 · 4 = 20. Es desmunta
+  amb el dibuix (exercici 4) i la pàgina acaba amb la forma bona a la vista.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Fer un rectangle de 3 files de 4 i posar-hi 2 miniblocs solts al costat. Comptar-los tots.</div>
+  <h1>L'ordre de les operacions</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:1rem">
+    <svg viewBox="0 0 287.2 130.4" style="width:7.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 files de 4 quadrets i, al costat, 2 quadrets solts">
+      <rect x="149" y="31.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="181.1" y="31.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="213.3" y="31.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="245.4" y="31.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="149" y="64" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="181.1" y="64" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="213.3" y="64" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="245.4" y="64" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="149" y="96.1" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="181.1" y="96.1" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="213.3" y="96.1" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="245.4" y="96.1" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="5.4" y="96.1" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#000" stroke-width="1.6"/>
+      <rect x="37.5" y="96.1" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#000" stroke-width="1.6"/>
+      <path d="M147.4 28.3 V20.8 H275.9 V28.3" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="211.7" y="15.1" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">4 quadrets</text>
+      <path d="M147.4 30.2 H139.8 V126.6 H147.4" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="134.2" y="84" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">3 files</text>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .8rem">Hi ha un rectangle i quadrets solts.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Quants quadrets té el rectangle?</td><td style="width:4cm"><span class="ms">12</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets solts hi ha?</td><td><span class="ms">2</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets hi ha en total?</td><td><span class="ms">14</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Primer, la multiplicació: 3 · 4 = 12.</p>
+    <p style="margin:0">Després, la suma: 2 + 12 = 14.</p>
+    <p style="font-size:30pt;font-weight:800;margin:.3rem 0">2 + 3 · 4 = 14</p>
+    <p style="margin:0;font-weight:700">Sense parèntesis, primer es multiplica.</p>
+  </div>
+  <div class="pag">Unitat 1 · Ordre · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Fes primer la multiplicació. Després fes la suma.</div></div>
+    <div class="avis puntejat" style="margin:.3rem 0 .6rem">Sense parèntesis, primer es multiplica. Busca el punt.</div>
+    <div class="resolt" style="border-radius:10px;padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">a)</span> 2 + 3 · 4</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, la multiplicació:</span> <span class="ms">3 · 4 = 12</span></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la suma:</span> <span class="ms">2 + 12 = 14</span></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">b)</span> 1 + 2 · 5</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la suma:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">c)</span> 5 · 2 + 3</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la suma:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">d)</span> 3 + 2 · 3</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la suma:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">e)</span> 2 · 4 + 1</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la suma:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · Ordre · pàgina 2</div>
+</div>
+
+<div class="full">
+  <h2>Amb parèntesi</h2>
+  <div style="display:flex;gap:1cm;align-items:center;justify-content:center">
+    <div style="flex:0 0 auto">
+      <svg viewBox="0 0 166.3 146.3" style="width:4.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 files de 4 quadrets i, sota, 3 files més de 4 quadrets: 5 files de 4">
+        <rect x="72.8" y="31.3" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="93.6" y="31.3" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.4" y="31.3" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="135.2" y="31.3" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="72.8" y="52.1" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="93.6" y="52.1" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.4" y="52.1" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="135.2" y="52.1" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="72.8" y="81.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="93.6" y="81.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.4" y="81.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="135.2" y="81.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="72.8" y="102" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="93.6" y="102" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.4" y="102" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="135.2" y="102" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="72.8" y="122.7" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="93.6" y="122.7" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.4" y="122.7" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="135.2" y="122.7" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <path d="M71.8 28.3 V20.8 H155 V28.3" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+        <text x="113.4" y="15.1" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">4 quadrets</text>
+        <path d="M71.8 30.2 H64.3 V71.8 H71.8" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+        <text x="58.6" y="56.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">2 files</text>
+        <path d="M71.8 80.1 H64.3 V142.5 H71.8" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+        <text x="58.6" y="116.9" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">3 files</text>
+      </svg>
+    </div>
+    <div style="text-align:center;white-space:nowrap">
+      <p style="margin:0">Primer, el parèntesi: 2 + 3 = 5.</p>
+      <p style="margin:0">Després, la multiplicació: 5 · 4 = 20.</p>
+      <p style="font-size:26pt;font-weight:800;margin:.25rem 0">(2 + 3) · 4 = 20</p>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center;font-weight:700;margin:.5rem 0 .8rem">Amb parèntesis, primer es fa el parèntesi.</div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Fes primer el parèntesi. Després fes la multiplicació.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">a)</span> (1 + 4) · 2</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, el parèntesi:</span> <span class="ms">1 + 4 = 5</span></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la multiplicació:</span> <span class="ms">5 · 2 = 10</span></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">b)</span> 4 · (1 + 2)</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, el parèntesi:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">c)</span> (3 + 1) · 2</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, el parèntesi:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+    <div style="padding:.3rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .05rem;font-size:19pt;font-weight:800"><span class="apartat">d)</span> 3 · (2 + 2)</p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Primer, el parèntesi:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+      <p class="frase" style="margin:0;font-size:15pt;line-height:1.9;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">Després, la multiplicació:</span> <u style="display:inline-block;min-width:5.2cm;padding:0"></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · Ordre · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Marca el signe de l'operació que es fa primer. Després escriu el resultat.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem .8cm;margin-top:.5rem">
+      <div class="resolt" style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">a)</span> 2 <span style="padding:0 .45rem">+</span> 3 <span class="encerclat" style="padding:0 .45rem">·</span> 4 = <span class="ms">14</span></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">b)</span> (2 <span style="padding:0 .45rem">+</span> 3) <span style="padding:0 .45rem">·</span> 4 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">c)</span> 5 <span style="padding:0 .45rem">·</span> 2 <span style="padding:0 .45rem">+</span> 3 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">d)</span> 4 <span style="padding:0 .45rem">·</span> (1 <span style="padding:0 .45rem">+</span> 2) = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">e)</span> 1 <span style="padding:0 .45rem">+</span> 2 <span style="padding:0 .45rem">·</span> 5 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">f)</span> (1 <span style="padding:0 .45rem">+</span> 4) <span style="padding:0 .45rem">·</span> 2 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">g)</span> 3 <span style="padding:0 .45rem">+</span> 2 <span style="padding:0 .45rem">·</span> 3 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.45rem .6rem">
+        <p class="frase" style="margin:0;font-size:23pt;font-weight:800;white-space:nowrap;line-height:2.1"><span class="apartat" style="font-size:14pt">h)</span> 3 <span style="padding:0 .45rem">·</span> (2 <span style="padding:0 .45rem">+</span> 2) = <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="clau" style="margin-top:1.2rem">
+    <p style="margin:0">Sense parèntesis, primer es multiplica. Busca el punt.</p>
+    <p style="margin:0">Amb parèntesis, primer es fa el parèntesi.</p>
+  </div>
+  <div class="pag">Unitat 1 · Ordre · pàgina 4</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Marca el dibuix de cada operació. Compta els quadrets dels dos dibuixos.</div></div>
+    <p style="margin:.7rem 0 .1rem;font-size:19pt;font-weight:800"><span class="apartat">a)</span> 2 + 3 · 4</p>
+    <div class="resolt" style="border-radius:10px;padding:.3rem .5rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6cm;align-items:end">
+        <div style="text-align:center">
+          <svg viewBox="0 0 189.7 94.9" style="width:5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un dibuix de 14 quadrets">
+            <g transform="translate(17 17)">
+            <rect x="74.2" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="40.2" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="40.2" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="40.2" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="40.2" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="40.2" width="16" height="16" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="40.2" width="16" height="16" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            </g>
+            <ellipse cx="94.9" cy="47.4" rx="91.8" ry="45.5" fill="none" stroke="#3A3A3A" stroke-width="3" transform="rotate(-4 94.9 47.4)"/>
+          </svg>
+          <p class="frase" style="margin:.15rem 0 0;font-size:15pt">Quadrets: <span class="ms">14</span></p>
+        </div>
+        <div style="text-align:center">
+          <svg viewBox="0 0 120.2 138.7" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un dibuix de 20 quadrets">
+            <g transform="translate(17 17)">
+            <rect x="4.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="66.3" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="66.3" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="66.3" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="66.3" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="84" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="84" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="84" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="84" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            </g>
+          </svg>
+          <p class="frase" style="margin:.15rem 0 0;font-size:15pt">Quadrets: <span class="ms">20</span></p>
+        </div>
+      </div>
+    </div>
+    <p style="margin:.7rem 0 .1rem;font-size:19pt;font-weight:800"><span class="apartat">b)</span> (1 + 2) · 5</p>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6cm;align-items:end">
+        <div style="text-align:center">
+          <svg viewBox="0 0 189.7 77.1" style="width:5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un dibuix de 11 quadrets">
+            <g transform="translate(17 17)">
+            <rect x="56.4" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.4" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="22.4" width="16" height="16" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            </g>
+          </svg>
+          <p class="frase" style="margin:.15rem 0 0;font-size:15pt">Quadrets: <u style="padding:0 1.1rem"></u></p>
+        </div>
+        <div style="text-align:center">
+          <svg viewBox="0 0 138 103.2" style="width:3.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un dibuix de 15 quadrets">
+            <g transform="translate(17 17)">
+            <rect x="4.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="75.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="75.7" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="75.7" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            </g>
+          </svg>
+          <p class="frase" style="margin:.15rem 0 0;font-size:15pt">Quadrets: <u style="padding:0 1.1rem"></u></p>
+        </div>
+      </div>
+    </div>
+    <p style="margin:.7rem 0 .1rem;font-size:19pt;font-weight:800"><span class="apartat">c)</span> 1 + 2 · 5</p>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6cm;align-items:end">
+        <div style="text-align:center">
+          <svg viewBox="0 0 138 103.2" style="width:3.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un dibuix de 15 quadrets">
+            <g transform="translate(17 17)">
+            <rect x="4.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="75.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="75.7" y="30.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22.4" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="40.2" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="58" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="75.7" y="48.5" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            </g>
+          </svg>
+          <p class="frase" style="margin:.15rem 0 0;font-size:15pt">Quadrets: <u style="padding:0 1.1rem"></u></p>
+        </div>
+        <div style="text-align:center">
+          <svg viewBox="0 0 189.7 77.1" style="width:5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un dibuix de 11 quadrets">
+            <g transform="translate(17 17)">
+            <rect x="56.4" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="4.7" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.4" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="92" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109.7" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="127.5" y="22.4" width="16" height="16" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.7" y="22.4" width="16" height="16" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            </g>
+          </svg>
+          <p class="frase" style="margin:.15rem 0 0;font-size:15pt">Quadrets: <u style="padding:0 1.1rem"></u></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">2 + 3 · 4 = 14. Primer es multiplica.</p>
+    <p style="margin:.2rem 0 0">Per fer primer la suma cal un parèntesi: (2 + 3) · 4 = 20.</p>
+  </div>
+  <div class="pag">Unitat 1 · Ordre · pàgina 5</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Quants n'hi ha? Escriu l'operació.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.4rem .6rem;margin-bottom:.4rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> 2 iogurts solts i 3 paquets de 4 iogurts.</p>
+      <svg viewBox="0 0 407.1 41.6" style="width:10.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 iogurts solts i 3 paquets de 4 iogurts">
+        <path d="M3.8 9.4 H22.7 L20.4 35.1 H6 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="2.6" y1="13.2" x2="23.8" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M28.3 9.4 H47.2 L45 35.1 H30.6 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="27.2" y1="13.2" x2="48.4" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <rect x="81.3" y="4.5" width="92.2" height="34" rx="3.8" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+        <path d="M85 9.4 H103.9 L101.7 35.1 H87.3 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="83.9" y1="13.2" x2="105.1" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M107 9.4 H125.9 L123.6 35.1 H109.2 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="105.8" y1="13.2" x2="127" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M128.9 9.4 H147.8 L145.5 35.1 H131.1 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="127.7" y1="13.2" x2="148.9" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M150.8 9.4 H169.7 L167.4 35.1 H153.1 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="149.7" y1="13.2" x2="170.8" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <rect x="186.7" y="4.5" width="92.2" height="34" rx="3.8" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+        <path d="M190.5 9.4 H209.4 L207.1 35.1 H192.8 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="189.4" y1="13.2" x2="210.5" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M212.4 9.4 H231.3 L229 35.1 H214.7 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="211.3" y1="13.2" x2="232.4" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M234.3 9.4 H253.2 L251 35.1 H236.6 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="233.2" y1="13.2" x2="254.4" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M256.3 9.4 H275.1 L272.9 35.1 H258.5 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="255.1" y1="13.2" x2="276.3" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <rect x="292.2" y="4.5" width="92.2" height="34" rx="3.8" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+        <path d="M295.9 9.4 H314.8 L312.6 35.1 H298.2 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="294.8" y1="13.2" x2="316" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M317.9 9.4 H336.8 L334.5 35.1 H320.1 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="316.7" y1="13.2" x2="337.9" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M339.8 9.4 H358.7 L356.4 35.1 H342 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="338.6" y1="13.2" x2="359.8" y2="13.2" stroke="#333" stroke-width="2.2"/>
+        <path d="M361.7 9.4 H380.6 L378.3 35.1 H364 Z" fill="#fff" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="360.6" y1="13.2" x2="381.7" y2="13.2" stroke="#333" stroke-width="2.2"/>
+      </svg>
+      <p class="frase" style="margin:.15rem 0 0"><span class="ms">2 + 3 · 4 = 14 iogurts</span></p>
+    </div>
+    <div style="padding:.4rem .6rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> 3 ous solts i 2 capses de 6 ous.</p>
+      <svg viewBox="0 0 297.8 58.6" style="width:7.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 ous solts i 2 capses de 6 ous">
+        <ellipse cx="14.4" cy="39.7" rx="9.1" ry="11.3" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="37.8" cy="39.7" rx="9.1" ry="11.3" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="61.2" cy="39.7" rx="9.1" ry="11.3" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <rect x="100.5" y="3.8" width="79.7" height="51" rx="5.7" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+        <ellipse cx="116.8" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="140.2" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="163.7" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="116.8" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="140.2" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="163.7" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <rect x="193.5" y="3.8" width="79.7" height="51" rx="5.7" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+        <ellipse cx="209.8" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="233.2" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="256.6" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="209.8" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="233.2" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        <ellipse cx="256.6" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+      </svg>
+      <p class="frase" style="margin:.15rem 0 0">L'operació: <u style="display:inline-block;min-width:6cm;padding:0"></u></p>
+      <p class="frase" style="margin:0">Hi ha <u style="padding:0 1.1rem"></u> ous.</p>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Quantes peces de fruita hi ha? Escriu l'operació.</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">a)</span> 2 bosses. A cada bossa hi ha 3 pomes i 1 pera.</p>
+        <svg viewBox="0 0 251.7 56.7" style="width:6.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 bosses amb 3 pomes i 1 pera a cada una">
+          <path d="M3.8 13.2 H108.8 L103.2 52.9 H9.4 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M35.3 13.2 Q56.3 0.8 77.3 13.2" fill="none" stroke="#333" stroke-width="1.8"/>
+          <circle cx="21.2" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="21.2" y1="25.3" x2="23.4" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="44.6" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="44.6" y1="25.3" x2="46.9" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="68" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="68" y1="25.3" x2="70.3" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <path d="M91.5 21.9 C96.8 23.4 102.8 42.3 91.5 45.4 C80.1 42.3 86.2 23.4 91.5 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+          <path d="M125.9 13.2 H230.9 L225.3 52.9 H131.5 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M157.4 13.2 Q178.4 0.8 199.4 13.2" fill="none" stroke="#333" stroke-width="1.8"/>
+          <circle cx="143.2" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="143.2" y1="25.3" x2="145.5" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="166.7" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="166.7" y1="25.3" x2="168.9" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="190.1" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="190.1" y1="25.3" x2="192.4" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <path d="M213.5 21.9 C218.8 23.4 224.9 42.3 213.5 45.4 C202.2 42.3 208.3 23.4 213.5 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+        </svg>
+        <p class="frase" style="margin:.15rem 0 0"><span class="ms">2 · (3 + 1) = 8 peces</span></p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">b)</span> 3 bosses. A cada bossa hi ha 2 pomes i 2 peres.</p>
+        <svg viewBox="0 0 373.8 56.7" style="width:9.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 bosses amb 2 pomes i 2 peres a cada una">
+          <path d="M3.8 13.2 H108.8 L103.2 52.9 H9.4 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M35.3 13.2 Q56.3 0.8 77.3 13.2" fill="none" stroke="#333" stroke-width="1.8"/>
+          <circle cx="21.2" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="21.2" y1="25.3" x2="23.4" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="44.6" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="44.6" y1="25.3" x2="46.9" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <path d="M68 21.9 C73.3 23.4 79.4 42.3 68 45.4 C56.7 42.3 62.7 23.4 68 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+          <path d="M91.5 21.9 C96.8 23.4 102.8 42.3 91.5 45.4 C80.1 42.3 86.2 23.4 91.5 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+          <path d="M125.9 13.2 H230.9 L225.3 52.9 H131.5 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M157.4 13.2 Q178.4 0.8 199.4 13.2" fill="none" stroke="#333" stroke-width="1.8"/>
+          <circle cx="143.2" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="143.2" y1="25.3" x2="145.5" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="166.7" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="166.7" y1="25.3" x2="168.9" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <path d="M190.1 21.9 C195.4 23.4 201.4 42.3 190.1 45.4 C178.8 42.3 184.8 23.4 190.1 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+          <path d="M213.5 21.9 C218.8 23.4 224.9 42.3 213.5 45.4 C202.2 42.3 208.3 23.4 213.5 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+          <path d="M247.9 13.2 H353 L347.3 52.9 H253.6 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M279.5 13.2 Q300.5 0.8 321.5 13.2" fill="none" stroke="#333" stroke-width="1.8"/>
+          <circle cx="265.3" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="265.3" y1="25.3" x2="267.6" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <circle cx="288.8" cy="34.8" r="9.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <line x1="288.8" y1="25.3" x2="291" y2="20.8" stroke="#333" stroke-width="1.8"/>
+          <path d="M312.2 21.9 C317.5 23.4 323.5 42.3 312.2 45.4 C300.8 42.3 306.9 23.4 312.2 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+          <path d="M335.6 21.9 C340.9 23.4 347 42.3 335.6 45.4 C324.3 42.3 330.3 23.4 335.6 21.9 Z" fill="#8A8A8A" stroke="#333" stroke-width="1.8"/>
+        </svg>
+        <p class="frase" style="margin:.15rem 0 0">L'operació:</p>
+        <p class="frase" style="margin:0"><u style="display:inline-block;min-width:6.5cm;padding:0"></u></p>
+        <p class="frase" style="margin:0">Hi ha <u style="padding:0 1.1rem"></u> peces.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · Ordre · pàgina 6</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 1 · L'ordre de les operacions · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> Es diu sempre igual, com a la caixa d'eines: «Primer, la
+    multiplicació. Després, la suma.» Amb parèntesi: «Primer, el parèntesi.» La targeta de les
+    taules és al davant tota l'estona, i totes les sumes es fan sense portar-ne. Demaneu que busqui
+    el punt abans de fer res: trobar-lo és la meitat de la feina.
+  </div>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: fer 3 files de 4, posar-hi 2 miniblocs solts al costat i comptar-los
+  tots: 14. Després, fer 5 files de 4, que és el que surt si primer se suma el 2 i el 3: 20. Són
+  dues construccions diferents, i per això no donen el mateix.</p>
+
+  <h3>1. Sense parèntesi</h3>
+  <table>
+    <tr><th></th><th>Primer, la multiplicació</th><th>Després, la suma</th></tr>
+    <tr><td>b) 1 + 2 · 5</td><td>2 · 5 = 10</td><td>1 + 10 = 11</td></tr>
+    <tr><td>c) 5 · 2 + 3</td><td>5 · 2 = 10</td><td>10 + 3 = 13</td></tr>
+    <tr><td>d) 3 + 2 · 3</td><td>2 · 3 = 6</td><td>3 + 6 = 9</td></tr>
+    <tr><td>e) 2 · 4 + 1</td><td>2 · 4 = 8</td><td>8 + 1 = 9</td></tr>
+  </table>
+  <p>A la c i a la e, la multiplicació ja és la primera d'esquerra a dreta: fer-ho en ordre de
+  lectura també surt bé. A la b i a la d, no.</p>
+
+  <h3>2. Amb parèntesi</h3>
+  <table>
+    <tr><th></th><th>Primer, el parèntesi</th><th>Després, la multiplicació</th></tr>
+    <tr><td>b) 4 · (1 + 2)</td><td>1 + 2 = 3</td><td>4 · 3 = 12</td></tr>
+    <tr><td>c) (3 + 1) · 2</td><td>3 + 1 = 4</td><td>4 · 2 = 8</td></tr>
+    <tr><td>d) 3 · (2 + 2)</td><td>2 + 2 = 4</td><td>3 · 4 = 12</td></tr>
+  </table>
+
+  <h3>3. Què es fa primer?</h3>
+  <p>b) la suma del parèntesi, 20; c) la multiplicació, 13; d) la suma del parèntesi, 12; e) la
+  multiplicació, 11; f) la suma del parèntesi, 10; g) la multiplicació, 9; h) la suma del
+  parèntesi, 12. Si marca bé el signe però s'equivoca en el resultat, el que falla és el càlcul:
+  que miri la targeta.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. Marca el dibuix de cada operació</h3>
+  <p>b) (1 + 2) · 5: el dibuix de 3 files de 5, amb 15 quadrets. L'altre en té 11. c) 1 + 2 · 5:
+  el dibuix de 2 files de 5 i 1 quadret solt, amb 11 quadrets. L'altre en té 15.</p>
+  <p><b>Error típic:</b> fer-ho d'esquerra a dreta, com es llegeix:
+  <span class="ratllat">2 + 3 · 4 = 20</span>. És la regla trencada d'aquesta fitxa. No
+  l'expliqueu: feu comptar els quadrets dels dos dibuixos. El de 2 + 3 · 4 en té 14; el de 20 és
+  un altre dibuix, el de (2 + 3) · 4. L'apartat b demana el dibuix del parèntesi a posta: si
+  sempre marca el que té quadrets solts, encara no mira el parèntesi. <b>Compta per als nivells
+  alts, no per al mínim.</b></p>
+
+  <h3>5 i 6. A la vida de cada dia</h3>
+  <p>5b) 3 + 2 · 6 = 15 ous. 6b) 3 · (2 + 2) = 12 peces. Es donen per bones les operacions escrites
+  en un altre ordre si surt el mateix resultat: 2 · 6 + 3 = 15. El que compta és que la
+  multiplicació surti del dibuix: les capses o les bosses.</p>
+
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=4</b> (4.1 Mira l'ordre;
+  4.2 Què es fa primer?). La 4.2 dona un codi de verificació, que es llegeix a la pàgina de llegir
+  codis. L'exemple resolt de la fitxa és el mateix que el de la caixa, 2 + 3 · 4, i les
+  operacions dels exercicis surten de la llista de la 4.2.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.3, 2.1 i 8.1) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Davant de 2 + 3 · 4, busca el punt i diu en veu alta «primer, la multiplicació» (pàgina 1 i exercici 1).</li>
+    <li>Fa pas a pas una operació amb una suma i una multiplicació, sense parèntesi (exercici 1).</li>
+    <li>Fa primer el parèntesi (exercici 2).</li>
+    <li>Marca quina operació es fa primer, amb parèntesi i sense (exercici 3).</li>
+    <li>Escriu l'operació d'una situació de la vida, amb la multiplicació que surt del dibuix (exercicis 5 i 6).</li>
+    <li>Nivells alts: tria el dibuix bo entre el de 2 + 3 · 4 i el de (2 + 3) · 4 (exercici 4).</li>
+  </ul>
+</div>
+
+</body>
+</html>

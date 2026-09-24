@@ -27,11 +27,12 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 - **La 0.1 i la 3.1, més lleugeres** (24 de setembre de 2026): a la 0.1 els dos números es trien
   amb pastilles i tota la taula és plegada darrere d'un botó; a la 3.1 el dibuix ja no repeteix
   els rètols dels comptadors.
-- **Dues fitxes de la unitat 1.** La 1 (`fitxes/ud1.html`), rectangles i quadrats: 9 pàgines i 3
+- **Tres fitxes de la unitat 1.** La 1 (`fitxes/ud1.html`), rectangles i quadrats: 9 pàgines i 3
   de solucionari, validada pel docent el 24 de setembre de 2026, amb la lletra manuscrita dels
   exemples resolts un 30% més gran. La 2 (`fitxes/ud1-nombres.html`), centenes, desenes i
-  unitats, per a l'activitat 1_7 del grup: 6 pàgines i 2 de solucionari. **Encara no tenen els
-  PDF**: vegeu l'apartat 4. Les que falten de la unitat són a
+  unitats, per a l'activitat 1_7 del grup: 6 pàgines i 2 de solucionari. La 3
+  (`fitxes/ud1-ordre.html`), l'ordre de les operacions, per a l'activitat 1_14: 6 pàgines i 2 de
+  solucionari. **Encara no tenen els PDF**: vegeu l'apartat 4. Les que falten de la unitat són a
   [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 5.
 
 ---
@@ -52,7 +53,8 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 | La caixa es veu bé | Captures al mòbil i a l'ordinador, en clar i en fosc, mirades una per una | Mitjana: no substitueix veure-la fer servir |
 | El test de `4eso/` continua dient «Tot correcte.» amb aquesta carpeta al repositori | Passat amb la carpeta ja posada | Alta |
 | La targeta es llegeix bé en paper | Vista en pantalla, a partir del PDF. **El paper encara no** | Pendent |
-| La fitxa compleix les regles del paper | `comprova.py`: blanc i negre, HTML, numeració, graó físic, obertura, pàgina de la vida, solucionari, Lectura Fàcil, fins a 999, «·», cap operació malament i els caràcters de la lletra manuscrita | Alta |
+| Les fitxes compleixen les regles del paper | `comprova.py`: blanc i negre, HTML, numeració, graó físic, obertura, pàgina de la vida, solucionari, Lectura Fàcil, fins a 999, «·», cap igualtat malament i els caràcters de la lletra manuscrita | Alta |
+| Cap igualtat escrita està malament | `comprova.py` calcula cada igualtat sencera, amb l'ordre de les operacions: 177 a les quatre fitxes de paper. Vuit errors introduïts a posta, un per un (7 · 8 = 57 a la targeta, 2 + 3 · 4 = 20, (2 + 3) · 4 = 14, √16 = 5…): els sis dolents surten, i els dos bons (un error ratllat a posta i un buit per escriure) passen | Alta |
 | Cada pàgina de les fitxes cap en un A4 | Mesurades amb Chromium i la geometria de `eines/paper.py`: la més alta fa 25,8 cm de 27,1. Chromium i WeasyPrint difereixen 1 mm a la targeta (25,3 i 25,4 cm). **La mesura bona és la de `mesura.py`**, que necessita WeasyPrint | Mitjana, fins que passi `mesura.py` |
 | Canviar `.ms` no canvia la targeta | La targeta dibuixada abans i després del canvi: cap píxel diferent. El seu PDF, però, s'ha de tornar a fer, perquè `css/fitxa.css` forma part de l'empremta | Alta |
 
@@ -79,13 +81,13 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 1. **Imprimir la targeta** i dir què s'hi ha de canviar.
 2. **Provar la caixa a l'aula** i dir què s'hi ha de canviar. Els enllaços per a l'alumnat són a
    la portada, a «Caixa d'eines».
-3. **Els PDF de les dues fitxes de la unitat 1**, al Codespace, amb `eines/mesura.py` i
+3. **Els PDF de les tres fitxes de la unitat 1**, al Codespace, amb `eines/mesura.py` i
    `generadors/gen_pdf.py`, que necessiten WeasyPrint. També es torna a fer el de la targeta,
-   que surt igual però té l'empremta nova. Fins llavors, `comprova.py` diu cinc problemes (els
-   quatre PDF que falten i el de la targeta, vell), i és el que toca. Després, imprimir-les i mirar
+   que surt igual però té l'empremta nova. Fins llavors, `comprova.py` diu set problemes (els sis
+   PDF que falten i el de la targeta, vell), i és el que toca. Després, imprimir-les i mirar
    si les quadrícules i les siluetes es poden pintar bé a mà.
-4. **Les fitxes que falten de la unitat 1**: l'ordre de les operacions, el repàs amb «Què he
-   après?» i l'examen en DOCX ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 5).
+4. **El que falta de la unitat 1**: la fitxa 4, el repàs amb «Què he après?», i l'examen en
+   DOCX ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 5).
 5. **Per decidir: les capçaleres de les taules.** A `css/fitxa.css` fan 11 pt, i la regla 3 demana
    14 pt. La fitxa 2 ja fa servir `.mini` (14 pt) a totes les taules. Canviar-ho per a totes
    canviaria també la fitxa 1, que ja està validada.
