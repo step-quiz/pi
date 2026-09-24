@@ -33,7 +33,7 @@ window.UNITATS = [
            "3² és un quadrat de 3 per 3.",
     material: "Miniblocs: fer el rectangle de 3 per 4 i comptar-ne els quadrets.",
     criteris: "1.3, 2.1, 8.1",
-    fitxa: null,
+    fitxa: "fitxes/ud1.html",
     tasques: [0, 1, 2, 3, 4]
   },
   {

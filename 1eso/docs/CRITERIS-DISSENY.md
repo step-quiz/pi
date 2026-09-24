@@ -19,7 +19,7 @@ Els tests vigilen les que es poden comprovar soles. La llista és al final.
 | 1 | **Blanc i negre estricte.** Les diferències es fan amb grisos, gruix i tipus de traç | S'imprimeix en B/N al centre |
 | 2 | **Cap paràgraf** a les pàgines de l'alumnat | Un paràgraf és una barrera abans de començar |
 | 3 | **Cos de 14 pt cap amunt**, i molt d'aire | Llegibilitat |
-| 4 | **El primer apartat de cada exercici ja ve resolt, en lletra manuscrita** | És el model: ensenya com es fa sense explicar-ho |
+| 4 | **El primer apartat de cada exercici ja ve resolt, en lletra manuscrita**, un 30% més gran que la d'impremta del voltant (`.ms`, a `css/fitxa.css`) | És el model: ensenya com es fa sense explicar-ho, i ha de destacar. La mida la va decidir el docent el 24 de setembre de 2026, veient la primera fitxa |
 | 5 | **El símbol surt del dibuix.** Primer el dibuix, després la paraula, i el símbol al final. Mai s'anuncia al costat | El símbol sense dibuix no s'agafa a res |
 | 6 | **Obertura: «Què hi veus?»**, abans del primer dibuix. Es respon mirant i dient | Comença per on tothom pot entrar |
 | 7 | **El graó físic**: cinc minuts amb material de debò a l'aula de suport, abans de la fitxa. Una línia per a l'adult a dalt de la primera pàgina (`.previ`) | La fitxa arriba quan la idea ja s'ha tocat |

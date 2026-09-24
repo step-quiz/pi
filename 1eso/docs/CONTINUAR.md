@@ -27,9 +27,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 - **La 0.1 i la 3.1, més lleugeres** (24 de setembre de 2026): a la 0.1 els dos números es trien
   amb pastilles i tota la taula és plegada darrere d'un botó; a la 3.1 el dibuix ja no repeteix
   els rètols dels comptadors.
-- **Un esborrany de la fitxa de la unitat 1**, només amb rectangles i quadrats, per veure com
-  queda: 9 pàgines i 3 de solucionari. **Encara no és al repositori**: primer l'ha de mirar el
-  docent. Vegeu l'apartat 4.
+- **La fitxa de la unitat 1** (`fitxes/ud1.html`), només amb rectangles i quadrats: 9 pàgines i
+  3 de solucionari. Validada pel docent el 24 de setembre de 2026, amb la lletra manuscrita dels
+  exemples resolts un 30% més gran. **Encara no té els PDF**: vegeu l'apartat 4.
 
 ---
 
@@ -49,6 +49,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 | La caixa es veu bé | Captures al mòbil i a l'ordinador, en clar i en fosc, mirades una per una | Mitjana: no substitueix veure-la fer servir |
 | El test de `4eso/` continua dient «Tot correcte.» amb aquesta carpeta al repositori | Passat amb la carpeta ja posada | Alta |
 | La targeta es llegeix bé en paper | Vista en pantalla, a partir del PDF. **El paper encara no** | Pendent |
+| La fitxa compleix les regles del paper | `comprova.py`: blanc i negre, HTML, numeració, graó físic, obertura, pàgina de la vida, solucionari, Lectura Fàcil, fins a 999, «·», cap operació malament i els caràcters de la lletra manuscrita | Alta |
+| Cada pàgina de la fitxa cap en un A4 | Mesurada amb Chromium i la geometria de `eines/paper.py`: la més alta fa 25,1 cm de 27,1. Chromium i WeasyPrint difereixen 1 mm a la targeta (25,3 i 25,4 cm). **La mesura bona és la de `mesura.py`**, que necessita WeasyPrint | Mitjana, fins que passi `mesura.py` |
+| Canviar `.ms` no canvia la targeta | La targeta dibuixada abans i després del canvi: cap píxel diferent. El seu PDF, però, s'ha de tornar a fer, perquè `css/fitxa.css` forma part de l'empremta | Alta |
 
 ---
 
@@ -73,11 +76,11 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 1. **Imprimir la targeta** i dir què s'hi ha de canviar.
 2. **Provar la caixa a l'aula** i dir què s'hi ha de canviar. Els enllaços per a l'alumnat són a
    la portada, a «Caixa d'eines».
-3. **La fitxa de la unitat 1.** Hi ha un esborrany (rectangles i quadrats) que el docent ha de
-   mirar. Quan el validi, entra al repositori com a `fitxes/ud1.html`, la unitat 1 de
-   `dades/unitats.js` passa a tenir `fitxa: "fitxes/ud1.html"`, i els dos PDF definitius
-   (`ud1-alumnat.pdf` i `ud1-solucionari.pdf`) es fan al Codespace amb `generadors/gen_pdf.py`,
-   que necessita WeasyPrint. Fins que no hi siguin, `comprova.py` diu que falten, i és correcte.
+3. **Els PDF de la fitxa de la unitat 1**, al Codespace, amb `eines/mesura.py` i
+   `generadors/gen_pdf.py`, que necessiten WeasyPrint. També es torna a fer el de la targeta,
+   que surt igual però té l'empremta nova. Fins llavors, `comprova.py` diu tres problemes (els dos
+   PDF que falten i el de la targeta, vell), i és el que toca. Després, imprimir la fitxa i mirar
+   si les quadrícules es poden pintar bé a mà.
 4. **L'examen de la unitat 1** en DOCX, amb el motor comú.
 5. **La revisió externa del 24 de setembre de 2026: tot decidit.** Aplicat: la 0.3; els
    enllaços a un exercici concret, sense fletxes; la fitxa només amb rectangles i quadrats; al

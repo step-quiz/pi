@@ -71,7 +71,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
-| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules i caixa d'eines fetes. Fitxa per fer |
+| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines i fitxa (rectangles i quadrats) fetes. Falten els PDF de la fitxa |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Per fer |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
@@ -128,6 +128,8 @@ quan s'escrigui; la caixa ja hi és.
 - 24 de setembre de 2026: la fitxa, de moment només amb rectangles i quadrats, per veure com
   queda. Els nombres (centenes, desenes i unitats) i l'ordre de les operacions, de moment, només
   a la caixa.
+- 24 de setembre de 2026: la fitxa agrada. L'únic canvi, la lletra manuscrita dels exemples
+  resolts, un 30% més gran. Val per a totes les fitxes (regla 4).
 - 24 de setembre de 2026, després d'una revisió externa: a la 0.1, tota la taula plegada darrere
   d'un botó; a la 3.1, fora les repeticions; `verifica.html`, sense l'evolució dels codis, de
   moment.

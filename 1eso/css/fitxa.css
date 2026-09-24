@@ -83,8 +83,10 @@ h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 /* -------------------------------------------------------- model resolt -- */
 
 /* El primer apartat de cada exercici ja ve fet, amb lletra manuscrita.
-   Caveat és més petita que la d'impremta al mateix cos: per això el 1.3em. */
-.ms { font-family: var(--manuscrita); color: var(--manuscrit); font-size: 1.3em; line-height: 1.2 }
+   Caveat és més petita que la d'impremta al mateix cos: amb 1,3em ja la iguala.
+   El model resolt ha de destacar, i va un 30% més gran encara: 1,3 · 1,3 = 1,69
+   (decisió del docent, 24 de setembre de 2026). */
+.ms { font-family: var(--manuscrita); color: var(--manuscrit); font-size: 1.69em; line-height: 1.2 }
 .resolt { background: var(--fons-1) }
 .et-resolt {
   font-family: var(--manuscrita); color: var(--manuscrit); font-size: 14pt;

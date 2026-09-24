@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 1 · Rectangles de quadrets</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 1 · Nombres naturals · Rectangles de quadrets
+  Validada pel docent el 24 de setembre de 2026. De la unitat, de moment,
+  només els rectangles i els quadrats: els nombres (centenes, desenes i
+  unitats) i l'ordre de les operacions es treballen amb la caixa d'eines.
+
+  Els dibuixos de quadrets tenen tots la mateixa mida de quadret per pàgina i
+  el mateix aire entre quadrets, com a la caixa. Es poden retocar aquí mateix:
+  cada <rect> és un quadret.
+
+  El nucli: multiplicar és fer un rectangle de quadrets. 3 · 4 són 3 files de
+  4 quadrets. 3² és un quadrat de 3 per 3, i l'arrel és el costat.
+
+  Els casos resolts són els mateixos que els exemples de la caixa d'eines
+  (regla 8): 3 · 4, 3 · 12, 3², 16 quadrets i 13 quadrets.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Fer el rectangle de 3 per 4 i comptar-ne els quadrets.</div>
+  <h1>Rectangles de quadrets</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:1.1rem">
+    <svg viewBox="0 0 309.9 234.3" style="width:8.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 4 quadrets">
+      <rect x="7.6" y="7.6" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="83.1" y="7.6" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="158.7" y="7.6" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="234.3" y="7.6" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="7.6" y="83.1" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="83.1" y="83.1" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="158.7" y="83.1" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="234.3" y="83.1" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="7.6" y="158.7" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="83.1" y="158.7" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="158.7" y="158.7" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="234.3" y="158.7" width="68" height="68" rx="9.8" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.5rem 0 1rem">És un rectangle de quadrets.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Quantes files hi ha?</td><td style="width:4cm"><span class="ms">3</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets té cada fila?</td><td><span class="ms">4</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets hi ha en total?</td><td><span class="ms">12</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">3 files de 4 quadrets són 12 quadrets.</p>
+    <p style="font-size:30pt;font-weight:800;margin:.3rem 0">3 · 4 = 12</p>
+    <p style="margin:0">Es llegeix: 3 per 4.</p>
+  </div>
+  <div class="pag">Unitat 1 · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Mira cada rectangle. Omple la taula.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5cm .8cm;align-items:end;margin:.6rem 0 1rem">
+      <div style="text-align:center">
+        <p class="apartat" style="margin:0 0 .2rem">a)</p>
+        <svg viewBox="0 0 136.1 103.9" style="width:3.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un rectangle de quadrets">
+          <rect x="5.4" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div style="text-align:center">
+        <p class="apartat" style="margin:0 0 .2rem">b)</p>
+        <svg viewBox="0 0 168.2 71.8" style="width:4.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un rectangle de quadrets">
+          <rect x="5.4" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="133.9" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="133.9" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div style="text-align:center">
+        <p class="apartat" style="margin:0 0 .2rem">c)</p>
+        <svg viewBox="0 0 103.9 168.2" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un rectangle de quadrets">
+          <rect x="5.4" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="69.6" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="101.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="101.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="101.8" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="133.9" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="133.9" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="133.9" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div style="text-align:center">
+        <p class="apartat" style="margin:0 0 .2rem">d)</p>
+        <svg viewBox="0 0 232.4 71.8" style="width:6.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un rectangle de quadrets">
+          <rect x="5.4" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="133.9" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="166" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="198.1" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="5.4" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="37.5" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="69.6" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="101.8" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="133.9" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="166" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="198.1" y="37.5" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        </svg>
+      </div>
+    </div>
+    <table>
+      <tr><th></th><th>Files</th><th>Quadrets a cada fila</th><th>Quadrets en total</th><th>La multiplicació</th></tr>
+      <tr class="resolt"><td class="apartat">a)</td><td><span class="ms">3</span></td><td><span class="ms">4</span></td><td><span class="ms">12</span></td><td><span class="ms">3 · 4 = 12</span></td></tr>
+      <tr><td class="apartat">b)</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat">c)</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat">d)</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="avis puntejat">Comprova els resultats a la targeta de les taules.</div>
+  <div class="pag">Unitat 1 · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Pinta el rectangle de cada multiplicació. Escriu quants quadrets hi ha.</div></div>
+    <div class="duo" style="margin-top:.5rem">
+      <div>
+        <p style="margin:0 0 .25rem;font-size:16pt;font-weight:700"><span class="apartat">a)</span> 3 · 4</p>
+        <svg viewBox="0 0 258.9 202.2" style="width:6.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: una quadrícula per pintar el rectangle de 3 · 4">
+          <rect x="1.9" y="1.9" width="255.1" height="198.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="30.2" x2="257" y2="30.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="58.6" x2="257" y2="58.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="86.9" x2="257" y2="86.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="115.3" x2="257" y2="115.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="143.6" x2="257" y2="143.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="172" x2="257" y2="172" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="30.2" y1="1.9" x2="30.2" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="58.6" y1="1.9" x2="58.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="86.9" y1="1.9" x2="86.9" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="115.3" y1="1.9" x2="115.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="143.6" y1="1.9" x2="143.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="172" y1="1.9" x2="172" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="200.3" y1="1.9" x2="200.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="228.7" y1="1.9" x2="228.7" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="113.4" height="85" fill="#BFBFBF" stroke="none"/>
+          <line x1="1.9" y1="30.2" x2="115.3" y2="30.2" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="1.9" y1="58.6" x2="115.3" y2="58.6" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="30.2" y1="1.9" x2="30.2" y2="86.9" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="58.6" y1="1.9" x2="58.6" y2="86.9" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="86.9" y1="1.9" x2="86.9" y2="86.9" stroke="#5E5E5E" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="113.4" height="85" fill="none" stroke="#3A3A3A" stroke-width="2.6" stroke-linejoin="round"/>
+        </svg>
+        <div class="caixa-buida" style="margin-top:.35rem"><div class="et">Quadrets en total</div><div class="q" style="height:1.5cm;display:flex;align-items:center;justify-content:center"><span class="ms">12</span></div></div>
+      </div>
+      <div>
+        <p style="margin:0 0 .25rem;font-size:16pt;font-weight:700"><span class="apartat">b)</span> 6 · 2</p>
+        <svg viewBox="0 0 258.9 202.2" style="width:6.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: una quadrícula per pintar el rectangle de 6 · 2">
+          <rect x="1.9" y="1.9" width="255.1" height="198.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="30.2" x2="257" y2="30.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="58.6" x2="257" y2="58.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="86.9" x2="257" y2="86.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="115.3" x2="257" y2="115.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="143.6" x2="257" y2="143.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="172" x2="257" y2="172" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="30.2" y1="1.9" x2="30.2" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="58.6" y1="1.9" x2="58.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="86.9" y1="1.9" x2="86.9" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="115.3" y1="1.9" x2="115.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="143.6" y1="1.9" x2="143.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="172" y1="1.9" x2="172" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="200.3" y1="1.9" x2="200.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="228.7" y1="1.9" x2="228.7" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <div class="caixa-buida" style="margin-top:.35rem"><div class="et">Quadrets en total</div><div class="q" style="height:1.5cm;display:flex;align-items:center;justify-content:center"></div></div>
+      </div>
+    </div>
+    <div class="duo" style="margin-top:.9rem">
+      <div>
+        <p style="margin:0 0 .25rem;font-size:16pt;font-weight:700"><span class="apartat">c)</span> 4 · 5</p>
+        <svg viewBox="0 0 258.9 202.2" style="width:6.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: una quadrícula per pintar el rectangle de 4 · 5">
+          <rect x="1.9" y="1.9" width="255.1" height="198.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="30.2" x2="257" y2="30.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="58.6" x2="257" y2="58.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="86.9" x2="257" y2="86.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="115.3" x2="257" y2="115.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="143.6" x2="257" y2="143.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="172" x2="257" y2="172" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="30.2" y1="1.9" x2="30.2" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="58.6" y1="1.9" x2="58.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="86.9" y1="1.9" x2="86.9" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="115.3" y1="1.9" x2="115.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="143.6" y1="1.9" x2="143.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="172" y1="1.9" x2="172" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="200.3" y1="1.9" x2="200.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="228.7" y1="1.9" x2="228.7" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <div class="caixa-buida" style="margin-top:.35rem"><div class="et">Quadrets en total</div><div class="q" style="height:1.5cm;display:flex;align-items:center;justify-content:center"></div></div>
+      </div>
+      <div>
+        <p style="margin:0 0 .25rem;font-size:16pt;font-weight:700"><span class="apartat">d)</span> 2 · 8</p>
+        <svg viewBox="0 0 258.9 202.2" style="width:6.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: una quadrícula per pintar el rectangle de 2 · 8">
+          <rect x="1.9" y="1.9" width="255.1" height="198.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="30.2" x2="257" y2="30.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="58.6" x2="257" y2="58.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="86.9" x2="257" y2="86.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="115.3" x2="257" y2="115.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="143.6" x2="257" y2="143.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="172" x2="257" y2="172" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="30.2" y1="1.9" x2="30.2" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="58.6" y1="1.9" x2="58.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="86.9" y1="1.9" x2="86.9" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="115.3" y1="1.9" x2="115.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="143.6" y1="1.9" x2="143.6" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="172" y1="1.9" x2="172" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="200.3" y1="1.9" x2="200.3" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="228.7" y1="1.9" x2="228.7" y2="200.3" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <div class="caixa-buida" style="margin-top:.35rem"><div class="et">Quadrets en total</div><div class="q" style="height:1.5cm;display:flex;align-items:center;justify-content:center"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis puntejat">Comprova els resultats a la targeta de les taules.</div>
+  <div class="pag">Unitat 1 · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Gira el rectangle. Compta els quadrets.</div></div>
+
+    <p class="apartat" style="margin:.4rem 0 .1rem">a)</p>
+    <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+      <svg viewBox="0 0 283.5 117.2" style="width:7.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 4 quadrets i el mateix rectangle girat: 4 files de 3">
+        <rect x="5.1" y="20.2" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="31.6" y="20.2" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="58" y="20.2" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="84.5" y="20.2" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="5.1" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="31.6" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="58" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="84.5" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="5.1" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="31.6" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="58" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="84.5" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="197.9" y="7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="224.3" y="7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="250.8" y="7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="197.9" y="33.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="224.3" y="33.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="250.8" y="33.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="197.9" y="59.9" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="224.3" y="59.9" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="250.8" y="59.9" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="197.9" y="86.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="224.3" y="86.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="250.8" y="86.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <path d="M122.8 58.6 Q153.1 13.2 183.3 58.6" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        <path d="M170.1 48 L183.3 58.6 L181.4 42.7" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="153.1" y="30.2" font-size="17" font-weight="700" text-anchor="middle" fill="#000">gira</text>
+      </svg>
+      <div style="display:flex;justify-content:space-around;font-size:16.5pt;margin-top:.3rem">
+        <p style="margin:0"><span class="ms">3 · 4 = 12 quadrets</span></p>
+        <p style="margin:0"><span class="ms">4 · 3 = 12 quadrets</span></p>
+      </div>
+      <p style="text-align:center;margin:.3rem 0 0;font-weight:700">Hi ha els mateixos quadrets.</p>
+    </div>
+
+    <p class="apartat" style="margin:1rem 0 .1rem">b)</p>
+    <svg viewBox="0 0 283.5 143.6" style="width:7.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 2 files de 5 quadrets i el mateix rectangle girat: 5 files de 2">
+      <rect x="5.1" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="31.6" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="58" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="84.5" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="110.9" y="46.7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="5.1" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="31.6" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="58" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="84.5" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="110.9" y="73.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.3" y="7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.8" y="7" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.3" y="33.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.8" y="33.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.3" y="59.9" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.8" y="59.9" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.3" y="86.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.8" y="86.4" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.3" y="112.8" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.8" y="112.8" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <path d="M149.3 71.8 Q179.5 26.5 209.8 71.8" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      <path d="M196.5 61.2 L209.8 71.8 L207.9 55.9" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="179.5" y="43.5" font-size="17" font-weight="700" text-anchor="middle" fill="#000">gira</text>
+    </svg>
+    <div style="display:flex;justify-content:space-around">
+      <p class="frase" style="margin:0">2 · 5 = <u></u> quadrets</p>
+      <p class="frase" style="margin:0">5 · 2 = <u></u> quadrets</p>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Fes servir el que ja saps.</div></div>
+    <div class="duo">
+      <div>
+        <p style="margin:0"><span class="apartat">a)</span> Saps que 7 · 8 = 56.</p>
+        <p class="frase" style="margin:.2rem 0">8 · 7 = <span class="ms">56</span></p>
+      </div>
+      <div>
+        <p style="margin:0"><span class="apartat">b)</span> Saps que 6 · 9 = 54.</p>
+        <p class="frase" style="margin:.2rem 0">9 · 6 = <u></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center;font-weight:700">Si gires el rectangle, els quadrets no canvien.</div>
+  <div class="pag">Unitat 1 · pàgina 4</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Parteix el rectangle pel 10. Després ajunta les dues parts.</div></div>
+    <p style="margin:.1rem 0 .5rem">La targeta arriba fins al 10.</p>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .5rem;margin-bottom:.5rem">
+      <p class="apartat" style="margin:0 0 .2rem">a) 3 · 12</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="flex:0 0 auto">
+          <svg viewBox="0 0 237 65.4" style="width:6.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 12 quadrets, partit en 3 files de 10 i 3 files de 2">
+            <rect x="4.6" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.6" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.6" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.5" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="212.9" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.5" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="212.9" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.5" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="212.9" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">La part de 10:</span> <span class="ms">3 · 10 = 30 quadrets</span></p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">La part petita:</span> <span class="ms">3 · 2 = 6 quadrets</span></p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">Ajunta-les:</span> <span class="ms">30 + 6 = 36</span></p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">El resultat:</span> <span class="ms">3 · 12 = 36</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="padding:.35rem .5rem;margin-bottom:.5rem">
+      <p class="apartat" style="margin:0 0 .2rem">b) 4 · 13</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="flex:0 0 auto">
+          <svg viewBox="0 0 237.4 82.8" style="width:6.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 4 files de 13 quadrets, amb una ratlla després del quadret 10">
+            <rect x="4.6" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.6" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.6" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.6" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="178.5" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.9" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="213.3" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="178.5" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.9" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="213.3" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="178.5" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.9" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="213.3" y="39.4" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="178.5" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.9" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="213.3" y="56.8" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <line x1="177.6" y1="0" x2="177.6" y2="77.1" stroke="#000" stroke-width="2.6" stroke-dasharray="6 4"/>
+          </svg>
+        </div>
+        <div>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">La part de 10:</span> 4 · 10 = <u style="padding:0 1.1rem"></u> quadrets</p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">La part petita:</span> 4 · 3 = <u style="padding:0 1.1rem"></u> quadrets</p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">Ajunta-les:</span> <u style="padding:0 1.1rem"></u> + <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">El resultat:</span> 4 · 13 = <u style="padding:0 1.1rem"></u></p>
+        </div>
+      </div>
+    </div>
+    <div style="padding:.35rem .5rem;margin-bottom:.5rem">
+      <p class="apartat" style="margin:0 0 .2rem">c) 2 · 14</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="flex:0 0 auto">
+          <svg viewBox="0 0 254.7 48" style="width:6.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 2 files de 14 quadrets, amb una ratlla després del quadret 10">
+            <rect x="4.6" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.6" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="22" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="39.4" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="56.8" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="74.2" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="91.6" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="109" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="126.3" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="143.7" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="161.1" y="22" width="15.6" height="15.6" rx="2.3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="178.5" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.9" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="213.3" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="230.7" y="4.6" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="178.5" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="195.9" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="213.3" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="230.7" y="22" width="15.6" height="15.6" rx="2.3" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <line x1="177.6" y1="0" x2="177.6" y2="42.3" stroke="#000" stroke-width="2.6" stroke-dasharray="6 4"/>
+          </svg>
+        </div>
+        <div>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">La part de 10:</span> 2 · 10 = <u style="padding:0 1.1rem"></u> quadrets</p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">La part petita:</span> 2 · 4 = <u style="padding:0 1.1rem"></u> quadrets</p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">Ajunta-les:</span> <u style="padding:0 1.1rem"></u> + <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">El resultat:</span> 2 · 14 = <u style="padding:0 1.1rem"></u></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · pàgina 5</div>
+</div>
+
+<div class="full">
+  <h2>El quadrat d'un nombre</h2>
+  <div class="figura neta">
+    <svg viewBox="0 0 238.1 162.5" style="width:6.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un quadrat de 3 files de 3 quadrets">
+      <rect x="111.5" y="39.7" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="149.3" y="39.7" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="187.1" y="39.7" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="111.5" y="77.5" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="149.3" y="77.5" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="187.1" y="77.5" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="111.5" y="115.3" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="149.3" y="115.3" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="187.1" y="115.3" width="34" height="34" rx="4.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <path d="M109.6 35.9 V28.3 H223 V35.9" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="166.3" y="22.7" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">3 quadrets</text>
+      <path d="M109.6 37.8 H102 V151.2 H109.6" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="96.4" y="100" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">3 quadrets</text>
+    </svg>
+  </div>
+  <div style="text-align:center">
+    <p style="margin:.2rem 0 0">3 files de 3 quadrets.</p>
+    <p style="margin:0">En total, 9 quadrets.</p>
+    <p style="font-size:26pt;font-weight:800;margin:.1rem 0 .3rem">3 · 3 = 9</p>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Ho escrivim més curt:</p>
+    <p style="font-size:30pt;font-weight:800;margin:.1rem 0">3² = 9</p>
+    <p style="margin:0">Es llegeix: 3 al quadrat.</p>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Pinta el quadrat. Escriu quants quadrets hi ha.</div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5cm">
+      <div style="text-align:center">
+        <p style="margin:0 0 .2rem;font-size:16pt;font-weight:700"><span class="apartat">a)</span> 2²</p>
+        <svg viewBox="0 0 128.5 128.5" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: una quadrícula per pintar el quadrat de 2">
+          <rect x="1.9" y="1.9" width="124.7" height="124.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="22.7" x2="126.6" y2="22.7" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="126.6" y2="43.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="126.6" y2="64.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="85" x2="126.6" y2="85" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="105.8" x2="126.6" y2="105.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="85" y1="1.9" x2="85" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="105.8" y1="1.9" x2="105.8" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="41.6" height="41.6" fill="#BFBFBF" stroke="none"/>
+          <line x1="1.9" y1="22.7" x2="43.5" y2="22.7" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="43.5" stroke="#5E5E5E" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="41.6" height="41.6" fill="none" stroke="#3A3A3A" stroke-width="2.6" stroke-linejoin="round"/>
+        </svg>
+        <p class="frase" style="margin:.1rem 0;font-size:15pt;white-space:nowrap"><span class="ms">2 · 2 = 4</span></p>
+        <p class="frase" style="margin:0;font-size:15pt;white-space:nowrap">Més curt: <span class="ms">2² = 4</span></p>
+      </div>
+      <div style="text-align:center">
+        <p style="margin:0 0 .2rem;font-size:16pt;font-weight:700"><span class="apartat">b)</span> 4²</p>
+        <svg viewBox="0 0 128.5 128.5" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: una quadrícula per pintar el quadrat de 4">
+          <rect x="1.9" y="1.9" width="124.7" height="124.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="22.7" x2="126.6" y2="22.7" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="126.6" y2="43.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="126.6" y2="64.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="85" x2="126.6" y2="85" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="105.8" x2="126.6" y2="105.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="85" y1="1.9" x2="85" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="105.8" y1="1.9" x2="105.8" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.1rem 0;font-size:15pt;white-space:nowrap">4 · 4 = <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:15pt;white-space:nowrap">Més curt: 4² = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="text-align:center">
+        <p style="margin:0 0 .2rem;font-size:16pt;font-weight:700"><span class="apartat">c)</span> 5²</p>
+        <svg viewBox="0 0 128.5 128.5" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: una quadrícula per pintar el quadrat de 5">
+          <rect x="1.9" y="1.9" width="124.7" height="124.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="22.7" x2="126.6" y2="22.7" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="126.6" y2="43.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="126.6" y2="64.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="85" x2="126.6" y2="85" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="105.8" x2="126.6" y2="105.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="85" y1="1.9" x2="85" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="105.8" y1="1.9" x2="105.8" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.1rem 0;font-size:15pt;white-space:nowrap">5 · 5 = <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:15pt;white-space:nowrap">Més curt: 5² = <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · pàgina 6</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">7</div><div class="q">Marca el dibuix de cada operació. Compta els quadrets dels dos dibuixos.</div></div>
+    <p style="margin:.7rem 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">a)</span> 3²</p>
+    <div class="resolt" style="border-radius:10px;padding:.3rem .5rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6cm;align-items:end">
+        <div style="text-align:center">
+          <svg viewBox="0 0 151.2 89.2" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 files de 3 quadrets">
+            <rect x="41.6" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <ellipse cx="75.6" cy="44.6" rx="47.2" ry="42.7" fill="none" stroke="#3A3A3A" stroke-width="3" transform="rotate(-4 75.6 44.6)"/>
+          </svg>
+          <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Quadrets: <span class="ms">9</span></p>
+        </div>
+        <div style="text-align:center">
+          <svg viewBox="0 0 151.2 89.2" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 files de 2 quadrets">
+            <rect x="53.3" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          </svg>
+          <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Quadrets: <span class="ms">6</span></p>
+        </div>
+      </div>
+    </div>
+    <p style="margin:.7rem 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">b)</span> 4²</p>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6cm;align-items:end">
+        <div style="text-align:center">
+          <svg viewBox="0 0 151.2 112.6" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="4 files de 2 quadrets">
+            <rect x="53.3" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          </svg>
+          <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Quadrets: <u></u></p>
+        </div>
+        <div style="text-align:center">
+          <svg viewBox="0 0 151.2 112.6" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="4 files de 4 quadrets">
+            <rect x="29.9" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="100.2" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="29.9" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="100.2" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="29.9" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="100.2" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="29.9" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="100.2" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          </svg>
+          <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Quadrets: <u></u></p>
+        </div>
+      </div>
+    </div>
+    <p style="margin:.7rem 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">c)</span> 5 · 2</p>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6cm;align-items:end">
+        <div style="text-align:center">
+          <svg viewBox="0 0 151.2 136.1" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="5 files de 5 quadrets">
+            <rect x="18.2" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="111.9" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="18.2" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="111.9" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="18.2" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="111.9" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="18.2" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="111.9" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="18.2" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="41.6" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="65" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88.5" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="111.9" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          </svg>
+          <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Quadrets: <u></u></p>
+        </div>
+        <div style="text-align:center">
+          <svg viewBox="0 0 151.2 136.1" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="5 files de 2 quadrets">
+            <rect x="53.3" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="10.6" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="34.1" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="57.5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="80.9" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="53.3" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="76.8" y="104.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          </svg>
+          <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Quadrets: <u></u></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">3² vol dir 3 · 3 = 9. És un quadrat.</p>
+    <p style="margin:.2rem 0 0">3 · 2 = 6 és un rectangle de 3 files de 2.</p>
+  </div>
+  <div class="pag">Unitat 1 · pàgina 7</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">8</div><div class="q">Fes un quadrat amb els quadrets. Escriu quants quadrets té el costat.</div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5cm">
+      <div style="text-align:center">
+        <p style="margin:0 0 .2rem;font-size:16pt;font-weight:700"><span class="apartat">a)</span> 16 quadrets</p>
+        <svg viewBox="0 0 128.5 128.5" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: una quadrícula per fer el quadrat amb 16 quadrets">
+          <rect x="1.9" y="1.9" width="124.7" height="124.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="22.7" x2="126.6" y2="22.7" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="126.6" y2="43.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="126.6" y2="64.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="85" x2="126.6" y2="85" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="105.8" x2="126.6" y2="105.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="85" y1="1.9" x2="85" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="105.8" y1="1.9" x2="105.8" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="83.1" height="83.1" fill="#BFBFBF" stroke="none"/>
+          <line x1="1.9" y1="22.7" x2="85" y2="22.7" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="85" y2="43.5" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="85" y2="64.3" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="85" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="85" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="85" stroke="#5E5E5E" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="83.1" height="83.1" fill="none" stroke="#3A3A3A" stroke-width="2.6" stroke-linejoin="round"/>
+        </svg>
+        <p style="margin:.2rem 0 0;font-size:14pt;line-height:1.8">Costat: <span class="ms">4</span> quadrets</p><p class="frase" style="margin:0">√16 = <span class="ms">4</span></p>
+      </div>
+      <div style="text-align:center">
+        <p style="margin:0 0 .2rem;font-size:16pt;font-weight:700"><span class="apartat">b)</span> 9 quadrets</p>
+        <svg viewBox="0 0 128.5 128.5" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: una quadrícula per fer el quadrat amb 9 quadrets">
+          <rect x="1.9" y="1.9" width="124.7" height="124.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="22.7" x2="126.6" y2="22.7" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="126.6" y2="43.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="126.6" y2="64.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="85" x2="126.6" y2="85" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="105.8" x2="126.6" y2="105.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="85" y1="1.9" x2="85" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="105.8" y1="1.9" x2="105.8" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0;font-size:14pt;line-height:1.8">Costat: <u style="padding:0 1.1rem"></u> quadrets</p><p class="frase" style="margin:0">√9 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="text-align:center">
+        <p style="margin:0 0 .2rem;font-size:16pt;font-weight:700"><span class="apartat">c)</span> 25 quadrets</p>
+        <svg viewBox="0 0 128.5 128.5" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: una quadrícula per fer el quadrat amb 25 quadrets">
+          <rect x="1.9" y="1.9" width="124.7" height="124.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="22.7" x2="126.6" y2="22.7" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="43.5" x2="126.6" y2="43.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="64.3" x2="126.6" y2="64.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="85" x2="126.6" y2="85" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="105.8" x2="126.6" y2="105.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="22.7" y1="1.9" x2="22.7" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="43.5" y1="1.9" x2="43.5" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="64.3" y1="1.9" x2="64.3" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="85" y1="1.9" x2="85" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="105.8" y1="1.9" x2="105.8" y2="126.6" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0;font-size:14pt;line-height:1.8">Costat: <u style="padding:0 1.1rem"></u> quadrets</p><p class="frase" style="margin:0">√25 = <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+    <p style="margin:.6rem 0 0;font-size:13pt;color:var(--gris-2)">√16 es llegeix: l'arrel quadrada de 16.</p>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">9</div><div class="q">Hi ha quadrets que no fan cap quadrat. Mira el dibuix.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.5rem">
+      <p style="margin:0 0 .2rem;font-weight:700"><span class="apartat">a)</span> 13 quadrets</p>
+      <div style="display:flex;gap:.9cm;align-items:center">
+        <div style="flex:0 0 auto">
+          <svg viewBox="0 0 98.3 98.3" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="13 quadrets: un quadrat de 3 per 3, 4 quadrets de més i 3 llocs buits per fer el de 4 per 4">
+            <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="72.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="50.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+          </svg>
+        </div>
+        <div>
+          <p style="margin:0;font-size:14pt;line-height:1.9">El quadrat de 3 per 3 té <span class="ms">9</span> quadrets.</p>
+          <p style="margin:0;font-size:14pt;line-height:1.9">El quadrat de 4 per 4 té <span class="ms">16</span> quadrets.</p>
+          <p style="margin:0;font-size:14pt;line-height:1.9">L'arrel de 13 és entre <span class="ms">3</span> i <span class="ms">4</span>.</p>
+        </div>
+      </div>
+    </div>
+    <div style="padding:.35rem .6rem">
+      <p style="margin:0 0 .2rem;font-weight:700"><span class="apartat">b)</span> 20 quadrets</p>
+      <div style="display:flex;gap:.9cm;align-items:center">
+        <div style="flex:0 0 auto">
+          <svg viewBox="0 0 111.5 111.5" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="20 quadrets: un quadrat de 4 per 4, 4 quadrets de més i 5 llocs buits per fer el de 5 per 5">
+            <rect x="4.8" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="25.6" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="46.4" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="67.2" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.8" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="25.6" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="46.4" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="67.2" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.8" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="25.6" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="46.4" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="67.2" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="4.8" y="67.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="25.6" y="67.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="46.4" y="67.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="67.2" y="67.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+            <rect x="88" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="88" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="88" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="88" y="67.2" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#000" stroke-width="1.6"/>
+            <rect x="88" y="88" width="18.7" height="18.7" rx="2.7" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <rect x="67.2" y="88" width="18.7" height="18.7" rx="2.7" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <rect x="46.4" y="88" width="18.7" height="18.7" rx="2.7" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <rect x="25.6" y="88" width="18.7" height="18.7" rx="2.7" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <rect x="4.8" y="88" width="18.7" height="18.7" rx="2.7" fill="none" stroke="#5E5E5E" stroke-width="1.4" stroke-dasharray="4 3"/>
+          </svg>
+        </div>
+        <div>
+          <p class="frase" style="margin:0;font-size:14pt;line-height:1.9">El quadrat de 4 per 4 té <u style="padding:0 1.1rem"></u> quadrets.</p>
+          <p class="frase" style="margin:0;font-size:14pt;line-height:1.9">El quadrat de 5 per 5 té <u style="padding:0 1.1rem"></u> quadrets.</p>
+          <p class="frase" style="margin:0;font-size:14pt;line-height:1.9">L'arrel de 20 és entre <u style="padding:0 1.1rem"></u> i <u style="padding:0 1.1rem"></u>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · pàgina 8</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">10</div><div class="q">Quants n'hi ha?</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0"><span class="apartat">a)</span> La rajola té 3 files de 4 trossos.</p>
+        <svg viewBox="0 0 272.1 189" style="width:7.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una rajola de xocolata de 3 files de 4 trossos">
+          <rect x="3.8" y="3.8" width="264.6" height="181.4" rx="13.2" fill="#E4E4E4" stroke="#333" stroke-width="2.4"/>
+          <rect x="17" y="17" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="23.8" y="23.1" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="77.5" y="17" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="84.3" y="23.1" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="138" y="17" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="144.8" y="23.1" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="198.4" y="17" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="205.2" y="23.1" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="17" y="69.9" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="23.8" y="76" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="77.5" y="69.9" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="84.3" y="76" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="138" y="69.9" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="144.8" y="76" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="198.4" y="69.9" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="205.2" y="76" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="17" y="122.8" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="23.8" y="128.9" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="77.5" y="122.8" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="84.3" y="128.9" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="138" y="122.8" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="144.8" y="128.9" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+          <rect x="198.4" y="122.8" width="52.9" height="45.4" rx="6.8" fill="#8A8A8A" stroke="#333" stroke-width="1.6"/>
+          <rect x="205.2" y="128.9" width="39.3" height="33.3" rx="4.5" fill="none" stroke="#D4D4D4" stroke-width="1.2"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0"><span class="ms">3 · 4 = 12 trossos</span></p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0"><span class="apartat">b)</span> El cartró té 2 files de 6 ous.</p>
+        <svg viewBox="0 0 325 128.5" style="width:8.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un cartró d'ous de 2 files de 6 ous">
+          <rect x="3.8" y="3.8" width="317.5" height="120.9" rx="11.3" fill="#E4E4E4" stroke="#333" stroke-width="2.4"/>
+          <ellipse cx="35.9" cy="35.9" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="86.9" cy="35.9" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="138" cy="35.9" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="189" cy="35.9" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="240" cy="35.9" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="291" cy="35.9" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="35.9" cy="92.6" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="86.9" cy="92.6" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="138" cy="92.6" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="189" cy="92.6" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="240" cy="92.6" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="291" cy="92.6" rx="18.9" ry="23.4" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0">Hi ha <u></u> ous.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">11</div><div class="q">Les rajoles d'un terra quadrat.</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0"><span class="apartat">a)</span> Cada costat té 4 rajoles. Quantes rajoles hi ha?</p>
+        <svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un terra quadrat de 4 rajoles per 4 rajoles">
+          <rect x="3.8" y="3.8" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="32.1" y="3.8" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="60.5" y="3.8" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="88.8" y="3.8" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="3.8" y="32.1" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="32.1" y="32.1" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="60.5" y="32.1" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="88.8" y="32.1" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="3.8" y="60.5" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="32.1" y="60.5" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="60.5" y="60.5" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="88.8" y="60.5" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="3.8" y="88.8" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="32.1" y="88.8" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="60.5" y="88.8" width="28.3" height="28.3" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="88.8" y="88.8" width="28.3" height="28.3" fill="#fff" stroke="#5E5E5E" stroke-width="1.4"/>
+          <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2.6"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0"><span class="ms">4² = 16 rajoles</span></p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0"><span class="apartat">b)</span> Un altre terra quadrat té 25 rajoles. Quantes rajoles té cada costat?</p>
+        <div class="caixa-buida" style="margin-top:.6rem"><div class="et">Rajoles de cada costat</div><div class="q"></div></div>
+        <p style="margin:.6rem 0 0;font-size:13pt;color:var(--gris-2)">Pots fer el quadrat amb miniblocs.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 1 · pàgina 9</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 1 · Rectangles de quadrets · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> La targeta de les taules és al davant tota l'estona, i els miniblocs, a
+    mà. Es diu sempre igual: «files» i «quadrets a cada fila». Primer es mira el dibuix, després es
+    diu amb paraules, i el símbol s'escriu al final. Demaneu que ho digui en veu alta abans
+    d'escriure-ho: «3 files de 4 quadrets». Si no es recorda una multiplicació, es busca a la
+    targeta: no és un error, és el que s'ha de fer.
+  </div>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: fer el rectangle de 3 files de 4 i comptar els quadrets d'un en
+  un, amb el dit. Després, girar-lo sobre la taula i tornar-los a comptar. La pàgina 1 és aquest
+  mateix rectangle dibuixat. A la pregunta d'obertura es respon mirant i dient, no escrivint.</p>
+
+  <h3>1. Mira cada rectangle</h3>
+  <table>
+    <tr><th></th><th>Files</th><th>Quadrets a cada fila</th><th>Quadrets en total</th><th>La multiplicació</th></tr>
+    <tr><td>b)</td><td>2</td><td>5</td><td>10</td><td>2 · 5 = 10</td></tr>
+    <tr><td>c)</td><td>5</td><td>3</td><td>15</td><td>5 · 3 = 15</td></tr>
+    <tr><td>d)</td><td>2</td><td>7</td><td>14</td><td>2 · 7 = 14</td></tr>
+  </table>
+  <p><b>Error típic:</b> comptar malament els quadrets de la fila. Que els compti amb el dit, fila per
+  fila. Si posa les files i els quadrets al revés (3 i 5 a l'apartat c), el total és el mateix: no
+  és un error greu, però demaneu-li que ho digui amb el dit al dibuix.</p>
+
+  <h3>2. Pinta el rectangle</h3>
+  <p>b) 6 · 2 = 12; c) 4 · 5 = 20; d) 2 · 8 = 16. <b>Es dona per bo el rectangle girat</b>: 2 files
+  de 6 per a 6 · 2 té els mateixos quadrets. El que compta és que el rectangle tingui les dues
+  mides i el total sigui bo.</p>
+
+  <h3>3 i 4. Gira el rectangle</h3>
+  <p>3b) 2 · 5 = 10 i 5 · 2 = 10; 4b) 9 · 6 = 54. Es pot comprovar girant el full, o els miniblocs.
+  Si busca 9 · 6 a la targeta, també està bé: és el que farà quan no la tingui clara.</p>
+</div>
+
+<div class="full sol">
+  <h3>5. Parteix el rectangle pel 10</h3>
+  <table>
+    <tr><th></th><th>La part de 10</th><th>La part petita</th><th>Ajunta-les</th><th>El resultat</th></tr>
+    <tr><td>b)</td><td>4 · 10 = 40</td><td>4 · 3 = 12</td><td>40 + 12 = 52</td><td>4 · 13 = 52</td></tr>
+    <tr><td>c)</td><td>2 · 10 = 20</td><td>2 · 4 = 8</td><td>20 + 8 = 28</td><td>2 · 14 = 28</td></tr>
+  </table>
+  <p>Les dues sumes es fan sense portar-ne. La ratlla discontínua del dibuix marca on es parteix.
+  Si li costa, que tapi amb la mà la part de 10 i compti només la part petita.</p>
+
+  <h3>6. El quadrat d'un nombre</h3>
+  <p>b) 4 · 4 = 16 i 4² = 16; c) 5 · 5 = 25 i 5² = 25. El 2 petit diu quantes vegades es
+  multiplica el número per ell mateix: 3² és 3 · 3. Es llegeix «3 al quadrat».</p>
+
+  <h3>7. Marca el dibuix de cada operació</h3>
+  <p>b) 4²: el quadrat, amb 16 quadrets. El rectangle en té 8. c) 5 · 2: <b>el rectangle</b>, amb
+  10 quadrets. El quadrat en té 25.</p>
+  <p><b>Error típic:</b> dir que 3² = 6, perquè fa 3 · 2. És la regla trencada d'aquesta fitxa.
+  No l'expliqueu: feu comptar els quadrets dels dos dibuixos. El dibuix de 3² té 9 quadrets, i
+  no és el de 6. L'apartat c pregunta pel rectangle a posta: si sempre marca el dibuix més gran,
+  encara no mira el símbol. <b>Compta per als nivells alts, no per al mínim.</b></p>
+
+  <h3>8. El costat del quadrat</h3>
+  <p>b) 9 quadrets: el costat té 3 quadrets, √9 = 3. c) 25 quadrets: el costat té 5 quadrets,
+  √25 = 5. Amb miniblocs es veu millor: es fan files fins que surt un quadrat.</p>
+
+</div>
+
+<div class="full sol">
+  <h3>9. Quadrets que no fan cap quadrat</h3>
+  <p>b) El quadrat de 4 per 4 té 16 quadrets. El de 5 per 5 en té 25. L'arrel de 20 és entre 4 i
+  5. Al dibuix, els quadrets blancs són els que sobren, i els de traç discontinu, els que falten
+  per fer el quadrat següent. <b>Nivells alts.</b></p>
+
+  <h3>10 i 11. A la vida de cada dia</h3>
+  <p>10b) 2 · 6 = 12 ous. 11b) 5 rajoles a cada costat, perquè 5 · 5 = 25. És la mateixa
+  decisió que als exercicis 8 i 1: si el terra és quadrat, el costat és l'arrel.</p>
+
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=1</b> (rectangles: fer-los,
+  girar-los i partir-los) i <b style="white-space:nowrap">?task=2</b> (quadrats i arrels). Per a un
+  sol exercici, sense poder passar als altres: <b style="white-space:nowrap">?task=1.2</b>.
+  Les tasques tancades 1.2 i 2.2 donen un codi de
+  verificació, que es llegeix a la pàgina de llegir codis. Els casos resolts de la fitxa són els
+  mateixos que els exemples de la caixa: 3 · 4, 3 · 12, 3², 16 quadrets.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.3, 2.1 i 8.1) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Davant d'un rectangle dibuixat, diu en veu alta quantes files té i quants quadrets hi ha a cada fila: «3 files de 4 quadrets» (exercici 1).</li>
+    <li>Diu quantes files i quants quadrets a cada fila té un rectangle, i n'escriu la multiplicació (exercicis 1 i 2).</li>
+    <li>Fa amb miniblocs el rectangle d'una multiplicació de la targeta, en qualsevol posició (exercici 2).</li>
+    <li>Gira un rectangle i diu que té els mateixos quadrets (exercicis 3 i 4).</li>
+    <li>Parteix pel 10 un rectangle de més de 10 quadrets a cada fila, i en troba el total (exercici 5).</li>
+    <li>Pinta el quadrat d'un nombre i l'escriu amb el 2 petit (exercici 6).</li>
+    <li>Amb 16 quadrets fa el quadrat i diu que el costat té 4 quadrets (exercici 8).</li>
+    <li>Nivells alts: tria el dibuix de 4² entre el quadrat i el rectangle de 4 per 2 (exercici 7), i diu entre quins dos nombres és l'arrel de 20 (exercici 9).</li>
+  </ul>
+</div>
+
+</body>
+</html>
