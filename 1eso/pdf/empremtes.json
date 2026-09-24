@@ -1,7 +1,17 @@
 {
   "targeta-taules.pdf": {
-    "empremta": "de92f409892219272231423d6e288b4c21338638ea44043cbab95cc7a4acbadd",
+    "empremta": "d9ebe5c87908b827173a1ac91f67af10c5e4a5377a74cb5ec2780465402ac9db",
     "font": "targetes/taules.html",
     "pagines": 2
+  },
+  "ud1-alumnat.pdf": {
+    "empremta": "3bf017a5d28b67764f1f74b1a09c8a59cfdd56497e411726b9fd4185b71fa3da",
+    "font": "fitxes/ud1.html",
+    "pagines": 9
+  },
+  "ud1-solucionari.pdf": {
+    "empremta": "3bf017a5d28b67764f1f74b1a09c8a59cfdd56497e411726b9fd4185b71fa3da",
+    "font": "fitxes/ud1.html",
+    "pagines": 3
   }
 }
