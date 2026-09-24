@@ -132,8 +132,13 @@ svg.toca{cursor:pointer}
 /* ================================================================ taules ====
    Les files de la targeta: 7 · 8 = 56, alineades en columnes, i una línia fina
    després de la cinquena. */
-.taula-i-dibuix{display:grid;gap:1rem}
-@media (min-width:46rem){.taula-i-dibuix{grid-template-columns:minmax(12rem,15rem) 1fr;align-items:start}}
+/* 0.1: el rectangle a l'esquerra; la lectura i la clau, a la dreta */
+.taula-i-dibuix{display:grid;gap:1rem;margin-top:.6rem}
+.taula-i-dibuix .quadricula{margin:0 auto}
+@media (min-width:46rem){.taula-i-dibuix{grid-template-columns:minmax(14rem,21rem) 1fr;align-items:start}}
+.et-pastilles{font-weight:700;margin:.7rem 0 .3rem}
+/* Tota la taula, plegada. Oberta, fa l'amplada d'una columna de la targeta. */
+.taula-sencera{max-width:19rem;margin-top:.4rem}
 .taula-nom{font-size:1.15rem;margin:0 0 .4rem}
 .llista-taula{display:flex;flex-direction:column;gap:.15rem}
 .llista-taula p.buit{color:var(--etiqueta-2);margin:.4rem 0}
@@ -160,6 +165,14 @@ svg.toca{cursor:pointer}
 
 /* La pregunta d'una tasca tancada, gran. */
 .pregunta-gran{font-size:1.7rem;font-weight:700;letter-spacing:-.01em;margin:.2rem 0 .8rem}
+/* 0.3: la multiplicació amb un forat. El forat és una caixa de traç discontinu;
+   quan ja s'ha trobat, porta el número i el traç és continu. La diferència és
+   de forma (el traç), no només de color. */
+.expr-falta{font-size:2.1rem;font-weight:800;letter-spacing:-.01em;margin:0 0 .9rem;
+  font-variant-numeric:tabular-nums}
+.forat{display:inline-block;min-width:1.7em;padding:0 .25em;text-align:center;
+  border:2.5px dashed var(--blau);border-radius:10px;line-height:1.25}
+.forat.ple{border-style:solid;background:var(--blau-suau)}
 
 /* =============================================================== quadrats ====
    2.2: dos dibuixos per triar. El rètol de sota només surt quan ja s'ha
@@ -260,6 +273,10 @@ svg.toca{cursor:pointer}
 .sub-rotul b{color:var(--blau-text);margin-right:.35rem}
 .subbarra .btn{min-width:3rem;font-size:1.4rem;line-height:1;padding:.4rem .9rem}
 .subbarra .btn:disabled{opacity:.35}
+/* Amb un enllaç a un exercici concret (?task=1.2) no es pot passar a un altre:
+   les fletxes s'amaguen però guarden el lloc, i el rètol queda centrat.
+   visibility:hidden també les treu del teclat i del lector de pantalla. */
+.subbarra.fixa .sub-enrere,.subbarra.fixa .sub-avant{visibility:hidden}
 
 /* Imprimir només el resum: js/tasca.js en posa una còpia a #zona-impressio. */
 #zona-impressio{display:none}
@@ -283,3 +300,6 @@ svg.toca{cursor:pointer}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
     transition:none!important;scroll-behavior:auto!important}
 }
+
+/* Els blocs de la 3.1 i la 3.2 ja no porten rètol ni peu: el lloc buit no es veu. */
+.zona-et:empty,.zona-peu:empty{display:none}

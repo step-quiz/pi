@@ -32,14 +32,16 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 
 | Enllaç | Què obre |
 |---|---|
-| `caixa-eines?task=0` | Taules: 0.1 La taula · 0.2 Troba el resultat a la taula |
+| `caixa-eines?task=0` | Taules: 0.1 La taula · 0.2 Troba el resultat a la taula · 0.3 El número que falta |
 | `caixa-eines?task=1` | Rectangles: 1.1 Fes un rectangle · 1.2 El rectangle d'una multiplicació · 1.3 Gira el rectangle · 1.4 Parteix el rectangle |
 | `caixa-eines?task=2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat |
 | `caixa-eines?task=3` | Nombres: 3.1 Centenes, desenes i unitats · 3.2 Fes el nombre |
 | `caixa-eines?task=4` | Ordre: 4.1 Mira l'ordre · 4.2 Què es fa primer? |
 
-Afegint el número de la subtasca s'hi va directament: `caixa-eines?task=1.2`. Les tasques
-tancades (0.2, 1.2, 2.2, 3.2 i 4.2) acaben amb un codi de verificació, que es llegeix a
+Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
+exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
+`caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
+tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2) acaben amb un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 
 Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).

@@ -35,7 +35,8 @@
        final el símbol, en aquest ordre (docs/CRITERIS-DISSENY.md, regla 5).
      · comptador(): el control [−] 3 [+], igual a tots els mòduls.
      · subDemanada(tasca): ?task=1.3 obre la subtasca 3 NOMÉS de la tasca 1.
-       A l'original només un mòdul tenia subtasques; aquí en tenen tots.
+       A l'original només un mòdul tenia subtasques; aquí en tenen tots. Amb
+       un enllaç així, la barra de subtasques no té fletxes (.subbarra.fixa).
    ========================================================================== */
 
 window.CE = (function () {
@@ -202,6 +203,12 @@ window.CE = (function () {
     const enrere = $(".sub-enrere", arrel);
     const avant = $(".sub-avant", arrel);
     const rotul = $(".sub-rotul", arrel);
+    // Un enllaç a un exercici concret (?task=1.2) porta a aquell exercici i prou:
+    // la barra diu on s'és, però les fletxes no hi són. Val per a totes les
+    // pestanyes, també per a Taules, que s'obre per la 0.1. Amb l'enllaç a tota
+    // l'eina (?task=1) les fletxes hi són.
+    const barra = $(".subbarra", arrel);
+    if (barra && window.CE.demanada) barra.classList.add("fixa");
     const pestanya = $('.segment[data-mod="' + arrel.id.replace("mod-", "") + '"]');
     const tasca = pestanya ? pestanya.dataset.tasca : "";
     let ara = 1;

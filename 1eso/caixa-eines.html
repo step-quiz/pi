@@ -37,25 +37,29 @@
     <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
-  <!-- 0.1 · la targeta de les taules, amb el rectangle de cada fila -->
+  <!-- 0.1 · la multiplicació, amb el seu rectangle; la taula sencera, plegada -->
   <div class="subtasca" data-sub="1">
     <div class="targeta">
       <div class="cap">
         <div><h2 data-text="0.1.titol"></h2><p class="ajuda" data-text="0.1.ajuda"></p></div>
         <span class="marca" id="tt-marca" data-text="comu.exemple"></span>
       </div>
-      <div class="pastilles numeros" id="tt-pastilles" role="group" aria-label="Taules"></div>
+      <p class="et-pastilles" data-text="0.1.et_a"></p>
+      <div class="pastilles numeros" id="tt-pastilles" role="group" aria-label="Primer número"></div>
+      <p class="et-pastilles" data-text="0.1.et_b"></p>
+      <div class="pastilles numeros" id="tt-per" role="group" aria-label="Segon número"></div>
       <div class="taula-i-dibuix">
+        <svg class="llenc quadricula" id="tt-svg" viewBox="0 0 340 340" role="img"></svg>
         <div>
-          <h3 class="taula-nom" id="tt-nom"></h3>
-          <div class="llista-taula" id="tt-llista"></div>
-        </div>
-        <div>
-          <svg class="llenc quadricula" id="tt-svg" viewBox="0 0 340 340" role="img"></svg>
           <div class="lectura" id="tt-lectura" aria-live="polite"></div>
+          <div class="clau-us" id="tt-clau"></div>
         </div>
       </div>
-      <div class="clau-us" id="tt-clau"></div>
+      <div class="passa"><button class="btn tenyit" id="tt-veure" aria-expanded="false" aria-controls="tt-sencera"></button></div>
+      <div class="taula-sencera" id="tt-sencera" hidden>
+        <h3 class="taula-nom" id="tt-nom"></h3>
+        <div class="llista-taula" id="tt-llista"></div>
+      </div>
     </div>
   </div>
 
@@ -75,6 +79,26 @@
         <div class="passa"><button class="btn" id="tb-seguent" disabled></button></div>
       </div>
       <div class="final-tasca" id="tb-final" hidden></div>
+    </div>
+  </div>
+
+  <!-- 0.3 · tasca tancada: el número que falta, buscat a la taula -->
+  <div class="subtasca" data-sub="3" hidden>
+    <div class="targeta">
+      <h2 data-text="0.3.titol"></h2>
+      <p class="ajuda" data-text="0.3.ajuda"></p>
+      <div id="tf-recorregut"></div>
+      <div class="represa" id="tf-represa" hidden></div>
+      <div id="tf-cos">
+        <p class="pregunta-gran" data-text="0.3.pregunta"></p>
+        <p class="expr-falta" id="tf-expr" role="img"></p>
+        <div class="pastilles numeros" id="tf-pastilles" role="group" aria-label="Taules"></div>
+        <h3 class="taula-nom" id="tf-nom"></h3>
+        <div class="llista-taula" id="tf-llista"></div>
+        <div class="avis neutre" id="tf-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="tf-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="tf-final" hidden></div>
     </div>
   </div>
 </section>
@@ -217,7 +241,6 @@
       </div>
       <div class="comptadors"><div id="n1-c"></div><div id="n1-d"></div><div id="n1-u"></div></div>
       <div class="blocs" id="n1-blocs" role="img"></div>
-      <div class="lectura" id="n1-lectura" aria-live="polite"></div>
       <div id="n1-taula"></div>
       <div class="lectura" id="n1-nombre" aria-live="polite"></div>
       <div class="llegenda">

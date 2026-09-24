@@ -50,8 +50,11 @@ DIANA = 24
 # Els «què fer» provoquen l'estat difícil: un error amb pista, el resum final…
 ESTATS = [
     ("0.1 La taula",                     "caixa-eines.html", "?task=0.1", None),
+    ("0.1 La taula · tota la taula",     "caixa-eines.html", "?task=0.1", "taula_oberta"),
     ("0.2 Troba-ho · pista",             "caixa-eines.html", "?task=0.2", "taula_error"),
     ("0.2 Troba-ho · resum",             "caixa-eines.html", "?task=0.2", "taula_final"),
+    ("0.3 El número que falta · pista",  "caixa-eines.html", "?task=0.3", "falta_error"),
+    ("0.3 El número que falta · resolt", "caixa-eines.html", "?task=0.3", "falta_be"),
     ("1.1 Fes un rectangle",             "caixa-eines.html", "?task=1.1", None),
     ("1.2 El rectangle · pista",         "caixa-eines.html", "?task=1.2", "rect_error"),
     ("1.2 El rectangle · ensenyat",      "caixa-eines.html", "?task=1.2", "rect_dos_errors"),
@@ -180,7 +183,9 @@ def dos_numeros(pg, sel):
 
 def prepara(pg, accio):
     """Porta la pàgina a l'estat difícil que es vol auditar."""
-    if accio in ("taula_error", "taula_final"):
+    if accio == "taula_oberta":
+        pg.click("#tt-veure")
+    elif accio in ("taula_error", "taula_final"):
         for pas in range(5 if accio == "taula_final" else 1):
             a, b = dos_numeros(pg, "#tb-pregunta")
             if accio == "taula_error":
@@ -190,6 +195,14 @@ def prepara(pg, accio):
             pg.click(f"#tb-pastilles .pastilla >> nth={a - 1}")
             pg.click(f"#tb-llista .fila-taula >> nth={b - 1}")
             pg.click("#tb-seguent")
+    elif accio in ("falta_error", "falta_be"):
+        k, p_ = dos_numeros(pg, "#tf-expr")
+        if accio == "falta_error":
+            pg.click(f"#tf-pastilles .pastilla >> nth={(k % 10)}")        # una altra taula
+            pg.click("#tf-llista .fila-taula >> nth=0")
+        else:
+            pg.click(f"#tf-pastilles .pastilla >> nth={k - 1}")
+            pg.click(f"#tf-llista .fila-taula >> nth={p_ // k - 1}")
     elif accio in ("rect_error", "rect_dos_errors"):
         toca_cella(pg, "#r2-svg", 9, 9)
         if accio == "rect_dos_errors":

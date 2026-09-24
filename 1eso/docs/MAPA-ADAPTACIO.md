@@ -91,15 +91,15 @@ decimals periòdics). De cada una només s'agafa el nucli. La resta no es rebaix
 ## 5. La unitat 1, activitat per activitat
 
 **El pla de la caixa d'eines el va validar el docent el 23 de setembre de 2026: cinc eines.**
-Taules, rectangles, quadrats, nombres i ordre de les operacions. El nucli de la fitxa continua
-sent una proposta fins que s'escrigui.
+Taules, rectangles, quadrats, nombres i ordre de les operacions. La fitxa n'agafa, de moment,
+els rectangles i els quadrats (vegeu les decisions, al final de l'apartat).
 
 Les catorze activitats del grup, i què en fa aquest material. «Fitxa» vol dir que hi ha d'anar
 quan s'escrigui; la caixa ja hi és.
 
 | Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
 |---|---|---|---|
-| 1_1 i 1_3 · Taules de multiplicar | Completar les taules, triar les més difícils de recordar, el número que falta (7 · … = 56) | Les taules no es recorden: es busquen a la targeta. Triar les més difícils de recordar no hi és, perquè res no es demana de memòria. El número que falta es busca a la fila de la targeta | Targeta · caixa 0.1 i 0.2 · fitxa |
+| 1_1 i 1_3 · Taules de multiplicar | Completar les taules, triar les més difícils de recordar, el número que falta (7 · … = 56) | Les taules no es recorden: es busquen a la targeta. Triar les més difícils de recordar no hi és, perquè res no es demana de memòria. El número que falta es busca a la fila de la targeta | Targeta · caixa 0.1, 0.2 i 0.3 · fitxa |
 | 1_4 · Propietats de la multiplicació | Commutativa, el zero, multiplicar per 10 i per 100, distributiva (7 · 101 = 700 + 7) | Commutativa: el rectangle girat. El zero: 0 files, cap quadret. Distributiva: partir pel 10, 3 · 12 = 30 + 6. Per 10 sí; per 100, no: passa de 999 | Caixa 1.1, 1.3 i 1.4 · fitxa |
 | 1_5 i 1_15 · Repàs | Els mateixos continguts, i marcar les multiplicacions mal fetes | Els mateixos casos. Marcar les multiplicacions mal fetes, amb la targeta al davant, és un bon exercici de fitxa | Fitxa |
 | 1_6 i l'examen de la unitat | Exàmens | Un examen DOCX amb el motor comú, amb la targeta al davant | Per fer |
@@ -120,12 +120,17 @@ quan s'escrigui; la caixa ja hi és.
 - Les potències que no són quadrats, les seves últimes xifres i les seves propietats.
 - A l'ordre de les operacions: les potències, les restes i les divisions.
 
-**Per decidir amb el docent quan es faci la fitxa:**
+**Decisions del docent:**
 
-- Si la fitxa porta les cinc parts de la caixa, o només el nucli (rectangles i quadrats) i les
-  altres tres es treballen amb la caixa.
-- Si el número que falta (7 · … = 56) ha de ser també una subtasca de la caixa, la 0.3. Es fa
-  amb la targeta: la taula del 7 i baixar fins al 56.
+- 23 de setembre de 2026: la caixa d'eines, amb cinc eines.
+- 24 de setembre de 2026: la subtasca 0.3, el número que falta. Es fa amb la targeta: la taula
+  del número que ja es té, i baixar fins que surt el resultat.
+- 24 de setembre de 2026: la fitxa, de moment només amb rectangles i quadrats, per veure com
+  queda. Els nombres (centenes, desenes i unitats) i l'ordre de les operacions, de moment, només
+  a la caixa.
+- 24 de setembre de 2026, després d'una revisió externa: a la 0.1, tota la taula plegada darrere
+  d'un botó; a la 3.1, fora les repeticions; `verifica.html`, sense l'evolució dels codis, de
+  moment.
 
 ---
 

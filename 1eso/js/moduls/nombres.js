@@ -72,12 +72,11 @@
   }
 
   /** Els blocs, amb el nom de cada zona i quants n'hi ha. */
+  /** Els blocs, sense rètols ni peus: ja els diuen els comptadors de sobre, i la
+      taula de sota (decisió del docent, 24 de setembre de 2026: treure les
+      repeticions). */
   function pintaBlocs(cont, o) {
-    Q.blocs(cont, {
-      c: o.c, d: o.d, u: o.u,
-      ets: [txt("3.1.et_c"), txt("3.1.et_d"), txt("3.1.et_u")],
-      peus: [quants(o.c, "3.1.quadrat", "3.1.quadrats"), quants(o.d, "3.1.columna", "3.1.columnes"),
-             quants(o.u, "3.1.solt", "3.1.solts")] });
+    Q.blocs(cont, { c: o.c, d: o.d, u: o.u });
   }
 
   /** Els tres comptadors d'un panell. `aoCanviar(o)` rep {c, d, u}. */
@@ -101,7 +100,6 @@
   function pinta31(o) {
     const n = valor(o);
     pintaBlocs($("#n1-blocs"), o);
-    $("#n1-lectura").innerHTML = lectura([compta(o)]);
     $("#n1-taula").innerHTML = taulaPos(o);
     $("#n1-nombre").innerHTML = lectura(null, String(n)) + lectura([txt("3.1.llegeix", { nom: nomDe(n) })]);
     $("#n1-marca").hidden = !(o.c === EX31.c && o.d === EX31.d && o.u === EX31.u);

@@ -68,7 +68,7 @@ pantalla van a `css/app.css`.
 
 | Tasca | Pestanya | Fitxer | Subtasques | S'obre amb |
 |---|---|---|---|---|
-| 0 | Taules | `taules.js` | 0.1 La taula · **0.2 Troba el resultat a la taula** | 7 · 8 = 56, el cas de la clau de la targeta |
+| 0 | Taules | `taules.js` | 0.1 La taula · **0.2 Troba el resultat a la taula** · **0.3 El número que falta** | 7 · 8 = 56, el cas de la clau de la targeta |
 | 1 | Rectangles | `rectangles.js` | 1.1 Fes un rectangle · **1.2 El rectangle d'una multiplicació** · 1.3 Gira el rectangle · 1.4 Parteix el rectangle | 3 · 4; 3 · 12 a la 1.4 |
 | 2 | Quadrats | `quadrats.js` | 2.1 El quadrat d'un nombre · **2.2 Quin dibuix és?** · 2.3 El costat del quadrat | 3² = 9; 16 quadrets a la 2.3 |
 | 3 | Nombres | `nombres.js` | 3.1 Centenes, desenes i unitats · **3.2 Fes el nombre** | 243, «dos-cents quaranta-tres» |
@@ -123,7 +123,7 @@ final.
 
 | Peça | Per a què |
 |---|---|
-| `CE.subDemanada(tasca)` | La subtasca que demana l'enllaç (`?task=1.3`), només si és d'aquesta tasca. La pestanya Taules, que també surt, s'obre per la 0.1 |
+| `CE.subDemanada(tasca)` | La subtasca que demana l'enllaç (`?task=1.3`), només si és d'aquesta tasca. La pestanya Taules, que també surt, s'obre per la 0.1. Amb un enllaç així, la barra de subtasques no té fletxes (`.subbarra.fixa`): l'enllaç porta a aquell exercici i prou |
 | `quants`, `rect`, `deN`, `delNombre`, `elNombre` | La gramàtica: «1 quadret» i «12 quadrets», «3 files de 4 quadrets» i «5 files d'11 quadrets», «la taula de l'1» i «la taula del 7», «l'11» |
 | `lectura(paraules, símbols)` | El bloc de sota de cada dibuix: primer les paraules i al final el símbol |
 | `comptador(cont, …)` | El control [−] 3 [+], amb els extrems desactivats |
@@ -144,6 +144,7 @@ sol pas a la vista, la retroacció sempre amb la mateixa forma i un final amb re
 | | Què es contesta | Primer error | Segon error |
 |---|---|---|---|
 | 0.2 | La fila de la taula | La pista diu si falla la taula o la fila | Es marca la fila bona |
+| 0.3 | La fila on surt el resultat | La pista diu si falla la taula o la fila | Es marca la fila bona i s'omple el forat |
 | 1.2 | El quadret on acaba el rectangle | Es marquen els dos números de la vora | Es dibuixa el rectangle bo |
 | 2.2 | Un dels dos dibuixos | El dibuix tocat es queda amb el seu rètol, «4 · 2 = 8. No és un quadrat» | No hi arriba: el segon intent és l'altre |
 | 3.2 | Els blocs, i «Comprova» | Surt la taula de les xifres | Es posen els blocs bons |
@@ -152,7 +153,7 @@ sol pas a la vista, la retroacció sempre amb la mateixa forma i un final amb re
 Tres detalls que valen per a totes:
 
 - **El rectangle girat és bo.** A la 1.2, 5 files de 2 per 2 · 5 és correcte; a la 0.2, la fila
-  7 · 6 per 6 · 7 també. Tenen els mateixos quadrets, i la 1.3 ho ensenya.
+  7 · 6 per 6 · 7 també, i a la 0.3, la fila 4 · 5 = 20 per … · 4 = 20. Tenen els mateixos quadrets, i la 1.3 ho ensenya.
 - **La resposta no es veu mentre es fa.** A la 3.2 el nombre no surt fins que es comprova; a la
   2.2 els rètols no surten fins que es toca. Si no, n'hi hauria prou amb provar fins que
   coincidís.

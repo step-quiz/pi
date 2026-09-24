@@ -133,18 +133,18 @@ def main():
         # ------------------------------------------------------------------
         titol("TOTES LES SUBTASQUES S'OBREN")
         obre(pg)
-        for mod, n in [("taules", 2), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2)]:
+        for mod, n in [("taules", 3), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2)]:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
                 pg.wait_for_timeout(120)
                 revisa_pantalla(pg, f"{mod} {sub}")
-        print(f"  13 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
+        print(f"  14 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
 
         # ------------------------------------------------------------------
         titol("DADES DELS MÒDULS")
         d = pg.evaluate("""() => ({
             parteix: CE.dades.rect.PARTEIX, per_fer: CE.dades.rect.PER_FER,
-            gira: CE.dades.rect.GIRA, dificils: CE.dades.taules.DIFICILS,
+            gira: CE.dades.rect.GIRA, dificils: CE.dades.taules.DIFICILS, falta: CE.dades.taules.FALTA,
             ns: CE.dades.quadrat.NS, zero: CE.dades.cdu.AMB_ZERO, sense: CE.dades.cdu.SENSE_ZERO,
             expr: CE.dades.ordre.EXPR.map(e => Object.assign({ passos: CE.dades.ordre.passos(e),
                                                               escrit: CE.dades.ordre.escriu(e) }, e)) })""")
@@ -163,6 +163,10 @@ def main():
         for a, b in d["per_fer"] + [[g["a"], g["b"]] for g in d["gira"]]:
             comprova(1 < a <= 10 and 1 < b <= 10, f"rectangles: {a} · {b} no és de la targeta")
         comprova(all(6 <= a <= 9 and 6 <= b <= 9 for a, b in d["dificils"]), "0.2: hi ha multiplicacions fàcils")
+        comprova(all(2 <= c["a"] <= 9 and 2 <= c["b"] <= 9 and c["a"] != c["b"] for c in d["falta"]),
+                 "0.3: hi ha multiplicacions que no són de la targeta, o amb els dos números iguals")
+        comprova(sum(c["falta"] == "b" for c in d["falta"]) >= 3 and sum(c["falta"] == "a" for c in d["falta"]) >= 2,
+                 "0.3: calen com a mínim tres casos amb el forat al segon número i dos al primer")
         comprova(2 not in d["ns"], "2.2: el 2 no hi pot ser (2² i 2 · 2 són el mateix dibuix)")
         comprova(all("0" in str(n) for n in d["zero"]), "3.2: AMB_ZERO té nombres sense zero")
         comprova(all(n <= 999 for n in d["zero"] + d["sense"]), "3.2: nombres de més de 999")
@@ -200,16 +204,25 @@ def main():
         modul(pg, "taules", 1)
         comprova("7 · 8 = 56" in text(pg, "#tt-lectura"), "0.1 no s'obre amb 7 · 8 = 56")
         comprova("Busca la taula del 7." in text(pg, "#tt-clau"), "0.1: la clau no és la de la targeta")
+        comprova(pg.is_hidden("#tt-sencera") and pg.get_attribute("#tt-veure", "aria-expanded") == "false"
+                 and text(pg, "#tt-veure") == "Veure tota la taula", "0.1: la taula ha de començar plegada")
         pg.click("#tt-pastilles .pastilla >> nth=0")
-        comprova(text(pg, "#tt-nom") == "La taula de l'1", "0.1: «La taula de l'1»")
-        pg.click("#tt-llista .fila-taula >> nth=0")
+        pg.click("#tt-per .pastilla >> nth=0")
         comprova("1 fila d'1 quadret." in text(pg, "#tt-lectura"), "0.1: «1 fila d'1 quadret.»")
         comprova("En total, 1 quadret." in text(pg, "#tt-lectura"), "0.1: «En total, 1 quadret.»")
+        pg.click("#tt-veure")
+        comprova(pg.is_visible("#tt-sencera") and pg.get_attribute("#tt-veure", "aria-expanded") == "true"
+                 and text(pg, "#tt-veure") == "Amaga la taula", "0.1: el botó no obre la taula")
+        comprova(text(pg, "#tt-nom") == "La taula de l'1", "0.1: «La taula de l'1»")
         pg.click("#tt-pastilles .pastilla >> nth=9")
         pg.click("#tt-llista .fila-taula >> nth=9")
         comprova("10 · 10 = 100" in text(pg, "#tt-lectura"), "0.1: 10 · 10 = 100")
+        comprova(pg.get_attribute("#tt-per .pastilla >> nth=9", "aria-pressed") == "true",
+                 "0.1: tocar una fila de la taula no marca el segon número")
         comprova(pg.is_hidden("#tt-marca"), "0.1: la marca «Exemple» es queda amb un altre cas")
-        print("  s'obre amb 7 · 8; «de l'1», «d'1 quadret», «1 quadret»; 10 · 10 = 100")
+        pg.click("#tt-veure")
+        comprova(pg.is_hidden("#tt-sencera"), "0.1: el botó no plega la taula")
+        print("  s'obre amb 7 · 8 i la taula plegada; «de l'1», «d'1 quadret»; la fila i la pastilla, lligades")
 
         # ------------------------------------------------------------------
         titol("0.2 · TROBA EL RESULTAT A LA TAULA")
@@ -253,7 +266,10 @@ def main():
         pg.click("#tb-seguent")
         # pas 4: la fila girada
         a, b = pregunta_02(); taula(b); fila(a)
-        comprova("És el mateix que" in text(pg, "#tb-avis"), "0.2: la fila girada no compta")
+        av = text(pg, "#tb-avis")
+        # Amb 7 · 7 la fila girada és la mateixa fila: la caixa no ha de dir que és girada.
+        comprova(av.startswith("Correcte.") and (("És el mateix que" in av) == (a != b)),
+                 f"0.2: la fila girada no compta: «{av}»")
         pg.click("#tb-seguent")
         # pas 5
         a, b = pregunta_02(); taula(a); fila(b)
@@ -264,6 +280,69 @@ def main():
         comprova(bool(codi), "0.2: no surt el codi")
         codis["0.2"] = (codi, "Troba el resultat a la taula", (5, 3, 1, 1))
         print(f"  pista de la taula, pista de la fila, fila girada, fila ensenyada; codi {codi}")
+
+        # ------------------------------------------------------------------
+        titol("0.3 · EL NÚMERO QUE FALTA")
+        obre(pg)
+        modul(pg, "taules", 3)
+
+        def pregunta_03():
+            """(el número que es té, el que falta, el resultat, si falta el primer)"""
+            t = text(pg, "#tf-expr")
+            k, p_ = [int(x) for x in re.findall(r"\d+", t)]
+            return k, p_ // k, p_, t.strip().startswith("…")
+
+        def taula3(n):
+            pg.click(f"#tf-pastilles .pastilla >> nth={n - 1}")
+            pg.wait_for_timeout(40)
+
+        def fila3(n):
+            pg.click(f"#tf-llista .fila-taula >> nth={n - 1}")
+            pg.wait_for_timeout(40)
+
+        vist_primer = vist_segon = False
+        # pas 1: la taula dolenta, i després bé → correcte amb pista
+        k, x, p_, fp = pregunta_03()
+        vist_primer |= fp; vist_segon |= not fp
+        comprova(text(pg, "#tf-avis") == "Tria una taula.", "0.3: l'avís del principi")
+        comprova("…" in text(pg, "#tf-expr"), "0.3: el forat no es veu")
+        taula3(next(n for n in range(2, 11) if n not in (k, x)))
+        comprova(text(pg, "#tf-avis") == f"Ara busca la fila on surt el {p_}.", "0.3: l'avís després de triar la taula")
+        fila3(1)
+        av = text(pg, "#tf-avis")
+        comprova(av.startswith("Incorrecte.") and f"Tria la taula del {k}" in av, f"0.3: pista de la taula: «{av}»")
+        taula3(k); fila3(x)
+        av = text(pg, "#tf-avis")
+        comprova(av.startswith("Correcte.") and f"El número que falta és el {x}." in av, f"0.3: correcte amb pista: «{av}»")
+        comprova("…" not in text(pg, "#tf-expr") and str(x) in text(pg, "#tf-expr"), "0.3: el forat no s'omple")
+        comprova(("És el mateix que" in av) == fp, "0.3: el girat només s'ha de dir quan falta el primer número")
+        pg.click("#tf-seguent")
+        # pas 2: bé a la primera
+        k, x, p_, fp = pregunta_03(); vist_primer |= fp; vist_segon |= not fp
+        taula3(k); fila3(x)
+        comprova(text(pg, "#tf-avis").startswith("Correcte."), "0.3: resposta correcta")
+        pg.click("#tf-seguent")
+        # pas 3: dos errors → la caixa ensenya la fila
+        k, x, p_, fp = pregunta_03(); vist_primer |= fp; vist_segon |= not fp
+        taula3(k); fila3(x % 10 + 1)
+        comprova(f"Baixa per la taula fins que trobis el {p_}." in text(pg, "#tf-avis"), "0.3: pista de la fila")
+        fila3((x + 1) % 10 + 1)
+        av = text(pg, "#tf-avis")
+        comprova(av.startswith("Incorrecte. Mira la fila marcada") and f"el {x}." in av, f"0.3: segon error: «{av}»")
+        comprova(pg.locator("#tf-llista .fila-taula.bona").count() == 1, "0.3: no es marca la fila bona")
+        pg.click("#tf-seguent")
+        # passos 4 i 5: bé
+        for _ in range(2):
+            k, x, p_, fp = pregunta_03(); vist_primer |= fp; vist_segon |= not fp
+            taula3(k); fila3(x)
+            pg.click("#tf-seguent")
+        comprova(vist_primer and vist_segon, "0.3: han de sortir forats al primer i al segon número")
+        nums, codi = final_de(pg, "tf")
+        comprova(nums == {"Passos": "5", "Correctes al primer intent": "3", "Correctes amb una pista": "1",
+                          "Amb la resposta ensenyada": "1"}, f"0.3: el resum no quadra: {nums}")
+        comprova(bool(codi), "0.3: no surt el codi")
+        codis["0.3"] = (codi, "El número que falta", (5, 3, 1, 1))
+        print(f"  forat al primer i al segon número, pista de la taula i de la fila, ensenyat; codi {codi}")
 
         # ------------------------------------------------------------------
         titol("1.1 · FES UN RECTANGLE")
@@ -417,15 +496,18 @@ def main():
             pg.click("#n1-d [data-f=menys]")
         for _ in range(2):
             pg.click("#n1-u [data-f=menys]")
-        comprova("vint-i-u" in text(pg, "#n1-nombre") and "0 centenes, 2 desenes i 1 unitat." in text(pg, "#n1-lectura"),
+        comprova("vint-i-u" in text(pg, "#n1-nombre")
+                 and "0 centenes, 2 desenes i 1 unitat." in (pg.get_attribute("#n1-blocs", "aria-label") or ""),
                  "3.1: 21 → vint-i-u, «1 unitat»")
+        comprova(pg.locator("#n1-blocs .zona-et:visible, #n1-blocs .zona-peu:visible").count() == 0,
+                 "3.1: el dibuix torna a portar rètols o peus, que repeteixen els comptadors")
         for _ in range(12):                      # fins que el + s'apagui: ha de ser al 9
             if pg.locator("#n1-u [data-f=mes]").is_disabled():
                 break
             pg.click("#n1-u [data-f=mes]")
         comprova(text(pg, "#n1-u output") == "9" and pg.locator("#n1-u [data-f=mes]").is_disabled(),
                  "3.1: el + de les unitats no s'apaga al 9")
-        print("  243; 21 en singular; no es pot passar de 9")
+        print("  243; 21 en singular; sense rètols repetits; no es pot passar de 9")
 
         # ------------------------------------------------------------------
         titol("3.2 · FES EL NOMBRE")
@@ -527,11 +609,16 @@ def main():
         comprova(pg.is_hidden(".tornar"), "?task=1.3: l'enllaç a l'inici es veu")
         pg.click('.segment[data-mod="taules"]')
         comprova(text(pg, "#mod-taules .sub-rotul").startswith("0.1"), "?task=1.3: les Taules no s'obren per la 0.1")
+        comprova(not pg.is_visible("#mod-taules .sub-avant"), "?task=1.3: a les Taules es veuen les fletxes")
+        pg.click('.segment[data-mod="rect"]')
+        comprova(not pg.is_visible("#mod-rect .sub-avant") and not pg.is_visible("#mod-rect .sub-enrere"),
+                 "?task=1.3: es veuen les fletxes per passar a un altre exercici")
         obre(pg, CAIXA + "?task=3")
         comprova(text(pg, "#mod-cdu .sub-rotul").startswith("3.1"), "?task=3 no obre la 3.1")
+        comprova(pg.is_visible("#mod-cdu .sub-avant"), "?task=3: amb l'enllaç a tota l'eina, les fletxes hi han de ser")
         obre(pg, CAIXA + "?task=0.2")
         comprova(text(pg, "#mod-taules .sub-rotul").startswith("0.2"), "?task=0.2 no obre la 0.2")
-        print("  represa al pas 2; claus pi1-; ?task=1.3, ?task=3 i ?task=0.2")
+        print("  represa al pas 2; claus pi1-; ?task=1.3 sense fletxes, ?task=3 amb fletxes, ?task=0.2")
 
         # ------------------------------------------------------------------
         titol("CONSOLA")
