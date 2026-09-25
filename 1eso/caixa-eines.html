@@ -26,6 +26,10 @@
     <button class="segment" role="tab" data-tasca="2" data-mod="quadrat" aria-selected="false">Quadrats</button>
     <button class="segment" role="tab" data-tasca="3" data-mod="cdu" aria-selected="false">Nombres</button>
     <button class="segment" role="tab" data-tasca="4" data-mod="ordre" aria-selected="false">Ordre</button>
+    <button class="segment" role="tab" data-tasca="5" data-mod="multiples" aria-selected="false">Múltiples</button>
+    <button class="segment" role="tab" data-tasca="6" data-mod="repartir" aria-selected="false">Repartir</button>
+    <button class="segment" role="tab" data-tasca="7" data-mod="divisors" aria-selected="false">Divisors</button>
+    <button class="segment" role="tab" data-tasca="8" data-mod="primers" aria-selected="false">Primers</button>
   </div>
 </header>
 
@@ -312,6 +316,191 @@
     </div>
   </div>
 </section>
+
+<!-- ============ 5 · MÚLTIPLES (unitat 2) ============ -->
+<section id="mod-multiples" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="5.1.titol"></h2><p class="ajuda" data-text="5.1.ajuda"></p></div>
+        <span class="marca" id="m1-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles numeros" id="m1-pastilles" role="group" aria-label="Els múltiples de"></div>
+      <svg class="llenc graella100" id="m1-svg" viewBox="0 0 380 380" role="img"></svg>
+      <div class="lectura" id="m1-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="5.2.titol"></h2>
+      <p class="ajuda" data-text="5.2.ajuda"></p>
+      <div id="m2-recorregut"></div>
+      <div class="represa" id="m2-represa" hidden></div>
+      <div id="m2-cos">
+        <p class="pregunta-gran" id="m2-pregunta"></p>
+        <div class="opcions-sino" id="m2-opcions" role="group" aria-label="Sí o no"></div>
+        <div class="avis neutre" id="m2-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="m2-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="m2-final" hidden></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="3" hidden>
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="5.3.titol"></h2><p class="ajuda" data-text="5.3.ajuda"></p></div>
+        <span class="marca" id="t3-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="t3-c"></div><div id="t3-d"></div><div id="t3-u"></div></div>
+      <p class="nombre-gran" id="t3-nombre" aria-live="polite"></p>
+      <div id="t3-trucs" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="4" hidden>
+    <div class="targeta">
+      <h2 data-text="5.4.titol"></h2>
+      <p class="ajuda" data-text="5.4.ajuda"></p>
+      <div id="m4-recorregut"></div>
+      <div class="represa" id="m4-represa" hidden></div>
+      <div id="m4-cos">
+        <p class="pregunta-gran" id="m4-pregunta"></p>
+        <div class="opcions-sino" id="m4-opcions" role="group" aria-label="Sí o no"></div>
+        <div class="avis neutre" id="m4-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="m4-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="m4-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · REPARTIR (unitat 2) ============ -->
+<section id="mod-repartir" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="6.1.titol"></h2><p class="ajuda" data-text="6.1.ajuda"></p></div>
+        <span class="marca" id="r6-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="r6-n"></div><div id="r6-k"></div></div>
+      <svg class="llenc repartir" id="r6-svg" viewBox="0 0 500 300" role="img"></svg>
+      <div class="lectura" id="r6-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="6.2.titol"></h2>
+      <p class="ajuda" data-text="6.2.ajuda"></p>
+      <div id="s6-recorregut"></div>
+      <div class="represa" id="s6-represa" hidden></div>
+      <div id="s6-cos">
+        <p class="pregunta-gran" id="s6-pregunta"></p>
+        <div class="opcions-sino" id="s6-opcions" role="group" aria-label="Sí o no"></div>
+        <svg class="llenc repartir" id="s6-svg" viewBox="0 0 500 300" role="img" hidden></svg>
+        <div class="avis neutre" id="s6-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="s6-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="s6-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · DIVISORS (unitat 2) ============ -->
+<section id="mod-divisors" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="7.1.titol"></h2><p class="ajuda" data-text="7.1.ajuda"></p></div>
+        <span class="marca" id="d7-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="d7-n"></div></div>
+      <svg class="llenc rectangles-de" id="d7-svg" viewBox="0 0 420 200" role="img"></svg>
+      <div class="lectura" id="d7-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="7.2.titol"></h2>
+      <p class="ajuda" data-text="7.2.ajuda"></p>
+      <div id="d8-recorregut"></div>
+      <div class="represa" id="d8-represa" hidden></div>
+      <div id="d8-cos">
+        <p class="pregunta-gran" id="d8-pregunta"></p>
+        <div class="pastilles numeros molts" id="d8-pastilles" role="group" aria-label="Els nombres per marcar"></div>
+        <div class="passa"><button class="btn" id="d8-comprova" data-text="comu.comprova"></button></div>
+        <svg class="llenc rectangles-de" id="d8-svg" viewBox="0 0 420 200" role="img" hidden></svg>
+        <div class="avis neutre" id="d8-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="d8-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="d8-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 · PRIMERS (unitat 2) ============ -->
+<section id="mod-primers" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="8.1.titol"></h2><p class="ajuda" data-text="8.1.ajuda"></p></div>
+        <span class="marca" id="g8-marca" data-text="comu.exemple"></span>
+      </div>
+      <svg class="llenc graella100" id="g8-svg" viewBox="0 0 380 380" role="img"></svg>
+      <div class="lectura" id="g8-lectura" aria-live="polite"></div>
+      <div class="passa garbell-passos">
+        <button class="btn tenyit" id="g8-enrere" data-text="8.1.enrere"></button>
+        <button class="btn" id="g8-avant" data-text="8.1.avant"></button>
+        <button class="btn tenyit" id="g8-comenca" data-text="8.1.comenca"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="8.2.titol"></h2>
+      <p class="ajuda" data-text="8.2.ajuda"></p>
+      <div id="p8-recorregut"></div>
+      <div class="represa" id="p8-represa" hidden></div>
+      <div id="p8-cos">
+        <p class="pregunta-gran" id="p8-pregunta"></p>
+        <div class="opcions-sino" id="p8-opcions" role="group" aria-label="Sí o no"></div>
+        <svg class="llenc rectangles-de" id="p8-svg" viewBox="0 0 420 200" role="img" hidden></svg>
+        <div class="avis neutre" id="p8-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="p8-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="p8-final" hidden></div>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <!-- Les frases i el nucli primer; després el codi de verificació, les tasques
@@ -327,6 +516,10 @@
 <script src="js/moduls/quadrats.js"></script>
 <script src="js/moduls/nombres.js"></script>
 <script src="js/moduls/ordre.js"></script>
+<script src="js/moduls/multiples.js"></script>
+<script src="js/moduls/repartir.js"></script>
+<script src="js/moduls/divisors.js"></script>
+<script src="js/moduls/primers.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

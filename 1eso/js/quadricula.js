@@ -178,5 +178,61 @@
     });
   }
 
-  CE.q = { quadret, rectangle, graella, text, clau, taula, cellaTocada, fletxa, blocs, T };
+  /* =================================================== la graella de 100 ====== */
+
+  /* La graella de 100 de l'activitat dels múltiples del grup: els nombres de l'1 al
+     100 en deu files de deu. La fan servir la 5.1 (els múltiples) i la 8.1 (el
+     garbell). `estil(n)` diu com va cada nombre:
+       "marca"    pintat, com un quadret del rectangle
+       "primer"   pintat i encerclat
+       "ratllat"  amb una ratlla al damunt: ja no compta
+       null       tal com és                                                      */
+  const C = { m: 36, x: 10, y: 10, mida: 380 };                // viewBox 0 0 380 380
+  function graella100(svg, estil) {
+    svg.textContent = "";
+    graella(svg, C.x, C.y, 10, 10, C.m);
+    for (let n = 1; n <= 100; n++) {
+      const x = C.x + ((n - 1) % 10) * C.m, y = C.y + Math.floor((n - 1) / 10) * C.m;
+      const e = estil ? estil(n) : null;
+      if (e === "marca" || e === "primer") quadret(svg, x, y, C.m, "q");
+      if (e === "primer") svg.appendChild(el("circle", { cx: x + C.m / 2, cy: y + C.m / 2, r: C.m * 0.42, class: "q-cercle" }));
+      if (e === "ratllat") svg.appendChild(el("line", { x1: x + 5, y1: y + C.m - 5, x2: x + C.m - 5, y2: y + 5, class: "q-ratlla" }));
+      text(svg, x + C.m / 2, y + C.m / 2 + 1, n, e === "marca" || e === "primer" ? "q-text fort" : "q-num", n === 100 ? 12 : 14);
+    }
+  }
+
+  /* ============================================ els rectangles d'un nombre ====== */
+
+  /** Els rectangles que es poden fer amb n quadrets: [files, quadrets a cada fila],
+      amb files ≤ quadrets a cada fila, perquè el girat és el mateix rectangle. */
+  function rectanglesDe(n) {
+    const r = [];
+    for (let a = 1; a * a <= n; a++) if (n % a === 0) r.push([a, n / a]);
+    return r;
+  }
+  /** Els divisors de n, de petit a gran. */
+  function divisorsDe(n) {
+    const d = [];
+    rectanglesDe(n).forEach(([a, b]) => { d.push(a); if (b !== a) d.push(b); });
+    return d.sort((x, y) => x - y);
+  }
+  /** Tots els rectangles de n, un sota l'altre i a la mateixa escala, amb el seu
+      rètol («2 · 6»). La fila d'1 és la més llarga: mana la mida del quadret. */
+  function dibuixaRectangles(svg, n) {
+    svg.textContent = "";
+    const rs = rectanglesDe(n);
+    const ETIQ = 64, AMP = 420, AIRE = 16;
+    const m = Math.max(7, Math.min(26, (AMP - ETIQ - 8) / n));
+    let y = 8;
+    rs.forEach(([a, b]) => {
+      text(svg, ETIQ - 12, y + (a * m) / 2 + 1, a + " · " + b, "q-text fort", 16, "end");
+      rectangle(svg, ETIQ, y, a, b, m, "q");
+      y += a * m + AIRE;
+    });
+    svg.setAttribute("viewBox", "0 0 " + AMP + " " + Math.max(40, Math.round(y - AIRE + 8)));
+    return rs;
+  }
+
+  CE.q = { quadret, rectangle, graella, text, clau, taula, cellaTocada, fletxa, blocs, T,
+           graella100, rectanglesDe, divisorsDe, dibuixaRectangles };
 })();

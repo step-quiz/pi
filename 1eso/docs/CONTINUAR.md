@@ -19,6 +19,11 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
   les frases. Com està feta: [`ARQUITECTURA.md`](ARQUITECTURA.md). Per què és així:
   [`CRITERIS-DISSENY.md`](CRITERIS-DISSENY.md), apartat 3. Què fa de cada activitat del grup:
   [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 5.
+- **La caixa d'eines de la unitat 2**, a la mateixa pàgina: quatre eines més (múltiples,
+  repartir, divisors i primers), deu subtasques i cinc tasques tancades (5.2, 5.4, 6.2, 7.2 i
+  8.2). Són les tasques 5 a 8. En total, la caixa té 24 subtasques i onze tasques tancades.
+  Falten les cinc fitxes de la unitat 2 i l'examen ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md),
+  apartat 6).
 - **Els tests de la caixa**: `comprova.py` la revisa per dins, i dos tests nous la fan servir en
   un navegador: `eines/prova_caixa.py` (que funcioni) i `eines/auditoria.py` (accessibilitat).
 - **La portada** enllaça la caixa i té els enllaços `?task=n` per a l'alumnat.
@@ -51,11 +56,11 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 | El PDF porta la lletra manuscrita | `gen_pdf.py` llegeix quines lletres hi ha dins del PDF: Caveat, DejaVu Sans i DejaVu Sans Bold | Alta |
 | Les cent multiplicacions de la targeta són correctes | `comprova.py` les refà totes | Alta |
 | El test detecta el que ha de detectar | Quinze errors introduïts a posta, un per un: els quinze surten | Alta |
-| La caixa funciona de punta a punta | `prova_caixa.py`, a Chromium: les catorze subtasques; les sis tasques tancades amb encert, pista i resposta ensenyada; els sis codis llegits a `verifica.html`; la represa; els enllaços `?task=`; cap error de JavaScript | Alta |
+| La caixa funciona de punta a punta | `prova_caixa.py`, a Chromium: les 24 subtasques; les onze tasques tancades amb encert, pista i resposta ensenyada; els onze codis llegits a `verifica.html`; la represa; els enllaços `?task=`; cap error de JavaScript. De la unitat 2, a més: que els casos siguin de la targeta, que la suma de les xifres del criteri del 3 doni de l'1 al 30, que els senars de la 8.2 no siguin primers, el garbell pas a pas i els singulars («En sobra 1.», «L'11») | Alta |
 | Cap frase de la caixa trenca les regles del curs | `comprova.py`: 186 frases, totes amb explicació; Lectura Fàcil; cap «×»; cap nombre de més de 999 | Alta |
 | Les dades dels mòduls compleixen les regles | `prova_caixa.py`: sumes sense portar-ne, multiplicacions de la targeta, i els noms dels nombres de l'1 al 999 | Alta |
 | Els tests de la caixa detecten el que han de detectar | Onze errors introduïts a posta, un per un (una «×», un 1000, una frase de 21 paraules, una clau que no existeix, la sal de l'altra caixa…): els onze surten | Alta |
-| La caixa és accessible (WCAG 2.2 AA) | `auditoria.py`: 0 problemes en 88 estats, en clar i en fosc, a 320 i a 1100 px | Alta |
+| La caixa és accessible (WCAG 2.2 AA) | `auditoria.py`: 0 problemes en 140 estats, en clar i en fosc, a 320 i a 1100 px | Alta |
 | La caixa es veu bé | Captures al mòbil i a l'ordinador, en clar i en fosc, mirades una per una | Mitjana: no substitueix veure-la fer servir |
 | El test de `4eso/` continua dient «Tot correcte.» amb aquesta carpeta al repositori | Passat amb la carpeta ja posada | Alta |
 | La targeta es llegeix bé en paper | Vista en pantalla, a partir del PDF. **El paper encara no** | Pendent |
@@ -97,18 +102,22 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    si les quadrícules i les siluetes es poden pintar bé a mà.
 4. **Revisar l'examen de la unitat 1** a Google Docs. Si es vol amb el curs a la capçalera,
    es fa al Codespace amb el fitxer privat (vegeu el `README.md`, «L'examen»).
-5. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
+5. **La unitat 2 (Divisibilitat), del 3 al 19 de novembre.** La caixa ja hi és (tasques 5 a 8):
+   provar-la. Falten les cinc fitxes (múltiples, repartir, divisors i primers, factorització, i
+   repàs amb «Què he après?») i l'examen. El pla i les decisions del docent són a
+   [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 6.
+6. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure
    a 11,5 pt. Les fitxes 2, 3 i 4 ja són totes a 14 pt com a mínim, amb `.mini` a les taules.
    Canviar-ho a la fitxa 1 la canviaria una mica, i ja està validada.
-6. **La revisió externa del 24 de setembre de 2026: tot decidit.** Aplicat: la 0.3; els
+7. **La revisió externa del 24 de setembre de 2026: tot decidit.** Aplicat: la 0.3; els
    enllaços a un exercici concret, sense fletxes; la fitxa només amb rectangles i quadrats; al
    solucionari, una acció per dir en veu alta («3 files de 4 quadrets»); la 0.1 amb tota la taula
    plegada, i la 3.1 sense repeticions (regla W). Decidit que no, de moment: que `verifica.html`
    ensenyi l'evolució de diversos codis d'una mateixa tasca. No es fan, i la revisió hi està
    d'acord: les tasques d'ampliació per a qui acaba abans, i qualsevol seguiment digital amb nom.
-7. **L'arrel del repositori.** La portada de l'arrel porta a `4eso/`, `_headers` no té les línies
+8. **L'arrel del repositori.** La portada de l'arrel porta a `4eso/`, `_headers` no té les línies
    de memòria cau de `/1eso/`, i la fila de `1eso/` del `README.md` de l'arrel encara diu «quan
    es faci». Són fitxers de l'arrel, fora d'aquesta carpeta: ho decideix el docent.
 

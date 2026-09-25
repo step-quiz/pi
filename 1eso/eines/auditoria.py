@@ -68,6 +68,19 @@ ESTATS = [
     ("4.1 Mira l'ordre",                 "caixa-eines.html", "?task=4.1", None),
     ("4.2 Què es fa primer? · pista",    "caixa-eines.html", "?task=4.2", "ordre_error"),
     ("4.2 Què es fa primer? · resum",    "caixa-eines.html", "?task=4.2", "ordre_final"),
+    ("5.1 La graella de 100 · el 3",     "caixa-eines.html", "?task=5.1", "graella_3"),
+    ("5.2 És múltiple? · pista",         "caixa-eines.html", "?task=5.2", "sino_m2"),
+    ("5.3 Els trucs",                    "caixa-eines.html", "?task=5.3", None),
+    ("5.4 Múltiple de 3? · pista",       "caixa-eines.html", "?task=5.4", "sino_m4"),
+    ("6.1 Reparteix en files",           "caixa-eines.html", "?task=6.1", None),
+    ("6.2 Sobren quadrets? · pista",     "caixa-eines.html", "?task=6.2", "sino_s6"),
+    ("6.2 Sobren quadrets? · resolt",    "caixa-eines.html", "?task=6.2", "sino_s6_be"),
+    ("7.1 Els rectangles d'un nombre",   "caixa-eines.html", "?task=7.1", None),
+    ("7.2 Troba els divisors · intrús",  "caixa-eines.html", "?task=7.2", "divisors_error"),
+    ("7.2 Troba els divisors · resolt",  "caixa-eines.html", "?task=7.2", "divisors_be"),
+    ("8.1 El garbell · acabat",          "caixa-eines.html", "?task=8.1", None),
+    ("8.1 El garbell · al pas del 3",    "caixa-eines.html", "?task=8.1", "garbell_3"),
+    ("8.2 És primer? · resolt",          "caixa-eines.html", "?task=8.2", "sino_p8_be"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
     ("Llegir codis",                     "verifica.html",    "",          None),
     ("Canviar les frases",               "textos.html",      "",          None),
@@ -228,6 +241,27 @@ def prepara(pg, accio):
                 break
             pg.click(f'#o2-expr .signe[data-op="{bo}"]')
             pg.click("#o2-seguent")
+    elif accio == "graella_3":
+        pg.click("#m1-pastilles .pastilla >> nth=1")
+    elif accio and accio.startswith("sino_"):
+        # una tasca de Sí o No: la resposta dolenta (la pista) o la bona (el dibuix)
+        pref = accio.split("_")[1]
+        nums = [int(x) for x in re.findall(r"\d+", pg.inner_text(f"#{pref}-pregunta"))]
+        bo = {"m2": lambda: nums[0] % nums[1] == 0, "m4": lambda: nums[0] % 3 == 0,
+              "s6": lambda: nums[0] % nums[1] != 0,
+              "p8": lambda: nums[0] > 1 and all(nums[0] % q for q in range(2, int(nums[0] ** 0.5) + 1))}[pref]()
+        resp = bo if accio.endswith("_be") else not bo
+        pg.click(f'#{pref}-opcions .opcio-sino[data-v="{"si" if resp else "no"}"]')
+    elif accio in ("divisors_error", "divisors_be"):
+        n = int(re.findall(r"\d+", pg.inner_text("#d8-pregunta"))[0])
+        for v in range(1, n + 1):
+            if n % v == 0 or (accio == "divisors_error" and v == next(x for x in range(2, n) if n % x)):
+                pg.click(f'#d8-pastilles .pastilla[data-v="{v}"]')
+        pg.click("#d8-comprova")
+    elif accio == "garbell_3":
+        pg.click("#g8-comenca")
+        for _ in range(3):
+            pg.click("#g8-avant")
     pg.wait_for_timeout(80)
 
 

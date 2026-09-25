@@ -303,3 +303,45 @@ svg.toca{cursor:pointer}
 
 /* Els blocs de la 3.1 i la 3.2 ja no porten rètol ni peu: el lloc buit no es veu. */
 .zona-et:empty,.zona-peu:empty{display:none}
+
+/* ======================================================== unitat 2 ====== */
+
+/* La graella de 100 (5.1 i 8.1): cada nombre, dins del seu quadret. */
+svg.graella100{max-width:26rem;margin:.4rem auto}
+.q-ratlla{stroke:var(--etiqueta-3);stroke-width:2.5;stroke-linecap:round}
+.q-cercle{fill:none;stroke:var(--blau);stroke-width:2.5}
+
+/* Els rectangles d'un nombre (7.1, 7.2, 8.2) i els repartiments (6.1, 6.2). */
+svg.rectangles-de,svg.repartir{max-width:30rem;margin:.5rem auto}
+
+/* Els botons Sí i No de les tasques de decidir (5.2, 5.4, 6.2, 8.2). Grans, i
+   el triat es distingeix també per la vora, no només pel color. */
+.opcions-sino{display:flex;gap:.8rem;flex-wrap:wrap;margin:.2rem 0 .9rem}
+.opcio-sino{min-width:7.5rem;min-height:3rem;font-size:1.15rem;background:var(--camp);color:var(--etiqueta)}
+.opcio-sino.bona{background:var(--verd-suau);box-shadow:inset 0 0 0 3px var(--verd)}
+.opcio-sino.mal{background:var(--taronja-suau);box-shadow:inset 0 0 0 3px var(--taronja);opacity:1}
+.opcio-sino:disabled{cursor:default}
+
+/* 5.3: el nombre fet amb els comptadors, i la taula dels quatre trucs. */
+.nombre-gran{font-size:2.4rem;font-weight:800;margin:.4rem 0 .6rem;font-variant-numeric:tabular-nums}
+table.trucs{border-collapse:collapse;width:100%;margin:.3rem 0}
+table.trucs th,table.trucs td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--separador);vertical-align:top}
+table.trucs th{white-space:nowrap;font-weight:700}
+table.trucs td.si,table.trucs td.no{font-weight:800;white-space:nowrap}
+/* Al mòbil, cada truc en dues línies: «Múltiple de 2? Sí» a dalt i la raó sencera a sota. */
+@media (max-width:34rem){
+  table.trucs tr{display:grid;grid-template-columns:auto 1fr;gap:.15rem .7rem;padding:.55rem 0;
+    border-bottom:1px solid var(--separador)}
+  table.trucs th,table.trucs td{border:0;padding:0}
+  table.trucs td:last-child{grid-column:1 / -1}
+}
+
+/* 7.2: molts nombres per marcar. Es marquen i es desmarquen. */
+.pastilles.molts{gap:.4rem}
+.pastilles.molts .pastilla{min-width:2.9rem}
+.pastilla.bona{box-shadow:inset 0 0 0 3px var(--verd)}
+.pastilla.mal{box-shadow:inset 0 0 0 3px var(--taronja)}
+
+/* 8.1: els botons dels passos del garbell. */
+.garbell-passos{display:flex;gap:.6rem;flex-wrap:wrap}
+

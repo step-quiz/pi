@@ -64,7 +64,7 @@ pantalla van a `css/app.css`.
 
 ---
 
-## 3. Les cinc eines
+## 3. Les eines
 
 | Tasca | Pestanya | Fitxer | Subtasques | S'obre amb |
 |---|---|---|---|---|
@@ -73,6 +73,13 @@ pantalla van a `css/app.css`.
 | 2 | Quadrats | `quadrats.js` | 2.1 El quadrat d'un nombre · **2.2 Quin dibuix és?** · 2.3 El costat del quadrat | 3² = 9; 16 quadrets a la 2.3 |
 | 3 | Nombres | `nombres.js` | 3.1 Centenes, desenes i unitats · **3.2 Fes el nombre** | 243, «dos-cents quaranta-tres» |
 | 4 | Ordre | `ordre.js` | 4.1 Mira l'ordre · **4.2 Què es fa primer?** | 2 + 3 · 4 = 14 |
+| 5 | Múltiples | `multiples.js` | 5.1 La graella de 100 · **5.2 És múltiple?** · 5.3 Els trucs · **5.4 Múltiple de 3?** | Els múltiples del 2; el 126 a la 5.3 |
+| 6 | Repartir | `repartir.js` | 6.1 Reparteix en files · **6.2 Sobren quadrets?** | 37 en files de 7: 37 = 5 · 7 + 2 |
+| 7 | Divisors | `divisors.js` | 7.1 Els rectangles d'un nombre · **7.2 Troba els divisors** | Els 3 rectangles del 12 |
+| 8 | Primers | `primers.js` | 8.1 El garbell d'Eratòstenes · **8.2 És primer?** | El garbell acabat: 25 primers |
+
+Les tasques 0 a 4 són de la unitat 1, i les 5 a 8, de la unitat 2. La 0 (les taules) es veu
+sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són
 eines per explorar: s'obren resoltes amb un exemple (la marca «Exemple») i no s'acaben mai.
@@ -98,6 +105,9 @@ Deixa a `CE.q`:
 | `taula` | La **taula de quadrets**: 10 per 10 amb els números de l'1 al 10 a dalt i a l'esquerra. La fan servir la 0.1, la 1.1, la 1.2, la 2.1 i la 2.3 |
 | `cellaTocada`, `fletxa` | On s'ha tocat la taula, i com la mouen les fletxes del teclat |
 | `blocs` | Quadrats de 100, columnes de 10 i quadrets solts, a la mateixa escala |
+| `graella100` | La graella de 100 de l'activitat dels múltiples del grup: cada nombre pot anar pintat, encerclat (un primer) o ratllat. La fan servir la 5.1 i la 8.1 |
+| `rectanglesDe`, `divisorsDe` | Els rectangles que es poden fer amb n quadrets (sense comptar el girat dues vegades), i els divisors que en surten |
+| `dibuixaRectangles` | Tots els rectangles de n, un sota l'altre i a la mateixa escala, amb el rètol «2 · 6». La fan servir la 7.1, la 7.2 i la 8.2 |
 
 La taula de quadrets és el mateix objecte que la taula de multiplicar: el quadret de la fila 3 i
 la columna 4 és la cantonada del rectangle de 3 · 4.

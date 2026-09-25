@@ -37,11 +37,16 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 | `caixa-eines?task=2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat |
 | `caixa-eines?task=3` | Nombres: 3.1 Centenes, desenes i unitats · 3.2 Fes el nombre |
 | `caixa-eines?task=4` | Ordre: 4.1 Mira l'ordre · 4.2 Què es fa primer? |
+| `caixa-eines?task=5` | Múltiples (unitat 2): 5.1 La graella de 100 · 5.2 És múltiple? · 5.3 Els trucs · 5.4 Múltiple de 3? |
+| `caixa-eines?task=6` | Repartir (unitat 2): 6.1 Reparteix en files · 6.2 Sobren quadrets? |
+| `caixa-eines?task=7` | Divisors (unitat 2): 7.1 Els rectangles d'un nombre · 7.2 Troba els divisors |
+| `caixa-eines?task=8` | Primers (unitat 2): 8.1 El garbell d'Eratòstenes · 8.2 És primer? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
 exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
 `caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
-tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2) acaben amb un codi de verificació, que es llegeix a
+tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2, i de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2) acaben amb
+un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 
 Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).

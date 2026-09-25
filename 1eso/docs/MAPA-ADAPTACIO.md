@@ -72,7 +72,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
-| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Per fer |
+| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Pla validat el 25 de setembre de 2026. Caixa d'eines feta (tasques 5 a 8). Falten les fitxes i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
@@ -155,7 +155,61 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
 
 ---
 
-## 6. L'avaluació
+## 6. La unitat 2, activitat per activitat
+
+**El pla el va validar el docent el 25 de setembre de 2026.** El nucli: els divisors de 12 surten
+dels rectangles que es poden fer amb 12 quadrets (1 per 12, 2 per 6 i 3 per 4), i un primer només
+en fa un, una fila. Repartir és posar els quadrets en files iguals: si s'omplen, la divisió és
+exacta; si no, sobren quadrets, i això és el residu.
+
+Les caixes i les boles del GeoGebra del grup ja són el rectangle (12 caixes de 5 boles són 12
+files de 5), i la graella de 100 dels múltiples ja és una quadrícula: el model del curs hi encaixa
+sense forçar-lo.
+
+| Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
+|---|---|---|---|
+| 2_1 · Múltiples | Llistes de múltiples, pintar-los a la graella de 100 i dir quina forma fan, i reconèixer la graella d'un nombre | Els múltiples són la taula de la targeta. A la graella de 100, els del 2, el 5 i el 10 fan columnes; els del 3 i el 9, diagonals. Els múltiples de 19 i de 600, fora | Caixa 5.1 i 5.2 · fitxa 1 |
+| 2_3 · Criteris de divisibilitat | Dividir amb calculadora per veure si surten decimals, i els criteris del 2, 3, 5, 6, 9 i 10 | Sense calculadora. El 2, el 5 i el 10, per l'última xifra, i el 3, sumant les xifres. El 6 i el 9, fora | Caixa 5.3 i 5.4 · fitxa 1 |
+| 2_2 · Divisió entera | Caixes i boles al GeoGebra: caixes plenes, divisió exacta, el residu i la igualtat 40 = 6 · 6 + 4 | Files de quadrets: si s'omplen, és exacta; si no, en sobren. La mateixa igualtat, 37 = 5 · 7 + 2 | Caixa 6.1 i 6.2 · fitxa 2 |
+| 2_5 · Pràctica de divisors | Repartir caramels i dir si 9 és divisor de 60 i de 63 | El mateix, amb files de quadrets | Caixa 6.2 · fitxa 2 |
+| 2_4 · Divisors | Les multiplicacions que donen un nombre (20 = 1 · 20 = 2 · 10 = 4 · 5), les llistes de divisors, i múltiples i divisors d'un mateix nombre | Els rectangles d'un nombre: cada rectangle són dos divisors | Caixa 7.1 i 7.2 · fitxa 3 |
+| 2_7 · Eratòstenes, primers i compostos | El garbell fins al 100, primer i compost, el camí de primers i els divisors d'un primer | Un primer només fa un rectangle. El garbell, a la graella de 100, pas a pas | Caixa 8.1 i 8.2 · fitxa 3 |
+| 2_5, 2_8 i «ADN dels nombres» · Factorització | Arbres de factors, la factorització amb potències i els nombres fets de peces | Arbres amb la targeta, de nombres amb tres factors primers com a molt (12 = 2 · 2 · 3), sense potències | Fitxa 4 |
+| Repàs U2 | Tots els continguts, i el carnet d'identitat de cada nombre (múltiples, divisors i factorització) | El repàs, amb el carnet d'identitat, i «Què he après?» | Fitxa 5 |
+| Examen U2 (i la seva adaptació) | Vuit exercicis: múltiples, caixes i boles, divisibilitat, criteris, arbres, primers i carnets | En DOCX, amb el motor comú. L'adaptació que ja existeix serveix de referència de mida | Examen |
+
+**Queda fora, i per què.** No es rebaixa: no hi és.
+
+- Els nombres de més de 999 (111.111.111, 110.000.001, 10.000…), perquè la regla D ho diu.
+- Dividir amb calculadora per veure si surten decimals: el rectangle i la targeta ho diuen sense
+  calcular (regla C).
+- Els criteris del 6 i del 9, i els múltiples de 19 i de 600.
+- Les potències a la factorització (2² · 3 · 5²).
+- El GeoGebra: l'eina «Repartir» de la caixa fa el mateix, amb la quadrícula.
+
+**Decisions del docent:**
+
+- 25 de setembre de 2026: el pla, validat: quatre eines noves a la caixa (tasques 5 a 8), cinc
+  fitxes i l'examen.
+- 25 de setembre de 2026: la factorització hi va, però només amb nombres ben fàcils, de **tres
+  factors primers com a molt**, comptant els repetits: 2 · 2 · 3, 3 · 3 · 5, 2 · 3 · 5. Com que
+  l'arbre es fa amb la targeta, cada pas ha de ser una multiplicació de la targeta: els nombres
+  arriben com a molt al 100.
+- 25 de setembre de 2026: el **criteri del 3** hi va, explicat bé i amb calma: és una bona ocasió
+  per sumar. La suma de les xifres ha de donar directament un nombre de l'1 al 30, sense haver de
+  tornar a sumar (res de 9897 → 33 → 6). Amb nombres de fins al 999 es compleix sempre: com a molt
+  fa 9 + 9 + 9 = 27.
+
+**Les regles trencades de la unitat:**
+
+- Múltiples: «un múltiple de 3 acaba en 3». Ho desmunta la graella: el 12 i el 21 ho són, i el 13
+  i el 23, no.
+- Repartir: «37 entre 7 són 5», sense el residu. El dibuix ensenya que en sobren 2.
+- Divisors i primers: «tots els senars són primers». El 9 fa un quadrat de 3 per 3.
+
+---
+
+## 7. L'avaluació
 
 Amb els criteris del PI. Cada solucionari acaba amb «Què mirar per avaluar»: accions que es
 veuen, sempre amb la targeta al davant, escrites perquè es puguin passar al PI tal com són.
@@ -164,7 +218,7 @@ Mai no s'avalua el que es recorda, sinó el que es fa amb la targeta al davant.
 
 ---
 
-## 7. Els exàmens
+## 8. Els exàmens
 
 Amb el motor comú, [`../../comu/examens/nucli.js`](../../comu/examens/nucli.js), i les regles de
 [`../../comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md), les mateixes que a l'altre

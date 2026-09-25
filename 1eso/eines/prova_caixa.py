@@ -133,12 +133,13 @@ def main():
         # ------------------------------------------------------------------
         titol("TOTES LES SUBTASQUES S'OBREN")
         obre(pg)
-        for mod, n in [("taules", 3), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2)]:
+        for mod, n in [("taules", 3), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2),
+                       ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2)]:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
                 pg.wait_for_timeout(120)
                 revisa_pantalla(pg, f"{mod} {sub}")
-        print(f"  14 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
+        print(f"  24 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
 
         # ------------------------------------------------------------------
         titol("DADES DELS MÒDULS")
@@ -571,6 +572,177 @@ def main():
                           "Amb la resposta ensenyada": "0"}, f"4.2: el resum no quadra: {nums}")
         codis["4.2"] = (codi, "Què es fa primer?", (5, 4, 1, 0))
         print(f"  dos passos amb parèntesi; la pista depèn del tipus; codi {codi}")
+
+        # ------------------------------------------------------------------
+        titol("DADES DE LA UNITAT 2")
+        d2 = pg.evaluate("""() => ({ mult: CE.dades.multiples.MULT, tres: CE.dades.multiples.TRES,
+            rep: CE.dades.repartir.REPARTIMENTS, div: CE.dades.divisors.DIVIDIR,
+            primers: CE.dades.primers.PRIMERS, senars: CE.dades.primers.SENARS })""")
+        es_primer = lambda n: n > 1 and all(n % q for q in range(2, int(n ** 0.5) + 1))
+        de_targeta = lambda n: any(n % a == 0 and 2 <= a <= 10 and 2 <= n // a <= 10 for a in range(2, 11))
+        for n, k in d2["mult"]:
+            comprova(n <= 10 * k + k, f"5.2: {n} i {k}: no es pot mirar a la targeta")
+        comprova(sum(n % k == 0 for n, k in d2["mult"]) >= 3 and sum(n % k != 0 for n, k in d2["mult"]) >= 2,
+                 "5.2: calen tres casos de sí i dos de no, com a mínim")
+        for n in d2["tres"]:
+            comprova(n <= 999 and 1 <= sum(map(int, str(n))) <= 30, f"5.4: {n}: la suma de les xifres ha de donar de l'1 al 30")
+        comprova(sum(n % 3 == 0 for n in d2["tres"]) >= 3 and sum(n % 3 != 0 for n in d2["tres"]) >= 2, "5.4: calen sís i nos")
+        for n, k in d2["rep"]:
+            comprova(n <= 10 * k + k - 1 and n <= 60, f"6.2: {n} en files de {k}: no es pot mirar a la targeta")
+        comprova(sum(n % k != 0 for n, k in d2["rep"]) >= 3 and sum(n % k == 0 for n, k in d2["rep"]) >= 2,
+                 "6.2: calen tres casos amb residu i dos d'exactes")
+        comprova(all(n <= 30 for n in d2["div"]), "7.2: nombres massa grans per marcar-los tots")
+        comprova(all(es_primer(n) for n in d2["primers"]), "8.2: a la llista de primers n'hi ha un que no ho és")
+        for n in d2["senars"]:
+            comprova(n % 2 == 1 and not es_primer(n) and de_targeta(n),
+                     f"8.2: {n} ha de ser senar, no primer, i sortir d'una multiplicació de la targeta")
+        print(f"  {len(d2['mult'])} casos de múltiples, {len(d2['tres'])} del 3, {len(d2['rep'])} de repartir, "
+              f"{len(d2['primers'])} primers i {len(d2['senars'])} senars compostos, tots de la targeta")
+
+        def mou(pg, sel, fins):
+            """Porta el comptador de `sel` fins al valor `fins`."""
+            for _ in range(80):
+                v = int(text(pg, sel + " .comptador-valor"))
+                if v == fins:
+                    return
+                pg.click(sel + (' [data-f="mes"]' if v < fins else ' [data-f="menys"]'))
+
+        def sino(pg, pref, si):
+            pg.click(f'#{pref}-opcions .opcio-sino[data-v="{"si" if si else "no"}"]')
+
+        def tasca_sino(pg, mod, sub, pref, bo, nom, un_error=2):
+            """Una tasca tancada de Sí o No, sencera. `bo(pregunta)` diu la resposta bona.
+            Al pas `un_error` s'equivoca un cop: ha de sortir la pista."""
+            modul(pg, mod, sub)
+            for pas in range(5):
+                preg = text(pg, f"#{pref}-pregunta")
+                resp = bo(preg)
+                if pas == un_error:
+                    sino(pg, pref, not resp)
+                    av = text(pg, f"#{pref}-avis")
+                    comprova(av.startswith("Incorrecte.") and "Busca" in av + " " + av.split("Pista")[-1] or "Suma" in av,
+                             f"{nom}: la pista del primer error: «{av}»")
+                sino(pg, pref, resp)
+                comprova(text(pg, f"#{pref}-avis").startswith("Correcte."), f"{nom}: pas {pas + 1}: «{preg}»")
+                pg.click(f"#{pref}-seguent")
+            nums, codi = final_de(pg, pref)
+            comprova(nums == {"Passos": "5", "Correctes al primer intent": "4", "Correctes amb una pista": "1",
+                              "Amb la resposta ensenyada": "0"}, f"{nom}: el resum no quadra: {nums}")
+            return codi
+
+        # ------------------------------------------------------------------
+        titol("5.1 · LA GRAELLA DE 100")
+        obre(pg)
+        modul(pg, "multiples", 1)
+        comprova("Tots acaben en 0, 2, 4, 6 o 8." in text(pg, "#m1-lectura"), "5.1: amb el 2, el truc de l'última xifra")
+        comprova(pg.locator("#m1-svg text.fort").count() == 50, "5.1: amb el 2, hi ha d'haver 50 nombres pintats")
+        pg.click("#m1-pastilles .pastilla >> nth=1")
+        lec = text(pg, "#m1-lectura")
+        comprova("No tots acaben en 3." in lec and "n'hi ha 33" in lec, f"5.1: amb el 3: «{lec}»")
+        comprova(pg.locator("#m1-svg text.fort").count() == 33, "5.1: amb el 3, hi ha d'haver 33 nombres pintats")
+        print("  el 2 pinta 50 nombres i diu el truc; el 3 en pinta 33 i diu la regla trencada")
+
+        titol("5.2 · ÉS MÚLTIPLE?")
+        def bo52(p):
+            n, k = map(int, re.findall(r"\d+", p))
+            return n % k == 0
+        codis["5.2"] = (tasca_sino(pg, "multiples", 2, "m2", bo52, "5.2"), "És múltiple?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['5.2'][0]}")
+
+        titol("5.3 · ELS TRUCS")
+        modul(pg, "multiples", 3)
+        taula = text(pg, "#t3-trucs")
+        comprova("1 + 2 + 6 = 9" in taula and "El 9 és a la taula del 3." in taula, f"5.3: el 126: «{taula}»")
+        mou(pg, "#t3-u", 7)
+        taula = text(pg, "#t3-trucs")
+        comprova("1 + 2 + 7 = 10" in taula and "El 10 no és a la taula del 3." in taula, f"5.3: el 127: «{taula}»")
+        mou(pg, "#t3-c", 0); mou(pg, "#t3-d", 2); mou(pg, "#t3-u", 9)
+        comprova("2 + 9 = 11" in text(pg, "#t3-trucs") and "L'11 no és a la taula del 3." in text(pg, "#t3-trucs"),
+                 f"5.3: el 29 suma 11, amb apòstrof: «{text(pg, '#t3-trucs')}»")
+        mou(pg, "#t3-d", 1); mou(pg, "#t3-u", 0)
+        comprova("L'1 no és a la taula del 3." in text(pg, "#t3-trucs"), "5.3: el 10 suma 1, amb apòstrof")
+        mou(pg, "#t3-d", 0); mou(pg, "#t3-u", 7)
+        comprova("Suma les xifres" not in text(pg, "#t3-trucs") and "El 7 no és a la taula del 3." in text(pg, "#t3-trucs"),
+                 "5.3: amb una sola xifra no es suma res")
+        print("  el 126 i el 127, amb la suma de les xifres; el 29 i el 10, amb apòstrof; el 7, sense suma")
+
+        titol("5.4 · MÚLTIPLE DE 3?")
+        bo54 = lambda p: int(re.findall(r"\d+", p)[0]) % 3 == 0
+        codis["5.4"] = (tasca_sino(pg, "multiples", 4, "m4", bo54, "5.4"), "Múltiple de 3?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['5.4'][0]}")
+
+        titol("6.1 · REPARTEIX EN FILES")
+        modul(pg, "repartir", 1)
+        lec = text(pg, "#r6-lectura")
+        comprova("37 = 5 · 7 + 2" in lec and "En sobren 2." in lec and "residu" in lec, f"6.1: 37 en files de 7: «{lec}»")
+        mou(pg, "#r6-n", 35)
+        lec = text(pg, "#r6-lectura")
+        comprova("35 = 5 · 7" in lec and "exacta" in lec, f"6.1: 35 en files de 7: «{lec}»")
+        mou(pg, "#r6-n", 36)
+        comprova("En sobra 1." in text(pg, "#r6-lectura"), "6.1: amb un sol quadret de més, «En sobra 1.»")
+        print("  37 = 5 · 7 + 2 amb el residu; 35, exacta; 36, «En sobra 1.»")
+
+        titol("6.2 · SOBREN QUADRETS?")
+        def bo62(p):
+            n, k = map(int, re.findall(r"\d+", p))
+            return n % k != 0
+        codis["6.2"] = (tasca_sino(pg, "repartir", 2, "s6", bo62, "6.2"), "Sobren quadrets?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['6.2'][0]}")
+
+        titol("7.1 · ELS RECTANGLES D'UN NOMBRE")
+        modul(pg, "divisors", 1)
+        lec = text(pg, "#d7-lectura")
+        comprova("Els divisors de 12 són 1, 2, 3, 4, 6 i 12." in lec and "3 rectangles" in lec, f"7.1: el 12: «{lec}»")
+        mou(pg, "#d7-n", 7)
+        comprova("El 7 només fa un rectangle, una fila: és primer." in text(pg, "#d7-lectura"), "7.1: el 7 és primer")
+        mou(pg, "#d7-n", 1)
+        comprova("L'1 només fa un quadret." in text(pg, "#d7-lectura"), "7.1: l'1")
+        print("  el 12, 3 rectangles i 6 divisors; el 7, primer; l'1, a part")
+
+        titol("7.2 · TROBA ELS DIVISORS")
+        modul(pg, "divisors", 2)
+        for pas in range(5):
+            n = int(re.findall(r"\d+", text(pg, "#d8-pregunta"))[0])
+            divs = [v for v in range(1, n + 1) if n % v == 0]
+            if pas == 1:
+                intrus = next(v for v in range(2, n) if n % v)
+                for v in divs + [intrus]:
+                    pg.click(f'#d8-pastilles .pastilla[data-v="{v}"]')
+                pg.click("#d8-comprova")
+                av = text(pg, "#d8-avis")
+                comprova(av.startswith("Incorrecte.") and f"no és divisor de {n}" in av, f"7.2: l'intrús: «{av}»")
+                pg.click(f'#d8-pastilles .pastilla[data-v="{intrus}"]')
+            else:
+                for v in divs:
+                    pg.click(f'#d8-pastilles .pastilla[data-v="{v}"]')
+            pg.click("#d8-comprova")
+            comprova(text(pg, "#d8-avis").startswith("Correcte."), f"7.2: pas {pas + 1}, el {n}")
+            comprova(pg.is_visible("#d8-svg"), "7.2: els rectangles no surten en encertar")
+            pg.click("#d8-seguent")
+        nums, codi = final_de(pg, "d8")
+        comprova(nums == {"Passos": "5", "Correctes al primer intent": "4", "Correctes amb una pista": "1",
+                          "Amb la resposta ensenyada": "0"}, f"7.2: el resum no quadra: {nums}")
+        codis["7.2"] = (codi, "Troba els divisors", (5, 4, 1, 0))
+        print(f"  cinc nombres, un intrús que la caixa assenyala; codi {codi}")
+
+        titol("8.1 · EL GARBELL D'ERATÒSTENES")
+        modul(pg, "primers", 1)
+        comprova(pg.locator("#g8-svg .q-cercle").count() == 25 and "N'hi ha 25." in text(pg, "#g8-lectura"),
+                 "8.1: acabat, hi ha d'haver 25 primers encerclats")
+        pg.click("#g8-comenca")
+        comprova(pg.locator("#g8-svg .q-cercle").count() == 0 and pg.locator("#g8-svg .q-ratlla").count() == 0,
+                 "8.1: en tornar a començar, res ratllat ni encerclat")
+        pg.click("#g8-avant"); pg.click("#g8-avant")
+        comprova(pg.locator("#g8-svg .q-cercle").count() == 1 and pg.locator("#g8-svg .q-ratlla").count() == 50,
+                 "8.1: al pas del 2, l'1 i els 49 múltiples del 2 ratllats")
+        print("  acabat, 25 primers; tornar a començar ho buida; al pas del 2, 50 ratllats")
+
+        titol("8.2 · ÉS PRIMER?")
+        es_p = lambda p: es_primer(int(re.findall(r"\d+", p)[0]))
+        senars = 0
+        modul(pg, "primers", 2)
+        codis["8.2"] = (tasca_sino(pg, "primers", 2, "p8", es_p, "8.2"), "És primer?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['8.2'][0]}")
 
         # ------------------------------------------------------------------
         titol("CODIS A verifica.html")
