@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 2 · Els múltiples</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 2 · Divisibilitat · Els múltiples
+  La primera fitxa de la unitat 2. Adapta les activitats 2_1 (múltiples) i 2_3
+  (criteris de divisibilitat) del grup: els múltiples són la taula de la
+  targeta; la graella de 100, com al grup; el truc de l'última xifra per al 2,
+  el 5 i el 10, i el truc del 3, sumant les xifres (decisió del docent del
+  25/9/2026: la suma dona directament de l'1 al 30). Sense calculadora.
+
+  Els casos són els de la tasca 5 de la caixa (regla 8): els múltiples del 2
+  de la 5.1, el 126 de la 5.3 i els nombres de la 5.4. Els de l'exercici 5 són
+  els de la taula de l'activitat 2_3 del grup.
+
+  La regla trencada és «un múltiple del 3 acaba en 3» (exercici 3). La pàgina
+  acaba amb la forma bona a la vista.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Fer files de 2 miniblocs, una sota l'altra, i comptar-los cada vegada: 2, 4, 6, 8, 10.</div>
+  <h1>Els múltiples</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:1rem">
+    <svg viewBox="0 0 347.7 151.2" style="width:9.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Cinc rectangles de files de 2 quadrets: d'1 fila, de 2, de 3, de 4 i de 5 files">
+      <rect x="5" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="28.4" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="78.3" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="101.7" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="78.3" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="101.7" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="151.6" y="51.8" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="175" y="51.8" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="151.6" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="175" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="151.6" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="175" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.9" y="28.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="248.4" y="28.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.9" y="51.8" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="248.4" y="51.8" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.9" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="248.4" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="224.9" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="248.4" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="298.2" y="5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="321.7" y="5" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="298.2" y="28.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="321.7" y="28.4" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="298.2" y="51.8" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="321.7" y="51.8" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="298.2" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="321.7" y="75.2" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="298.2" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="321.7" y="98.7" width="21.1" height="21.1" rx="3" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .8rem">Són rectangles amb files de 2. Cada un té una fila més.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Quants quadrets té el rectangle d'1 fila?</td><td style="width:3.6cm"><span class="ms">2</span></td></tr>
+    <tr class="resolt"><td class="esq">I el de 2 files?</td><td><span class="ms">4</span></td></tr>
+    <tr class="resolt"><td class="esq">I el de 3 files?</td><td><span class="ms">6</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Són la taula del 2: 2 · 1 = 2, 2 · 2 = 4, 2 · 3 = 6…</p>
+    <p style="margin:0">El 0 també hi és: 2 · 0 = 0.</p>
+    <p style="font-size:24pt;font-weight:800;margin:.3rem 0">Múltiples del 2: 0, 2, 4, 6, 8, 10…</p>
+    <p style="margin:0;font-weight:700">Els múltiples d'un nombre són la seva taula de multiplicar.</p>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Escriu els múltiples de cada nombre. Mira la targeta.</div></div>
+    <div class="avis puntejat" style="margin:.3rem 0 .4rem">Comença pel 0. Després, la taula de la targeta, de dalt a baix.</div>
+    <p style="margin:.55rem 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">a)</span> Múltiples del 10:</p>
+    <table class="mini" style="table-layout:fixed;margin:0"><tr class="resolt"><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">0</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">10</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">20</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">30</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">40</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">50</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">60</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">70</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">80</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">90</span></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"><span class="ms">100</span></td></tr></table>
+    <p style="margin:.55rem 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">b)</span> Múltiples del 9:</p>
+    <table class="mini" style="table-layout:fixed;margin:0"><tr><td style="text-align:center;padding:.2rem 0;height:1.25cm">0</td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td></tr></table>
+    <p style="margin:.55rem 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">c)</span> Múltiples del 8:</p>
+    <table class="mini" style="table-layout:fixed;margin:0"><tr><td style="text-align:center;padding:.2rem 0;height:1.25cm">0</td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td></tr></table>
+    <p style="margin:.55rem 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">d)</span> Múltiples del 7:</p>
+    <table class="mini" style="table-layout:fixed;margin:0"><tr><td style="text-align:center;padding:.2rem 0;height:1.25cm">0</td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td><td style="text-align:center;padding:.2rem 0;height:1.25cm"></td></tr></table>
+  </div>
+
+  <div class="clau" style="margin-top:1rem">
+    <p style="margin:0">La llista continua: després del 10 · 10 = 100 venen el 110, el 120…</p>
+    <p style="margin:0">Els tres punts (…) volen dir que continua.</p>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Pinta els múltiples del 5 a la graella. Mira quina forma fan.</div></div>
+    <div style="display:flex;gap:.35cm;align-items:flex-start">
+      <div class="resolt" style="flex:0 0 6.9cm;border-radius:10px;padding:.35rem .45rem">
+        <p style="margin:0 0 .2rem;font-weight:700"><span class="apartat">a)</span> Els múltiples del 2</p>
+        <svg viewBox="0 0 249.4 249.4" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Graella de 100 amb els múltiples del 2 pintats: fan columnes">
+          <rect x="3.8" y="3.8" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="19.9" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">1</text>
+          <rect x="28" y="3.8" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="19.9" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">2</text>
+          <rect x="52.2" y="3.8" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="19.9" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">3</text>
+          <rect x="76.3" y="3.8" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="19.9" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">4</text>
+          <rect x="100.5" y="3.8" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="19.9" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">5</text>
+          <rect x="124.7" y="3.8" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="19.9" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">6</text>
+          <rect x="148.9" y="3.8" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="19.9" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">7</text>
+          <rect x="173.1" y="3.8" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="19.9" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">8</text>
+          <rect x="197.3" y="3.8" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="19.9" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">9</text>
+          <rect x="221.5" y="3.8" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="19.9" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">10</text>
+          <rect x="3.8" y="28" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="44.1" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">11</text>
+          <rect x="28" y="28" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="44.1" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">12</text>
+          <rect x="52.2" y="28" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="44.1" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">13</text>
+          <rect x="76.3" y="28" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="44.1" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">14</text>
+          <rect x="100.5" y="28" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="44.1" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">15</text>
+          <rect x="124.7" y="28" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="44.1" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">16</text>
+          <rect x="148.9" y="28" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="44.1" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">17</text>
+          <rect x="173.1" y="28" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="44.1" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">18</text>
+          <rect x="197.3" y="28" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="44.1" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">19</text>
+          <rect x="221.5" y="28" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="44.1" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">20</text>
+          <rect x="3.8" y="52.2" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="68.3" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">21</text>
+          <rect x="28" y="52.2" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="68.3" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">22</text>
+          <rect x="52.2" y="52.2" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="68.3" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">23</text>
+          <rect x="76.3" y="52.2" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="68.3" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">24</text>
+          <rect x="100.5" y="52.2" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="68.3" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">25</text>
+          <rect x="124.7" y="52.2" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="68.3" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">26</text>
+          <rect x="148.9" y="52.2" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="68.3" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">27</text>
+          <rect x="173.1" y="52.2" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="68.3" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">28</text>
+          <rect x="197.3" y="52.2" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="68.3" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">29</text>
+          <rect x="221.5" y="52.2" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="68.3" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">30</text>
+          <rect x="3.8" y="76.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="92.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">31</text>
+          <rect x="28" y="76.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="92.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">32</text>
+          <rect x="52.2" y="76.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="92.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">33</text>
+          <rect x="76.3" y="76.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="92.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">34</text>
+          <rect x="100.5" y="76.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="92.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">35</text>
+          <rect x="124.7" y="76.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="92.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">36</text>
+          <rect x="148.9" y="76.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="92.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">37</text>
+          <rect x="173.1" y="76.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="92.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">38</text>
+          <rect x="197.3" y="76.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="92.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">39</text>
+          <rect x="221.5" y="76.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="92.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">40</text>
+          <rect x="3.8" y="100.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="116.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">41</text>
+          <rect x="28" y="100.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="116.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">42</text>
+          <rect x="52.2" y="100.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="116.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">43</text>
+          <rect x="76.3" y="100.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="116.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">44</text>
+          <rect x="100.5" y="100.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="116.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">45</text>
+          <rect x="124.7" y="100.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="116.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">46</text>
+          <rect x="148.9" y="100.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="116.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">47</text>
+          <rect x="173.1" y="100.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="116.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">48</text>
+          <rect x="197.3" y="100.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="116.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">49</text>
+          <rect x="221.5" y="100.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="116.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">50</text>
+          <rect x="3.8" y="124.7" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="140.8" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">51</text>
+          <rect x="28" y="124.7" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="140.8" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">52</text>
+          <rect x="52.2" y="124.7" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="140.8" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">53</text>
+          <rect x="76.3" y="124.7" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="140.8" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">54</text>
+          <rect x="100.5" y="124.7" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="140.8" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">55</text>
+          <rect x="124.7" y="124.7" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="140.8" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">56</text>
+          <rect x="148.9" y="124.7" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="140.8" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">57</text>
+          <rect x="173.1" y="124.7" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="140.8" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">58</text>
+          <rect x="197.3" y="124.7" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="140.8" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">59</text>
+          <rect x="221.5" y="124.7" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="140.8" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">60</text>
+          <rect x="3.8" y="148.9" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="165" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">61</text>
+          <rect x="28" y="148.9" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="165" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">62</text>
+          <rect x="52.2" y="148.9" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="165" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">63</text>
+          <rect x="76.3" y="148.9" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="165" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">64</text>
+          <rect x="100.5" y="148.9" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="165" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">65</text>
+          <rect x="124.7" y="148.9" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="165" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">66</text>
+          <rect x="148.9" y="148.9" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="165" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">67</text>
+          <rect x="173.1" y="148.9" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="165" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">68</text>
+          <rect x="197.3" y="148.9" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="165" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">69</text>
+          <rect x="221.5" y="148.9" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="165" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">70</text>
+          <rect x="3.8" y="173.1" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="189.2" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">71</text>
+          <rect x="28" y="173.1" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="189.2" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">72</text>
+          <rect x="52.2" y="173.1" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="189.2" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">73</text>
+          <rect x="76.3" y="173.1" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="189.2" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">74</text>
+          <rect x="100.5" y="173.1" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="189.2" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">75</text>
+          <rect x="124.7" y="173.1" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="189.2" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">76</text>
+          <rect x="148.9" y="173.1" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="189.2" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">77</text>
+          <rect x="173.1" y="173.1" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="189.2" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">78</text>
+          <rect x="197.3" y="173.1" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="189.2" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">79</text>
+          <rect x="221.5" y="173.1" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="189.2" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">80</text>
+          <rect x="3.8" y="197.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="213.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">81</text>
+          <rect x="28" y="197.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="213.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">82</text>
+          <rect x="52.2" y="197.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="213.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">83</text>
+          <rect x="76.3" y="197.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="213.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">84</text>
+          <rect x="100.5" y="197.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="213.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">85</text>
+          <rect x="124.7" y="197.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="213.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">86</text>
+          <rect x="148.9" y="197.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="213.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">87</text>
+          <rect x="173.1" y="197.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="213.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">88</text>
+          <rect x="197.3" y="197.3" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="213.4" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">89</text>
+          <rect x="221.5" y="197.3" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="213.4" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">90</text>
+          <rect x="3.8" y="221.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="15.9" y="237.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">91</text>
+          <rect x="28" y="221.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="40.1" y="237.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">92</text>
+          <rect x="52.2" y="221.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="64.3" y="237.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">93</text>
+          <rect x="76.3" y="221.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="88.4" y="237.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">94</text>
+          <rect x="100.5" y="221.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="112.6" y="237.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">95</text>
+          <rect x="124.7" y="221.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="136.8" y="237.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">96</text>
+          <rect x="148.9" y="221.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="161" y="237.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">97</text>
+          <rect x="173.1" y="221.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="185.2" y="237.6" font-size="11.1" font-weight="800" text-anchor="middle" fill="#000">98</text>
+          <rect x="197.3" y="221.5" width="24.2" height="24.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="209.4" y="237.6" font-size="11.1" font-weight="400" text-anchor="middle" fill="#000">99</text>
+          <rect x="221.5" y="221.5" width="24.2" height="24.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="2"/>
+          <text x="233.6" y="237" font-size="9.5" font-weight="800" text-anchor="middle" fill="#000">100</text>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0">Forma: <span class="ms">columnes</span></p>
+      </div>
+      <div style="flex:0 0 10.6cm;padding:.35rem .2rem">
+        <p style="margin:0 0 .2rem;font-weight:700"><span class="apartat">b)</span> Els múltiples del 5</p>
+        <svg viewBox="0 0 385.5 385.5" style="width:10.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Graella de 100 buida, per pintar-hi els múltiples del 5">
+          <rect x="3.8" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">1</text>
+          <rect x="41.6" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">2</text>
+          <rect x="79.4" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">3</text>
+          <rect x="117.2" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">4</text>
+          <rect x="155" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">5</text>
+          <rect x="192.8" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">6</text>
+          <rect x="230.5" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">7</text>
+          <rect x="268.3" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">8</text>
+          <rect x="306.1" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">9</text>
+          <rect x="343.9" y="3.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="28.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">10</text>
+          <rect x="3.8" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">11</text>
+          <rect x="41.6" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">12</text>
+          <rect x="79.4" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">13</text>
+          <rect x="117.2" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">14</text>
+          <rect x="155" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">15</text>
+          <rect x="192.8" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">16</text>
+          <rect x="230.5" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">17</text>
+          <rect x="268.3" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">18</text>
+          <rect x="306.1" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">19</text>
+          <rect x="343.9" y="41.6" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="66.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">20</text>
+          <rect x="3.8" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">21</text>
+          <rect x="41.6" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">22</text>
+          <rect x="79.4" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">23</text>
+          <rect x="117.2" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">24</text>
+          <rect x="155" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">25</text>
+          <rect x="192.8" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">26</text>
+          <rect x="230.5" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">27</text>
+          <rect x="268.3" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">28</text>
+          <rect x="306.1" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">29</text>
+          <rect x="343.9" y="79.4" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="104.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">30</text>
+          <rect x="3.8" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">31</text>
+          <rect x="41.6" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">32</text>
+          <rect x="79.4" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">33</text>
+          <rect x="117.2" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">34</text>
+          <rect x="155" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">35</text>
+          <rect x="192.8" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">36</text>
+          <rect x="230.5" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">37</text>
+          <rect x="268.3" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">38</text>
+          <rect x="306.1" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">39</text>
+          <rect x="343.9" y="117.2" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="142.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">40</text>
+          <rect x="3.8" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">41</text>
+          <rect x="41.6" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">42</text>
+          <rect x="79.4" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">43</text>
+          <rect x="117.2" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">44</text>
+          <rect x="155" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">45</text>
+          <rect x="192.8" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">46</text>
+          <rect x="230.5" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">47</text>
+          <rect x="268.3" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">48</text>
+          <rect x="306.1" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">49</text>
+          <rect x="343.9" y="155" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="180.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">50</text>
+          <rect x="3.8" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">51</text>
+          <rect x="41.6" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">52</text>
+          <rect x="79.4" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">53</text>
+          <rect x="117.2" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">54</text>
+          <rect x="155" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">55</text>
+          <rect x="192.8" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">56</text>
+          <rect x="230.5" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">57</text>
+          <rect x="268.3" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">58</text>
+          <rect x="306.1" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">59</text>
+          <rect x="343.9" y="192.8" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="217.9" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">60</text>
+          <rect x="3.8" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">61</text>
+          <rect x="41.6" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">62</text>
+          <rect x="79.4" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">63</text>
+          <rect x="117.2" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">64</text>
+          <rect x="155" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">65</text>
+          <rect x="192.8" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">66</text>
+          <rect x="230.5" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">67</text>
+          <rect x="268.3" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">68</text>
+          <rect x="306.1" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">69</text>
+          <rect x="343.9" y="230.5" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="255.7" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">70</text>
+          <rect x="3.8" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">71</text>
+          <rect x="41.6" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">72</text>
+          <rect x="79.4" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">73</text>
+          <rect x="117.2" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">74</text>
+          <rect x="155" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">75</text>
+          <rect x="192.8" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">76</text>
+          <rect x="230.5" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">77</text>
+          <rect x="268.3" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">78</text>
+          <rect x="306.1" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">79</text>
+          <rect x="343.9" y="268.3" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="293.5" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">80</text>
+          <rect x="3.8" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">81</text>
+          <rect x="41.6" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">82</text>
+          <rect x="79.4" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">83</text>
+          <rect x="117.2" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">84</text>
+          <rect x="155" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">85</text>
+          <rect x="192.8" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">86</text>
+          <rect x="230.5" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">87</text>
+          <rect x="268.3" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">88</text>
+          <rect x="306.1" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">89</text>
+          <rect x="343.9" y="306.1" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="331.3" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">90</text>
+          <rect x="3.8" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="22.7" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">91</text>
+          <rect x="41.6" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="60.5" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">92</text>
+          <rect x="79.4" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="98.3" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">93</text>
+          <rect x="117.2" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="136.1" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">94</text>
+          <rect x="155" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="173.9" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">95</text>
+          <rect x="192.8" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="211.7" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">96</text>
+          <rect x="230.5" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="249.4" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">97</text>
+          <rect x="268.3" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="287.2" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">98</text>
+          <rect x="306.1" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="325" y="369.1" font-size="17.4" font-weight="400" text-anchor="middle" fill="#000">99</text>
+          <rect x="343.9" y="343.9" width="37.8" height="37.8" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+          <text x="362.8" y="368.2" font-size="14.8" font-weight="400" text-anchor="middle" fill="#000">100</text>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0">Forma: <u></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut">
+    <p style="margin:0;font-weight:700">El truc de l'última xifra:</p>
+    <p style="margin:0">Els múltiples del 2 acaben en 0, 2, 4, 6 o 8.</p>
+    <p style="margin:0">Els múltiples del 5 acaben en 0 o en 5.</p>
+    <p style="margin:0">Els múltiples del 10 acaben en 0.</p>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">És múltiple del 3? Marca Sí o No. Mira la taula del 3 de la targeta.</div></div>
+    <div style="width:9.7cm;margin:.3rem auto 0">
+      <svg viewBox="0 0 366.6 366.6" style="width:9.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Graella de 100 amb els múltiples del 3 pintats: fan diagonals">
+        <rect x="3.8" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">1</text>
+        <rect x="39.7" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">2</text>
+        <rect x="75.6" y="3.8" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="93.5" y="27.7" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">3</text>
+        <rect x="111.5" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">4</text>
+        <rect x="147.4" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">5</text>
+        <rect x="183.3" y="3.8" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="201.3" y="27.7" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">6</text>
+        <rect x="219.2" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">7</text>
+        <rect x="255.1" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">8</text>
+        <rect x="291" y="3.8" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="309" y="27.7" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">9</text>
+        <rect x="326.9" y="3.8" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="27.7" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">10</text>
+        <rect x="3.8" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">11</text>
+        <rect x="39.7" y="39.7" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="57.6" y="63.6" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">12</text>
+        <rect x="75.6" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="93.5" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">13</text>
+        <rect x="111.5" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">14</text>
+        <rect x="147.4" y="39.7" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="165.4" y="63.6" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">15</text>
+        <rect x="183.3" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="201.3" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">16</text>
+        <rect x="219.2" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">17</text>
+        <rect x="255.1" y="39.7" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="273.1" y="63.6" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">18</text>
+        <rect x="291" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="309" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">19</text>
+        <rect x="326.9" y="39.7" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="63.6" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">20</text>
+        <rect x="3.8" y="75.6" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="21.7" y="99.5" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">21</text>
+        <rect x="39.7" y="75.6" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="99.5" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">22</text>
+        <rect x="75.6" y="75.6" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="93.5" y="99.5" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">23</text>
+        <rect x="111.5" y="75.6" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="129.4" y="99.5" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">24</text>
+        <rect x="147.4" y="75.6" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="99.5" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">25</text>
+        <rect x="183.3" y="75.6" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="201.3" y="99.5" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">26</text>
+        <rect x="219.2" y="75.6" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="237.2" y="99.5" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">27</text>
+        <rect x="255.1" y="75.6" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="99.5" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">28</text>
+        <rect x="291" y="75.6" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="309" y="99.5" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">29</text>
+        <rect x="326.9" y="75.6" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="344.9" y="99.5" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">30</text>
+        <rect x="3.8" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">31</text>
+        <rect x="39.7" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">32</text>
+        <rect x="75.6" y="111.5" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="93.5" y="135.4" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">33</text>
+        <rect x="111.5" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">34</text>
+        <rect x="147.4" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">35</text>
+        <rect x="183.3" y="111.5" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="201.3" y="135.4" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">36</text>
+        <rect x="219.2" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">37</text>
+        <rect x="255.1" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">38</text>
+        <rect x="291" y="111.5" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="309" y="135.4" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">39</text>
+        <rect x="326.9" y="111.5" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="135.4" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">40</text>
+        <rect x="3.8" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">41</text>
+        <rect x="39.7" y="147.4" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="57.6" y="171.3" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">42</text>
+        <rect x="75.6" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="93.5" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">43</text>
+        <rect x="111.5" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">44</text>
+        <rect x="147.4" y="147.4" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="165.4" y="171.3" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">45</text>
+        <rect x="183.3" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="201.3" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">46</text>
+        <rect x="219.2" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">47</text>
+        <rect x="255.1" y="147.4" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="273.1" y="171.3" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">48</text>
+        <rect x="291" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="309" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">49</text>
+        <rect x="326.9" y="147.4" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="171.3" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">50</text>
+        <rect x="3.8" y="183.3" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="21.7" y="207.2" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">51</text>
+        <rect x="39.7" y="183.3" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="207.2" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">52</text>
+        <rect x="75.6" y="183.3" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="93.5" y="207.2" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">53</text>
+        <rect x="111.5" y="183.3" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="129.4" y="207.2" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">54</text>
+        <rect x="147.4" y="183.3" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="207.2" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">55</text>
+        <rect x="183.3" y="183.3" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="201.3" y="207.2" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">56</text>
+        <rect x="219.2" y="183.3" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="237.2" y="207.2" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">57</text>
+        <rect x="255.1" y="183.3" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="207.2" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">58</text>
+        <rect x="291" y="183.3" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="309" y="207.2" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">59</text>
+        <rect x="326.9" y="183.3" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="344.9" y="207.2" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">60</text>
+        <rect x="3.8" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">61</text>
+        <rect x="39.7" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">62</text>
+        <rect x="75.6" y="219.2" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="93.5" y="243.1" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">63</text>
+        <rect x="111.5" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">64</text>
+        <rect x="147.4" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">65</text>
+        <rect x="183.3" y="219.2" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="201.3" y="243.1" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">66</text>
+        <rect x="219.2" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">67</text>
+        <rect x="255.1" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">68</text>
+        <rect x="291" y="219.2" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="309" y="243.1" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">69</text>
+        <rect x="326.9" y="219.2" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="243.1" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">70</text>
+        <rect x="3.8" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">71</text>
+        <rect x="39.7" y="255.1" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="57.6" y="279" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">72</text>
+        <rect x="75.6" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="93.5" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">73</text>
+        <rect x="111.5" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">74</text>
+        <rect x="147.4" y="255.1" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="165.4" y="279" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">75</text>
+        <rect x="183.3" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="201.3" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">76</text>
+        <rect x="219.2" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">77</text>
+        <rect x="255.1" y="255.1" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="273.1" y="279" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">78</text>
+        <rect x="291" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="309" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">79</text>
+        <rect x="326.9" y="255.1" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="279" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">80</text>
+        <rect x="3.8" y="291" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="21.7" y="314.9" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">81</text>
+        <rect x="39.7" y="291" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="314.9" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">82</text>
+        <rect x="75.6" y="291" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="93.5" y="314.9" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">83</text>
+        <rect x="111.5" y="291" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="129.4" y="314.9" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">84</text>
+        <rect x="147.4" y="291" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="314.9" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">85</text>
+        <rect x="183.3" y="291" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="201.3" y="314.9" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">86</text>
+        <rect x="219.2" y="291" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="237.2" y="314.9" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">87</text>
+        <rect x="255.1" y="291" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="314.9" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">88</text>
+        <rect x="291" y="291" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="309" y="314.9" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">89</text>
+        <rect x="326.9" y="291" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="344.9" y="314.9" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">90</text>
+        <rect x="3.8" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="21.7" y="350.8" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">91</text>
+        <rect x="39.7" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="57.6" y="350.8" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">92</text>
+        <rect x="75.6" y="326.9" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="93.5" y="350.8" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">93</text>
+        <rect x="111.5" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="129.4" y="350.8" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">94</text>
+        <rect x="147.4" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="165.4" y="350.8" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">95</text>
+        <rect x="183.3" y="326.9" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="201.3" y="350.8" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">96</text>
+        <rect x="219.2" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="237.2" y="350.8" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">97</text>
+        <rect x="255.1" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="273.1" y="350.8" font-size="16.5" font-weight="400" text-anchor="middle" fill="#000">98</text>
+        <rect x="291" y="326.9" width="35.9" height="35.9" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="2"/>
+        <text x="309" y="350.8" font-size="16.5" font-weight="800" text-anchor="middle" fill="#000">99</text>
+        <rect x="326.9" y="326.9" width="35.9" height="35.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="344.9" y="349.9" font-size="14" font-weight="400" text-anchor="middle" fill="#000">100</text>
+      </svg>
+      <p style="margin:.1rem 0 .4rem;font-size:14pt;color:var(--gris-2);text-align:center">Els múltiples del 3, pintats.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.35rem .4cm">
+      <div class="resolt" style="border-radius:10px;padding:.25rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">a)</span> 12</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div><p class="frase" style="margin:0;font-size:14pt"><span class="ms">3 · 4 = 12</span></p>
+      </div>
+      <div style="border-radius:10px;padding:.25rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">b)</span> 13</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+      </div>
+      <div style="border-radius:10px;padding:.25rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">c)</span> 21</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+      </div>
+      <div style="border-radius:10px;padding:.25rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">d)</span> 23</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+      </div>
+      <div style="border-radius:10px;padding:.25rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">e)</span> 3</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+      </div>
+      <div style="border-radius:10px;padding:.25rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">f)</span> 27</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Els múltiples del 3 no sempre acaben en 3.</p>
+    <p style="margin:.2rem 0 0">El 12 i el 21 ho són. El 13 i el 23 acaben en 3, i no ho són.</p>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 4</div>
+</div>
+
+<div class="full">
+  <h2>El truc del 3</h2>
+  <div class="avis gruixut">
+    <p style="margin:0">Vols saber si 126 és múltiple del 3.</p>
+    <p style="margin:0">1. Suma les xifres, d'una en una: 1 + 2 + 6 = 9.</p>
+    <p style="margin:0">2. Busca el 9 a la taula del 3 de la targeta. Hi és.</p>
+    <p style="margin:0;font-weight:700">3. Per tant, 126 és múltiple del 3.</p>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Fes el truc del 3 amb cada nombre. Ves a poc a poc.</div></div>
+    <table class="mini" style="margin-top:.4rem">
+      <tr><th style="width:3.3cm">Nombre</th><th>Suma de les xifres</th><th style="width:3.6cm">És a la taula del 3?</th><th style="width:3.6cm">És múltiple del 3?</th></tr>
+      <tr class="resolt"><td class="apartat" style="font-size:17pt;white-space:nowrap">a) 126</td><td style="text-align:center"><span class="ms">1 + 2 + 6 = 9</span></td><td style="text-align:center"><span class="ms">Sí</span></td><td style="text-align:center"><span class="ms">Sí</span></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">b) 123</td><td class="omplir" style="height:1.3cm"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">c) 214</td><td class="omplir" style="height:1.3cm"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">d) 405</td><td class="omplir" style="height:1.3cm"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">e) 88</td><td class="omplir" style="height:1.3cm"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">f) 312</td><td class="omplir" style="height:1.3cm"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">g) 71</td><td class="omplir" style="height:1.3cm"></td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="clau" style="margin-top:.8rem">
+    <p style="margin:0">La taula del 3: 3, 6, 9, 12, 15, 18, 21, 24, 27, 30.</p>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 5</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Fes els quatre trucs. Escriu Sí o No.</div></div>
+    <table class="mini" style="margin-top:.4rem">
+      <tr><th style="width:3.3cm">Nombre</th><th>Múltiple del 2?</th><th>Múltiple del 5?</th><th>Múltiple del 10?</th><th>Múltiple del 3?</th></tr>
+      <tr class="resolt"><td class="apartat" style="font-size:17pt;white-space:nowrap">a) 160</td><td style="text-align:center"><span class="ms">Sí</span></td><td style="text-align:center"><span class="ms">Sí</span></td><td style="text-align:center"><span class="ms">Sí</span></td><td style="text-align:center"><span class="ms">No</span></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">b) 945</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">c) 60</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">d) 23</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">e) 42</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">f) 550</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+    </table>
+    <div class="avis puntejat" style="margin-top:.6rem">
+      <p style="margin:0">El 2, el 5 i el 10: mira l'última xifra.</p>
+      <p style="margin:0">El 3: suma les xifres i mira la taula del 3.</p>
+    </div>
+  </div>
+
+  <div class="clau" style="margin-top:1rem">
+    <p style="margin:0">A classe també es diu <b>divisible</b>.</p>
+    <p style="margin:0">«126 és múltiple del 3» vol dir el mateix que «126 és divisible entre 3».</p>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 6</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Els ous van en capses de 6. Es poden comprar sense obrir cap capsa?</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Vols 18 ous.</p>
+        <svg viewBox="0 0 281.6 58.6" style="width:7.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Tres capses de 6 ous">
+          <rect x="3.8" y="3.8" width="79.4" height="51" rx="5.7" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <ellipse cx="19.7" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="43.1" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="66.5" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="19.7" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="43.1" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="66.5" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <rect x="96.4" y="3.8" width="79.4" height="51" rx="5.7" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <ellipse cx="112.3" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="135.7" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="159.1" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="112.3" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="135.7" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="159.1" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <rect x="189" y="3.8" width="79.4" height="51" rx="5.7" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <ellipse cx="204.8" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="228.3" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="251.7" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="204.8" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="228.3" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="251.7" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0"><span class="ms">6 · 3 = 18</span>. Són <span class="ms">3</span> capses.</p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Vols 20 ous.</p>
+        <svg viewBox="0 0 96.4 58.6" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una capsa de 6 ous">
+          <rect x="3.8" y="3.8" width="79.4" height="51" rx="5.7" fill="#E4E4E4" stroke="#5E5E5E" stroke-width="1.4"/>
+          <ellipse cx="19.7" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="43.1" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="66.5" cy="17" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="19.7" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="43.1" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+          <ellipse cx="66.5" cy="41.6" rx="9.1" ry="11" fill="#fff" stroke="#333" stroke-width="1.8"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0">La taula del 6: 6 · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">7</div><div class="q">Tens monedes de 2 €. Pots pagar el preu just, sense canvi?</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Un llibre de 14 €.</p>
+        <svg viewBox="0 0 316 45.4" style="width:8.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Set monedes de 2 euros">
+          <circle cx="22.7" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="22.7" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="22.7" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+          <circle cx="67.3" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="67.3" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="67.3" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+          <circle cx="111.9" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="111.9" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="111.9" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+          <circle cx="156.5" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="156.5" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="156.5" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+          <circle cx="201.1" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="201.1" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="201.1" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+          <circle cx="245.7" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="245.7" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="245.7" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+          <circle cx="290.3" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="290.3" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="290.3" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0">Acaba en 4. <span class="ms">2 · 7 = 14</span>: <span class="ms">7</span> monedes.</p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Una samarreta de 15 €.</p>
+        <svg viewBox="0 0 48.4 45.4" style="width:1.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una moneda de 2 euros">
+          <circle cx="22.7" cy="22.7" r="18.9" fill="#E4E4E4" stroke="#333" stroke-width="2"/>
+          <circle cx="22.7" cy="22.7" r="15.1" fill="none" stroke="#8A8A8A" stroke-width="1"/>
+          <text x="22.7" y="28" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2 €</text>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:nowrap"><label style="min-width:2.7cm"><span class="quadret"></span>Sí</label><label style="min-width:2.7cm"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0">Acaba en <u style="padding:0 1.1rem"></u>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Múltiples · pàgina 7</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · Els múltiples · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> Es diu sempre igual: «els múltiples del 3 són la taula del 3». La
+    targeta és al davant tota l'estona: una llista de múltiples és una columna de la targeta, i
+    «és múltiple?» és «és a la taula?». El 0 és múltiple de tots, com a les llistes del grup. El
+    truc del 3 es fa a poc a poc: primer la suma, xifra a xifra, i després la taula. La suma sempre
+    dona de l'1 al 27, i la taula del 3 de la targeta arriba fins al 30.
+  </div>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: fer una fila de 2, i anar-ne afegint una a sota, comptant-los tots
+  cada vegada: 2, 4, 6, 8, 10. Són els rectangles de la pàgina 1, i la taula del 2.</p>
+
+  <h3>1. Les llistes de múltiples</h3>
+  <p>b) 0, 9, 18, 27, 36, 45, 54, 63, 72, 81, 90. c) 0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80.
+  d) 0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70. Són els de l'activitat 2_1 del grup, sense el 19 i
+  el 600, que no són a la targeta. <b>Error típic:</b> oblidar el 0, o saltar-se una fila de la
+  targeta.</p>
+
+  <h3>2. La graella de 100</h3>
+  <p>b) Els múltiples del 5 fan dues columnes: la del 5 i la del 10. Com els del 2, fan columnes
+  perquè sempre acaben en la mateixa xifra. Es dona per bona qualsevol manera de dir-ho: «ratlles»,
+  «files de dalt a baix».</p>
+
+  <h3>3. És múltiple del 3?</h3>
+  <p>a) Sí (3 · 4 = 12); b) No; c) Sí (3 · 7 = 21); d) No; e) Sí (3 · 1 = 3); f) Sí (3 · 9 = 27).
+  <b>Error típic:</b> dir que sí al 13 i al 23 perquè acaben en 3. És la regla trencada d'aquesta
+  fitxa: el truc de l'última xifra serveix per al 2, el 5 i el 10, però no per al 3. No
+  l'expliqueu: que miri la graella de la mateixa pàgina, on els del 3 fan diagonals, i que busqui
+  el 13 a la taula del 3 de la targeta.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. El truc del 3</h3>
+  <table>
+    <tr><th></th><th>Suma de les xifres</th><th>És a la taula del 3?</th><th>És múltiple del 3?</th></tr>
+    <tr><td>b) 123</td><td>1 + 2 + 3 = 6</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>c) 214</td><td>2 + 1 + 4 = 7</td><td>No</td><td>No</td></tr>
+    <tr><td>d) 405</td><td>4 + 0 + 5 = 9</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>e) 88</td><td>8 + 8 = 16</td><td>No</td><td>No</td></tr>
+    <tr><td>f) 312</td><td>3 + 1 + 2 = 6</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>g) 71</td><td>7 + 1 = 8</td><td>No</td><td>No</td></tr>
+  </table>
+  <p>Els nombres són els de la tasca 5.4 de la caixa. <b>Error típic:</b> una suma mal feta, sobretot
+  8 + 8. Que compti amb els dits o amb els miniblocs: aquí la suma és la feina, i és una bona
+  ocasió per fer-ne. Si la suma està bé i s'equivoca en la taula, que la busqui a la targeta.</p>
+
+  <h3>5. Els quatre trucs</h3>
+  <table>
+    <tr><th></th><th>Del 2</th><th>Del 5</th><th>Del 10</th><th>Del 3</th></tr>
+    <tr><td>b) 945</td><td>No</td><td>Sí</td><td>No</td><td>Sí (9 + 4 + 5 = 18)</td></tr>
+    <tr><td>c) 60</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí (6 + 0 = 6)</td></tr>
+    <tr><td>d) 23</td><td>No</td><td>No</td><td>No</td><td>No (2 + 3 = 5)</td></tr>
+    <tr><td>e) 42</td><td>Sí</td><td>No</td><td>No</td><td>Sí (4 + 2 = 6)</td></tr>
+    <tr><td>f) 550</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No (5 + 5 + 0 = 10)</td></tr>
+  </table>
+  <p>Són els nombres de la taula de l'activitat 2_3 del grup, sense el 110.000.001. Els criteris
+  del 6 i del 9 queden fora (docs/MAPA-ADAPTACIO.md). La clau del final lliga «múltiple» amb
+  «divisible», la paraula que farà servir el grup.</p>
+
+  <h3>6 i 7. A la vida de cada dia</h3>
+  <p>6b) No: 6 · 3 = 18 i 6 · 4 = 24; el 20 no és a la taula del 6. 7b) No: acaba en 5, i els
+  múltiples del 2 acaben en 0, 2, 4, 6 o 8. És la mateixa decisió que als exercicis: és a la taula?</p>
+</div>
+
+<div class="full sol">
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=5</b> (5.1 La graella de
+  100; 5.2 És múltiple?; 5.3 Els trucs; 5.4 Múltiple de 3?). La 5.2 i la 5.4 donen un codi de
+  verificació. La graella de la 5.1 s'obre amb els múltiples del 2, com la pàgina 1, i la 5.3 amb el
+  126, com la pàgina 5.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.4, 3.2, 4.2 i 5.2) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs, fa files de 2 i diu els múltiples del 2 comptant-los.</li>
+    <li>Escriu els múltiples d'un nombre, començant pel 0, amb la targeta (exercici 1).</li>
+    <li>Pinta els múltiples a la graella de 100 i diu quina forma fan (exercici 2).</li>
+    <li>Diu si un nombre és múltiple del 2, del 5 o del 10 per l'última xifra (exercici 5).</li>
+    <li>Fa el truc del 3: suma les xifres i busca la suma a la taula del 3 (exercici 4).</li>
+    <li>Nivells alts: explica per què el 13 no és múltiple del 3, encara que acabi en 3 (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

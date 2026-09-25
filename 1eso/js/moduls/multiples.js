@@ -83,9 +83,12 @@
 
   /* ============================================== 5.2 · És múltiple? ====== */
 
-  // [nombre, de]: tots dins de la targeta (el nombre no passa de 10 vegades)
+  // [nombre, de]: tots dins de la targeta (el nombre no passa de 10 vegades). Els quatre
+  // últims són els de la regla trencada de la fitxa 1 de la unitat 2: el 12 i el 21 són
+  // múltiples del 3 i no acaben en 3; el 13 i el 23 hi acaben i no ho són. Van al final
+  // perquè una tasca desada a mitges guarda les posicions de la llista.
   const MULT = [[24, 3], [25, 3], [35, 5], [36, 5], [42, 6], [44, 6], [56, 7], [58, 7], [72, 8], [76, 8],
-                [81, 9], [84, 9], [14, 2], [15, 2], [30, 10], [35, 10]];
+                [81, 9], [84, 9], [14, 2], [15, 2], [30, 10], [35, 10], [12, 3], [13, 3], [21, 3], [23, 3]];
   const N52 = 5;
   let t52 = null, c52 = null, i52 = 0, triat52 = null;
 

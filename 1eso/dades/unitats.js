@@ -53,7 +53,9 @@ window.UNITATS = [
            "Un nombre primer només en fa un: una fila.",
     material: "Miniblocs: fer tots els rectangles de 12, i després els de 7.",
     criteris: "1.4, 3.2, 4.2, 5.2",
-    fitxes: [],
+    fitxes: [
+      { fitxa: "fitxes/ud2.html", titol: "Els múltiples" }
+    ],
     tasques: [0, 5, 6, 7, 8]
   },
   {

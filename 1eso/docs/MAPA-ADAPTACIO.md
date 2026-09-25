@@ -72,7 +72,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
-| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Pla validat el 25 de setembre de 2026. Caixa d'eines feta (tasques 5 a 8). Falten les fitxes i l'examen |
+| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Pla validat el 25 de setembre de 2026. Caixa d'eines (tasques 5 a 8) i fitxa 1 fetes. Falten quatre fitxes i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
@@ -178,6 +178,17 @@ sense forçar-lo.
 | Repàs U2 | Tots els continguts, i el carnet d'identitat de cada nombre (múltiples, divisors i factorització) | El repàs, amb el carnet d'identitat, i «Què he après?» | Fitxa 5 |
 | Examen U2 (i la seva adaptació) | Vuit exercicis: múltiples, caixes i boles, divisibilitat, criteris, arbres, primers i carnets | En DOCX, amb el motor comú. L'adaptació que ja existeix serveix de referència de mida | Examen |
 
+**Les fitxes de la unitat 2**, en l'ordre del grup:
+
+| Fitxa | Què porta | Activitats del grup | Estat |
+|---|---|---|---|
+| 1 · `ud2.html` | Els múltiples: la taula de la targeta, les llistes, la graella de 100, el truc de l'última xifra (2, 5 i 10) i el truc del 3 | 2_1, 2_3 | Feta |
+| 2 | Repartir: files plenes, el residu, exacta o no, i la igualtat 37 = 5 · 7 + 2 | 2_2, 2_5 (pràctica) | Per fer |
+| 3 | Divisors i primers: els rectangles d'un nombre i el garbell | 2_4, 2_7 | Per fer |
+| 4 | Factorització: arbres amb la targeta, de tres factors primers com a molt | 2_5, 2_8, «ADN» | Per fer |
+| 5 | Repàs, el carnet d'identitat d'un nombre i «Què he après?» | Repàs U2 | Per fer |
+| Examen | En DOCX, amb el motor comú | Examen U2 | Per fer |
+
 **Queda fora, i per què.** No es rebaixa: no hi és.
 
 - Els nombres de més de 999 (111.111.111, 110.000.001, 10.000…), perquè la regla D ho diu.
@@ -195,6 +206,8 @@ sense forçar-lo.
   factors primers com a molt**, comptant els repetits: 2 · 2 · 3, 3 · 3 · 5, 2 · 3 · 5. Com que
   l'arbre es fa amb la targeta, cada pas ha de ser una multiplicació de la targeta: els nombres
   arriben com a molt al 100.
+- 25 de setembre de 2026: la fitxa 1, els múltiples. Per complir la regla 8, la tasca 5.2 de la
+  caixa té també els casos de la regla trencada de la fitxa (el 12, el 13, el 21 i el 23).
 - 25 de setembre de 2026: el **criteri del 3** hi va, explicat bé i amb calma: és una bona ocasió
   per sumar. La suma de les xifres ha de donar directament un nombre de l'1 al 30, sense haver de
   tornar a sumar (res de 9897 → 33 → 6). Amb nombres de fins al 999 es compleix sempre: com a molt

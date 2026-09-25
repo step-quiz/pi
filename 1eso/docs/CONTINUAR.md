@@ -22,7 +22,8 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 - **La caixa d'eines de la unitat 2**, a la mateixa pàgina: quatre eines més (múltiples,
   repartir, divisors i primers), deu subtasques i cinc tasques tancades (5.2, 5.4, 6.2, 7.2 i
   8.2). Són les tasques 5 a 8. En total, la caixa té 24 subtasques i onze tasques tancades.
-  Falten les cinc fitxes de la unitat 2 i l'examen ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md),
+- **La fitxa 1 de la unitat 2** (`fitxes/ud2.html`), els múltiples: 7 pàgines i 3 de solucionari.
+  Falten quatre fitxes més de la unitat 2 i l'examen ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md),
   apartat 6).
 - **Els tests de la caixa**: `comprova.py` la revisa per dins, i dos tests nous la fan servir en
   un navegador: `eines/prova_caixa.py` (que funcioni) i `eines/auditoria.py` (accessibilitat).
@@ -97,14 +98,15 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    la portada, a «Caixa d'eines».
 3. **Els PDF de les quatre fitxes de la unitat 1**, al Codespace, amb `eines/mesura.py` i
    `generadors/gen_pdf.py`, que necessiten WeasyPrint. També es torna a fer el de la targeta,
-   que surt igual però té l'empremta nova. Fins llavors, `comprova.py` diu nou problemes (els vuit
-   PDF que falten i el de la targeta, vell), i és el que toca. Després, imprimir-les i mirar
+   que surt igual però té l'empremta nova. Ara també els de la fitxa 1 de la unitat 2. Fins
+   llavors, `comprova.py` diu onze problemes (els deu PDF que falten i el de la targeta, vell), i
+   és el que toca. Després, imprimir-les i mirar
    si les quadrícules i les siluetes es poden pintar bé a mà.
 4. **Revisar l'examen de la unitat 1** a Google Docs. Si es vol amb el curs a la capçalera,
    es fa al Codespace amb el fitxer privat (vegeu el `README.md`, «L'examen»).
 5. **La unitat 2 (Divisibilitat), del 3 al 19 de novembre.** La caixa ja hi és (tasques 5 a 8):
-   provar-la. Falten les cinc fitxes (múltiples, repartir, divisors i primers, factorització, i
-   repàs amb «Què he après?») i l'examen. El pla i les decisions del docent són a
+   provar-la. La fitxa 1, els múltiples, també. Falten quatre fitxes (repartir, divisors i
+   primers, factorització, i repàs amb «Què he après?») i l'examen. El pla i les decisions del docent són a
    [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 6.
 6. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
