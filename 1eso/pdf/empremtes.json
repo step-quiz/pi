@@ -10,12 +10,12 @@
     "pagines": 9
   },
   "ud1-nombres-alumnat.pdf": {
-    "empremta": "78c18996d29c29db848817172965ac8ce086a46692c254c4b83ecc503534175f",
+    "empremta": "eba4b2e18567ea8e751d769b34d26d5370677df1f1df21bd435835a415849109",
     "font": "fitxes/ud1-nombres.html",
     "pagines": 6
   },
   "ud1-nombres-solucionari.pdf": {
-    "empremta": "78c18996d29c29db848817172965ac8ce086a46692c254c4b83ecc503534175f",
+    "empremta": "eba4b2e18567ea8e751d769b34d26d5370677df1f1df21bd435835a415849109",
     "font": "fitxes/ud1-nombres.html",
     "pagines": 2
   },
@@ -27,6 +27,16 @@
   "ud1-ordre-solucionari.pdf": {
     "empremta": "78c21d422d3b3b84b777e51b92a6ec624fdd3734491fd4d52f1d2175101d1404",
     "font": "fitxes/ud1-ordre.html",
+    "pagines": 2
+  },
+  "ud1-repas-alumnat.pdf": {
+    "empremta": "234b47837b9b45cdcded7b908d63745e68ee4ca8adfa182c17744685ee6532d3",
+    "font": "fitxes/ud1-repas.html",
+    "pagines": 6
+  },
+  "ud1-repas-solucionari.pdf": {
+    "empremta": "234b47837b9b45cdcded7b908d63745e68ee4ca8adfa182c17744685ee6532d3",
+    "font": "fitxes/ud1-repas.html",
     "pagines": 2
   },
   "ud1-solucionari.pdf": {
