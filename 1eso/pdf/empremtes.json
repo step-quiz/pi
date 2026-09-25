@@ -43,5 +43,15 @@
     "empremta": "470b0f3e4b420ac607f6e4147ef9afdd93d5d134e288cfa36ca5bb30de7292e0",
     "font": "fitxes/ud1.html",
     "pagines": 3
+  },
+  "ud2-alumnat.pdf": {
+    "empremta": "b6297e463cff08abee7f5df8fa4259134658c2f25a834c5de35c72cfcfdc4393",
+    "font": "fitxes/ud2.html",
+    "pagines": 7
+  },
+  "ud2-solucionari.pdf": {
+    "empremta": "b6297e463cff08abee7f5df8fa4259134658c2f25a834c5de35c72cfcfdc4393",
+    "font": "fitxes/ud2.html",
+    "pagines": 3
   }
 }
