@@ -123,6 +123,31 @@ apartat 7.
 
 ---
 
+## L'examen
+
+Cada unitat té el seu a `generadors/examens/udN.js`, amb el motor comú de
+[`../comu/examens/nucli.js`](../comu/examens/nucli.js) i les regles de
+[`../comu/docs/EXAMENS-DOCX.md`](../comu/docs/EXAMENS-DOCX.md). Al Codespace, des de l'arrel del
+repositori:
+
+```bash
+npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5     # només el primer cop de cada Codespace
+NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud1.js
+```
+
+Surten dos DOCX a `1eso/docx/`: l'examen i el solucionari. **No es pugen mai**: el `.gitignore`
+els deixa fora. Per posar el curs a la capçalera, abans es crea
+`1eso/generadors/examens-privat.json`, que tampoc no es puja:
+
+```json
+{ "curs": "el nom del grup", "adaptacio": "el que ha de dir el solucionari" }
+```
+
+Sense aquest fitxer, l'examen surt sense curs, i el solucionari diu «alumnat amb dificultats de
+tipus cognitiu».
+
+---
+
 ## La lletra manuscrita
 
 `fonts/Caveat.ttf` és la lletra Caveat, de The Caveat Project Authors, sota la llicència SIL

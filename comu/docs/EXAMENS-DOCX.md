@@ -20,7 +20,21 @@ comú, i cada curs hi posa el seu contingut.
 | `4eso/docx/` | On surten els dos DOCX. Tampoc es puja, perquè porten les dades privades |
 
 Per a `1eso/`, el mateix dins de la seva carpeta (`1eso/generadors/examens/udN.js`,
-`1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor.
+`1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor. La UD1 de `1eso/` ja
+hi és, des del 25/9/2026.
+
+**El que canvia d'un curs a l'altre** es passa a `genera()`, i els valors per defecte són els de
+`4eso/`, que no canvia gens:
+
+```js
+X.genera({ unitat: 1, alumnat, solucionari,
+  materia: "Matemàtiques",            // la capçalera: «Matemàtiques [curs] · Unitat 1»
+  creador: "Matemàtiques",            // l'autor de les propietats del fitxer
+  avis: { text: "Pots fer servir la targeta de les taules a tot l'examen.", icona: "targeta" } });
+```
+
+A `1eso/` no hi ha calculadora (`1eso/docs/CRITERIS-DISSENY.md`, regla C): l'únic avís és el de
+la targeta de les taules, amb la seva icona. I l'autor del fitxer tampoc no diu «adaptat».
 
 Per fer l'examen d'una unitat, des de l'arrel del repositori, al Codespace:
 
@@ -51,14 +65,17 @@ Les llibreries s'instal·len a `/tmp`, fora del repositori, perquè no hi entri 
 
 ## 3. L'estructura
 
-- **Pàgina 1**: a dalt, «Matemàtiques Aplicades [curs] · Unitat N»; a sota, Nom i Data;
-  l'avís de la calculadora; l'exercici 1. El curs surt del fitxer privat.
+- **Pàgina 1**: a dalt, «Matemàtiques Aplicades [curs] · Unitat N» (a `1eso/`, «Matemàtiques
+  [curs] · Unitat N»); a sota, Nom i Data; l'avís de la calculadora (a `1eso/`, el de la targeta
+  de les taules); l'exercici 1. El curs surt del fitxer privat.
 - **Ni «adaptat» ni títol.** L'examen té l'aspecte d'un examen com els altres.
 - **Un sol avís**, el de la calculadora. El de «l'apartat a) ja està fet» no hi va: el
   model en lletra manuscrita ja ho diu tot sol.
 - **Un exercici per pàgina.** Dos de curts poden compartir-la si hi caben sencers (a la
   UD1, el 6 i el 7): `exercici(7, …, { mateixaPagina: true }, …)`.
 - **Peu**: «pàgina N de M».
+- **El número de l'exercici**, dins d'un quadrat d'1 cm, a 18 pt; si té dues xifres (el 10), a
+  15 pt, perquè hi càpiga.
 - **El solucionari**, en un document a part.
 
 ---

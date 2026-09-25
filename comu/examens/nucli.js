@@ -127,11 +127,17 @@ const ICONES = {
     `<rect x="4" y="18" width="30" height="10" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
      <path d="M4 28l4 5 4-5 4 5 4-5 4 5 4-5 4 5 2-5" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
      <rect x="34" y="16" width="10" height="14" rx="3" fill="#000"/>`),
+  /* La targeta de les taules (1eso/), on no hi ha calculadora: una fitxa amb files. */
+  targeta: SVG("0 0 48 48", 48, 48,
+    `<rect x="5" y="5" width="38" height="38" rx="5" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+     <g stroke="#000" stroke-width="2"><line x1="5" y1="17" x2="43" y2="17"/><line x1="5" y1="26" x2="43" y2="26"/>
+     <line x1="5" y1="35" x2="43" y2="35"/><line x1="19" y1="5" x2="19" y2="43"/></g>`),
   compra: SVG("0 0 48 48", 48, 48,
     `<path d="M17 15V11a7 7 0 0 1 14 0v4" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
      <path d="M9 15h30l-3 28H12z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>`),
 };
-const ALT_ICONA = { calc: "Calculadora", parla: "Bombolla de parlar: dir-ho", talla: "Serra: tallar", compra: "Bossa: comprar" };
+const ALT_ICONA = { calc: "Calculadora", parla: "Bombolla de parlar: dir-ho", talla: "Serra: tallar", compra: "Bossa: comprar",
+                    targeta: "Targeta de les taules" };
 
 /* La casella de marcar (1,4 rem, vora de 2,5 px). La marcada porta el senyal
    fet a mà. Totes dues tenen el mateix llenç, perquè quedin a la mateixa altura. */
@@ -273,10 +279,11 @@ const anota = etiqueta => { APARTATS_PENDENTS.push(etiqueta.replace(/\W/g, ""));
 /* ----------------------------------------------------------- l'alumnat -- */
 /* Les peces tornen funcions: el document es munta quan ja hi ha els PNG fets. */
 
-/* Pàgina 1, a dalt: «Matemàtiques Aplicades [curs] · Unitat N». Ni «adaptat» ni
-   títol: l'examen té l'aspecte d'un examen com els altres. */
-function capcalera(unitat, curs) {
-  const text = ["Matemàtiques Aplicades", curs].filter(Boolean).join(" ") + ` · Unitat ${unitat}`;
+/* Pàgina 1, a dalt: «Matemàtiques Aplicades [curs] · Unitat N» a 4eso/, i
+   «Matemàtiques [curs] · Unitat N» a 1eso/. Ni «adaptat» ni títol: l'examen té
+   l'aspecte d'un examen com els altres. */
+function capcalera(unitat, curs, materia = MATERIA) {
+  const text = [materia, curs].filter(Boolean).join(" ") + ` · Unitat ${unitat}`;
   return par(run(text, { size: mig(MIDA.previ), color: G.gris2, characterSpacing: 2 }), {
     border: { bottom: { style: BorderStyle.SINGLE, size: vuitens(1), color: G.voraSuau, space: 4 } },
     spacing: { after: tw(0.8 * REM) },
@@ -297,18 +304,24 @@ function nomData() {
 }
 
 /* L'únic avís de l'examen. L'altre («l'apartat a) ja està fet») el docent el
-   va treure: el model en lletra manuscrita ja ho diu tot sol. */
-function avisCalculadora(text = "Pots fer servir la calculadora a tot l'examen.") {
+   va treure: el model en lletra manuscrita ja ho diu tot sol.
+   A 4eso/ és el de la calculadora. A 1eso/ no n'hi ha, de calculadora: l'avís és
+   el de la targeta de les taules (genera({ avis: { text, icona: "targeta" } })). */
+const AVIS_PER_DEFECTE = { text: "Pots fer servir la calculadora a tot l'examen.", icona: "calc" };
+function avisInicial(avis) {
+  const { text, icona } = { ...AVIS_PER_DEFECTE, ...(avis || {}) };
   const b = vora(3, G.tinta);
   const pad = { top: tw(0.75 * REM), bottom: tw(0.75 * REM) };
   const wi = tw(1 * REM) + tw(3 * REM) + tw(0.9 * REM);
   return taula([wi, AMPLE - wi], [new TableRow({ cantSplit: true, children: [
-    cela(par(imatge("calc", 1.27, 1.27, ALT_ICONA.calc)), { w: wi, fons: G.fons1,
+    cela(par(imatge(icona, 1.27, 1.27, ALT_ICONA[icona] || icona)), { w: wi, fons: G.fons1,
       margins: { ...pad, left: tw(1 * REM), right: tw(0.9 * REM) }, borders: { top: b, bottom: b, left: b, right: CAP } }),
     cela(par(run(text, { size: mig(MIDA.avis) })), { w: AMPLE - wi, fons: G.fons1,
       margins: { ...pad, left: 0, right: tw(1 * REM) }, borders: { top: b, bottom: b, left: CAP, right: b } }),
   ] })]);
 }
+
+const avisCalculadora = text => avisInicial({ text });
 
 /* Capçalera d'exercici: el número dins d'un quadrat d'1 cm i la consigna al
    costat, en rodona. El quadrat és una taula petita dins de la cel·la: així no
@@ -319,7 +332,8 @@ function tasca(n, consigna, calc) {
   const w2 = AMPLE - COSTAT;
   const quadrat = taula([COSTAT], [new TableRow({
     height: { value: COSTAT, rule: HeightRule.ATLEAST }, cantSplit: true,
-    children: [cela(par(run(String(n), { bold: true, size: mig(18) }), { alignment: AlignmentType.CENTER, keepNext: true }),
+    // Un número de dues xifres (el 10) no cap al quadrat a 18 pt: va a 15.
+    children: [cela(par(run(String(n), { bold: true, size: mig(String(n).length > 1 ? 15 : 18) }), { alignment: AlignmentType.CENTER, keepNext: true }),
       { w: COSTAT, borders: quatre(vora(3, G.tinta)) })],
   })]);
   const text = [par(run(consigna, { size: mig(MIDA.consigna) }), { keepNext: true, keepLines: true })];
@@ -509,7 +523,11 @@ const sol = {
 };
 
 /* ------------------------------------------------------------ document -- */
-function document({ titol, tema, mida, fills, peu }) {
+/* La matèria de la capçalera i l'autor que surt a les propietats del fitxer. A 1eso/,
+   «Matemàtiques» i prou: l'alumnat no ha de llegir «adaptat» enlloc, tampoc allà. */
+const MATERIA = "Matemàtiques Aplicades";
+const CREADOR = "Matemàtiques Aplicades · material adaptat";
+function document({ titol, tema, mida, fills, peu, creador = CREADOR }) {
   const seccio = {
     properties: { page: { size: { width: PAGINA.w, height: PAGINA.h }, margin: peu ? MARGE : { ...MARGE, bottom: 737 } } },
     children: fills,
@@ -526,7 +544,7 @@ function document({ titol, tema, mida, fills, peu }) {
 
   /* Els estils de títol de Word vénen en blau: aquí tots van en negre. */
   return new Document({
-    creator: "Matemàtiques Aplicades · material adaptat", title: titol, subject: tema,
+    creator: creador, title: titol, subject: tema,
     description: "Generat amb comu/examens/nucli.js (comu/docs/EXAMENS-DOCX.md).",
     styles: {
       default: {
@@ -630,15 +648,15 @@ async function desa(doc, desti, { alumnat = false } = {}) {
 /* ------------------------------------------------------------------ tot -- */
 /* genera({ unitat, alumnat, solucionari }) fa els dos DOCX a docx/ (o a la carpeta
    que es passi com a primer argument de la línia d'ordres). */
-async function genera({ unitat, alumnat, solucionari }) {
+async function genera({ unitat, alumnat, solucionari, materia = MATERIA, avis = null, creador = CREADOR }) {
   const privat = llegeixPrivat();
   const carpeta = process.argv[2] ? path.resolve(process.argv[2]) : path.join(ARREL, "docx");
   await preparaImatges();
-  const cap = [() => capcalera(unitat, privat.curs), () => espai(1 * REM), () => nomData(),
-               () => espai(1.3 * REM), () => avisCalculadora()];
-  const docA = document({ titol: `Examen · Unitat ${unitat}`, tema: `Matemàtiques Aplicades · Unitat ${unitat} · alumnat`,
+  const cap = [() => capcalera(unitat, privat.curs, materia), () => espai(1 * REM), () => nomData(),
+               () => espai(1.3 * REM), () => avisInicial(avis)];
+  const docA = document({ titol: `Examen · Unitat ${unitat}`, tema: `${materia} · Unitat ${unitat} · alumnat`, creador,
                           mida: 14, fills: aplana([...cap, ...alumnat, () => espai(1)]), peu: true });
-  const docS = document({ titol: `Solucionari · Examen Unitat ${unitat}`, tema: `Matemàtiques Aplicades · Unitat ${unitat} · professorat`,
+  const docS = document({ titol: `Solucionari · Examen Unitat ${unitat}`, tema: `${materia} · Unitat ${unitat} · professorat`, creador,
                           mida: S, fills: aplana(solucionari(privat)), peu: false });
   const a = path.join(carpeta, `examen-ud${unitat}-alumnat.docx`);
   const s = path.join(carpeta, `examen-ud${unitat}-solucionari.docx`);

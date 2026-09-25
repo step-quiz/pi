@@ -34,7 +34,11 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
   (`fitxes/ud1-ordre.html`), l'ordre de les operacions, per a l'activitat 1_14: 6 pàgines i 2 de
   solucionari. La 4 (`fitxes/ud1-repas.html`), el repàs i «Què he après?», per a les activitats
   1_1, 1_3, 1_5, 1_15 i 1_16: 6 pàgines i 2 de solucionari. **Encara no tenen els PDF**: vegeu
-  l'apartat 4. Les que falten de la unitat són a
+  l'apartat 4.
+- **L'examen de la unitat 1** (`generadors/examens/ud1.js`), en DOCX amb el motor comú: deu
+  exercicis en 6 pàgines, i el solucionari en 3. Els DOCX surten a `docx/`, que no es puja.
+  Per fer-lo possible, el motor comú (`comu/examens/nucli.js`) accepta ara la matèria, l'autor
+  del fitxer i l'avís (el de la targeta, en lloc del de la calculadora). Les que falten de la unitat són a
   [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 5.
 
 ---
@@ -58,6 +62,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 | Les fitxes compleixen les regles del paper | `comprova.py`: blanc i negre, HTML, numeració, graó físic, obertura, pàgina de la vida, solucionari, Lectura Fàcil, fins a 999, «·», cap igualtat malament i els caràcters de la lletra manuscrita | Alta |
 | Cap igualtat escrita està malament | `comprova.py` calcula cada igualtat sencera, amb l'ordre de les operacions: 217 a les cinc fitxes de paper. Les que l'alumnat ha de revisar, i que poden ser falses a posta (les multiplicacions mal fetes de la fitxa 4), van dins de `.revisa` i no es comproven. Vuit errors introduïts a posta, un per un (7 · 8 = 57 a la targeta, 2 + 3 · 4 = 20, (2 + 3) · 4 = 14, √16 = 5…): els sis dolents surten, i els dos bons (un error ratllat a posta i un buit per escriure) passen | Alta |
 | Cada pàgina de les fitxes cap en un A4 | Mesurades amb Chromium i la geometria de `eines/paper.py`: la més alta fa 25,8 cm de 27,1. Chromium i WeasyPrint difereixen 1 mm a la targeta (25,3 i 25,4 cm). **La mesura bona és la de `mesura.py`**, que necessita WeasyPrint | Mitjana, fins que passi `mesura.py` |
+| L'examen és correcte | Les 46 igualtats dels dos DOCX (9 a l'alumnat i 37 al solucionari), calculades amb l'ordre de les operacions: cap de malament. Cap nombre de més de 999, cap «×», totes les multiplicacions de la targeta i cap frase de més de 20 paraules. El motor avisa si falta algun apartat, si hi ha color o si surt «adaptat»: cap avís | Alta |
+| L'examen es veu bé | Passat a PDF amb LibreOffice i mirat pàgina a pàgina: cada exercici sencer a la seva pàgina, cap taula partida. Aquí no hi ha Verdana ni Nova Mono, i s'hi posen unes altres: la mida bona és la de Google Docs | Mitjana |
+| El motor canviat no canvia l'examen de `4eso/` | L'examen de `4eso/` fet abans i després del canvi: el mateix text, els mateixos dibuixos i les mateixes propietats, llevat de les dates | Alta |
 | Canviar `.ms` no canvia la targeta | La targeta dibuixada abans i després del canvi: cap píxel diferent. El seu PDF, però, s'ha de tornar a fer, perquè `css/fitxa.css` forma part de l'empremta | Alta |
 
 ---
@@ -88,8 +95,8 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    que surt igual però té l'empremta nova. Fins llavors, `comprova.py` diu nou problemes (els vuit
    PDF que falten i el de la targeta, vell), i és el que toca. Després, imprimir-les i mirar
    si les quadrícules i les siluetes es poden pintar bé a mà.
-4. **El que falta de la unitat 1: l'examen**, en DOCX, amb el motor comú
-   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 5).
+4. **Revisar l'examen de la unitat 1** a Google Docs. Si es vol amb el curs a la capçalera,
+   es fa al Codespace amb el fitxer privat (vegeu el `README.md`, «L'examen»).
 5. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

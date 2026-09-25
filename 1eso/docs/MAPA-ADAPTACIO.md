@@ -71,7 +71,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
-| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines i quatre fitxes fetes. Falten els PDF de les fitxes i l'examen |
+| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Per fer |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
@@ -120,7 +120,7 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
 | 2 · `ud1-nombres.html` | Centenes, desenes i unitats fins al 999, el nom dels nombres i el zero | 1_7 | Feta |
 | 3 · `ud1-ordre.html` | L'ordre de les operacions: sumes i multiplicacions, amb parèntesi i sense | 1_14 | Feta |
 | 4 · `ud1-repas.html` | Repàs: el número que falta i les multiplicacions mal fetes, amb la targeta; una operació de cada; «Què he après?» | 1_1, 1_3, 1_5, 1_15, 1_16 | Feta |
-| Examen | En DOCX, amb el motor comú, amb la targeta al davant | 1_6 i examen | Per fer |
+| Examen · `generadors/examens/ud1.js` | En DOCX, amb el motor comú, amb la targeta al davant: deu exercicis, en l'ordre de l'examen del grup | 1_6 i examen | Fet |
 
 **Queda fora, i per què.** No es rebaixa: no hi és.
 
@@ -147,6 +147,8 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
   grup.
 - 24 de setembre de 2026: la quarta fitxa, el repàs i «Què he après?», per a les activitats 1_1,
   1_3, 1_5, 1_15 i 1_16 del grup.
+- 25 de setembre de 2026: l'examen, en DOCX. Els exercicis 7 i 8 de l'examen del grup
+  (propietats de les potències i potències de 10) queden fora.
 - 24 de setembre de 2026, després d'una revisió externa: a la 0.1, tota la taula plegada darrere
   d'un botó; a la 3.1, fora les repeticions; `verifica.html`, sense l'evolució dels codis, de
   moment.
@@ -164,7 +166,19 @@ Mai no s'avalua el que es recorda, sinó el que es fa amb la targeta al davant.
 
 ## 7. Els exàmens
 
-Quan en calguin, amb el motor comú, [`../../comu/examens/nucli.js`](../../comu/examens/nucli.js),
-i les regles de [`../../comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md). El contingut
-va a `generadors/examens/udN.js` i les dades privades, a `generadors/examens-privat.json`, que el
-`.gitignore` de l'arrel ja deixa fora.
+Amb el motor comú, [`../../comu/examens/nucli.js`](../../comu/examens/nucli.js), i les regles de
+[`../../comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md), les mateixes que a l'altre
+curs. El contingut va a `generadors/examens/udN.js` i les dades privades, a
+`generadors/examens-privat.json`, que el `.gitignore` de l'arrel ja deixa fora. Els DOCX surten a
+`docx/`, que tampoc no es puja.
+
+El que és propi d'aquest curs: sense calculadora, l'avís és el de la **targeta de les taules**; la
+capçalera diu «Matemàtiques», i res no diu «adaptat», tampoc a les propietats del fitxer. Els
+apartats surten de les fitxes de la unitat, i un exercici que necessita una clau (el nom dels
+nombres) la porta a la mateixa pàgina, com a la fitxa.
+
+**L'examen de la unitat 1** (`generadors/examens/ud1.js`) segueix l'ordre de l'examen del grup:
+1 la targeta, 2 el número que falta, 3 girar el rectangle, 4 partir-lo pel 10, 5 el quadrat, 6
+l'arrel, 7 entre quins dos nombres (nivells alts), 8 centenes, desenes i unitats, 9 el nom del
+nombre i 10 l'ordre de les operacions. Els seus exercicis 7 i 8 (propietats de les potències i
+potències de 10) no hi són. Dels quaranta apartats, només dos són nous (el 7c i el 7d).
