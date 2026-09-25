@@ -39,7 +39,8 @@ window.UNITATS = [
     fitxes: [
       { fitxa: "fitxes/ud1.html", titol: "Rectangles de quadrets" },
       { fitxa: "fitxes/ud1-nombres.html", titol: "Centenes, desenes i unitats" },
-      { fitxa: "fitxes/ud1-ordre.html", titol: "L'ordre de les operacions" }
+      { fitxa: "fitxes/ud1-ordre.html", titol: "L'ordre de les operacions" },
+      { fitxa: "fitxes/ud1-repas.html", titol: "Repàs de la unitat i «Què he après?»" }
     ],
     tasques: [0, 1, 2, 3, 4]
   },

@@ -71,7 +71,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
-| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines i tres fitxes fetes. Falten els PDF de les fitxes |
+| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines i quatre fitxes fetes. Falten els PDF de les fitxes i l'examen |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Per fer |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
@@ -99,9 +99,9 @@ quan s'escrigui; la caixa ja hi és.
 
 | Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
 |---|---|---|---|
-| 1_1 i 1_3 · Taules de multiplicar | Completar les taules, triar les més difícils de recordar, el número que falta (7 · … = 56) | Les taules no es recorden: es busquen a la targeta. Triar les més difícils de recordar no hi és, perquè res no es demana de memòria. El número que falta es busca a la fila de la targeta | Targeta · caixa 0.1, 0.2 i 0.3 · fitxa |
+| 1_1 i 1_3 · Taules de multiplicar | Completar les taules, triar les més difícils de recordar, el número que falta (7 · … = 56) | Les taules no es recorden: es busquen a la targeta. Triar les més difícils de recordar no hi és, perquè res no es demana de memòria. El número que falta es busca a la fila de la targeta | Targeta · caixa 0.1, 0.2 i 0.3 · fitxa 4 |
 | 1_4 · Propietats de la multiplicació | Commutativa, el zero, multiplicar per 10 i per 100, distributiva (7 · 101 = 700 + 7) | Commutativa: el rectangle girat. El zero: 0 files, cap quadret. Distributiva: partir pel 10, 3 · 12 = 30 + 6. Per 10 sí; per 100, no: passa de 999 | Caixa 1.1, 1.3 i 1.4 · fitxa 1 |
-| 1_5 i 1_15 · Repàs | Els mateixos continguts, i marcar les multiplicacions mal fetes | Els mateixos casos. Marcar les multiplicacions mal fetes, amb la targeta al davant, és un bon exercici de fitxa | Fitxa |
+| 1_5 i 1_15 · Repàs | Els mateixos continguts, i marcar les multiplicacions mal fetes | Els mateixos casos. Marcar les multiplicacions mal fetes, amb la targeta al davant, i una operació de cada tipus de la unitat | Fitxa 4 |
 | 1_6 i l'examen de la unitat | Exàmens | Un examen DOCX amb el motor comú, amb la targeta al davant | Per fer |
 | 1_7 · El nom d'un nombre | La taula de posicions fins als bilions, escriure el nombre en lletres, la regla del guionet (D-U-C) | Fins al 999: quadrats de 100, columnes de 10 i quadrets solts, la taula de les xifres i el nom en lletres. La regla D-U-C es veu en cada nom | Caixa 3.1 i 3.2 · fitxa 2 |
 | 1_8 · Les formes de les potències | Les últimes xifres de les potències de 2 i de 3, i el patró que fan | Fora: les potències passen de 999 | — |
@@ -109,7 +109,7 @@ quan s'escrigui; la caixa ja hi és.
 | 1_11 · Propietats de les potències | El producte de potències de la mateixa base, la potència d'una potència | Fora | — |
 | 1_13 · Arrels quadrades | Les exactes, i les no exactes entre dos nombres (√13 és entre 3 i 4) | L'arrel és el costat del quadrat: √16 = 4. Amb 13 quadrets no es fa cap quadrat, i √13 és entre 3 i 4 | Caixa 2.3 · fitxa 1 |
 | 1_14 · Jerarquia de les operacions | L'ordre, amb parèntesis, potències, restes i divisions | Sumes i multiplicacions, amb parèntesi i sense. La resta, fora | Caixa 4.1 i 4.2 · fitxa 3 |
-| 1_16 · Què he après? | Una autoavaluació de tots els continguts | Una graella semblant, amb els nuclis d'aquest material i en accions que es veuen | Fitxa |
+| 1_16 · Què he après? | Una autoavaluació de tots els continguts | Una graella semblant, amb tres columnes i les frases en accions que es veuen, amb un exemple a cada una | Fitxa 4 |
 
 **Les fitxes de la unitat 1**, en l'ordre del grup. Una unitat pot tenir més d'una fitxa: així
 cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
@@ -119,7 +119,7 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
 | 1 · `ud1.html` | Rectangles de quadrets: llegir-los, pintar-los, girar-los i partir-los; el quadrat d'un nombre; l'arrel com a costat | 1_4, 1_9, 1_13 | Feta |
 | 2 · `ud1-nombres.html` | Centenes, desenes i unitats fins al 999, el nom dels nombres i el zero | 1_7 | Feta |
 | 3 · `ud1-ordre.html` | L'ordre de les operacions: sumes i multiplicacions, amb parèntesi i sense | 1_14 | Feta |
-| 4 | Repàs: el número que falta i les multiplicacions mal fetes, amb la targeta; «Què he après?» | 1_1, 1_3, 1_5, 1_15, 1_16 | Per fer |
+| 4 · `ud1-repas.html` | Repàs: el número que falta i les multiplicacions mal fetes, amb la targeta; una operació de cada; «Què he après?» | 1_1, 1_3, 1_5, 1_15, 1_16 | Feta |
 | Examen | En DOCX, amb el motor comú, amb la targeta al davant | 1_6 i examen | Per fer |
 
 **Queda fora, i per què.** No es rebaixa: no hi és.
@@ -145,6 +145,8 @@ cada una acompanya el que fa el grup aquells dies, i s'imprimeix a part.
   grup. Una unitat pot tenir més d'una fitxa.
 - 24 de setembre de 2026: la tercera fitxa, l'ordre de les operacions, per a l'activitat 1_14 del
   grup.
+- 24 de setembre de 2026: la quarta fitxa, el repàs i «Què he après?», per a les activitats 1_1,
+  1_3, 1_5, 1_15 i 1_16 del grup.
 - 24 de setembre de 2026, després d'una revisió externa: a la 0.1, tota la taula plegada darrere
   d'un botó; a la 3.1, fora les repeticions; `verifica.html`, sense l'evolució dels codis, de
   moment.

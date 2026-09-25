@@ -179,7 +179,10 @@ class TextCalcul(HTMLParser):
     cada fila i cada rètol d'un dibuix és un tros a part (¶): un buit per escriure
     no pot enganxar un «=» al número del paràgraf de sota.
     El que és ratllat (.ratllat) no hi és: és una igualtat falsa a posta, com
-    l'error típic que descriu un solucionari («3² = 6»)."""
+    l'error típic que descriu un solucionari («3² = 6»). Tampoc el que va dins de
+    .revisa: les igualtats que l'alumnat ha de revisar, i que poden ser falses a
+    posta («Marca les multiplicacions mal fetes»). El solucionari hi diu les bones,
+    i aquelles sí que es comproven."""
     SUAUS = {'td', 'th'}
 
     def __init__(self):
@@ -193,7 +196,7 @@ class TextCalcul(HTMLParser):
         self._vora(t)
         if t not in BUIDES_HTML:
             classes = (dict(a).get('class') or '').split()
-            self.pila.append((t, t in AMAGAT or 'ratllat' in classes))
+            self.pila.append((t, t in AMAGAT or 'ratllat' in classes or 'revisa' in classes))
 
     def handle_startendtag(self, t, a):
         self._vora(t)
@@ -307,7 +310,9 @@ def caracters_de_la_lletra(cami):
 # comprova. Una banda que no es pot llegir (una arrel que no és exacta, per
 # exemple) fa que la igualtat es deixi estar, perquè no se'n pot dir res.
 # --------------------------------------------------------------------------
-TROS_CALCUL = re.compile(r'[\d(√][\d\s·+−\-()²√=]*[\d)²]')
+# Un tros també pot començar per un signe: amb un buit al davant, «… · 4 = 20» es
+# llegeix «· 4 = 20», que no es pot calcular, i no «4 = 20», que seria fals.
+TROS_CALCUL = re.compile(r'[\d(√·+−\-][\d\s·+−\-()²√=]*[\d)²]')
 PECES_CALCUL = re.compile(r'\d+|[·+−\-()²√=]')
 
 
