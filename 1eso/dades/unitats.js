@@ -80,7 +80,13 @@ window.UNITATS = [
     nucli: "Una fracció és un rectangle partit en trossos iguals: el de baix diu quants trossos hi ha, i el de dalt, quants se'n pinten.",
     material: "Tires de paper: doblegar-les en 2, 4 i 8 trossos iguals i pintar-ne uns quants.",
     criteris: "1.3, 2.1, 5.1, 6.1",
-    fitxes: [],
+    fitxes: [
+      { fitxa: "fitxes/ud4.html", titol: "Què és una fracció" },
+      { fitxa: "fitxes/ud4-compara.html", titol: "Els tipus i comparar" },
+      { fitxa: "fitxes/ud4-equivalents.html", titol: "Fraccions equivalents" },
+      { fitxa: "fitxes/ud4-sumes.html", titol: "Sumar i restar" },
+      { fitxa: "fitxes/ud4-repas.html", titol: "Repàs de la unitat i «Què he après?»" }
+    ],
     tasques: [0, 9, 10, 11, 12]
   },
   {

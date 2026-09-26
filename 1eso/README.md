@@ -68,7 +68,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1) i la dels noms de les fraccions (unitat 4) |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) i les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) |
+| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les cinc de la unitat 4 (què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeix `fitxes.html` |
 | `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada i `fitxes.html`) i `app.css` (la caixa) |

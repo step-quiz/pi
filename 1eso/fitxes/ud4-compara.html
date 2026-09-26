@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 4 · Els tipus i comparar</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 4 · Les fraccions · Els tipus i comparar
+  La segona fitxa de la unitat 4. Adapta les activitats Fraccions 2, 4, 5 i 6
+  del grup: els quatre tipus (nul·la, pròpia, unitat, impròpia) i comparar amb
+  el mateix rectangle, sense el valor numèric (regla C). Els casos de comparar
+  són els de la tasca 11 de la caixa (regla 8).
+
+  La regla trencada és «com més gran és el de baix, més gran és la fracció»
+  (exercici 3). Les fraccions van dins de .fr: comprova.py les llegeix.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>dues tires de paper</b>, doblegades en 4 trossos. Pintar-ne 5 trossos: en una sola tira no hi caben. I la targeta de les fraccions.</div>
+  <h1>Els tipus i comparar</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <table class="mini" style="margin-top:.6rem">
+    <tr><th>Fracció</th><th>El dibuix</th><th>El tipus</th></tr>
+    <tr class="resolt"><td style="text-align:center;width:2cm"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">0</span><span style="display:block;padding:.04em .18em 0">4</span></span></td>
+      <td style="width:6.2cm"><svg viewBox="0 0 226.8 30.2" style="width:6cm;max-width:100%;margin:0 auto;" role="img" aria-label="0 trossos pintats de 4">
+  <rect x="3.8" y="3.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58.6" y="3.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="113.4" y="3.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="168.2" y="3.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="219.2" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></td>
+      <td class="esq"><span class="ms">nul·la</span></td></tr>
+    <tr class="resolt"><td style="text-align:center;width:2cm"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span></td>
+      <td style="width:6.2cm"><svg viewBox="0 0 226.8 30.2" style="width:6cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 trossos pintats de 4">
+  <rect x="3.8" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58.6" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="113.4" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="168.2" y="3.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="219.2" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></td>
+      <td class="esq"><span class="ms">pròpia</span></td></tr>
+    <tr class="resolt"><td style="text-align:center;width:2cm"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">4</span><span style="display:block;padding:.04em .18em 0">4</span></span></td>
+      <td style="width:6.2cm"><svg viewBox="0 0 226.8 30.2" style="width:6cm;max-width:100%;margin:0 auto;" role="img" aria-label="4 trossos pintats de 4">
+  <rect x="3.8" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58.6" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="113.4" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="168.2" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="219.2" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></td>
+      <td class="esq"><span class="ms">unitat</span></td></tr>
+    <tr class="resolt"><td style="text-align:center;width:2cm"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">5</span><span style="display:block;padding:.04em .18em 0">4</span></span></td>
+      <td style="width:6.2cm"><svg viewBox="0 0 226.8 64.3" style="width:6cm;max-width:100%;margin:0 auto;" role="img" aria-label="5 trossos pintats de 4">
+  <rect x="3.8" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58.6" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="113.4" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="168.2" y="3.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="219.2" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+  <rect x="3.8" y="37.8" width="54.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58.6" y="37.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="113.4" y="37.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="168.2" y="37.8" width="54.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="37.8" width="219.2" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></td>
+      <td class="esq"><span class="ms">impròpia</span></td></tr>
+  </table>
+  <div class="avis gruixut">
+    <p style="margin:0"><b>Nul·la</b>: el de dalt és 0. No hi ha res pintat.</p>
+    <p style="margin:0"><b>Pròpia</b>: el de dalt és més petit que el de baix. És menys d'un rectangle.</p>
+    <p style="margin:0"><b>Unitat</b>: dalt i baix són iguals. És tot el rectangle.</p>
+    <p style="margin:0"><b>Impròpia</b>: el de dalt és més gran. És més d'un rectangle.</p>
+  </div>
+  <div class="pag">Unitat 4 · Compara · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Quin tipus de fracció és? Escriu-lo. Mira el de dalt i el de baix.</div></div>
+    <table class="mini" style="margin-top:.4rem">
+      <tr><th>Fracció</th><th>El tipus</th></tr>
+      <tr class="resolt"><td class="apartat" style="font-size:16pt;width:3cm">a) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span></td><td class="esq"><span class="ms">pròpia</span></td></tr>
+      <tr><td class="apartat" style="font-size:16pt;width:3cm">b) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">7</span><span style="display:block;padding:.04em .18em 0">7</span></span></td><td class="esq"></td></tr>
+      <tr><td class="apartat" style="font-size:16pt;width:3cm">c) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">9</span><span style="display:block;padding:.04em .18em 0">5</span></span></td><td class="esq"></td></tr>
+      <tr><td class="apartat" style="font-size:16pt;width:3cm">d) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">0</span><span style="display:block;padding:.04em .18em 0">6</span></span></td><td class="esq"></td></tr>
+      <tr><td class="apartat" style="font-size:16pt;width:3cm">e) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">9</span></span></td><td class="esq"></td></tr>
+      <tr><td class="apartat" style="font-size:16pt;width:3cm">f) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">12</span><span style="display:block;padding:.04em .18em 0">10</span></span></td><td class="esq"></td></tr>
+    </table>
+  </div>
+  <div class="clau" style="margin-top:.6rem">
+    <p style="margin:0">Si no ho veus clar, pinta-la en una tira de paper.</p>
+  </div>
+  <div class="pag">Unitat 4 · Compara · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Quina és més gran? Escriu-la. Els dos rectangles són iguals.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Mateix denominador: és més gran la que té més trossos pintats.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">5</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 de 5">
+  <rect x="3.8" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">5</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 de 5">
+  <rect x="3.8" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">5</span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 8">
+  <rect x="3.8" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="27.4" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="51" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="74.6" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="121.9" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="145.5" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.1" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">5</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="5 de 8">
+  <rect x="3.8" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="27.4" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="51" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="74.6" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="121.9" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="145.5" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.1" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">4</span><span style="display:block;padding:.04em .18em 0">6</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="4 de 6">
+  <rect x="3.8" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="35.3" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.8" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="129.8" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="161.3" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">6</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 de 6">
+  <rect x="3.8" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="35.3" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.8" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="129.8" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="161.3" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">d)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">7</span><span style="display:block;padding:.04em .18em 0">10</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="7 de 10">
+  <rect x="3.8" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="22.7" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="60.5" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="136.1" y="3.8" width="18.9" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="18.9" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="173.9" y="3.8" width="18.9" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">9</span><span style="display:block;padding:.04em .18em 0">10</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="9 de 10">
+  <rect x="3.8" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="22.7" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="60.5" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="136.1" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="18.9" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="173.9" y="3.8" width="18.9" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Compara · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">I ara? Tenen el mateix numerador. Quina és més gran?</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 3">
+  <rect x="3.8" y="3.8" width="63" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.8" y="3.8" width="63" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="129.8" y="3.8" width="63" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 5">
+  <rect x="3.8" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">7</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 de 7">
+  <rect x="3.8" y="3.8" width="27" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="30.8" y="3.8" width="27" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="57.8" y="3.8" width="27" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.8" y="3.8" width="27" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="111.8" y="3.8" width="27" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="138.8" y="3.8" width="27" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="165.8" y="3.8" width="27" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">5</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 de 5">
+  <rect x="3.8" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">6</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 6">
+  <rect x="3.8" y="3.8" width="31.5" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="35.3" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.8" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="129.8" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="161.3" y="3.8" width="31.5" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 4">
+  <rect x="3.8" y="3.8" width="47.2" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="51" y="3.8" width="47.2" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="47.2" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="145.5" y="3.8" width="47.2" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">d)</span></p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 de 8">
+  <rect x="3.8" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="27.4" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="51" y="3.8" width="23.6" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="74.6" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="98.3" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="121.9" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="145.5" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.1" y="3.8" width="23.6" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">5</span></span></div><div><svg viewBox="0 0 196.5 30.2" style="width:5.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 de 5">
+  <rect x="3.8" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="41.6" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="79.4" y="3.8" width="37.8" height="22.7" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="117.2" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="37.8" height="22.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="189" height="22.7" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">La més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Com més gran és el de baix, més petits són els trossos.</p>
+    <p style="margin:.2rem 0 0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span> és més petit que <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span>, encara que 5 sigui més gran que 3.</p>
+  </div>
+  <div class="pag">Unitat 4 · Compara · pàgina 4</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Ordena les fraccions, de més petita a més gran. Mira els dibuixos.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span></p>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:.2rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 de 4">
+  <rect x="3.8" y="3.8" width="60.5" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="64.3" y="3.8" width="60.5" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="60.5" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="185.2" y="3.8" width="60.5" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 4">
+  <rect x="3.8" y="3.8" width="60.5" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="64.3" y="3.8" width="60.5" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="60.5" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="185.2" y="3.8" width="60.5" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">4</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 de 4">
+  <rect x="3.8" y="3.8" width="60.5" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="64.3" y="3.8" width="60.5" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="60.5" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="185.2" y="3.8" width="60.5" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.25rem 0 0;font-size:14.5pt">De més petita a més gran: <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> &lt; <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">4</span></span> &lt; <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span></p>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:.2rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 3">
+  <rect x="3.8" y="3.8" width="80.6" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.4" y="3.8" width="80.6" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="165" y="3.8" width="80.6" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">6</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 6">
+  <rect x="3.8" y="3.8" width="40.3" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="44.1" y="3.8" width="40.3" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.4" y="3.8" width="40.3" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="40.3" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="165" y="3.8" width="40.3" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="205.4" y="3.8" width="40.3" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 2">
+  <rect x="3.8" y="3.8" width="120.9" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="120.9" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.25rem 0 0;font-size:14.5pt">De més petita a més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span> &lt; <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span> &lt; <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span></p>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:.2rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">5</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="5 de 8">
+  <rect x="3.8" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="34" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="64.3" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="94.5" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="185.2" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="215.4" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">7</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="7 de 8">
+  <rect x="3.8" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="34" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="64.3" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="94.5" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="185.2" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="215.4" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 249.4 34" style="width:6.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 de 8">
+  <rect x="3.8" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="34" y="3.8" width="30.2" height="26.5" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="64.3" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="94.5" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="124.7" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="155" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="185.2" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="215.4" y="3.8" width="30.2" height="26.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="241.9" height="26.5" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.25rem 0 0;font-size:14.5pt">De més petita a més gran: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span> &lt; <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span> &lt; <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Compara · pàgina 5</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Qui n'ha menjat més? El pastís i la pizza són iguals per a tothom.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.45rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Del pastís, tu en menges <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">8</span></span> i una amiga, <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">8</span></span>.</p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 272.1 37.8" style="width:7.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="3 de 8">
+  <rect x="3.8" y="3.8" width="33.1" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="36.9" y="3.8" width="33.1" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="69.9" y="3.8" width="33.1" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="103" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="136.1" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.1" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="202.2" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="235.3" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="264.6" height="30.2" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">8</span></span></div><div><svg viewBox="0 0 272.1 37.8" style="width:7.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 de 8">
+  <rect x="3.8" y="3.8" width="33.1" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="36.9" y="3.8" width="33.1" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="69.9" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="103" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="136.1" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.1" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="202.2" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="235.3" y="3.8" width="33.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="264.6" height="30.2" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0"><span class="ms">Jo</span>: <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">8</span></span> és més gran.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.45rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> De la pizza, tu en menges <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> i un amic, <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span>.</p>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:.25rem .4cm;align-items:center"><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span></div><div><svg viewBox="0 0 272.1 37.8" style="width:7.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 3">
+  <rect x="3.8" y="3.8" width="88.2" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="92" y="3.8" width="88.2" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="180.2" y="3.8" width="88.2" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="264.6" height="30.2" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div><div><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span></div><div><svg viewBox="0 0 272.1 37.8" style="width:7.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="1 de 4">
+  <rect x="3.8" y="3.8" width="66.1" height="30.2" fill="#D4D4D4" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="69.9" y="3.8" width="66.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="136.1" y="3.8" width="66.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="202.2" y="3.8" width="66.1" height="30.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="3.8" y="3.8" width="264.6" height="30.2" fill="none" stroke="#333" stroke-width="2.4"/>
+</svg></div></div>
+      <p class="frase" style="margin:.2rem 0 0">N'ha menjat més: <u style="display:inline-block;min-width:4cm;padding:0"></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Compara · pàgina 6</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 4 · Els tipus i comparar · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Per comparar, les dues fraccions es dibuixen sempre amb el mateix
+    rectangle: si no, la comparació no té sentit. Sense decimals (el valor numèric del grup queda
+    fora): es compara el tros pintat. La caixa d'eines ho fa a la tasca 11.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb dues tires de paper de 4 trossos: pintar-ne 5. En una tira no hi caben: 5/4 és
+  més d'un rectangle, i per això és impròpia.</p>
+  <h3>1. Els tipus</h3>
+  <p>b) 7/7, unitat; c) 9/5, impròpia; d) 0/6, nul·la; e) 2/9, pròpia; f) 12/10, impròpia. Són els
+  tipus de l'activitat Fraccions 5 del grup.</p>
+  <h3>2. Mateix denominador</h3>
+  <p>b) 5/8; c) 4/6; d) 9/10. Més trossos pintats del mateix rectangle.</p>
+  <h3>3. Mateix numerador</h3>
+  <p>b) 2/5; c) 1/4; d) 3/5. <b>Error típic:</b> triar la del nombre de baix més gran (1/5 més gran
+  que 1/3). És la regla trencada d'aquesta fitxa. No l'expliqueu: que miri el dibuix, on els trossos
+  del 5 són més petits. Són els casos de la tasca 11.2 de la caixa.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. Ordenar</h3>
+  <p>b) 1/6 &lt; 1/3 &lt; 1/2; c) 2/8 &lt; 5/8 &lt; 7/8. Amb el mateix numerador, l'ordre va al revés
+  dels de baix; amb el mateix denominador, com els de dalt.</p>
+  <h3>5. A la vida de cada dia</h3>
+  <p>b) L'amic en menja menys: 1/3 és més gran que 1/4. És la regla trencada en una situació de
+  debò, com els problemes del pastís i del tortell de l'activitat Fraccions 4 del grup.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=11</b> (11.1 Compara dues
+  fraccions; 11.2 Quina és més gran?). La 11.2 dona un codi de verificació. La 11.1 s'obre amb 1/3 i
+  1/5, la regla trencada. Els tipus també surten a la 9.1.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.3, 2.1, 5.1 i 6.1) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Diu de quin tipus és una fracció, mirant el de dalt i el de baix (exercici 1).</li>
+    <li>Compara dues fraccions amb el mateix denominador (exercici 2).</li>
+    <li>Compara dues fraccions amb el mateix numerador, amb el dibuix (exercici 3).</li>
+    <li>Ordena tres fraccions amb el dibuix (exercici 4).</li>
+    <li>Nivells alts: explica per què 1/5 és més petit que 1/3 (exercicis 3 i 5).</li>
+  </ul>
+</div>
+
+</body>
+</html>

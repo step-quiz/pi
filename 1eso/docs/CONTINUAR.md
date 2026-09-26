@@ -115,9 +115,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    a Google Docs.
    **La unitat 4 (les fraccions del grup), del 12 al 28 de gener.** El pla és validat (26/9/2026) i
    la caixa hi és (tasques 9 a 12), i la targeta «Els noms de les fraccions» (`targetes/fraccions.html`)
-   també: cal fer-ne el PDF amb `gen_pdf.py`, imprimir-la a doble cara i plastificar-la. Falten les cinc fitxes
-   (amb el full que explica per què 1/2 + 1/4 no pot donar 2/6) i l'examen
-   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7). La unitat 3 espera les activitats del grup.
+   també: cal fer-ne el PDF amb `gen_pdf.py`, imprimir-la a doble cara i plastificar-la. Les cinc
+   fitxes també hi són (`fitxes/ud4*.html`), amb el full que explica per què 1/2 + 1/4 no pot donar
+   2/6. Falta l'examen ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7). La unitat 3 espera les activitats del grup.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

@@ -74,7 +74,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
-| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Les fraccions del grup: pla validat el 26 de setembre de 2026. Caixa d'eines (tasques 9 a 12) i targeta «Els noms de les fraccions» fetes. Falten les fitxes i l'examen |
+| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Les fraccions del grup: pla validat el 26 de setembre de 2026. Caixa d'eines (tasques 9 a 12), targeta «Els noms de les fraccions» i cinc fitxes fetes. Falta l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
@@ -250,6 +250,21 @@ comparar: és el que fan els cercles del grup, però amb la quadrícula del curs
 | Fraccions 7 a 12 | Sumar i restar pintant, amb el mateix denominador i amb denominadors diferents | Sempre el mateix denominador, pintant; i un full que explica per què 1/2 + 1/4 no pot donar 2/6 | Caixa 12 · fitxa 4 |
 | Repàs i llista de comprovació | Tots els continguts, i el que cal saber fer per a l'examen | El repàs, i «Què he après?» fet a partir de la llista del grup | Fitxa 5 |
 | Examen (i les dues adaptacions) | Taula de fraccions, equivalents, irreductibles i sumes | En DOCX, amb el motor comú; la segona adaptació, de referència de mida | Examen |
+
+**Les fitxes de la unitat 4**, en l'ordre del grup:
+
+| Fitxa | Què porta | Activitats del grup | Estat |
+|---|---|---|---|
+| 1 · `ud4.html` | Què és una fracció: el de dalt i el de baix, pintar, el nom amb la targeta; trossos iguals | 0, 2 | Feta |
+| 2 · `ud4-compara.html` | Els quatre tipus, comparar amb el mateix de baix i amb el mateix de dalt, i ordenar | 2, 4, 5, 6 | Feta |
+| 3 · `ud4-equivalents.html` | Pintar el mateix tros, amplificar amb la targeta, dir si són equivalents i simplificar fàcil | 3, 5, 6 | Feta |
+| 4 · `ud4-sumes.html` | Sumar i restar amb el mateix denominador, pintant i sense dibuix; el full de 1/2 + 1/4 | 7, 8, 9 | Feta |
+| 5 · `ud4-repas.html` | El carnet de cada fracció, una de cada i «Què he après?» | Repàs i llista de comprovació | Feta |
+| Examen | En DOCX, amb el motor comú | Examen (i les dues adaptacions) | Per fer |
+
+Les regles trencades de les fitxes: trossos desiguals (fitxa 1), «com més gran és el de baix, més
+gran és la fracció» (fitxa 2), sumar el mateix dalt i baix per fer una equivalent (fitxa 3), i
+sumar els de dalt i els de baix (fitxa 4, el full que va demanar el docent).
 
 **Queda fora, i per què.** No es rebaixa: no hi és.
 
