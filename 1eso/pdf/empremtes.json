@@ -49,6 +49,46 @@
     "font": "fitxes/ud2.html",
     "pagines": 7
   },
+  "ud2-divisors-alumnat.pdf": {
+    "empremta": "2010bc46f9f861c36b37971a72c0f2925976335d1cb2e2ccef8b1a35cb0ee95d",
+    "font": "fitxes/ud2-divisors.html",
+    "pagines": 6
+  },
+  "ud2-divisors-solucionari.pdf": {
+    "empremta": "2010bc46f9f861c36b37971a72c0f2925976335d1cb2e2ccef8b1a35cb0ee95d",
+    "font": "fitxes/ud2-divisors.html",
+    "pagines": 2
+  },
+  "ud2-factors-alumnat.pdf": {
+    "empremta": "67fe718bc49440243c961da60984205ba600d8f045b2f1142557bf3eccad516c",
+    "font": "fitxes/ud2-factors.html",
+    "pagines": 5
+  },
+  "ud2-factors-solucionari.pdf": {
+    "empremta": "67fe718bc49440243c961da60984205ba600d8f045b2f1142557bf3eccad516c",
+    "font": "fitxes/ud2-factors.html",
+    "pagines": 2
+  },
+  "ud2-repartir-alumnat.pdf": {
+    "empremta": "b85acf5593edbdaae7fb5737d347548406ba6b3d3947960ec13fafca7984eab3",
+    "font": "fitxes/ud2-repartir.html",
+    "pagines": 6
+  },
+  "ud2-repartir-solucionari.pdf": {
+    "empremta": "b85acf5593edbdaae7fb5737d347548406ba6b3d3947960ec13fafca7984eab3",
+    "font": "fitxes/ud2-repartir.html",
+    "pagines": 2
+  },
+  "ud2-repas-alumnat.pdf": {
+    "empremta": "008932822e118ce2f457d90cfafabb1ae51f25d430ce006ce476008f4a59855c",
+    "font": "fitxes/ud2-repas.html",
+    "pagines": 6
+  },
+  "ud2-repas-solucionari.pdf": {
+    "empremta": "008932822e118ce2f457d90cfafabb1ae51f25d430ce006ce476008f4a59855c",
+    "font": "fitxes/ud2-repas.html",
+    "pagines": 2
+  },
   "ud2-solucionari.pdf": {
     "empremta": "b6297e463cff08abee7f5df8fa4259134658c2f25a834c5de35c72cfcfdc4393",
     "font": "fitxes/ud2.html",
