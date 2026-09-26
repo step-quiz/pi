@@ -114,7 +114,8 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    cinc fitxes i l'examen. Falta: provar-la a l'aula, fer-ne els PDF (punt 4) i revisar l'examen
    a Google Docs.
    **La unitat 4 (les fraccions del grup), del 12 al 28 de gener.** El pla és validat (26/9/2026) i
-   la caixa hi és (tasques 9 a 12). Falten la targeta «Els noms de les fraccions», les cinc fitxes
+   la caixa hi és (tasques 9 a 12), i la targeta «Els noms de les fraccions» (`targetes/fraccions.html`)
+   també: cal fer-ne el PDF amb `gen_pdf.py`, imprimir-la a doble cara i plastificar-la. Falten les cinc fitxes
    (amb el full que explica per què 1/2 + 1/4 no pot donar 2/6) i l'examen
    ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7). La unitat 3 espera les activitats del grup.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
@@ -129,8 +130,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    ensenyi l'evolució de diversos codis d'una mateixa tasca. No es fan, i la revisió hi està
    d'acord: les tasques d'ampliació per a qui acaba abans, i qualsevol seguiment digital amb nom.
 9. ~~**L'arrel del repositori.**~~ **RESOLT · 25 de setembre de 2026.** La portada de l'arrel
-   (`index.html`) ara deixa triar entre els dos materials, per nom de matèria, no per curs
-   (vegeu l'apartat ANONIMAT de `comprova.py`). Cada portada de material, al seu torn, deixa
+   (`index.html`) ara deixa triar entre els dos materials. Els títols hi diuen el curs: el
+   docent ho va decidir el 26/9/2026, perquè allà no cal amagar-lo. És l'única pàgina on surt, i
+   el test de `4eso/` en té l'excepció. Cada portada de material, al seu torn, deixa
    triar entre «Fitxes» i «Caixa d'eines», amb la resta d'enllaços (frases, codis, enllaços per a
    l'alumnat, documentació) sota «Per al professorat». `1eso/fitxes.html` és nou: hi ha les
    targetes de consulta i les set unitats, que abans eren a la portada. `_headers` ja té les

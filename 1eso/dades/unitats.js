@@ -125,5 +125,14 @@ window.TARGETES = [
     fitxer: "targetes/taules.html",
     pdf: "pdf/targeta-taules.pdf",
     unitat: 1
+  },
+  {
+    id: "fraccions",
+    titol: "Els noms de les fraccions",
+    descripcio: "Del mig al dotzè, amb el plural i el dibuix de cada una. A l'altra cara, " +
+                "com es llegeix una fracció, els tipus, les equivalents i com se suma.",
+    fitxer: "targetes/fraccions.html",
+    pdf: "pdf/targeta-fraccions.pdf",
+    unitat: 4
   }
 ];

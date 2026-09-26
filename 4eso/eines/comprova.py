@@ -404,9 +404,13 @@ print("\nANONIMAT")
 # L'excepció són els noms de carpeta 4eso/ i 1eso/: fan visible el curs a les
 # adreces, i és una decisió presa. Per això «4eso» només passa dins d'una ruta,
 # amb una barra al costat; en el text, continua prohibit.
-PROHIBITS = [r"4t ESO", r"(?<![/\w])4eso(?![/\w])", r"4t d'ESO", r"4t A\b", r"\bde 4t\b",
-             r"\bSIEI\b", r"\bDIL\b", r"discapacitat intel",
-             r"\bl'alumne\b", r"\bun alumne\b", r"\baquest alumne\b"]
+CURS = [r"4t ESO", r"(?<![/\w])4eso(?![/\w])", r"4t d'ESO", r"4t A\b", r"\bde 4t\b"]
+PROHIBITS = CURS + [r"\bSIEI\b", r"\bDIL\b", r"discapacitat intel",
+                    r"\bl'alumne\b", r"\bun alumne\b", r"\baquest alumne\b"]
+# L'altra excepció: la portada de l'arrel (index.html) sí que pot dir el curs de cada
+# material. Ho va decidir el docent el 26/9/2026: allà no cal amagar-lo. Els altres
+# termes (el diagnòstic, «l'alumne») hi continuen prohibits, i el curs, a tot arreu més.
+PORTADA = os.path.join(REPO, 'index.html')
 trobats = []
 for f in (glob.glob(os.path.join(REPO, '**', '*.md'), recursive=True)
           + glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True)
@@ -414,6 +418,8 @@ for f in (glob.glob(os.path.join(REPO, '**', '*.md'), recursive=True)
           + glob.glob(os.path.join(REPO, '**', '*.css'), recursive=True)):
     text = open(f, encoding='utf-8').read()
     for patro in PROHIBITS:
+        if os.path.abspath(f) == os.path.abspath(PORTADA) and patro in CURS:
+            continue
         for m in re.finditer(patro, text, re.I):
             trobats.append((os.path.relpath(f, REPO), m.group(0)))
 comprova(not trobats, f"termes que trenquen l'anonimat: {trobats[:6]}")

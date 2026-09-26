@@ -29,6 +29,7 @@ fàcil trencar sense adonar-se'n:
 Falla: el que s'ha d'arreglar abans de publicar. Avisa: el que cal mirar.
 """
 import glob, json, os, re, struct, sys
+from fractions import Fraction
 from html.parser import HTMLParser
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # 1eso/
@@ -149,10 +150,18 @@ class Visible(HTMLParser):
         self._tanca()
 
 
+# Una fracció del paper, escrita com a fracció, amb el numerador damunt del denominador:
+# <span class="fr" ...><span ...>3</span><span ...>4</span></span>. Per llegir-la i per
+# calcular-la es torna «3/4»; si no, seria «34», i «1/2 = 2/4» es llegiria «12 = 24».
+FRACCIO_PAPER = re.compile(r'<span class="fr"[^>]*>\s*<span[^>]*>(\d+)</span>\s*<span[^>]*>(\d+)</span>\s*</span>')
+def amb_fraccions(s):
+    return FRACCIO_PAPER.sub(r'\1/\2', s)
+
+
 def trossos(fitxer):
     """[[(text, classes), ...], ...]: el text visible, un tros per bloc."""
     v = Visible()
-    v.feed(llegeix(fitxer))
+    v.feed(amb_fraccions(llegeix(fitxer)))
     v.close()
     return v.trossos
 
@@ -215,7 +224,7 @@ class TextCalcul(HTMLParser):
 
 def text_de_calcul(fitxer):
     e = TextCalcul()
-    e.feed(llegeix(fitxer))
+    e.feed(amb_fraccions(llegeix(fitxer)))
     e.close()
     return ' '.join(''.join(e.parts).split())
 
@@ -312,8 +321,8 @@ def caracters_de_la_lletra(cami):
 # --------------------------------------------------------------------------
 # Un tros també pot començar per un signe: amb un buit al davant, «… · 4 = 20» es
 # llegeix «· 4 = 20», que no es pot calcular, i no «4 = 20», que seria fals.
-TROS_CALCUL = re.compile(r'[\d(√·+−\-][\d\s·+−\-()²√=]*[\d)²]')
-PECES_CALCUL = re.compile(r'\d+|[·+−\-()²√=]')
+TROS_CALCUL = re.compile(r'[\d(√·+−\-/][\d\s·+−\-()²√=/]*[\d)²]')
+PECES_CALCUL = re.compile(r'\d+|[·+−\-()²√=/]')
 
 
 def valor_de(peces):
@@ -358,10 +367,17 @@ def valor_de(peces):
         return v
 
     def producte():
+        # La barra de les fraccions va com la multiplicació, i es calcula exacta:
+        # 1/2 = 2/4, i no 0,5 = 0,5 amb decimals que no quadren.
         v = potencia()
-        while mira() == '·':
-            pren()
-            v = v * potencia()
+        while mira() in ('·', '/'):
+            if pren() == '·':
+                v = v * potencia()
+            else:
+                w = potencia()
+                if w == 0:
+                    raise ValueError
+                v = Fraction(v) / w
         return v
 
     def suma():

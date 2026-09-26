@@ -74,7 +74,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
-| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Les fraccions del grup: pla validat el 26 de setembre de 2026. Caixa d'eines feta (tasques 9 a 12). Falten la targeta, les fitxes i l'examen |
+| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Les fraccions del grup: pla validat el 26 de setembre de 2026. Caixa d'eines (tasques 9 a 12) i targeta «Els noms de les fraccions» fetes. Falten les fitxes i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
