@@ -1,4 +1,9 @@
 {
+  "targeta-fraccions.pdf": {
+    "empremta": "7d18819153ce284805af886a790781fca49079362226ec1293f6902eea0fab95",
+    "font": "targetes/fraccions.html",
+    "pagines": 2
+  },
   "targeta-taules.pdf": {
     "empremta": "d9ebe5c87908b827173a1ac91f67af10c5e4a5377a74cb5ec2780465402ac9db",
     "font": "targetes/taules.html",
