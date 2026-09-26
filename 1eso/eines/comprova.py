@@ -418,6 +418,19 @@ def igualtats(text):
 
 
 # --------------------------------------------------------------------------
+# Cap examen dins del repositori. Es publica tot (comu/docs/DESPLEGAMENT.md), i un
+# DOCX d'examen o de solucionari es podria obrir des del web abans de l'examen. Els
+# DOCX surten a docx/, que el .gitignore deixa fora; no es pugen mai.
+print("EXÀMENS")
+fora_de_docx = sorted(os.path.relpath(os.path.join(d, f), ARREL)
+                      for d, _, fs in os.walk(ARREL) for f in fs
+                      if f.lower().endswith(".docx") and os.path.relpath(d, ARREL).split(os.sep)[0] != "docx")
+for f in fora_de_docx:
+    comprova(False, f"{f} és dins del repositori i es publica al web: treu-lo (vegeu el README, «L'examen»)")
+print(f"  DOCX dins del repositori: {len(fora_de_docx)}")
+print()
+
+# --------------------------------------------------------------------------
 print("FITXES I TARGETES")
 # --------------------------------------------------------------------------
 css_fitxa = llegeix(ruta('css', 'fitxa.css'))
@@ -957,7 +970,7 @@ print(f"  recursos remots: {len(remots)}")
 
 # --------------------------------------------------------------------------
 print("\nDADES")
-# dades/unitats.js és el que llegeix index.html. Ha de quadrar amb el disc.
+# dades/unitats.js és el que llegeix fitxes.html. Ha de quadrar amb el disc.
 # --------------------------------------------------------------------------
 dades = llegeix(ruta('dades', 'unitats.js'))
 nums = [int(n) for n in re.findall(r'\bnum:\s*(\d+)', dades)]

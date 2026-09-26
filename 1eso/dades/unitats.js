@@ -54,7 +54,11 @@ window.UNITATS = [
     material: "Miniblocs: fer tots els rectangles de 12, i després els de 7.",
     criteris: "1.4, 3.2, 4.2, 5.2",
     fitxes: [
-      { fitxa: "fitxes/ud2.html", titol: "Els múltiples" }
+      { fitxa: "fitxes/ud2.html", titol: "Els múltiples" },
+      { fitxa: "fitxes/ud2-repartir.html", titol: "Repartir en files" },
+      { fitxa: "fitxes/ud2-divisors.html", titol: "Divisors i primers" },
+      { fitxa: "fitxes/ud2-factors.html", titol: "La factorització" },
+      { fitxa: "fitxes/ud2-repas.html", titol: "Repàs de la unitat i «Què he après?»" }
     ],
     tasques: [0, 5, 6, 7, 8]
   },
@@ -73,11 +77,11 @@ window.UNITATS = [
     titol: "És gran l'ou del kiwi?",
     dates: "del 12 al 28 de gener",
     sessions: "11",
-    nucli: "Un terç de 12 és repartir 12 quadrets en 3 grups iguals. " +
-           "Un percentatge és quants quadrets de cada 100.",
-    material: "Miniblocs: repartir 12 en 3 grups iguals. Quadrícula de 100: pintar-ne 25.",
+    nucli: "Una fracció és un rectangle partit en trossos iguals: el de baix diu quants trossos hi ha, i el de dalt, quants se'n pinten.",
+    material: "Tires de paper: doblegar-les en 2, 4 i 8 trossos iguals i pintar-ne uns quants.",
     criteris: "1.3, 2.1, 5.1, 6.1",
-    fitxes: []
+    fitxes: [],
+    tasques: [0, 9, 10, 11, 12]
   },
   {
     num: 5,

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 2 · Repartir en files</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 2 · Divisibilitat · Repartir en files
+  La segona fitxa de la unitat 2. Adapta les activitats 2_2 (divisió entera: les
+  caixes i les boles del GeoGebra) i 2_5 (la pràctica de divisors, amb caramels)
+  del grup. Les caixes plenes són files plenes de quadrets; les boles que
+  sobren, el residu. La igualtat és la del grup, amb les files plenes al primer
+  lloc, com a tot el curs: 37 = 5 · 7 + 2.
+
+  Els casos són els de la tasca 6 de la caixa (regla 8): el 37 en files de 7 de
+  la 6.1 i els repartiments de la 6.2. Els de l'exercici 3 són els de
+  l'exercici 10 de l'activitat 2_2 del grup.
+
+  La regla trencada és oblidar el residu: «37 entre 7 són 5» (exercici 4). Les
+  igualtats per triar van dins de .revisa, perquè n'hi ha de falses a posta. La
+  pàgina acaba amb la forma bona a la vista.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Posar 37 miniblocs en files de 7. Comptar les files plenes i els que sobren.</div>
+  <h1>Repartir en files</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:1rem">
+    <svg viewBox="0 0 447.5 199.2" style="width:11.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="37 quadrets en files de 7: 5 files plenes i en sobren 2">
+      <rect x="141.2" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="168.4" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="195.6" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="222.8" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.1" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="277.3" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="304.5" y="31.6" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="141.2" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="168.4" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="195.6" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="222.8" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.1" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="277.3" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="304.5" y="58.8" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="141.2" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="168.4" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="195.6" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="222.8" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.1" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="277.3" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="304.5" y="86" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="141.2" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="168.4" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="195.6" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="222.8" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.1" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="277.3" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="304.5" y="113.2" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="141.2" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="168.4" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="195.6" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="222.8" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="250.1" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="277.3" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="304.5" y="140.4" width="24.5" height="24.5" rx="3.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="141.2" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#000" stroke-width="2.4"/>
+      <rect x="168.4" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#000" stroke-width="2.4"/>
+      <rect x="195.6" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <rect x="222.8" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <rect x="250.1" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <rect x="277.3" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <rect x="304.5" y="167.7" width="24.5" height="24.5" rx="3.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <path d="M139.8 30.2 H132.3 V166.3 H139.8" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="126.6" y="103.8" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">5 files plenes</text>
+      <path d="M139.8 28.3 V20.8 H330.3 V28.3" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="235.1" y="15.1" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">7 a cada fila</text>
+      <text x="339.8" y="185.6" font-size="15.9" font-weight="700" text-anchor="start" fill="#000">en sobren 2</text>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .8rem">Hi ha files plenes de 7 i una fila a mitges.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Quants quadrets hi ha a cada fila?</td><td style="width:3.6cm"><span class="ms">7</span></td></tr>
+    <tr class="resolt"><td class="esq">Quantes files plenes hi ha?</td><td><span class="ms">5</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets sobren?</td><td><span class="ms">2</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">5 files de 7 són 5 · 7 = 35. I en sobren 2.</p>
+    <p style="font-size:30pt;font-weight:800;margin:.3rem 0">37 = 5 · 7 + 2</p>
+    <p style="margin:0;font-weight:700">Els quadrets que sobren són el residu.</p>
+    <p style="margin:0">Si no en sobra cap, la divisió és exacta.</p>
+  </div>
+  <div class="pag">Unitat 2 · Repartir · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Pinta els quadrets, fila a fila. Després escriu les files plenes i els que sobren.</div></div>
+    <div class="avis puntejat" style="margin:.3rem 0 .6rem">Omple una fila sencera abans de començar-ne una altra.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem .8cm">
+      <div class="resolt" style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">a)</span> 37 en files de 7</p>
+        <svg viewBox="0 0 167.8 167.8" style="width:4.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Quadrícula de 7 columnes per repartir-hi 37 quadrets">
+          <rect x="1.9" y="1.9" width="164" height="164" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="25.3" x2="165.9" y2="25.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="48.8" x2="165.9" y2="48.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="72.2" x2="165.9" y2="72.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="95.6" x2="165.9" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="119.1" x2="165.9" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="142.5" x2="165.9" y2="142.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="25.3" y1="1.9" x2="25.3" y2="165.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="48.8" y1="1.9" x2="48.8" y2="165.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="72.2" y1="1.9" x2="72.2" y2="165.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="95.6" y1="1.9" x2="95.6" y2="165.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="119.1" y1="1.9" x2="119.1" y2="165.9" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="142.5" y1="1.9" x2="142.5" y2="165.9" stroke="#8A8A8A" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="164" height="117.2" fill="#BFBFBF" stroke="none"/>
+          <line x1="1.9" y1="25.3" x2="165.9" y2="25.3" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="1.9" y1="48.8" x2="165.9" y2="48.8" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="1.9" y1="72.2" x2="165.9" y2="72.2" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="1.9" y1="95.6" x2="165.9" y2="95.6" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="25.3" y1="1.9" x2="25.3" y2="119.1" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="48.8" y1="1.9" x2="48.8" y2="119.1" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="72.2" y1="1.9" x2="72.2" y2="119.1" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="95.6" y1="1.9" x2="95.6" y2="119.1" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="119.1" y1="1.9" x2="119.1" y2="119.1" stroke="#5E5E5E" stroke-width="1"/>
+          <line x1="142.5" y1="1.9" x2="142.5" y2="119.1" stroke="#5E5E5E" stroke-width="1"/>
+          <rect x="1.9" y="1.9" width="164" height="117.2" fill="none" stroke="#3A3A3A" stroke-width="2.6" stroke-linejoin="round"/>
+          <rect x="1.9" y="119.1" width="46.9" height="23.4" fill="#BFBFBF" stroke="none"/>
+          <line x1="25.3" y1="119.1" x2="25.3" y2="142.5" stroke="#5E5E5E" stroke-width="1"/>
+          <rect x="1.9" y="119.1" width="46.9" height="23.4" fill="none" stroke="#3A3A3A" stroke-width="2.6" stroke-linejoin="round"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">Files plenes: <span class="ms">5</span></p>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <span class="ms">2</span></p>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">b)</span> 20 en files de 4</p>
+        <svg viewBox="0 0 97.5 144.4" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Quadrícula de 4 columnes per repartir-hi 20 quadrets">
+          <rect x="1.9" y="1.9" width="93.7" height="140.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="25.3" x2="95.6" y2="25.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="48.8" x2="95.6" y2="48.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="72.2" x2="95.6" y2="72.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="95.6" x2="95.6" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="119.1" x2="95.6" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="25.3" y1="1.9" x2="25.3" y2="142.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="48.8" y1="1.9" x2="48.8" y2="142.5" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="72.2" y1="1.9" x2="72.2" y2="142.5" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">Files plenes: <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">c)</span> 23 en files de 9</p>
+        <svg viewBox="0 0 214.7 97.5" style="width:5.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Quadrícula de 9 columnes per repartir-hi 23 quadrets">
+          <rect x="1.9" y="1.9" width="210.9" height="93.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="25.3" x2="212.8" y2="25.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="48.8" x2="212.8" y2="48.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="72.2" x2="212.8" y2="72.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="25.3" y1="1.9" x2="25.3" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="48.8" y1="1.9" x2="48.8" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="72.2" y1="1.9" x2="72.2" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="95.6" y1="1.9" x2="95.6" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="119.1" y1="1.9" x2="119.1" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="142.5" y1="1.9" x2="142.5" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="165.9" y1="1.9" x2="165.9" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="189.4" y1="1.9" x2="189.4" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">Files plenes: <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">d)</span> 20 en files de 6</p>
+        <svg viewBox="0 0 144.4 120.9" style="width:3.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Quadrícula de 6 columnes per repartir-hi 20 quadrets">
+          <rect x="1.9" y="1.9" width="140.6" height="117.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.6"/>
+          <line x1="1.9" y1="25.3" x2="142.5" y2="25.3" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="48.8" x2="142.5" y2="48.8" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="72.2" x2="142.5" y2="72.2" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="1.9" y1="95.6" x2="142.5" y2="95.6" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="25.3" y1="1.9" x2="25.3" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="48.8" y1="1.9" x2="48.8" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="72.2" y1="1.9" x2="72.2" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="95.6" y1="1.9" x2="95.6" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+          <line x1="119.1" y1="1.9" x2="119.1" y2="119.1" stroke="#8A8A8A" stroke-width="1"/>
+        </svg>
+        <p class="frase" style="margin:.2rem 0 0;font-size:14.5pt">Files plenes: <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Repartir · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Sobren quadrets? Marca la resposta. Mira la targeta.</div></div>
+    <div class="clau" style="margin:.3rem 0 .7rem">
+      <p style="margin:0">Busca el nombre a la taula de la targeta.</p>
+      <p style="margin:0">Si hi és, la divisió és exacta. Si no hi és, en sobren.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem .8cm">
+      <div class="resolt" style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">a)</span> 30 en files de 9</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>En sobren</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>És exacta</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt"><span class="ms">30 = 3 · 9 + 3</span></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">b)</span> 20 en files de 5</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>En sobren</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>És exacta</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">c)</span> 56 en files de 7</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>En sobren</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>És exacta</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">d)</span> 45 en files de 6</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>En sobren</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>És exacta</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">e)</span> 10 en files de 3</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>En sobren</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>És exacta</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">f)</span> 48 en files de 8</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>En sobren</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>És exacta</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">En sobren: <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Repartir · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Completa la igualtat.</div></div>
+    <div class="clau" style="margin:.3rem 0 .7rem">
+      <p style="margin:0">Al primer forat, les files plenes. Al segon, els que sobren.</p>
+      <p style="margin:0">Si no en sobra cap, escriu un 0.</p>
+    </div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat" style="color:var(--tinta)">a)</span> 37 quadrets en files de 7</p>
+      <p class="frase" style="margin:.05rem 0 0;font-size:22pt;font-weight:800">37 = <span class="ms">5</span> · 7 + <span class="ms">2</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat" style="color:var(--tinta)">b)</span> 40 quadrets en files de 6</p>
+      <p class="frase" style="margin:.05rem 0 0;font-size:22pt;font-weight:800">40 = <u style="padding:0 1.1rem"></u> · 6 + <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat" style="color:var(--tinta)">c)</span> 35 quadrets en files de 7</p>
+      <p class="frase" style="margin:.05rem 0 0;font-size:22pt;font-weight:800">35 = <u style="padding:0 1.1rem"></u> · 7 + <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat" style="color:var(--tinta)">d)</span> 20 quadrets en files de 6</p>
+      <p class="frase" style="margin:.05rem 0 0;font-size:22pt;font-weight:800">20 = <u style="padding:0 1.1rem"></u> · 6 + <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat" style="color:var(--tinta)">e)</span> 10 quadrets en files de 3</p>
+      <p class="frase" style="margin:.05rem 0 0;font-size:22pt;font-weight:800">10 = <u style="padding:0 1.1rem"></u> · 3 + <u style="padding:0 1.1rem"></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Repartir · pàgina 4</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Marca la igualtat bona. Mira el dibuix.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem .8cm;margin-top:.4rem">
+      <div class="resolt" style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">a)</span> 37 en files de 7</p>
+        <svg viewBox="0 0 118.7 104.7" style="width:3.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="37 quadrets en files de 7">
+          <rect x="4.6" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="20.4" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="36.3" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="52.2" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="68.1" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="83.9" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="99.8" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-direction:column;align-items:flex-start;flex-wrap:wrap"><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">37 = 5 · 7</span></label><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="revisa">37 = 5 · 7 + 2</span></label></div>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">b)</span> 23 en files de 9</p>
+        <svg viewBox="0 0 150.4 57.1" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="23 quadrets en files de 9">
+          <rect x="4.6" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="115.7" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="131.6" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="115.7" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="131.6" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="20.4" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="36.3" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="52.2" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="68.1" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="83.9" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="99.8" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="115.7" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="131.6" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-direction:column;align-items:flex-start;flex-wrap:wrap"><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">23 = 2 · 9 + 5</span></label><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">23 = 2 · 9</span></label></div>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">c)</span> 20 en files de 5</p>
+        <svg viewBox="0 0 86.9 72.9" style="width:2.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="20 quadrets en files de 5">
+          <rect x="4.6" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-direction:column;align-items:flex-start;flex-wrap:wrap"><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">20 = 4 · 5 + 1</span></label><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">20 = 4 · 5</span></label></div>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0 0 .2rem;font-size:15pt;font-weight:700"><span class="apartat">d)</span> 50 en files de 7</p>
+        <svg viewBox="0 0 118.7 136.4" style="width:3.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="50 quadrets en files de 7">
+          <rect x="4.6" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="4.6" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="20.4" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="36.3" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="52.2" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="68.1" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="83.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="20.4" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="36.3" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="52.2" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="68.1" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="83.9" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="99.8" y="99.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.6" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#000" stroke-width="2.4"/>
+          <rect x="20.4" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="36.3" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="52.2" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="68.1" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="83.9" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <rect x="99.8" y="115.7" width="14.3" height="14.3" rx="2.1" fill="#fff" stroke="#8A8A8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-direction:column;align-items:flex-start;flex-wrap:wrap"><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">50 = 7 · 7</span></label><label style="min-width:5.2cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span><span class="revisa">50 = 7 · 7 + 1</span></label></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">37 en files de 7 no són 5 i prou.</p>
+    <p style="margin:.2rem 0 0">Fas 5 files plenes, i en sobren 2: 37 = 5 · 7 + 2.</p>
+  </div>
+  <div class="pag">Unitat 2 · Repartir · pàgina 5</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Reparteix els caramels. Tothom en té els mateixos, i no se'n trenca cap.</div></div>
+    <div class="clau" style="margin:.2rem 0 .5rem">
+      <p style="margin:0">Si la divisió és exacta, el nombre és <b>divisor</b>: 9 és divisor de 63.</p>
+    </div>
+    <div class="resolt" style="border-radius:10px;padding:.4rem .6rem;margin-bottom:.4rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> 63 caramels entre 9 persones.</p>
+      <div style="display:flex;gap:.9cm;align-items:center">
+        <div style="flex:0 0 auto">
+          <svg viewBox="0 0 94.9 119.8" style="width:2.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="9 files de 7 caramels: una fila per a cada persona">
+            <circle cx="10" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="10" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="22.5" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="35" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="47.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="59.9" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="72.4" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="84.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="97.3" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="10" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="22.5" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="35" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="47.4" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="59.9" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="72.4" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+            <circle cx="84.8" cy="109.8" r="4.5" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="frase" style="margin:0"><span class="ms">9 · 7 = 63</span></p>
+          <p class="frase" style="margin:0">Cadascú en té <span class="ms">7</span>. En sobren <span class="ms">0</span>.</p>
+          <p class="frase" style="margin:0">9 és divisor de 63? <span class="ms">Sí</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="padding:.4rem .6rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> 60 caramels entre 9 persones.</p>
+      <p class="frase" style="margin:0">9 · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+      <p class="frase" style="margin:0">Cadascú en té <u style="padding:0 1.1rem"></u>. En sobren <u style="padding:0 1.1rem"></u>.</p>
+      <p class="frase" style="margin:0">9 és divisor de 60? <u style="padding:0 1.1rem"></u></p>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Les barques són de 4 persones. Quantes barques s'omplen?</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Hi ha 26 persones.</p>
+        <p class="frase" style="margin:0"><span class="ms">26 = 6 · 4 + 2</span></p>
+        <p class="frase" style="margin:0">S'omplen <span class="ms">6</span> barques.</p>
+        <p class="frase" style="margin:0">En sobren <span class="ms">2</span>.</p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Hi ha 30 persones.</p>
+        <p class="frase" style="margin:0">30 = <u style="padding:0 1.1rem"></u> · 4 + <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0">S'omplen <u style="padding:0 1.1rem"></u> barques.</p>
+        <p class="frase" style="margin:0">En sobren <u style="padding:0 1.1rem"></u> persones.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Repartir · pàgina 6</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · Repartir en files · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> Les caixes plenes de boles del GeoGebra del grup són les files
+    plenes de quadrets: «repartir 37 boles en caixes de 7» és «posar 37 quadrets en files de 7».
+    Es diu sempre igual: «files plenes», «a cada fila» i «en sobren». La paraula del grup, el
+    <b>residu</b>, surt a la pàgina 1. El residu no es calcula restant: es compta, al dibuix o
+    comptant endavant des de l'últim resultat de la taula (del 36 al 40: 37, 38, 39, 40, en sobren 4).
+  </div>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: posar els 37 en files de 7, i comptar les files plenes (5) i els
+  que sobren (2). És l'exercici 5 de l'activitat 2_2 del grup, i l'exemple de la tasca 6.1 de la
+  caixa.</p>
+
+  <h3>1. Pinta i escriu</h3>
+  <p>b) 20 en files de 4: 5 files plenes, en sobren 0 (exacta). c) 23 en files de 9: 2 files
+  plenes, en sobren 5. d) 20 en files de 6: 3 files plenes, en sobren 2. La quadrícula té una fila
+  més de les que calen, a posta: si la hi donés justa, ja diria si en sobren. <b>Error típic:</b>
+  començar una fila nova abans d'acabar l'anterior.</p>
+
+  <h3>2. Sobren quadrets?</h3>
+  <p>b) exacta (5 · 4 = 20); c) exacta (7 · 8 = 56); d) en sobren 3 (45 = 7 · 6 + 3); e) en sobra 1
+  (10 = 3 · 3 + 1); f) exacta (6 · 8 = 48). Són els casos de la tasca 6.2 de la caixa. Si hi és a la
+  taula de la targeta, és exacta: no cal fer el dibuix.</p>
+
+  <h3>3. La igualtat</h3>
+  <p>b) 40 = 6 · 6 + 4; c) 35 = 5 · 7 + 0; d) 20 = 3 · 6 + 2; e) 10 = 3 · 3 + 1. Són les de
+  l'exercici 10 de l'activitat 2_2 del grup, amb les files plenes al primer lloc, com a tot el
+  curs (3 · 4 són 3 files de 4). El grup ho escriu al revés (40 = 6 · … + 4): és el mateix, perquè
+  el rectangle es pot girar.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. Marca la igualtat bona</h3>
+  <p>b) 23 = 2 · 9 + 5; c) 20 = 4 · 5, que és exacta; d) 50 = 7 · 7 + 1. <b>Error típic:</b>
+  oblidar el residu: «37 entre 7 són 5». És la regla trencada d'aquesta fitxa. No l'expliqueu: que
+  compti tots els quadrets del dibuix. Amb 5 · 7 només n'hi ha 35, i al dibuix en són 37. L'apartat
+  c és exacte a posta: si sempre tria la que té «+», encara no mira el dibuix.</p>
+
+  <h3>5 i 6. A la vida de cada dia</h3>
+  <p>5b) 9 · 6 = 54: cadascú en té 6, en sobren 6, i 9 no és divisor de 60. Són els caramels de
+  l'activitat 2_5 del grup. 6a i 6b: les persones que sobren necessiten una barca més (7 i 8
+  barques en total). 6b) 30 = 7 · 4 + 2: s'omplen 7 barques i en sobren 2 persones. El 30 no és a la taula del 4: 4 · 7 = 28 i 4 · 8 = 32.</p>
+
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=6</b> (6.1 Reparteix en
+  files; 6.2 Sobren quadrets?). La 6.2 dona un codi de verificació. La 6.1 s'obre amb el 37 en
+  files de 7, com la pàgina 1.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.4, 3.2, 4.2 i 5.2) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs, reparteix un nombre en files iguals i diu les files plenes i els que sobren.</li>
+    <li>Pinta un repartiment a la quadrícula, fila a fila (exercici 1).</li>
+    <li>Diu si una divisió és exacta mirant la taula de la targeta (exercici 2).</li>
+    <li>Completa la igualtat amb les files plenes i el residu (exercici 3).</li>
+    <li>Nivells alts: tria la igualtat bona, també quan és exacta, i diu si un nombre és divisor d'un altre (exercicis 4 i 5).</li>
+  </ul>
+</div>
+
+</body>
+</html>

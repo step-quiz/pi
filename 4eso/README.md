@@ -27,8 +27,8 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 | | |
 |---|---|
-| `index.html` | portada: les set unitats i les eines |
-| `fitxes.html` | el detall de cada unitat: material previ, regla trencada, fita, recursos |
+| `index.html` | portada: tria entre les fitxes i la caixa d'eines |
+| `fitxes.html` | índex de les set unitats: tria ràpida i, per a cada una, material previ, regla trencada, fita, recursos |
 | `caixa-eines.html` | l'aplicació, amb vuit mòduls |
 | `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |

@@ -13,6 +13,8 @@
 <body>
 <div class="pagina">
 
+  <p class="tornar"><a href="../index.html">← tots els materials</a></p>
+
   <h1>Matemàtiques</h1>
   <p class="subtitol">Material adaptat · alumnat amb dificultats de tipus cognitiu · aula de suport i aula ordinària</p>
 
@@ -23,31 +25,63 @@
     calculadora.
   </p>
 
-  <h2>Targetes de consulta</h2>
-  <div class="graella" id="graella-targetes"></div>
-
-  <h2>Caixa d'eines</h2>
-  <p class="entradeta">
-    Les eines de pantalla, amb el mateix dibuix que el paper. Cada una s'obre ja resolta
-    amb un exemple. Les tasques tancades acaben amb un codi de verificació, que es llegeix
-    a <a href="verifica.html">Llegir codis</a>.
-  </p>
-  <div class="graella">
-    <a class="targeta" href="caixa-eines.html">
-      <h3>Obre la caixa d'eines</h3>
-      <p>Les cinc eines de la unitat 1: taules, rectangles, quadrats, nombres i ordre de les
-         operacions. Totes les pestanyes a la vista.</p>
+  <!-- La tria principal: només dos camins. Tota la resta (enllaços per a
+       l'alumnat, canviar frases, llegir codis, documentació) és per al
+       professorat i queda més avall. -->
+  <div class="tria">
+    <a class="tria-opcio" href="fitxes.html">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+        <path d="M8 4h11l7 7v17a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+        <path d="M19 4v7h7"/>
+        <path d="M11 17h10M11 21.5h10M11 26h6"/>
+      </svg>
+      <h2>Fitxes</h2>
+      <p>Les targetes de consulta i les fitxes de cada unitat.</p>
     </a>
+    <a class="tria-opcio" href="caixa-eines.html">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 13h24v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+        <path d="M11 13V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/>
+        <path d="M4 19h7M21 19h7"/>
+        <rect x="13" y="18.5" width="6" height="5" rx="1"/>
+      </svg>
+      <h2>Caixa d'eines</h2>
+      <p>Les eines de pantalla, amb el mateix dibuix que el paper.</p>
+    </a>
+  </div>
+
+  <h2>Per al professorat</h2>
+  <div class="graella">
     <div class="targeta">
       <h3>Enllaços per a l'alumnat</h3>
       <p>Cada enllaç obre la pestanya Taules i l'eina triada, i prou. Afegint el número de la
          subtasca s'hi va directament: <code>?task=1.2</code>.</p>
+      <p class="enllacos-unitat">Sempre</p>
       <ul class="enllacos-tasca">
         <li><a href="caixa-eines.html?task=0"><code>?task=0</code></a> Taules</li>
+      </ul>
+      <p class="enllacos-unitat">Unitat 1 · Nombres naturals</p>
+      <ul class="enllacos-tasca">
         <li><a href="caixa-eines.html?task=1"><code>?task=1</code></a> Rectangles</li>
         <li><a href="caixa-eines.html?task=2"><code>?task=2</code></a> Quadrats</li>
         <li><a href="caixa-eines.html?task=3"><code>?task=3</code></a> Nombres</li>
         <li><a href="caixa-eines.html?task=4"><code>?task=4</code></a> Ordre</li>
+      </ul>
+      <p class="enllacos-unitat">Unitat 2 · Divisibilitat</p>
+      <ul class="enllacos-tasca">
+        <li><a href="caixa-eines.html?task=5"><code>?task=5</code></a> Múltiples</li>
+        <li><a href="caixa-eines.html?task=6"><code>?task=6</code></a> Repartir</li>
+        <li><a href="caixa-eines.html?task=7"><code>?task=7</code></a> Divisors</li>
+        <li><a href="caixa-eines.html?task=8"><code>?task=8</code></a> Primers</li>
+      </ul>
+      <p class="enllacos-unitat">Unitat 4 · Fraccions</p>
+      <ul class="enllacos-tasca">
+        <li><a href="caixa-eines.html?task=9"><code>?task=9</code></a> Fraccions</li>
+        <li><a href="caixa-eines.html?task=10"><code>?task=10</code></a> Equivalents</li>
+        <li><a href="caixa-eines.html?task=11"><code>?task=11</code></a> Compara</li>
+        <li><a href="caixa-eines.html?task=12"><code>?task=12</code></a> Sumes</li>
       </ul>
     </div>
     <a class="targeta" href="verifica.html">
@@ -60,15 +94,8 @@
       <p>Totes les frases de la caixa en una sola pàgina, amb el que fa cada una. Es baixa
          el fitxer nou i es puja al repositori.</p>
     </a>
-  </div>
-
-  <h2>Les set unitats</h2>
-  <div class="graella" id="graella-unitats"></div>
-
-  <h2>Documentació</h2>
-  <div class="graella">
     <div class="targeta">
-      <h3>Per què tot és com és</h3>
+      <h3>Documentació</h3>
       <p>Els criteris de disseny, el mapa d'adaptació i l'estat de la feina són a la
          carpeta <code>docs/</code>, en Markdown. Es llegeixen millor al repositori,
          que els mostra ben formatats.</p>
@@ -85,7 +112,5 @@
     doble clic o es publica tal qual.</p>
 
 </div>
-<script src="dades/unitats.js"></script>
-<script src="js/lloc.js"></script>
 </body>
 </html>

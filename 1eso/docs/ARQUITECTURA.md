@@ -77,8 +77,12 @@ pantalla van a `css/app.css`.
 | 6 | Repartir | `repartir.js` | 6.1 Reparteix en files · **6.2 Sobren quadrets?** | 37 en files de 7: 37 = 5 · 7 + 2 |
 | 7 | Divisors | `divisors.js` | 7.1 Els rectangles d'un nombre · **7.2 Troba els divisors** | Els 3 rectangles del 12 |
 | 8 | Primers | `primers.js` | 8.1 El garbell d'Eratòstenes · **8.2 És primer?** | El garbell acabat: 25 primers |
+| 9 | Fraccions | `fraccio.js` | 9.1 Fes la fracció · **9.2 Quina fracció és?** | 4/9, com l'activitat 0 del grup |
+| 10 | Equivalents | `equivalents.js` | 10.1 Parteix els trossos · **10.2 Són equivalents?** | 2/3 = 8/12, com l'activitat 3 |
+| 11 | Compara | `compara.js` | 11.1 Compara dues fraccions · **11.2 Quina és més gran?** | 1/3 i 1/5: la regla trencada |
+| 12 | Sumes | `sumes.js` | 12.1 Suma i resta · **12.2 Quant és?** | 3/8 + 2/8 = 5/8 |
 
-Les tasques 0 a 4 són de la unitat 1, i les 5 a 8, de la unitat 2. La 0 (les taules) es veu
+Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 12, de la unitat 4. La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són
@@ -108,6 +112,8 @@ Deixa a `CE.q`:
 | `graella100` | La graella de 100 de l'activitat dels múltiples del grup: cada nombre pot anar pintat, encerclat (un primer) o ratllat. La fan servir la 5.1 i la 8.1 |
 | `rectanglesDe`, `divisorsDe` | Els rectangles que es poden fer amb n quadrets (sense comptar el girat dues vegades), i els divisors que en surten |
 | `dibuixaRectangles` | Tots els rectangles de n, un sota l'altre i a la mateixa escala, amb el rètol «2 · 6». La fan servir la 7.1, la 7.2 i la 8.2 |
+| `tira`, `fraccio` | El rectangle de les fraccions, sempre de la mateixa mida perquè es puguin comparar, partit en trossos iguals: pintats, del segon sumand (taronja), ratllats (el que es resta) o partits en trossos més petits (les equivalents). `fraccio` en posa tants com calguin per a una impròpia |
+| `nomFraccio`, `htmlFraccio`, `tipusFraccio` | El nom («quatre novens», amb els noms de la targeta de les fraccions, a `frac.s_N` i `frac.p_N` de les frases), la fracció escrita com a fracció, i si és nul·la, pròpia, unitat o impròpia |
 
 La taula de quadrets és el mateix objecte que la taula de multiplicar: el quadret de la fila 3 i
 la columna 4 és la cantonada del rectangle de 3 · 4.

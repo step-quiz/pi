@@ -13,32 +13,47 @@
 <body>
 <div class="pagina">
 
+  <p class="tornar"><a href="../index.html">← tots els materials</a></p>
+
   <h1>Matemàtiques Aplicades</h1>
   <p class="subtitol">Material adaptat · alumnat amb dificultats de tipus cognitiu · 50 % a l'aula de suport i 50 % a l'aula ordinària</p>
 
   <p class="entradeta">
     Set fitxes imprimibles i una caixa d'eines digital. El principi de tot plegat:
     aquest alumnat pot arribar a la <b>decisió</b> que demana el currículum, però no al
-      càlcul ni a la redacció del nivell del grup. Com que Matemàtiques Aplicades és la matèria de decidir amb dades,
-    la competència nuclear li és accessible si es descarrega el càlcul a la calculadora
-    i es basteix l'expressió amb frases model.
+      càlcul ni a la redacció del nivell del grup. Com que Matemàtiques Aplicades és la matèria de
+    decidir amb dades, la competència nuclear li és accessible si es descarrega el càlcul a
+    la calculadora i es basteix l'expressió amb frases model.
   </p>
 
-  <h2>Les set unitats</h2>
-  <div class="graella" id="graella-unitats"></div>
+  <!-- La tria principal: només dos camins. Tota la resta (canviar frases,
+       llegir codis, documentació) és per al professorat i queda més avall. -->
+  <div class="tria">
+    <a class="tria-opcio" href="fitxes.html">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+        <path d="M8 4h11l7 7v17a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+        <path d="M19 4v7h7"/>
+        <path d="M11 17h10M11 21.5h10M11 26h6"/>
+      </svg>
+      <h2>Fitxes</h2>
+      <p>Les set unitats, per imprimir o per obrir al navegador.</p>
+    </a>
+    <a class="tria-opcio" href="caixa-eines.html">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 13h24v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+        <path d="M11 13V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/>
+        <path d="M4 19h7M21 19h7"/>
+        <rect x="13" y="18.5" width="6" height="5" rx="1"/>
+      </svg>
+      <h2>Caixa d'eines</h2>
+      <p>Vuit plantilles que fan l'aritmètica perquè es concentri en la decisió.</p>
+    </a>
+  </div>
 
-  <h2>Eines i documentació</h2>
+  <h2>Per al professorat</h2>
   <div class="graella">
-    <a class="targeta" href="caixa-eines.html">
-      <h3>Caixa d'eines</h3>
-      <p>Vuit plantilles que fan l'aritmètica perquè es concentri en la decisió.
-         Cadascuna s'obre ja resolta amb un exemple.</p>
-    </a>
-    <a class="targeta" href="fitxes.html">
-      <h3>Índex de fitxes</h3>
-      <p>El detall de cada unitat: material previ, la regla trencada, fita d'avaluació
-         i quins blocs de <code>repas-main</code> obrir i quins no.</p>
-    </a>
     <a class="targeta" href="textos.html">
       <h3>Canviar les frases</h3>
       <p>Totes les frases que llegeix l'alumnat a la caixa d'eines, en camps
@@ -67,7 +82,5 @@
     S'obre amb doble clic o es publica tal qual.</p>
 
 </div>
-<script src="dades/unitats.js"></script>
-<script src="js/lloc.js"></script>
 </body>
 </html>

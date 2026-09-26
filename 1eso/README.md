@@ -41,11 +41,16 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 | `caixa-eines?task=6` | Repartir (unitat 2): 6.1 Reparteix en files · 6.2 Sobren quadrets? |
 | `caixa-eines?task=7` | Divisors (unitat 2): 7.1 Els rectangles d'un nombre · 7.2 Troba els divisors |
 | `caixa-eines?task=8` | Primers (unitat 2): 8.1 El garbell d'Eratòstenes · 8.2 És primer? |
+| `caixa-eines?task=9` | Fraccions (unitat 4): 9.1 Fes la fracció · 9.2 Quina fracció és? |
+| `caixa-eines?task=10` | Equivalents (unitat 4): 10.1 Parteix els trossos · 10.2 Són equivalents? |
+| `caixa-eines?task=11` | Compara (unitat 4): 11.1 Compara dues fraccions · 11.2 Quina és més gran? |
+| `caixa-eines?task=12` | Sumes (unitat 4): 12.1 Suma i resta · 12.2 Quant és? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
 exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
 `caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
-tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2, i de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2) acaben amb
+tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 4,
+9.2, 10.2, 11.2 i 12.2) acaben amb
 un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 
@@ -57,16 +62,17 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 
 | | |
 |---|---|
-| `index.html` | La portada: les targetes de consulta, la caixa d'eines i les set unitats |
+| `index.html` | La portada: tria entre les fitxes i la caixa d'eines, i a sota, «Per al professorat» |
+| `fitxes.html` | Índex de les targetes de consulta i de les set unitats |
 | `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta. Ara hi ha la de les taules de multiplicar |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) i la primera de la unitat 2 (els múltiples) |
+| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) i les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
-| `dades/unitats.js` | Les set unitats i les targetes: el que llegeix la portada |
-| `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada) i `app.css` (la caixa) |
-| `js/lloc.js` | Pinta la portada a partir de les dades |
+| `dades/unitats.js` | Les set unitats i les targetes: el que llegeix `fitxes.html` |
+| `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada i `fitxes.html`) i `app.css` (la caixa) |
+| `js/lloc.js` | Pinta `fitxes.html` a partir de les dades |
 | `fonts/` | La lletra manuscrita, Caveat, i la seva llicència |
 | `eines/` | El test, la mesura de l'A4, `paper.py` (que comparteixen amb el generador) i els dos tests de la caixa |
 | `generadors/gen_pdf.py` | Fa els PDF |
@@ -138,11 +144,15 @@ repositori:
 ```bash
 npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5     # només el primer cop de cada Codespace
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud1.js
+NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud2.js
 ```
 
 Surten dos DOCX a `1eso/docx/`: l'examen i el solucionari. **No es pugen mai**: el `.gitignore`
 els deixa fora. Per posar el curs a la capçalera, abans es crea
-`1eso/generadors/examens-privat.json`, que tampoc no es puja:
+`1eso/generadors/examens-privat.json`, que tampoc no es puja: Tot el
+repositori es publica al web: un DOCX que hi quedés, fins i tot als `generadors/`, es podria obrir
+abans de l'examen. Per això `comprova.py` avisa si en troba cap fora de `docx/`, i el `.gitignore`
+deixa fora també els DOCX dels `generadors/`.
 
 ```json
 { "curs": "el nom del grup", "adaptacio": "el que ha de dir el solucionari" }

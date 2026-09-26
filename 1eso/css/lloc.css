@@ -53,6 +53,24 @@ a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .0
   font-weight: 700; font-size: .95rem; margin-bottom: .6rem;
 }
 
+/* ------------------------------------------------- la tria principal --
+   Les targetes grosses de portada (arrel: quin material; dins d'un
+   material: fitxes o caixa d'eines). Sempre poques, sempre les primeres
+   que es veuen. */
+
+.tria {
+  display: grid; gap: 1rem; margin: 1.4rem 0 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+}
+.tria-opcio {
+  background: var(--superficie); border-radius: var(--r-g);
+  padding: 1.7rem 1.4rem; display: block; color: inherit; text-align: center;
+}
+a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0, .1) }
+.tria-opcio svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); margin-bottom: .8rem }
+.tria-opcio h2 { margin: 0; font-size: 1.25rem }
+.tria-opcio p  { margin: .4rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
+
 /* --------------------------------------------------------- etiquetes -- */
 
 .etiquetes { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .7rem }
@@ -104,3 +122,7 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 /* Les fitxes d'una unitat que en té més d'una, en l'ordre de classe */
 .enllacos-fitxes { margin: .5rem 0 .2rem; padding-left: 1.4rem; display: grid; gap: .3rem }
 .enllacos-fitxes a { display: inline; line-height: 1.5 }   /* inline: el número de la llista va amb la primera línia */
+
+/* Els enllaços per a l'alumnat, agrupats per unitat (a «Per al professorat») */
+.enllacos-unitat { margin: .8rem 0 .15rem; font-weight: 700; font-size: .95rem; color: var(--etiqueta) }
+

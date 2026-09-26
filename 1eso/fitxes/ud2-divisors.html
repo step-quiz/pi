@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 2 · Divisors i primers</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 2 · Divisibilitat · Divisors i primers
+  La tercera fitxa de la unitat 2. Adapta les activitats 2_4 (divisors) i 2_7
+  (Eratòstenes, primers i compostos) del grup. Els divisors surten dels
+  rectangles que es poden fer amb els quadrets; un primer només en fa un.
+
+  Els casos són els de les tasques 7 i 8 de la caixa (regla 8): el 12 de la 7.1,
+  els nombres de la 7.2 i els primers i els senars de la 8.2.
+
+  La regla trencada és «tots els senars són primers» (exercici 3). La pàgina
+  acaba amb la forma bona a la vista.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Fer tots els rectangles de 12, i després els de 7.</div>
+  <h1>Divisors i primers</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:1rem">
+    <svg viewBox="0 0 328.8 158.7" style="width:8.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Els tres rectangles de 12 quadrets: 1 per 12, 2 per 6 i 3 per 4">
+      <text x="60.5" y="19.8" font-size="15.9" font-weight="800" text-anchor="end" fill="#000">1 · 12</text>
+      <rect x="72.8" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="93.6" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="114.4" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="135.2" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="156" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="176.8" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="197.6" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="218.4" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="239.1" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="259.9" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="280.7" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="301.5" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <text x="60.5" y="64.3" font-size="15.9" font-weight="800" text-anchor="end" fill="#000">2 · 6</text>
+      <rect x="72.8" y="38.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="93.6" y="38.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="114.4" y="38.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="135.2" y="38.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="156" y="38.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="176.8" y="38.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="72.8" y="59.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="93.6" y="59.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="114.4" y="59.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="135.2" y="59.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="156" y="59.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="176.8" y="59.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <text x="60.5" y="129.4" font-size="15.9" font-weight="800" text-anchor="end" fill="#000">3 · 4</text>
+      <rect x="72.8" y="93.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="93.6" y="93.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="114.4" y="93.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="135.2" y="93.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="72.8" y="114.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="93.6" y="114.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="114.4" y="114.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="135.2" y="114.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="72.8" y="135.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="93.6" y="135.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="114.4" y="135.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+      <rect x="135.2" y="135.2" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .8rem">Són tots els rectangles que es poden fer amb 12 quadrets.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Quants rectangles hi ha?</td><td style="width:7.6cm"><span class="ms">3</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets tenen els costats?</td><td><span class="ms">1 i 12, 2 i 6, 3 i 4</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Cada rectangle dona dos divisors: les files i els quadrets de cada fila.</p>
+    <p style="font-size:24pt;font-weight:800;margin:.3rem 0">Divisors del 12: 1, 2, 3, 4, 6 i 12</p>
+    <p style="margin:0">2 · 6 i 6 · 2 són el mateix rectangle, girat. Només compta un cop.</p>
+  </div>
+  <div class="pag">Unitat 2 · Divisors · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Busca a la targeta les multiplicacions que donen cada nombre. Després escriu els divisors.</div></div>
+    <div class="clau" style="margin:.3rem 0 .6rem">
+      <p style="margin:0">Sempre hi ha la fila d'1: 1 · 20. Després, busca a la targeta.</p>
+      <p style="margin:0">Potser no faràs servir tots els buits.</p>
+    </div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.4rem">
+      <p style="margin:0;font-size:17pt;font-weight:800"><span class="apartat">a)</span> 20</p>
+      <p class="frase" style="margin:0"><span class="ms">20 = 1 · 20 = 2 · 10 = 4 · 5</span></p>
+      <p class="frase" style="margin:0">Divisors: <span class="ms">1, 2, 4, 5, 10 i 20</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.4rem">
+      <p style="margin:0;font-size:17pt;font-weight:800"><span class="apartat">b)</span> 18</p>
+      <p class="frase" style="margin:0">18 = <u></u> = <u></u> = <u></u></p>
+      <p class="frase" style="margin:0">Divisors: <u style="display:inline-block;min-width:9cm;padding:0"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.4rem">
+      <p style="margin:0;font-size:17pt;font-weight:800"><span class="apartat">c)</span> 16</p>
+      <p class="frase" style="margin:0">16 = <u></u> = <u></u> = <u></u></p>
+      <p class="frase" style="margin:0">Divisors: <u style="display:inline-block;min-width:9cm;padding:0"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.4rem">
+      <p style="margin:0;font-size:17pt;font-weight:800"><span class="apartat">d)</span> 15</p>
+      <p class="frase" style="margin:0">15 = <u></u> = <u></u> = <u></u></p>
+      <p class="frase" style="margin:0">Divisors: <u style="display:inline-block;min-width:9cm;padding:0"></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Divisors · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Escriu tres múltiples i tots els divisors de cada nombre.</div></div>
+    <table class="mini" style="margin-top:.4rem">
+      <tr><th style="width:3cm">Nombre</th><th>Tres múltiples</th><th>Tots els divisors</th></tr>
+      <tr class="resolt"><td class="apartat" style="font-size:17pt">a) 6</td><td style="text-align:center"><span class="ms">6, 12, 18</span></td><td style="text-align:center"><span class="ms">1, 2, 3, 6</span></td></tr>
+      <tr><td class="apartat" style="font-size:17pt">b) 8</td><td class="omplir" style="height:1.4cm"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt">c) 10</td><td class="omplir" style="height:1.4cm"></td><td class="omplir"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt">d) 9</td><td class="omplir" style="height:1.4cm"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="avis gruixut">
+    <p style="margin:0;font-weight:700">No els confonguis:</p>
+    <p style="margin:0">Els múltiples són la taula de la targeta: 6, 12, 18… Són més grans.</p>
+    <p style="margin:0">Els divisors són els costats dels rectangles: 1, 2, 3 i 6. Són més petits.</p>
+  </div>
+  <div class="pag">Unitat 2 · Divisors · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">És primer? Marca la resposta. Escriu la multiplicació.</div></div>
+    <div class="clau" style="margin:.3rem 0 .6rem">
+      <p style="margin:0">Un nombre primer només fa un rectangle, una fila: 7 = 1 · 7.</p>
+      <p style="margin:0">Si en fa més d'un, no és primer: 6 = 2 · 3.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8cm">
+      <div class="resolt" style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">a)</span> 9 <span style="font-size:14pt;font-weight:400">és primer?</span></p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt"><span class="ms">9 = 3 · 3</span>: un quadrat de 3 per 3.</p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">b)</span> 7 <span style="font-size:14pt;font-weight:400">és primer?</span></p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">La multiplicació: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">c)</span> 15 <span style="font-size:14pt;font-weight:400">és primer?</span></p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">La multiplicació: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">d)</span> 11 <span style="font-size:14pt;font-weight:400">és primer?</span></p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">La multiplicació: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">e)</span> 21 <span style="font-size:14pt;font-weight:400">és primer?</span></p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">La multiplicació: <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">f)</span> 2 <span style="font-size:14pt;font-weight:400">és primer?</span></p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">La multiplicació: <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Els senars no sempre són primers: 9 = 3 · 3 i 15 = 3 · 5.</p>
+    <p style="margin:.2rem 0 0">I el 2 és parell, i és primer: només fa una fila, 1 · 2.</p>
+  </div>
+  <div class="pag">Unitat 2 · Divisors · pàgina 4</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Fes el garbell d'Eratòstenes. El 2 ja està fet.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem">
+      <p style="margin:0">1. Ratlla l'1: no és primer.</p>
+      <p style="margin:0">2. Fes un cercle al 2 i ratlla els seus múltiples.</p>
+      <p style="margin:0">3. Fes el mateix amb el 3, el 5 i el 7.</p>
+      <p style="margin:0">4. Fes un cercle als que no estan ratllats: són primers.</p>
+    </div>
+    <div class="resolt" style="width:10.4cm;margin:0 auto;border-radius:10px;padding:.2rem">
+      <svg viewBox="0 0 378 378" style="width:10cm;max-width:100%;margin:0 auto;" role="img" aria-label="Graella de 100: l'1 i els múltiples del 2 ja estan ratllats, i el 2 té un cercle">
+        <rect x="3.8" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">1</text>
+        <line x1="8.2" y1="36.4" x2="36.4" y2="8.2" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="40.8" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="28.4" font-size="17" font-weight="800" text-anchor="middle" fill="#000">2</text>
+        <ellipse cx="59.3" cy="22.3" rx="17" ry="15.6" fill="none" stroke="#3A3A3A" stroke-width="3" transform="rotate(-4 59.3 22.3)"/>
+        <rect x="77.9" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">3</text>
+        <rect x="114.9" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">4</text>
+        <line x1="119.3" y1="36.4" x2="147.5" y2="8.2" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">5</text>
+        <rect x="189" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">6</text>
+        <line x1="193.4" y1="36.4" x2="221.6" y2="8.2" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">7</text>
+        <rect x="263.1" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">8</text>
+        <line x1="267.5" y1="36.4" x2="295.6" y2="8.2" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">9</text>
+        <rect x="337.1" y="3.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="28.4" font-size="17" font-weight="400" text-anchor="middle" fill="#000">10</text>
+        <line x1="341.6" y1="36.4" x2="369.7" y2="8.2" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">11</text>
+        <rect x="40.8" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">12</text>
+        <line x1="45.3" y1="73.4" x2="73.4" y2="45.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">13</text>
+        <rect x="114.9" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">14</text>
+        <line x1="119.3" y1="73.4" x2="147.5" y2="45.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">15</text>
+        <rect x="189" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">16</text>
+        <line x1="193.4" y1="73.4" x2="221.6" y2="45.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">17</text>
+        <rect x="263.1" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">18</text>
+        <line x1="267.5" y1="73.4" x2="295.6" y2="45.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">19</text>
+        <rect x="337.1" y="40.8" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="65.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">20</text>
+        <line x1="341.6" y1="73.4" x2="369.7" y2="45.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">21</text>
+        <rect x="40.8" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">22</text>
+        <line x1="45.3" y1="110.5" x2="73.4" y2="82.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">23</text>
+        <rect x="114.9" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">24</text>
+        <line x1="119.3" y1="110.5" x2="147.5" y2="82.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">25</text>
+        <rect x="189" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">26</text>
+        <line x1="193.4" y1="110.5" x2="221.6" y2="82.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">27</text>
+        <rect x="263.1" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">28</text>
+        <line x1="267.5" y1="110.5" x2="295.6" y2="82.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">29</text>
+        <rect x="337.1" y="77.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="102.5" font-size="17" font-weight="400" text-anchor="middle" fill="#000">30</text>
+        <line x1="341.6" y1="110.5" x2="369.7" y2="82.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">31</text>
+        <rect x="40.8" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">32</text>
+        <line x1="45.3" y1="147.5" x2="73.4" y2="119.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">33</text>
+        <rect x="114.9" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">34</text>
+        <line x1="119.3" y1="147.5" x2="147.5" y2="119.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">35</text>
+        <rect x="189" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">36</text>
+        <line x1="193.4" y1="147.5" x2="221.6" y2="119.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">37</text>
+        <rect x="263.1" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">38</text>
+        <line x1="267.5" y1="147.5" x2="295.6" y2="119.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">39</text>
+        <rect x="337.1" y="114.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="139.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">40</text>
+        <line x1="341.6" y1="147.5" x2="369.7" y2="119.3" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">41</text>
+        <rect x="40.8" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">42</text>
+        <line x1="45.3" y1="184.5" x2="73.4" y2="156.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">43</text>
+        <rect x="114.9" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">44</text>
+        <line x1="119.3" y1="184.5" x2="147.5" y2="156.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">45</text>
+        <rect x="189" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">46</text>
+        <line x1="193.4" y1="184.5" x2="221.6" y2="156.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">47</text>
+        <rect x="263.1" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">48</text>
+        <line x1="267.5" y1="184.5" x2="295.6" y2="156.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">49</text>
+        <rect x="337.1" y="151.9" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="176.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">50</text>
+        <line x1="341.6" y1="184.5" x2="369.7" y2="156.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">51</text>
+        <rect x="40.8" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">52</text>
+        <line x1="45.3" y1="221.6" x2="73.4" y2="193.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">53</text>
+        <rect x="114.9" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">54</text>
+        <line x1="119.3" y1="221.6" x2="147.5" y2="193.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">55</text>
+        <rect x="189" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">56</text>
+        <line x1="193.4" y1="221.6" x2="221.6" y2="193.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">57</text>
+        <rect x="263.1" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">58</text>
+        <line x1="267.5" y1="221.6" x2="295.6" y2="193.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">59</text>
+        <rect x="337.1" y="189" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="213.6" font-size="17" font-weight="400" text-anchor="middle" fill="#000">60</text>
+        <line x1="341.6" y1="221.6" x2="369.7" y2="193.4" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">61</text>
+        <rect x="40.8" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">62</text>
+        <line x1="45.3" y1="258.6" x2="73.4" y2="230.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">63</text>
+        <rect x="114.9" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">64</text>
+        <line x1="119.3" y1="258.6" x2="147.5" y2="230.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">65</text>
+        <rect x="189" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">66</text>
+        <line x1="193.4" y1="258.6" x2="221.6" y2="230.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">67</text>
+        <rect x="263.1" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">68</text>
+        <line x1="267.5" y1="258.6" x2="295.6" y2="230.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">69</text>
+        <rect x="337.1" y="226" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="250.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">70</text>
+        <line x1="341.6" y1="258.6" x2="369.7" y2="230.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">71</text>
+        <rect x="40.8" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">72</text>
+        <line x1="45.3" y1="295.6" x2="73.4" y2="267.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">73</text>
+        <rect x="114.9" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">74</text>
+        <line x1="119.3" y1="295.6" x2="147.5" y2="267.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">75</text>
+        <rect x="189" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">76</text>
+        <line x1="193.4" y1="295.6" x2="221.6" y2="267.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">77</text>
+        <rect x="263.1" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">78</text>
+        <line x1="267.5" y1="295.6" x2="295.6" y2="267.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">79</text>
+        <rect x="337.1" y="263.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="287.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">80</text>
+        <line x1="341.6" y1="295.6" x2="369.7" y2="267.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">81</text>
+        <rect x="40.8" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">82</text>
+        <line x1="45.3" y1="332.7" x2="73.4" y2="304.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">83</text>
+        <rect x="114.9" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">84</text>
+        <line x1="119.3" y1="332.7" x2="147.5" y2="304.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">85</text>
+        <rect x="189" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">86</text>
+        <line x1="193.4" y1="332.7" x2="221.6" y2="304.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">87</text>
+        <rect x="263.1" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">88</text>
+        <line x1="267.5" y1="332.7" x2="295.6" y2="304.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">89</text>
+        <rect x="337.1" y="300.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="324.7" font-size="17" font-weight="400" text-anchor="middle" fill="#000">90</text>
+        <line x1="341.6" y1="332.7" x2="369.7" y2="304.5" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="3.8" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="22.3" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">91</text>
+        <rect x="40.8" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="59.3" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">92</text>
+        <line x1="45.3" y1="369.7" x2="73.4" y2="341.6" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="77.9" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="96.4" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">93</text>
+        <rect x="114.9" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="133.4" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">94</text>
+        <line x1="119.3" y1="369.7" x2="147.5" y2="341.6" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="151.9" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="170.5" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">95</text>
+        <rect x="189" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="207.5" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">96</text>
+        <line x1="193.4" y1="369.7" x2="221.6" y2="341.6" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="226" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="244.5" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">97</text>
+        <rect x="263.1" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="281.6" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">98</text>
+        <line x1="267.5" y1="369.7" x2="295.6" y2="341.6" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="300.1" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="318.6" y="361.8" font-size="17" font-weight="400" text-anchor="middle" fill="#000">99</text>
+        <rect x="337.1" y="337.1" width="37" height="37" fill="#fff" stroke="#5E5E5E" stroke-width="1.1"/>
+        <text x="355.7" y="360.9" font-size="14.5" font-weight="400" text-anchor="middle" fill="#000">100</text>
+        <line x1="341.6" y1="369.7" x2="369.7" y2="341.6" stroke="#3A3A3A" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="frase" style="margin:.5rem 0 0">Els primers fins al 30: <u style="display:inline-block;min-width:10cm;padding:0"></u></p>
+  </div>
+  <div class="pag">Unitat 2 · Divisors · pàgina 5</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Es poden fer equips iguals? De quantes persones?</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Hi ha 12 persones.</p>
+        <p class="frase" style="margin:0"><span class="ms">12 = 2 · 6 = 3 · 4</span></p>
+        <p class="frase" style="margin:0">Equips de <span class="ms">2, 3, 4 o 6</span>.</p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Hi ha 18 persones.</p>
+        <p class="frase" style="margin:0">18 = <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+        <p class="frase" style="margin:0">Equips de <u></u>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Es poden posar les cadires en files iguals, de més d'una cadira?</div></div>
+    <div class="duo">
+      <div class="resolt" style="border-radius:10px;padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Hi ha 9 cadires.</p>
+        <svg viewBox="0 0 64.3 64.3" style="width:1.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="9 cadires en 3 files de 3">
+          <rect x="4.7" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="23.6" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="42.5" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.7" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="23.6" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="42.5" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="4.7" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="23.6" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+          <rect x="42.5" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        </svg>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.6cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sí</label><label style="min-width:2.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0"><span class="ms">9 = 3 · 3</span>: 3 files de 3.</p>
+      </div>
+      <div style="padding:.4rem .6rem">
+        <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Hi ha 7 cadires.</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0">La multiplicació: <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="clau" style="margin-top:.8rem">
+    <p style="margin:0">Els equips possibles són els divisors del nombre de persones.</p>
+    <p style="margin:0">Amb un nombre primer, només hi ha una fila: 7 = 1 · 7.</p>
+  </div>
+  <div class="pag">Unitat 2 · Divisors · pàgina 6</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · Divisors i primers · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> Els divisors d'un nombre surten dels rectangles que es poden fer amb
+    aquells quadrets: cada rectangle en dona dos. Es diu sempre igual: «els divisors del 12 són
+    1, 2, 3, 4, 6 i 12». Un primer només fa un rectangle, una fila. La targeta és al davant: les
+    multiplicacions que donen un nombre hi són totes, llevat de la fila d'1 (1 · 20).
+  </div>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: fer tots els rectangles de 12 (1 per 12, 2 per 6 i 3 per 4) i
+  després intentar-ho amb 7: només surt una fila. És el material de la unitat
+  (dades/unitats.js) i l'exemple de la tasca 7.1 de la caixa.</p>
+
+  <h3>1. Les multiplicacions i els divisors</h3>
+  <p>b) 18 = 1 · 18 = 2 · 9 = 3 · 6: divisors 1, 2, 3, 6, 9 i 18. c) 16 = 1 · 16 = 2 · 8 = 4 · 4:
+  divisors 1, 2, 4, 8 i 16 (el 4 només un cop). d) 15 = 1 · 15 = 3 · 5: divisors 1, 3, 5 i 15. És
+  el format de l'activitat 2_4 del grup (20 = 1 · 20 = 2 · 10 = 4 · 5). <b>Error típic:</b> deixar-se
+  l'1 i el mateix nombre, o escriure dues vegades el 4 del 16.</p>
+
+  <h3>2. Múltiples i divisors</h3>
+  <p>b) 8, 16, 24 · 1, 2, 4 i 8. c) 10, 20, 30 · 1, 2, 5 i 10. d) 9, 18, 27 · 1, 3 i 9. Es dona per bo
+  qualsevol trio de múltiples, si són de la taula. <b>Error típic:</b> confondre'ls. L'avís del
+  final de la pàgina ho posa de costat: els múltiples són més grans i els divisors, més petits.</p>
+
+  <h3>3. És primer?</h3>
+  <p>b) 7, primer (1 · 7); c) 15, no (3 · 5); d) 11, primer (1 · 11); e) 21, no (3 · 7); f) 2, primer
+  (1 · 2). <b>Error típic:</b> dir que tots els senars són primers. És la regla trencada d'aquesta
+  fitxa, i per això hi ha el 9, el 15 i el 21. No l'expliqueu: que faci el rectangle del 9 amb
+  miniblocs. Surt un quadrat de 3 per 3. També hi ha el 2, que és parell i és primer.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. El garbell</h3>
+  <p>Els primers fins al 30: 2, 3, 5, 7, 11, 13, 17, 19, 23 i 29. Fins al 100 n'hi ha 25. És l'exercici
+  1 de l'activitat 2_7 del grup. El pas del 2 ja està fet, com a model. No cal passar del 7: el
+  primer múltiple de l'11 que encara no està ratllat és l'11 · 11, i ja passa del 100. Si es perd,
+  la tasca 8.1 de la caixa ho fa pas a pas.</p>
+
+  <h3>5 i 6. A la vida de cada dia</h3>
+  <p>5b) 18 = 2 · 9 = 3 · 6: equips de 2, 3, 6 o 9. També són bons els equips d'1 i de 18, però no
+  són equips de debò. 6b) No: 7 = 1 · 7, i el 7 és primer. Només hi ha una fila de 7, o set files
+  d'una cadira. És la mateixa decisió que als exercicis: quins rectangles es poden fer?</p>
+
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=7</b> (7.1 Els rectangles
+  d'un nombre; 7.2 Troba els divisors) i <b style="white-space:nowrap">?task=8</b> (8.1 El garbell
+  d'Eratòstenes; 8.2 És primer?). La 7.2 i la 8.2 donen un codi de verificació. La 7.1 s'obre amb
+  el 12, com la pàgina 1.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.4, 3.2, 4.2 i 5.2) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs, fa tots els rectangles d'un nombre i en diu els divisors.</li>
+    <li>Escriu les multiplicacions que donen un nombre i en treu els divisors (exercici 1).</li>
+    <li>Distingeix els múltiples dels divisors d'un mateix nombre (exercici 2).</li>
+    <li>Diu si un nombre és primer, amb la multiplicació que ho demostra (exercici 3).</li>
+    <li>Fa el garbell i troba els primers fins al 30 (exercici 4).</li>
+    <li>Nivells alts: explica per què el 9 no és primer, encara que sigui senar (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

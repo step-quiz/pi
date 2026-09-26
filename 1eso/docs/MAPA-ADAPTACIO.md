@@ -72,9 +72,9 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
-| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Pla validat el 25 de setembre de 2026. Caixa d'eines (tasques 5 a 8) i fitxa 1 fetes. Falten quatre fitxes i l'examen |
+| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
-| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer |
+| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Les fraccions del grup: pla validat el 26 de setembre de 2026. Caixa d'eines feta (tasques 9 a 12). Falten la targeta, les fitxes i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
@@ -183,11 +183,11 @@ sense forçar-lo.
 | Fitxa | Què porta | Activitats del grup | Estat |
 |---|---|---|---|
 | 1 · `ud2.html` | Els múltiples: la taula de la targeta, les llistes, la graella de 100, el truc de l'última xifra (2, 5 i 10) i el truc del 3 | 2_1, 2_3 | Feta |
-| 2 | Repartir: files plenes, el residu, exacta o no, i la igualtat 37 = 5 · 7 + 2 | 2_2, 2_5 (pràctica) | Per fer |
-| 3 | Divisors i primers: els rectangles d'un nombre i el garbell | 2_4, 2_7 | Per fer |
-| 4 | Factorització: arbres amb la targeta, de tres factors primers com a molt | 2_5, 2_8, «ADN» | Per fer |
-| 5 | Repàs, el carnet d'identitat d'un nombre i «Què he après?» | Repàs U2 | Per fer |
-| Examen | En DOCX, amb el motor comú | Examen U2 | Per fer |
+| 2 · `ud2-repartir.html` | Repartir: files plenes, el residu, exacta o no, i la igualtat 37 = 5 · 7 + 2; què vol dir «divisor» | 2_2, 2_5 (pràctica) | Feta |
+| 3 · `ud2-divisors.html` | Divisors i primers: els rectangles d'un nombre, múltiples i divisors, primer o no, i el garbell | 2_4, 2_7 | Feta |
+| 4 · `ud2-factors.html` | Factorització: arbres amb la targeta, de tres factors primers com a molt; la recepta de cada nombre | 2_5, 2_8, «ADN» | Feta |
+| 5 · `ud2-repas.html` | Repàs, el carnet d'identitat d'un nombre i «Què he après?» | Repàs U2 | Feta |
+| Examen · `generadors/examens/ud2.js` | En DOCX, amb el motor comú: vuit exercicis, en l'ordre de l'examen del grup | Examen U2 | Fet |
 
 **Queda fora, i per què.** No es rebaixa: no hi és.
 
@@ -208,6 +208,13 @@ sense forçar-lo.
   arriben com a molt al 100.
 - 25 de setembre de 2026: la fitxa 1, els múltiples. Per complir la regla 8, la tasca 5.2 de la
   caixa té també els casos de la regla trencada de la fitxa (el 12, el 13, el 21 i el 23).
+- 25 de setembre de 2026: la fitxa 2, repartir en files. La igualtat va amb les files plenes al
+  primer lloc (37 = 5 · 7 + 2), com a tot el curs; el grup l'escriu al revés (40 = 6 · … + 4), i és
+  el mateix, perquè el rectangle es pot girar.
+- 26 de setembre de 2026: les fitxes 3 (divisors i primers), 4 (la factorització) i 5 (el repàs), i
+  l'examen. A la fitxa 4, a cada partició de l'arbre, el primer a l'esquerra i el que es torna a
+  partir a la dreta: així totes les plantilles tenen la mateixa forma. L'«ADN dels nombres» del grup
+  s'hi diu «la recepta», perquè les sigles en majúscules no són de Lectura Fàcil.
 - 25 de setembre de 2026: el **criteri del 3** hi va, explicat bé i amb calma: és una bona ocasió
   per sumar. La suma de les xifres ha de donar directament un nombre de l'1 al 30, sense haver de
   tornar a sumar (res de 9897 → 33 → 6). Amb nombres de fins al 999 es compleix sempre: com a molt
@@ -222,7 +229,59 @@ sense forçar-lo.
 
 ---
 
-## 7. L'avaluació
+## 7. La unitat 4, activitat per activitat
+
+**El material del grup és el de fraccions del curs 2025-26** (l'examen és del 13/3/2026): tretze
+activitats, dos controls, l'examen, dues adaptacions de l'examen, una llista de comprovació i un
+repàs. No hi surt el kiwi ni cap percentatge: el context de la situació d'aprenentatge queda per a
+«A la vida de cada dia». El docent creu que aquestes fraccions són de la unitat 4, i no de la 3,
+«Com és de gran Gaza?», de la qual encara no hi ha material (26/9/2026).
+
+**El pla el va validar el docent el 26 de setembre de 2026.** El nucli: una fracció és un
+rectangle partit en trossos iguals; el denominador diu quants trossos hi ha, i el numerador,
+quants se'n pinten. Totes les fraccions es dibuixen amb el mateix rectangle, perquè es puguin
+comparar: és el que fan els cercles del grup, però amb la quadrícula del curs.
+
+| Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
+|---|---|---|---|
+| Fraccions 0 i 2 | Pintar fraccions, parts iguals, el nom, el valor numèric i la més gran | Pintar trossos d'un rectangle, el numerador i el denominador, i el nom amb la targeta nova | Caixa 9 · fitxa 1 |
+| Fraccions 2, 5 i 6 | Comparar, i els tipus: nul·la, pròpia, unitat i impròpia | Comparar amb el mateix rectangle; els tipus, amb un rectangle o més | Caixa 9 i 11 · fitxa 2 |
+| Fraccions 3, 5 i 6 | Equivalents: el valor numèric, la multiplicació en creu, amplificar i simplificar | El mateix tros pintat, partit en trossos més petits; amplificar amb la targeta | Caixa 10 · fitxa 3 |
+| Fraccions 7 a 12 | Sumar i restar pintant, amb el mateix denominador i amb denominadors diferents | Sempre el mateix denominador, pintant; i un full que explica per què 1/2 + 1/4 no pot donar 2/6 | Caixa 12 · fitxa 4 |
+| Repàs i llista de comprovació | Tots els continguts, i el que cal saber fer per a l'examen | El repàs, i «Què he après?» fet a partir de la llista del grup | Fitxa 5 |
+| Examen (i les dues adaptacions) | Taula de fraccions, equivalents, irreductibles i sumes | En DOCX, amb el motor comú; la segona adaptació, de referència de mida | Examen |
+
+**Queda fora, i per què.** No es rebaixa: no hi és.
+
+- El valor numèric amb decimals (7/8 = 0,875): els decimals són de la unitat 5, i caldria dividir
+  amb calculadora (regla C).
+- La multiplicació en creu, i les fraccions irreductibles de nombres grans (120/50) amb arbres i
+  «jardins».
+- Les sumes i restes amb denominadors diferents, que demanen el mínim comú múltiple.
+- Els denominadors de més de 12 (trentens, quinzens…), i els cercles i les estrelles: a tot arreu,
+  el mateix rectangle.
+
+**Decisions del docent:**
+
+- 26 de setembre de 2026: el pla, validat: quatre eines noves a la caixa (tasques 9 a 12), una
+  targeta nova, cinc fitxes i l'examen.
+- 26 de setembre de 2026: la **targeta «Els noms de les fraccions»** hi va: un mig, un terç, un
+  quart… fins al dotzè, amb els plurals. El grup les demana de memòria, i la regla B diu que el que
+  s'ha de recordar va a una targeta.
+- 26 de setembre de 2026: les sumes i restes, **sempre amb el mateix denominador**. I un full que
+  expliqui amb el dibuix per què 1/2 + 1/4 no pot ser mai 2/6, sumant els de dalt i els de baix:
+  si a mig rectangle hi afegeixes un tros, el resultat és més gran que la meitat, i 2/6 és un terç,
+  més petit que la meitat.
+
+**Les regles trencades de la unitat:**
+
+- Comparar: «com més gran és el de baix, més gran és la fracció» (1/5 més gran que 1/3). Amb el
+  mateix rectangle, els trossos de 1/5 són més petits.
+- Sumar: «se sumen els de dalt i els de baix» (1/4 + 2/4 = 3/8). El dibuix ensenya que són 3/4.
+
+---
+
+## 8. L'avaluació
 
 Amb els criteris del PI. Cada solucionari acaba amb «Què mirar per avaluar»: accions que es
 veuen, sempre amb la targeta al davant, escrites perquè es puguin passar al PI tal com són.
@@ -231,7 +290,7 @@ Mai no s'avalua el que es recorda, sinó el que es fa amb la targeta al davant.
 
 ---
 
-## 8. Els exàmens
+## 9. Els exàmens
 
 Amb el motor comú, [`../../comu/examens/nucli.js`](../../comu/examens/nucli.js), i les regles de
 [`../../comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md), les mateixes que a l'altre

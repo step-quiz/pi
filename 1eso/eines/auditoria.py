@@ -81,7 +81,17 @@ ESTATS = [
     ("8.1 El garbell · acabat",          "caixa-eines.html", "?task=8.1", None),
     ("8.1 El garbell · al pas del 3",    "caixa-eines.html", "?task=8.1", "garbell_3"),
     ("8.2 És primer? · resolt",          "caixa-eines.html", "?task=8.2", "sino_p8_be"),
+    ("9.1 Fes la fracció",               "caixa-eines.html", "?task=9.1", None),
+    ("9.2 Quina fracció és? · tocada",   "caixa-eines.html", "?task=9.2", "primera_fb"),
+    ("10.1 Parteix els trossos",         "caixa-eines.html", "?task=10.1", None),
+    ("10.2 Són equivalents? · pista",    "caixa-eines.html", "?task=10.2", "sino_eb"),
+    ("11.1 Compara dues fraccions",      "caixa-eines.html", "?task=11.1", None),
+    ("11.2 Quina és més gran? · tocada", "caixa-eines.html", "?task=11.2", "primera_cb"),
+    ("12.1 Suma i resta · la resta",     "caixa-eines.html", "?task=12.1", "resta_sa"),
+    ("12.2 Quant és? · tocada",          "caixa-eines.html", "?task=12.2", "primera_sb"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
+    ("La portada",                       "index.html",       "",          None),
+    ("Fitxes",                           "fitxes.html",      "",          None),
     ("Llegir codis",                     "verifica.html",    "",          None),
     ("Canviar les frases",               "textos.html",      "",          None),
 ]
@@ -249,7 +259,8 @@ def prepara(pg, accio):
         nums = [int(x) for x in re.findall(r"\d+", pg.inner_text(f"#{pref}-pregunta"))]
         bo = {"m2": lambda: nums[0] % nums[1] == 0, "m4": lambda: nums[0] % 3 == 0,
               "s6": lambda: nums[0] % nums[1] != 0,
-              "p8": lambda: nums[0] > 1 and all(nums[0] % q for q in range(2, int(nums[0] ** 0.5) + 1))}[pref]()
+              "p8": lambda: nums[0] > 1 and all(nums[0] % q for q in range(2, int(nums[0] ** 0.5) + 1)),
+              "eb": lambda: nums[0] * nums[3] == nums[1] * nums[2]}[pref]()
         resp = bo if accio.endswith("_be") else not bo
         pg.click(f'#{pref}-opcions .opcio-sino[data-v="{"si" if resp else "no"}"]')
     elif accio in ("divisors_error", "divisors_be"):
@@ -258,6 +269,11 @@ def prepara(pg, accio):
             if n % v == 0 or (accio == "divisors_error" and v == next(x for x in range(2, n) if n % x)):
                 pg.click(f'#d8-pastilles .pastilla[data-v="{v}"]')
         pg.click("#d8-comprova")
+    elif accio and accio.startswith("primera_"):
+        # una tasca de triar una fracció: la primera opció, encertada o no
+        pg.click(f"#{accio.split('_')[1]}-opcions .opcio-frac >> nth=0")
+    elif accio == "resta_sa":
+        pg.click("#sa-op .pastilla >> nth=1")
     elif accio == "garbell_3":
         pg.click("#g8-comenca")
         for _ in range(3):

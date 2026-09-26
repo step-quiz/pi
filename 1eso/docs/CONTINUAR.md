@@ -22,9 +22,12 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 - **La caixa d'eines de la unitat 2**, a la mateixa pàgina: quatre eines més (múltiples,
   repartir, divisors i primers), deu subtasques i cinc tasques tancades (5.2, 5.4, 6.2, 7.2 i
   8.2). Són les tasques 5 a 8. En total, la caixa té 24 subtasques i onze tasques tancades.
-- **La fitxa 1 de la unitat 2** (`fitxes/ud2.html`), els múltiples: 7 pàgines i 3 de solucionari.
-  Falten quatre fitxes més de la unitat 2 i l'examen ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md),
-  apartat 6).
+- **Les cinc fitxes de la unitat 2**: els múltiples (`fitxes/ud2.html`), repartir en files
+  (`ud2-repartir.html`), divisors i primers (`ud2-divisors.html`), la factorització
+  (`ud2-factors.html`) i el repàs amb «Què he après?» (`ud2-repas.html`). I l'**examen de la
+  unitat 2** (`generadors/examens/ud2.js`): vuit exercicis en 4 pàgines, i el solucionari en 2.
+  La unitat 2 és acabada; només en falten els PDF
+  ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 6).
 - **Els tests de la caixa**: `comprova.py` la revisa per dins, i dos tests nous la fan servir en
   un navegador: `eines/prova_caixa.py` (que funcioni) i `eines/auditoria.py` (accessibilitat).
 - **La portada** enllaça la caixa i té els enllaços `?task=n` per a l'alumnat.
@@ -57,11 +60,11 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 | El PDF porta la lletra manuscrita | `gen_pdf.py` llegeix quines lletres hi ha dins del PDF: Caveat, DejaVu Sans i DejaVu Sans Bold | Alta |
 | Les cent multiplicacions de la targeta són correctes | `comprova.py` les refà totes | Alta |
 | El test detecta el que ha de detectar | Quinze errors introduïts a posta, un per un: els quinze surten | Alta |
-| La caixa funciona de punta a punta | `prova_caixa.py`, a Chromium: les 24 subtasques; les onze tasques tancades amb encert, pista i resposta ensenyada; els onze codis llegits a `verifica.html`; la represa; els enllaços `?task=`; cap error de JavaScript. De la unitat 2, a més: que els casos siguin de la targeta, que la suma de les xifres del criteri del 3 doni de l'1 al 30, que els senars de la 8.2 no siguin primers, el garbell pas a pas i els singulars («En sobra 1.», «L'11») | Alta |
+| La caixa funciona de punta a punta | `prova_caixa.py`, a Chromium: les 32 subtasques; les quinze tasques tancades amb encert, pista i resposta ensenyada; els quinze codis llegits a `verifica.html`; la represa; els enllaços `?task=`; cap error de JavaScript. De la unitat 2, a més: que els casos siguin de la targeta, que la suma de les xifres del criteri del 3 doni de l'1 al 30, que els senars de la 8.2 no siguin primers, el garbell pas a pas i els singulars («En sobra 1.», «L'11») | Alta |
 | Cap frase de la caixa trenca les regles del curs | `comprova.py`: 186 frases, totes amb explicació; Lectura Fàcil; cap «×»; cap nombre de més de 999 | Alta |
 | Les dades dels mòduls compleixen les regles | `prova_caixa.py`: sumes sense portar-ne, multiplicacions de la targeta, i els noms dels nombres de l'1 al 999 | Alta |
 | Els tests de la caixa detecten el que han de detectar | Onze errors introduïts a posta, un per un (una «×», un 1000, una frase de 21 paraules, una clau que no existeix, la sal de l'altra caixa…): els onze surten | Alta |
-| La caixa és accessible (WCAG 2.2 AA) | `auditoria.py`: 0 problemes en 140 estats, en clar i en fosc, a 320 i a 1100 px | Alta |
+| La caixa és accessible (WCAG 2.2 AA) | `auditoria.py`: 0 problemes en 180 estats (la caixa, les dues portades i les pàgines de codis i de frases), en clar i en fosc, a 320 i a 1100 px | Alta |
 | La caixa es veu bé | Captures al mòbil i a l'ordinador, en clar i en fosc, mirades una per una | Mitjana: no substitueix veure-la fer servir |
 | El test de `4eso/` continua dient «Tot correcte.» amb aquesta carpeta al repositori | Passat amb la carpeta ja posada | Alta |
 | La targeta es llegeix bé en paper | Vista en pantalla, a partir del PDF. **El paper encara no** | Pendent |
@@ -93,35 +96,46 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 
 ## 4. Pendent
 
-1. **Imprimir la targeta** i dir què s'hi ha de canviar.
-2. **Provar la caixa a l'aula** i dir què s'hi ha de canviar. Els enllaços per a l'alumnat són a
-   la portada, a «Caixa d'eines».
-3. **Els PDF de les quatre fitxes de la unitat 1**, al Codespace, amb `eines/mesura.py` i
-   `generadors/gen_pdf.py`, que necessiten WeasyPrint. També es torna a fer el de la targeta,
-   que surt igual però té l'empremta nova. Ara també els de la fitxa 1 de la unitat 2. Fins
-   llavors, `comprova.py` diu onze problemes (els deu PDF que falten i el de la targeta, vell), i
-   és el que toca. Després, imprimir-les i mirar
-   si les quadrícules i les siluetes es poden pintar bé a mà.
-4. **Revisar l'examen de la unitat 1** a Google Docs. Si es vol amb el curs a la capçalera,
+1. **Treure del repositori els dos DOCX de l'examen de la unitat 1**, que hi van quedar el 25 de
+   setembre de 2026 a `generadors/examens/`. Tot el repositori es publica al web, i s'hi podrien
+   obrir l'examen i el solucionari abans de l'examen. Són la versió anònima, sense cap dada
+   privada. `comprova.py` ho avisa fins que no hi siguin.
+2. **Imprimir la targeta** i dir què s'hi ha de canviar.
+3. **Provar la caixa a l'aula** i dir què s'hi ha de canviar. Els enllaços per a l'alumnat són a
+   la portada, a «Per al professorat».
+4. **Els PDF de les cinc fitxes de la unitat 2**, al Codespace, amb `eines/mesura.py` i
+   `generadors/gen_pdf.py`, que necessiten WeasyPrint. Els de la unitat 1 i el de la targeta ja
+   hi són (25 de setembre de 2026). Fins que es facin els de la unitat 2, `comprova.py` en diu
+   deu problemes, i és el que toca. Després, imprimir-les i mirar
+   si les quadrícules i les graelles de 100 es poden pintar bé a mà.
+5. **Revisar l'examen de la unitat 1** a Google Docs. Si es vol amb el curs a la capçalera,
    es fa al Codespace amb el fitxer privat (vegeu el `README.md`, «L'examen»).
-5. **La unitat 2 (Divisibilitat), del 3 al 19 de novembre.** La caixa ja hi és (tasques 5 a 8):
-   provar-la. La fitxa 1, els múltiples, també. Falten quatre fitxes (repartir, divisors i
-   primers, factorització, i repàs amb «Què he après?») i l'examen. El pla i les decisions del docent són a
-   [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 6.
-6. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
+6. **La unitat 2 (Divisibilitat), del 3 al 19 de novembre: feta.** La caixa (tasques 5 a 8), les
+   cinc fitxes i l'examen. Falta: provar-la a l'aula, fer-ne els PDF (punt 4) i revisar l'examen
+   a Google Docs.
+   **La unitat 4 (les fraccions del grup), del 12 al 28 de gener.** El pla és validat (26/9/2026) i
+   la caixa hi és (tasques 9 a 12). Falten la targeta «Els noms de les fraccions», les cinc fitxes
+   (amb el full que explica per què 1/2 + 1/4 no pot donar 2/6) i l'examen
+   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7). La unitat 3 espera les activitats del grup.
+7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure
    a 11,5 pt. Les fitxes 2, 3 i 4 ja són totes a 14 pt com a mínim, amb `.mini` a les taules.
    Canviar-ho a la fitxa 1 la canviaria una mica, i ja està validada.
-7. **La revisió externa del 24 de setembre de 2026: tot decidit.** Aplicat: la 0.3; els
+8. **La revisió externa del 24 de setembre de 2026: tot decidit.** Aplicat: la 0.3; els
    enllaços a un exercici concret, sense fletxes; la fitxa només amb rectangles i quadrats; al
    solucionari, una acció per dir en veu alta («3 files de 4 quadrets»); la 0.1 amb tota la taula
    plegada, i la 3.1 sense repeticions (regla W). Decidit que no, de moment: que `verifica.html`
    ensenyi l'evolució de diversos codis d'una mateixa tasca. No es fan, i la revisió hi està
    d'acord: les tasques d'ampliació per a qui acaba abans, i qualsevol seguiment digital amb nom.
-8. **L'arrel del repositori.** La portada de l'arrel porta a `4eso/`, `_headers` no té les línies
-   de memòria cau de `/1eso/`, i la fila de `1eso/` del `README.md` de l'arrel encara diu «quan
-   es faci». Són fitxers de l'arrel, fora d'aquesta carpeta: ho decideix el docent.
+9. ~~**L'arrel del repositori.**~~ **RESOLT · 25 de setembre de 2026.** La portada de l'arrel
+   (`index.html`) ara deixa triar entre els dos materials, per nom de matèria, no per curs
+   (vegeu l'apartat ANONIMAT de `comprova.py`). Cada portada de material, al seu torn, deixa
+   triar entre «Fitxes» i «Caixa d'eines», amb la resta d'enllaços (frases, codis, enllaços per a
+   l'alumnat, documentació) sota «Per al professorat». `1eso/fitxes.html` és nou: hi ha les
+   targetes de consulta i les set unitats, que abans eren a la portada. `_headers` ja té les
+   línies de memòria cau de `/1eso/`, i la fila de `1eso/` del `README.md` de l'arrel ja no diu
+   «quan es faci». Els enllaços per a l'alumnat, a «Per al professorat», van agrupats per unitat.
 
 ---
 

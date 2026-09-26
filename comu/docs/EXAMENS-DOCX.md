@@ -20,8 +20,8 @@ comú, i cada curs hi posa el seu contingut.
 | `4eso/docx/` | On surten els dos DOCX. Tampoc es puja, perquè porten les dades privades |
 
 Per a `1eso/`, el mateix dins de la seva carpeta (`1eso/generadors/examens/udN.js`,
-`1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor. La UD1 de `1eso/` ja
-hi és, des del 25/9/2026.
+`1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor. La UD1 de `1eso/` hi
+és des del 25/9/2026, i la UD2, des del 26/9/2026.
 
 **El que canvia d'un curs a l'altre** es passa a `genera()`, i els valors per defecte són els de
 `4eso/`, que no canvia gens:

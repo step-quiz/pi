@@ -13,11 +13,11 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 
 | Carpeta o fitxer | Què hi ha |
 |---|---|
-| `4eso/` | Tot el material d'aquest curs: les set fitxes, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
-| `1eso/` | El material de 1r d'ESO, quan es faci. Vegeu [`1eso/README.md`](1eso/README.md) |
-| `comu/` | El que comparteixen els dos cursos: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
-| `index.html` | La porta d'entrada: ara porta a `4eso/` |
-| `404.html` | La pàgina d'adreça equivocada. També porta les adreces d'abans a `4eso/` |
+| `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
+| `1eso/` | Tot el material de Matemàtiques: les targetes de consulta, les fitxes, la caixa d'eines i el test. Vegeu [`1eso/README.md`](1eso/README.md) |
+| `comu/` | El que comparteixen els dos materials: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
+| `index.html` | La porta d'entrada: deixa triar entre `4eso/` i `1eso/` |
+| `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
 | `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub |
@@ -30,13 +30,16 @@ dins: `cd 4eso/`.
 
 ## Com s'obre
 
-Doble clic a `index.html`: porta a `4eso/index.html`. No cal servidor ni instal·lar res.
+Doble clic a `index.html`: deixa triar el material (Matemàtiques o Matemàtiques Aplicades) i
+porta a la seva portada. No cal servidor ni instal·lar res. Cada portada, al seu torn, deixa
+triar entre les fitxes i la caixa d'eines: vegeu els `README.md` de `4eso/` i `1eso/`.
 
 ## On es publica
 
 GitHub → Cloudflare Pages → `pi.step-quiz.net`, amb tots els camps del formulari buits: es
 publica tot el repositori. La caixa d'eines de `4eso/` és a
-`https://pi.step-quiz.net/4eso/caixa-eines`.
+`https://pi.step-quiz.net/4eso/caixa-eines`, i la de `1eso/` a
+`https://pi.step-quiz.net/1eso/caixa-eines`.
 
 **Els enllaços que ja s'han enviat a l'alumnat continuen funcionant.** Una adreça d'abans,
 com `https://pi.step-quiz.net/caixa-eines?task=2`, porta sola a la mateixa pàgina dins de
@@ -120,18 +123,15 @@ en versió anònima.
 
 ```bash
 python3 4eso/eines/comprova.py
+python3 1eso/eines/comprova.py
 ```
 
-Ha de dir «Tot correcte.». Comprova les fitxes, la caixa d'eines i el desplegament, i que
-cap fitxer del repositori anomeni el curs, el tipus d'aula o un diagnòstic. Els noms de
-carpeta `4eso/` i `1eso/` en són l'única excepció: fan visible el curs a les adreces, i és
-una decisió presa.
+Cada una ha de dir «Tot correcte.». Comproven les fitxes, la caixa d'eines i el
+desplegament, i que cap fitxer del repositori anomeni el curs, el tipus d'aula o un
+diagnòstic. Els noms de carpeta `4eso/` i `1eso/` en són l'única excepció: fan visible el
+curs a les adreces, i és una decisió presa.
 
 ---
-
-## El material de 1r d'ESO
-
-Vegeu [`1eso/README.md`](1eso/README.md).
 
 <!-- atribucio-centre:inici -->
 

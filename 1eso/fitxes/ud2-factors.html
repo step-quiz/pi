@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 2 · La factorització</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 2 · Divisibilitat · La factorització
+  La quarta fitxa de la unitat 2. Adapta les activitats 2_5 (factorització),
+  2_8 i «ADN dels nombres» del grup, amb la decisió del docent del 25/9/2026:
+  nombres de tres factors primers com a molt, sense potències. Cada pas de
+  l'arbre és una multiplicació de la targeta (cap nombre passa del 100).
+
+  El conveni de la fitxa: a cada partició, el primer a l'esquerra i el que es
+  torna a partir a la dreta.
+
+  La regla trencada és aturar-se abans d'hora: «12 = 3 · 4 ja està» (exercici
+  2). La pàgina acaba amb la forma bona a la vista.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Fer un bloc de 12: 2 pisos, i a cada pis, 2 files de 3.</div>
+  <h1>La factorització</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:.8rem;width:8cm;margin-left:auto;margin-right:auto">
+    <svg viewBox="0 0 241.9 173.9" style="width:6.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'arbre del 12: el 12 es parteix en 3 i 4, i el 4 en 2 i 2">
+      <line x1="120.9" y1="43.1" x2="71.8" y2="68" stroke="#333" stroke-width="2"/>
+      <line x1="120.9" y1="43.1" x2="170.1" y2="68" stroke="#333" stroke-width="2"/>
+      <line x1="170.1" y1="107.3" x2="128.5" y2="132.3" stroke="#333" stroke-width="2"/>
+      <line x1="170.1" y1="107.3" x2="211.7" y2="132.3" stroke="#333" stroke-width="2"/>
+      <circle cx="120.9" cy="23.4" r="19.7" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="120.9" y="31" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">12</text>
+      <circle cx="71.8" cy="87.7" r="19.7" fill="#fff" stroke="#333" stroke-width="2"/>
+      <circle cx="71.8" cy="87.7" r="15.9" fill="none" stroke="#333" stroke-width="1.2"/>
+      <text x="71.8" y="95.2" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3</text>
+      <circle cx="170.1" cy="87.7" r="19.7" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="170.1" y="95.2" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">4</text>
+      <circle cx="128.5" cy="151.9" r="19.7" fill="#fff" stroke="#333" stroke-width="2"/>
+      <circle cx="128.5" cy="151.9" r="15.9" fill="none" stroke="#333" stroke-width="1.2"/>
+      <text x="128.5" y="159.5" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2</text>
+      <circle cx="211.7" cy="151.9" r="19.7" fill="#fff" stroke="#333" stroke-width="2"/>
+      <circle cx="211.7" cy="151.9" r="15.9" fill="none" stroke="#333" stroke-width="1.2"/>
+      <text x="211.7" y="159.5" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2</text>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .8rem">És un arbre: el 12 es parteix en 3 i 4, i el 4 en 2 i 2.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">En quins dos nombres es parteix el 12?</td><td style="width:5.8cm"><span class="ms">3 i 4</span></td></tr>
+    <tr class="resolt"><td class="esq">El 3 es pot partir?</td><td><span class="ms">No: és primer</span></td></tr>
+    <tr class="resolt"><td class="esq">I el 4?</td><td><span class="ms">Sí: 2 · 2</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Les branques s'acaben quan hi ha un primer. Els primers tenen dos cercles.</p>
+    <p style="font-size:30pt;font-weight:800;margin:.3rem 0">12 = 2 · 2 · 3</p>
+    <p style="margin:0;font-weight:700">Això és la factorització del 12.</p>
+  </div>
+  <div class="pag">Unitat 2 · Factors · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Fes l'arbre de cada nombre. Mira la targeta.</div></div>
+    <div class="clau" style="margin:.3rem 0 .6rem">
+      <p style="margin:0">Busca a la targeta una multiplicació que doni el nombre.</p>
+      <p style="margin:0">El primer, a l'esquerra. El que es torna a partir, a la dreta.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8cm">
+      <div class="resolt" style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">a)</span> L'arbre del 18</p>
+        <div style="width:6.2cm;margin:0 auto">
+          <svg viewBox="0 0 217.7 156.5" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'arbre del 18">
+            <line x1="108.8" y1="39.2" x2="64.6" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="108.8" y1="39.2" x2="153.1" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="115.7" y2="119.4" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="190.5" y2="119.4" stroke="#333" stroke-width="2"/>
+            <circle cx="108.8" cy="21.5" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <text x="108.8" y="29" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">18</text>
+            <circle cx="64.6" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="64.6" cy="79.3" r="13.9" fill="none" stroke="#333" stroke-width="1.2"/>
+            <text x="64.6" y="86.9" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2</text>
+            <circle cx="153.1" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <text x="153.1" y="86.9" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">9</text>
+            <circle cx="115.7" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="115.7" cy="137.1" r="13.9" fill="none" stroke="#333" stroke-width="1.2"/>
+            <text x="115.7" y="144.7" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3</text>
+            <circle cx="190.5" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="190.5" cy="137.1" r="13.9" fill="none" stroke="#333" stroke-width="1.2"/>
+            <text x="190.5" y="144.7" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3</text>
+          </svg>
+        </div>
+        <p class="frase" style="margin:.1rem 0 0"><span class="ms">18 = 2 · 3 · 3</span></p>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">b)</span> L'arbre del 20</p>
+        <div style="width:6.2cm;margin:0 auto">
+          <svg viewBox="0 0 217.7 156.5" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'arbre del 20, amb els cercles buits per omplir">
+            <line x1="108.8" y1="39.2" x2="64.6" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="108.8" y1="39.2" x2="153.1" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="115.7" y2="119.4" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="190.5" y2="119.4" stroke="#333" stroke-width="2"/>
+            <circle cx="108.8" cy="21.5" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <text x="108.8" y="29" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">20</text>
+            <circle cx="64.6" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="153.1" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="115.7" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="190.5" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+          </svg>
+        </div>
+        <p class="frase" style="margin:.1rem 0 0">20 = <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">c)</span> L'arbre del 30</p>
+        <div style="width:6.2cm;margin:0 auto">
+          <svg viewBox="0 0 217.7 156.5" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'arbre del 30, amb els cercles buits per omplir">
+            <line x1="108.8" y1="39.2" x2="64.6" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="108.8" y1="39.2" x2="153.1" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="115.7" y2="119.4" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="190.5" y2="119.4" stroke="#333" stroke-width="2"/>
+            <circle cx="108.8" cy="21.5" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <text x="108.8" y="29" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">30</text>
+            <circle cx="64.6" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="153.1" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="115.7" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="190.5" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+          </svg>
+        </div>
+        <p class="frase" style="margin:.1rem 0 0">30 = <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.35rem .5rem">
+        <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">d)</span> L'arbre del 45</p>
+        <div style="width:6.2cm;margin:0 auto">
+          <svg viewBox="0 0 217.7 156.5" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'arbre del 45, amb els cercles buits per omplir">
+            <line x1="108.8" y1="39.2" x2="64.6" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="108.8" y1="39.2" x2="153.1" y2="61.6" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="115.7" y2="119.4" stroke="#333" stroke-width="2"/>
+            <line x1="153.1" y1="97" x2="190.5" y2="119.4" stroke="#333" stroke-width="2"/>
+            <circle cx="108.8" cy="21.5" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <text x="108.8" y="29" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">45</text>
+            <circle cx="64.6" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="153.1" cy="79.3" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="115.7" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="190.5" cy="137.1" r="17.7" fill="#fff" stroke="#333" stroke-width="2"/>
+          </svg>
+        </div>
+        <p class="frase" style="margin:.1rem 0 0">45 = <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u></p>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 2 · Factors · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Està acabada la factorització? Marca la resposta.</div></div>
+    <div class="clau" style="margin:.3rem 0 .6rem">
+      <p style="margin:0">Està acabada si tots els nombres són primers.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8cm">
+      <div class="resolt" style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">a)</span> 12 = 3 · 4</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">El 4 = 2 · 2. <span class="ms">12 = 2 · 2 · 3</span></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">b)</span> 18 = 2 · 3 · 3</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">Si no, acaba-la: <u></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">c)</span> 20 = 4 · 5</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">Si no, acaba-la: <u></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">d)</span> 30 = 2 · 3 · 5</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">Si no, acaba-la: <u></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">e)</span> 45 = 5 · 9</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">Si no, acaba-la: <u></u></p>
+      </div>
+      <div style="border-radius:10px;padding:.3rem .5rem">
+        <p style="margin:0;font-size:18pt;font-weight:800"><span class="apartat" style="font-size:14pt">f)</span> 15 = 3 · 5</p>
+        <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        <p class="frase" style="margin:0;font-size:14.5pt">Si no, acaba-la: <u></u></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">12 = 3 · 4 és veritat, però no està acabada: el 4 no és primer.</p>
+    <p style="margin:.2rem 0 0">Com que 4 = 2 · 2, la factorització del 12 és 12 = 2 · 2 · 3.</p>
+  </div>
+  <div class="pag">Unitat 2 · Factors · pàgina 3</div>
+</div>
+
+<div class="full">
+  <h2>La recepta de cada nombre</h2>
+  <div class="avis gruixut">
+    <p style="margin:0">Cada nombre té una sola factorització. És com una recepta: amb aquests primers surt el nombre.</p>
+    <p style="margin:0">Si tens la factorització, pots trobar el nombre.</p>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Quin nombre és? Multiplica els dos primers. Després, pel tercer.</div></div>
+    <table class="mini" style="margin-top:.4rem">
+      <tr><th style="width:4.2cm">La factorització</th><th>Els dos primers</th><th>Pel tercer</th><th style="width:2.8cm">El nombre</th></tr>
+      <tr class="resolt"><td class="apartat" style="font-size:17pt;white-space:nowrap">a) 2 · 2 · 3</td><td style="text-align:center"><span class="ms">2 · 2 = 4</span></td><td style="text-align:center"><span class="ms">4 · 3 = 12</span></td><td style="text-align:center"><span class="ms">12</span></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">b) 2 · 3 · 5</td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">c) 3 · 3 · 5</td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">d) 2 · 2 · 5</td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">e) 2 · 5 · 5</td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">f) 3 · 3 · 3</td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td></tr>
+      <tr><td class="apartat" style="font-size:17pt;white-space:nowrap">g) 2 · 2 · 2</td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td><td class="omplir" style="height:1.3cm"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 2 · Factors · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Les capses de bombons tenen pisos. Quants bombons hi ha?</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.4rem .6rem;margin-bottom:.5rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> 2 pisos. A cada pis, 2 files de 3 bombons.</p>
+      <svg viewBox="0 0 155 69.9" style="width:4.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 pisos de 2 files de 3 bombons">
+        <rect x="4.7" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="23.6" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="42.5" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="4.7" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="23.6" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="42.5" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <text x="32.1" y="62.4" font-size="15.1" font-weight="700" text-anchor="middle" fill="#000">pis 1</text>
+        <rect x="95.4" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.3" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="133.2" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="95.4" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="114.3" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="133.2" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <text x="122.8" y="62.4" font-size="15.1" font-weight="700" text-anchor="middle" fill="#000">pis 2</text>
+      </svg>
+      <p class="frase" style="margin:.2rem 0 0"><span class="ms">2 · 2 · 3 = 12</span> bombons.</p>
+    </div>
+    <div style="padding:.4rem .6rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> 2 pisos. A cada pis, 3 files de 5 bombons.</p>
+      <svg viewBox="0 0 230.5 88.8" style="width:6.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="2 pisos de 3 files de 5 bombons">
+        <rect x="4.7" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="23.6" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="42.5" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="61.4" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="80.3" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="4.7" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="23.6" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="42.5" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="61.4" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="80.3" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="4.7" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="23.6" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="42.5" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="61.4" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="80.3" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <text x="51" y="81.3" font-size="15.1" font-weight="700" text-anchor="middle" fill="#000">pis 1</text>
+        <rect x="133.2" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="152.1" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="171" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="189.9" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="208.8" y="4.7" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="133.2" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="152.1" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="171" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="189.9" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="208.8" y="23.6" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="133.2" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="152.1" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="171" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="189.9" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <rect x="208.8" y="42.5" width="17" height="17" rx="2.5" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+        <text x="179.5" y="81.3" font-size="15.1" font-weight="700" text-anchor="middle" fill="#000">pis 2</text>
+      </svg>
+      <p class="frase" style="margin:.2rem 0 0"><u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u> bombons.</p>
+    </div>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Fes un bloc de miniblocs: 2 pisos de 2 files de 2. Quants miniblocs hi ha?</div></div>
+    <p class="frase" style="margin:.2rem 0 0"><u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u> miniblocs.</p>
+  </div>
+
+  <div class="clau" style="margin-top:.8rem">
+    <p style="margin:0">Els tres factors primers són els pisos, les files i els bombons de cada fila.</p>
+  </div>
+  <div class="pag">Unitat 2 · Factors · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · La factorització · full per al professorat</p>
+
+  <div class="abans">
+    <b>Abans de començar.</b> Decisió del docent (25/9/2026): nombres ben fàcils, de tres factors
+    primers com a molt, i sense potències (2 · 2 · 3, i no 2² · 3). Cada pas de l'arbre és una
+    multiplicació de la targeta, i per això cap nombre passa del 100. El conveni de la fitxa: a
+    cada partició, el primer a l'esquerra i el que es torna a partir a la dreta. Així totes les
+    plantilles tenen la mateixa forma. La factorització s'escriu de petit a gran.
+  </div>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: fer el bloc de 12, de 2 pisos de 2 files de 3. Són els tres factors
+  de 12 = 2 · 2 · 3, i la pàgina 5 hi torna amb les capses de bombons.</p>
+
+  <h3>1. Els arbres</h3>
+  <p>b) 20 = 5 · 4 i 4 = 2 · 2: 20 = 2 · 2 · 5. c) 30 = 5 · 6 i 6 = 2 · 3: 30 = 2 · 3 · 5. d) 45 = 5 · 9 i
+  9 = 3 · 3: 45 = 3 · 3 · 5. Es dona per bo qualsevol arbre que acabi en primers: el 20 també es pot
+  fer 2 · 10, i el 10 = 2 · 5. Surti com surti, al final hi ha els mateixos primers: és l'«ADN» de
+  l'activitat del grup. <b>Error típic:</b> posar el nombre que es torna a partir a l'esquerra, i
+  quedar-se sense cercles. Que el giri: el conveni és només perquè la plantilla hi quadri.</p>
+
+  <h3>2. Està acabada?</h3>
+  <p>b) Sí; c) No: 20 = 2 · 2 · 5; d) Sí; e) No: 45 = 3 · 3 · 5; f) Sí. <b>Error típic:</b> aturar-se
+  massa aviat: «12 = 3 · 4 ja està». És la regla trencada d'aquesta fitxa. No l'expliqueu: que
+  miri si el 4 fa més d'un rectangle (la fitxa 3). Si en fa més d'un, no és primer, i la branca
+  continua.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. La recepta de cada nombre</h3>
+  <table>
+    <tr><th></th><th>Els dos primers</th><th>Pel tercer</th><th>El nombre</th></tr>
+    <tr><td>b) 2 · 3 · 5</td><td>2 · 3 = 6</td><td>6 · 5 = 30</td><td>30</td></tr>
+    <tr><td>c) 3 · 3 · 5</td><td>3 · 3 = 9</td><td>9 · 5 = 45</td><td>45</td></tr>
+    <tr><td>d) 2 · 2 · 5</td><td>2 · 2 = 4</td><td>4 · 5 = 20</td><td>20</td></tr>
+    <tr><td>e) 2 · 5 · 5</td><td>2 · 5 = 10</td><td>10 · 5 = 50</td><td>50</td></tr>
+    <tr><td>f) 3 · 3 · 3</td><td>3 · 3 = 9</td><td>9 · 3 = 27</td><td>27</td></tr>
+    <tr><td>g) 2 · 2 · 2</td><td>2 · 2 = 4</td><td>4 · 2 = 8</td><td>8</td></tr>
+  </table>
+  <p>És el camí de tornada de l'arbre, i totes les multiplicacions són de la targeta. És l'«ADN dels
+  nombres» de l'activitat del grup: a l'alumnat se li diu «recepta», perquè les sigles en
+  majúscules no són de Lectura Fàcil.</p>
+
+  <h3>4 i 5. A la vida de cada dia</h3>
+  <p>4b) 2 · 3 · 5 = 30 bombons. 5) 2 · 2 · 2 = 8 miniblocs: és el cub més petit que es pot fer amb
+  miniblocs, a part d'un de sol. Els tres factors primers són les tres mides de la capsa: els
+  pisos, les files i els de cada fila.</p>
+
+  <h3>La caixa d'eines</h3>
+  <p>A la caixa no hi ha una eina per als arbres. La 7.1 (els rectangles d'un nombre) ajuda a
+  trobar les multiplicacions de cada pas, i la 8.2 (és primer?), a saber on s'acaba una branca.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (1.4, 3.2, 4.2 i 5.2) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs, fa un bloc de pisos i files, i diu quants n'hi ha multiplicant.</li>
+    <li>Fa l'arbre d'un nombre amb la targeta i n'escriu la factorització (exercici 1).</li>
+    <li>Diu si una factorització està acabada, i l'acaba si cal (exercici 2).</li>
+    <li>Troba el nombre a partir de la seva factorització (exercici 3).</li>
+    <li>Nivells alts: explica per què 12 = 3 · 4 no està acabada (exercici 2).</li>
+  </ul>
+</div>
+
+</body>
+</html>

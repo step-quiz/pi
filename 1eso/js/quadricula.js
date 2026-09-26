@@ -233,6 +233,58 @@
     return rs;
   }
 
+  /* ======================================================= les fraccions ===== */
+
+  /* El rectangle de les fraccions (unitat 4): sempre de la mateixa mida, perquè dues
+     fraccions es puguin comparar, com fan els cercles del grup. Es parteix en d trossos
+     iguals, i se'n pinten uns quants. Els `mes` següents van en taronja (el segon
+     sumand); els `treu` darrers pintats, ratllats (el que es resta). Amb `k` > 1, cada
+     tros es parteix en k amb línies fines (les equivalents). */
+  const TIRA = { W: 360, H: 54, aire: 14 };
+  function tira(svg, x, y, d, pintats, o) {
+    o = o || {};
+    const W = o.W || TIRA.W, H = o.H || TIRA.H, w = W / d;
+    for (let i = 0; i < d; i++) {
+      const cls = i < pintats ? "q" : i < pintats + (o.mes || 0) ? "q b" : "q-buit";
+      svg.appendChild(el("rect", { x: x + i * w, y, width: w, height: H, class: cls }));
+      if (o.treu && i >= pintats - o.treu && i < pintats)
+        svg.appendChild(el("line", { x1: x + i * w + 5, y1: y + H - 5, x2: x + (i + 1) * w - 5, y2: y + 5, class: "q-ratlla" }));
+    }
+    if (o.k > 1) for (let i = 1; i < d * o.k; i++) if (i % o.k) {
+      const xx = x + (i * w) / o.k;
+      svg.appendChild(el("line", { x1: xx, y1: y + 4, x2: xx, y2: y + H - 4, class: "q-fina" }));
+    }
+    svg.appendChild(el("rect", { x, y, width: W, height: H, class: "q-vora" }));
+  }
+  /** n/d amb els rectangles que calguin (almenys un), un sota l'altre. Torna l'alçada. */
+  function fraccio(svg, x, y, n, d, o) {
+    o = o || {};
+    const unitats = Math.max(1, Math.ceil((n + (o.mes || 0)) / d));
+    const H = o.H || TIRA.H;
+    let resta = n, mes = o.mes || 0;
+    for (let u = 0; u < unitats; u++) {
+      const p = Math.min(d, resta); resta -= p;
+      const m = Math.min(d - p, mes); mes -= m;
+      tira(svg, x, y + u * (H + TIRA.aire), d, p, Object.assign({}, o, { mes: m, treu: u === unitats - 1 ? o.treu : 0 }));
+    }
+    return unitats * (H + TIRA.aire) - TIRA.aire;
+  }
+  const NUMS = ["zero", "un", "dos", "tres", "quatre", "cinc", "sis", "set", "vuit", "nou", "deu", "onze", "dotze",
+    "tretze", "catorze", "quinze", "setze", "disset", "divuit", "dinou", "vint", "vint-i-un", "vint-i-dos",
+    "vint-i-tres", "vint-i-quatre"];
+  /** «quatre novens», «un mig»: el nom, amb els de la targeta de les fraccions. */
+  function nomFraccio(n, d) {
+    return NUMS[n] + " " + (n === 1 ? CE.txtPla("frac.s_" + d) : CE.txtPla("frac.p_" + d));
+  }
+  /** La fracció escrita com a fracció: el numerador damunt del denominador. */
+  function htmlFraccio(n, d) {
+    return '<span class="frac" role="img" aria-label="' + nomFraccio(n, d) + '"><span aria-hidden="true">' + n +
+      '</span><span aria-hidden="true">' + d + "</span></span>";
+  }
+  /** nul·la, pròpia, unitat o impròpia */
+  const tipusFraccio = (n, d) => (n === 0 ? "nulla" : n < d ? "propia" : n === d ? "unitat" : "impropia");
+
   CE.q = { quadret, rectangle, graella, text, clau, taula, cellaTocada, fletxa, blocs, T,
-           graella100, rectanglesDe, divisorsDe, dibuixaRectangles };
+           graella100, rectanglesDe, divisorsDe, dibuixaRectangles,
+           TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio };
 })();

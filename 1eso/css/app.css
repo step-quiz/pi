@@ -345,3 +345,18 @@ table.trucs td.si,table.trucs td.no{font-weight:800;white-space:nowrap}
 /* 8.1: els botons dels passos del garbell. */
 .garbell-passos{display:flex;gap:.6rem;flex-wrap:wrap}
 
+/* ======================================================== unitat 4 ====== */
+
+/* La tira de les fraccions: el rectangle, sempre de la mateixa mida. */
+svg.tira-frac{max-width:28rem;margin:.5rem auto}
+.q-buit{fill:var(--camp);stroke:var(--etiqueta-3);stroke-width:1.4}
+.q-vora{fill:none;stroke:var(--etiqueta);stroke-width:2.5}
+.q-fina{stroke:var(--etiqueta-2);stroke-width:1.2;stroke-dasharray:4 3}
+
+/* La fracció escrita com a fracció: el numerador damunt del denominador. */
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;
+  font-weight:800;margin:0 .12em;font-variant-numeric:tabular-nums}
+.frac>span:first-child{border-bottom:.12em solid currentColor;padding:0 .22em .06em}
+.frac>span:last-child{padding:.06em .22em 0}
+.opcio-frac{font-size:1.45rem;min-height:4.4rem;min-width:5.5rem}
+

@@ -10,3 +10,5 @@ Thumbs.db
 
 # Exàmens DOCX: porten el curs i l'adaptació, i no es pugen
 docx/
+# Els exàmens no es publiquen: el DOCX surt a docx/, i per error no pot quedar als generadors
+**/generadors/**/*.docx

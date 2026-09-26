@@ -134,12 +134,13 @@ def main():
         titol("TOTES LES SUBTASQUES S'OBREN")
         obre(pg)
         for mod, n in [("taules", 3), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2),
-                       ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2)]:
+                       ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2),
+                       ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2)]:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
                 pg.wait_for_timeout(120)
                 revisa_pantalla(pg, f"{mod} {sub}")
-        print(f"  24 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
+        print(f"  32 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
 
         # ------------------------------------------------------------------
         titol("DADES DELS MÒDULS")
@@ -620,8 +621,7 @@ def main():
                 if pas == un_error:
                     sino(pg, pref, not resp)
                     av = text(pg, f"#{pref}-avis")
-                    comprova(av.startswith("Incorrecte.") and "Busca" in av + " " + av.split("Pista")[-1] or "Suma" in av,
-                             f"{nom}: la pista del primer error: «{av}»")
+                    comprova(av.startswith("Incorrecte.") and "Pista" in av, f"{nom}: la pista del primer error: «{av}»")
                 sino(pg, pref, resp)
                 comprova(text(pg, f"#{pref}-avis").startswith("Correcte."), f"{nom}: pas {pas + 1}: «{preg}»")
                 pg.click(f"#{pref}-seguent")
@@ -743,6 +743,114 @@ def main():
         modul(pg, "primers", 2)
         codis["8.2"] = (tasca_sino(pg, "primers", 2, "p8", es_p, "8.2"), "És primer?", (5, 4, 1, 0))
         print(f"  cinc passos, un error amb pista; codi {codis['8.2'][0]}")
+
+        # ------------------------------------------------------------------
+        titol("DADES DE LA UNITAT 4")
+        d4 = pg.evaluate("""() => ({ casos: CE.dades.fraccio.CASOS, eq: CE.dades.equivalents.PARELLES,
+            cmp: CE.dades.compara.PARELLES, ops: CE.dades.sumes.OPERACIONS })""")
+        comprova(all(0 < n < d <= 12 for n, d in d4["casos"]), "9.2: fraccions pròpies, amb denominadors fins al 12")
+        eq = [a * d == b * c for a, b, c, d in d4["eq"]]
+        comprova(sum(eq) >= 3 and eq.count(False) >= 2 and all(max(b, d) <= 12 for a, b, c, d in d4["eq"]),
+                 "10.2: calen tres parelles equivalents i dues que no, amb denominadors fins al 12")
+        comprova(all(a * d != b * c for a, b, c, d in d4["cmp"]), "11.2: no hi pot haver cap parella igual")
+        comprova(all(a == c and b != d for a, b, c, d in d4["cmp"][:4]), "11.2: les quatre primeres, amb el mateix numerador")
+        comprova(all(d <= 12 and (not r or b <= a) for a, b, d, r in d4["ops"]), "12.2: denominadors fins al 12, i cap resta negativa")
+        print(f"  {len(d4['casos'])} fraccions, {len(d4['eq'])} parelles d'equivalents, {len(d4['cmp'])} per comparar i {len(d4['ops'])} operacions")
+
+        def frac_de(pg, sel):
+            """Les fraccions dels rètols d'un dibuix: [(3, 4), (6, 8)]."""
+            textos = pg.eval_on_selector_all(sel + " text", "els => els.map(e => e.textContent)")
+            return [tuple(map(int, t.split("/"))) for t in textos if "/" in t]
+
+        def tria_nom(pg, pref, nom):
+            pg.click(f'#{pref}-opcions .opcio-frac:has(.frac[aria-label="{nom}"])')
+
+        def tasca_frac(pg, mod, pref, bona, dolenta, nom_tasca):
+            """Una tasca tancada de triar una fracció. `bona(pg)` i `dolenta(pg)` diuen quin nom tocar."""
+            modul(pg, mod, 2)
+            for pas in range(5):
+                if pas == 2:
+                    tria_nom(pg, pref, dolenta(pg))
+                    av = text(pg, f"#{pref}-avis")
+                    comprova(av.startswith("Incorrecte.") and "Pista" in av, f"{nom_tasca}: la pista del primer error: «{av}»")
+                tria_nom(pg, pref, bona(pg))
+                comprova(text(pg, f"#{pref}-avis").startswith("Correcte."), f"{nom_tasca}: pas {pas + 1}")
+                pg.click(f"#{pref}-seguent")
+            nums, codi = final_de(pg, pref)
+            comprova(nums == {"Passos": "5", "Correctes al primer intent": "4", "Correctes amb una pista": "1",
+                              "Amb la resposta ensenyada": "0"}, f"{nom_tasca}: el resum no quadra: {nums}")
+            return codi
+
+        nom_fr = lambda pg, n, d: pg.evaluate(f"CE.q.nomFraccio({n}, {d})")
+        noms_opcions = lambda pg, pref: pg.eval_on_selector_all(f"#{pref}-opcions .frac", "els => els.map(e => e.getAttribute('aria-label'))")
+
+        titol("9.1 · FES LA FRACCIÓ")
+        obre(pg); modul(pg, "fraccio", 1)
+        lec = text(pg, "#fa-lectura")
+        comprova("Es llegeix: quatre novens." in lec and "pròpia" in lec, f"9.1: el 4/9: «{lec}»")
+        mou(pg, "#fa-n", 9)
+        comprova("És una unitat" in text(pg, "#fa-lectura"), "9.1: 9/9 és una unitat")
+        mou(pg, "#fa-n", 12)
+        comprova("impròpia" in text(pg, "#fa-lectura") and pg.locator("#fa-svg .q-vora").count() == 2, "9.1: 12/9, impròpia, amb dos rectangles")
+        mou(pg, "#fa-n", 1); mou(pg, "#fa-d", 2)
+        comprova("Es llegeix: un mig." in text(pg, "#fa-lectura"), "9.1: 1/2 es llegeix «un mig»")
+        print("  4/9 quatre novens i pròpia; 9/9 unitat; 12/9 impròpia amb dos rectangles; 1/2 un mig")
+
+        titol("9.2 · QUINA FRACCIÓ ÉS?")
+        def n_d_92(pg):
+            aria = pg.get_attribute("#fb-svg", "aria-label")
+            d, n = map(int, re.findall(r"\d+", aria))
+            return n, d
+        bona92 = lambda pg: nom_fr(pg, *n_d_92(pg))
+        dolenta92 = lambda pg: next(x for x in noms_opcions(pg, "fb") if x != bona92(pg))
+        codis["9.2"] = (tasca_frac(pg, "fraccio", "fb", bona92, dolenta92, "9.2"), "Quina fracció és?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['9.2'][0]}")
+
+        titol("10.1 · PARTEIX ELS TROSSOS")
+        modul(pg, "equivalents", 1)
+        lec = text(pg, "#ea-lectura")
+        comprova("són equivalents" in lec and "2 · 4 = 8 i 3 · 4 = 12" in lec, f"10.1: 2/3 = 8/12: «{lec}»")
+        mou(pg, "#ea-d", 5)
+        comprova(int(text(pg, "#ea-k .comptador-valor")) <= 2, "10.1: amb 5 trossos, cap denominador de més de 12")
+        print("  2/3 = 8/12 amb l'amplificació; amb 5 trossos, el comptador no passa de 12")
+
+        titol("10.2 · SÓN EQUIVALENTS?")
+        def bo102(p_):
+            (a, b), (c, d) = frac_de(pg, "#eb-svg")
+            return a * d == b * c
+        codis["10.2"] = (tasca_sino(pg, "equivalents", 2, "eb", bo102, "10.2"), "Són equivalents?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['10.2'][0]}")
+
+        titol("11.1 · COMPARA DUES FRACCIONS")
+        modul(pg, "compara", 1)
+        lec = text(pg, "#ca-lectura")
+        comprova("és més gran que" in lec and "Tenen el mateix numerador" in lec, f"11.1: 1/3 i 1/5: «{lec}»")
+        print("  1/3 més gran que 1/5, amb la regla trencada")
+
+        titol("11.2 · QUINA ÉS MÉS GRAN?")
+        def gran112(pg):
+            (a, b), (c, d) = frac_de(pg, "#cb-svg")
+            return nom_fr(pg, a, b) if a * d > c * b else nom_fr(pg, c, d)
+        petita112 = lambda pg: next(x for x in noms_opcions(pg, "cb") if x != gran112(pg))
+        codis["11.2"] = (tasca_frac(pg, "compara", "cb", gran112, petita112, "11.2"), "Quina és més gran?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['11.2'][0]}")
+
+        titol("12.1 · SUMA I RESTA")
+        modul(pg, "sumes", 1)
+        comprova("Se sumen els trossos pintats: 3 + 2 = 5." in text(pg, "#sa-lectura"), "12.1: 3/8 + 2/8")
+        pg.click("#sa-op .pastilla >> nth=1")
+        comprova("Es treuen 2 trossos dels 3: 3 − 2 = 1." in text(pg, "#sa-lectura"), "12.1: la resta")
+        print("  3/8 + 2/8 = 5/8; 3/8 − 2/8 = 1/8")
+
+        titol("12.2 · QUANT ÉS?")
+        def op122(pg):
+            t = text(pg, "#sb-pregunta")
+            a, d, b, _ = map(int, re.findall(r"\d+", t))
+            return a, b, d, "−" in t
+        bona122 = lambda pg: (lambda a, b, d, r: nom_fr(pg, a - b if r else a + b, d))(*op122(pg))
+        dolenta122 = lambda pg: next(x for x in noms_opcions(pg, "sb") if x != bona122(pg))
+        codis["12.2"] = (tasca_frac(pg, "sumes", "sb", bona122, dolenta122, "12.2"), "Quant és?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['12.2'][0]}")
 
         # ------------------------------------------------------------------
         titol("CODIS A verifica.html")
