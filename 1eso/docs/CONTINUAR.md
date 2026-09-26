@@ -113,11 +113,15 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 6. **La unitat 2 (Divisibilitat), del 3 al 19 de novembre: feta.** La caixa (tasques 5 a 8), les
    cinc fitxes i l'examen. Falta: provar-la a l'aula, fer-ne els PDF (punt 4) i revisar l'examen
    a Google Docs.
-   **La unitat 4 (les fraccions del grup), del 12 al 28 de gener.** El pla és validat (26/9/2026) i
-   la caixa hi és (tasques 9 a 12), i la targeta «Els noms de les fraccions» (`targetes/fraccions.html`)
-   també: cal fer-ne el PDF amb `gen_pdf.py`, imprimir-la a doble cara i plastificar-la. Les cinc
-   fitxes també hi són (`fitxes/ud4*.html`), amb el full que explica per què 1/2 + 1/4 no pot donar
-   2/6. Falta l'examen ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7). La unitat 3 espera les activitats del grup.
+   **La unitat 3, «Com és de gran Gaza?», del 23 de novembre al 18 de desembre.** Segons la
+   programació, és la que introdueix les fraccions, a partir de l'àrea. Les fraccions ja hi són: la
+   caixa (tasques 9 a 12), la targeta «Els noms de les fraccions» (`targetes/fraccions.html`), les
+   cinc fitxes (`fitxes/ud3*.html`, amb el full que explica per què 1/2 + 1/4 no pot donar 2/6) i
+   l'examen (`generadors/examens/ud3.js`). Falta la part de mesura i àrea: les unitats (m, km, m²
+   i km²), l'àrea com a quadrets comptats i els km² de Barcelona i de Gaza en un mapa amb
+   quadrícula ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7).
+   **La unitat 4, «És gran l'ou del kiwi?», del 12 al 28 de gener:** per fer. La fracció d'un
+   nombre, els percentatges i els dobles i els triples, segons la programació.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

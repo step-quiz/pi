@@ -73,8 +73,8 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 |---|---|---|---|---|
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
-| 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Per fer |
-| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Les fraccions del grup: pla validat el 26 de setembre de 2026. Caixa d'eines (tasques 9 a 12), targeta «Els noms de les fraccions» i cinc fitxes fetes. Falta l'examen |
+| 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Les fraccions fetes: caixa (tasques 9 a 12), targeta, cinc fitxes i examen. Falta la mesura i l'àrea |
+| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer: la fracció d'un nombre, els percentatges i els dobles i triples |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
@@ -229,13 +229,17 @@ sense forçar-lo.
 
 ---
 
-## 7. La unitat 4, activitat per activitat
+## 7. La unitat 3: les fraccions, activitat per activitat
 
-**El material del grup és el de fraccions del curs 2025-26** (l'examen és del 13/3/2026): tretze
-activitats, dos controls, l'examen, dues adaptacions de l'examen, una llista de comprovació i un
-repàs. No hi surt el kiwi ni cap percentatge: el context de la situació d'aprenentatge queda per a
-«A la vida de cada dia». El docent creu que aquestes fraccions són de la unitat 4, i no de la 3,
-«Com és de gran Gaza?», de la qual encara no hi ha material (26/9/2026).
+**La programació (26/9/2026) diu on van les fraccions.** La situació d'aprenentatge 3, «Com és de
+gran Gaza?», les introdueix a partir de l'àrea: les unitats (m, km, m² i km²), l'àrea de rectangles
+i de figures irregulars, sumar trossos d'àrea amb fraccions, les equivalents i la suma i la resta, i
+al final els km² de Barcelona i de Gaza. La 4, «És gran l'ou del kiwi?», fa servir aquestes
+fraccions per a la fracció d'un nombre, la multiplicació i la divisió de fraccions, els dobles i
+els triples i els percentatges. El material del grup que hi ha és el de fraccions del curs 2025-26
+(l'examen és del 13/3/2026). Es va fer primer com a unitat 4, i el 26/9/2026, amb la programació al
+davant, es va passar a la 3. La pestanya d'inclusió de la programació ja proposa el mateix model:
+les equivalents, amb cartolines quadriculades.
 
 **El pla el va validar el docent el 26 de setembre de 2026.** El nucli: una fracció és un
 rectangle partit en trossos iguals; el denominador diu quants trossos hi ha, i el numerador,
@@ -251,16 +255,16 @@ comparar: és el que fan els cercles del grup, però amb la quadrícula del curs
 | Repàs i llista de comprovació | Tots els continguts, i el que cal saber fer per a l'examen | El repàs, i «Què he après?» fet a partir de la llista del grup | Fitxa 5 |
 | Examen (i les dues adaptacions) | Taula de fraccions, equivalents, irreductibles i sumes | En DOCX, amb el motor comú; la segona adaptació, de referència de mida | Examen |
 
-**Les fitxes de la unitat 4**, en l'ordre del grup:
+**Les fitxes de fraccions de la unitat 3**, en l'ordre del grup:
 
 | Fitxa | Què porta | Activitats del grup | Estat |
 |---|---|---|---|
-| 1 · `ud4.html` | Què és una fracció: el de dalt i el de baix, pintar, el nom amb la targeta; trossos iguals | 0, 2 | Feta |
-| 2 · `ud4-compara.html` | Els quatre tipus, comparar amb el mateix de baix i amb el mateix de dalt, i ordenar | 2, 4, 5, 6 | Feta |
-| 3 · `ud4-equivalents.html` | Pintar el mateix tros, amplificar amb la targeta, dir si són equivalents i simplificar fàcil | 3, 5, 6 | Feta |
-| 4 · `ud4-sumes.html` | Sumar i restar amb el mateix denominador, pintant i sense dibuix; el full de 1/2 + 1/4 | 7, 8, 9 | Feta |
-| 5 · `ud4-repas.html` | El carnet de cada fracció, una de cada i «Què he après?» | Repàs i llista de comprovació | Feta |
-| Examen | En DOCX, amb el motor comú | Examen (i les dues adaptacions) | Per fer |
+| 1 · `ud3.html` | Què és una fracció: el de dalt i el de baix, pintar, el nom amb la targeta; trossos iguals | 0, 2 | Feta |
+| 2 · `ud3-compara.html` | Els quatre tipus, comparar amb el mateix de baix i amb el mateix de dalt, i ordenar | 2, 4, 5, 6 | Feta |
+| 3 · `ud3-equivalents.html` | Pintar el mateix tros, amplificar amb la targeta, dir si són equivalents i simplificar fàcil | 3, 5, 6 | Feta |
+| 4 · `ud3-sumes.html` | Sumar i restar amb el mateix denominador, pintant i sense dibuix; el full de 1/2 + 1/4 | 7, 8, 9 | Feta |
+| 5 · `ud3-repas.html` | El carnet de cada fracció, una de cada i «Què he après?» | Repàs i llista de comprovació | Feta |
+| Examen · `generadors/examens/ud3.js` | En DOCX, amb el motor comú: vuit exercicis, amb les fraccions en format de fracció | Examen (i les dues adaptacions) | Fet |
 
 Les regles trencades de les fitxes: trossos desiguals (fitxa 1), «com més gran és el de baix, més
 gran és la fracció» (fitxa 2), sumar el mateix dalt i baix per fer una equivalent (fitxa 3), i
@@ -280,6 +284,9 @@ sumar els de dalt i els de baix (fitxa 4, el full que va demanar el docent).
 
 - 26 de setembre de 2026: el pla, validat: quatre eines noves a la caixa (tasques 9 a 12), una
   targeta nova, cinc fitxes i l'examen.
+- 26 de setembre de 2026 (vespre): amb la programació, les fraccions passen a la unitat 3. Falta
+  completar-la amb la mesura i l'àrea. L'exercici de l'ou del kiwi de la fitxa 1 es canvia per un
+  hort partit en trossos iguals, perquè el kiwi és de la unitat 4.
 - 26 de setembre de 2026: la **targeta «Els noms de les fraccions»** hi va: un mig, un terç, un
   quart… fins al dotzè, amb els plurals. El grup les demana de memòria, i la regla B diu que el que
   s'ha de recordar va a una targeta.

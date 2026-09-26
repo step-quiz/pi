@@ -1,5 +1,5 @@
 /* ============================================================================
-   COMPARA — mòdul «compara» de la caixa d'eines · tasca 11 · unitat 4
+   COMPARA — mòdul «compara» de la caixa d'eines · tasca 11 · unitat 3
    ----------------------------------------------------------------------------
    Quina fracció és més gran? Amb el mateix rectangle, la que té el tros pintat
    més llarg. Activitats 2 i 4 del grup, sense el valor numèric (regla C).

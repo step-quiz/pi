@@ -1,5 +1,5 @@
 /* ============================================================================
-   LA FRACCIÓ — mòdul «fraccio» de la caixa d'eines · tasca 9 · unitat 4
+   LA FRACCIÓ — mòdul «fraccio» de la caixa d'eines · tasca 9 · unitat 3
    ----------------------------------------------------------------------------
    Una fracció és un rectangle partit en trossos iguals: el denominador diu quants
    trossos hi ha, i el numerador, quants se'n pinten. Activitats 0 i 2 del grup.

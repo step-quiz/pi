@@ -1,5 +1,5 @@
 /* ============================================================================
-   SUMA I RESTA — mòdul «sumes» de la caixa d'eines · tasca 12 · unitat 4
+   SUMA I RESTA — mòdul «sumes» de la caixa d'eines · tasca 12 · unitat 3
    ----------------------------------------------------------------------------
    Sempre amb el mateix denominador (decisió del docent del 26/9/2026): se sumen
    o es treuen els trossos pintats, i el denominador no canvia, perquè els

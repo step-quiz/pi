@@ -220,6 +220,46 @@ function runManuscrit(text, punts = MIDA.manuscrita) {
   const font = SENSE_CAVEAT.test(text) ? MANUSCRITA_SIMBOLS : MANUSCRITA;
   return new TextRun({ text, font, color: G.manuscrit, size: mig(punts) });
 }
+/* Les fraccions (1eso/, unitat 3). Dins del text d'una cel·la de taulaResposta, «{3/4}»
+   s'escriu com a fracció, amb el numerador damunt del denominador, com a les fitxes i a la
+   caixa d'eines. Es fa amb una taula petita: el numerador a dalt, amb la ratlla, i el
+   denominador a baix. Word, LibreOffice i Google Docs la mostren igual (una fracció de
+   Word, LibreOffice no la llegia). Un text sense claus surt igual que abans. */
+const TE_FRACCIO = /\{\d+\/\d+\}/;
+const SENSE_VORES = { top: CAP, bottom: CAP, left: CAP, right: CAP };
+function fraccioEnTaula(n, d, fesRun) {
+  const w = Math.max(String(n).length, String(d).length) * 180 + 260;
+  const fila = (t, baix) => new TableRow({ children: [new TableCell({
+    children: [par(fesRun(t), { alignment: AlignmentType.CENTER })], width: { size: w, type: WidthType.DXA },
+    borders: { ...SENSE_VORES, bottom: baix }, margins: { top: 0, bottom: 0, left: 30, right: 30 } })] });
+  return new Table({ rows: [fila(String(n), vora(1.5, G.tinta)), fila(String(d), CAP)], columnWidths: [w],
+    width: { size: w, type: WidthType.DXA }, alignment: AlignmentType.CENTER,
+    borders: { ...SENSE_VORES, insideHorizontal: CAP, insideVertical: CAP } });
+}
+/** El contingut d'una cel·la amb fraccions: una fila, amb el text i les fraccions alternats. */
+function ambFraccions(text, fesRun) {
+  const trossos = text.split(/(\{\d+\/\d+\})/).filter(t => t !== "");
+  const amples_ = trossos.map(t => (/^\{/.test(t) ? Math.max(...t.slice(1, -1).split("/").map(x => x.length)) * 180 + 320
+                                                 : Math.max(220, t.length * 190)));
+  const celes = trossos.map((t, k) => {
+    const m = t.match(/^\{(\d+)\/(\d+)\}$/);
+    return new TableCell({
+      children: m ? [fraccioEnTaula(m[1], m[2], fesRun), par([], { spacing: { before: 0, after: 0 } })]
+                  : [par(fesRun(t), { alignment: AlignmentType.CENTER })],
+      width: { size: amples_[k], type: WidthType.DXA }, verticalAlign: VerticalAlign.CENTER,
+      borders: SENSE_VORES, margins: { top: 0, bottom: 0, left: 0, right: 0 } });
+  });
+  return new Table({ rows: [new TableRow({ children: celes })], columnWidths: amples_,
+    width: { size: amples_.reduce((a, b) => a + b, 0), type: WidthType.DXA }, alignment: AlignmentType.CENTER,
+    borders: { ...SENSE_VORES, insideHorizontal: CAP, insideVertical: CAP } });
+}
+/** Com es fa cada tros de text d'una cel·la: la mateixa lletra que a runsDe. */
+function fesRunDe(tros, midaBase) {
+  if (typeof tros === "string") return t => run(t, { size: mig(midaBase) });
+  if (tros.tipus === "ms") return t => runManuscrit(t, tros.mida || MIDA.manuscrita);
+  return t => run(t, { bold: true, size: mig(tros.mida || midaBase) });
+}
+
 function runsDe(tros, midaBase) {
   if (tros === null || tros === undefined || tros === "") return [];
   if (typeof tros === "string") return [run(tros, { size: mig(midaBase) })];
@@ -375,6 +415,10 @@ function taulaResposta(percents, capcalera, files) {
       children: f.map((c, i) => {
         const esq = c && typeof c === "object" && c.esq;
         const fons = r === 0 || (c && c.tipus === "dada") ? G.fons1 : undefined;
+        const text = typeof c === "string" ? c : (c && c.text) || "";
+        if (TE_FRACCIO.test(text))
+          return cela([ambFraccions(text, fesRunDe(c, MIDA.taula)), par([], { keepNext: r < files.length - 1 })],
+                      { w: col[i], fons, margins: PAD });
         return cela(par(runsDe(c, MIDA.taula), {
           alignment: esq ? AlignmentType.LEFT : AlignmentType.CENTER, keepNext: r < files.length - 1,
         }), { w: col[i], fons, margins: PAD });

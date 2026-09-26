@@ -235,7 +235,7 @@
 
   /* ======================================================= les fraccions ===== */
 
-  /* El rectangle de les fraccions (unitat 4): sempre de la mateixa mida, perquè dues
+  /* El rectangle de les fraccions (unitat 3): sempre de la mateixa mida, perquè dues
      fraccions es puguin comparar, com fan els cercles del grup. Es parteix en d trossos
      iguals, i se'n pinten uns quants. Els `mes` següents van en taronja (el segon
      sumand); els `treu` darrers pintats, ratllats (el que es resta). Amb `k` > 1, cada

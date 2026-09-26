@@ -21,7 +21,13 @@ comú, i cada curs hi posa el seu contingut.
 
 Per a `1eso/`, el mateix dins de la seva carpeta (`1eso/generadors/examens/udN.js`,
 `1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor. La UD1 de `1eso/` hi
-és des del 25/9/2026, i la UD2, des del 26/9/2026.
+és des del 25/9/2026, i la UD2 i la UD3, des del 26/9/2026.
+
+**Les fraccions** (UD3 de `1eso/`): dins del text d'una cel·la de `taulaResposta`, «{3/4}»
+s'escriu com a fracció, amb el numerador damunt del denominador, com a les fitxes. Es fa amb una
+taula petita dins de la cel·la, perquè Word, LibreOffice i Google Docs la mostrin igual: una
+fracció de Word (OMML), LibreOffice no la llegia. Funciona amb `dada()`, amb `ms()` (en lletra
+manuscrita) i amb el text sol, i es pot barrejar amb text: `dada("{3/8} + {2/8}")`.
 
 **El que canvia d'un curs a l'altre** es passa a `genera()`, i els valors per defecte són els de
 `4eso/`, que no canvia gens:

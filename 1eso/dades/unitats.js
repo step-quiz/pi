@@ -67,27 +67,29 @@ window.UNITATS = [
     titol: "Com és de gran Gaza?",
     dates: "del 23 de novembre al 18 de desembre",
     sessions: "15",
-    nucli: "L'àrea és comptar quadrets. Mig quadret és 1/2.",
-    material: "Quadrícula: comptar els quadrets d'una figura i ajuntar dues meitats.",
+    nucli: "L'àrea és comptar quadrets. Una fracció és un rectangle partit en trossos iguals: " +
+           "el de baix diu quants n'hi ha, i el de dalt, quants se'n pinten.",
+    material: "Quadrícula i tires de paper: comptar els quadrets d'una figura, ajuntar dues meitats i doblegar una tira en trossos iguals.",
     criteris: "1.2, 5.2, 6.1, 9.1",
-    fitxes: []
+    fitxes: [
+      { fitxa: "fitxes/ud3.html", titol: "Què és una fracció" },
+      { fitxa: "fitxes/ud3-compara.html", titol: "Els tipus i comparar" },
+      { fitxa: "fitxes/ud3-equivalents.html", titol: "Fraccions equivalents" },
+      { fitxa: "fitxes/ud3-sumes.html", titol: "Sumar i restar" },
+      { fitxa: "fitxes/ud3-repas.html", titol: "Repàs de la unitat i «Què he après?»" }
+    ],
+    tasques: [0, 9, 10, 11, 12]
   },
   {
     num: 4,
     titol: "És gran l'ou del kiwi?",
     dates: "del 12 al 28 de gener",
     sessions: "11",
-    nucli: "Una fracció és un rectangle partit en trossos iguals: el de baix diu quants trossos hi ha, i el de dalt, quants se'n pinten.",
-    material: "Tires de paper: doblegar-les en 2, 4 i 8 trossos iguals i pintar-ne uns quants.",
+    nucli: "Un terç de 12 és repartir 12 quadrets en 3 grups iguals. " +
+           "Un percentatge és quants quadrets de cada 100.",
+    material: "Miniblocs: repartir 12 en 3 grups iguals. Quadrícula de 100: pintar-ne 25.",
     criteris: "1.3, 2.1, 5.1, 6.1",
-    fitxes: [
-      { fitxa: "fitxes/ud4.html", titol: "Què és una fracció" },
-      { fitxa: "fitxes/ud4-compara.html", titol: "Els tipus i comparar" },
-      { fitxa: "fitxes/ud4-equivalents.html", titol: "Fraccions equivalents" },
-      { fitxa: "fitxes/ud4-sumes.html", titol: "Sumar i restar" },
-      { fitxa: "fitxes/ud4-repas.html", titol: "Repàs de la unitat i «Què he après?»" }
-    ],
-    tasques: [0, 9, 10, 11, 12]
+    fitxes: []
   },
   {
     num: 5,
@@ -139,6 +141,6 @@ window.TARGETES = [
                 "com es llegeix una fracció, els tipus, les equivalents i com se suma.",
     fitxer: "targetes/fraccions.html",
     pdf: "pdf/targeta-fraccions.pdf",
-    unitat: 4
+    unitat: 3
   }
 ];

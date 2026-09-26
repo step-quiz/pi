@@ -1,5 +1,5 @@
 /* ============================================================================
-   EQUIVALENTS — mòdul «equivalents» de la caixa d'eines · tasca 10 · unitat 4
+   EQUIVALENTS — mòdul «equivalents» de la caixa d'eines · tasca 10 · unitat 3
    ----------------------------------------------------------------------------
    Dues fraccions són equivalents si pinten el mateix tros del mateix rectangle.
    Partir cada tros en k és amplificar: dalt i baix, per k. Activitats 3, 5 i 6.

@@ -745,7 +745,7 @@ def main():
         print(f"  cinc passos, un error amb pista; codi {codis['8.2'][0]}")
 
         # ------------------------------------------------------------------
-        titol("DADES DE LA UNITAT 4")
+        titol("DADES DE LA UNITAT 3 (FRACCIONS)")
         d4 = pg.evaluate("""() => ({ casos: CE.dades.fraccio.CASOS, eq: CE.dades.equivalents.PARELLES,
             cmp: CE.dades.compara.PARELLES, ops: CE.dades.sumes.OPERACIONS })""")
         comprova(all(0 < n < d <= 12 for n, d in d4["casos"]), "9.2: fraccions pròpies, amb denominadors fins al 12")

@@ -82,7 +82,7 @@ pantalla van a `css/app.css`.
 | 11 | Compara | `compara.js` | 11.1 Compara dues fraccions · **11.2 Quina és més gran?** | 1/3 i 1/5: la regla trencada |
 | 12 | Sumes | `sumes.js` | 12.1 Suma i resta · **12.2 Quant és?** | 3/8 + 2/8 = 5/8 |
 
-Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 12, de la unitat 4. La 0 (les taules) es veu
+Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 12, de la unitat 3 (les fraccions). La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són
