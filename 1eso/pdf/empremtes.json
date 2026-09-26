@@ -98,5 +98,55 @@
     "empremta": "b6297e463cff08abee7f5df8fa4259134658c2f25a834c5de35c72cfcfdc4393",
     "font": "fitxes/ud2.html",
     "pagines": 3
+  },
+  "ud4-alumnat.pdf": {
+    "empremta": "b916bb197867872083757e53c3833c1be1bb07f948a53050c88376eb7e4ac8b0",
+    "font": "fitxes/ud4.html",
+    "pagines": 6
+  },
+  "ud4-compara-alumnat.pdf": {
+    "empremta": "ace1d9b903fb9190284c9c9b8ab8616ed8e1a8e95fd0d5dafa22768344d023d1",
+    "font": "fitxes/ud4-compara.html",
+    "pagines": 6
+  },
+  "ud4-compara-solucionari.pdf": {
+    "empremta": "ace1d9b903fb9190284c9c9b8ab8616ed8e1a8e95fd0d5dafa22768344d023d1",
+    "font": "fitxes/ud4-compara.html",
+    "pagines": 2
+  },
+  "ud4-equivalents-alumnat.pdf": {
+    "empremta": "cb2f6b31ef842c132ac39ec939fa4a8d74ee942b94b839259f0037f2d6ec5915",
+    "font": "fitxes/ud4-equivalents.html",
+    "pagines": 6
+  },
+  "ud4-equivalents-solucionari.pdf": {
+    "empremta": "cb2f6b31ef842c132ac39ec939fa4a8d74ee942b94b839259f0037f2d6ec5915",
+    "font": "fitxes/ud4-equivalents.html",
+    "pagines": 2
+  },
+  "ud4-repas-alumnat.pdf": {
+    "empremta": "ef84ef5e22fe8fb5655052f75616b04a0b6a9520747e92bf7173146fc0c0ff5f",
+    "font": "fitxes/ud4-repas.html",
+    "pagines": 5
+  },
+  "ud4-repas-solucionari.pdf": {
+    "empremta": "ef84ef5e22fe8fb5655052f75616b04a0b6a9520747e92bf7173146fc0c0ff5f",
+    "font": "fitxes/ud4-repas.html",
+    "pagines": 2
+  },
+  "ud4-solucionari.pdf": {
+    "empremta": "b916bb197867872083757e53c3833c1be1bb07f948a53050c88376eb7e4ac8b0",
+    "font": "fitxes/ud4.html",
+    "pagines": 2
+  },
+  "ud4-sumes-alumnat.pdf": {
+    "empremta": "86ee7e376b10d8a1a96a2ee0d64186ba0bcd3cb59cd75c40a3923354b0767f56",
+    "font": "fitxes/ud4-sumes.html",
+    "pagines": 6
+  },
+  "ud4-sumes-solucionari.pdf": {
+    "empremta": "86ee7e376b10d8a1a96a2ee0d64186ba0bcd3cb59cd75c40a3923354b0767f56",
+    "font": "fitxes/ud4-sumes.html",
+    "pagines": 2
   }
 }
