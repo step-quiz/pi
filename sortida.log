@@ -1,0 +1,125 @@
+EXÀMENS
+  DOCX dins del repositori: 0
+
+FITXES I TARGETES
+  css/fitxa.css                cap color: True
+  fitxes/ud1-nombres.html      6 pàg. · html ok · color cap
+  fitxes/ud1-ordre.html        6 pàg. · html ok · color cap
+  fitxes/ud1-repas.html        6 pàg. · html ok · color cap
+  fitxes/ud1.html              9 pàg. · html ok · color cap
+  fitxes/ud2-divisors.html     6 pàg. · html ok · color cap
+  fitxes/ud2-factors.html      5 pàg. · html ok · color cap
+  fitxes/ud2-repartir.html     6 pàg. · html ok · color cap
+  fitxes/ud2-repas.html        6 pàg. · html ok · color cap
+  fitxes/ud2.html              7 pàg. · html ok · color cap
+  fitxes/ud3-area.html         5 pàg. · html ok · color cap
+  fitxes/ud3-compara.html      6 pàg. · html ok · color cap
+  fitxes/ud3-equivalents.html  6 pàg. · html ok · color cap
+  fitxes/ud3-mapes.html        3 pàg. · html ok · color cap
+  fitxes/ud3-repas.html        5 pàg. · html ok · color cap
+  fitxes/ud3-sumes.html        6 pàg. · html ok · color cap
+  fitxes/ud3.html              6 pàg. · html ok · color cap
+  fitxes/ud4-compara.html      6 pàg. · html ok · color cap
+  fitxes/ud4-equivalents.html  6 pàg. · html ok · color cap
+  fitxes/ud4-repas.html        5 pàg. · html ok · color cap
+  fitxes/ud4-sumes.html        6 pàg. · html ok · color cap
+  fitxes/ud4.html              6 pàg. · html ok · color cap
+  targetes/fraccions.html      2 cares · html ok · color cap
+  targetes/taules.html         2 cares · html ok · color cap
+
+PÀGINES DE L'ALUMNAT
+  23 fitxers · 3080 frases de l'alumnat · 412 operacions comprovades
+
+LLETRA MANUSCRITA
+  fonts/Caveat.ttf: 753 caràcters · 1208 caràcters manuscrits comprovats
+
+CAIXA D'EINES
+  mòduls: 14 · marcatge, registre i scripts coincideixen: True
+  tasques: 0 taules · 1 rect · 2 quadrat · 3 cdu · 4 ordre · 5 multiples · 6 repartir · 7 divisors · 8 primers · 9 fraccio · 10 equivalents · 11 compara · 12 sumes · 13 area
+
+FRASES
+  frases definides: 457 · totes les que es demanen existeixen: True · sense fer servir: cap
+
+LECTURA FÀCIL
+  frases revisades: 457
+
+SUBTASQUES
+  mod-taules: 3 subtasques
+  mod-rect: 4 subtasques
+  mod-quadrat: 3 subtasques
+  mod-cdu: 2 subtasques
+  mod-ordre: 2 subtasques
+  mod-multiples: 4 subtasques
+  mod-repartir: 2 subtasques
+  mod-divisors: 2 subtasques
+  mod-primers: 2 subtasques
+  mod-fraccio: 2 subtasques
+  mod-equivalents: 2 subtasques
+  mod-compara: 2 subtasques
+  mod-sumes: 2 subtasques
+  mod-area: 2 subtasques
+
+LA PANTALLA
+  cap «×» ni «x» de multiplicar · cap nombre de més de 999 · claus del navegador: pi1-caixa-modul, pi1-tasca: · sal pròpia: True
+
+PDF
+  PDF al dia: 44/44
+
+FULLS D'ESTIL
+  css/app.css      claus ok
+  css/fitxa.css    claus ok
+  css/lloc.css     claus ok
+  css/tokens.css   claus ok
+  variables usades sense definir: 0
+
+CONTRAST (WCAG 2.2 AA)
+  mode clar: 17 parelles · la més justa, --etiqueta-3 sobre --superficie: 3.10:1 (mínim 3.0:1)
+  mode fosc: 17 parelles · la més justa, #FFFFFF sobre --blau: 4.84:1 (mínim 4.5:1)
+
+ENLLAÇOS
+  enllaços relatius comprovats: 150
+
+DESPLEGAMENT
+  fitxers de desplegament a l'arrel: 5/5
+
+ANONIMAT
+  termes que trencarien l'anonimat: 0
+
+DEPENDÈNCIES EXTERNES
+  recursos remots: 0
+
+DADES
+  unitats: 7 · amb fitxa: 16 · targetes: 2 · tasques de la caixa citades: 14
+
+24 AVISOS (no aturen res, però cal mirar-los):
+  · fitxes/ud2-factors.html: frase de 18 paraules: «És un arbre: el 12 es parteix en 3 i 4, i el 4 en …»
+  · fitxes/ud2-factors.html: frase de 17 paraules: «Com que 4 = 2 · 2, la factorització del 12 és 12 =…»
+  · fitxes/ud2-repartir.html: «sencer»: el terme és «enter»
+  · fitxes/ud2-repas.html: frase de 18 paraules: «Del 2: sí · Del 5: no · Del 10: no · Del 3: sí (1 …»
+  · fitxes/ud2.html: frase de 17 paraules: «Són la taula del 2: 2 · 1 = 2, 2 · 2 = 4, 2 · 3 = …»
+  · fitxes/ud3-area.html: «sencer»: el terme és «enter»
+  · fitxes/ud3-area.html: «sencer»: el terme és «enter»
+  · fitxes/ud3-area.html: «sencer»: el terme és «enter»
+  · fitxes/ud3-area.html: «sencer»: el terme és «enter»
+  · fitxes/ud3-area.html: «sencer»: el terme és «enter»
+  · fitxes/ud3-area.html: «sencer»: el terme és «enter»
+  · fitxes/ud3-compara.html: frase de 16 paraules: «1/5 és més petit que 1/3, encara que 5 sigui més g…»
+  · fitxes/ud3-equivalents.html: frase de 17 paraules: «Busca-ho a la targeta de les taules: 4 · 1 = 4 i 4…»
+  · fitxes/ud3-sumes.html: frase de 18 paraules: «Hi ha qui suma els de dalt i els de baix: 1 + 1 = …»
+  · fitxes/ud4-compara.html: frase de 16 paraules: «1/5 és més petit que 1/3, encara que 5 sigui més g…»
+  · fitxes/ud4-equivalents.html: frase de 17 paraules: «Busca-ho a la targeta de les taules: 4 · 1 = 4 i 4…»
+  · fitxes/ud4-sumes.html: frase de 18 paraules: «Hi ha qui suma els de dalt i els de baix: 1 + 1 = …»
+  · targetes/fraccions.html: frase de 17 paraules: «Els de baix han de ser iguals, i no se sumen: 3/8 …»
+  · 13.1.ajuda: «sencer»: el terme és «enter»
+  · 13.1.sencers: «sencer»: el terme és «enter»
+  · 13.1.aria: «sencer»: el terme és «enter»
+  · 13.2.comenca: «sencer»: el terme és «enter»
+  · 13.2.encert: «sencer»: el terme és «enter»
+  · 13.2.error_sencers: «sencer»: el terme és «enter»
+
+5 PROBLEMES:
+  · fitxes/ud4-compara.html no surt a dades/unitats.js
+  · fitxes/ud4-equivalents.html no surt a dades/unitats.js
+  · fitxes/ud4-repas.html no surt a dades/unitats.js
+  · fitxes/ud4-sumes.html no surt a dades/unitats.js
+  · fitxes/ud4.html no surt a dades/unitats.js
