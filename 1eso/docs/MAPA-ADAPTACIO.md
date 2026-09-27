@@ -73,7 +73,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 |---|---|---|---|---|
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
-| 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Les fraccions fetes: caixa (tasques 9 a 12), targeta, cinc fitxes i examen. Falta la mesura i l'àrea |
+| 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes i examen. Falten els PDF |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer: la fracció d'un nombre, els percentatges i els dobles i triples |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
@@ -266,6 +266,18 @@ comparar: és el que fan els cercles del grup, però amb la quadrícula del curs
 | 5 · `ud3-repas.html` | El carnet de cada fracció, una de cada i «Què he après?» | Repàs i llista de comprovació | Feta |
 | Examen · `generadors/examens/ud3.js` | En DOCX, amb el motor comú: vuit exercicis, amb les fraccions en format de fracció | Examen (i les dues adaptacions) | Fet |
 
+**La part de mesura i àrea** (activitats 2 a 5, 8 i 9 de la programació), acabada el 26/9/2026:
+
+| Fitxa | Què porta | Activitats de la programació | Estat |
+|---|---|---|---|
+| `ud3-area.html` (la primera, en ordre) | Què és més gran, el metre i el quilòmetre, l'àrea del rectangle i les figures amb quadrets sencers i mitjos | 2, 3, 4, 5 | Feta |
+| `ud3-mapes.html` (abans del repàs) | Els km² de Barcelona (101) i de Gaza (365) amb quadrícula i contorn esquemàtic, i comparar-los | 8, 9 | Feta |
+| Caixa · tasca 13 | L'àrea: comptar quadrets sencers i mitjos, amb la tasca tancada 13.2 | 4, 5 | Feta |
+| Examen · exercicis 9 i 10 | L'àrea del rectangle i la unitat de mesura | 3, 4 | Fet |
+
+Els km² es llegeixen com els blocs de la unitat 1: quadrats de 100, columnes de 10 i quadrets
+solts. Regles trencades: comptar un mig com un quadret sencer, i «estret vol dir petit».
+
 Les regles trencades de les fitxes: trossos desiguals (fitxa 1), «com més gran és el de baix, més
 gran és la fracció» (fitxa 2), sumar el mateix dalt i baix per fer una equivalent (fitxa 3), i
 sumar els de dalt i els de baix (fitxa 4, el full que va demanar el docent).
@@ -287,6 +299,9 @@ sumar els de dalt i els de baix (fitxa 4, el full que va demanar el docent).
 - 26 de setembre de 2026 (vespre): amb la programació, les fraccions passen a la unitat 3. Falta
   completar-la amb la mesura i l'àrea. L'exercici de l'ou del kiwi de la fitxa 1 es canvia per un
   hort partit en trossos iguals, perquè el kiwi és de la unitat 4.
+- 26 de setembre de 2026: la mesura i l'àrea, amb el pla validat. «1 km = 1.000 m» hi va com a
+  única excepció a la regla dels 999. El mapa de Gaza hi va, amb el contorn esquemàtic i només
+  les dades de mesura; el context de la situació es treballa a l'aula.
 - 26 de setembre de 2026: la **targeta «Els noms de les fraccions»** hi va: un mig, un terç, un
   quart… fins al dotzè, amb els plurals. El grup les demana de memòria, i la regla B diu que el que
   s'ha de recordar va a una targeta.

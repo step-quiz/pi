@@ -521,6 +521,10 @@ for f in PAPER:
     for frase in frases_alumnat(f):
         n_frases += 1
         for m in NOMBRE.finditer(frase):
+            # L'única excepció: «1 km = 1.000 m» (decisió del docent del 26/9/2026, unitat 3). El
+            # 1.000 hi pot sortir només dins d'aquesta equivalència; el 1.000.000 dels km², mai.
+            if m.group(0) == "1.000" and re.search(r"1\s*km\s*=\s*1\.000\s*m\b", frase):
+                continue
             comprova(int(m.group(0).replace('.', '')) <= 999,
                      f"{nom}: el nombre {m.group(0)} passa de 999: «{frase[:50]}»")
         for tall in re.split(r'(?<=[.!?])\s+', frase):

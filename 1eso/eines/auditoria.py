@@ -89,6 +89,8 @@ ESTATS = [
     ("11.2 Quina és més gran? · tocada", "caixa-eines.html", "?task=11.2", "primera_cb"),
     ("12.1 Suma i resta · la resta",     "caixa-eines.html", "?task=12.1", "resta_sa"),
     ("12.2 Quant és? · tocada",          "caixa-eines.html", "?task=12.2", "primera_sb"),
+    ("13.1 Compta l'àrea",               "caixa-eines.html", "?task=13.1", None),
+    ("13.2 Quina àrea té? · tocada",     "caixa-eines.html", "?task=13.2", "area_ab"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
     ("La portada",                       "index.html",       "",          None),
     ("Fitxes",                           "fitxes.html",      "",          None),
@@ -272,6 +274,8 @@ def prepara(pg, accio):
     elif accio and accio.startswith("primera_"):
         # una tasca de triar una fracció: la primera opció, encertada o no
         pg.click(f"#{accio.split('_')[1]}-opcions .opcio-frac >> nth=0")
+    elif accio == "area_ab":
+        pg.click("#ab-opcions .opcio-area >> nth=0")
     elif accio == "resta_sa":
         pg.click("#sa-op .pastilla >> nth=1")
     elif accio == "garbell_3":

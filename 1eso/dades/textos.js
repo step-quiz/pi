@@ -541,6 +541,39 @@ window.TEXTOS = {
     p_11:  'onzens',
     s_12:  'dotzè',
     p_12:  'dotzens'
+  },
+  "13.1": {
+    nom:             'Compta l\'àrea',
+    titol:           'Compta l\'àrea',
+    ajuda:           'Tria una figura. Compta els quadrets sencers i els mitjos.',
+    fig_casa:        'Una casa',
+    fig_fletxa:      'Una fletxa',
+    fig_rombe:       'Un rombe',
+    fig_vaixell:     'Un vaixell',
+    fig_ela:         'Una ela',
+    fig_teulada:     'Una teulada',
+    sencers:         'Hi ha {s} quadrets sencers.',
+    hi_ha_mitjos:    'Hi ha {m} trossos de mig quadret.',
+    cap_mig:         'No hi ha cap tros de mig quadret.',
+    mitjos_fan:      'Dos mitjos fan un quadret: {m} mitjos fan {q}.',
+    quadret:        'quadret',
+    quadrets:       'quadrets',
+    mitjos_fan_mig:  'Dos mitjos fan un quadret: {m} mitjos fan {q} i mig.',
+    km2:             'Si cada quadret és 1 km², l\'àrea és {a} km².',
+    area:            'Àrea: {a} quadrets',
+    aria:            '{nom}: {s} quadrets sencers i {m} mitjos'
+  },
+  "13.2": {
+    nom:            'Quina àrea té?',
+    titol:          'Quina àrea té?',
+    ajuda:          'Compta els quadrets. Després toca l\'àrea bona.',
+    pregunta:       'Quina àrea té?',
+    comenca:        'Compta primer els sencers. Després, els mitjos.',
+    opcio:          '{a} quadrets',
+    encert:         '{s} sencers i {m} mitjos: {a} quadrets.',
+    error_sencers:  'Has comptat els mitjos com si fossin sencers.',
+    error_sense:    'T\'has deixat els mitjos.',
+    pista:          'Dos mitjos fan un quadret. Compta\'ls de dos en dos.'
   }
 };
 
@@ -1040,5 +1073,38 @@ window.TEXTOS_GUIA = {
     p_11:  ["El nom de més d’una fracció de 11", []],
     s_12:  ["El nom d’una fracció de 12", []],
     p_12:  ["El nom de més d’una fracció de 12", []]
+  },
+  "13.1": {
+    nom:             ["Nom de la subtasca a la barra", []],
+    titol:           ["Títol de la targeta", []],
+    ajuda:           ["Consigna sota el títol", []],
+    fig_casa:        ["Pastilla", []],
+    fig_fletxa:      ["Pastilla", []],
+    fig_rombe:       ["Pastilla", []],
+    fig_vaixell:     ["Pastilla", []],
+    fig_ela:         ["Pastilla", []],
+    fig_teulada:     ["Pastilla", []],
+    sencers:         ["Els sencers", ["s"]],
+    hi_ha_mitjos:    ["Els mitjos", ["m"]],
+    cap_mig:         ["Sense mitjos", []],
+    mitjos_fan:      ["Els mitjos, en quadrets", ["m", "q"]],
+    quadret:        ["Un: «1 quadret»", []],
+    quadrets:       ["Més d\'un: «4 quadrets»", []],
+    mitjos_fan_mig:  ["Els mitjos, si en sobra un", ["m", "q"]],
+    km2:             ["Amb les unitats", ["a"]],
+    area:            ["El resultat, gran", ["a"]],
+    aria:            ["Per al lector de pantalla", ["nom", "s", "m"]]
+  },
+  "13.2": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    pregunta:       ["La pregunta", []],
+    comenca:        ["Avís abans de contestar", []],
+    opcio:          ["Cada botó", ["a"]],
+    encert:         ["Resposta correcta", ["s", "m", "a"]],
+    error_sencers:  ["Error: els mitjos com a sencers", []],
+    error_sense:    ["Error: sense els mitjos", []],
+    pista:          ["Pista del primer error", []]
   }
 };

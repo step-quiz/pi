@@ -135,12 +135,12 @@ def main():
         obre(pg)
         for mod, n in [("taules", 3), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2),
                        ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2),
-                       ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2)]:
+                       ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2), ("area", 2)]:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
                 pg.wait_for_timeout(120)
                 revisa_pantalla(pg, f"{mod} {sub}")
-        print(f"  32 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
+        print(f"  34 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
 
         # ------------------------------------------------------------------
         titol("DADES DELS MÒDULS")
@@ -851,6 +851,36 @@ def main():
         dolenta122 = lambda pg: next(x for x in noms_opcions(pg, "sb") if x != bona122(pg))
         codis["12.2"] = (tasca_frac(pg, "sumes", "sb", bona122, dolenta122, "12.2"), "Quant és?", (5, 4, 1, 0))
         print(f"  cinc passos, un error amb pista; codi {codis['12.2'][0]}")
+
+        titol("13.1 · COMPTA L'ÀREA")
+        modul(pg, "area", 1)
+        lec = text(pg, "#aa-lectura")
+        comprova("Hi ha 14 quadrets sencers." in lec and "Àrea: 15 quadrets" in lec, f"13.1: la casa: «{lec}»")
+        pg.click("#aa-figures .pastilla >> nth=2")
+        lec = text(pg, "#aa-lectura")
+        comprova("Hi ha 4 quadrets sencers." in lec and "8 mitjos fan 4 quadrets" in lec and "Àrea: 8 quadrets" in lec, f"13.1: el rombe: «{lec}»")
+        print("  la casa: 14 sencers i 2 mitjos, 15 quadrets; el rombe: 4 i 8 mitjos, 8 quadrets")
+
+        titol("13.2 · QUINA ÀREA TÉ?")
+        def area_de(pg):
+            s_ = pg.locator("#ab-svg rect.q").count(); m_ = pg.locator("#ab-svg polygon.q").count()
+            a = s_ + m_ / 2
+            return f"{int(a) if a == int(a) else a} quadrets"
+        modul(pg, "area", 2)
+        for pas in range(5):
+            bona = area_de(pg)
+            if pas == 2:
+                pg.click(f'#ab-opcions .opcio-area:not(:text-is("{bona}")) >> nth=0')
+                av = text(pg, "#ab-avis")
+                comprova(av.startswith("Incorrecte.") and "Pista" in av, f"13.2: la pista del primer error: «{av}»")
+            pg.click(f'#ab-opcions .opcio-area:text-is("{bona}")')
+            comprova(text(pg, "#ab-avis").startswith("Correcte."), f"13.2: pas {pas + 1}")
+            pg.click("#ab-seguent")
+        nums, codi = final_de(pg, "ab")
+        comprova(nums == {"Passos": "5", "Correctes al primer intent": "4", "Correctes amb una pista": "1",
+                          "Amb la resposta ensenyada": "0"}, f"13.2: el resum no quadra: {nums}")
+        codis["13.2"] = (codi, "Quina àrea té?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codi}")
 
         # ------------------------------------------------------------------
         titol("CODIS A verifica.html")

@@ -64,6 +64,9 @@ plastificades per a tothom.
 ### D. Els nombres
 
 - **Fins a 999.** Cap nombre de les pàgines de l'alumnat no en passa.
+   L'única excepció és «1 km = 1.000 m», a la unitat 3 (decisió del docent del 26/9/2026). El
+   1.000 hi pot sortir només dins d'aquesta equivalència, i `eines/comprova.py` ho vigila. El
+   1.000.000 dels km², mai: el km² es dibuixa, però no es converteix.
 - **Sumes i restes sense portar-ne.** Si un càlcul en necessita, es canvien les dades.
 - **Multiplicacions: les de la targeta**, d'una xifra per una xifra o per 10.
 

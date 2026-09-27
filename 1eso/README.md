@@ -45,12 +45,13 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 | `caixa-eines?task=10` | Equivalents (unitat 3): 10.1 Parteix els trossos · 10.2 Són equivalents? |
 | `caixa-eines?task=11` | Compara (unitat 3): 11.1 Compara dues fraccions · 11.2 Quina és més gran? |
 | `caixa-eines?task=12` | Sumes (unitat 3): 12.1 Suma i resta · 12.2 Quant és? |
+| `caixa-eines?task=13` | Àrea (unitat 3): 13.1 Compta l'àrea · 13.2 Quina àrea té? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
 exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
 `caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
 tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 3,
-9.2, 10.2, 11.2 i 12.2) acaben amb
+9.2, 10.2, 11.2, 12.2 i 13.2) acaben amb
 un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 
@@ -68,7 +69,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1) i la dels noms de les fraccions (unitat 3) |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les cinc de fraccions de la unitat 3 (què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs) |
+| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les set de la unitat 3 (mesurar l'àrea, quants km², què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeix `fitxes.html` |
 | `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada i `fitxes.html`) i `app.css` (la caixa) |

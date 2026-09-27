@@ -72,13 +72,15 @@ window.UNITATS = [
     material: "Quadrícula i tires de paper: comptar els quadrets d'una figura, ajuntar dues meitats i doblegar una tira en trossos iguals.",
     criteris: "1.2, 5.2, 6.1, 9.1",
     fitxes: [
+      { fitxa: "fitxes/ud3-area.html", titol: "Mesurar l'àrea" },
       { fitxa: "fitxes/ud3.html", titol: "Què és una fracció" },
       { fitxa: "fitxes/ud3-compara.html", titol: "Els tipus i comparar" },
       { fitxa: "fitxes/ud3-equivalents.html", titol: "Fraccions equivalents" },
       { fitxa: "fitxes/ud3-sumes.html", titol: "Sumar i restar" },
+      { fitxa: "fitxes/ud3-mapes.html", titol: "Quants km²? Barcelona i Gaza" },
       { fitxa: "fitxes/ud3-repas.html", titol: "Repàs de la unitat i «Què he après?»" }
     ],
-    tasques: [0, 9, 10, 11, 12]
+    tasques: [0, 9, 10, 11, 12, 13]
   },
   {
     num: 4,

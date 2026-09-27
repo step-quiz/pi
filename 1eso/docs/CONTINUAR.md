@@ -117,9 +117,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    programació, és la que introdueix les fraccions, a partir de l'àrea. Les fraccions ja hi són: la
    caixa (tasques 9 a 12), la targeta «Els noms de les fraccions» (`targetes/fraccions.html`), les
    cinc fitxes (`fitxes/ud3*.html`, amb el full que explica per què 1/2 + 1/4 no pot donar 2/6) i
-   l'examen (`generadors/examens/ud3.js`). Falta la part de mesura i àrea: les unitats (m, km, m²
-   i km²), l'àrea com a quadrets comptats i els km² de Barcelona i de Gaza en un mapa amb
-   quadrícula ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7).
+   l'examen (`generadors/examens/ud3.js`). I la mesura i l'àrea: la tasca 13 de la caixa i les
+   fitxes `ud3-area.html` (la primera) i `ud3-mapes.html` (els km² de Barcelona i de Gaza). La
+   unitat 3 és acabada; només en falten els PDF ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7).
    **La unitat 4, «És gran l'ou del kiwi?», del 12 al 28 de gener:** per fer. La fracció d'un
    nombre, els percentatges i els dobles i els triples, segons la programació.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la

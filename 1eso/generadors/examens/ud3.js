@@ -103,6 +103,25 @@ const alumnat = [
       ["d)", dada("{3/10} + {4/10} = {7/10}"), ""],
     ]),
   ]),
+
+  ...X.exercici(9, "Calcula l'àrea de cada rectangle. Mira la targeta de les taules.", {}, [
+    X.context("Multiplica les files pels quadrets de cada fila."),
+    X.taulaResposta([10, 45, 45], ["", "Rectangle", "Àrea"], [
+      ["a)", dada("3 files de 4 quadrets"), ms("3 · 4 = 12 quadrets")],
+      ["b)", dada("5 files de 6 quadrets"), ""],
+      ["c)", dada("4 files de 7 quadrets"), ""],
+      ["d)", dada("8 files de 9 quadrets"), ""],
+    ]),
+  ]),
+
+  ...X.exercici(10, "Quina unitat faries servir? Escriu m, km, m² o km².", { mateixaPagina: true }, [
+    X.taulaResposta([10, 60, 30], ["", "Què mesures", "La unitat"], [
+      ["a)", dada("La llargada de la classe"), ms("m")],
+      ["b)", dada("De casa teva a Barcelona"), ""],
+      ["c)", dada("El terra de l'aula"), ""],
+      ["d)", dada("Una ciutat"), ""],
+    ]),
+  ]),
 ];
 
 /* ---------------------------------------------------------- solucionari -- */
@@ -112,8 +131,8 @@ const solucionari = privat => [
   ...sol.titol(3),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Sense calculadora: la *targeta de les taules* i la *targeta dels noms de les fraccions* són al davant tota l'estona.`,
-    "*Com s'ha construït:* avalua el mateix que l'examen de fraccions del grup (el nom, el tipus, comparar, les equivalents i les sumes), sense el valor numèric, la multiplicació en creu, les irreductibles de nombres grans ni les sumes amb denominadors diferents. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les cinc fitxes de la unitat. Cap apartat és nou.",
-    "*Si cal, en dues sessions:* els exercicis 1 a 4 (el nom, el tipus i comparar) i els 5 a 8 (les equivalents i les sumes).",
+    "*Com s'ha construït:* avalua el mateix que l'examen de fraccions del grup (el nom, el tipus, comparar, les equivalents i les sumes), i l'àrea i les unitats de la programació, sense el valor numèric, la multiplicació en creu, les irreductibles de nombres grans ni les sumes amb denominadors diferents. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les cinc fitxes de la unitat. Cap apartat és nou.",
+    "*Si cal, en dues sessions:* els exercicis 1 a 4 (el nom, el tipus i comparar) i els 5 a 10 (les equivalents, les sumes i l'àrea).",
     "*Es pot dibuixar:* un rectangle al marge, per comparar o per sumar, és una estratègia bona, no un error.",
   ]),
 
@@ -138,6 +157,12 @@ const solucionari = privat => [
   sol.h3("8. Està ben feta?"),
   sol.p("b) *Bé*; c) *Malament*: és 3/4, i 2/6 és menys de la meitat; d) *Bé*. És el full de la pàgina 5 de la fitxa 4: si a la meitat hi sumes un tros, en tens més de la meitat. *Compta per als nivells alts, no per al mínim.*", TRAS),
 
+  sol.h3("9. L'àrea del rectangle"),
+  sol.p("b) 5 · 6 = *30*; c) 4 · 7 = *28*; d) 8 · 9 = *72*. És la fitxa «Mesurar l'àrea», i el rectangle de la unitat 1.", TRAS),
+
+  sol.h3("10. La unitat"),
+  sol.p("b) *km*; c) *m²*; d) *km²*. Són les de la fitxa «Mesurar l'àrea».", TRAS),
+
   sol.h3("Què mirar per avaluar"),
   ...sol.vinyetes([
     "Exercicis 1 i 2 → el nom d'una fracció, en tots dos sentits, amb la targeta.",
@@ -146,6 +171,7 @@ const solucionari = privat => [
     "Exercicis 5 i 6 → amplifica, i diu si dues fraccions són equivalents.",
     "Exercici 7 → suma i resta amb el mateix denominador.",
     "Exercici 8 → *nivells alts*: reconeix una suma mal feta.",
+    "Exercicis 9 i 10 → l'àrea d'un rectangle, i la unitat de mesura.",
   ]),
   sol.p("Els criteris de la SA del grup (1.2, 5.2, 6.1 i 9.1) són de referència: l'avaluació es fa amb els criteris del PI. Una explicació oral registrada en el moment, o el codi d'una tasca tancada de la caixa d'eines, valen igual que l'examen escrit."),
 ];
