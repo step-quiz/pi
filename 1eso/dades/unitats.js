@@ -88,9 +88,14 @@ window.UNITATS = [
     dates: "del 12 al 28 de gener",
     sessions: "11",
     nucli: "Un terç de 12 és repartir 12 quadrets en 3 grups iguals. " +
-           "Un percentatge és quants quadrets de cada 100.",
-    material: "Miniblocs: repartir 12 en 3 grups iguals. Quadrícula de 100: pintar-ne 25.",
+           "Multiplicar dues fraccions és fer un tros de tros del mateix rectangle. " +
+           "Un percentatge és quants quadrets de cada 100. " +
+           "El doble i el triple es llegeixen en dues files de quadrets, una sota l'altra.",
+    material: "Miniblocs: repartir 12 en 3 grups iguals. Quadrícula de 100: pintar-ne 25. " +
+              "El tros de tros: un rectangle partit en columnes i en files alhora. " +
+              "Dues files de quadrets per comparar mides.",
     criteris: "1.3, 2.1, 5.1, 6.1",
+    tasques: [14, 15, 16, 17],
     fitxes: []
   },
   {

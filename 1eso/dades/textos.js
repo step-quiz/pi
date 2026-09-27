@@ -574,6 +574,98 @@ window.TEXTOS = {
     error_sencers:  'Has comptat els mitjos com si fossin sencers.',
     error_sense:    'T\'has deixat els mitjos.',
     pista:          'Dos mitjos fan un quadret. Compta\'ls de dos en dos.'
+  },
+  "14.1": {
+    nom:            'Reparteix i pinta',
+    titol:          'Reparteix i pinta',
+    ajuda:          'Tria el nombre de grups i quants grups pintes.',
+    et_nombre:      'Quants quadrets',
+    et_d:           'Quants grups',
+    et_n:           'Quants grups pintes',
+    grup:           'grup',
+    grups:          'grups',
+    de:             'de',
+    reparteixes:    'Reparteixes {quadrets} en {d} grups iguals.',
+    cada_grup:      'Cada grup té {quadrets}.',
+    pintes_un:      'Pintes 1 grup.',
+    pintes:         'Pintes {n} grups.',
+    resultat:       'En total, pintes {quadrets}.',
+    aria:           '{n} de {d} grups de {nombre} quadrets, pintats'
+  },
+  "14.2": {
+    nom:            'Quant és?',
+    titol:          'Quant és?',
+    ajuda:          'Reparteix en grups. Després toca el resultat.',
+    pregunta:       'Quant és {f} de {nombre}?',
+    comenca:        'Reparteix primer en grups iguals.',
+    encert:         '{f} de {nombre} és {r}.',
+    error_grup:     'Aquest és el nombre de quadrets d\'un grup, no el resultat.',
+    error_girada:   'No és aquest.',
+    pista:          'Reparteix el nombre en grups iguals. Després, compta els quadrets dels grups que es pinten.'
+  },
+  "15.1": {
+    nom:              'El tros de tros',
+    titol:            'El tros de tros',
+    ajuda:            'Tria les dues fraccions. Mira el tros que és de les dues.',
+    parteixes_amples: 'Parteixes el rectangle en {d1} trossos amples.',
+    parteixes_alts:   'El tornes a partir en {d2} trossos alts.',
+    trossos:          'En total, hi ha {dr} trossos petits.',
+    aria:             'Un tros de {d1} de {d2}: en total, 1 de {dr} trossos'
+  },
+  "15.2": {
+    nom:            'Quin tros és?',
+    titol:          'Quin tros és?',
+    ajuda:          'Mira els dos denominadors. Després toca el resultat.',
+    pregunta:       'Quant és 1/{d1} de 1/{d2}?',
+    comenca:        'Multiplica els dos denominadors.',
+    encert:         '1/{d1} de 1/{d2} és 1/{dr}: {d1} · {d2} = {dr}.',
+    error_suma:     'Els denominadors no se sumen: es multipliquen.',
+    error_un_dels:  'Aquest és un dels denominadors, no el resultat.',
+    pista:          'Multiplica els dos denominadors: {d1} · {d2}.'
+  },
+  "16.1": {
+    nom:            'Pinta el percentatge',
+    titol:          'Pinta el percentatge',
+    ajuda:          'Tria un percentatge. Mira quants quadrets es pinten.',
+    quants:         'El {p} % és {p} quadrets de cada 100.',
+    es_la_fraccio:  'És la fracció {f}.',
+    aria:           '{p} quadrets de 100, pintats'
+  },
+  "16.2": {
+    nom:            'Quin percentatge és?',
+    titol:          'Quin percentatge és?',
+    ajuda:          'Compta els quadrets pintats. Després toca el percentatge.',
+    comenca:        'Compta els quadrets pintats.',
+    encert:         'Hi ha {p} quadrets pintats de 100: és el {p} %.',
+    error_falta:    'Aquests són els quadrets que falten, no els que hi ha.',
+    error_cent:     'No estan pintats tots els quadrets: no és el 100 %.',
+    pista:          'Compta un per un els quadrets pintats. Cada quadret és 1 %.'
+  },
+  "17.1": {
+    nom:            'El doble i el triple',
+    titol:          'El doble i el triple',
+    ajuda:          'Tria un nombre. Tria si vols el doble o el triple.',
+    et_n:           'El nombre petit',
+    doble:          'El doble',
+    triple:         'El triple',
+    vegada:         'vegada',
+    vegades:        'vegades',
+    la_fila:        'La primera fila té {quadrets}.',
+    el_doble:       'La segona fila és el doble: té {quadrets}.',
+    el_triple:      'La segona fila és el triple: té {quadrets}.',
+    hi_cap:         'La fila petita hi cap {vegades}.',
+    aria_doble:     'La fila petita de {n} quadrets, i la del doble, de {r} quadrets',
+    aria_triple:    'La fila petita de {n} quadrets, i la del triple, de {r} quadrets'
+  },
+  "17.2": {
+    nom:            'Quantes vegades hi cap?',
+    titol:          'Quantes vegades hi cap?',
+    ajuda:          'Compta quantes vegades hi cap la fila petita. Després toca la resposta.',
+    comenca:        'Compta quantes vegades hi cap la fila de dalt, dins de la de baix.',
+    encert:         'La fila petita, de {n} quadrets, hi cap {k} vegades: {n} · {k} = {r}.',
+    error:          'No és aquesta.',
+    pista:          'Compta de {n} en {n} quadrets, des de l\'esquerra.',
+    aria:           'La fila petita de {n} quadrets, i la fila gran de {r} quadrets'
   }
 };
 
@@ -1106,5 +1198,97 @@ window.TEXTOS_GUIA = {
     error_sencers:  ["Error: els mitjos com a sencers", []],
     error_sense:    ["Error: sense els mitjos", []],
     pista:          ["Pista del primer error", []]
+  },
+  "14.1": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    et_nombre:      ["Etiqueta del comptador del nombre", []],
+    et_d:           ["Etiqueta del comptador dels grups", []],
+    et_n:           ["Etiqueta del comptador dels grups pintats", []],
+    grup:           ["Un: «1 grup»", []],
+    grups:          ["Més d'un: «3 grups»", []],
+    de:             ["La «de» de «1/3 de 12»", []],
+    reparteixes:    ["Primera frase de la lectura", ["quadrets", "d"]],
+    cada_grup:      ["Quants quadrets té cada grup", ["quadrets"]],
+    pintes_un:      ["Quan es pinta 1 sol grup", []],
+    pintes:         ["Quan es pinten més d'un grup", ["n"]],
+    resultat:       ["El resultat final", ["quadrets"]],
+    aria:           ["Per al lector de pantalla", ["n", "d", "nombre"]]
+  },
+  "14.2": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    pregunta:       ["La pregunta, amb la fracció escrita", ["f", "nombre"]],
+    comenca:        ["Avís abans de contestar", []],
+    encert:         ["Resposta correcta", ["f", "nombre", "r"]],
+    error_grup:     ["Error: el nombre d'un grup en lloc del resultat", []],
+    error_girada:   ["Error: la segona confusió", []],
+    pista:          ["Pista del primer error", []]
+  },
+  "15.1": {
+    nom:              ["Nom de la subtasca a la barra", []],
+    titol:            ["Títol de la targeta", []],
+    ajuda:            ["Consigna sota el títol", []],
+    parteixes_amples: ["Es parteix en columnes: la primera fracció", ["d1"]],
+    parteixes_alts:   ["Es torna a partir en files: la segona fracció", ["d2"]],
+    trossos:          ["El total de trossos petits: el resultat", ["dr"]],
+    aria:             ["Per al lector de pantalla", ["d1", "d2", "dr"]]
+  },
+  "15.2": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    pregunta:       ["La pregunta, amb els dos denominadors", ["d1", "d2"]],
+    comenca:        ["Avís abans de contestar", []],
+    encert:         ["Resposta correcta, amb la multiplicació", ["d1", "d2", "dr"]],
+    error_suma:     ["Error: sumar en lloc de multiplicar", []],
+    error_un_dels:  ["Error: un dels denominadors sols", []],
+    pista:          ["Pista del primer error", ["d1", "d2"]]
+  },
+  "16.1": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    quants:         ["Quants quadrets és el percentatge", ["p"]],
+    es_la_fraccio:  ["La fracció coneguda, si n'hi ha", ["f"]],
+    aria:           ["Per al lector de pantalla", ["p"]]
+  },
+  "16.2": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    comenca:        ["Avís abans de contestar", []],
+    encert:         ["Resposta correcta", ["p"]],
+    error_falta:    ["Error: els quadrets que falten", []],
+    error_cent:     ["Error: dir sempre el 100 %", []],
+    pista:          ["Pista del primer error", []]
+  },
+  "17.1": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    et_n:           ["Etiqueta del comptador del nombre petit", []],
+    doble:          ["Pastilla", []],
+    triple:         ["Pastilla", []],
+    vegada:         ["Una: «1 vegada»", []],
+    vegades:        ["Més d'una: «3 vegades»", []],
+    la_fila:        ["La fila de dalt, el nombre petit", ["quadrets"]],
+    el_doble:       ["La fila de baix, si és el doble", ["quadrets"]],
+    el_triple:      ["La fila de baix, si és el triple", ["quadrets"]],
+    hi_cap:         ["Quantes vegades hi cap la fila petita", ["vegades"]],
+    aria_doble:     ["Per al lector de pantalla, amb el doble", ["n", "r"]],
+    aria_triple:    ["Per al lector de pantalla, amb el triple", ["n", "r"]]
+  },
+  "17.2": {
+    nom:            ["Nom de la subtasca a la barra", []],
+    titol:          ["Títol de la targeta", []],
+    ajuda:          ["Consigna sota el títol", []],
+    comenca:        ["Avís abans de contestar", []],
+    encert:         ["Resposta correcta, amb la multiplicació", ["n", "k", "r"]],
+    error:          ["Resposta incorrecta", []],
+    pista:          ["Pista del primer error", ["n"]],
+    aria:           ["Per al lector de pantalla", ["n", "r"]]
   }
 };

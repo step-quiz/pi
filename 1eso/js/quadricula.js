@@ -269,6 +269,29 @@
     }
     return unitats * (H + TIRA.aire) - TIRA.aire;
   }
+  /* ================================================ multiplicar fraccions ===== */
+
+  /* El rectangle de dues fraccions (unitat 4): d1 columnes per d2 files, sempre
+     de la mateixa mida perquè el resultat es pugui comparar amb el de les
+     fraccions soles (unitat 3). Les primeres n1 columnes es pinten («la
+     primera fracció»), i les primeres n2 files queden resseguides amb un
+     contorn («la segona fracció»): el tros que és a la vegada pintat i dins
+     del contorn (n1 columnes per n2 files) és el resultat, marcat amb el color
+     I el contorn perquè el color no sigui l'única diferència (docs/
+     CRITERIS-DISSENY.md, els colors de quadricula.js). */
+  const G2D = { m: 40, x: 70, y: 34 };
+  function graella2D(svg, d1, n1, d2, n2) {
+    svg.textContent = "";
+    const m = Math.min(G2D.m, 300 / d1, 220 / d2);
+    graella(svg, G2D.x, G2D.y, d2, d1, m);
+    if (n1 > 0) rectangle(svg, G2D.x, G2D.y, d2, n1, m, "q");
+    if (n1 > 0 && n2 > 0) svg.appendChild(el("rect", { x: G2D.x + 1.5, y: G2D.y + 1.5,
+      width: n1 * m - 3, height: n2 * m - 3, rx: 4, class: "q-contorn" }));
+    clau(svg, G2D.x, G2D.y - 10, G2D.x + d1 * m, G2D.y - 10, n1 + "/" + d1, "dalt");
+    clau(svg, G2D.x - 12, G2D.y, G2D.x - 12, G2D.y + d2 * m, n2 + "/" + d2, "esquerra");
+    svg.setAttribute("viewBox", "0 0 " + Math.round(G2D.x + d1 * m + 20) + " " + Math.round(G2D.y + d2 * m + 16));
+  }
+
   const NUMS = ["zero", "un", "dos", "tres", "quatre", "cinc", "sis", "set", "vuit", "nou", "deu", "onze", "dotze",
     "tretze", "catorze", "quinze", "setze", "disset", "divuit", "dinou", "vint", "vint-i-un", "vint-i-dos",
     "vint-i-tres", "vint-i-quatre"];
@@ -286,5 +309,5 @@
 
   CE.q = { quadret, rectangle, graella, text, clau, taula, cellaTocada, fletxa, blocs, T,
            graella100, rectanglesDe, divisorsDe, dibuixaRectangles,
-           TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio };
+           TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio, graella2D };
 })();

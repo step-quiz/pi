@@ -35,6 +35,10 @@
     <button class="segment" role="tab" data-tasca="11" data-mod="compara" aria-selected="false">Compara</button>
     <button class="segment" role="tab" data-tasca="12" data-mod="sumes" aria-selected="false">Sumes</button>
     <button class="segment" role="tab" data-tasca="13" data-mod="area" aria-selected="false">Àrea</button>
+    <button class="segment" role="tab" data-tasca="14" data-mod="fraccnombre" aria-selected="false">Fracció d'un nombre</button>
+    <button class="segment" role="tab" data-tasca="15" data-mod="multfrac" aria-selected="false">Multiplicar fraccions</button>
+    <button class="segment" role="tab" data-tasca="16" data-mod="percentatges" aria-selected="false">Percentatges</button>
+    <button class="segment" role="tab" data-tasca="17" data-mod="dobletriple" aria-selected="false">Dobles i triples</button>
   </div>
 </header>
 
@@ -697,6 +701,159 @@
   </div>
 </section>
 
+<!-- ============================================== 14 · FRACCIÓ D'UN NOMBRE ==== -->
+<section id="mod-fraccnombre" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="14.1.titol"></h2><p class="ajuda" data-text="14.1.ajuda"></p></div>
+        <span class="marca" id="fn-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptador" id="fn-nombre"></div>
+      <div class="comptador" id="fn-d"></div>
+      <div class="comptador" id="fn-n"></div>
+      <svg class="llenc" id="fn-svg" viewBox="0 0 460 300" role="img" style="max-width:26rem;margin:.5rem auto"></svg>
+      <div class="lectura" id="fn-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="14.2.titol"></h2>
+      <p class="ajuda" data-text="14.2.ajuda"></p>
+      <div id="fq-recorregut"></div>
+      <div class="represa" id="fq-represa" hidden></div>
+      <div id="fq-cos">
+        <p class="pregunta-gran" id="fq-pregunta"></p>
+        <svg class="llenc" id="fq-svg" viewBox="0 0 460 300" role="img" hidden style="max-width:26rem;margin:.5rem auto"></svg>
+        <div class="opcions-sino" id="fq-opcions" role="group" aria-label="Els resultats per triar"></div>
+        <div class="avis neutre" id="fq-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="fq-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="fq-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================ 15 · MULTIPLICAR FRACCIONS ==== -->
+<section id="mod-multfrac" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="15.1.titol"></h2><p class="ajuda" data-text="15.1.ajuda"></p></div>
+        <span class="marca" id="tt-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="tt-parells" role="group" aria-label="Les dues fraccions"></div>
+      <svg class="llenc" id="tt-svg" viewBox="0 0 380 260" role="img" style="max-width:24rem;margin:.5rem auto"></svg>
+      <div class="lectura" id="tt-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="15.2.titol"></h2>
+      <p class="ajuda" data-text="15.2.ajuda"></p>
+      <div id="tf-recorregut"></div>
+      <div class="represa" id="tf-represa" hidden></div>
+      <div id="tf-cos">
+        <p class="pregunta-gran" id="tf-pregunta"></p>
+        <svg class="llenc" id="tf-svg" viewBox="0 0 380 260" role="img" hidden style="max-width:24rem;margin:.5rem auto"></svg>
+        <div class="opcions-sino" id="tf-opcions" role="group" aria-label="Els resultats per triar"></div>
+        <div class="avis neutre" id="tf-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="tf-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="tf-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== 16 · PERCENTATGES ==== -->
+<section id="mod-percentatges" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="16.1.titol"></h2><p class="ajuda" data-text="16.1.ajuda"></p></div>
+        <span class="marca" id="pc-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="pc-pastilles" role="group" aria-label="Els percentatges"></div>
+      <svg class="llenc" id="pc-svg" viewBox="0 0 380 380" role="img" style="max-width:22rem;margin:.5rem auto"></svg>
+      <div class="lectura" id="pc-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="16.2.titol"></h2>
+      <p class="ajuda" data-text="16.2.ajuda"></p>
+      <div id="pq-recorregut"></div>
+      <div class="represa" id="pq-represa" hidden></div>
+      <div id="pq-cos">
+        <svg class="llenc" id="pq-svg" viewBox="0 0 380 380" role="img" aria-label="La graella de 100 amb els quadrets pintats" style="max-width:22rem;margin:.5rem auto"></svg>
+        <div class="opcions-sino" id="pq-opcions" role="group" aria-label="Els percentatges per triar"></div>
+        <div class="avis neutre" id="pq-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="pq-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="pq-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================== 17 · DOBLES I TRIPLES ==== -->
+<section id="mod-dobletriple" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="17.1.titol"></h2><p class="ajuda" data-text="17.1.ajuda"></p></div>
+        <span class="marca" id="dt-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptador" id="dt-n"></div>
+      <div class="pastilles" id="dt-pastilles" role="group" aria-label="Doble o triple"></div>
+      <svg class="llenc" id="dt-svg" viewBox="0 0 460 130" role="img" style="max-width:26rem;margin:.5rem auto"></svg>
+      <div class="lectura" id="dt-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="17.2.titol"></h2>
+      <p class="ajuda" data-text="17.2.ajuda"></p>
+      <div id="dq-recorregut"></div>
+      <div class="represa" id="dq-represa" hidden></div>
+      <div id="dq-cos">
+        <svg class="llenc" id="dq-svg" viewBox="0 0 460 130" role="img" style="max-width:26rem;margin:.5rem auto"></svg>
+        <div class="opcions-sino" id="dq-opcions" role="group" aria-label="Doble o triple, per triar"></div>
+        <div class="avis neutre" id="dq-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="dq-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="dq-final" hidden></div>
+    </div>
+  </div>
+</section>
+
 
 
 </div>
@@ -723,6 +880,10 @@
 <script src="js/moduls/compara.js"></script>
 <script src="js/moduls/sumes.js"></script>
 <script src="js/moduls/area.js"></script>
+<script src="js/moduls/fraccnombre.js"></script>
+<script src="js/moduls/multfrac.js"></script>
+<script src="js/moduls/percentatges.js"></script>
+<script src="js/moduls/dobletriple.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
