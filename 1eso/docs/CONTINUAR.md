@@ -1,5 +1,8 @@
 # Continuar
 
+> **Per a una conversa nova:** comença per [`TRASPAS.md`](TRASPAS.md), que explica com continuar
+> les unitats 4 a 7 amb el mateix mètode.
+
 On és la feina de `1eso/` i què ve després. S'actualitza al final de cada sessió de treball.
 
 ---
