@@ -74,7 +74,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes i examen. Falten els PDF |
-| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Per fer: la fracció d'un nombre, els percentatges i els dobles i triples |
+| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes i examen. Falten els PDF de les fitxes |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
@@ -318,7 +318,81 @@ sumar els de dalt i els de baix (fitxa 4, el full que va demanar el docent).
 
 ---
 
-## 8. L'avaluació
+## 8. La unitat 4: «És gran l'ou del kiwi?», activitat per activitat
+
+**La programació (SA4, del 12 al 28 de gener, 11 sessions)** fa servir les fraccions de la unitat 3
+per a la fracció d'un nombre i d'una fracció, la multiplicació i la divisió de fraccions, els
+dobles i els triples i els percentatges, amb el context de l'ou del kiwi: petit en absolut, però
+gran en relatiu. La pestanya d'inclusió ja proposa el model: repartir objectes, rectangles
+subdividits i quadrícules de 10 × 10 per als percentatges.
+
+**El pla el va validar el docent el 27 de setembre de 2026.** El nucli: una fracció d'un nombre és
+repartir els quadrets en grups iguals i pintar-ne els que diu el de dalt; multiplicar dues
+fraccions és fer un tros de tros del mateix rectangle; un percentatge és quants quadrets de cada
+100; i el doble i el triple es llegeixen en dues files de quadrets, una sota l'altra.
+
+| Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
+|---|---|---|---|
+| 1 · És gran o petit? i 2 · De dobles o de triples | Comparar mides, i el doble i el triple | Dues files de quadrets, amb ratlles cada tants quadrets com la fila petita: quantes vegades hi cap | Caixa 17 · fitxa 4 |
+| 3 · Fracció d'un nombre | Repartir un nombre en parts i agafar-ne algunes | Repartir els quadrets en grups iguals i pintar-ne els que diu el de dalt; el nombre sempre es reparteix exacte | Caixa 14 · fitxa 1 |
+| 4 · Fracció d'una fracció i 5 · Multipliquem fraccions | Multiplicar fraccions | El tros de tros: el mateix rectangle, partit en columnes per a la primera fracció i en files per a la segona. Només amb numerador 1, i el resultat amb denominador fins a 12 | Caixa 15 · fitxa 2 |
+| 6 · Dividim fraccions | Dividir fraccions | **Fora**: la divisió de fraccions no té una imatge senzilla amb quadrets | — |
+| 7 · Percentatges | Percentatges | Quants quadrets de cada 100 a la graella de 100, i la fracció coneguda: 10 %, 20 %, 25 %, 50 % i 75 % | Caixa 16 · fitxa 3 |
+| 8 · Quin percentatge del kiwi és l'ou? | L'ou, com a percentatge del kiwi | **Fora com a càlcul**: demana un percentatge qualsevol. La idea (petit en absolut, gran en relatiu) es treballa, sense càlcul, a la fitxa 4 | Fitxa 4 |
+| 9 · Dibuixem monstres | Fraccions multiplicades amb creativitat | **Fora**: activitat lliure de dibuix, que no es pot verificar | — |
+| 10 · Projecte final i 11 · Avaluació | Un percentatge d'una foto, i l'avaluació individual | **Fora**: demana quadricular una foto pròpia, massa obert. L'examen ho substitueix amb casos fixos | Examen |
+| Repàs | Tots els continguts | El repàs, i «Què he après?» | Fitxa 5 |
+
+El valor decimal de les fraccions (1/8 = 0,125) és de la unitat 5.
+
+**Les fitxes de la unitat 4** (`fitxes/ud4*.html`), en l'ordre de la caixa:
+
+| Fitxa | Què porta | Estat |
+|---|---|---|
+| 1 · `ud4.html` | La fracció d'un nombre: repartir en grups iguals, pintar-ne 1 i més d'1 | Feta |
+| 2 · `ud4-multfrac.html` | Multiplicar fraccions: el tros de tros, i el resultat com a fracció | Feta |
+| 3 · `ud4-percentatges.html` | Els percentatges a la graella de 100, i la fracció de cada un | Feta |
+| 4 · `ud4-dobletriple.html` | Dobles i triples, amb dues files de quadrets | Feta |
+| 5 · `ud4-repas.html` | El repàs de la unitat, i «Què he après?» | Feta |
+
+Falten els PDF, que es fan al Codespace amb `generadors/gen_pdf.py`.
+
+**Les decisions, amb data:**
+
+- 27 de setembre de 2026: el pla, validat. Només es multiplica (dividir fraccions queda fora, perquè
+  no té una imatge senzilla amb quadrets), els dobles i els triples es llegeixen en una taula de
+  dues files, i la unitat té cinc fitxes. Quatre eines noves a la caixa (tasques 14 a 17) i cap
+  targeta nova: la de les taules i la dels noms de les fraccions ja hi són.
+- 27 de setembre de 2026: la caixa. El tros de tros és una peça nova de `js/quadricula.js`,
+  `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es
+  ressegueix per files, i el resultat, on coincideixen, queda pintat i amb un traç gruixut (el
+  color no és l'única diferència).
+- 27 de setembre de 2026: les fitxes. Quatre casos per pàgina com a màxim: amb dibuixos de grups en
+  files, cinc ja no hi caben. El denominador 6 no hi és a la fitxa 1, ni el cas 9 · 2 = 18 a la
+  fitxa 4 (la fila no cap amb quadrets prou grans per pintar-hi); tots dos són a la caixa.
+- 28 de setembre de 2026: l'examen. La programació no porta cap examen d'aquesta unitat, i l'ordre
+  és el de les fitxes. L'únic apartat nou és el 6 d) (el 20 % com a fracció). La comparació de
+  l'ou i l'ocell (fitxa 4, exercici 3) hi queda fora: és una valoració qualitativa, i cap pregunta
+  de justificació oberta no entra a l'examen.
+
+**Les regles trencades de la unitat:**
+
+- Fracció d'un nombre: repartir en grups desiguals («5, 3 i 4 quadrets» com si fossin tres grups
+  iguals). A la caixa, també dir el nombre de grups en lloc dels quadrets d'un grup.
+- Multiplicar fraccions: sumar els denominadors en lloc de multiplicar-los (1/2 de 1/3 fet 1 de 5).
+  El dibuix n'ensenya 6, de trossos.
+- Percentatges: dir el 100 % sense que estigui tot pintat; a la caixa, també dir els quadrets que
+  falten en lloc dels que hi ha.
+- Dobles i triples: pensar que dues mides iguals volen dir la mateixa mida en relatiu (dos ous de
+  6 cm, dos ocells igual de grans).
+
+**Per revisar:** les xifres de l'exercici 3 de la fitxa 4 (l'ou i l'ocell: 6, 40 i 50 cm) són un
+exemple inventat per il·lustrar, no dades reals: un ou de kiwi de veritat és més llarg (uns 12 cm,
+a comprovar). Cal posar-hi les del grup.
+
+---
+
+## 9. L'avaluació
 
 Amb els criteris del PI. Cada solucionari acaba amb «Què mirar per avaluar»: accions que es
 veuen, sempre amb la targeta al davant, escrites perquè es puguin passar al PI tal com són.
@@ -327,7 +401,7 @@ Mai no s'avalua el que es recorda, sinó el que es fa amb la targeta al davant.
 
 ---
 
-## 9. Els exàmens
+## 10. Els exàmens
 
 Amb el motor comú, [`../../comu/examens/nucli.js`](../../comu/examens/nucli.js), i les regles de
 [`../../comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md), les mateixes que a l'altre
@@ -345,3 +419,11 @@ nombres) la porta a la mateixa pàgina, com a la fitxa.
 l'arrel, 7 entre quins dos nombres (nivells alts), 8 centenes, desenes i unitats, 9 el nom del
 nombre i 10 l'ordre de les operacions. Els seus exercicis 7 i 8 (propietats de les potències i
 potències de 10) no hi són. Dels quaranta apartats, només dos són nous (el 7c i el 7d).
+
+**L'examen de la unitat 4** (`generadors/examens/ud4.js`): vuit exercicis, dos per cada part de la
+unitat i en l'ordre de les fitxes: 1 i 2 la fracció d'un nombre, 3 i 4 el tros de tros, 5 i 6 els
+percentatges, 7 i 8 els dobles i els triples. Comparteixen pàgina els exercicis 3 i 4, i el 7 i el
+8; els altres van sols, perquè amb les files de fraccions o les graelles no hi caben de dos en dos.
+L'exercici 5 té una peça nova, la graella de 100 amb els quadrets pintats (és a `ud4.js`, no al
+nucli). Dels trenta-dos apartats, només un és nou (el 6 d). Les regles trencades de les fitxes no
+són exercicis apart: són l'«error típic» dels apartats, al solucionari, com a les unitats 2 i 3.

@@ -123,8 +123,12 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    l'examen (`generadors/examens/ud3.js`). I la mesura i l'àrea: la tasca 13 de la caixa i les
    fitxes `ud3-area.html` (la primera) i `ud3-mapes.html` (els km² de Barcelona i de Gaza). La
    unitat 3 és acabada; només en falten els PDF ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7).
-   **La unitat 4, «És gran l'ou del kiwi?», del 12 al 28 de gener:** per fer. La fracció d'un
-   nombre, els percentatges i els dobles i els triples, segons la programació.
+   **La unitat 4, «És gran l'ou del kiwi?», del 12 al 28 de gener: feta.** La caixa (tasques 14 a 17:
+   la fracció d'un nombre, el tros de tros, els percentatges i els dobles i triples), les cinc fitxes
+   (`fitxes/ud4*.html`) i l'examen (`generadors/examens/ud4.js`). Falten els PDF de les cinc fitxes
+   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8). **Per revisar abans de fer-la servir:** les
+   xifres de l'exercici 3 de la fitxa 4 (l'ou i l'ocell) són un exemple inventat, no dades reals; i
+   l'apartat 6 d) de l'examen, que és nou.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

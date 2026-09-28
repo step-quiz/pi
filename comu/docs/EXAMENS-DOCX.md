@@ -21,7 +21,9 @@ comú, i cada curs hi posa el seu contingut.
 
 Per a `1eso/`, el mateix dins de la seva carpeta (`1eso/generadors/examens/udN.js`,
 `1eso/generadors/examens-privat.json` i `1eso/docx/`), amb el mateix motor. La UD1 de `1eso/` hi
-és des del 25/9/2026, i la UD2 i la UD3, des del 26/9/2026.
+és des del 25/9/2026, la UD2 i la UD3, des del 26/9/2026, i la UD4, des del 28/9/2026. A la UD4, la
+graella de 100 amb quadrets pintats és una peça de `ud4.js` (`taulaGraelles`); si en cal en una
+altra unitat, passarà al nucli.
 
 **Les fraccions** (UD3 de `1eso/`): dins del text d'una cel·la de `taulaResposta`, «{3/4}»
 s'escriu com a fracció, amb el numerador damunt del denominador, com a les fitxes. Es fa amb una

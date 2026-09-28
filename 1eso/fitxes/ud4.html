@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 4 · La fracció d'un nombre</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 4 · És gran l'ou del kiwi? · La fracció d'un nombre
+  La primera fitxa de la unitat 4. Adapta l'activitat 3 de la situació:
+  una fracció d'un nombre és repartir-lo en grups iguals i pintar-ne els que
+  calen. Els casos són els de la tasca 14 de la caixa (regla 8).
+
+  La regla trencada és repartir en grups desiguals (exercici 3).
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>12 miniblocs</b>. Repartir-los en 3 grups iguals i comptar-ne un grup.</div>
+  <h1>La fracció d'un nombre</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div class="figura neta" style="margin-top:1rem;width:7cm;margin-left:auto;margin-right:auto">
+    <svg viewBox="0 0 219.2 127.4" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="12 quadrets repartits en 3 grups de 4">
+      <rect x="73.6" y="5.6" width="32.3" height="32.3" rx="4.7" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="109.5" y="5.6" width="32.3" height="32.3" rx="4.7" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="145.4" y="5.6" width="32.3" height="32.3" rx="4.7" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="181.3" y="5.6" width="32.3" height="32.3" rx="4.7" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="73.6" y="47.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="109.5" y="47.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="145.4" y="47.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="181.3" y="47.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="73.6" y="89.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="109.5" y="89.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="145.4" y="89.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="181.3" y="89.5" width="32.3" height="32.3" rx="4.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <path d="M73.7 3.8 H66.1 V123.6 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="60.5" y="69.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">3 grups</text>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.5rem 0 .8rem">Són 12 quadrets, repartits en 3 grups iguals. N'hi ha 1 grup pintat.</p>
+  <table>
+    <tr class="resolt"><td class="esq">Quants quadrets té cada grup?</td><td style="width:4.4cm"><span class="ms">4</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets hi ha pintats?</td><td><span class="ms">4</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Repartir 12 en 3 grups iguals: cada grup té 4.</p>
+    <p style="margin:.2rem 0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:34pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> de 12 <b>és</b> 4</p>
+    <p style="margin:0;font-weight:700">Pintar 1 grup de 3 és la fracció <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span>.</p>
+  </div>
+  <div class="pag">Unitat 4 · Fracció d'un nombre · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Reparteix en grups iguals. Pinta'n 1 grup. Escriu quants quadrets té.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Divideix el nombre entre els grups. 12 entre 3 és 4.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .6cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> de 12. Reparteix en 3 grups i pinta'n 1.</p>
+      <div style="width:5.4cm"><svg viewBox="0 0 204.1 116" style="width:5.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="12 quadrets repartits en 3 grups de 4">
+  <rect x="73.4" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="105.5" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="137.7" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="169.8" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="73.4" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="105.5" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="137.7" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.8" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.4" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="105.5" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="137.7" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.8" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V112.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="63.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">3 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada grup té <span class="ms">4</span> quadrets.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> de 16. Reparteix en 4 grups i pinta'n 1.</p>
+      <div style="width:4.9cm"><svg viewBox="0 0 186 136.1" style="width:4.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="16 quadrets repartits en 4 grups de 4">
+  <rect x="73.2" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.2" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.2" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.2" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V132.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="73.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">4 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada grup té <u style="padding:0 1.1rem"></u> quadrets.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de 14. Reparteix en 2 grups i pinta'n 1.</p>
+      <div style="width:6.2cm"><svg viewBox="0 0 234.3 59" style="width:6.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="14 quadrets repartits en 2 grups de 7">
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="141" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="163.7" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="186.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="209" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="95.6" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="118.3" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="141" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="163.7" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="186.3" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="209" y="33.6" width="20.4" height="20.4" rx="2.9" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V55.2 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="35" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">2 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada grup té <u style="padding:0 1.1rem"></u> quadrets.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">d)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span> de 20. Reparteix en 5 grups i pinta'n 1.</p>
+      <div style="width:4.2cm"><svg viewBox="0 0 159 136.1" style="width:4.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="20 quadrets repartits en 5 grups de 4">
+  <rect x="72.9" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V132.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="73.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">5 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada grup té <u style="padding:0 1.1rem"></u> quadrets.</p>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Fracció d'un nombre · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Reparteix en grups iguals. Pinta els grups que et diu la fracció. Multiplica per saber quants quadrets són.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Primer reparteix. Després multiplica els grups pintats pels quadrets de cada grup.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .6cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">3</span></span> de 12. Pinta 2 grups.</p>
+      <div style="width:5.4cm"><svg viewBox="0 0 204.1 116" style="width:5.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="12 quadrets repartits en 3 grups de 4">
+  <rect x="73.4" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="105.5" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="137.7" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="169.8" y="5.4" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="73.4" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="105.5" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="137.7" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="169.8" y="43.6" width="28.9" height="28.9" rx="4.2" fill="#BFBFBF" stroke="#3A3A3A" stroke-width="1.8"/>
+  <rect x="73.4" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="105.5" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="137.7" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="169.8" y="81.7" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V112.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="63.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">3 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt"><span class="ms">2 · 4 = 8</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span> de 16. Pinta 3 grups.</p>
+      <div style="width:4.9cm"><svg viewBox="0 0 186 136.1" style="width:4.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="16 quadrets repartits en 4 grups de 4">
+  <rect x="73.2" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="5.2" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.2" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="38.8" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.2" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="72.4" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="73.2" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="100.8" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="128.4" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156" y="106.1" width="24.8" height="24.8" rx="3.6" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V132.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="73.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">4 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt"><u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">2</span><span style="display:block;padding:.04em .18em 0">5</span></span> de 20. Pinta 2 grups.</p>
+      <div style="width:4.2cm"><svg viewBox="0 0 159 136.1" style="width:4.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="20 quadrets repartits en 5 grups de 4">
+  <rect x="72.9" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V132.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="73.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">5 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt"><u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">d)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">5</span></span> de 25. Pinta 3 grups.</p>
+      <div style="width:4.8cm"><svg viewBox="0 0 179.9 136.1" style="width:4.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="25 quadrets repartits en 5 grups de 5">
+  <rect x="72.9" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156.3" y="4.8" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156.3" y="31.7" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156.3" y="58.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156.3" y="85.6" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="72.9" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="93.7" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="114.6" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="135.4" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="156.3" y="112.5" width="18.8" height="18.8" rx="2.7" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <path d="M73.7 3.8 H66.1 V132.3 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="73.6" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">5 grups</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt"><u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Fracció d'un nombre · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Són grups iguals? Marca la resposta.</div></div>
+    <div class="clau" style="margin:.3rem 0 .6rem"><p style="margin:0">Compta els quadrets de cada grup. Han de ser tots iguals.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.3rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.2rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">a)</span> Són grups iguals?</p>
+      <div style="width:4.1cm"><svg viewBox="0 0 139.8 99" style="width:3.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="12 quadrets repartits en grups desiguals">
+  <rect x="5.1" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="31.6" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.5" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="110.9" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="5.1" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="31.6" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="58" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="5.1" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="31.6" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.5" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+</svg></div>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.2rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">b)</span> Són grups iguals?</p>
+      <div style="width:4.1cm"><svg viewBox="0 0 139.8 99" style="width:3.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="15 quadrets repartits en grups desiguals">
+  <rect x="5.1" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="31.6" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.5" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="110.9" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="5.1" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="31.6" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="58" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="84.5" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="110.9" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="5.1" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="31.6" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.5" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="110.9" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+</svg></div>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.2rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">c)</span> Són grups iguals?</p>
+      <div style="width:6.2cm"><svg viewBox="0 0 219.2 99" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="18 quadrets repartits en grups desiguals">
+  <rect x="5.1" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="31.6" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="58" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="84.5" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="110.9" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="137.4" y="5.1" width="23.8" height="23.8" rx="3.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="5.1" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="31.6" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.5" y="37.6" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="5.1" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="31.6" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="58" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="84.5" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="110.9" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="137.4" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="163.8" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="190.3" y="70.1" width="23.8" height="23.8" rx="3.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+</svg></div>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.5cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Per fer una fracció d'un nombre, els grups han de ser iguals.</p>
+    <p style="margin:.2rem 0 0">Si els grups no són iguals, no es pot dir quin tros és cada un.</p>
+  </div>
+  <div class="pag">Unitat 4 · Fracció d'un nombre · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Calcula la fracció d'un nombre. Mira la targeta.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Una capsa de 20 llapis. En un terç hi ha llapis vermells.</p>
+      <p class="frase" style="margin:0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> de 20: <span class="ms">1 · 5 = 5</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> 24 alumnes a la classe. Una sisena part porta ulleres.</p>
+      <p class="frase" style="margin:0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">6</span></span> de 24: <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">c)</span> 30 cromos. En repartim tres cinquenes parts a un amic.</p>
+      <p class="frase" style="margin:0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">5</span></span> de 30: <u style="padding:0 1.1rem"></u> · <u style="padding:0 1.1rem"></u> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Fracció d'un nombre · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 4 · La fracció d'un nombre · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> La fracció d'un nombre és repartir-lo en grups iguals: el denominador diu
+    en quants grups, i el numerador, quants grups es pinten. 1/3 de 12 és repartir 12 en 3 grups de 4, i
+    pintar-ne 1. La caixa d'eines ho fa a la tasca 14.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb 12 miniblocs: repartir-los en 3 grups iguals de 4, i comptar-ne un grup. És
+  l'exemple de la pàgina 1.</p>
+  <h3>1. Reparteix i pinta 1 grup</h3>
+  <p>b) 4; c) 7; d) 4. Sempre amb divisió exacta, i el resultat és de la targeta de les taules.</p>
+  <h3>2. Pinta més d'un grup</h3>
+  <p>b) 3 · 4 = 12; c) 2 · 4 = 8; d) 3 · 5 = 15. Primer es reparteix (divisió), després es
+  multiplica el resultat pels grups que es pinten.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. Grups iguals</h3>
+  <p>b) Sí; c) No. <b>Error típic:</b> dir que sí encara que els grups tinguin nombres diferents de
+  quadrets. És la regla trencada d'aquesta fitxa. No l'expliqueu: que compti els quadrets de cada
+  grup, un per un, i vegi que no coincideixen.</p>
+  <h3>4. A la vida de cada dia</h3>
+  <p>b) 6 · 4 = 24; c) 5 · 6 = 30, i 6 · 3 = 18.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=14</b> (14.1 Reparteix i
+  pinta; 14.2 Quant és?). La 14.2 dona un codi de verificació; les respostes falses són les dues
+  confusions: dir el nombre d'un grup en lloc del resultat, i una altra confusió propera.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta de les taules al davant. Els criteris de la SA del grup (1.3, 2.1, 5.1 i
+  6.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs, reparteix un nombre en grups iguals.</li>
+    <li>Pinta 1 grup i diu quants quadrets té (exercici 1).</li>
+    <li>Pinta més d'un grup i calcula el resultat amb una multiplicació (exercici 2).</li>
+    <li>Nivells alts: diu per què els grups han de ser iguals (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

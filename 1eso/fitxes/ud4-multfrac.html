@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 4 · Multiplicar fraccions</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 4 · És gran l'ou del kiwi? · Multiplicar fraccions
+  La segona fitxa de la unitat 4. Adapta les activitats 4 i 5 de la situació:
+  multiplicar dues fraccions és fer un tros de tros del mateix rectangle,
+  partit en columnes i en files alhora. Només amb numerador 1, i el resultat
+  mai no passa de denominador 12 (decisió ja presa a la unitat 3). Dividir
+  fraccions (activitat 6) queda fora: no té una imatge senzilla amb quadrets.
+  Els casos són els de la tasca 15 de la caixa (regla 8).
+
+  La regla trencada és sumar els denominadors en lloc de multiplicar-los
+  (exercici 3).
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>paper quadriculat</b>. Pintar una columna de 2 i, a sobre, ratllar una fila de 4: el quadret de la cantonada és el tros de tros.</div>
+  <h1>Multiplicar fraccions</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div class="figura neta" style="margin-top:1rem;width:7cm;margin-left:auto;margin-right:auto">
+    <svg viewBox="0 0 155 198.4" style="width:4.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 2 de 4: el resultat és 1 de 8">
+      <rect x="68.2" y="28.5" width="37.4" height="37.4" rx="5.4" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+      <rect x="109.8" y="28.5" width="37.4" height="37.4" rx="5.4" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+      <rect x="68.2" y="70.1" width="37.4" height="37.4" rx="5.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="109.8" y="70.1" width="37.4" height="37.4" rx="5.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="68.2" y="111.7" width="37.4" height="37.4" rx="5.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="109.8" y="111.7" width="37.4" height="37.4" rx="5.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="68.2" y="153.3" width="37.4" height="37.4" rx="5.4" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="109.8" y="153.3" width="37.4" height="37.4" rx="5.4" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+      <rect x="68" y="28.3" width="37.8" height="37.8" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+      <path d="M66.1 34 V26.5 H149.3 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="107.7" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 2</text>
+      <path d="M73.7 26.5 H66.1 V192.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+      <text x="60.5" y="115.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 4</text>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.5rem 0 .8rem">És un rectangle partit en 2 columnes i en 4 files. El quadret de la cantonada és pintat de les dues maneres.</p>
+  <table>
+    <tr class="resolt"><td class="esq">Quants trossos petits hi ha en total?</td><td style="width:4.4cm"><span class="ms">8</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">Partir en 2 columnes i en 4 files fa 2 · 4 = 8 trossos petits.</p>
+    <p style="margin:.2rem 0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:30pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:30pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> <b>és</b> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:30pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">8</span></span></p>
+    <p style="margin:0;font-weight:700">Multiplicar fraccions és fer un tros de tros.</p>
+  </div>
+  <div class="pag">Unitat 4 · Multiplicar fraccions · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Parteix el rectangle en columnes i en files. Compta els trossos petits.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Multiplica els dos denominadors. 2 columnes i 3 files fan 2 · 3 = 6.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .6cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span>. Parteix en 2 columnes i en 3 files.</p>
+      <div style="width:2.9cm"><svg viewBox="0 0 136.1 128.5" style="width:3.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 2 de 3: el resultat és 1 de 6">
+  <rect x="67.7" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.7" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.7" y="92.3" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="92.3" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="28.3" height="28.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H130.4 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="98.3" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 2</text>
+  <path d="M73.7 26.5 H66.1 V122.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="80.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 3</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">En total hi ha <span class="ms">6</span> trossos petits.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span>. Parteix en 3 columnes i en 2 files.</p>
+      <div style="width:3.8cm"><svg viewBox="0 0 168.2 96.4" style="width:4.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 3 de 2: el resultat és 1 de 6">
+  <rect x="67.7" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="132" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.7" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="132" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="28.3" height="28.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H162.5 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="114.3" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 3</text>
+  <path d="M73.7 26.5 H66.1 V90.7 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="64.1" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 2</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">En total hi ha <u style="padding:0 1.1rem"></u> trossos petits.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span>. Parteix en 2 columnes i en 5 files.</p>
+      <div style="width:2.9cm"><svg viewBox="0 0 110.4 128.5" style="width:2.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 2 de 5: el resultat és 1 de 10">
+  <rect x="67.1" y="27.4" width="17.3" height="17.3" rx="2.5" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="86.4" y="27.4" width="17.3" height="17.3" rx="2.5" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.1" y="46.7" width="17.3" height="17.3" rx="2.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="86.4" y="46.7" width="17.3" height="17.3" rx="2.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.1" y="66" width="17.3" height="17.3" rx="2.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="86.4" y="66" width="17.3" height="17.3" rx="2.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.1" y="85.2" width="17.3" height="17.3" rx="2.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="86.4" y="85.2" width="17.3" height="17.3" rx="2.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.1" y="104.5" width="17.3" height="17.3" rx="2.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="86.4" y="104.5" width="17.3" height="17.3" rx="2.5" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="15.5" height="15.5" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H104.7 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="85.4" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 2</text>
+  <path d="M73.7 26.5 H66.1 V122.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="80.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 5</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">En total hi ha <u style="padding:0 1.1rem"></u> trossos petits.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">d)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span>. Parteix en 3 columnes i en 3 files.</p>
+      <div style="width:3.8cm"><svg viewBox="0 0 168.2 128.5" style="width:4.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 3 de 3: el resultat és 1 de 9">
+  <rect x="67.7" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="132" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.7" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="132" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.7" y="92.3" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="92.3" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="132" y="92.3" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="28.3" height="28.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H162.5 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="114.3" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 3</text>
+  <path d="M73.7 26.5 H66.1 V122.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="80.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 3</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">En total hi ha <u style="padding:0 1.1rem"></u> trossos petits.</p>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Multiplicar fraccions · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Multiplica els dos denominadors. Escriu el resultat com a fracció.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .6cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span></p>
+      <div style="width:3.8cm"><svg viewBox="0 0 144.1 128.5" style="width:3.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 3 de 4: el resultat és 1 de 12">
+  <rect x="67.3" y="27.7" width="21.7" height="21.7" rx="3.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="27.7" width="21.7" height="21.7" rx="3.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="115.5" y="27.7" width="21.7" height="21.7" rx="3.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.3" y="51.8" width="21.7" height="21.7" rx="3.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="51.8" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="115.5" y="51.8" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.3" y="75.8" width="21.7" height="21.7" rx="3.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="75.8" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="115.5" y="75.8" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.3" y="99.9" width="21.7" height="21.7" rx="3.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="99.9" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="115.5" y="99.9" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="20.3" height="20.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H138.4 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="102.3" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 3</text>
+  <path d="M73.7 26.5 H66.1 V122.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="80.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 4</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">3 · 4 = 12: <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">12</span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span></p>
+      <div style="width:2.9cm"><svg viewBox="0 0 120 128.5" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 2 de 4: el resultat és 1 de 8">
+  <rect x="67.3" y="27.7" width="21.7" height="21.7" rx="3.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="27.7" width="21.7" height="21.7" rx="3.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.3" y="51.8" width="21.7" height="21.7" rx="3.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="51.8" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.3" y="75.8" width="21.7" height="21.7" rx="3.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="75.8" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="67.3" y="99.9" width="21.7" height="21.7" rx="3.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="91.4" y="99.9" width="21.7" height="21.7" rx="3.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="20.3" height="20.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H114.3 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="90.2" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 2</text>
+  <path d="M73.7 26.5 H66.1 V122.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="80.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 4</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">2 · 4 = <u style="padding:0 1.1rem"></u>: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span></p>
+      <div style="width:4.6cm"><svg viewBox="0 0 200.3 96.4" style="width:5.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 4 de 2: el resultat és 1 de 8">
+  <rect x="67.7" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="132" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="164.1" y="28.1" width="28.9" height="28.9" rx="4.2" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="67.7" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="99.9" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="132" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="164.1" y="60.2" width="28.9" height="28.9" rx="4.2" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="28.3" height="28.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H194.6 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="130.4" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 4</text>
+  <path d="M73.7 26.5 H66.1 V90.7 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="64.1" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 2</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">4 · 2 = <u style="padding:0 1.1rem"></u>: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">d)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">6</span></span></p>
+      <div style="width:2.9cm"><svg viewBox="0 0 103.9 128.5" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de 2 de 6: el resultat és 1 de 12">
+  <rect x="66.9" y="27.3" width="14.5" height="14.5" rx="2.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="83" y="27.3" width="14.5" height="14.5" rx="2.1" fill="#C4C4C4" stroke="#333" stroke-width="1.6"/>
+  <rect x="66.9" y="43.3" width="14.5" height="14.5" rx="2.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="83" y="43.3" width="14.5" height="14.5" rx="2.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.9" y="59.4" width="14.5" height="14.5" rx="2.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="83" y="59.4" width="14.5" height="14.5" rx="2.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.9" y="75.4" width="14.5" height="14.5" rx="2.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="83" y="75.4" width="14.5" height="14.5" rx="2.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.9" y="91.5" width="14.5" height="14.5" rx="2.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="83" y="91.5" width="14.5" height="14.5" rx="2.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="66.9" y="107.6" width="14.5" height="14.5" rx="2.1" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+  <rect x="83" y="107.6" width="14.5" height="14.5" rx="2.1" fill="#fff" stroke="#5E5E5E" stroke-width="1.2"/>
+  <rect x="68" y="28.3" width="12.3" height="12.3" rx="3" fill="none" stroke="#3A3A3A" stroke-width="2.6"/>
+  <path d="M66.1 34 V26.5 H98.3 V34" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="82.2" y="20.8" font-size="15.9" font-weight="400" text-anchor="middle" fill="#333">1 de 2</text>
+  <path d="M73.7 26.5 H66.1 V122.8 H73.7" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="60.5" y="80.2" font-size="15.9" font-weight="400" text-anchor="end" fill="#333">1 de 6</text>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">2 · 6 = <u style="padding:0 1.1rem"></u>: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Multiplicar fraccions · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Quin és el resultat? Marca la resposta. Compta els trossos petits si cal.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.3rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span>. Quin és el resultat?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>1 de 5</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 de 6</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span>. Quin és el resultat?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>1 de 7</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>1 de 12</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span>. Quin és el resultat?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>1 de 7</label><label style="min-width:3.6cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>1 de 10</label></div>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Els denominadors no se sumen: es multipliquen.</p>
+    <p style="margin:.2rem 0 0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> de <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span> no és 1 de 5. Compta els trossos: 2 · 3 = 6.</p>
+  </div>
+  <div class="pag">Unitat 4 · Multiplicar fraccions · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Calcula quin tros és, en total. Mira la targeta de les taules.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Menges <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> d'una pizza. D'aquest tros, en menges <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">3</span></span>.</p>
+      <p class="frase" style="margin:0">2 · 3 = 6: <span class="ms">1 de 6</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Un hort té <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> de flors. D'aquest tros, <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> són roses.</p>
+      <p class="frase" style="margin:0">4 · 2 = <u style="padding:0 1.1rem"></u>: <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 4 · Multiplicar fraccions · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 4 · Multiplicar fraccions · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Multiplicar dues fraccions és fer un tros de tros: el rectangle es
+    parteix en columnes per a la primera fracció i en files per a la segona, i el resultat és el
+    tros que és a la vegada de les dues. Només es fa servir numerador 1 a cada fracció, i el
+    resultat mai no passa de denominador 12 (decisió ja presa a la unitat 3): els casos són els de
+    la tasca 15 de la caixa. Dividir fraccions (activitat 6 del grup) queda fora d'aquesta fitxa:
+    no té una imatge senzilla amb quadrets.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb paper quadriculat: pintar una columna de 2 i, a sobre, ratllar una fila de 4.
+  El quadret de la cantonada, pintat de les dues maneres, és el tros de tros. És l'exemple de la
+  pàgina 1: 1/2 de 1/4 és 1/8.</p>
+  <h3>1. El tros de tros</h3>
+  <p>b) 6; c) 10; d) 9. Sempre es multiplica: columnes per files.</p>
+  <h3>2. Escriu el resultat</h3>
+  <p>b) 2 · 4 = 8: 1/8; c) 4 · 2 = 8: 1/8; d) 2 · 6 = 12: 1/12. El 1/12 és el cas més gran que es
+  fa servir en aquesta unitat: no se'n passa mai, com a la unitat 3.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. Quin és el resultat?</h3>
+  <p>b) 1 de 12; c) 1 de 10. <b>Error típic:</b> sumar els denominadors (1/2 de 1/3 fet «1 de 5»),
+  que és la regla trencada d'aquesta fitxa. No l'expliqueu: que compti els trossos petits del
+  dibuix, un per un, i vegi que en surten 6, no 5.</p>
+  <h3>4. A la vida de cada dia</h3>
+  <p>b) 4 · 2 = 8: 1/8.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=15</b> (15.1 El tros de
+  tros; 15.2 Quin tros és?). La 15.2 dona un codi de verificació; les respostes falses són sumar
+  els denominadors, i un dels denominadors sol.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta de les taules al davant. Els criteris de la SA del grup (1.3, 2.1, 5.1 i
+  6.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb paper quadriculat, fa un tros de tros pintant columnes i files.</li>
+    <li>Compta els trossos petits d'un tros de tros (exercici 1).</li>
+    <li>Escriu el resultat com a fracció, multiplicant els denominadors (exercici 2).</li>
+    <li>Nivells alts: diu per què els denominadors no se sumen (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

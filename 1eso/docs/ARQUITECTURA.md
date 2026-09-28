@@ -82,8 +82,12 @@ pantalla van a `css/app.css`.
 | 11 | Compara | `compara.js` | 11.1 Compara dues fraccions · **11.2 Quina és més gran?** | 1/3 i 1/5: la regla trencada |
 | 12 | Sumes | `sumes.js` | 12.1 Suma i resta · **12.2 Quant és?** | 3/8 + 2/8 = 5/8 |
 | 13 | Àrea | `area.js` | 13.1 Compta l'àrea · **13.2 Quina àrea té?** | La casa: 14 sencers i 2 mitjos, 15 quadrets |
+| 14 | Fracció d'un nombre | `fraccnombre.js` | 14.1 Reparteix i pinta · **14.2 Quant és?** | 1/3 de 12: 3 grups de 4 quadrets |
+| 15 | Multiplicar fraccions | `multfrac.js` | 15.1 El tros de tros · **15.2 Quin tros és?** | 1/2 de 1/4: 8 trossos, 1/8 |
+| 16 | Percentatges | `percentatges.js` | 16.1 Pinta el percentatge · **16.2 Quin percentatge és?** | El 25 %: 25 quadrets de 100 |
+| 17 | Dobles i triples | `dobletriple.js` | 17.1 El doble i el triple · **17.2 Quantes vegades hi cap?** | 3 i 6 quadrets: el doble |
 
-Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea). La 0 (les taules) es veu
+Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), i les 14 a 17, de la unitat 4. La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són

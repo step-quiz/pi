@@ -46,12 +46,16 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 | `caixa-eines?task=11` | Compara (unitat 3): 11.1 Compara dues fraccions · 11.2 Quina és més gran? |
 | `caixa-eines?task=12` | Sumes (unitat 3): 12.1 Suma i resta · 12.2 Quant és? |
 | `caixa-eines?task=13` | Àrea (unitat 3): 13.1 Compta l'àrea · 13.2 Quina àrea té? |
+| `caixa-eines?task=14` | Fracció d'un nombre (unitat 4): 14.1 Reparteix i pinta · 14.2 Quant és? |
+| `caixa-eines?task=15` | Multiplicar fraccions (unitat 4): 15.1 El tros de tros · 15.2 Quin tros és? |
+| `caixa-eines?task=16` | Percentatges (unitat 4): 16.1 Pinta el percentatge · 16.2 Quin percentatge és? |
+| `caixa-eines?task=17` | Dobles i triples (unitat 4): 17.1 El doble i el triple · 17.2 Quantes vegades hi cap? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
 exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
 `caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
 tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 3,
-9.2, 10.2, 11.2, 12.2 i 13.2) acaben amb
+9.2, 10.2, 11.2, 12.2 i 13.2; i de la unitat 4, 14.2, 15.2, 16.2 i 17.2) acaben amb
 un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 
@@ -69,7 +73,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1) i la dels noms de les fraccions (unitat 3) |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les set de la unitat 3 (mesurar l'àrea, quants km², què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs) |
+| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les set de la unitat 3 (mesurar l'àrea, quants km², què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs), i les cinc de la unitat 4 (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeix `fitxes.html` |
 | `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada i `fitxes.html`) i `app.css` (la caixa) |
@@ -147,6 +151,7 @@ npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5     # només el primer c
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud1.js
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud2.js
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud3.js
+NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud4.js
 ```
 
 Surten dos DOCX a `1eso/docx/`: l'examen i el solucionari. **No es pugen mai**: el `.gitignore`

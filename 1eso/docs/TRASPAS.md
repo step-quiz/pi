@@ -1,8 +1,8 @@
-# Traspàs: com continuar la carpeta `1eso/` (unitats 4 a 7)
+# Traspàs: com continuar la carpeta `1eso/` (unitats 5 a 7)
 
-Escrit el 26 de setembre de 2026 per la IA que va fer les unitats 1, 2 i 3, perquè una altra
-conversa, que comença de zero, pugui fer les unitats 4, 5, 6 i 7 amb el mateix mètode i la
-mateixa qualitat. Llegeix-lo sencer abans de tocar res. Després llegeix, per aquest ordre:
+Escrit el 26 de setembre de 2026 per la IA que va fer les unitats 1, 2 i 3, i posat al dia el 28 de
+setembre de 2026 amb la unitat 4, perquè una altra conversa, que comença de zero, pugui fer les
+unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer abans de tocar res. Després llegeix, per aquest ordre:
 [`CONTINUAR.md`](CONTINUAR.md), [`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md),
 [`CRITERIS-DISSENY.md`](CRITERIS-DISSENY.md), [`ARQUITECTURA.md`](ARQUITECTURA.md), el
 [`README.md`](../README.md) de `1eso/` i [`comu/docs/EXAMENS-DOCX.md`](../../comu/docs/EXAMENS-DOCX.md).
@@ -33,25 +33,25 @@ mateixa qualitat. Llegeix-lo sencer abans de tocar res. Després llegeix, per aq
 - **El descans:** si veus que són entre les 23 h i les 7 h, digues-li-ho una vegada, amb tacte,
   al final de la resposta, i continua fent la feina.
 
-## 2. On som (26/9/2026)
+## 2. On som (28/9/2026)
 
 | Unitat | Estat |
 |---|---|
 | 1 · Nombres naturals | Feta: caixa (tasques 0 a 4), quatre fitxes, targeta de les taules, examen. PDF fets |
 | 2 · Divisibilitat | Feta: caixa (5 a 8), cinc fitxes, examen. Falten els PDF |
 | 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. Falten els PDF |
-| 4 · És gran l'ou del kiwi? | **Per fer** |
+| 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. Falten els PDF |
 | 5 · Decimals i arrel quadrada | **Per fer** |
 | 6 · Sentit espacial | **Per fer** |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
 passi): fer els PDF que falten amb `generadors/gen_pdf.py`; treure del repositori els dos DOCX de
-l'examen de la unitat 1 (`generadors/examens/examen-ud1-*.docx`), que es publiquen al web; i, si
-hi són, treure les fitxes velles `fitxes/ud4*.html` i `generadors/examens/ud4.js` (les fraccions
-van ser primer la unitat 4 i van passar a la 3). Les ordres exactes són a `CONTINUAR.md`.
+l'examen de la unitat 1 (`generadors/examens/examen-ud1-*.docx`), que es publiquen al web. **No esborris els `fitxes/ud4*.html` ni `generadors/examens/ud4.js`:** les fitxes velles d'una
+antiga unitat 4 (les fraccions) ja no hi són, i els que hi ha ara són els de la unitat 4 de debò.
+Les ordres exactes són a `CONTINUAR.md`.
 
-**No hi ha material del grup** per a les unitats 4 a 7: el docent té la **programació** (set
+**No hi ha material del grup** per a les unitats 5 a 7: el docent té la **programació** (set
 fulls de càlcul, un per situació d'aprenentatge). Treballa a partir d'aquí (apartat 8).
 
 ## 3. L'entorn on treballes
@@ -269,7 +269,22 @@ El que ja se'n sap, i el nucli que hi ha a `dades/unitats.js` (una **proposta** 
 ## 10. Per començar la conversa nova
 
 El docent et passarà el ZIP del repositori i el de la programació, i et dirà per quina unitat
-començar. Si no ho diu, proposa-li la unitat 4. Un primer missatge que pot fer servir:
+començar. Si no ho diu, proposa-li la unitat 5. Un primer missatge que pot fer servir:
 
-> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 4: llegeix-ne
+> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 5: llegeix-ne
 > la programació i proposa'm el pla, com a les unitats anteriors.
+
+## 11. Coses que van fallar a la unitat 4 (i com evitar-les)
+
+- **Mira els PDF i els DOCX en imatge** (`pdftoppm -png -r 80`, i LibreOffice per als DOCX).
+  `mesura.py` i `comprova.py` no veuen un text tallat pels costats, ni una consigna separada de la
+  seva taula: només l'alçada. Aquests dos errors només es van veure mirant-ho.
+- **`comprova.py` i les igualtats amb «de» o «entre»:** «1/2 de 1/4 = 1/8» fa un fals error, perquè
+  llegeix només el tros després de la paraula. Escriu «és», o la multiplicació inversa.
+- **Un dibuix amb clau a l'esquerra** (`clau_esq`) necessita 1,9 cm de marge; amb 1,1, «3 grups»
+  surt tallat. Fes servir l'amplada real del dibuix (`cos.amp`), no una fórmula a mà.
+- **Amb dibuixos de grups en files, quatre casos per pàgina, no cinc:** `.frase` té interlineat 2,3.
+- **Comprova el número de cada activitat a la programació** abans d'escriure «adapta les activitats…»:
+  a la unitat 4 dues estaven mal assignades.
+- **Les xifres d'un context real** (un ou, un ocell) s'han de comprovar: no n'inventis.
+- **El ZIP porta `1eso/` sense `pdf/` ni `docx/`** (apartat 6): els PDF els fa el docent al Codespace.

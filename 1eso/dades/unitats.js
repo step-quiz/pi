@@ -95,6 +95,13 @@ window.UNITATS = [
               "El tros de tros: un rectangle partit en columnes i en files alhora. " +
               "Dues files de quadrets per comparar mides.",
     criteris: "1.3, 2.1, 5.1, 6.1",
+    fitxes: [
+      { fitxa: "fitxes/ud4.html", titol: "La fracció d'un nombre" },
+      { fitxa: "fitxes/ud4-multfrac.html", titol: "Multiplicar fraccions" },
+      { fitxa: "fitxes/ud4-percentatges.html", titol: "Els percentatges" },
+      { fitxa: "fitxes/ud4-dobletriple.html", titol: "Dobles i triples" },
+      { fitxa: "fitxes/ud4-repas.html", titol: "Repàs de la unitat" }
+    ],
     tasques: [14, 15, 16, 17],
     fitxes: []
   },
