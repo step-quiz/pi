@@ -168,5 +168,55 @@
     "empremta": "97fae895d3c0be616fb24a7cd634de8f2cddac592250f0ada8fefc26c2cba6f1",
     "font": "fitxes/ud3-sumes.html",
     "pagines": 2
+  },
+  "ud4-alumnat.pdf": {
+    "empremta": "749f859d084a24994a972b393b4e97b7862a4850b24151c25a4d3496ed857045",
+    "font": "fitxes/ud4.html",
+    "pagines": 5
+  },
+  "ud4-dobletriple-alumnat.pdf": {
+    "empremta": "f8045dd7144c4a02c79fe8e549cd6fee4632e17a9a2b676108bc7b20f2eb7025",
+    "font": "fitxes/ud4-dobletriple.html",
+    "pagines": 5
+  },
+  "ud4-dobletriple-solucionari.pdf": {
+    "empremta": "f8045dd7144c4a02c79fe8e549cd6fee4632e17a9a2b676108bc7b20f2eb7025",
+    "font": "fitxes/ud4-dobletriple.html",
+    "pagines": 2
+  },
+  "ud4-multfrac-alumnat.pdf": {
+    "empremta": "d1a8acb28bde785e8aada1c53ff1b8249632b0a093e872eb093ac62607db2138",
+    "font": "fitxes/ud4-multfrac.html",
+    "pagines": 5
+  },
+  "ud4-multfrac-solucionari.pdf": {
+    "empremta": "d1a8acb28bde785e8aada1c53ff1b8249632b0a093e872eb093ac62607db2138",
+    "font": "fitxes/ud4-multfrac.html",
+    "pagines": 2
+  },
+  "ud4-percentatges-alumnat.pdf": {
+    "empremta": "fb21118213788bd00f1645e0fd1221741ba3e58c3a23ea9e87d3e01b582d1df1",
+    "font": "fitxes/ud4-percentatges.html",
+    "pagines": 5
+  },
+  "ud4-percentatges-solucionari.pdf": {
+    "empremta": "fb21118213788bd00f1645e0fd1221741ba3e58c3a23ea9e87d3e01b582d1df1",
+    "font": "fitxes/ud4-percentatges.html",
+    "pagines": 2
+  },
+  "ud4-repas-alumnat.pdf": {
+    "empremta": "a46496cd2936a797c6b126dbc7bf2ece6932f90d8194c05b473c13f7728b25bf",
+    "font": "fitxes/ud4-repas.html",
+    "pagines": 4
+  },
+  "ud4-repas-solucionari.pdf": {
+    "empremta": "a46496cd2936a797c6b126dbc7bf2ece6932f90d8194c05b473c13f7728b25bf",
+    "font": "fitxes/ud4-repas.html",
+    "pagines": 2
+  },
+  "ud4-solucionari.pdf": {
+    "empremta": "749f859d084a24994a972b393b4e97b7862a4850b24151c25a4d3496ed857045",
+    "font": "fitxes/ud4.html",
+    "pagines": 2
   }
 }
