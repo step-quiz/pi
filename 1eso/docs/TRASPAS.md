@@ -41,7 +41,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 2 · Divisibilitat | Feta: caixa (5 a 8), cinc fitxes, examen. PDF fets |
 | 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. PDF fets |
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
-| 5 · Decimals i arrel quadrada | **En curs**: pla validat (29/9/2026), caixa (18 a 21, i la 2.4), targeta «Decimals i arrels» i fitxes 1 a 4 fetes. Falten dues fitxes (l'arrel i el repàs), els PDF i l'examen. El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
+| 5 · Decimals i arrel quadrada | **En curs**: pla validat (29/9/2026), caixa (18 a 21, i la 2.4), targeta «Decimals i arrels» i les sis fitxes fetes. Falta l'examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
 | 6 · Sentit espacial | **Per fer** |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 

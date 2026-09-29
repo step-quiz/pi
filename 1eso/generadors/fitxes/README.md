@@ -24,7 +24,8 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud4_multfrac.py` | `ud4-multfrac.html` | `fitxa_ud5_arrodonir.py` | `ud5-arrodonir.html` |
 | `fitxa_ud4_percentatges.py` | `ud4-percentatges.html` | `fitxa_ud5_sumes.py` | `ud5-sumes.html` |
 | `fitxa_ud4_dobletriple.py` | `ud4-dobletriple.html` | `fitxa_ud5_fraccions.py` | `ud5-fraccions.html` |
-| `fitxa_ud4_repas.py` | `ud4-repas.html` | | |
+| `fitxa_ud4_repas.py` | `ud4-repas.html` | `fitxa_ud5_arrel.py` | `ud5-arrel.html` |
+| | | `fitxa_ud5_repas.py` | `ud5-repas.html` |
 
 Les peces comunes: `fitxa_ud1.py` (la classe `Dibuix`, `ms()`, `buit()`, els colors: els altres
 n'executen la primera part), `peces_ud2.py` (opcions per marcar, pàgines, el document, la graella

@@ -119,7 +119,9 @@ window.UNITATS = [
       { fitxa: "fitxes/ud5.html", titol: "Els decimals" },
       { fitxa: "fitxes/ud5-arrodonir.html", titol: "Arrodonir i truncar" },
       { fitxa: "fitxes/ud5-sumes.html", titol: "Sumar i restar decimals" },
-      { fitxa: "fitxes/ud5-fraccions.html", titol: "De la fracció al decimal" }
+      { fitxa: "fitxes/ud5-fraccions.html", titol: "De la fracció al decimal" },
+      { fitxa: "fitxes/ud5-arrel.html", titol: "Quadrats i arrels" },
+      { fitxa: "fitxes/ud5-repas.html", titol: "Repàs de la unitat" }
     ],
     tasques: [0, 2, 18, 19, 20, 21]
   },
