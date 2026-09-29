@@ -140,7 +140,7 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    Les fitxes 1, «Els decimals» (`fitxes/ud5.html`), 2, «Arrodonir i truncar»
    (`fitxes/ud5-arrodonir.html`), i 3, «Sumar i restar decimals» (`fitxes/ud5-sumes.html`), fetes
    el 29/9/2026, 4, «De la fracció al decimal» (`fitxes/ud5-fraccions.html`), i 5, «Quadrats i
-   arrels» (`fitxes/ud5-arrel.html`), i 6, el repàs (`fitxes/ud5-repas.html`). Falta l'examen.
+   arrels» (`fitxes/ud5-arrel.html`); falta la de repàs.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure
