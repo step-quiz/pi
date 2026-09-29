@@ -359,6 +359,16 @@
     "font": "fitxes/ud7.html",
     "pagines": 5
   },
+  "ud7-grafics-alumnat.pdf": {
+    "empremta": "e6ff1e4a3e5d5963e0d5bb4c655f14a6e073031f011702ea5d4af4117d7d5300",
+    "font": "fitxes/ud7-grafics.html",
+    "pagines": 5
+  },
+  "ud7-grafics-solucionari.pdf": {
+    "empremta": "e6ff1e4a3e5d5963e0d5bb4c655f14a6e073031f011702ea5d4af4117d7d5300",
+    "font": "fitxes/ud7-grafics.html",
+    "pagines": 2
+  },
   "ud7-regla-alumnat.pdf": {
     "empremta": "9e40ac63901bb079a2ecfc25662d5ca3557b7d5fa10ddddda3ff3f21d38ac632",
     "font": "fitxes/ud7-regla.html",
@@ -367,6 +377,16 @@
   "ud7-regla-solucionari.pdf": {
     "empremta": "9e40ac63901bb079a2ecfc25662d5ca3557b7d5fa10ddddda3ff3f21d38ac632",
     "font": "fitxes/ud7-regla.html",
+    "pagines": 2
+  },
+  "ud7-repas-alumnat.pdf": {
+    "empremta": "5759869985e253d406ac9ada0ed97ab94299481d8e014e55eb5672ab382b99c2",
+    "font": "fitxes/ud7-repas.html",
+    "pagines": 5
+  },
+  "ud7-repas-solucionari.pdf": {
+    "empremta": "5759869985e253d406ac9ada0ed97ab94299481d8e014e55eb5672ab382b99c2",
+    "font": "fitxes/ud7-repas.html",
     "pagines": 2
   },
   "ud7-simbols-alumnat.pdf": {
