@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 5 · De la fracció al decimal</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 5 · Decimals i arrel quadrada · De la fracció al decimal
+  La quarta fitxa de la unitat 5. Adapta l'activitat 4 de la situació: una fracció
+  es passa a decimal al quadrat de 100 (1/4 són 25 quadrets, 0,25), i al revés
+  (0,3 són 3 columnes, 3/10). Només decimals exactes. Els casos són els de la
+  tasca 21 de la caixa (regla 8).
+
+  La regla trencada és posar el de baix després de la coma (1/4 = 0,4): en Pol,
+  pàgina 4. Les igualtats falses van dins de .revisa.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>la quadrícula de 100</b>. Repartir-la en 4 parts iguals. Cada part són 25 quadrets.</div>
+  <h1>De la fracció al decimal</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:.8rem;width:5.8cm;margin-left:auto;margin-right:auto">
+    <svg viewBox="0 0 215.4 215.4" style="width:5.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="El quadrat de 100 amb 25 quadrets pintats: 2 columnes i 5 quadrets">
+      <rect x="3.8" y="3.8" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="24.6" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="45.4" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="66.1" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="86.9" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="107.7" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="128.5" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="149.3" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="170.1" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="3.8" y="190.9" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="3.8" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="24.6" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="45.4" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="66.1" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="86.9" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="107.7" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="128.5" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="149.3" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="170.1" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="24.6" y="190.9" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="45.4" y="3.8" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="45.4" y="24.6" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="45.4" y="45.4" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="45.4" y="66.1" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <rect x="45.4" y="86.9" width="20.8" height="20.8" fill="#D4D4D4" stroke="none"/>
+      <line x1="3.8" y1="24.6" x2="211.7" y2="24.6" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="24.6" y1="3.8" x2="24.6" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="45.4" x2="211.7" y2="45.4" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="45.4" y1="3.8" x2="45.4" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="66.1" x2="211.7" y2="66.1" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="66.1" y1="3.8" x2="66.1" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="86.9" x2="211.7" y2="86.9" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="86.9" y1="3.8" x2="86.9" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="107.7" x2="211.7" y2="107.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="107.7" y1="3.8" x2="107.7" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="128.5" x2="211.7" y2="128.5" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="128.5" y1="3.8" x2="128.5" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="149.3" x2="211.7" y2="149.3" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="149.3" y1="3.8" x2="149.3" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="170.1" x2="211.7" y2="170.1" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="170.1" y1="3.8" x2="170.1" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="3.8" y1="190.9" x2="211.7" y2="190.9" stroke="#8A8A8A" stroke-width="0.9"/>
+      <line x1="190.9" y1="3.8" x2="190.9" y2="211.7" stroke="#8A8A8A" stroke-width="0.9"/>
+      <rect x="3.8" y="3.8" width="207.9" height="207.9" fill="none" stroke="#333" stroke-width="2"/>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .5rem">És <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> del quadrat de 100.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Quants quadrets hi ha pintats?</td><td style="width:4cm"><span class="ms">25</span></td></tr>
+    <tr class="resolt"><td class="esq">Quantes columnes plenes hi ha?</td><td><span class="ms">2</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets solts hi ha?</td><td><span class="ms">5</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> de 100 quadrets són 25 quadrets.</p>
+    <p style="margin:0">2 columnes i 5 quadrets: 2 dècimes i 5 centèsimes.</p>
+    <p style="margin:.2rem 0 0;font-size:28pt;font-weight:800"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:22pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> = 0,25</p>
+    <p style="margin:0">És el 25 %, com a la unitat 4.</p>
+  </div>
+  <div class="pag">Unitat 5 · De la fracció al decimal · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Pinta la fracció al quadrat de 100, columna a columna. Escriu el decimal.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Una columna és 0,1. Un quadret és 0,01. Mira la targeta.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span></p>
+      <div style="width:4.2cm"><svg viewBox="0 0 158.7 158.7" style="width:4.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: el quadrat de 100, amb 50 quadrets pintats">
+  <rect x="3.8" y="3.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="18.9" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="34" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="49.1" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="64.3" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="79.4" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="94.5" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="109.6" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="124.7" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="3.8" y="139.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="3.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="18.9" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="34" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="49.1" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="64.3" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="79.4" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="94.5" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="109.6" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="124.7" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="18.9" y="139.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="3.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="18.9" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="34" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="49.1" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="64.3" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="79.4" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="94.5" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="109.6" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="124.7" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="34" y="139.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="3.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="18.9" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="34" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="49.1" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="64.3" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="79.4" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="94.5" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="109.6" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="124.7" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="49.1" y="139.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="3.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="18.9" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="34" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="49.1" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="64.3" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="79.4" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="94.5" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="109.6" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="124.7" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <rect x="64.3" y="139.8" width="15.1" height="15.1" fill="#BFBFBF" stroke="none"/>
+  <line x1="3.8" y1="18.9" x2="155" y2="18.9" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="18.9" y1="3.8" x2="18.9" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="34" x2="155" y2="34" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="34" y1="3.8" x2="34" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="155" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="64.3" x2="155" y2="64.3" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="64.3" y1="3.8" x2="64.3" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="79.4" x2="155" y2="79.4" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="79.4" y1="3.8" x2="79.4" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="155" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="109.6" x2="155" y2="109.6" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="109.6" y1="3.8" x2="109.6" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="124.7" x2="155" y2="124.7" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="124.7" y1="3.8" x2="124.7" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="139.8" x2="155" y2="139.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="139.8" y1="3.8" x2="139.8" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="151.2" height="151.2" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Són <span class="ms">50</span> quadrets. <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> = <span class="ms">0,5</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span></p>
+      <div style="width:4.2cm"><svg viewBox="0 0 158.7 158.7" style="width:4.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: el quadrat de 100, per pintar">
+  <line x1="3.8" y1="18.9" x2="155" y2="18.9" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="18.9" y1="3.8" x2="18.9" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="34" x2="155" y2="34" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="34" y1="3.8" x2="34" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="155" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="64.3" x2="155" y2="64.3" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="64.3" y1="3.8" x2="64.3" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="79.4" x2="155" y2="79.4" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="79.4" y1="3.8" x2="79.4" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="155" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="109.6" x2="155" y2="109.6" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="109.6" y1="3.8" x2="109.6" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="124.7" x2="155" y2="124.7" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="124.7" y1="3.8" x2="124.7" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="139.8" x2="155" y2="139.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="139.8" y1="3.8" x2="139.8" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="151.2" height="151.2" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Són <u style="padding:0 1.1rem"></u> quadrets. <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span></p>
+      <div style="width:4.2cm"><svg viewBox="0 0 158.7 158.7" style="width:4.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: el quadrat de 100, per pintar">
+  <line x1="3.8" y1="18.9" x2="155" y2="18.9" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="18.9" y1="3.8" x2="18.9" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="34" x2="155" y2="34" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="34" y1="3.8" x2="34" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="155" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="64.3" x2="155" y2="64.3" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="64.3" y1="3.8" x2="64.3" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="79.4" x2="155" y2="79.4" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="79.4" y1="3.8" x2="79.4" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="155" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="109.6" x2="155" y2="109.6" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="109.6" y1="3.8" x2="109.6" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="124.7" x2="155" y2="124.7" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="124.7" y1="3.8" x2="124.7" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="139.8" x2="155" y2="139.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="139.8" y1="3.8" x2="139.8" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="151.2" height="151.2" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Són <u style="padding:0 1.1rem"></u> quadrets. <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">d)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">10</span></span></p>
+      <div style="width:4.2cm"><svg viewBox="0 0 158.7 158.7" style="width:4.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: el quadrat de 100, per pintar">
+  <line x1="3.8" y1="18.9" x2="155" y2="18.9" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="18.9" y1="3.8" x2="18.9" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="34" x2="155" y2="34" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="34" y1="3.8" x2="34" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="155" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="64.3" x2="155" y2="64.3" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="64.3" y1="3.8" x2="64.3" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="79.4" x2="155" y2="79.4" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="79.4" y1="3.8" x2="79.4" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="155" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="109.6" x2="155" y2="109.6" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="109.6" y1="3.8" x2="109.6" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="124.7" x2="155" y2="124.7" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="124.7" y1="3.8" x2="124.7" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="139.8" x2="155" y2="139.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="139.8" y1="3.8" x2="139.8" y2="155" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="151.2" height="151.2" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Són <u style="padding:0 1.1rem"></u> quadrets. <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">10</span></span> = <u style="padding:0 1.1rem"></u></p>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 5 · De la fracció al decimal · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Escriu la fracció de cada decimal. Mira el dibuix i la targeta.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">0,3 són 3 columnes de 10. Com que hi ha 10 columnes, és <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:13pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">10</span></span>.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: el quadrat de 100 amb 30 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:17pt"><span class="apartat">a)</span> 0,3 = <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-family:'Caveat',cursive;font-weight:700;color:var(--manuscrit);margin:0 .1em;font-size:24pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">10</span></span></p>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: el quadrat de 100 amb 70 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="60.5" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="71.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:17pt"><span class="apartat">b)</span> 0,7 = <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: el quadrat de 100 amb 50 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:17pt"><span class="apartat">c)</span> 0,5 = <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: el quadrat de 100 amb 25 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:17pt"><span class="apartat">d)</span> 0,25 = <span style="display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;font-size:13pt"><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-bottom:2.5px solid var(--tinta);border-radius:6px 6px 0 0"></span><span style="display:block;min-width:1.1cm;height:1.05cm;border:1.5px dashed var(--gris-2);border-top:0;border-radius:0 0 6px 6px"></span></span></p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 5 · De la fracció al decimal · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">En Pol posa el de baix després de la coma. Té raó? Compta les columnes.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">a)</span> En Pol diu: <span class="revisa"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> = 0,4</span></p>
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: el quadrat de 100 amb 25 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt">Té raó?</p>
+          <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">b)</span> En Pol diu: <span class="revisa"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> = 0,2</span></p>
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: el quadrat de 100 amb 50 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="26.5" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="37.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="49.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt">Té raó?</p>
+          <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">c)</span> En Pol diu: <span class="revisa"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span> = 0,5</span></p>
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: el quadrat de 100 amb 20 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.1" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt">Té raó?</p>
+          <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem;font-size:16pt;font-weight:700"><span class="apartat">d)</span> En Pol diu: <span class="revisa"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">10</span></span> = 0,1</span></p>
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div style="width:3.2cm"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: el quadrat de 100 amb 10 quadrets pintats">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="26.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="37.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="49.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="60.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="71.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="83.1" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="94.5" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="105.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.9"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.9"/>
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="none" stroke="#333" stroke-width="2"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt">Té raó?</p>
+          <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:14pt"><span class="quadret"></span>No</label></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">El de baix no va després de la coma.</p>
+    <p style="margin:.2rem 0 0"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> de 100 quadrets són 25 quadrets. Per això <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:14pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> = 0,25.</p>
+  </div>
+  <div class="pag">Unitat 5 · De la fracció al decimal · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="clau" style="margin:.2rem 0 .6rem">
+    <p style="margin:0">Un euro són 100 cèntims, com el quadrat de 100 quadrets.</p>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Quants cèntims són? Escriu també quants euros són.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0;font-size:16pt"><span class="apartat">a)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> d'euro són <span class="ms">25</span> cèntims: <span class="ms">0,25</span> €</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0;font-size:16pt"><span class="apartat">b)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> d'euro són <u style="padding:0 1.1rem"></u> cèntims: <u style="padding:0 1.1rem"></u> €</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0;font-size:16pt"><span class="apartat">c)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span> d'euro són <u style="padding:0 1.1rem"></u> cèntims: <u style="padding:0 1.1rem"></u> €</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0;font-size:16pt"><span class="apartat">d)</span> <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:15pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">10</span></span> d'euro són <u style="padding:0 1.1rem"></u> cèntims: <u style="padding:0 1.1rem"></u> €</p>
+    </div>
+  </div>
+  <div class="pag">Unitat 5 · De la fracció al decimal · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 5 · De la fracció al decimal · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Una fracció es passa a decimal al quadrat de 100: 1/4 de 100 quadrets
+    són 25 quadrets (la fracció d'un nombre de la unitat 4), i 25 quadrets són 2 columnes i 5
+    quadrets, 0,25. És el quadrat dels percentatges. Només denominadors 2, 4, 5 i 10: els decimals
+    exactes. Els periòdics (1/3) queden fora. La targeta «Decimals i arrels» porta les cinc fraccions
+    de sempre amb el decimal i el percentatge.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb una quadrícula de 100: repartir-la en 4 parts iguals (per exemple, doblegant-la)
+  i comptar els quadrets d'una part, 25. Dir-ho de les tres maneres: un quart, 0,25 i el 25 %.</p>
+  <h3>1. Pinta i escriu el decimal</h3>
+  <p>b) 20 quadrets, 0,2. c) 75 quadrets, 0,75. d) 30 quadrets, 0,3. Es pinta columna a columna, com
+  a la caixa: així les columnes plenes són les dècimes. <b>Error típic:</b> pintar per files; es dona
+  per bo si el nombre de quadrets és el correcte.</p>
+  <h3>2. Del decimal a la fracció</h3>
+  <p>b) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">7</span><span style="display:block;padding:.04em .18em 0">10</span></span>. c) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span> (també <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">5</span><span style="display:block;padding:.04em .18em 0">10</span></span>). d) <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span> (també <span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">25</span><span style="display:block;padding:.04em .18em 0">100</span></span>). Les formes
+  de la targeta són les que es demanen; les equivalents es donen per bones.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. En Pol posa el de baix després de la coma · la regla trencada</h3>
+  <p>b) No: 1/2 són 50 quadrets, 0,5. c) No: 1/5 són 20 quadrets, 0,2. d) Sí: 1/10 són 10 quadrets,
+  una columna, 0,1. <b>Error típic:</b> posar el de baix després de la coma (1/4 = 0,4), o fer de la
+  barra una coma (1/4 = 1,4). És la regla trencada d'aquesta fitxa. No l'expliqueu: que compti les
+  columnes del dibuix. L'apartat d és a posta: amb 1/10 la regla del Pol encerta per casualitat.
+  <b>Compta per als nivells alts, no per al mínim.</b></p>
+  <h3>4. A la vida de cada dia</h3>
+  <p>b) 50 cèntims, 0,50 €. c) 75 cèntims, 0,75 €. d) 10 cèntims, 0,10 €. Els preus s'escriuen
+  sempre amb dues xifres: 0,50 € és el mateix que 0,5.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=21</b> (21.1 Pinta la
+  fracció; 21.2 De fracció a decimal). La 21.2 dona un codi de verificació; les respostes falses són
+  les del Pol (el de baix després de la coma) i la barra com una coma. L'exemple de la fitxa és el
+  de la caixa, 1/4 = 0,25.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb el quadrat de 100 o la targeta al davant. Els criteris de la SA del grup (5.1, 7.1 i
+  8.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb la quadrícula de 100, pinta una fracció i diu quants quadrets són.</li>
+    <li>Passa una fracció de denominador 2, 4, 5 o 10 a decimal, amb el quadrat de 100 (exercici 1).</li>
+    <li>Passa un decimal a fracció, amb el dibuix o la targeta (exercici 2).</li>
+    <li>Diu quants cèntims són un quart, mig i tres quarts d'euro (exercici 4).</li>
+    <li>Nivells alts: diu per què 1/4 no és 0,4 (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

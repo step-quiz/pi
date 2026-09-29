@@ -23,7 +23,7 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud4.py` | `ud4.html` | `fitxa_ud5.py` | `ud5.html` |
 | `fitxa_ud4_multfrac.py` | `ud4-multfrac.html` | `fitxa_ud5_arrodonir.py` | `ud5-arrodonir.html` |
 | `fitxa_ud4_percentatges.py` | `ud4-percentatges.html` | `fitxa_ud5_sumes.py` | `ud5-sumes.html` |
-| `fitxa_ud4_dobletriple.py` | `ud4-dobletriple.html` | | |
+| `fitxa_ud4_dobletriple.py` | `ud4-dobletriple.html` | `fitxa_ud5_fraccions.py` | `ud5-fraccions.html` |
 | `fitxa_ud4_repas.py` | `ud4-repas.html` | | |
 
 Les peces comunes: `fitxa_ud1.py` (la classe `Dibuix`, `ms()`, `buit()`, els colors: els altres

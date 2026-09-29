@@ -139,7 +139,8 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    targeta (al Codespace, amb `generadors/gen_pdf.py`), les sis fitxes, els seus PDF i l'examen.
    Les fitxes 1, «Els decimals» (`fitxes/ud5.html`), 2, «Arrodonir i truncar»
    (`fitxes/ud5-arrodonir.html`), i 3, «Sumar i restar decimals» (`fitxes/ud5-sumes.html`), fetes
-   el 29/9/2026; falten les altres tres (fraccions, arrel i repàs).
+   el 29/9/2026, i 4, «De la fracció al decimal» (`fitxes/ud5-fraccions.html`); falten les altres
+   dues (l'arrel i el repàs).
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure
