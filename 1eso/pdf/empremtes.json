@@ -229,6 +229,16 @@
     "font": "fitxes/ud5.html",
     "pagines": 7
   },
+  "ud5-arrel-alumnat.pdf": {
+    "empremta": "8625f58fbf85aac5e5159cdbe7e450bcd23da53e06d045b2de7bb4515ff9b772",
+    "font": "fitxes/ud5-arrel.html",
+    "pagines": 6
+  },
+  "ud5-arrel-solucionari.pdf": {
+    "empremta": "8625f58fbf85aac5e5159cdbe7e450bcd23da53e06d045b2de7bb4515ff9b772",
+    "font": "fitxes/ud5-arrel.html",
+    "pagines": 2
+  },
   "ud5-arrodonir-alumnat.pdf": {
     "empremta": "77027f280a643e3f53d19978b4544198e4b8563b93c355c258f04abae57e7ef1",
     "font": "fitxes/ud5-arrodonir.html",
@@ -247,6 +257,16 @@
   "ud5-fraccions-solucionari.pdf": {
     "empremta": "05e60150381d978f326f4bb24aa727c91c5fce2b21956261306453881f97ba1b",
     "font": "fitxes/ud5-fraccions.html",
+    "pagines": 2
+  },
+  "ud5-repas-alumnat.pdf": {
+    "empremta": "f29a5e493fb76f04131b663976210e69fc51de55a3c441596185576d651aff86",
+    "font": "fitxes/ud5-repas.html",
+    "pagines": 5
+  },
+  "ud5-repas-solucionari.pdf": {
+    "empremta": "f29a5e493fb76f04131b663976210e69fc51de55a3c441596185576d651aff86",
+    "font": "fitxes/ud5-repas.html",
     "pagines": 2
   },
   "ud5-solucionari.pdf": {
