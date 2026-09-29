@@ -4,6 +4,11 @@
     "font": "targetes/decimals.html",
     "pagines": 2
   },
+  "targeta-formes.pdf": {
+    "empremta": "8f72a81a2c5b5312e1b08976865b1523d812992bd850b18a596a18e786d7a728",
+    "font": "targetes/formes.html",
+    "pagines": 2
+  },
   "targeta-fraccions.pdf": {
     "empremta": "7d18819153ce284805af886a790781fca49079362226ec1293f6902eea0fab95",
     "font": "targetes/fraccions.html",
@@ -80,12 +85,12 @@
     "pagines": 2
   },
   "ud2-repartir-alumnat.pdf": {
-    "empremta": "b85acf5593edbdaae7fb5737d347548406ba6b3d3947960ec13fafca7984eab3",
+    "empremta": "c8517390a3499e0abda8df129422fb5fc9a70aad082bc1b57d0c56cb5e27ba36",
     "font": "fitxes/ud2-repartir.html",
     "pagines": 6
   },
   "ud2-repartir-solucionari.pdf": {
-    "empremta": "b85acf5593edbdaae7fb5737d347548406ba6b3d3947960ec13fafca7984eab3",
+    "empremta": "c8517390a3499e0abda8df129422fb5fc9a70aad082bc1b57d0c56cb5e27ba36",
     "font": "fitxes/ud2-repartir.html",
     "pagines": 2
   },
@@ -165,12 +170,12 @@
     "pagines": 2
   },
   "ud3-sumes-alumnat.pdf": {
-    "empremta": "97fae895d3c0be616fb24a7cd634de8f2cddac592250f0ada8fefc26c2cba6f1",
+    "empremta": "978c74babf46f9faa442c8704c2575f14b842ed19b3642c38c76b9b698929382",
     "font": "fitxes/ud3-sumes.html",
     "pagines": 6
   },
   "ud3-sumes-solucionari.pdf": {
-    "empremta": "97fae895d3c0be616fb24a7cd634de8f2cddac592250f0ada8fefc26c2cba6f1",
+    "empremta": "978c74babf46f9faa442c8704c2575f14b842ed19b3642c38c76b9b698929382",
     "font": "fitxes/ud3-sumes.html",
     "pagines": 2
   },
@@ -282,6 +287,36 @@
   "ud5-sumes-solucionari.pdf": {
     "empremta": "abdf64f59db11fa782a34530f9c6c4329d7d89bd58f12ddbf5477937f3edce42",
     "font": "fitxes/ud5-sumes.html",
+    "pagines": 2
+  },
+  "ud6-alumnat.pdf": {
+    "empremta": "965d1ede21cf21c4a148f965301702837224e904e5b1cb92a026ac28f8c2eaf4",
+    "font": "fitxes/ud6.html",
+    "pagines": 6
+  },
+  "ud6-poligons-alumnat.pdf": {
+    "empremta": "2e2c4fe8392d0ea115ffcce78140001f9bce4326689ae139c3a76f7038e4c599",
+    "font": "fitxes/ud6-poligons.html",
+    "pagines": 5
+  },
+  "ud6-poligons-solucionari.pdf": {
+    "empremta": "2e2c4fe8392d0ea115ffcce78140001f9bce4326689ae139c3a76f7038e4c599",
+    "font": "fitxes/ud6-poligons.html",
+    "pagines": 2
+  },
+  "ud6-solucionari.pdf": {
+    "empremta": "965d1ede21cf21c4a148f965301702837224e904e5b1cb92a026ac28f8c2eaf4",
+    "font": "fitxes/ud6.html",
+    "pagines": 2
+  },
+  "ud6-triangles-alumnat.pdf": {
+    "empremta": "a0a99e332ee9c99e93e81c28df5a9eb188a5d6659c91c179e665f5bc054fe529",
+    "font": "fitxes/ud6-triangles.html",
+    "pagines": 5
+  },
+  "ud6-triangles-solucionari.pdf": {
+    "empremta": "a0a99e332ee9c99e93e81c28df5a9eb188a5d6659c91c179e665f5bc054fe529",
+    "font": "fitxes/ud6-triangles.html",
     "pagines": 2
   }
 }
