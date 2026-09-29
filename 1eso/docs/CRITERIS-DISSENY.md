@@ -116,6 +116,10 @@ Les decisions que va prendre el docent en revisar l'examen de la UD1 de `4eso/`
 | Sense pronoms febles ni construccions indirectes | Marca amb quants decimals ho escriuries | Marca quants decimals faries servir |
 | Verbs literals | quant fa | quant és, quant mesura |
 | La restricció, dita en clar | només coses senceres | només quantitats enteres, sense decimals |
+
+«Sencer» és incorrecte quan parla de nombres. Un «quadret sencer», al costat d'un mig, és correcte:
+és el vocabulari de l'àrea de la unitat 3. `eines/comprova.py` només avisa de «nombres sencers»,
+«quantitats senceres», «coses senceres» i «xifres senceres» (29/9/2026).
 | Les unitats, sempre | 12 | 12 quadrets |
 | Frases que valguin per a tots els apartats | A totes dues… | En tots els casos… |
 

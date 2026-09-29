@@ -500,7 +500,10 @@ SIGLES = {"PDF"}
 ROMANS = re.compile(r'^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$')
 # Les decisions de llenguatge de l'examen revisat pel docent (comu/docs/EXAMENS-DOCX.md, §5).
 LLENGUATGE = [(r'\bEncercla\b', "«Encercla»: el verb és «Marca»"),
-              (r'\bsencer(s|a|es)?\b', "«sencer»: el terme és «enter»"),
+              # Només quan parla de nombres: «nombres sencers», «coses senceres» (la taula de la
+              # regla I). Un «quadret sencer», al costat d'un mig, és català correcte i és el
+              # vocabulari de l'àrea de la unitat 3 (el comptava com un error fins al 29/9/2026).
+              (r'\b(nombres?|quantitats?|coses?|xifres?)\s+sencer(s|a|es)?\b', "«sencer»: el terme és «enter»"),
               (r'\bquant fa\b', "«quant fa»: fes servir el verb literal («quant és», «quant mesura»)"),
               (r'\bho \w+ries\b', "«ho …ries»: sense pronoms febles"),
               (r'\bnomés fas\b', "«només fas»: deixa de ser veritat si s'hi afegeixen apartats")]

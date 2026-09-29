@@ -771,7 +771,7 @@ window.TEXTOS = {
     comenca:      'Escriu la coma sota la coma, i cada xifra al seu lloc.',
     encert:       '{calcul}.',
     error_dreta:  'Has posat les xifres a la dreta. Posa la coma sota la coma.',
-    error_parts:  'Després de la coma, cada xifra té el seu lloc: primer les dècimes i després les centèsimes.'
+    error_parts:  'Després de la coma, primer van les dècimes i després les centèsimes.'
   },
   "21.1": {
     nom:          'Pinta la fracció',
