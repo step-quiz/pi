@@ -139,7 +139,10 @@ window.UNITATS = [
     fitxes: [
       { fitxa: "fitxes/ud6.html", titol: "Punts, rectes i angles" },
       { fitxa: "fitxes/ud6-poligons.html", titol: "Polígons" },
-      { fitxa: "fitxes/ud6-triangles.html", titol: "Triangles" }
+      { fitxa: "fitxes/ud6-triangles.html", titol: "Triangles" },
+      { fitxa: "fitxes/ud6-perimetre.html", titol: "El perímetre" },
+      { fitxa: "fitxes/ud6-cercle.html", titol: "La circumferència" },
+      { fitxa: "fitxes/ud6-repas.html", titol: "Repàs de la unitat" }
     ],
     tasques: [22, 23, 24, 25, 13]
   },

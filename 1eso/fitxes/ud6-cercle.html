@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 6 · La circumferència</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 6 · Sentit espacial · La circumferència
+  La cinquena fitxa de la unitat 6. Només la idea, sense π = 3,14: centre, radi,
+  diàmetre (el doble del radi) i la vora, una mica més de 3 vegades el diàmetre.
+  Els casos són els del llibre (la roda de bicicleta, la Nerea).
+
+  La regla trencada és calcular la vora amb el radi: la Nerea, pàgina 4.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>un cordill i una tapa rodona</b>. Resseguir la vora amb el cordill i posar-lo sobre el diàmetre: hi cap 3 vegades i una mica.</div>
+  <h1>La circumferència</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div class="figura neta" style="margin-top:.8rem">
+    <svg viewBox="0 0 173.9 173.9" style="width:4.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una circumferència amb el centre, un radi de 2 cm i un diàmetre de 4 cm">
+      <circle cx="86.9" cy="86.9" r="75.6" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+      <line x1="11.3" y1="86.9" x2="162.5" y2="86.9" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="11.3" cy="86.9" r="2.6" fill="#000"/>
+      <circle cx="162.5" cy="86.9" r="2.6" fill="#000"/>
+      <text x="86.9" y="105.8" font-size="15.9" font-weight="800" text-anchor="middle" fill="#000">4 cm</text>
+      <line x1="86.9" y1="86.9" x2="135.5" y2="29" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="135.5" cy="29" r="2.6" fill="#000"/>
+      <text x="99.8" y="47.4" font-size="15.9" font-weight="800" text-anchor="middle" fill="#000">2 cm</text>
+      <circle cx="86.9" cy="86.9" r="3.8" fill="#000"/>
+    </svg>
+  </div>
+  <table style="margin-top:.4rem">
+    <tr class="resolt"><td class="esq">Quant mesura el radi, del centre a la vora?</td><td style="width:4cm"><span class="ms">2 cm</span></td></tr>
+    <tr class="resolt"><td class="esq">Quant mesura el diàmetre, d'una vora a l'altra?</td><td><span class="ms">4 cm</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">El diàmetre és el doble del radi.</p>
+    <p style="margin:.2rem 0 0">La vora fa una mica més de 3 vegades el diàmetre.</p>
+  </div>
+  <div class="pag">Unitat 6 · La circumferència · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Com es diu el que està marcat? Mira la targeta.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: una circumferència amb una línia del centre a la vora">
+  <circle cx="56.7" cy="56.7" r="45.4" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <line x1="56.7" y1="56.7" x2="85.8" y2="21.9" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="85.8" cy="21.9" r="2.6" fill="#000"/>
+  <circle cx="56.7" cy="56.7" r="3.8" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Centre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Radi</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diàmetre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Circumferència</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: una circumferència amb una línia d'una vora a l'altra pel centre">
+  <circle cx="56.7" cy="56.7" r="45.4" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <line x1="11.3" y1="56.7" x2="102" y2="56.7" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="11.3" cy="56.7" r="2.6" fill="#000"/>
+  <circle cx="102" cy="56.7" r="2.6" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Centre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Radi</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diàmetre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Circumferència</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: una circumferència amb un punt al mig">
+  <circle cx="56.7" cy="56.7" r="45.4" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <circle cx="56.7" cy="56.7" r="3.8" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Centre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Radi</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diàmetre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Circumferència</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: una circumferència amb la vora gruixuda">
+  <circle cx="56.7" cy="56.7" r="45.4" fill="#F2F2F2" stroke="#000" stroke-width="5"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Centre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Radi</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diàmetre</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Circumferència</label></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · La circumferència · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Omple la taula. El diàmetre és el doble del radi.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Del radi al diàmetre: el doble. Del diàmetre al radi: la meitat.</p></div>
+    <table class="mini">
+      <tr><th style="width:1.4cm"></th><th>El radi</th><th>El diàmetre</th></tr>
+      <tr class="resolt"><td class="apartat" style="text-align:center">a)</td><td style="text-align:center;font-size:17pt;font-weight:800">3 cm</td><td style="text-align:center"><span class="ms">6 cm</span></td></tr><tr><td class="apartat" style="text-align:center">b)</td><td style="text-align:center;font-size:17pt;font-weight:800">5 cm</td><td class="omplir"></td></tr><tr><td class="apartat" style="text-align:center">c)</td><td class="omplir"></td><td style="text-align:center;font-size:17pt;font-weight:800">8 cm</td></tr><tr><td class="apartat" style="text-align:center">d)</td><td class="omplir"></td><td style="text-align:center;font-size:17pt;font-weight:800">70 cm</td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 6 · La circumferència · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">La Nerea calcula la vora amb el radi. Té raó?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">La vora fa una mica més de 3 vegades el diàmetre. Mira la targeta.</p></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div><svg viewBox="0 0 90.7 90.7" style="width:2.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una circumferència de 10 cm de diàmetre">
+  <circle cx="45.4" cy="45.4" r="34" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <line x1="11.3" y1="45.4" x2="79.4" y2="45.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="11.3" cy="45.4" r="2.6" fill="#000"/>
+  <circle cx="79.4" cy="45.4" r="2.6" fill="#000"/>
+  <text x="45.4" y="64.1" font-size="11.6" font-weight="800" text-anchor="middle" fill="#000">10 cm</text>
+  <circle cx="45.4" cy="45.4" r="3.8" fill="#000"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt;font-weight:700"><span class="apartat">a)</span> Diàmetre de 10 cm. La Nerea diu: una mica més de 15 cm. Té raó?</p>
+          <div style="display:flex;gap:.6cm;align-items:center"><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div><span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de <span class="ms">30 cm</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div><svg viewBox="0 0 90.7 90.7" style="width:2.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una circumferència de 6 cm de diàmetre">
+  <circle cx="45.4" cy="45.4" r="34" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <line x1="11.3" y1="45.4" x2="79.4" y2="45.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="11.3" cy="45.4" r="2.6" fill="#000"/>
+  <circle cx="79.4" cy="45.4" r="2.6" fill="#000"/>
+  <text x="45.4" y="64.1" font-size="11.6" font-weight="800" text-anchor="middle" fill="#000">6 cm</text>
+  <circle cx="45.4" cy="45.4" r="3.8" fill="#000"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt;font-weight:700"><span class="apartat">b)</span> Diàmetre de 6 cm. La Nerea diu: una mica més de 9 cm. Té raó?</p>
+          <div style="display:flex;gap:.6cm;align-items:center"><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div><span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de <u style="padding:0 1.1rem"></u> cm</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div><svg viewBox="0 0 90.7 90.7" style="width:2.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una circumferència de 8 cm de diàmetre">
+  <circle cx="45.4" cy="45.4" r="34" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <line x1="11.3" y1="45.4" x2="79.4" y2="45.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="11.3" cy="45.4" r="2.6" fill="#000"/>
+  <circle cx="79.4" cy="45.4" r="2.6" fill="#000"/>
+  <text x="45.4" y="64.1" font-size="11.6" font-weight="800" text-anchor="middle" fill="#000">8 cm</text>
+  <circle cx="45.4" cy="45.4" r="3.8" fill="#000"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt;font-weight:700"><span class="apartat">c)</span> Diàmetre de 8 cm. La Nerea diu: una mica més de 12 cm. Té raó?</p>
+          <div style="display:flex;gap:.6cm;align-items:center"><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div><span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de <u style="padding:0 1.1rem"></u> cm</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <div><svg viewBox="0 0 90.7 90.7" style="width:2.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una circumferència de 5 cm de diàmetre">
+  <circle cx="45.4" cy="45.4" r="34" fill="#F2F2F2" stroke="#333" stroke-width="2.5"/>
+  <line x1="11.3" y1="45.4" x2="79.4" y2="45.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="11.3" cy="45.4" r="2.6" fill="#000"/>
+  <circle cx="79.4" cy="45.4" r="2.6" fill="#000"/>
+  <text x="45.4" y="64.1" font-size="11.6" font-weight="800" text-anchor="middle" fill="#000">5 cm</text>
+  <circle cx="45.4" cy="45.4" r="3.8" fill="#000"/>
+</svg></div>
+        <div>
+          <p style="margin:0;font-size:15pt;font-weight:700"><span class="apartat">d)</span> Diàmetre de 5 cm. La Nerea diu: una mica més de 15 cm. Té raó?</p>
+          <div style="display:flex;gap:.6cm;align-items:center"><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div><span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de <u style="padding:0 1.1rem"></u> cm</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">La vora fa una mica més de 3 vegades el diàmetre, no el radi.</p>
+    <p style="margin:.2rem 0 0">Amb el radi, el cordill només arriba a mitja volta.</p>
+  </div>
+  <div class="pag">Unitat 6 · La circumferència · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Escriu el radi i quant mesura la vora, més o menys.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">a)</span> Un plat de 20 cm de diàmetre.</p>
+      <p class="frase" style="margin:0;font-size:15pt"><span class="ms">El radi fa 10 cm. La vora fa una mica més de 60 cm.</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">b)</span> Un got de 8 cm de diàmetre.</p>
+      <p class="frase" style="margin:0;font-size:15pt">El radi fa <u style="padding:0 1.1rem"></u> cm. La vora fa una mica més de <u style="padding:0 1.1rem"></u> cm.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">c)</span> Un rellotge de paret de 30 cm de diàmetre.</p>
+      <p class="frase" style="margin:0;font-size:15pt">El radi fa <u style="padding:0 1.1rem"></u> cm. La vora fa una mica més de <u style="padding:0 1.1rem"></u> cm.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">d)</span> Una roda de bicicleta de 70 cm de diàmetre.</p>
+      <p class="frase" style="margin:0;font-size:15pt">El radi fa <u style="padding:0 1.1rem"></u> cm. La vora fa una mica més de <u style="padding:0 1.1rem"></u> cm.</p>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · La circumferència · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 6 · La circumferència · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Només la idea, sense π = 3,14: el centre, el radi, el diàmetre (el doble
+    del radi, com el doble de la unitat 4) i la vora, que fa una mica més de 3 vegades el diàmetre.
+    Calcular amb π demana multiplicar decimals, i queda fora. La targeta «Formes» ho porta.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb un cordill i objectes rodons (una tapa, un got): resseguir la vora amb el cordill
+  i posar-lo sobre el diàmetre. Hi cap 3 vegades i una mica. És l'activitat del grup per descobrir π.</p>
+  <h3>1. Les parts</h3>
+  <p>b) diàmetre; c) centre; d) circumferència (la vora).</p>
+  <h3>2. Radi i diàmetre</h3>
+  <p>b) 10 cm; c) 4 cm; d) 35 cm (la roda de bicicleta del llibre: la meitat de 70). <b>Error típic:</b>
+  fer el doble quan toca la meitat. La clau diu cap a on va cada un.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. La Nerea · la regla trencada</h3>
+  <p>b) No: una mica més de 18 cm. c) No: una mica més de 24 cm. d) Sí: amb el diàmetre de 5 cm, una mica
+  més de 15 cm. <b>Error típic:</b> fer servir el radi en lloc del diàmetre, com la Nerea del llibre. És la
+  regla trencada d'aquesta fitxa. No l'expliqueu: que ho provi amb el cordill i un radi, i veurà que
+  només arriba a mitja volta. L'apartat d és a posta. <b>Compta per als nivells alts, no per al mínim.</b></p>
+  <h3>4. A la vida de cada dia</h3>
+  <p>b) radi 4 cm, una mica més de 24 cm. c) radi 15 cm, una mica més de 90 cm. d) radi 35 cm, una mica
+  més de 210 cm: la roda avança això a cada volta (el cas del llibre).</p>
+  <h3>La caixa d'eines</h3>
+  <p>La circumferència no té tasca pròpia a la caixa. Per repassar la unitat, les tasques 22 a 25.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta «Formes» al davant. Els criteris de la SA del grup (1.1, 3.1, 5.1, 6.1, 7.1 i
+  9.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb un cordill i un objecte rodó, diu que la vora fa una mica més de 3 vegades el diàmetre.</li>
+    <li>Diu el nom del centre, el radi, el diàmetre i la circumferència (exercici 1).</li>
+    <li>Passa del radi al diàmetre i al revés: el doble i la meitat (exercicis 2 i 4).</li>
+    <li>Nivells alts: diu per què la vora no fa 3 vegades el radi (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

@@ -42,7 +42,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. PDF fets |
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
 | 5 · Decimals i arrel quadrada | **Feta** (29/9/2026): caixa (18 a 21, i la 2.4), targeta «Decimals i arrels», sis fitxes i examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
-| 6 · Sentit espacial | **En curs**: pla validat (29/9/2026), caixa (22 a 25), targeta «Formes» i fitxes 1 a 3 fetes. Falten les fitxes 4 a 6 i l'examen (el pas 3). El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
+| 6 · Sentit espacial | **Feta** (29/9/2026): caixa (22 a 25), targeta «Formes», sis fitxes i examen (`generadors/examens/ud6.js`). El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
@@ -271,10 +271,12 @@ El que ja se'n sap, i el nucli que hi ha a `dades/unitats.js` (una **proposta** 
 ## 10. Per començar la conversa nova
 
 El docent et passarà el ZIP del repositori i el de la programació, i et dirà per quina unitat
-començar. Si no ho diu, proposa-li la unitat 6. Demana-li també el ZIP del llibre del grup
-(`llibre_1ESO`). Un primer missatge que pot fer servir:
+començar. Si no ho diu, proposa-li la unitat 7 (la SA7, que al llibre és la UD8). Demana-li
+també el ZIP del llibre del grup (`llibre_1ESO`). Proposa-li els lliuraments en tres passos, com a
+la unitat 6: la caixa; la targeta i les fitxes 1 a 3; la resta de fitxes i l'examen. Un primer
+missatge que pot fer servir:
 
-> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 6: llegeix-ne
+> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 7: llegeix-ne
 > la programació i el llibre, i proposa'm el pla, com a les unitats anteriors.
 
 ## 11. Coses que van fallar a la unitat 4 (i com evitar-les)
@@ -322,3 +324,6 @@ fila pròpia, a `peces_ud2.py` i a la còpia de `tria()` de `fitxa_ud2_repartir.
 de lliurar una fitxa, mira'n el PDF fet amb WeasyPrint (`eines/mesura.py` i `generadors/gen_pdf.py`,
 amb `pip install weasyprint`), no només la imatge de Chromium: els dos motors no fan igual el
 `flex` en columna, i les mesures poden diferir 5 cm.
+- **Als generadors, no facis servir `f` com a variable.** `fitxa_ud1.py` hi té la funció `f()` que
+  escriu els nombres dels dibuixos: una variable `f` a nivell de mòdul la tapa i el dibuix peta
+  (29/9/2026, fitxa del perímetre).

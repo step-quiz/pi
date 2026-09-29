@@ -211,3 +211,59 @@ def rellotge(hora, aria, r=1.35):
     _linia(d, cx, cy, x, y, NEGRE, 5)
     _punt(d, cx, cy, 0.08)
     return d
+
+
+def figura_quadrets(cel, m, aria, rotuls=False, fons=F3):
+    """Una figura feta de quadrets (`cel` = [(fila, columna)]) sobre una quadrícula suau, amb la
+    vora gruixuda: el perímetre són els costats de quadret d'aquesta vora. Amb `rotuls`, si és un
+    rectangle, el nombre de costats de quadret de cada costat, per fora."""
+    fs = [f for f, _ in cel]; cs = [c for _, c in cel]
+    F, C = max(fs) + 1, max(cs) + 1
+    marge = 0.75 if rotuls else 0.15
+    d = Dibuix(C * m + 2 * marge, F * m + 2 * marge, aria)
+    d.graella(marge, marge, F, C, m)
+    conj = set(cel)
+    for f, c in cel:
+        d.cru(f'<rect x="{d.px(marge + c * m)}" y="{d.px(marge + f * m)}" width="{d.px(m)}" height="{d.px(m)}" '
+              f'fill="{fons}" stroke="{G2}" stroke-width="1"/>')
+    for f, c in cel:
+        x, y = marge + c * m, marge + f * m
+        for df, dc, x1, y1, x2, y2 in [(-1, 0, x, y, x + m, y), (1, 0, x, y + m, x + m, y + m),
+                                       (0, -1, x, y, x, y + m), (0, 1, x + m, y, x + m, y + m)]:
+            if (f + df, c + dc) not in conj:
+                _linia(d, x1, y1, x2, y2, NEGRE, 4.5)
+    if rotuls:
+        d.text(marge + C * m / 2, marge - 0.2, str(C), 0.45, 800)
+        d.text(marge + C * m / 2, marge + F * m + 0.55, str(C), 0.45, 800)
+        d.text(marge - 0.35, marge + F * m / 2 + 0.16, str(F), 0.45, 800)
+        d.text(marge + C * m + 0.35, marge + F * m / 2 + 0.16, str(F), 0.45, 800)
+    return d
+
+
+def rectangle_cel(f, c):
+    return [(i, j) for i in range(f) for j in range(c)]
+
+
+def cercle_d(r, aria, centre=True, radi=False, diametre=False, rot_radi=None, rot_diam=None, vora=False):
+    """Una circumferència de radi r (cm): el centre, un radi (cap a dalt a la dreta) i un
+    diàmetre (horitzontal), amb el nombre a sobre si es vol. Amb `vora`, la circumferència més
+    gruixuda: és la vora que es mesura amb el cordill."""
+    d = Dibuix(2 * r + 0.6, 2 * r + 0.6, aria)
+    cx = cy = r + 0.3
+    d.cru(f'<circle cx="{d.px(cx)}" cy="{d.px(cy)}" r="{d.px(r)}" fill="{F1}" stroke="{NEGRE if vora else G1}" '
+          f'stroke-width="{5 if vora else 2.5}"/>')
+    if diametre:
+        _linia(d, cx - r, cy, cx + r, cy, NEGRE, 3)
+        _punt(d, cx - r, cy, 0.07); _punt(d, cx + r, cy, 0.07)
+        if rot_diam:
+            d.text(cx, cy + min(0.5, r * 0.55), rot_diam, min(0.42, r * 0.34), 800)
+    if radi:
+        x, y = _pt(cx, cy, r, 50)
+        _linia(d, cx, cy, x, y, NEGRE, 3)
+        _punt(d, x, y, 0.07)
+        if rot_radi:
+            tx, ty = _pt(cx, cy, r * 0.55, 72)
+            d.text(tx, ty, rot_radi, 0.42, 800)
+    if centre:
+        _punt(d, cx, cy, 0.1)
+    return d
