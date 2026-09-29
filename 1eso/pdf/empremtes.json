@@ -229,6 +229,16 @@
     "font": "fitxes/ud5.html",
     "pagines": 7
   },
+  "ud5-arrodonir-alumnat.pdf": {
+    "empremta": "77027f280a643e3f53d19978b4544198e4b8563b93c355c258f04abae57e7ef1",
+    "font": "fitxes/ud5-arrodonir.html",
+    "pagines": 5
+  },
+  "ud5-arrodonir-solucionari.pdf": {
+    "empremta": "77027f280a643e3f53d19978b4544198e4b8563b93c355c258f04abae57e7ef1",
+    "font": "fitxes/ud5-arrodonir.html",
+    "pagines": 2
+  },
   "ud5-solucionari.pdf": {
     "empremta": "c4e8e979e357ac8f549864ca0faa4d2f8c14dafa45017a22e812fdee07c13dff",
     "font": "fitxes/ud5.html",
