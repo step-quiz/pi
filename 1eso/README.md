@@ -58,13 +58,16 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 | `caixa-eines?task=23` | Polígons (unitat 6): 23.1 El polígon al geoplà · 23.2 Com es diu? |
 | `caixa-eines?task=24` | Triangles (unitat 6): 24.1 Els tres angles · 24.2 Quin triangle és? |
 | `caixa-eines?task=25` | Perímetre (unitat 6): 25.1 Perímetre i àrea · 25.2 Quin és el perímetre? |
+| `caixa-eines?task=26` | Patrons (unitat 7): 26.1 El patró · 26.2 Quants en té la següent? |
+| `caixa-eines?task=27` | Símbols (unitat 7): 27.1 La paraula i el símbol · 27.2 Quin és el símbol? |
+| `caixa-eines?task=28` | Gràfics (unitat 7): 28.1 Llegeix el gràfic · 28.2 Quants n'hi ha? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
 exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
 `caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
 tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 3,
 9.2, 10.2, 11.2, 12.2 i 13.2; de la unitat 4, 14.2, 15.2, 16.2 i 17.2; i de la unitat 5,
-2.4, 18.2, 18.3, 19.2, 20.2 i 21.2; i de la unitat 6, 22.2, 23.2, 24.2 i 25.2) acaben amb
+2.4, 18.2, 18.3, 19.2, 20.2 i 21.2; de la unitat 6, 22.2, 23.2, 24.2 i 25.2; i de la unitat 7, 26.2, 27.2 i 28.2) acaben amb
 un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 

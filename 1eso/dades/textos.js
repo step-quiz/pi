@@ -915,6 +915,90 @@ window.TEXTOS = {
     error_area:   'Has comptat els quadrets de dins: això és l\'àrea.',
     error_meitat: 'Has sumat dos costats. La vora en té quatre.',
     pista:        'Suma els quatre costats: dalt, dreta, baix i esquerra.'
+  },
+
+  /* ------------------------------ unitat 7 · patrons i llenguatge algebraic --- */
+  "26.1": {
+    nom:           'El patró',
+    titol:         'El patró de quadrets',
+    ajuda:         'Tria un patró i una figura. Mira què hi ha de fix i què s\'hi afegeix.',
+    patro_n:       'Patró {n}',
+    et_figura:     'Figura',
+    figura:        'Figura',
+    quadrets:      'Quadrets',
+    te:            'La figura {n} té {quadrets}.',
+    fixos:         'Els quadrets fixos, en taronja: {b}.',
+    afegeix:       'A cada figura s\'hi afegeixen {quadrets}.',
+    aria:          'La figura {n} del patró: {q} quadrets'
+  },
+  "26.2": {
+    nom:           'Quants en té la següent?',
+    titol:         'Quants en té la figura 4?',
+    ajuda:         'Mira les figures 1, 2 i 3. Després toca quants quadrets té la figura 4.',
+    comenca:       'Compta quants quadrets s\'afegeixen de la figura 2 a la 3.',
+    encert:        'La figura 3 en té {q3}. S\'hi afegeixen {a}: la figura 4 en té {q4}.',
+    error_mes1:    'No s\'hi afegeix 1 quadret: s\'hi afegeixen {a}.',
+    error_doble:   'No es multiplica per 2: s\'hi afegeixen {a} quadrets cada vegada.',
+    pista:         'Compta els quadrets de la figura 2 i de la figura 3. Quants n\'hi ha de més?'
+  },
+  "27.1": {
+    nom:           'La paraula i el símbol',
+    titol:         'La paraula i el símbol',
+    ajuda:         'Tria una frase i un nombre. Mira el símbol i el dibuix.',
+    sub_n:         'un nombre',
+    f_doble:       'El doble d\'un nombre',
+    f_triple:      'El triple d\'un nombre',
+    f_mes5:        'Un nombre més 5',
+    f_menys1:      'Un nombre menys 1',
+    f_seguent:     'El següent d\'un nombre',
+    f_mes3:        'Un nombre més 3',
+    es:            '{frase}: *{simbol}*.',
+    si:            'Si n és {n}: {calcul}.',
+    aria:          '{frase}, amb n igual a {n}, en quadrets'
+  },
+  "27.2": {
+    nom:           'Quin és el símbol?',
+    titol:         'Quin és el símbol?',
+    ajuda:         'Llegeix la frase. Després toca el símbol.',
+    comenca:       'Busca la frase a la targeta.',
+    error:         'Aquest símbol no diu el mateix que la frase.',
+    pista:         'El doble i el triple multipliquen. Més i menys sumen i resten.'
+  },
+  "28.1": {
+    nom:           'Llegeix el gràfic',
+    titol:         'Llegeix el gràfic',
+    ajuda:         'Tria una enquesta. Cada quadret és una persona.',
+    titol_enquesta: '{titol}.',
+    t_institut:    'Com venim a l\'institut',
+    t_esport:      'L\'esport preferit',
+    t_fruita:      'La fruita preferida',
+    e_peu:         'A peu',
+    e_bus:         'Bus',
+    e_bici:        'Bici',
+    e_cotxe:       'Cotxe',
+    e_futbol:      'Futbol',
+    e_basquet:     'Bàsquet',
+    e_natacio:     'Natació',
+    e_dansa:       'Dansa',
+    e_poma:        'Poma',
+    e_platan:      'Plàtan',
+    e_taronja:     'Taronja',
+    e_maduixa:     'Maduixa',
+    alta:          'La barra més alta: {et}, amb {v}.',
+    baixa:         'La barra més baixa: {et}, amb {v}.',
+    total:         'En total: {calcul}.',
+    aria:          'Gràfic de barres, {titol}: {dades}'
+  },
+  "28.2": {
+    nom:           'Quants n\'hi ha?',
+    titol:         'Quants n\'hi ha?',
+    ajuda:         'Mira la barra taronja. Compta els quadrets o mira el nombre de l\'eix.',
+    pregunta:      '{et}: quants n\'hi ha?',
+    comenca:       'Mira on acaba la barra taronja.',
+    encert:        '{et}: {v}.',
+    error_dalt:    'Has llegit la ratlla de sobre. La barra acaba abans.',
+    error_baix:    'Has llegit la ratlla de sota. La barra arriba més amunt.',
+    pista:         'Compta els quadrets de la barra taronja, de baix a dalt.'
   }
 };
 
@@ -1784,5 +1868,87 @@ window.TEXTOS_GUIA = {
     error_area: ["Error: ha donat l'àrea (la regla trencada)", []],
     error_meitat: ["Error: ha sumat dos costats", []],
     pista: ["Pista del primer error", []]
+  },
+  "26.1": {
+    nom:           ["La frase: «El patró»", []],
+    titol:         ["La frase: «El patró de quadrets»", []],
+    ajuda:         ["La frase: «Tria un patró i una figura. Mira què hi ha de fix i què s'hi afegeix.»", []],
+    patro_n:       ["La frase: «Patró {n}»", ["n"]],
+    et_figura:     ["La frase: «Figura»", []],
+    figura:        ["La frase: «Figura»", []],
+    quadrets:      ["La frase: «Quadrets»", []],
+    te:            ["La frase: «La figura {n} té {quadrets}.»", ["n", "quadrets"]],
+    fixos:         ["La frase: «Hi ha {b} quadrets fixos, en taronja.»", ["b"]],
+    afegeix:       ["La frase: «A cada figura s'hi afegeixen {quadrets}.»", ["quadrets"]],
+    aria:          ["La frase: «La figura {n} del patró: {q} quadrets»", ["n", "q"]]
+  },
+  "26.2": {
+    nom:           ["La frase: «Quants en té la següent?»", []],
+    titol:         ["La frase: «Quants en té la figura 4?»", []],
+    ajuda:         ["La frase: «Mira les figures 1, 2 i 3. Després toca quants quadrets té la figura 4.»", []],
+    comenca:       ["La frase: «Compta quants quadrets s'afegeixen de la figura 2 a la 3.»", []],
+    encert:        ["La frase: «La figura 3 en té {q3}. S'hi afegeixen {a}: la figura 4 en té {q4}.»", ["q3", "a", "q4"]],
+    error_mes1:    ["La frase: «No s'hi afegeix 1 quadret: s'hi afegeixen {a}.»", ["a"]],
+    error_doble:   ["La frase: «No es multiplica per 2: s'hi afegeixen {a} quadrets cada vegada.»", ["a"]],
+    pista:         ["La frase: «Compta els quadrets de la figura 2 i de la figura 3. Quants n'hi ha de més?»", []]
+  },
+  "27.1": {
+    nom:           ["La frase: «La paraula i el símbol»", []],
+    titol:         ["La frase: «La paraula i el símbol»", []],
+    ajuda:         ["La frase: «Tria una frase i un nombre. Mira el símbol i el dibuix.»", []],
+    sub_n:         ["La frase: «un nombre»", []],
+    f_doble:       ["La frase: «El doble d'un nombre»", []],
+    f_triple:      ["La frase: «El triple d'un nombre»", []],
+    f_mes5:        ["La frase: «Un nombre més 5»", []],
+    f_menys1:      ["La frase: «Un nombre menys 1»", []],
+    f_seguent:     ["La frase: «El següent d'un nombre»", []],
+    f_mes3:        ["La frase: «Un nombre més 3»", []],
+    es:            ["La frase: «{frase}: *{simbol}*.»", ["frase", "simbol"]],
+    si:            ["La frase: «Si n és {n}: {calcul}.»", ["n", "calcul"]],
+    aria:          ["La frase: «{frase}, amb n igual a {n}, en quadrets»", ["frase", "n"]]
+  },
+  "27.2": {
+    nom:           ["La frase: «Quin és el símbol?»", []],
+    titol:         ["La frase: «Quin és el símbol?»", []],
+    ajuda:         ["La frase: «Llegeix la frase. Després toca el símbol.»", []],
+    comenca:       ["La frase: «Busca la frase a la targeta.»", []],
+    error:         ["La frase: «Aquest símbol no diu el mateix que la frase.»", []],
+    pista:         ["La frase: «El doble i el triple multipliquen. Més i menys sumen i resten.»", []]
+  },
+  "28.1": {
+    nom:           ["La frase: «Llegeix el gràfic»", []],
+    titol:         ["La frase: «Llegeix el gràfic»", []],
+    ajuda:         ["La frase: «Tria una enquesta. Cada quadret és una persona.»", []],
+    titol_enquesta: ["La frase: «{titol}.»", ["titol"]],
+    t_institut:    ["La frase: «Com venim a l'institut»", []],
+    t_esport:      ["La frase: «L'esport preferit»", []],
+    t_fruita:      ["La frase: «La fruita preferida»", []],
+    e_peu:         ["La frase: «A peu»", []],
+    e_bus:         ["La frase: «Bus»", []],
+    e_bici:        ["La frase: «Bici»", []],
+    e_cotxe:       ["La frase: «Cotxe»", []],
+    e_futbol:      ["La frase: «Futbol»", []],
+    e_basquet:     ["La frase: «Bàsquet»", []],
+    e_natacio:     ["La frase: «Natació»", []],
+    e_dansa:       ["La frase: «Dansa»", []],
+    e_poma:        ["La frase: «Poma»", []],
+    e_platan:      ["La frase: «Plàtan»", []],
+    e_taronja:     ["La frase: «Taronja»", []],
+    e_maduixa:     ["La frase: «Maduixa»", []],
+    alta:          ["La frase: «La barra més alta: {et}, amb {v}.»", ["et", "v"]],
+    baixa:         ["La frase: «La barra més baixa: {et}, amb {v}.»", ["et", "v"]],
+    total:         ["La frase: «En total: {calcul}.»", ["calcul"]],
+    aria:          ["La frase: «Gràfic de barres, {titol}: {dades}»", ["titol", "dades"]]
+  },
+  "28.2": {
+    nom:           ["La frase: «Quants n'hi ha?»", []],
+    titol:         ["La frase: «Quants n'hi ha?»", []],
+    ajuda:         ["La frase: «Mira la barra taronja. Compta els quadrets o mira el nombre de l'eix.»", []],
+    pregunta:      ["La frase: «{et}: quants n'hi ha?»", ["et"]],
+    comenca:       ["La frase: «Mira on acaba la barra taronja.»", []],
+    encert:        ["La frase: «{et}: {v}.»", ["et", "v"]],
+    error_dalt:    ["La frase: «Has llegit la ratlla de sobre. La barra acaba abans.»", []],
+    error_baix:    ["La frase: «Has llegit la ratlla de sota. La barra arriba més amunt.»", []],
+    pista:         ["La frase: «Compta els quadrets de la barra taronja, de baix a dalt.»", []]
   }
 };

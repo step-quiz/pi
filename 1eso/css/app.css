@@ -428,3 +428,19 @@ svg.vora{max-width:22rem;margin:.4rem auto;display:block;width:100%}
 /* 22.2, 23.2, 24.2 i 25.2: les opcions són paraules, en lletra gran. */
 .opcio-geo{font-size:1.25rem}
 #pp-opcions .opcio-geo{text-transform:capitalize}
+
+/* ======================================================== unitat 7 ====== */
+/* El patró (26) i la paraula i el símbol (27): el dibuix, a la seva mida. */
+svg.patro{display:block;max-width:100%;height:auto;margin:.4rem 0}
+svg.patro.petit{margin:0}
+.patro-figures{display:flex;gap:1.2rem;align-items:flex-end;flex-wrap:wrap;margin:.4rem 0 .6rem}
+.patro-figures .peu-dibuix{font-weight:800;margin:0 0 .2rem}
+table.patro-taula{border-collapse:collapse;margin:.4rem 0;font-variant-numeric:tabular-nums}
+table.patro-taula th,table.patro-taula td{border:1.5px solid var(--vora);padding:.25rem .7rem;text-align:center}
+table.patro-taula th{background:var(--superficie);color:var(--etiqueta);font-weight:700}
+table.patro-taula td{font-size:1.2rem;font-weight:700}
+/* Els gràfics de barres (28). */
+svg.barres{max-width:26rem;width:100%;margin:.4rem auto;display:block}
+/* Els números dels angles (24), sobre un cercle del color del fons: es llegeixen sobre
+   qualsevol dels tres tons, en mode clar i fosc (l'auditoria, 29/9/2026). */
+.ang-fons{fill:var(--superficie);stroke:var(--etiqueta-3);stroke-width:1}

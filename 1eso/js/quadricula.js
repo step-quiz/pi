@@ -400,6 +400,8 @@
       const [x1, y1] = pt(t1), [x2, y2] = pt(t1 + d), m = t1 + d / 2;
       svg.appendChild(el("path", { d: `M${cx} ${cy} L${x1} ${y1} A${r} ${r} 0 0 ${d > 0 ? 0 : 1} ${x2} ${y2} Z`,
                                    class: "ang ang" + (i + 1) }));
+      // El número, sobre un cercle del color del fons: es llegeix sobre qualsevol to.
+      svg.appendChild(el("circle", { cx: cx + 48 * Math.cos(m), cy: cy - 48 * Math.sin(m), r: 12, class: "ang-fons" }));
       text(svg, cx + 48 * Math.cos(m), cy - 48 * Math.sin(m) + 6, String(i + 1), "q-text fort", 18);
     });
   }
@@ -416,6 +418,7 @@
       const pt = t => [Math.round((cx + r * Math.cos(t)) * 10) / 10, Math.round((cy - r * Math.sin(t)) * 10) / 10];
       const [x1, y1] = pt(t1), [x2, y2] = pt(t2);
       svg.appendChild(el("path", { d: `M${cx} ${cy} L${x1} ${y1} A${r} ${r} 0 0 0 ${x2} ${y2} Z`, class: "ang ang" + (i + 1) }));
+      svg.appendChild(el("circle", { cx: cx + 78 * Math.cos(m), cy: cy - 78 * Math.sin(m), r: 14, class: "ang-fons" }));
       text(svg, cx + 78 * Math.cos(m), cy - 78 * Math.sin(m) + 7, String(i + 1), "q-text fort", 20);
       ini += g;
     });
@@ -436,6 +439,48 @@
     text(svg, x0 - 18, 157, String(f), "q-text fort", 20);
     text(svg, x0 + c * m + 18, 157, String(f), "q-text fort", 20);
     svg.setAttribute("viewBox", "0 0 340 300");
+  }
+
+  /* ================================================ els patrons (unitat 7) ===== */
+
+  /** Una figura d'un patró de quadrets «a · n + b»: la part fixa (b quadrets, taronja i
+      discontinus, en una columna a l'esquerra) i a files de n quadrets. Així es veu què hi ha
+      de fix i què s'hi afegeix a cada figura. `o.m`: la mida del quadret (per defecte, la que
+      hi cap). viewBox 0 0 W H, calculat. */
+  function patro(svg, a, b, n, o) {
+    o = o || {};
+    svg.textContent = "";
+    const m = o.m || Math.min(34, Math.floor(300 / (n + (b ? 1.4 : 0))), Math.floor(130 / Math.max(a, b, 1)));
+    let x = 6;
+    const H = Math.max(a, b) * m + 12, y0 = H - 6;
+    for (let i = 0; i < b; i++) quadret(svg, x, y0 - (i + 1) * m, m, "q b nou");
+    if (b) x += m * 1.4;
+    for (let f = 0; f < a; f++) for (let c = 0; c < n; c++) quadret(svg, x + c * m, y0 - (f + 1) * m, m, "q");
+    const W = Math.max(x + n * m + 6, 60);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.setAttribute("width", W);
+    return { W, H };
+  }
+
+  /** Un gràfic de barres fet de quadrets: cada quadret és 1. `dades` = [[etiqueta, valor]].
+      L'eix, amb un nombre cada 2, comença a zero. viewBox 0 0 360 300. */
+  function barres(svg, dades, o) {
+    o = o || {};
+    svg.textContent = "";
+    const max = Math.max(...dades.map(d => d[1])), m = Math.min(18, Math.floor(220 / Math.max(max, 10)));
+    const x0 = 44, y0 = 250, amp = Math.min(60, Math.floor(300 / dades.length)), bw = m;
+    for (let v = 0; v <= max + 1; v += 2) {
+      svg.appendChild(el("line", { x1: x0, y1: y0 - v * m, x2: x0 + dades.length * amp + 8, y2: y0 - v * m, class: "q-linia" }));
+      text(svg, x0 - 10, y0 - v * m + 5, String(v), "q-num", 13);
+    }
+    svg.appendChild(el("line", { x1: x0, y1: y0, x2: x0, y2: y0 - (max + 1) * m, class: "q-eix" }));
+    svg.appendChild(el("line", { x1: x0, y1: y0, x2: x0 + dades.length * amp + 8, y2: y0, class: "q-eix" }));
+    dades.forEach(([et, v], i) => {
+      const x = x0 + i * amp + (amp - bw) / 2;
+      for (let k = 0; k < v; k++) quadret(svg, x, y0 - (k + 1) * m, m, o.destaca === i ? "q b" : "q");
+      text(svg, x0 + i * amp + amp / 2, y0 + 20, et, "q-text", 13);
+    });
+    svg.setAttribute("viewBox", "0 0 360 280");
   }
 
   /* ======================================================= les fraccions ===== */
@@ -516,5 +561,6 @@
            graella100, rectanglesDe, divisorsDe, dibuixaRectangles,
            TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio, graella2D,
            dec, Q100, quadrat100, RECTA, recta,
-           ANGLE, angle, tipusAngle, GEO, geopla, anglesTriangle, tipusTriangle, triangle, anglesJunts, vora };
+           ANGLE, angle, tipusAngle, GEO, geopla, anglesTriangle, tipusTriangle, triangle, anglesJunts, vora,
+           patro, barres };
 })();

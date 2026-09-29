@@ -151,10 +151,12 @@ window.UNITATS = [
     titol: "Patrons i llenguatge algebraic",
     dates: "del 19 de maig a l'1 de juny",
     sessions: "6",
-    nucli: "Patrons de quadrets: quants en té la figura següent.",
+    nucli: "Patrons de quadrets: què hi ha de fix i què s'hi afegeix, i quants en té la figura següent. " +
+           "El triple d'un nombre s'escriu 3 · n. Un gràfic de barres són columnes de quadrets.",
     material: "Miniblocs: fer les tres primeres figures d'un patró i la quarta.",
     criteris: "2.1, 3.1, 4.1, 5.1, 7.2",
-    fitxes: []
+    fitxes: [],
+    tasques: [26, 27, 28]
   }
 ];
 

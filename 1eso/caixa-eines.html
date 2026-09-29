@@ -47,6 +47,9 @@
     <button class="segment" role="tab" data-tasca="23" data-mod="poligons" aria-selected="false">Polígons</button>
     <button class="segment" role="tab" data-tasca="24" data-mod="triangles" aria-selected="false">Triangles</button>
     <button class="segment" role="tab" data-tasca="25" data-mod="perimetre" aria-selected="false">Perímetre</button>
+    <button class="segment" role="tab" data-tasca="26" data-mod="patrons" aria-selected="false">Patrons</button>
+    <button class="segment" role="tab" data-tasca="27" data-mod="simbols" aria-selected="false">Símbols</button>
+    <button class="segment" role="tab" data-tasca="28" data-mod="grafics" aria-selected="false">Gràfics</button>
   </div>
 </header>
 
@@ -1209,6 +1212,119 @@
   </div>
 </section>
 
+<!-- ====================================================== 26 · PATRONS ==== -->
+<section id="mod-patrons" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="26.1.titol"></h2><p class="ajuda" data-text="26.1.ajuda"></p></div>
+        <span class="marca" id="pt-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="pt-pastilles" role="group" aria-label="Els patrons"></div>
+      <div class="comptadors"><div id="pt-n"></div></div>
+      <svg class="patro" id="pt-svg" role="img"></svg>
+      <div id="pt-taula"></div>
+      <div class="lectura" id="pt-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="26.2.titol"></h2>
+      <p class="ajuda" data-text="26.2.ajuda"></p>
+      <div id="pu-recorregut"></div>
+      <div class="represa" id="pu-represa" hidden></div>
+      <div id="pu-cos">
+        <div class="patro-figures">
+          <div><p class="peu-dibuix">1</p><svg class="patro petit" id="pu-f1" role="img"></svg></div>
+          <div><p class="peu-dibuix">2</p><svg class="patro petit" id="pu-f2" role="img"></svg></div>
+          <div><p class="peu-dibuix">3</p><svg class="patro petit" id="pu-f3" role="img"></svg></div>
+        </div>
+        <div class="opcions-sino" id="pu-opcions" role="group" aria-label="Els nombres de quadrets per triar"></div>
+        <div class="avis neutre" id="pu-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="pu-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="pu-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== 27 · SÍMBOLS ==== -->
+<section id="mod-simbols" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="27.1.titol"></h2><p class="ajuda" data-text="27.1.ajuda"></p></div>
+        <span class="marca" id="sy-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="sy-pastilles" role="group" aria-label="Les frases"></div>
+      <div class="comptadors"><div id="sy-n"></div></div>
+      <svg class="patro" id="sy-svg" role="img"></svg>
+      <div class="lectura" id="sy-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="27.2.titol"></h2>
+      <p class="ajuda" data-text="27.2.ajuda"></p>
+      <div id="sz-recorregut"></div>
+      <div class="represa" id="sz-represa" hidden></div>
+      <div id="sz-cos">
+        <p class="pregunta-gran" id="sz-pregunta"></p>
+        <div class="opcions-sino" id="sz-opcions" role="group" aria-label="Els símbols per triar"></div>
+        <div class="avis neutre" id="sz-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="sz-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="sz-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== 28 · GRÀFICS ==== -->
+<section id="mod-grafics" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="28.1.titol"></h2><p class="ajuda" data-text="28.1.ajuda"></p></div>
+        <span class="marca" id="gr-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="gr-pastilles" role="group" aria-label="Les enquestes"></div>
+      <svg class="llenc barres" id="gr-svg" viewBox="0 0 360 280" role="img"></svg>
+      <div class="lectura" id="gr-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="28.2.titol"></h2>
+      <p class="ajuda" data-text="28.2.ajuda"></p>
+      <div id="gs-recorregut"></div>
+      <div class="represa" id="gs-represa" hidden></div>
+      <div id="gs-cos">
+        <svg class="llenc barres" id="gs-svg" viewBox="0 0 360 280" role="img"></svg>
+        <p class="pregunta-gran" id="gs-pregunta"></p>
+        <div class="opcions-sino" id="gs-opcions" role="group" aria-label="Els nombres per triar"></div>
+        <div class="avis neutre" id="gs-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="gs-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="gs-final" hidden></div>
+    </div>
+  </div>
+</section>
+
 
 
 </div>
@@ -1247,6 +1363,9 @@
 <script src="js/moduls/poligons.js"></script>
 <script src="js/moduls/triangles.js"></script>
 <script src="js/moduls/perimetre.js"></script>
+<script src="js/moduls/patrons.js"></script>
+<script src="js/moduls/simbols.js"></script>
+<script src="js/moduls/grafics.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

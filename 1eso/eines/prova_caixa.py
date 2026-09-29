@@ -142,7 +142,8 @@ def main():
                 ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2), ("area", 2),
                 ("fraccnombre", 2), ("multfrac", 2), ("percentatges", 2), ("dobletriple", 2),
                 ("decimals", 3), ("arrodonir", 2), ("sumadec", 2), ("fracdec", 2),
-                ("angles", 2), ("poligons", 2), ("triangles", 2), ("perimetre", 2)]
+                ("angles", 2), ("poligons", 2), ("triangles", 2), ("perimetre", 2),
+                ("patrons", 2), ("simbols", 2), ("grafics", 2)]
         for mod, n in subs:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
@@ -1148,6 +1149,42 @@ def main():
                                           ("poligons", "pp", "23.2", "Com es diu?", bona232),
                                           ("triangles", "ts", "24.2", "Quin triangle és?", bona242),
                                           ("perimetre", "pf", "25.2", "Quin és el perímetre?", bona252)]:
+            codis[id_] = (tasca_dec(pg, mod, 2, pref, bona, id_), nom, (5, 4, 1, 0))
+            print(f"  {id_}: cinc passos, un error amb pista; codi {codis[id_][0]}")
+
+        # ------------------------------------------------------------------
+        titol("UNITAT 7 · PATRONS, SÍMBOLS I GRÀFICS")
+        d7 = pg.evaluate("""() => {
+            const D = CE.dades;
+            return { pat: D.patrons.CASOS.map(p => D.patrons.opcionsDe(p).map(o => o[1])),
+                     sim: D.simbols.CASOS.map(c => c.slice(1)), enq: D.grafics.ENQUESTES.map(e => e[1].map(x => x[1])) };
+        }""")
+        comprova(all(len(set(o)) == 3 for o in d7["pat"]), "26.2: dues opcions iguals")
+        comprova(all(len(set(o)) == 3 and all("·" in x or "+" in x or "−" in x for x in o) for o in d7["sim"]), "27.2: opcions iguals o sense operació")
+        comprova(all(0 < v <= 12 and len(set(e)) == len(e) for e in d7["enq"] for v in e), "28: valors de fora d'1 a 12, o dues barres iguals")
+        obre(pg); modul(pg, "patrons", 1)
+        lec = text(pg, "#pt-lectura")
+        comprova("La figura 3 té 7 quadrets." in lec and "2 · n + 1" in lec, f"26.1: la cadena del llibre: «{lec}»")
+        modul(pg, "simbols", 1)
+        comprova("3 · 4 = 12" in text(pg, "#sy-lectura"), "27.1: el triple de 4")
+        modul(pg, "grafics", 1)
+        comprova("12 + 8 + 6 + 4 = 30" in text(pg, "#gr-lectura"), "28.1: el total de l'enquesta del llibre")
+        print("  26.1 la figura 3 de 2 · n + 1 té 7; 27.1 3 · 4 = 12; 28.1 12 + 8 + 6 + 4 = 30")
+
+        def bona262(pg):
+            qs = [int(re.search(r"(\d+) quadrets", pg.get_attribute(f"#pu-f{n}", "aria-label")).group(1)) for n in (1, 2, 3)]
+            return str(qs[2] + (qs[2] - qs[1]))
+        SIMB = {"El doble d'un nombre": "2 · n", "El triple d'un nombre": "3 · n", "Un nombre més 5": "n + 5",
+                "Un nombre menys 1": "n − 1", "El següent d'un nombre": "n + 1", "Un nombre més 3": "n + 3"}
+        def bona272(pg):
+            return SIMB[text(pg, "#sz-pregunta").strip()]
+        def bona282(pg):
+            et = text(pg, "#gs-pregunta").split(":")[0].strip()
+            dades = pg.get_attribute("#gs-svg", "aria-label").split(": ", 1)[1]
+            return dict((x.rsplit(" ", 1)[0], x.rsplit(" ", 1)[1]) for x in dades.split(", "))[et]
+        for mod, pref, id_, nom, bona in [("patrons", "pu", "26.2", "Quants en té la següent?", bona262),
+                                          ("simbols", "sz", "27.2", "Quin és el símbol?", bona272),
+                                          ("grafics", "gs", "28.2", "Quants n'hi ha?", bona282)]:
             codis[id_] = (tasca_dec(pg, mod, 2, pref, bona, id_), nom, (5, 4, 1, 0))
             print(f"  {id_}: cinc passos, un error amb pista; codi {codis[id_][0]}")
 

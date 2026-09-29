@@ -120,6 +120,13 @@ ESTATS = [
     ("24.2 Quin triangle és? · tocada",  "caixa-eines.html", "?task=24.2", "boto_ts"),
     ("25.1 Perímetre i àrea",            "caixa-eines.html", "?task=25.1", None),
     ("25.2 Quin és el perímetre? · tocada", "caixa-eines.html", "?task=25.2", "boto_pf"),
+    # Unitat 7.
+    ("26.1 El patró",                    "caixa-eines.html", "?task=26.1", None),
+    ("26.2 Quants en té la següent? · tocada", "caixa-eines.html", "?task=26.2", "boto_pu"),
+    ("27.1 La paraula i el símbol",      "caixa-eines.html", "?task=27.1", None),
+    ("27.2 Quin és el símbol? · tocada", "caixa-eines.html", "?task=27.2", "boto_sz"),
+    ("28.1 Llegeix el gràfic",           "caixa-eines.html", "?task=28.1", None),
+    ("28.2 Quants n'hi ha? · tocada",    "caixa-eines.html", "?task=28.2", "boto_gs"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
     ("La portada",                       "index.html",       "",          None),
     ("Fitxes",                           "fitxes.html",      "",          None),

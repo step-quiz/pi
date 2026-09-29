@@ -94,8 +94,11 @@ pantalla van a `css/app.css`.
 | 23 | Polígons | `poligons.js` | 23.1 El polígon al geoplà · **23.2 Com es diu?** | El rectangle |
 | 24 | Triangles | `triangles.js` | 24.1 Els tres angles · **24.2 Quin triangle és?** | El triangle rectangle: 90 + 45 + 45 |
 | 25 | Perímetre | `perimetre.js` | 25.1 Perímetre i àrea · **25.2 Quin és el perímetre?** | 3 per 4: perímetre 14, àrea 12 |
+| 26 | Patrons | `patrons.js` | 26.1 El patró · **26.2 Quants en té la següent?** | 2 · n + 1, figura 3: 7 quadrets |
+| 27 | Símbols | `simbols.js` | 27.1 La paraula i el símbol · **27.2 Quin és el símbol?** | El triple, n = 4: 3 · 4 = 12 |
+| 28 | Gràfics | `grafics.js` | 28.1 Llegeix el gràfic · **28.2 Quants n'hi ha?** | Com venim a l'institut: 12, 8, 6 i 4 |
 
-Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), les 14 a 17, de la unitat 4, i les 18 a 21 i la 2.4, de la unitat 5 (els decimals i l'arrel), i les 22 a 25, de la unitat 6 (angles, polígons, triangles i perímetre). La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
+Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), les 14 a 17, de la unitat 4, i les 18 a 21 i la 2.4, de la unitat 5 (els decimals i l'arrel), les 22 a 25, de la unitat 6 (angles, polígons, triangles i perímetre), i les 26 a 28, de la unitat 7 (patrons, símbols i gràfics). La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són
@@ -133,6 +136,8 @@ Deixa a `CE.q`:
 | `geopla` | El geoplà de 6 per 6 punts i un polígon pels punts que es diguin |
 | `triangle`, `anglesTriangle`, `tipusTriangle`, `anglesJunts` | Un triangle al geoplà amb els angles numerats, els seus angles (amb enters, el producte escalar diu si n'hi ha de recte o d'obtús sense arrodonir) i els tres angles junts, que fan un angle pla |
 | `vora` | Un rectangle de quadrets amb la vora gruixuda i els costats numerats: el perímetre |
+| `patro` | Una figura d'un patró a · n + b: la part fixa en taronja i discontínua, i a files de n quadrets |
+| `barres` | Un gràfic de barres fet de quadrets, amb l'eix que comença a zero |
 | `nomFraccio`, `htmlFraccio`, `tipusFraccio` | El nom («quatre novens», amb els noms de la targeta de les fraccions, a `frac.s_N` i `frac.p_N` de les frases), la fracció escrita com a fracció, i si és nul·la, pròpia, unitat o impròpia |
 
 La taula de quadrets és el mateix objecte que la taula de multiplicar: el quadret de la fila 3 i
@@ -240,7 +245,7 @@ funciona.
 | Test | Què fa | Què necessita |
 |---|---|---|
 | `eines/comprova.py` | Les regles que es poden llegir als fitxers: estructura, frases, Lectura Fàcil, subtasques, «·», fins a 999 i decimals fins a 9,99, contrast de la paleta, `pi1-`, sal pròpia, identificadors sense repetir i cap camp repetit a `dades/unitats.js` | Només Python |
-| `eines/prova_caixa.py` | La caixa, feta servir de debò: toca, s'equivoca, acaba totes les tasques tancades (30) i llegeix els codis a `verifica.html` | Playwright i Chromium |
+| `eines/prova_caixa.py` | La caixa, feta servir de debò: toca, s'equivoca, acaba totes les tasques tancades (33) i llegeix els codis a `verifica.html` | Playwright i Chromium |
 | `eines/auditoria.py` | L'accessibilitat aplicada: contrast real, mida de cada botó i focus, en clar i en fosc, a 320 i a 1100 px | Playwright i Chromium |
 
 Tots tres han de dir que està bé («Tot correcte.» o «0 problemes») abans de lliurar res. Com

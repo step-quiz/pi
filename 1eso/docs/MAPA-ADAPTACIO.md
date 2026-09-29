@@ -77,7 +77,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat, caixa (tasques 22 a 25), targeta «Formes», les sis fitxes i l'examen fets |
-| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
+| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | En curs: pla validat i caixa feta (tasques 26 a 28). Falten la targeta «Patrons i símbols», les cinc fitxes i l'examen |
 
 Els codis dels criteris són els de les SA del departament, i quadren, codi i text, amb la llista
 oficial que porta la plantilla del Departament d'Educació. L'avaluació d'aquest alumnat es fa
@@ -583,6 +583,50 @@ mural i les presentacions, que es fan amb el grup.
   fitxes; els angles de l'exercici 1 són dibuixos amb la cantonada; els apartats «nous» són el 4 d i
   el 7 d). La circumferència té una regla trencada que no era al pla: la Nerea del llibre calcula la
   vora amb el radi. «La meva Fotomàtica», al repàs, és una plantilla per al projecte del grup.
+
+## 8 quater. La unitat 7: «Llenguatge algebraic i patrons», activitat per activitat
+
+**El material del grup.** La programació (SA7, del 19 de maig a l'1 de juny, 6 sessions) i el llibre,
+on és la UD8 (7 activitats). Tanca el curs i obre l'àlgebra, però **no fa equacions**: reconèixer
+patrons, traduir enunciats a símbols i interpretar gràfics i taules.
+
+**El pla el va validar el docent el 29 de setembre de 2026.** El nucli: els patrons de quadrets, què
+hi ha de fix i què s'hi afegeix, i quants en té la figura següent (la taula del 3, els salts de la
+recta de la unitat 2). La figura n té a · n + b quadrets. «El triple d'un nombre» s'escriu 3 · n. Un
+gràfic de barres són columnes de quadrets.
+
+**La caixa de la unitat 7:**
+
+| Tasca | Què fa | La confusió de debò |
+|---|---|---|
+| 26 · Patrons | 26.1 El patró (cinc patrons, la figura de l'1 al 10, la taula i la regla) · **26.2 Quants en té la següent?** | Sumar-ne sempre 1; multiplicar per 2 (en Pau del llibre) |
+| 27 · Símbols | 27.1 La paraula i el símbol (el dibuix i el càlcul per a una n) · **27.2 Quin és el símbol?** | El triple fet suma (n + 3); el més fet producte (5 · n); al revés (1 − n) |
+| 28 · Gràfics | 28.1 Llegeix el gràfic (tres enquestes, una del llibre) · **28.2 Quants n'hi ha?** | Llegir la ratlla de sobre o la de sota |
+
+**Les fitxes de la unitat 7:**
+
+| Fitxa | Què porta | Regla trencada | Estat |
+|---|---|---|---|
+| 1 · `ud7.html` | Patrons de quadrets: què hi ha de fix, què s'hi afegeix, la figura següent | En Pau: 2, 4, 6, 8 «creix multiplicant per 2» | Per fer |
+| 2 · `ud7-regla.html` | La taula figura–quadrets i la regla a · n + b; la figura 10 | La Ivet: 5, 8, 11, 14 és 3 · n (oblida la part fixa) | Per fer |
+| 3 · `ud7-simbols.html` | De la paraula al símbol; calcular per a una n | La Zoe: «si n = 3, 2n = 23» | Per fer |
+| 4 · `ud7-grafics.html` | Llegir un gràfic de barres i una taula; què no diu | La barra el doble d'alta amb l'eix que no comença a zero | Per fer |
+| 5 · `ud7-repas.html` | Repàs, «El meu curs» (un exemple de cada unitat) i un patró de l'entorn | — | Per fer |
+
+**Queda fora, i per què:** les equacions (a 2n); Fibonacci i la proporció àuria (ja a la SA2; només
+de repte); els gràfics de línia, com el trajecte de la Marta (un altre model); els nombres
+triangulars i els termes com n²; Desmos (la caixa en fa el paper); el mapa del curs i la presentació
+del dossier, amb el grup.
+
+**Les decisions, amb data:**
+
+- 29 de setembre de 2026: el pla, validat, amb les tres recomanacions. **El producte, sempre amb el
+  punt: 2 · n** (la targeta dirà que el grup ho escriu 2n). **Una targeta nova, «Patrons i
+  símbols»**. **Només gràfics de barres i taules.** Els lliuraments, en tres passos.
+- 29 de setembre de 2026: la caixa (tasques 26 a 28). Peces noves a `js/quadricula.js`: `patro` (la
+  part fixa, en taronja, i a files de n quadrets) i `barres` (el gràfic de barres de quadrets). El
+  mateix dia, els números dels angles de la tasca 24 (unitat 6) van passar a sobre d'un cercle del
+  color del fons: en mode fosc no tenien prou contrast sobre el blau.
 
 ---
 
