@@ -695,24 +695,24 @@ window.TEXTOS = {
     et_d:         'Dècimes',
     sub_d:        'columnes de 10',
     et_c:         'Centèsimes',
-    sub_c:        'quadrets sols',
+    sub_c:        'quadrets solts',
     compta:       '{u}, {d} i {c}.',
     total:        'En total hi ha {quadrets}: són {cent}.',
     llegeix:      'Es llegeix: {nom}.',
     llegenda_u:   'Un quadrat de 100 quadrets és *1 unitat*.',
     llegenda_d:   'Una columna de 10 quadrets és *1 dècima*: 0,1.',
-    llegenda_c:   'Un quadret sol és *1 centèsima*: 0,01.'
+    llegenda_c:   'Un quadret solt és *1 centèsima*: 0,01.'
   },
   "18.2": {
     nom:          'Quin decimal és?',
     titol:        'Quin decimal és?',
     ajuda:        'Compta els quadrats, les columnes i els quadrets. Després toca el decimal.',
-    comenca:      'Compta els quadrats, les columnes i els quadrets sols.',
+    comenca:      'Compta els quadrats, les columnes i els quadrets solts.',
     encert:       'Hi ha {u}, {d} i {c}: és {n}.',
     error_girat:  'Les columnes són les dècimes, i van just després de la coma.',
     error_natural: 'Ara el quadrat de 100 és 1 unitat. Després de les unitats va la coma.',
-    pista:        'Compta per separat els quadrats, les columnes i els quadrets sols.',
-    aria:         'Quadrats de 100: {q}. Columnes de 10: {col}. Quadrets sols: {qs}.'
+    pista:        'Compta per separat els quadrats, les columnes i els quadrets solts.',
+    aria:         'Quadrats de 100: {q}. Columnes de 10: {col}. Quadrets solts: {qs}.'
   },
   "18.3": {
     nom:          'Quin és més gran?',
@@ -760,7 +760,7 @@ window.TEXTOS = {
     zero:         '{n} és el mateix que {n2}: el zero no canvia res.',
     u:            'Els quadrats: {calcul}.',
     d:            'Les columnes: {calcul}.',
-    c:            'Els quadrets sols: {calcul}.',
+    c:            'Els quadrets solts: {calcul}.',
     aria_suma:    '{a} i {b}, junts: {r}',
     aria_resta:   'Tenies {a} i treus {b}: queden {r}'
   },
@@ -1509,7 +1509,7 @@ window.TEXTOS_GUIA = {
     zero:         ["El zero que iguala les xifres: 2,5 és 2,50", ["n", "n2"]],
     u:            ["El compte dels quadrats: «2 + 1 = 3»", ["calcul"]],
     d:            ["El compte de les columnes: «5 + 3 = 8»", ["calcul"]],
-    c:            ["El compte dels quadrets sols: «0 + 5 = 5»", ["calcul"]],
+    c:            ["El compte dels quadrets solts: «0 + 5 = 5»", ["calcul"]],
     aria_suma:    ["Per al lector de pantalla: la suma", ["a", "b", "r"]],
     aria_resta:   ["Per al lector de pantalla: la resta", ["a", "b", "r"]]
   },

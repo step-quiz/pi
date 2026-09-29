@@ -75,7 +75,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Feta: caixa (tasques 5 a 8), cinc fitxes, els PDF i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
-| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4) i targeta «Decimals i arrels» fetes. Falten les sis fitxes, els PDF i l'examen |
+| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels» i fitxa 1 fetes. Falten cinc fitxes i l'examen |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
@@ -439,7 +439,7 @@ essencial per primer cop: aquí no hi entra (regla C).
 
 | Fitxa | Què porta | Regla trencada | Estat |
 |---|---|---|---|
-| 1 · `ud5.html` | Els decimals: llegir-los i escriure'ls amb blocs, el zero que manté el lloc, i comparar | «Més xifres vol dir més gran» (0,75 i 0,8) | Per fer |
+| 1 · `ud5.html` | Els decimals: llegir-los i escriure'ls amb blocs, el zero que manté el lloc, el valor de cada xifra, i comparar | «Més xifres vol dir més gran» (0,75 i 0,8) | Feta (29/9/2026) |
 | 2 · `ud5-arrodonir.html` | Arrodonir i truncar, amb la recta i la mitja columna | Arrodonir sempre avall (3,47 → 3,4) | Per fer |
 | 3 · `ud5-sumes.html` | Sumar i restar amb la coma sota la coma, amb euros i cèntims | No alinear la coma (2,5 + 1,35 = 1,60) | Per fer |
 | 4 · `ud5-fraccions.html` | De la fracció al decimal al quadrat de 100, i al revés | 1/4 = 0,4 | Per fer |
@@ -475,6 +475,13 @@ resolt i tres apartats per fer, de les fitxes.
   quadrat de 4 per 4 i dues regles: l'arrel és el costat, no la meitat, i si no és a la llista és
   entre dos nombres. Cap dibuix nou (regla B): els blocs de la unitat 1 i el quadrat de 100 de la
   unitat 4, pintat per columnes com a la caixa.
+- 29 de setembre de 2026: la fitxa 1, «Els decimals» (`fitxes/ud5.html`, de
+  `generadors/fitxes/fitxa_ud5.py`). És la fitxa de centenes, desenes i unitats de la unitat 1 amb
+  els mateixos blocs, ara amb el quadrat de 100 com a unitat. Set pàgines: el model (2,43), mira els
+  blocs, escriu les xifres i pinta, què val el 7 (el llibre), marca el decimal (el zero que guarda
+  el lloc), quin és més gran (la regla trencada, l'error de la Berta) i la vida (salts, alçades i
+  ampolles, i ordenar 2,5, 2,05 i 2,55). El mateix dia, «quadrets sols» de la caixa (tasca 18) va
+  passar a «quadrets solts», com a la unitat 1: la mateixa paraula per a la mateixa cosa.
 
 ---
 

@@ -2,7 +2,7 @@
    ELS DECIMALS — mòdul «decimals» de la caixa d'eines · tasca 18 · unitat 5
    ----------------------------------------------------------------------------
    El quadrat de 100 quadrets és 1 unitat: una columna de 10 quadrets és 0,1
-   (una dècima) i un quadret sol és 0,01 (una centèsima). Són els blocs de la
+   (una dècima) i un quadret solt és 0,01 (una centèsima). Són els blocs de la
    unitat 1 (js/quadricula.js, `blocs`), amb el quadrat com a unitat: el 243
    de la tasca 3 aquí és 2,43. Activitats 1 i 2 de la situació «Decimals i
    arrel quadrada» (el llibre: «Què en sabem?» i «Els decimals»).

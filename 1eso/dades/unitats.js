@@ -115,7 +115,9 @@ window.UNITATS = [
     material: "Quadrícula de 100: pintar una columna i un quadret. " +
               "Quadrats de cartolina: buscar el costat d'un quadrat de 9 i de 16 quadrets.",
     criteris: "5.1, 7.1, 8.1",
-    fitxes: [],
+    fitxes: [
+      { fitxa: "fitxes/ud5.html", titol: "Els decimals" }
+    ],
     tasques: [0, 2, 18, 19, 20, 21]
   },
   {
