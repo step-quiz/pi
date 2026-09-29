@@ -75,7 +75,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Feta: caixa (tasques 5 a 8), cinc fitxes, els PDF i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
-| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels» i fitxes 1 i 2 fetes. Falten quatre fitxes i l'examen |
+| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels» i fitxes 1, 2 i 3 fetes. Falten tres fitxes i l'examen |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
@@ -441,7 +441,7 @@ essencial per primer cop: aquí no hi entra (regla C).
 |---|---|---|---|
 | 1 · `ud5.html` | Els decimals: llegir-los i escriure'ls amb blocs, el zero que manté el lloc, el valor de cada xifra, i comparar | «Més xifres vol dir més gran» (0,75 i 0,8) | Feta (29/9/2026) |
 | 2 · `ud5-arrodonir.html` | Arrodonir i truncar a les dècimes, amb la recta, que és una columna de 10 quadrets ajaguda | Arrodonir sempre avall (3,47 → 3,4): l'Oriol | Feta (29/9/2026) |
-| 3 · `ud5-sumes.html` | Sumar i restar amb la coma sota la coma, amb euros i cèntims | No alinear la coma (2,5 + 1,35 = 1,60) | Per fer |
+| 3 · `ud5-sumes.html` | Sumar i restar amb la coma sota la coma, amb euros i cèntims | No alinear la coma (2,5 + 1,35 = 1,60): la Júlia | Feta (29/9/2026) |
 | 4 · `ud5-fraccions.html` | De la fracció al decimal al quadrat de 100, i al revés | 1/4 = 0,4 | Per fer |
 | 5 · `ud5-arrel.html` | Quadrats perfectes, l'arrel com a costat, i les no exactes entre dos nombres | «L'arrel és la meitat» (√16 = 8) | Per fer |
 | 6 · `ud5-repas.html` | El carnet d'un nombre, les rajoles i «Què he après?» | — | Per fer |
@@ -488,6 +488,15 @@ resolt i tres apartats per fer, de les fitxes.
   quadrets). Cinc pàgines: el model (3,47), marca el decimal a la recta, arrodoneix i trunca (5,86 i
   6,78, del llibre), la regla trencada (l'Oriol sempre arrodoneix avall; l'apartat c, on encerta, és
   a posta) i la vida (alçada, quilòmetres i quilos, i 0,96 → 1,0 per als nivells alts).
+- 29 de setembre de 2026: la fitxa 3, «Sumar i restar decimals» (`fitxes/ud5-sumes.html`, de
+  `generadors/fitxes/fitxa_ud5_sumes.py`). Es sumen quadrats amb quadrats, columnes amb columnes i
+  quadrets amb quadrets: la coma va sota la coma. L'operació en columna té una casella per xifra i la
+  coma impresa; s'hi escriuen els dos nombres, amb el zero que iguala (3,2 és 3,20).
+  Cinc pàgines: el model (2,5 + 1,35 = 3,85, el cas del llibre), quatre sumes, quatre restes, la regla
+  trencada (la Júlia posa les xifres a la dreta; l'apartat c, amb les mateixes xifres decimals, surt
+  bé a posta) i la vida amb euros i cèntims (un euro és un quadrat de 100 cèntims). Les operacions en
+  columna i les de la Júlia van dins de `.revisa`: l'operació sencera va escrita a la frase del costat,
+  i aquesta sí que es comprova.
 
 ---
 

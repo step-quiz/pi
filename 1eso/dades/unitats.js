@@ -117,7 +117,8 @@ window.UNITATS = [
     criteris: "5.1, 7.1, 8.1",
     fitxes: [
       { fitxa: "fitxes/ud5.html", titol: "Els decimals" },
-      { fitxa: "fitxes/ud5-arrodonir.html", titol: "Arrodonir i truncar" }
+      { fitxa: "fitxes/ud5-arrodonir.html", titol: "Arrodonir i truncar" },
+      { fitxa: "fitxes/ud5-sumes.html", titol: "Sumar i restar decimals" }
     ],
     tasques: [0, 2, 18, 19, 20, 21]
   },
