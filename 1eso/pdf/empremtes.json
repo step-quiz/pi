@@ -239,6 +239,16 @@
     "font": "fitxes/ud5-arrodonir.html",
     "pagines": 2
   },
+  "ud5-fraccions-alumnat.pdf": {
+    "empremta": "05e60150381d978f326f4bb24aa727c91c5fce2b21956261306453881f97ba1b",
+    "font": "fitxes/ud5-fraccions.html",
+    "pagines": 5
+  },
+  "ud5-fraccions-solucionari.pdf": {
+    "empremta": "05e60150381d978f326f4bb24aa727c91c5fce2b21956261306453881f97ba1b",
+    "font": "fitxes/ud5-fraccions.html",
+    "pagines": 2
+  },
   "ud5-solucionari.pdf": {
     "empremta": "c4e8e979e357ac8f549864ca0faa4d2f8c14dafa45017a22e812fdee07c13dff",
     "font": "fitxes/ud5.html",
