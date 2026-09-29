@@ -14,6 +14,11 @@
     "font": "targetes/fraccions.html",
     "pagines": 2
   },
+  "targeta-patrons.pdf": {
+    "empremta": "9e94ec38f1c0ebc08102577e92bb5f91c32808a1b825ea88a48282facda5edbd",
+    "font": "targetes/patrons.html",
+    "pagines": 2
+  },
   "targeta-taules.pdf": {
     "empremta": "d9ebe5c87908b827173a1ac91f67af10c5e4a5377a74cb5ec2780465402ac9db",
     "font": "targetes/taules.html",
@@ -347,6 +352,36 @@
   "ud6-triangles-solucionari.pdf": {
     "empremta": "a0a99e332ee9c99e93e81c28df5a9eb188a5d6659c91c179e665f5bc054fe529",
     "font": "fitxes/ud6-triangles.html",
+    "pagines": 2
+  },
+  "ud7-alumnat.pdf": {
+    "empremta": "96f56abf57ab02b7e6d1eac94dddcb2920cb95c5080941c2b95e5e2e657abc44",
+    "font": "fitxes/ud7.html",
+    "pagines": 5
+  },
+  "ud7-regla-alumnat.pdf": {
+    "empremta": "9e40ac63901bb079a2ecfc25662d5ca3557b7d5fa10ddddda3ff3f21d38ac632",
+    "font": "fitxes/ud7-regla.html",
+    "pagines": 5
+  },
+  "ud7-regla-solucionari.pdf": {
+    "empremta": "9e40ac63901bb079a2ecfc25662d5ca3557b7d5fa10ddddda3ff3f21d38ac632",
+    "font": "fitxes/ud7-regla.html",
+    "pagines": 2
+  },
+  "ud7-simbols-alumnat.pdf": {
+    "empremta": "c35a6f2c121c1c185bd56d1fc45832a7cfb50f3f8b7721a1cbf9dd2c902edc51",
+    "font": "fitxes/ud7-simbols.html",
+    "pagines": 5
+  },
+  "ud7-simbols-solucionari.pdf": {
+    "empremta": "c35a6f2c121c1c185bd56d1fc45832a7cfb50f3f8b7721a1cbf9dd2c902edc51",
+    "font": "fitxes/ud7-simbols.html",
+    "pagines": 2
+  },
+  "ud7-solucionari.pdf": {
+    "empremta": "96f56abf57ab02b7e6d1eac94dddcb2920cb95c5080941c2b95e5e2e657abc44",
+    "font": "fitxes/ud7.html",
     "pagines": 2
   }
 }
