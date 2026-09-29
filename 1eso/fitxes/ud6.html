@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 6 · Punts, rectes i angles</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 6 · Sentit espacial · Punts, rectes i angles
+  La primera fitxa de la unitat 6. Adapta les activitats 2 i 3 de la situació (el
+  llibre, UD6: les peces bàsiques i els angles). La cantonada d'un quadret és
+  l'angle recte, i la resta d'angles es comparen amb ella: sense transportador.
+  Els casos són els del llibre i els de la tasca 22 de la caixa (regla 8).
+
+  La regla trencada és «costats més llargs, angle més gran»: en Marc, pàgina 5.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>un full de paper</b>. Doblegar-lo dues vegades: la cantonada és l'angle recte. Comparar-la amb angles de la classe.</div>
+  <h1>Punts, rectes i angles</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div class="figura neta" style="margin-top:.8rem">
+    <svg viewBox="0 0 162.5 133.6" style="width:4.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un angle, amb la cantonada d'un quadret al vèrtex">
+      <path d="M15.1 120.4 L34 120.4 A18.9 18.9 0 0 0 26 104.9 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+      <path d="M41.6 120.4 V93.9 H15.1" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+      <line x1="15.1" y1="120.4" x2="143.6" y2="120.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      <line x1="15.1" y1="120.4" x2="88.8" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="15.1" cy="120.4" r="3.4" fill="#000"/>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .5rem">La línia discontínua és la cantonada d'un quadret.</p>
+  <table>
+    <tr class="resolt"><td class="esq">L'angle és més petit que la cantonada?</td><td style="width:4cm"><span class="ms">Sí</span></td></tr>
+    <tr class="resolt"><td class="esq">Com es diu?</td><td><span class="ms">Agut</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">La cantonada d'un quadret és l'angle recte.</p>
+    <p style="margin:.2rem 0 0">Més petit: <b>agut</b>. Igual: <b>recte</b>. Més gran: <b>obtús</b>. Una recta: <b>pla</b>.</p>
+  </div>
+  <div class="pag">Unitat 6 · Punts, rectes i angles · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Com es diu cada dibuix? Mira la targeta.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:2.2cm"><svg viewBox="0 0 83.1 34" style="width:2.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: una peça per dir-ne el nom">
+  <line x1="15.1" y1="17" x2="68" y2="17" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="17" r="4.5" fill="#000"/>
+  <circle cx="68" cy="17" r="4.5" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Punt</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Segment</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Semirecta</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Recta</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:2.2cm"><svg viewBox="0 0 83.1 34" style="width:2.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: una peça per dir-ne el nom">
+  <line x1="15.1" y1="17" x2="68" y2="17" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <path d="M11.3 17 L20.5 22.3 L20.5 11.7 Z" fill="#000"/>
+  <path d="M71.8 17 L62.6 11.7 L62.6 22.3 Z" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Punt</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Segment</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Semirecta</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Recta</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:2.2cm"><svg viewBox="0 0 83.1 34" style="width:2.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: una peça per dir-ne el nom">
+  <line x1="15.1" y1="17" x2="68" y2="17" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="17" r="4.5" fill="#000"/>
+  <path d="M71.8 17 L62.6 11.7 L62.6 22.3 Z" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Punt</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Segment</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Semirecta</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Recta</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:2.2cm"><svg viewBox="0 0 83.1 34" style="width:2.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: una peça per dir-ne el nom">
+  <circle cx="41.6" cy="17" r="4.9" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Punt</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Segment</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Semirecta</label><label style="min-width:3.1cm;white-space:nowrap;font-size:12.5pt"><span class="quadret"></span>Recta</label></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">A què s'assembla més? Marca la resposta.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">a)</span> Una estrella al cel</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Punt</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Segment</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Semirecta</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">b)</span> La vora d'una regla</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Punt</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Segment</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Semirecta</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">c)</span> La llum d'una llanterna</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Punt</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Segment</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Semirecta</label></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">d)</span> La vora d'una taula</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Punt</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Segment</label><label style="min-width:2.8cm;white-space:nowrap;font-size:13.5pt"><span class="quadret"></span>Semirecta</label></div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Punts, rectes i angles · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Com són les dues rectes? Posa la cantonada d'un full on es tallen.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Si es tallen i fan una cantonada, són perpendiculars.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3cm"><svg viewBox="0 0 113.4 75.6" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: dues rectes">
+  <line x1="11.3" y1="37.8" x2="102" y2="37.8" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="56.7" y1="7.6" x2="56.7" y2="68" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Paral·leles</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Secants</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Perpendiculars</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3cm"><svg viewBox="0 0 113.4 75.6" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: dues rectes">
+  <line x1="11.3" y1="37.8" x2="102" y2="19.7" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="11.3" y1="68" x2="102" y2="49.9" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Paral·leles</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Secants</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Perpendiculars</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3cm"><svg viewBox="0 0 113.4 75.6" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: dues rectes">
+  <line x1="11.3" y1="68" x2="102" y2="7.6" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="11.3" y1="22.7" x2="102" y2="56.7" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Paral·leles</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Secants</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Perpendiculars</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3cm"><svg viewBox="0 0 113.4 75.6" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: dues rectes">
+  <line x1="11.3" y1="37.8" x2="102" y2="37.8" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="56.7" y1="7.6" x2="56.7" y2="68" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Paral·leles</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Secants</label></div><div class="tria" style="margin:0 0 .35rem;width:3.4cm"><label style="min-width:3.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Perpendiculars</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Punts, rectes i angles · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Quin angle és? Mira la cantonada discontínua.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3.6cm;display:flex;justify-content:center"><svg viewBox="0 0 94.5 67.2" style="width:2.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un angle, amb la cantonada al vèrtex">
+  <path d="M15.1 54 L34 54 A18.9 18.9 0 0 0 29.6 41.8 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <path d="M41.6 54 V27.5 H15.1" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <line x1="15.1" y1="54" x2="75.6" y2="54" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="54" x2="61.4" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="54" r="3.4" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Agut</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3.6cm;display:flex;justify-content:center"><svg viewBox="0 0 143.6 88.8" style="width:3.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un angle, amb la cantonada al vèrtex">
+  <path d="M71.8 75.6 L90.7 75.6 A18.9 18.9 0 0 0 61 60.1 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <path d="M98.3 75.6 V49.1 H71.8" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <line x1="71.8" y1="75.6" x2="132.3" y2="75.6" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="71.8" y1="75.6" x2="37.1" y2="26.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="71.8" cy="75.6" r="3.4" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3.6cm;display:flex;justify-content:center"><svg viewBox="0 0 94.5 88.8" style="width:2.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un angle, amb la cantonada al vèrtex">
+  <path d="M15.1 75.6 L34 75.6 A18.9 18.9 0 0 0 15.1 56.7 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <path d="M41.6 75.6 V49.1 H15.1" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <line x1="15.1" y1="75.6" x2="75.6" y2="75.6" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="75.6" x2="15.1" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="75.6" r="3.4" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3.6cm;display:flex;justify-content:center"><svg viewBox="0 0 143.6 49.1" style="width:3.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un angle, amb la cantonada al vèrtex">
+  <path d="M71.8 35.9 L90.7 35.9 A18.9 18.9 0 0 0 52.9 35.9 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <path d="M98.3 35.9 V9.4 H71.8" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <line x1="71.8" y1="35.9" x2="132.3" y2="35.9" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="71.8" y1="35.9" x2="11.3" y2="35.9" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="71.8" cy="35.9" r="3.4" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">e)</p>
+        <div style="width:3.6cm;display:flex;justify-content:center"><svg viewBox="0 0 94.5 87.9" style="width:2.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat e: un angle, amb la cantonada al vèrtex">
+  <path d="M15.1 74.7 L34 74.7 A18.9 18.9 0 0 0 18.4 56.1 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <path d="M41.6 74.7 V48.2 H15.1" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <line x1="15.1" y1="74.7" x2="75.6" y2="74.7" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="74.7" x2="25.6" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="74.7" r="3.4" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <p class="apartat" style="margin:0">f)</p>
+        <div style="width:3.6cm;display:flex;justify-content:center"><svg viewBox="0 0 143.6 88.8" style="width:3.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat f: un angle, amb la cantonada al vèrtex">
+  <path d="M71.8 75.6 L90.7 75.6 A18.9 18.9 0 0 0 55.4 66.1 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <path d="M98.3 75.6 V49.1 H71.8" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <line x1="71.8" y1="75.6" x2="132.3" y2="75.6" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="71.8" y1="75.6" x2="19.4" y2="45.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="71.8" cy="75.6" r="3.4" fill="#000"/>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label><label style="min-width:2.4cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Punts, rectes i angles · pàgina 4</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">En Marc diu que l'angle amb els costats més llargs és el més gran. Té raó?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Mira quant s'obre, no quant fan els costats.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">a)</span> Quin angle és més gran?</p>
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><p style="margin:0;font-weight:800;font-size:16pt">1</p><svg viewBox="0 0 111.1 82.9" style="width:2.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 1">
+  <path d="M15.1 69.6 L34 69.6 A18.9 18.9 0 0 0 28.5 56.3 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="15.1" y1="69.6" x2="92.2" y2="69.6" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="69.6" x2="69.6" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="69.6" r="3.4" fill="#000"/>
+</svg></div>
+          <div><p style="margin:0;font-weight:800;font-size:16pt">2</p><svg viewBox="0 0 86.9 60.5" style="width:2.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 2">
+  <path d="M43.5 47.2 L62.4 47.2 A18.9 18.9 0 0 0 34 30.9 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="43.5" y1="47.2" x2="75.6" y2="47.2" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="43.5" y1="47.2" x2="27.4" y2="19.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="43.5" cy="47.2" r="3.4" fill="#000"/>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 1</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Angle 2</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">b)</span> Quin angle és més gran?</p>
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><p style="margin:0;font-weight:800;font-size:16pt">1</p><svg viewBox="0 0 111.1 105.4" style="width:2.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 1">
+  <path d="M15.1 92.2 L34 92.2 A18.9 18.9 0 0 0 15.1 73.3 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="15.1" y1="92.2" x2="92.2" y2="92.2" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="92.2" x2="15.1" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="92.2" r="3.4" fill="#000"/>
+</svg></div>
+          <div><p style="margin:0;font-weight:800;font-size:16pt">2</p><svg viewBox="0 0 66.1 60.5" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 2">
+  <path d="M15.1 47.2 L34 47.2 A18.9 18.9 0 0 0 15.1 28.3 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="15.1" y1="47.2" x2="47.2" y2="47.2" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="47.2" x2="15.1" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="47.2" r="3.4" fill="#000"/>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 1</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 2</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">c)</span> Quin angle és més gran?</p>
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><p style="margin:0;font-weight:800;font-size:16pt">1</p><svg viewBox="0 0 66.1 56.2" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 1">
+  <path d="M15.1 42.9 L34 42.9 A18.9 18.9 0 0 0 24.6 26.6 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="15.1" y1="42.9" x2="47.2" y2="42.9" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="42.9" x2="31.2" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="42.9" r="3.4" fill="#000"/>
+</svg></div>
+          <div><p style="margin:0;font-weight:800;font-size:16pt">2</p><svg viewBox="0 0 111.1 66.9" style="width:2.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 2">
+  <path d="M15.1 53.7 L34 53.7 A18.9 18.9 0 0 0 31.5 44.2 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="15.1" y1="53.7" x2="92.2" y2="53.7" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="15.1" y1="53.7" x2="81.9" y2="15.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="15.1" cy="53.7" r="3.4" fill="#000"/>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 1</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 2</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.25rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">d)</span> Quin angle és més gran?</p>
+      <div style="display:flex;gap:.4cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><p style="margin:0;font-weight:800;font-size:16pt">1</p><svg viewBox="0 0 86.9 60.5" style="width:2.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 1">
+  <path d="M43.5 47.2 L62.4 47.2 A18.9 18.9 0 0 0 27.1 37.8 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="43.5" y1="47.2" x2="75.6" y2="47.2" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="43.5" y1="47.2" x2="15.6" y2="31.2" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="43.5" cy="47.2" r="3.4" fill="#000"/>
+</svg></div>
+          <div><p style="margin:0;font-weight:800;font-size:16pt">2</p><svg viewBox="0 0 151.2 92.6" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="L'angle 2">
+  <path d="M75.6 79.4 L94.5 79.4 A18.9 18.9 0 0 0 63.4 64.9 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <line x1="75.6" y1="79.4" x2="139.8" y2="79.4" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <line x1="75.6" y1="79.4" x2="34.3" y2="30.1" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="75.6" cy="79.4" r="3.4" fill="#000"/>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 1</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Angle 2</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Els costats llargs o curts no canvien l'angle.</p>
+    <p style="margin:.2rem 0 0">Un angle és més gran quan s'obre més.</p>
+  </div>
+  <div class="pag">Unitat 6 · Punts, rectes i angles · pàgina 5</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Les dues agulles del rellotge fan un angle. Quin angle és?</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">a)</span> Les 3 en punt</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm"><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rellotge a les 3 en punt">
+  <circle cx="56.7" cy="56.7" r="51" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <line x1="56.7" y1="12.8" x2="56.7" y2="7.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78.6" y1="18.7" x2="81.4" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="94.7" y1="34.8" x2="99.6" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100.6" y1="56.7" x2="106.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="94.7" y1="78.6" x2="99.6" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="78.6" y1="94.7" x2="81.4" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="100.6" x2="56.7" y2="106.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="34.8" y1="94.7" x2="31.9" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18.7" y1="78.6" x2="13.8" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12.8" y1="56.7" x2="7.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="18.7" y1="34.8" x2="13.8" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34.8" y1="18.7" x2="31.9" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="56.7" y2="16.9" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="84.8" y2="56.7" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="56.7" cy="56.7" r="3" fill="#000"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Recte</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">b)</span> Les 6 en punt</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm"><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rellotge a les 6 en punt">
+  <circle cx="56.7" cy="56.7" r="51" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <line x1="56.7" y1="12.8" x2="56.7" y2="7.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78.6" y1="18.7" x2="81.4" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="94.7" y1="34.8" x2="99.6" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100.6" y1="56.7" x2="106.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="94.7" y1="78.6" x2="99.6" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="78.6" y1="94.7" x2="81.4" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="100.6" x2="56.7" y2="106.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="34.8" y1="94.7" x2="31.9" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18.7" y1="78.6" x2="13.8" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12.8" y1="56.7" x2="7.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="18.7" y1="34.8" x2="13.8" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34.8" y1="18.7" x2="31.9" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="56.7" y2="16.9" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="56.7" y2="84.8" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="56.7" cy="56.7" r="3" fill="#000"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">c)</span> Les 1 en punt</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm"><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rellotge a les 1 en punt">
+  <circle cx="56.7" cy="56.7" r="51" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <line x1="56.7" y1="12.8" x2="56.7" y2="7.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78.6" y1="18.7" x2="81.4" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="94.7" y1="34.8" x2="99.6" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100.6" y1="56.7" x2="106.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="94.7" y1="78.6" x2="99.6" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="78.6" y1="94.7" x2="81.4" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="100.6" x2="56.7" y2="106.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="34.8" y1="94.7" x2="31.9" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18.7" y1="78.6" x2="13.8" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12.8" y1="56.7" x2="7.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="18.7" y1="34.8" x2="13.8" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34.8" y1="18.7" x2="31.9" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="56.7" y2="16.9" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="70.7" y2="32.4" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="56.7" cy="56.7" r="3" fill="#000"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">d)</span> Les 5 en punt</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm"><svg viewBox="0 0 113.4 113.4" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rellotge a les 5 en punt">
+  <circle cx="56.7" cy="56.7" r="51" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <line x1="56.7" y1="12.8" x2="56.7" y2="7.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78.6" y1="18.7" x2="81.4" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="94.7" y1="34.8" x2="99.6" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100.6" y1="56.7" x2="106.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="94.7" y1="78.6" x2="99.6" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="78.6" y1="94.7" x2="81.4" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="100.6" x2="56.7" y2="106.2" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="34.8" y1="94.7" x2="31.9" y2="99.6" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18.7" y1="78.6" x2="13.8" y2="81.4" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="12.8" y1="56.7" x2="7.2" y2="56.7" stroke="#5E5E5E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="18.7" y1="34.8" x2="13.8" y2="31.9" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34.8" y1="18.7" x2="31.9" y2="13.8" stroke="#5E5E5E" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="56.7" y2="16.9" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="56.7" y1="56.7" x2="70.7" y2="81" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="56.7" cy="56.7" r="3" fill="#000"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Agut</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Recte</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtús</label></div><div class="tria" style="margin:0 0 .35rem;width:1.8cm"><label style="min-width:1.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Pla</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Punts, rectes i angles · pàgina 6</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 6 · Punts, rectes i angles · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> La cantonada d'un quadret, o d'un full, és l'angle recte, i la resta
+    d'angles es comparen amb ella. Sense transportador: els graus (90° i 180°) només surten com a nom,
+    a la targeta «Formes». Els dibuixos porten la cantonada discontínua al vèrtex, com a la caixa
+    (tasca 22).
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb un full: doblegar-lo per la meitat i una altra vegada. La cantonada que surt és
+  un angle recte. Posar-la a la cantonada de la taula, a la porta i a la tisora oberta: igual, més
+  gran o més petit.</p>
+  <h3>1 i 2. Les peces</h3>
+  <p>1b) recta; c) semirecta; d) punt. 2b) segment; c) semirecta (comença a la llanterna i no
+  s'acaba); d) segment. Són els casos del llibre. <b>Error típic:</b> dir recta a un segment: la
+  recta no té extrems.</p>
+  <h3>3. Dues rectes</h3>
+  <p>b) paral·leles; c) secants; d) perpendiculars. Amb la cantonada del full: si encaixa on es tallen,
+  són perpendiculars.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. Quin angle és</h3>
+  <p>b) obtús; c) recte; d) pla; e) agut; f) obtús. L'apartat e (80°) sembla recte: és el cas de 88°
+  del llibre. Amb la cantonada al vèrtex es veu que és una mica més petit.</p>
+  <h3>5. En Marc · la regla trencada</h3>
+  <p>b) iguals (dos angles rectes); c) l'angle 1; d) l'angle 1. <b>Error típic:</b> triar l'angle amb els
+  costats més llargs, que és el que fa en Marc. És la regla trencada d'aquesta fitxa. No l'expliqueu:
+  que posi la cantonada del full a cada angle, o que allargui els costats curts amb un regle. A la
+  caixa (22.1), el comptador dels costats ho ensenya. <b>Compta per als nivells alts, no per al mínim.</b></p>
+  <h3>6. A la vida de cada dia · el rellotge</h3>
+  <p>b) pla; c) agut; d) obtús. És el rellotge del llibre. Les 9 en punt també fan un angle recte.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=22</b> (22.1 Obre l'angle;
+  22.2 Quin angle és?). La 22.2 dona un codi de verificació. L'exemple de la fitxa és el de la caixa:
+  un angle agut amb la cantonada al vèrtex.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta «Formes» o la cantonada d'un full al davant. Els criteris de la SA del grup
+  (1.1, 3.1, 5.1, 6.1, 7.1 i 9.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb la cantonada d'un full, diu si un angle és més petit, igual o més gran que el recte.</li>
+    <li>Diu el nom de les peces bàsiques: punt, segment, semirecta i recta (exercicis 1 i 2).</li>
+    <li>Diu si dues rectes són paral·leles, secants o perpendiculars (exercici 3).</li>
+    <li>Diu si un angle és agut, recte, obtús o pla (exercicis 4 i 6).</li>
+    <li>Nivells alts: diu per què la llargada dels costats no canvia l'angle (exercici 5).</li>
+  </ul>
+</div>
+
+</body>
+</html>

@@ -146,7 +146,11 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    **La unitat 6, «Sentit espacial», del 5 d'abril al 10 de maig: en curs.** El pla, validat el 29
    de setembre de 2026 (angles amb la cantonada, la circumferència només com a idea, lliuraments en
    tres passos), i la caixa: tasques 22 a 25 ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8
-   ter). Falten la targeta «Formes» i les fitxes 1 a 3 (pas 2), i les fitxes 4 a 6 i l'examen (pas 3).
+   ter). El pas 2, fet: la targeta «Formes» i les fitxes 1 a 3 (angles, polígons i triangles). Falta el
+   pas 3: les fitxes 4 a 6 (perímetre, circumferència i repàs) i l'examen.
+   **Arreglat el 29 de setembre de 2026:** la pàgina 5 d'`ud2-repartir` i la pàgina 5 d'`ud3-sumes`
+   sortien malament al PDF (les opcions en columna, encavalcades o estirades). Si ja s'havien
+   imprès, cal tornar-les a imprimir.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

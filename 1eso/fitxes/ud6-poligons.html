@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 6 · Polígons</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 6 · Sentit espacial · Polígons
+  La segona fitxa de la unitat 6. Adapta l'activitat 4 de la situació (el llibre,
+  UD6: «Polígons»): costats, vèrtexs, noms, regulars i còncaus, al geoplà. Els
+  casos són els del llibre i els de la tasca 23 de la caixa (regla 8).
+
+  La regla trencada és «un quadrat girat ja no és un quadrat»: en Nil, pàgina 4.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>el geoplà i gomes elàstiques</b>. Fer un triangle i un quadrat. Comptar els costats i els vèrtexs.</div>
+  <h1>Polígons</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div class="figura neta" style="margin-top:.8rem;width:6cm;margin-left:auto;margin-right:auto">
+    <svg viewBox="0 0 211.7 211.7" style="width:5.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un pentàgon al geoplà">
+      <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="11.3" cy="49.1" r="1.9" fill="#8A8A8A"/>
+      <circle cx="11.3" cy="86.9" r="1.9" fill="#8A8A8A"/>
+      <circle cx="11.3" cy="124.7" r="1.9" fill="#8A8A8A"/>
+      <circle cx="11.3" cy="162.5" r="1.9" fill="#8A8A8A"/>
+      <circle cx="11.3" cy="200.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="49.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="49.1" cy="49.1" r="1.9" fill="#8A8A8A"/>
+      <circle cx="49.1" cy="86.9" r="1.9" fill="#8A8A8A"/>
+      <circle cx="49.1" cy="124.7" r="1.9" fill="#8A8A8A"/>
+      <circle cx="49.1" cy="162.5" r="1.9" fill="#8A8A8A"/>
+      <circle cx="49.1" cy="200.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="86.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="86.9" cy="49.1" r="1.9" fill="#8A8A8A"/>
+      <circle cx="86.9" cy="86.9" r="1.9" fill="#8A8A8A"/>
+      <circle cx="86.9" cy="124.7" r="1.9" fill="#8A8A8A"/>
+      <circle cx="86.9" cy="162.5" r="1.9" fill="#8A8A8A"/>
+      <circle cx="86.9" cy="200.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="124.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="124.7" cy="49.1" r="1.9" fill="#8A8A8A"/>
+      <circle cx="124.7" cy="86.9" r="1.9" fill="#8A8A8A"/>
+      <circle cx="124.7" cy="124.7" r="1.9" fill="#8A8A8A"/>
+      <circle cx="124.7" cy="162.5" r="1.9" fill="#8A8A8A"/>
+      <circle cx="124.7" cy="200.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="162.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="162.5" cy="49.1" r="1.9" fill="#8A8A8A"/>
+      <circle cx="162.5" cy="86.9" r="1.9" fill="#8A8A8A"/>
+      <circle cx="162.5" cy="124.7" r="1.9" fill="#8A8A8A"/>
+      <circle cx="162.5" cy="162.5" r="1.9" fill="#8A8A8A"/>
+      <circle cx="162.5" cy="200.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="200.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+      <circle cx="200.3" cy="49.1" r="1.9" fill="#8A8A8A"/>
+      <circle cx="200.3" cy="86.9" r="1.9" fill="#8A8A8A"/>
+      <circle cx="200.3" cy="124.7" r="1.9" fill="#8A8A8A"/>
+      <circle cx="200.3" cy="162.5" r="1.9" fill="#8A8A8A"/>
+      <circle cx="200.3" cy="200.3" r="1.9" fill="#8A8A8A"/>
+      <polygon points="86.9,11.3 200.3,86.9 162.5,200.3 49.1,200.3 11.3,86.9" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="86.9" cy="11.3" r="3" fill="#000"/>
+      <circle cx="200.3" cy="86.9" r="3" fill="#000"/>
+      <circle cx="162.5" cy="200.3" r="3" fill="#000"/>
+      <circle cx="49.1" cy="200.3" r="3" fill="#000"/>
+      <circle cx="11.3" cy="86.9" r="3" fill="#000"/>
+    </svg>
+  </div>
+  <table style="margin-top:.5rem">
+    <tr class="resolt"><td class="esq">Quants costats té?</td><td style="width:4cm"><span class="ms">5</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants vèrtexs té?</td><td><span class="ms">5</span></td></tr>
+    <tr class="resolt"><td class="esq">Com es diu?</td><td><span class="ms">Pentàgon</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Un polígon té tants vèrtexs com costats.</p>
+    <p style="margin:.2rem 0 0">El nom diu quants costats té: el pentàgon en té 5.</p>
+  </div>
+  <div class="pag">Unitat 6 · Polígons · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Compta els costats de cada polígon. Escriu el nom. Mira la targeta.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un polígon al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="32.1,11.3 94.5,11.3 115.3,52.9 94.5,94.5 32.1,94.5 11.3,52.9" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="32.1" cy="11.3" r="3" fill="#000"/>
+  <circle cx="94.5" cy="11.3" r="3" fill="#000"/>
+  <circle cx="115.3" cy="52.9" r="3" fill="#000"/>
+  <circle cx="94.5" cy="94.5" r="3" fill="#000"/>
+  <circle cx="32.1" cy="94.5" r="3" fill="#000"/>
+  <circle cx="11.3" cy="52.9" r="3" fill="#000"/>
+</svg></div>
+        <div>
+          <p class="frase" style="margin:0;font-size:15pt">Costats: <span class="ms">6</span></p>
+          <p class="frase" style="margin:0;font-size:15pt">Nom: <span class="ms">hexàgon</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un polígon al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="11.3,115.3 115.3,115.3 52.9,11.3" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="11.3" cy="115.3" r="3" fill="#000"/>
+  <circle cx="115.3" cy="115.3" r="3" fill="#000"/>
+  <circle cx="52.9" cy="11.3" r="3" fill="#000"/>
+</svg></div>
+        <div>
+          <p class="frase" style="margin:0;font-size:15pt">Costats: <u style="padding:0 1.1rem"></u></p>
+          <p class="frase" style="margin:0;font-size:15pt">Nom: <u></u></p>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un polígon al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="11.3,32.1 115.3,32.1 115.3,94.5 11.3,94.5" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="11.3" cy="32.1" r="3" fill="#000"/>
+  <circle cx="115.3" cy="32.1" r="3" fill="#000"/>
+  <circle cx="115.3" cy="94.5" r="3" fill="#000"/>
+  <circle cx="11.3" cy="94.5" r="3" fill="#000"/>
+</svg></div>
+        <div>
+          <p class="frase" style="margin:0;font-size:15pt">Costats: <u style="padding:0 1.1rem"></u></p>
+          <p class="frase" style="margin:0;font-size:15pt">Nom: <u></u></p>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un polígon al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="52.9,11.3 115.3,52.9 94.5,115.3 32.1,115.3 11.3,52.9" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="52.9" cy="11.3" r="3" fill="#000"/>
+  <circle cx="115.3" cy="52.9" r="3" fill="#000"/>
+  <circle cx="94.5" cy="115.3" r="3" fill="#000"/>
+  <circle cx="32.1" cy="115.3" r="3" fill="#000"/>
+  <circle cx="11.3" cy="52.9" r="3" fill="#000"/>
+</svg></div>
+        <div>
+          <p class="frase" style="margin:0;font-size:15pt">Costats: <u style="padding:0 1.1rem"></u></p>
+          <p class="frase" style="margin:0;font-size:15pt">Nom: <u></u></p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Escriu el nom i quants vèrtexs té.</div></div>
+    <table class="mini">
+      <tr><th style="width:1.4cm"></th><th>Costats</th><th>Nom</th><th>Vèrtexs</th></tr>
+      <tr class="resolt"><td class="apartat" style="text-align:center">a)</td><td style="text-align:center;font-size:17pt;font-weight:800">3</td>
+        <td style="text-align:center"><span class="ms">triangle</span></td><td style="text-align:center"><span class="ms">3</span></td></tr><tr><td class="apartat" style="text-align:center">b)</td><td style="text-align:center;font-size:17pt;font-weight:800">5</td>
+        <td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td class="apartat" style="text-align:center">c)</td><td style="text-align:center;font-size:17pt;font-weight:800">8</td>
+        <td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td class="apartat" style="text-align:center">d)</td><td style="text-align:center;font-size:17pt;font-weight:800">6</td>
+        <td style="text-align:center"></td><td style="text-align:center"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 6 · Polígons · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">És regular? Mira si tots els costats són iguals.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Regular: tots els costats i tots els angles són iguals.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 86.9 86.9" style="width:2.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un quadrat">
+  <polygon points="9.4,77.5 77.5,77.5 77.5,9.4 9.4,9.4" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Regular</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No regular</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 132.3 75.6" style="width:3.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un rectangle que no és quadrat">
+  <polygon points="9.4,66.1 122.8,66.1 122.8,9.4 9.4,9.4" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Regular</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No regular</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 97.5 86.9" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un triangle amb els tres costats iguals">
+  <polygon points="48.7,9.4 9.4,77.5 88,77.5" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Regular</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No regular</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 124.7 94.5" style="width:3.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un pentàgon amb costats diferents">
+  <polygon points="9.4,85 100.2,85 115.3,39.7 54.8,9.4 17,32.1" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Regular</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No regular</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Té alguna cantonada cap endins? Si en té, és còncau.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3cm"><svg viewBox="0 0 117.2 117.2" style="width:3.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un polígon al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <polygon points="11.3,11.3 105.8,11.3 105.8,105.8 68,105.8 68,49.1 11.3,49.1" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="11.3" cy="11.3" r="3" fill="#000"/>
+  <circle cx="105.8" cy="11.3" r="3" fill="#000"/>
+  <circle cx="105.8" cy="105.8" r="3" fill="#000"/>
+  <circle cx="68" cy="105.8" r="3" fill="#000"/>
+  <circle cx="68" cy="49.1" r="3" fill="#000"/>
+  <circle cx="11.3" cy="49.1" r="3" fill="#000"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Còncau</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Convex</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3cm"><svg viewBox="0 0 117.2 117.2" style="width:3.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un polígon al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="30.2" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="49.1" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="68" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="86.9" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="30.2" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="49.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="68" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="86.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="105.8" cy="105.8" r="1.9" fill="#8A8A8A"/>
+  <polygon points="11.3,30.2 105.8,30.2 105.8,86.9 11.3,86.9" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="11.3" cy="30.2" r="3" fill="#000"/>
+  <circle cx="105.8" cy="30.2" r="3" fill="#000"/>
+  <circle cx="105.8" cy="86.9" r="3" fill="#000"/>
+  <circle cx="11.3" cy="86.9" r="3" fill="#000"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Còncau</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Convex</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Polígons · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">En Nil diu que un quadrat girat ja no és un quadrat. Té raó?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Un quadrat té 4 costats iguals i 4 cantonades. Gira el full i mira el dibuix.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un quadrilàter al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="52.9,11.3 94.5,52.9 52.9,94.5 11.3,52.9" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="52.9" cy="11.3" r="3" fill="#000"/>
+  <circle cx="94.5" cy="52.9" r="3" fill="#000"/>
+  <circle cx="52.9" cy="94.5" r="3" fill="#000"/>
+  <circle cx="11.3" cy="52.9" r="3" fill="#000"/>
+</svg></div>
+        <div><p style="margin:0 0 .1rem;font-size:15pt">És un quadrat?</p><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sí</label></div><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un quadrilàter al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="32.1,32.1 94.5,32.1 94.5,94.5 32.1,94.5" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="32.1" cy="32.1" r="3" fill="#000"/>
+  <circle cx="94.5" cy="32.1" r="3" fill="#000"/>
+  <circle cx="94.5" cy="94.5" r="3" fill="#000"/>
+  <circle cx="32.1" cy="94.5" r="3" fill="#000"/>
+</svg></div>
+        <div><p style="margin:0 0 .1rem;font-size:15pt">És un quadrat?</p><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label></div><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un quadrilàter al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="32.1,11.3 115.3,94.5 94.5,115.3 11.3,32.1" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="32.1" cy="11.3" r="3" fill="#000"/>
+  <circle cx="115.3" cy="94.5" r="3" fill="#000"/>
+  <circle cx="94.5" cy="115.3" r="3" fill="#000"/>
+  <circle cx="11.3" cy="32.1" r="3" fill="#000"/>
+</svg></div>
+        <div><p style="margin:0 0 .1rem;font-size:15pt">És un quadrat?</p><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label></div><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3.2cm"><svg viewBox="0 0 126.6 126.6" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un quadrilàter al geoplà">
+  <circle cx="11.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="11.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="32.1" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="52.9" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="73.7" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="94.5" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="11.3" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="32.1" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="52.9" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="73.7" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="94.5" r="1.9" fill="#8A8A8A"/>
+  <circle cx="115.3" cy="115.3" r="1.9" fill="#8A8A8A"/>
+  <polygon points="52.9,32.1 73.7,52.9 52.9,73.7 32.1,52.9" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="52.9" cy="32.1" r="3" fill="#000"/>
+  <circle cx="73.7" cy="52.9" r="3" fill="#000"/>
+  <circle cx="52.9" cy="73.7" r="3" fill="#000"/>
+  <circle cx="32.1" cy="52.9" r="3" fill="#000"/>
+</svg></div>
+        <div><p style="margin:0 0 .1rem;font-size:15pt">És un quadrat?</p><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label></div><div class="tria" style="margin:0 0 .35rem;width:2.2cm"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Un quadrat girat també és un quadrat.</p>
+    <p style="margin:.2rem 0 0">Té 4 costats iguals i 4 cantonades. Està girat, però és el mateix quadrat.</p>
+  </div>
+  <div class="pag">Unitat 6 · Polígons · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div><div class="q">Quin polígon és? Compta els costats i escriu el nom.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">a)</span> Un senyal de stop</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm;display:flex;justify-content:center"><svg viewBox="0 0 102.7 102.7" style="width:2.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un senyal de stop, amb 8 costats">
+  <polygon points="34,9.4 9.4,34 9.4,68.7 34,93.3 68.7,93.3 93.3,68.7 93.3,34 68.7,9.4" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:15pt"><span class="ms">octàgon</span></p>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">b)</span> Un senyal de perill</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm;display:flex;justify-content:center"><svg viewBox="0 0 104 92.6" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un senyal de perill, amb 3 costats">
+  <polygon points="52,9.4 9.4,83.1 94.6,83.1" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:15pt"><u></u></p>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">c)</span> Una porta</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm;display:flex;justify-content:center"><svg viewBox="0 0 71.8 117.2" style="width:1.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una porta, amb 4 costats">
+  <polygon points="9.4,107.7 62.4,107.7 62.4,9.4 9.4,9.4" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:15pt"><u></u></p>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem"><span class="apartat">d)</span> Una peça d'una pilota</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="width:3cm;display:flex;justify-content:center"><svg viewBox="0 0 109.6 97.5" style="width:2.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una peça d'una pilota, amb 6 costats">
+  <polygon points="32.1,9.4 9.4,48.7 32.1,88 77.5,88 100.2,48.7 77.5,9.4" fill="#D4D4D4" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <p class="frase" style="margin:0;font-size:15pt"><u></u></p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Polígons · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 6 · Polígons · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Els polígons es fan al geoplà, com a la caixa (tasca 23). Es compten
+    els costats posant el dit a un vèrtex i donant tota la volta. Els noms de 3 a 8 costats són a la
+    targeta «Formes»: no es demanen de memòria.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb el geoplà i gomes: fer un triangle i un quadrat, i comptar costats i vèrtexs.
+  Si no hi ha geoplà, serveix un full de punts.</p>
+  <h3>1 i 2. Els noms</h3>
+  <p>1b) 3, triangle; c) 4, quadrilàter; d) 5, pentàgon. 2b) pentàgon, 5; c) octàgon, 8; d) hexàgon,
+  6 (els casos del llibre). <b>Error típic:</b> comptar un vèrtex menys, com la Irene del llibre (un
+  hexàgon amb 5 vèrtexs): el polígon sempre té tants vèrtexs com costats.</p>
+  <h3>3 i 4. Regular, còncau</h3>
+  <p>3b) no regular: els costats no són iguals; c) regular; d) no regular. 4b) convex. Són els casos
+  del llibre.</p>
+</div>
+
+<div class="full sol">
+  <h3>5. En Nil · la regla trencada</h3>
+  <p>b) Sí; c) No: té 4 cantonades, però dos costats són molt més llargs (és un rectangle girat); d) Sí.
+  <b>Error típic:</b> dir que un quadrat girat ja no és un quadrat, com en Nil. És la regla trencada
+  d'aquesta fitxa. No l'expliqueu: que giri el full fins que el quadrat quedi recte. L'apartat c és a
+  posta: girat, tampoc no és un quadrat, perquè no ho era. <b>Compta per als nivells alts, no per al
+  mínim.</b></p>
+  <h3>6. A la vida de cada dia</h3>
+  <p>b) triangle; c) quadrilàter (un rectangle); d) hexàgon.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=23</b> (23.1 El polígon al
+  geoplà; 23.2 Com es diu?). La 23.2 dona un codi de verificació, i sempre hi surten el quadrat girat
+  i un polígon còncau.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta «Formes» al davant. Els criteris de la SA del grup (1.1, 3.1, 5.1, 6.1, 7.1
+  i 9.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb el geoplà, fa un polígon i en compta els costats i els vèrtexs.</li>
+    <li>Diu el nom d'un polígon de 3 a 8 costats amb la targeta (exercicis 1, 2 i 6).</li>
+    <li>Diu si un polígon és regular i si és còncau (exercicis 3 i 4).</li>
+    <li>Nivells alts: reconeix un quadrat girat (exercici 5).</li>
+  </ul>
+</div>
+
+</body>
+</html>

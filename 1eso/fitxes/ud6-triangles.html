@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 6 · Triangles</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 6 · Sentit espacial · Triangles
+  La tercera fitxa de la unitat 6. Adapta l'activitat 5 de la situació (el llibre,
+  UD6: «Triangles»): els tres angles junts fan un angle pla; els triangles pels
+  costats i pels angles. Els casos són els del llibre i els de la tasca 24 de la
+  caixa (regla 8).
+
+  La regla trencada és «un triangle més gran té els angles més grans»: en Pau,
+  pàgina 4.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>un triangle de cartolina</b>. Pintar els tres angles, retallar-los i posar-los junts: fan una recta.</div>
+  <h1>Triangles</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div style="display:flex;gap:1cm;justify-content:center;align-items:flex-end;margin-top:.6rem">
+    <div><svg viewBox="0 0 219.2 166.3" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un triangle amb els tres angles numerats">
+  <polygon points="15.1,151.2 204.1,151.2 79.4,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M15.1 151.2 L32.1 151.2 A17 17 0 0 0 22.4 135.8 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="38.1" y="141.5" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M204.1 151.2 L192.6 138.6 A17 17 0 0 0 187.1 151.2 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="179.2" y="145.1" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M79.4 15.1 L72.1 30.5 A17 17 0 0 0 90.9 27.7 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="83.4" y="46.9" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+    <div><svg viewBox="0 0 219.2 117.2" style="width:5.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Els tres angles, junts, fan un angle pla">
+  <line x1="7.6" y1="105.8" x2="211.7" y2="105.8" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M109.6 105.8 L200.3 105.8 A90.7 90.7 0 0 0 148.3 23.8 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.4"/>
+  <text x="157.1" y="81.8" font-size="17" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M109.6 105.8 L148.3 23.8 A90.7 90.7 0 0 0 75.3 21.8 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.4"/>
+  <text x="111.1" y="55.7" font-size="17" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M109.6 105.8 L75.3 21.8 A90.7 90.7 0 0 0 18.9 105.8 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.4"/>
+  <text x="62.9" y="80.5" font-size="17" font-weight="800" text-anchor="middle" fill="#000">3</text>
+  <circle cx="109.6" cy="105.8" r="3" fill="#000"/>
+</svg></div>
+  </div>
+  <table style="margin-top:.5rem">
+    <tr class="resolt"><td class="esq">Quants angles té el triangle?</td><td style="width:4.4cm"><span class="ms">3</span></td></tr>
+    <tr class="resolt"><td class="esq">Junts, què fan?</td><td><span class="ms">Un angle pla</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Els tres angles d'un triangle, junts, fan un angle pla.</p>
+    <p style="margin:.2rem 0 0">Passa amb tots els triangles, grans i petits.</p>
+  </div>
+  <div class="pag">Unitat 6 · Triangles · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Mira les ratlletes: marquen els costats iguals. Com es diu el triangle?</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 115.3 103.9" style="width:3.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un triangle amb ratlletes als costats iguals">
+  <polygon points="57.7,15.1 15.1,88.8 100.2,88.8" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="29.8" y1="48.2" x2="42.9" y2="55.7" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="57.7" y1="96.4" x2="57.7" y2="81.3" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="85.5" y1="48.2" x2="72.4" y2="55.7" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Equilàter</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Isòsceles</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Escalè</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 105.8 113.4" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un triangle amb ratlletes als costats iguals">
+  <polygon points="15.1,98.3 90.7,98.3 52.9,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="78.7" y1="53.6" x2="64.9" y2="59.8" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="27.1" y1="53.6" x2="40.9" y2="59.8" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Equilàter</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Isòsceles</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Escalè</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 128.5 86.9" style="width:3.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un triangle amb ratlletes als costats iguals">
+  <polygon points="15.1,71.8 113.4,71.8 41.6,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="64.3" y1="79.4" x2="64.3" y2="64.3" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="84.2" y1="39.2" x2="74.9" y2="51" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="80.1" y1="35.9" x2="70.7" y2="47.8" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="23.7" y1="35.5" x2="37.4" y2="41.9" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="21.5" y1="40.3" x2="35.2" y2="46.7" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="19.3" y1="45.1" x2="33" y2="51.5" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Equilàter</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Isòsceles</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Escalè</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3.2cm;display:flex;justify-content:center"><svg viewBox="0 0 105.8 105.8" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un triangle amb ratlletes als costats iguals">
+  <polygon points="15.1,90.7 90.7,52.9 52.9,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="56.3" y1="78.6" x2="49.5" y2="65" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="27.3" y1="49.5" x2="40.8" y2="56.3" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Equilàter</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Isòsceles</label></div><div class="tria" style="margin:0 0 .35rem;width:3cm"><label style="min-width:3cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Escalè</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Els costats fan aquests centímetres. Com es diu el triangle?</div></div>
+    <table class="mini">
+      <tr><th style="width:1.4cm"></th><th>Els tres costats</th><th>El triangle</th></tr>
+      <tr class="resolt"><td class="apartat" style="text-align:center">a)</td><td style="text-align:center;font-size:17pt;font-weight:800">4, 4 i 4</td><td style="text-align:center"><span class="ms">Equilàter</span></td></tr><tr><td class="apartat" style="text-align:center">b)</td><td style="text-align:center;font-size:17pt;font-weight:800">5, 5 i 8</td><td style="text-align:center"></td></tr><tr><td class="apartat" style="text-align:center">c)</td><td style="text-align:center;font-size:17pt;font-weight:800">3, 4 i 6</td><td style="text-align:center"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 6 · Triangles · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">Posa la cantonada d'un full a cada angle. Com es diu el triangle?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Un angle igual que la cantonada: rectangle. Un de més gran: obtusangle. Tots més petits: acutangle.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">a)</p>
+        <div style="width:3.4cm;display:flex;justify-content:center"><svg viewBox="0 0 120.9 98.3" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: un triangle">
+  <polygon points="15.1,83.1 105.8,83.1 15.1,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M34 83.1 V64.3 H15.1" fill="none" stroke="#5E5E5E" stroke-width="2.2" stroke-dasharray="5 3"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Rectangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Acutangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtusangle</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">b)</p>
+        <div style="width:3.4cm;display:flex;justify-content:center"><svg viewBox="0 0 162.5 75.6" style="width:4.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: un triangle">
+  <polygon points="41.6,60.5 147.4,60.5 15.1,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Rectangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Acutangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtusangle</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">c)</p>
+        <div style="width:3.4cm;display:flex;justify-content:center"><svg viewBox="0 0 113.4 102" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: un triangle">
+  <polygon points="15.1,86.9 98.3,86.9 52.9,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Rectangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Acutangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtusangle</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <p class="apartat" style="margin:0">d)</p>
+        <div style="width:3.4cm;display:flex;justify-content:center"><svg viewBox="0 0 124.7 86.9" style="width:3.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: un triangle">
+  <polygon points="15.1,34 71.8,71.8 109.6,15.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+</svg></div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Rectangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Acutangle</label></div><div class="tria" style="margin:0 0 .35rem;width:3.2cm"><label style="min-width:3.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Obtusangle</label></div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="pag">Unitat 6 · Triangles · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">En Pau diu que el triangle gran té els angles més grans. Té raó?</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">a)</span> Els angles dels dos triangles són…</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><svg viewBox="0 0 113.4 90.7" style="width:3cm;max-width:100%;margin:0 auto;" role="img" aria-label="El primer triangle">
+  <polygon points="11.3,79.4 102,79.4 11.3,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11.3 79.4 L28.3 79.4 A17 17 0 0 0 11.3 62.4 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="30.6" y="65" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M102 79.4 L88.4 69.2 A17 17 0 0 0 85 79.4 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="76.2" y="75.7" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M11.3 11.3 L11.3 28.3 A17 17 0 0 0 24.9 21.5 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="23.5" y="40.6" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+          <div><svg viewBox="0 0 149.7 117.9" style="width:4cm;max-width:100%;margin:0 auto;" role="img" aria-label="El segon triangle">
+  <polygon points="11.3,106.6 138.3,106.6 11.3,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11.3 106.6 L28.3 106.6 A17 17 0 0 0 11.3 89.6 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="30.6" y="92.3" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M138.3 106.6 L124.7 96.4 A17 17 0 0 0 121.3 106.6 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="112.5" y="102.9" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M11.3 11.3 L11.3 28.3 A17 17 0 0 0 24.9 21.5 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="23.5" y="40.6" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Iguals</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diferents</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">b)</span> Els angles dels dos triangles són…</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><svg viewBox="0 0 105.8 94.5" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El primer triangle">
+  <polygon points="11.3,83.1 94.5,83.1 49.1,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11.3 83.1 L28.3 83.1 A17 17 0 0 0 19.3 68.1 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="34.6" y="74" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M94.5 83.1 L85.4 68.8 A17 17 0 0 0 77.5 83.1 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="70.7" y="74.9" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M49.1 11.3 L41.2 26.4 A17 17 0 0 0 58.2 25.7 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="50.2" y="43.4" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+          <div><svg viewBox="0 0 139.1 123.2" style="width:3.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="El segon triangle">
+  <polygon points="11.3,111.9 127.7,111.9 64.3,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11.3 111.9 L28.3 111.9 A17 17 0 0 0 19.3 96.8 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="34.6" y="102.7" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M127.7 111.9 L118.7 97.5 A17 17 0 0 0 110.7 111.9 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="103.9" y="103.7" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M64.3 11.3 L56.3 26.4 A17 17 0 0 0 73.3 25.7 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="65.3" y="43.4" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diferents</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">c)</span> Els angles dels dos triangles són…</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><svg viewBox="0 0 105.8 94.5" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El primer triangle">
+  <polygon points="11.3,83.1 94.5,83.1 49.1,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11.3 83.1 L28.3 83.1 A17 17 0 0 0 19.3 68.1 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="34.6" y="74" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M94.5 83.1 L85.4 68.8 A17 17 0 0 0 77.5 83.1 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="70.7" y="74.9" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M49.1 11.3 L41.2 26.4 A17 17 0 0 0 58.2 25.7 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="50.2" y="43.4" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+          <div><svg viewBox="0 0 155 68" style="width:4.1cm;max-width:100%;margin:0 auto;" role="img" aria-label="El segon triangle">
+  <polygon points="37.8,56.7 143.6,56.7 11.3,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M37.8 56.7 L54.8 56.7 A17 17 0 0 0 29.2 42 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="51.3" y="38" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M143.6 56.7 L127.5 51.2 A17 17 0 0 0 126.6 56.7 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="116.8" y="57.1" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M11.3 11.3 L19.9 26 A17 17 0 0 0 27.4 16.9 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="32.4" y="33.5" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diferents</label></div></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">d)</span> Els angles dels dos triangles són…</p>
+      <div style="display:flex;gap:.5cm;align-items:center">
+        <div style="display:flex;gap:.3cm;align-items:flex-end">
+          <div><svg viewBox="0 0 121.9 56.7" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="El primer triangle">
+  <polygon points="31.2,45.4 110.6,45.4 11.3,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M31.2 45.4 L48.2 45.4 A17 17 0 0 0 22.6 30.7 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="44.7" y="26.7" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M110.6 45.4 L94.5 39.8 A17 17 0 0 0 93.5 45.4 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="83.7" y="45.8" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M11.3 11.3 L19.9 26 A17 17 0 0 0 27.4 16.9 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="32.4" y="33.5" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+          <div><svg viewBox="0 0 181.4 77.1" style="width:4.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El segon triangle">
+  <polygon points="43.1,65.8 170.1,65.8 11.3,11.3" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M43.1 65.8 L60.1 65.8 A17 17 0 0 0 34.5 51.1 Z" fill="#D4D4D4" stroke="#333" stroke-width="1.2"/>
+  <text x="56.6" y="47.1" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">1</text>
+  <path d="M170.1 65.8 L154 60.2 A17 17 0 0 0 153.1 65.8 Z" fill="#E4E4E4" stroke="#333" stroke-width="1.2"/>
+  <text x="143.2" y="66.2" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">2</text>
+  <path d="M11.3 11.3 L19.9 26 A17 17 0 0 0 27.4 16.9 Z" fill="#BFBFBF" stroke="#333" stroke-width="1.2"/>
+  <text x="32.4" y="33.5" font-size="13.6" font-weight="800" text-anchor="middle" fill="#000">3</text>
+</svg></div>
+        </div>
+        <div><div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Iguals</label></div><div class="tria" style="margin:0 0 .35rem;width:2.6cm"><label style="min-width:2.6cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Diferents</label></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">La mida no canvia els angles.</p>
+    <p style="margin:.2rem 0 0">Un triangle gran i un de petit amb la mateixa forma tenen els mateixos angles.</p>
+  </div>
+  <div class="pag">Unitat 6 · Triangles · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Quin triangle és, pels costats i pels angles? Mira la targeta.</div></div>
+    <table class="mini">
+      <tr><th style="width:4.4cm"></th><th>El dibuix</th><th>Pels costats</th><th>Pels angles</th></tr>
+      <tr class="resolt"><td class="apartat" style="padding:.2rem .4rem">a) Un senyal de perill</td>
+        <td style="text-align:center;padding:.15rem"><svg viewBox="0 0 104 92.6" style="width:2.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un senyal de perill">
+  <polygon points="52,9.4 9.4,83.1 94.6,83.1" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="24.2" y1="42.5" x2="37.3" y2="50.1" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="52" y1="90.7" x2="52" y2="75.6" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="79.8" y1="42.5" x2="66.7" y2="50.1" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></td>
+        <td style="text-align:center"><span class="ms">Equilàter</span></td><td style="text-align:center"><span class="ms">Acutangle</span></td></tr><tr><td class="apartat" style="padding:.2rem .4rem">b) Un escaire</td>
+        <td style="text-align:center;padding:.15rem"><svg viewBox="0 0 102 102" style="width:2.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un escaire">
+  <polygon points="9.4,92.6 92.6,92.6 9.4,9.4" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="51" y1="100.2" x2="51" y2="85" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="1.9" y1="51" x2="17" y2="51" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></td>
+        <td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td class="apartat" style="padding:.2rem .4rem">c) Un tros de pizza</td>
+        <td style="text-align:center;padding:.15rem"><svg viewBox="0 0 71.8 117.2" style="width:1.9cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un tros de pizza">
+  <polygon points="9.4,107.7 62.4,107.7 35.9,9.4" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="56.4" y1="56.6" x2="41.8" y2="60.5" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="15.4" y1="56.6" x2="30" y2="60.5" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></td>
+        <td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td class="apartat" style="padding:.2rem .4rem">d) Una rampa</td>
+        <td style="text-align:center;padding:.15rem"><svg viewBox="0 0 132.3 64.3" style="width:3.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una rampa">
+  <polygon points="9.4,54.8 122.8,54.8 122.8,9.4" fill="#F2F2F2" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="66.1" y1="62.4" x2="66.1" y2="47.2" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="130.4" y1="34.8" x2="115.3" y2="34.8" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="130.4" y1="29.5" x2="115.3" y2="29.5" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="68.2" y1="23.1" x2="73.9" y2="37.2" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="63.3" y1="25.1" x2="68.9" y2="39.1" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="58.4" y1="27.1" x2="64" y2="41.1" stroke="#333" stroke-width="2.2" stroke-linecap="round"/>
+</svg></td>
+        <td style="text-align:center"></td><td style="text-align:center"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 6 · Triangles · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 6 · Triangles · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Els tres angles d'un triangle, junts, fan un angle pla: és l'activitat
+    del grup amb cartolines, i la tasca 24 de la caixa. Els triangles es diuen pels costats (les
+    ratlletes marquen els iguals) i pels angles (amb la cantonada d'un full). Tots els noms són a la
+    targeta «Formes». Sense graus: 180° només surt com a nom.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb un triangle de cartolina: pintar-ne els angles de tres colors, retallar-los i
+  posar-los junts. Fan una recta. Si cada alumne en fa un de diferent, es veu que passa amb tots.</p>
+  <h3>1 i 2. Pels costats</h3>
+  <p>1b) isòsceles; c) escalè; d) isòsceles (girat). 2b) isòsceles; c) escalè (els casos del
+  llibre). <b>Error típic:</b> dir equilàter a qualsevol triangle «que sembla igual»: cal mirar les
+  ratlletes.</p>
+  <h3>3. Pels angles</h3>
+  <p>b) obtusangle; c) acutangle; d) rectangle (girat: l'angle recte no és a baix). Amb la cantonada
+  del full a cada angle es veu sense graus.</p>
+</div>
+
+<div class="full sol">
+  <h3>4. En Pau · la regla trencada</h3>
+  <p>b) iguals; c) diferents: no tenen la mateixa forma; d) iguals. <b>Error típic:</b> «un triangle
+  més gran té els angles més grans», com en Pau. És la regla trencada d'aquesta fitxa. No l'expliqueu:
+  que posi la cantonada del full a l'angle recte de tots dos (apartat a), o que retalli dos triangles
+  de la mateixa forma i en compari els angles. L'apartat c és a posta: si la forma canvia, els angles
+  també. <b>Compta per als nivells alts, no per al mínim.</b></p>
+  <h3>5. A la vida de cada dia</h3>
+  <p>b) isòsceles, rectangle; c) isòsceles, acutangle; d) escalè, rectangle. El senyal de perill és el
+  repte del llibre.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=24</b> (24.1 Els tres
+  angles; 24.2 Quin triangle és?). La 24.2 dona un codi de verificació, i sempre hi surt un rectangle
+  girat. A la 24.1 hi ha un triangle petit i un de gran: tenen la mateixa suma.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta «Formes» o la cantonada d'un full al davant. Els criteris de la SA del grup
+  (1.1, 3.1, 5.1, 6.1, 7.1 i 9.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb un triangle de cartolina, posa els tres angles junts i diu que fan un angle pla.</li>
+    <li>Diu si un triangle és equilàter, isòsceles o escalè, amb les ratlletes o les mesures (exercicis 1 i 2).</li>
+    <li>Diu si un triangle és rectangle, acutangle o obtusangle, amb la cantonada (exercici 3).</li>
+    <li>Nivells alts: diu per què la mida no canvia els angles (exercici 4).</li>
+  </ul>
+</div>
+
+</body>
+</html>

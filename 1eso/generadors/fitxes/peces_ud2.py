@@ -27,8 +27,14 @@ def tria(opcions, bona=None, revisa=False, mida="15pt", columna=False, ample="3.
             peces.append(f'<label style="{estil};border-width:3px;border-color:var(--tinta)"><span class="quadret">{MARCA}</span>{text}</label>')
         else:
             peces.append(f'<label style="{estil}"><span class="quadret"></span>{text}</label>')
-    dir_ = "flex-direction:column;align-items:flex-start;" if columna else ""
-    return f'<div class="tria" style="margin:.25rem 0;{dir_}flex-wrap:wrap">' + "".join(peces) + "</div>"
+    if columna:
+        # Una fila per opció. Amb flex-direction:column, WeasyPrint (el motor dels PDF) estirava
+        # les opcions i les encavalcava, encara que Chromium les ensenyés bé: va passar als PDF
+        # d'ud2-repartir i d'ud3-sumes (trobat el 29/9/2026). Cada opció, dins del seu .tria.
+        return (f'<div style="margin:.25rem 0">' +
+                "".join(f'<div class="tria" style="margin:0 0 .35rem;width:{ample}">{p}</div>' for p in peces) +
+                "</div>")
+    return f'<div class="tria" style="margin:.25rem 0;flex-wrap:wrap">' + "".join(peces) + "</div>"
 
 
 def graella100(estil, aria, m=1.0):

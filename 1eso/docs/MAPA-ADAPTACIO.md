@@ -76,7 +76,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
-| 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat i caixa feta (tasques 22 a 25). Falten la targeta «Formes», les sis fitxes i l'examen |
+| 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat, caixa (tasques 22 a 25), targeta «Formes» i fitxes 1 a 3 fetes. Falten les fitxes 4 a 6 i l'examen |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
 Els codis dels criteris són els de les SA del departament, i quadren, codi i text, amb la llista
@@ -549,9 +549,9 @@ geoplà, que és una quadrícula de punts.
 
 | Fitxa | Què porta | Regla trencada | Estat |
 |---|---|---|---|
-| 1 · `ud6.html` | Punts, rectes i angles, amb la cantonada del quadret | «Costats més llargs, angle més gran» | Per fer |
-| 2 · `ud6-poligons.html` | Polígons al geoplà: costats, vèrtexs, noms, regulars i còncaus | «Un quadrat girat ja no és un quadrat» | Per fer |
-| 3 · `ud6-triangles.html` | Triangles pels costats (marques) i pels angles; els tres angles fan un angle pla | «Un triangle més gran té els angles més grans» | Per fer |
+| 1 · `ud6.html` | Punts, rectes i angles, amb la cantonada del quadret; el rellotge | «Costats més llargs, angle més gran»: en Marc | Feta (29/9/2026) |
+| 2 · `ud6-poligons.html` | Polígons al geoplà: costats, vèrtexs, noms, regulars i còncaus; senyals i objectes | «Un quadrat girat ja no és un quadrat»: en Nil | Feta (29/9/2026) |
+| 3 · `ud6-triangles.html` | Triangles pels costats (marques) i pels angles; els tres angles fan un angle pla | «Un triangle més gran té els angles més grans»: en Pau | Feta (29/9/2026) |
 | 4 · `ud6-perimetre.html` | La vora del quadrat, del rectangle i dels polígons regulars | Comptar els quadrets de dins (l'àrea) | Per fer |
 | 5 · `ud6-cercle.html` | Centre, radi i diàmetre (el doble del radi); la vora, una mica més de 3 vegades el diàmetre | — | Per fer |
 | 6 · `ud6-repas.html` | «Una de cada», «Què he après?» i «La meva Fotomàtica» | — | Per fer |
@@ -571,6 +571,13 @@ mural i les presentacions, que es fan amb el grup.
 - 29 de setembre de 2026: la caixa (tasques 22 a 25). Peces noves a `js/quadricula.js`: `angle`
   (amb la cantonada), `geopla`, `triangle` (els angles numerats), `anglesJunts` (els tres angles
   fan un angle pla), `vora` (el perímetre) i els tipus d'angle i de triangle, calculats amb enters.
+- 29 de setembre de 2026 (pas 2): la targeta «Formes» (`targetes/formes.html`) i les fitxes 1 a 3
+  (`fitxes/ud6.html`, `ud6-poligons.html` i `ud6-triangles.html`). Les peces de dibuix són a
+  `generadors/fitxes/peces_geo.py`: l'angle amb la cantonada discontínua, les peces bàsiques, les
+  rectes, el geoplà, els polígons regulars, el triangle amb ratlletes i angles numerats, els angles
+  junts i el rellotge. La targeta porta també el perímetre i la circumferència, perquè serveixi per a
+  tota la unitat. Els casos, del llibre: l'estrella, la regla i la llanterna; el rellotge; els noms de
+  3, 5, 8 i 6 costats; els costats 4-4-4, 5-5-8 i 3-4-6; el senyal de perill.
 
 ---
 

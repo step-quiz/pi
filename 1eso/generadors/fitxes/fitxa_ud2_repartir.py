@@ -33,8 +33,13 @@ def tria(opcions, bona=None, revisa=False, mida="15pt", columna=False, ample="3.
                          f'<span class="quadret">{MARCA}</span>{text}</label>')
         else:
             peces.append(f'<label style="min-width:{ample};white-space:nowrap;font-size:{mida}"><span class="quadret"></span>{text}</label>')
-    dir_ = "flex-direction:column;align-items:flex-start;" if columna else ""
-    return f'<div class="tria" style="margin:.25rem 0;{dir_}flex-wrap:wrap">' + "".join(peces) + "</div>"
+    if columna:
+        # Una fila per opció, com a peces_ud2.py: amb flex-direction:column, WeasyPrint estirava
+        # les opcions i les encavalcava al PDF (exercici 4, trobat el 29/9/2026).
+        return (f'<div style="margin:.25rem 0">' +
+                "".join(f'<div class="tria" style="margin:0 0 .35rem;width:{ample}">{p}</div>' for p in peces) +
+                "</div>")
+    return f'<div class="tria" style="margin:.25rem 0;flex-wrap:wrap">' + "".join(peces) + "</div>"
 
 
 files_plenes = lambda q: "1 fila plena" if q == 1 else f"{q} files plenes"

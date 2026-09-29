@@ -42,7 +42,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. PDF fets |
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
 | 5 · Decimals i arrel quadrada | **Feta** (29/9/2026): caixa (18 a 21, i la 2.4), targeta «Decimals i arrels», sis fitxes i examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
-| 6 · Sentit espacial | **En curs**: pla validat (29/9/2026) i caixa feta (22 a 25). Falten la targeta «Formes», les sis fitxes i l'examen, en dos passos. El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
+| 6 · Sentit espacial | **En curs**: pla validat (29/9/2026), caixa (22 a 25), targeta «Formes» i fitxes 1 a 3 fetes. Falten les fitxes 4 a 6 i l'examen (el pas 3). El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
@@ -313,3 +313,12 @@ fitxa 6, i en va desfer els canvis (`fitxes/ud5-repas.html` no sortia a `dades/u
 **Lliçó:** cada ZIP porta la versió al dia dels fitxers compartits (`dades/unitats.js`, els
 documents), i el docent en puja un i espera la marca verda abans de pujar-ne un altre. Si en queden
 dos per pujar, se'n fa un de sol.
+
+**Trobat el 29/9/2026, en fer les fitxes de la unitat 6:** les opcions per marcar en columna
+(`tria(..., columna=True)`) es veien bé amb Chromium, però WeasyPrint, que és el que fa els PDF,
+les estirava i les encavalcava. Els PDF publicats d'`ud2-repartir` (pàgina 5, exercici 4: no es
+podia fer) i d'`ud3-sumes` (pàgina 5, caselles estirades) sortien malament. Ara cada opció va en una
+fila pròpia, a `peces_ud2.py` i a la còpia de `tria()` de `fitxa_ud2_repartir.py`. **Lliçó:** abans
+de lliurar una fitxa, mira'n el PDF fet amb WeasyPrint (`eines/mesura.py` i `generadors/gen_pdf.py`,
+amb `pip install weasyprint`), no només la imatge de Chromium: els dos motors no fan igual el
+`flex` en columna, i les mesures poden diferir 5 cm.

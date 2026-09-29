@@ -26,6 +26,9 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud4_dobletriple.py` | `ud4-dobletriple.html` | `fitxa_ud5_fraccions.py` | `ud5-fraccions.html` |
 | `fitxa_ud4_repas.py` | `ud4-repas.html` | `fitxa_ud5_arrel.py` | `ud5-arrel.html` |
 | | | `fitxa_ud5_repas.py` | `ud5-repas.html` |
+| `fitxa_ud6.py` | `ud6.html` | `targeta_formes.py` | `targetes/formes.html` |
+| `fitxa_ud6_poligons.py` | `ud6-poligons.html` | `peces_geo.py` | (les peces de dibuix de la unitat 6) |
+| `fitxa_ud6_triangles.py` | `ud6-triangles.html` | | |
 
 Les peces comunes: `fitxa_ud1.py` (la classe `Dibuix`, `ms()`, `buit()`, els colors: els altres
 n'executen la primera part), `peces_ud2.py` (opcions per marcar, pàgines, el document, la graella

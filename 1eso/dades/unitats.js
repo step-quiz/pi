@@ -136,7 +136,11 @@ window.UNITATS = [
     material: "Geoplà: fer un rectangle i resseguir-ne la vora comptant. " +
               "Un full: la cantonada és l'angle recte.",
     criteris: "1.1, 3.1, 5.1, 6.1, 7.1, 9.1",
-    fitxes: [],
+    fitxes: [
+      { fitxa: "fitxes/ud6.html", titol: "Punts, rectes i angles" },
+      { fitxa: "fitxes/ud6-poligons.html", titol: "Polígons" },
+      { fitxa: "fitxes/ud6-triangles.html", titol: "Triangles" }
+    ],
     tasques: [22, 23, 24, 25, 13]
   },
   {
@@ -179,5 +183,15 @@ window.TARGETES = [
     fitxer: "targetes/decimals.html",
     pdf: "pdf/targeta-decimals.pdf",
     unitat: 5
+  },
+  {
+    id: "formes",
+    titol: "Formes",
+    descripcio: "La cantonada d'un quadret és l'angle recte: agut, recte, obtús i pla. Punt, segment, " +
+                "semirecta i recta. A l'altra cara, els noms dels polígons, els triangles pels costats " +
+                "i pels angles, el perímetre i la circumferència.",
+    fitxer: "targetes/formes.html",
+    pdf: "pdf/targeta-formes.pdf",
+    unitat: 6
   }
 ];
