@@ -75,7 +75,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Feta: caixa (tasques 5 a 8), cinc fitxes, els PDF i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
-| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels» i fitxes 1 a 5 fetes. Falten la fitxa de repàs i l'examen |
+| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
@@ -444,11 +444,13 @@ essencial per primer cop: aquí no hi entra (regla C).
 | 3 · `ud5-sumes.html` | Sumar i restar amb la coma sota la coma, amb euros i cèntims | No alinear la coma (2,5 + 1,35 = 1,60): la Júlia | Feta (29/9/2026) |
 | 4 · `ud5-fraccions.html` | De la fracció al decimal al quadrat de 100, i al revés | 1/4 = 0,4: en Pol | Feta (29/9/2026) |
 | 5 · `ud5-arrel.html` | Quadrats perfectes, l'arrel com a costat, i les no exactes entre dos nombres | «L'arrel és la meitat» (√16 = 8): en Joel | Feta (29/9/2026) |
-| 6 · `ud5-repas.html` | El carnet d'un nombre, les rajoles i «Què he après?» | — | Per fer |
+| 6 · `ud5-repas.html` | El carnet d'un nombre, «Una de cada», «Què he après?» i les rajoles | — | Feta (29/9/2026) |
 
-**L'examen:** set exercicis, en l'ordre de l'examen del llibre (valor i ordre, arrodonir i truncar,
-sumar i restar, fracció a decimal, l'arrel, un problema de diners i les rajoles), cada un amb l'a)
-resolt i tres apartats per fer, de les fitxes.
+**L'examen** (`generadors/examens/ud5.js`, fet el 29/9/2026): vuit exercicis, en l'ordre de
+l'examen del llibre (el valor, l'ordre, arrodonir i truncar, sumar i restar, de fracció a decimal,
+l'arrel, els diners i les rajoles). El valor i l'ordre van en dos exercicis perquè cada un sigui d'un
+sol tipus. Cada exercici té l'a) resolt i tres apartats per fer, de les fitxes; l'únic «nou» és el
+8 d) (3 m per 4,5 m). Les regles trencades són l'«error típic» del solucionari.
 
 **Les decisions, amb data:**
 
@@ -510,6 +512,15 @@ resolt i tres apartats per fer, de les fitxes.
   del llibre), la regla trencada (en Joel diu que l'arrel és la meitat; amb el 4 encerta a posta),
   entre quins dos nombres (√13, √20, √50 i √90) i la vida (terrenys quadrats en m², i 30 rajoles que
   no fan un quadrat). «Fa» ha passat a «mesura» o «té» (regla I).
+- 29 de setembre de 2026: la fitxa 6, el repàs (`fitxes/ud5-repas.html`, de
+  `generadors/fitxes/fitxa_ud5_repas.py`). Com el repàs de la unitat 4: el carnet d'un nombre (fa el
+  paper del mapa conceptual del grup: fracció, decimal, percentatge i quadrets de 100 del mateix
+  nombre), «Una de cada» (un apartat per fitxa), «Què he après?» (vuit frases, amb la taula de on es
+  repassa al solucionari) i les rajoles (el projecte del grup, amb un plànol quadriculat i les mesures
+  donades: l'última fila de mitges rajoles es compta sencera).
+- 29 de setembre de 2026: l'examen (`generadors/examens/ud5.js`). Vuit exercicis en comptes de set: el
+  valor i l'ordre, separats. El motor dels exàmens (comú a 1r i 4t) avisa de qualsevol «sencer»; a les
+  rajoles es diu «cal una fila més de rajoles» per no tocar-lo.
 
 ---
 

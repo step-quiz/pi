@@ -41,7 +41,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 2 · Divisibilitat | Feta: caixa (5 a 8), cinc fitxes, examen. PDF fets |
 | 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. PDF fets |
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
-| 5 · Decimals i arrel quadrada | **En curs**: pla validat (29/9/2026), caixa (18 a 21, i la 2.4), targeta «Decimals i arrels» i fitxes 1 a 5 fetes. Falten la fitxa de repàs, els PDF i l'examen. El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
+| 5 · Decimals i arrel quadrada | **Feta** (29/9/2026): caixa (18 a 21, i la 2.4), targeta «Decimals i arrels», sis fitxes i examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
 | 6 · Sentit espacial | **Per fer** |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 
@@ -202,8 +202,8 @@ Són a `CRITERIS-DISSENY.md`; aquestes són les que més fàcilment es trenquen:
   pastís ni de dibuixos nous si la quadrícula ho pot fer.
 - **Sense calculadora; amb les targetes al davant.** Totes les multiplicacions, de la targeta de les
   taules (fins a 10 · 10). Les sumes, sense portar-ne.
-- **Fins a 999.** L'única excepció és «1 km = 1.000 m» (unitat 3). Per als decimals de la unitat 5,
-  proposa al docent com escriure'ls abans de fer res.
+- **Fins a 999.** L'única excepció és «1 km = 1.000 m» (unitat 3). Els decimals, fins a 9,99 i amb
+  dues xifres decimals com a molt (decisió del 29/9/2026): 999 centèsimes.
 - **Lectura Fàcil** a tot el que llegeix l'alumnat: frases de 20 paraules com a molt, sense pronoms
   febles a les consignes («ho», «-ho»: digues què), sense sigles en majúscules, verbs concrets
   («Marca», «Pinta», «Escriu»), «pels» i no «per els». Multiplicar s'escriu amb «·», mai «×» ni «x».
@@ -241,12 +241,10 @@ El que ja se'n sap, i el nucli que hi ha a `dades/unitats.js` (una **proposta** 
   Idea de pla per validar: eines 14 (la fracció d'un nombre), 15 (percentatges a la graella de 100)
   i 16 (dobles i triples en una taula); multiplicar i dividir fraccions, probablement fora o per a
   nivells alts: **pregunta-ho**.
-- **Unitat 5 · Decimals i arrel quadrada** (de l'1 al 15 de març, 7 sessions). La relació entre
-  fraccions i decimals, l'aproximació i l'arrel quadrada com a operació inversa del quadrat. Nucli
-  proposat: a la graella de 100, una columna és 0,1 i un quadret és 0,01; l'arrel és el costat del
-  quadrat (lliga amb els quadrats de la unitat 1).
+- **Unitat 5 · Decimals i arrel quadrada**: feta el 29/9/2026 (`MAPA-ADAPTACIO.md`, apartat 8 bis).
 - **Unitat 6 · Sentit espacial** (del 5 d'abril al 10 de maig). Polígons, perímetres, àrees i
-  escales. Nucli proposat: polígons al geoplà; el perímetre és comptar costats de quadret (lliga amb
+  escales. **Compte:** el llibre del grup la parteix en dues unitats (UD6 formes i UD7 mesura); el
+  material segueix la SA6, però els casos es treuen de les dues. Nucli proposat: polígons al geoplà; el perímetre és comptar costats de quadret (lliga amb
   l'àrea de la unitat 3).
 - **Unitat 7 · Patrons i llenguatge algebraic** (del 19 de maig a l'1 de juny). Patrons, regla de
   formació i símbols. Nucli proposat: patrons de quadrets; quants quadrets té la figura següent.
@@ -273,10 +271,11 @@ El que ja se'n sap, i el nucli que hi ha a `dades/unitats.js` (una **proposta** 
 ## 10. Per començar la conversa nova
 
 El docent et passarà el ZIP del repositori i el de la programació, i et dirà per quina unitat
-començar. Si no ho diu, proposa-li la unitat 5. Un primer missatge que pot fer servir:
+començar. Si no ho diu, proposa-li la unitat 6. Demana-li també el ZIP del llibre del grup
+(`llibre_1ESO`). Un primer missatge que pot fer servir:
 
-> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 5: llegeix-ne
-> la programació i proposa'm el pla, com a les unitats anteriors.
+> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 6: llegeix-ne
+> la programació i el llibre, i proposa'm el pla, com a les unitats anteriors.
 
 ## 11. Coses que van fallar a la unitat 4 (i com evitar-les)
 
@@ -306,3 +305,11 @@ ningú no ho havia vist):
   ara falla amb qualsevol camp repetit.
 - **Lliçó:** cada eina nova entra a `prova_caixa.py` i a `auditoria.py` el mateix dia. El que no es
   prova no se sap si funciona.
+
+**Trobat el 29/9/2026, en pujar les fitxes 5 i 6 de la unitat 5:** l'acció de `_uploads/`
+desempaqueta cada ZIP a sobre del repositori, i l'últim que s'aplica guanya. Els dos ZIP portaven
+`dades/unitats.js` i els documents; el de la fitxa 5, més vell, es va aplicar després del de la
+fitxa 6, i en va desfer els canvis (`fitxes/ud5-repas.html` no sortia a `dades/unitats.js`).
+**Lliçó:** cada ZIP porta la versió al dia dels fitxers compartits (`dades/unitats.js`, els
+documents), i el docent en puja un i espera la marca verda abans de pujar-ne un altre. Si en queden
+dos per pujar, se'n fa un de sol.

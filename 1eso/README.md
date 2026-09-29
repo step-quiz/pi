@@ -157,6 +157,7 @@ NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud1.js
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud2.js
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud3.js
 NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud4.js
+NODE_PATH=/tmp/eines/node_modules node 1eso/generadors/examens/ud5.js
 ```
 
 Surten dos DOCX a `1eso/docx/`: l'examen i el solucionari. **No es pugen mai**: el `.gitignore`
