@@ -21,7 +21,7 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud2_factors.py` | `ud2-factors.html` | `targeta_fraccions.py` | `targetes/fraccions.html` |
 | `fitxa_ud2_repas.py` | `ud2-repas.html` | `targeta_decimals.py` | `targetes/decimals.html` |
 | `fitxa_ud4.py` | `ud4.html` | `fitxa_ud5.py` | `ud5.html` |
-| `fitxa_ud4_multfrac.py` | `ud4-multfrac.html` | | |
+| `fitxa_ud4_multfrac.py` | `ud4-multfrac.html` | `fitxa_ud5_arrodonir.py` | `ud5-arrodonir.html` |
 | `fitxa_ud4_percentatges.py` | `ud4-percentatges.html` | | |
 | `fitxa_ud4_dobletriple.py` | `ud4-dobletriple.html` | | |
 | `fitxa_ud4_repas.py` | `ud4-repas.html` | | |

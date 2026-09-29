@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 5 · Arrodonir i truncar</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 5 · Decimals i arrel quadrada · Arrodonir i truncar
+  La segona fitxa de la unitat 5. Adapta la segona part de l'activitat 2 de la
+  situació (el llibre: «Arrodonir i truncar»). Arrodonir és buscar la dècima més
+  a prop, a la recta; truncar és tallar i prou. La recta de 3,4 a 3,5 és una
+  columna de 10 quadrets ajaguda. Els casos són els de la tasca 19 de la caixa i
+  els del llibre (regla 8).
+
+  La regla trencada és «arrodonir és tallar»: l'Oriol sempre arrodoneix avall
+  (pàgina 4).
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>una tira de 10 quadrets</b> (una columna de la quadrícula), ajaguda. Va de 3,4 a 3,5. Marcar el mig i posar el dit al quadret 7.</div>
+  <h1>Arrodonir i truncar</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="figura neta" style="margin-top:.8rem">
+    <svg viewBox="0 0 472.4 142.1" style="width:12.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una columna de 10 quadrets ajaguda, amb 7 quadrets pintats, i a sota la recta de 3,4 a 3,5 amb el punt a 3,47">
+      <rect x="28.1" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="70.1" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="112" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="154" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="195.9" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="237.9" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="279.8" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#D4D4D4" stroke="#333" stroke-width="1.6"/>
+      <rect x="321.8" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.1"/>
+      <rect x="363.8" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.1"/>
+      <rect x="405.7" y="9.2" width="38.6" height="38.6" rx="5.5" fill="#fff" stroke="#8A8A8A" stroke-width="1.1"/>
+      <line x1="13.2" y1="94.9" x2="459.2" y2="94.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+      <line x1="26.5" y1="82" x2="26.5" y2="107.7" stroke="#333" stroke-width="2.2"/>
+      <line x1="68.4" y1="89.2" x2="68.4" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="110.4" y1="89.2" x2="110.4" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="152.3" y1="89.2" x2="152.3" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="194.3" y1="89.2" x2="194.3" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="236.2" y1="85" x2="236.2" y2="104.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+      <line x1="278.2" y1="89.2" x2="278.2" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="320.1" y1="89.2" x2="320.1" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="362.1" y1="89.2" x2="362.1" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="404" y1="89.2" x2="404" y2="100.5" stroke="#333" stroke-width="1.8"/>
+      <line x1="446" y1="82" x2="446" y2="107.7" stroke="#333" stroke-width="2.2"/>
+      <text x="26.5" y="130.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3,4</text>
+      <text x="446" y="130.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3,5</text>
+      <text x="236.2" y="128.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">3,45</text>
+      <circle cx="320.1" cy="94.9" r="5.7" fill="#333" stroke="#fff" stroke-width="1.5"/>
+      <text x="320.1" y="79.7" font-size="18.9" font-weight="800" text-anchor="middle" fill="#000">3,47</text>
+    </svg>
+  </div>
+  <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.3rem 0 .6rem">La recta és una columna ajaguda. Cada quadret és una centèsima.</p>
+
+  <table>
+    <tr class="resolt"><td class="esq">Entre quines dues dècimes és 3,47?</td><td style="width:4.4cm"><span class="ms">3,4 i 3,5</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets hi ha pintats?</td><td><span class="ms">7</span></td></tr>
+    <tr class="resolt"><td class="esq">Passa de la ratlla del mig?</td><td><span class="ms">Sí</span></td></tr>
+  </table>
+
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Arrodonir és buscar la dècima més a prop.</p>
+    <p style="margin:0 0 .3rem">3,47 és més a prop de 3,5. Arrodonit a les dècimes, és <b>3,5</b>.</p>
+    <p style="margin:0;font-weight:700">Truncar és tallar i prou.</p>
+    <p style="margin:0">3,47 truncat a les dècimes és <b>3,4</b>.</p>
+  </div>
+  <div class="pag">Unitat 5 · Arrodonir i truncar · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Marca el decimal a la recta. Escriu de quina dècima és més a prop.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Cada ratlla petita és una centèsima. La ratlla del mig és discontínua.</p></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p style="margin:0;font-size:18pt;font-weight:800;min-width:2.4cm"><span class="apartat">a)</span> 3,47</p>
+        <div style="width:11.5cm"><svg viewBox="0 0 434.6 83.1" style="width:11.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 3,4 a 3,5, amb una ratlla per centèsima i el punt a 3,47">
+  <line x1="13.2" y1="35.9" x2="421.4" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="64.6" y1="30.2" x2="64.6" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="102.8" y1="30.2" x2="102.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="141" y1="30.2" x2="141" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.1" y1="30.2" x2="179.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="217.3" y1="26.1" x2="217.3" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="255.5" y1="30.2" x2="255.5" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="293.7" y1="30.2" x2="293.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="331.8" y1="30.2" x2="331.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="370" y1="30.2" x2="370" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="408.2" y1="23.1" x2="408.2" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3,4</text>
+  <text x="408.2" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3,5</text>
+  <text x="217.3" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">3,45</text>
+  <circle cx="293.7" cy="35.9" r="5.7" fill="#3A3A3A" stroke="#fff" stroke-width="1.5"/>
+  <text x="293.7" y="20.8" font-size="18.9" font-weight="800" text-anchor="middle" fill="#3A3A3A" style="font-family:var(--manuscrita)">3,47</text>
+</svg></div>
+      </div>
+      <p class="frase" style="margin:0 0 0 3rem;font-size:15pt">És més a prop de <span class="ms">3,5</span>.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p style="margin:0;font-size:18pt;font-weight:800;min-width:2.4cm"><span class="apartat">b)</span> 5,86</p>
+        <div style="width:11.5cm"><svg viewBox="0 0 434.6 83.1" style="width:11.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 5,8 a 5,9, amb una ratlla per centèsima">
+  <line x1="13.2" y1="35.9" x2="421.4" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="64.6" y1="30.2" x2="64.6" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="102.8" y1="30.2" x2="102.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="141" y1="30.2" x2="141" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.1" y1="30.2" x2="179.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="217.3" y1="26.1" x2="217.3" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="255.5" y1="30.2" x2="255.5" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="293.7" y1="30.2" x2="293.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="331.8" y1="30.2" x2="331.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="370" y1="30.2" x2="370" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="408.2" y1="23.1" x2="408.2" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">5,8</text>
+  <text x="408.2" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">5,9</text>
+  <text x="217.3" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">5,85</text>
+</svg></div>
+      </div>
+      <p class="frase" style="margin:0 0 0 3rem;font-size:15pt">És més a prop de <u></u>.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p style="margin:0;font-size:18pt;font-weight:800;min-width:2.4cm"><span class="apartat">c)</span> 4,71</p>
+        <div style="width:11.5cm"><svg viewBox="0 0 434.6 83.1" style="width:11.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 4,7 a 4,8, amb una ratlla per centèsima">
+  <line x1="13.2" y1="35.9" x2="421.4" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="64.6" y1="30.2" x2="64.6" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="102.8" y1="30.2" x2="102.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="141" y1="30.2" x2="141" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.1" y1="30.2" x2="179.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="217.3" y1="26.1" x2="217.3" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="255.5" y1="30.2" x2="255.5" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="293.7" y1="30.2" x2="293.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="331.8" y1="30.2" x2="331.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="370" y1="30.2" x2="370" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="408.2" y1="23.1" x2="408.2" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">4,7</text>
+  <text x="408.2" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">4,8</text>
+  <text x="217.3" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">4,75</text>
+</svg></div>
+      </div>
+      <p class="frase" style="margin:0 0 0 3rem;font-size:15pt">És més a prop de <u></u>.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <div style="display:flex;gap:.6cm;align-items:center">
+        <p style="margin:0;font-size:18pt;font-weight:800;min-width:2.4cm"><span class="apartat">d)</span> 2,34</p>
+        <div style="width:11.5cm"><svg viewBox="0 0 434.6 83.1" style="width:11.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 2,3 a 2,4, amb una ratlla per centèsima">
+  <line x1="13.2" y1="35.9" x2="421.4" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="64.6" y1="30.2" x2="64.6" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="102.8" y1="30.2" x2="102.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="141" y1="30.2" x2="141" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.1" y1="30.2" x2="179.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="217.3" y1="26.1" x2="217.3" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="255.5" y1="30.2" x2="255.5" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="293.7" y1="30.2" x2="293.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="331.8" y1="30.2" x2="331.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="370" y1="30.2" x2="370" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="408.2" y1="23.1" x2="408.2" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2,3</text>
+  <text x="408.2" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2,4</text>
+  <text x="217.3" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">2,35</text>
+</svg></div>
+      </div>
+      <p class="frase" style="margin:0 0 0 3rem;font-size:15pt">És més a prop de <u></u>.</p>
+    </div>
+  </div>
+  <div class="avis puntejat">
+    <p style="margin:0">Passa de la ratlla del mig? És més a prop de la dècima de després.</p>
+    <p style="margin:0">No arriba a la ratlla del mig? És més a prop de la dècima d'abans.</p>
+  </div>
+  <div class="pag">Unitat 5 · Arrodonir i truncar · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Arrodoneix i trunca a les dècimes. Mira la clau.</div></div>
+    <div class="clau" style="margin:.3rem 0 .6rem">
+      <p style="margin:0 0 .2rem"><b>Arrodonir.</b> Mira la xifra de les centèsimes.</p>
+      <p style="margin:0 0 .2rem">5 o més: amunt. 5,86 arrodonit és 5,9.</p>
+      <p style="margin:0 0 .2rem">Menys de 5: avall. 3,42 arrodonit és 3,4.</p>
+      <p style="margin:0"><b>Truncar.</b> Talla i prou. 5,86 truncat és 5,8.</p>
+    </div>
+    <table class="mini">
+      <tr><th style="width:4cm">El decimal</th><th>Arrodonit a les dècimes</th><th>Truncat a les dècimes</th></tr>
+      <tr class="resolt"><td style="font-size:18pt;font-weight:800;padding:.2rem .6rem"><span class="apartat">a)</span> 5,86</td><td style="text-align:center"><span class="ms">5,9</span></td><td style="text-align:center"><span class="ms">5,8</span></td></tr>
+      <tr><td style="font-size:18pt;font-weight:800;padding:.2rem .6rem"><span class="apartat">b)</span> 6,78</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td style="font-size:18pt;font-weight:800;padding:.2rem .6rem"><span class="apartat">c)</span> 3,42</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td style="font-size:18pt;font-weight:800;padding:.2rem .6rem"><span class="apartat">d)</span> 1,28</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td style="font-size:18pt;font-weight:800;padding:.2rem .6rem"><span class="apartat">e)</span> 2,55</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+      <tr><td style="font-size:18pt;font-weight:800;padding:.2rem .6rem"><span class="apartat">f)</span> 6,13</td><td class="omplir" style="height:1.25cm"></td><td class="omplir" style="height:1.25cm"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 5 · Arrodonir i truncar · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">L'Oriol sempre arrodoneix avall. Té raó? Mira la recta.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">a)</span> L'Oriol diu: 3,47 arrodonit és 3,4. Té raó?</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="width:9.5cm"><svg viewBox="0 0 359.1 83.1" style="width:9.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 3,4 a 3,5, amb una ratlla per centèsima i el punt a 3,47">
+  <line x1="13.2" y1="35.9" x2="345.8" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="57.1" y1="30.2" x2="57.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="87.7" y1="30.2" x2="87.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="118.3" y1="30.2" x2="118.3" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="148.9" y1="30.2" x2="148.9" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.5" y1="26.1" x2="179.5" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="210.1" y1="30.2" x2="210.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="240.8" y1="30.2" x2="240.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="271.4" y1="30.2" x2="271.4" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="302" y1="30.2" x2="302" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="332.6" y1="23.1" x2="332.6" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3,4</text>
+  <text x="332.6" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">3,5</text>
+  <text x="179.5" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">3,45</text>
+  <circle cx="240.8" cy="35.9" r="5.7" fill="#333" stroke="#fff" stroke-width="1.5"/>
+  <text x="240.8" y="20.8" font-size="18.9" font-weight="800" text-anchor="middle" fill="#000">3,47</text>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>Sí</label><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">b)</span> L'Oriol diu: 6,75 arrodonit és 6,7. Té raó?</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="width:9.5cm"><svg viewBox="0 0 359.1 83.1" style="width:9.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 6,7 a 6,8, amb una ratlla per centèsima i el punt a 6,75">
+  <line x1="13.2" y1="35.9" x2="345.8" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="57.1" y1="30.2" x2="57.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="87.7" y1="30.2" x2="87.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="118.3" y1="30.2" x2="118.3" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="148.9" y1="30.2" x2="148.9" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.5" y1="26.1" x2="179.5" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="210.1" y1="30.2" x2="210.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="240.8" y1="30.2" x2="240.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="271.4" y1="30.2" x2="271.4" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="302" y1="30.2" x2="302" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="332.6" y1="23.1" x2="332.6" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">6,7</text>
+  <text x="332.6" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">6,8</text>
+  <text x="179.5" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">6,75</text>
+  <circle cx="179.5" cy="35.9" r="5.7" fill="#333" stroke="#fff" stroke-width="1.5"/>
+  <text x="179.5" y="20.8" font-size="18.9" font-weight="800" text-anchor="middle" fill="#000">6,75</text>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>Sí</label><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>No</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">c)</span> L'Oriol diu: 2,34 arrodonit és 2,3. Té raó?</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="width:9.5cm"><svg viewBox="0 0 359.1 83.1" style="width:9.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 2,3 a 2,4, amb una ratlla per centèsima i el punt a 2,34">
+  <line x1="13.2" y1="35.9" x2="345.8" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="57.1" y1="30.2" x2="57.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="87.7" y1="30.2" x2="87.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="118.3" y1="30.2" x2="118.3" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="148.9" y1="30.2" x2="148.9" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.5" y1="26.1" x2="179.5" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="210.1" y1="30.2" x2="210.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="240.8" y1="30.2" x2="240.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="271.4" y1="30.2" x2="271.4" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="302" y1="30.2" x2="302" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="332.6" y1="23.1" x2="332.6" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2,3</text>
+  <text x="332.6" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">2,4</text>
+  <text x="179.5" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">2,35</text>
+  <circle cx="148.9" cy="35.9" r="5.7" fill="#333" stroke="#fff" stroke-width="1.5"/>
+  <text x="148.9" y="20.8" font-size="18.9" font-weight="800" text-anchor="middle" fill="#000">2,34</text>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>Sí</label><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>No</label></div></div>
+      </div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0;font-size:16pt;font-weight:700"><span class="apartat">d)</span> L'Oriol diu: 5,86 arrodonit és 5,8. Té raó?</p>
+      <div style="display:flex;gap:.8cm;align-items:center">
+        <div style="width:9.5cm"><svg viewBox="0 0 359.1 83.1" style="width:9.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 5,8 a 5,9, amb una ratlla per centèsima i el punt a 5,86">
+  <line x1="13.2" y1="35.9" x2="345.8" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="57.1" y1="30.2" x2="57.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="87.7" y1="30.2" x2="87.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="118.3" y1="30.2" x2="118.3" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="148.9" y1="30.2" x2="148.9" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.5" y1="26.1" x2="179.5" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="210.1" y1="30.2" x2="210.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="240.8" y1="30.2" x2="240.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="271.4" y1="30.2" x2="271.4" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="302" y1="30.2" x2="302" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="332.6" y1="23.1" x2="332.6" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">5,8</text>
+  <text x="332.6" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">5,9</text>
+  <text x="179.5" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">5,85</text>
+  <circle cx="210.1" cy="35.9" r="5.7" fill="#333" stroke="#fff" stroke-width="1.5"/>
+  <text x="210.1" y="20.8" font-size="18.9" font-weight="800" text-anchor="middle" fill="#000">5,86</text>
+</svg></div>
+        <div><div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>Sí</label><label style="min-width:2.4cm;white-space:nowrap;font-size:15pt"><span class="quadret"></span>No</label></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Arrodonir no és tallar.</p>
+    <p style="margin:.2rem 0 0">Si les centèsimes són 5 o més, s'arrodoneix amunt: 3,47 arrodonit és 3,5.</p>
+  </div>
+  <div class="pag">Unitat 5 · Arrodonir i truncar · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Arrodoneix cada mesura a les dècimes.</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">a)</span> El Pau fa 1,47 m d'alçada.</p>
+      <p class="frase" style="margin:0">Arrodonit a les dècimes: <span class="ms">1,5 m</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">b)</span> La Mia ha corregut 2,38 km.</p>
+      <p class="frase" style="margin:0">Arrodonit a les dècimes: <u></u> km</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">c)</span> Una bossa de pomes pesa 1,62 kg.</p>
+      <p class="frase" style="margin:0">Arrodonit a les dècimes: <u></u> kg</p>
+    </div>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Arrodoneix 0,96 a les dècimes. Mira la targeta.</div></div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.35rem">
+      <div style="width:11.5cm"><svg viewBox="0 0 434.6 83.1" style="width:11.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="La recta de 0,9 a 1,0, amb una ratlla per centèsima i el punt a 0,96">
+  <line x1="13.2" y1="35.9" x2="421.4" y2="35.9" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="26.5" y1="23.1" x2="26.5" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <line x1="64.6" y1="30.2" x2="64.6" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="102.8" y1="30.2" x2="102.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="141" y1="30.2" x2="141" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="179.1" y1="30.2" x2="179.1" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="217.3" y1="26.1" x2="217.3" y2="45.7" stroke="#333" stroke-width="1.8" stroke-dasharray="3 2.5"/>
+  <line x1="255.5" y1="30.2" x2="255.5" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="293.7" y1="30.2" x2="293.7" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="331.8" y1="30.2" x2="331.8" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="370" y1="30.2" x2="370" y2="41.6" stroke="#333" stroke-width="1.8"/>
+  <line x1="408.2" y1="23.1" x2="408.2" y2="48.8" stroke="#333" stroke-width="2.2"/>
+  <text x="26.5" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">0,9</text>
+  <text x="408.2" y="71.8" font-size="20.8" font-weight="800" text-anchor="middle" fill="#000">1,0</text>
+  <text x="217.3" y="69.9" font-size="17" font-weight="400" text-anchor="middle" fill="#5E5E5E">0,95</text>
+  <circle cx="255.5" cy="35.9" r="5.7" fill="#333" stroke="#fff" stroke-width="1.5"/>
+  <text x="255.5" y="20.8" font-size="18.9" font-weight="800" text-anchor="middle" fill="#000">0,96</text>
+</svg></div>
+      <p class="frase" style="margin:0">0,96 arrodonit a les dècimes: <u></u></p>
+    </div>
+  </div>
+  <div class="pag">Unitat 5 · Arrodonir i truncar · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 5 · Arrodonir i truncar · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Arrodonir a les dècimes és buscar la dècima més a prop; truncar és
+    tallar i prou. Es fa a la recta, com a la tasca 19 de la caixa. La recta de 3,4 a 3,5 és una
+    columna de 10 quadrets ajaguda, un quadret per centèsima: és el pont amb els blocs de la fitxa
+    1. Només a les dècimes. La targeta «Decimals i arrels» porta la regla: 5 o més, amunt.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb una tira de 10 quadrets retallada d'una quadrícula, ajaguda. Escriure 3,4 a
+  l'esquerra i 3,5 a la dreta, marcar el mig (5 quadrets) i posar el dit al quadret 7: és 3,47.
+  Preguntar: «És més a prop del 3,4 o del 3,5?».</p>
+  <h3>1. Marca el decimal a la recta</h3>
+  <p>b) 5,86: entre 5,8 i 5,9, sisena ratlla; més a prop de 5,9. c) 4,71: primera ratlla; més a
+  prop de 4,7. d) 2,34: quarta ratlla; més a prop de 2,3. <b>Error típic:</b> posar el punt
+  comptant des de la dreta. Que compti les ratlles des de la dècima d'abans.</p>
+  <h3>2. Arrodoneix i trunca</h3>
+  <table>
+    <tr><th></th><th>Arrodonit</th><th>Truncat</th></tr>
+    <tr><td>b) 6,78</td><td>6,8</td><td>6,7</td></tr>
+    <tr><td>c) 3,42</td><td>3,4</td><td>3,4</td></tr>
+    <tr><td>d) 1,28</td><td>1,3</td><td>1,2</td></tr>
+    <tr><td>e) 2,55</td><td>2,6</td><td>2,5</td></tr>
+    <tr><td>f) 6,13</td><td>6,1</td><td>6,1</td></tr>
+  </table>
+  <p>Quan les centèsimes són menys de 5 (c i f), arrodonir i truncar donen el mateix. L'apartat e és
+  just a la ratlla del mig: s'arrodoneix amunt.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. L'Oriol sempre arrodoneix avall · la regla trencada</h3>
+  <p>b) No: 6,75 arrodonit és 6,8. c) Sí: 2,34 arrodonit és 2,3. d) No: 5,86 arrodonit és 5,9.
+  <b>Error típic:</b> «arrodonir és tallar», que és el que fa l'Oriol: confondre arrodonir amb
+  truncar. És la regla trencada d'aquesta fitxa. No l'expliqueu: que miri a la recta si el punt passa
+  de la ratlla del mig. L'apartat c és a posta: de vegades l'Oriol encerta, perquè avall també pot
+  ser la bona. <b>Compta per als nivells alts, no per al mínim.</b></p>
+  <h3>4 i 5. A la vida de cada dia</h3>
+  <p>4b) 2,4 km. 4c) 1,6 kg. 5) 1,0: 0,96 és més a prop d'1 que de 0,9, perquè passa de la ratlla
+  del mig (0,95). El 9 de les dècimes puja a 10 dècimes, que fan 1 unitat: la targeta ho diu
+  («10 columnes fan 1 quadrat»). És un cas del llibre. <b>Compta per als nivells alts.</b></p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=19</b> (19.1 El decimal a
+  la recta; 19.2 Arrodoneix). La 19.2 dona un codi de verificació; les respostes falses són truncar
+  en lloc d'arrodonir, anar amunt quan no toca i arrodonir a les unitats. L'exemple de la fitxa és el
+  de la caixa, 3,47, i els casos surten de la llista de la 19.2.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la recta o la targeta al davant. Els criteris de la SA del grup (5.1, 7.1 i 8.1) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb la tira de 10 quadrets, diu si un decimal passa de la meitat.</li>
+    <li>Marca un decimal a la recta i diu de quina dècima és més a prop (exercici 1).</li>
+    <li>Arrodoneix i trunca a les dècimes amb la clau al davant (exercicis 2 i 4).</li>
+    <li>Nivells alts: diu per què arrodonir no és tallar (exercici 3) i arrodoneix 0,96 a 1,0 (exercici 5).</li>
+  </ul>
+</div>
+
+</body>
+</html>

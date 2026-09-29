@@ -116,7 +116,8 @@ window.UNITATS = [
               "Quadrats de cartolina: buscar el costat d'un quadrat de 9 i de 16 quadrets.",
     criteris: "5.1, 7.1, 8.1",
     fitxes: [
-      { fitxa: "fitxes/ud5.html", titol: "Els decimals" }
+      { fitxa: "fitxes/ud5.html", titol: "Els decimals" },
+      { fitxa: "fitxes/ud5-arrodonir.html", titol: "Arrodonir i truncar" }
     ],
     tasques: [0, 2, 18, 19, 20, 21]
   },

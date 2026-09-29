@@ -75,7 +75,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Feta: caixa (tasques 5 a 8), cinc fitxes, els PDF i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
-| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels» i fitxa 1 fetes. Falten cinc fitxes i l'examen |
+| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels» i fitxes 1 i 2 fetes. Falten quatre fitxes i l'examen |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
@@ -440,7 +440,7 @@ essencial per primer cop: aquí no hi entra (regla C).
 | Fitxa | Què porta | Regla trencada | Estat |
 |---|---|---|---|
 | 1 · `ud5.html` | Els decimals: llegir-los i escriure'ls amb blocs, el zero que manté el lloc, el valor de cada xifra, i comparar | «Més xifres vol dir més gran» (0,75 i 0,8) | Feta (29/9/2026) |
-| 2 · `ud5-arrodonir.html` | Arrodonir i truncar, amb la recta i la mitja columna | Arrodonir sempre avall (3,47 → 3,4) | Per fer |
+| 2 · `ud5-arrodonir.html` | Arrodonir i truncar a les dècimes, amb la recta, que és una columna de 10 quadrets ajaguda | Arrodonir sempre avall (3,47 → 3,4): l'Oriol | Feta (29/9/2026) |
 | 3 · `ud5-sumes.html` | Sumar i restar amb la coma sota la coma, amb euros i cèntims | No alinear la coma (2,5 + 1,35 = 1,60) | Per fer |
 | 4 · `ud5-fraccions.html` | De la fracció al decimal al quadrat de 100, i al revés | 1/4 = 0,4 | Per fer |
 | 5 · `ud5-arrel.html` | Quadrats perfectes, l'arrel com a costat, i les no exactes entre dos nombres | «L'arrel és la meitat» (√16 = 8) | Per fer |
@@ -482,6 +482,12 @@ resolt i tres apartats per fer, de les fitxes.
   el lloc), quin és més gran (la regla trencada, l'error de la Berta) i la vida (salts, alçades i
   ampolles, i ordenar 2,5, 2,05 i 2,55). El mateix dia, «quadrets sols» de la caixa (tasca 18) va
   passar a «quadrets solts», com a la unitat 1: la mateixa paraula per a la mateixa cosa.
+- 29 de setembre de 2026: la fitxa 2, «Arrodonir i truncar» (`fitxes/ud5-arrodonir.html`, de
+  `generadors/fitxes/fitxa_ud5_arrodonir.py`). El pont entre els dos models: la recta de 3,4 a 3,5
+  és una columna de 10 quadrets ajaguda, un quadret per centèsima (el graó físic és una tira de 10
+  quadrets). Cinc pàgines: el model (3,47), marca el decimal a la recta, arrodoneix i trunca (5,86 i
+  6,78, del llibre), la regla trencada (l'Oriol sempre arrodoneix avall; l'apartat c, on encerta, és
+  a posta) i la vida (alçada, quilòmetres i quilos, i 0,96 → 1,0 per als nivells alts).
 
 ---
 
