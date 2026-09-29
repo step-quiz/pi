@@ -294,6 +294,26 @@
     "font": "fitxes/ud6.html",
     "pagines": 6
   },
+  "ud6-cercle-alumnat.pdf": {
+    "empremta": "57218177c768920beb691e74425b9ec547787d9caf1d91829bbb4e5da4a00970",
+    "font": "fitxes/ud6-cercle.html",
+    "pagines": 5
+  },
+  "ud6-cercle-solucionari.pdf": {
+    "empremta": "57218177c768920beb691e74425b9ec547787d9caf1d91829bbb4e5da4a00970",
+    "font": "fitxes/ud6-cercle.html",
+    "pagines": 2
+  },
+  "ud6-perimetre-alumnat.pdf": {
+    "empremta": "4f36f3d61f7a0340d54f200806ea83d2f884d65e6af6529831b7e0b03ca09951",
+    "font": "fitxes/ud6-perimetre.html",
+    "pagines": 5
+  },
+  "ud6-perimetre-solucionari.pdf": {
+    "empremta": "4f36f3d61f7a0340d54f200806ea83d2f884d65e6af6529831b7e0b03ca09951",
+    "font": "fitxes/ud6-perimetre.html",
+    "pagines": 2
+  },
   "ud6-poligons-alumnat.pdf": {
     "empremta": "2e2c4fe8392d0ea115ffcce78140001f9bce4326689ae139c3a76f7038e4c599",
     "font": "fitxes/ud6-poligons.html",
@@ -302,6 +322,16 @@
   "ud6-poligons-solucionari.pdf": {
     "empremta": "2e2c4fe8392d0ea115ffcce78140001f9bce4326689ae139c3a76f7038e4c599",
     "font": "fitxes/ud6-poligons.html",
+    "pagines": 2
+  },
+  "ud6-repas-alumnat.pdf": {
+    "empremta": "ec5278c91df48bf6feedfbd722b749ca06bdf6326b35708da1ac8cc8956a830f",
+    "font": "fitxes/ud6-repas.html",
+    "pagines": 4
+  },
+  "ud6-repas-solucionari.pdf": {
+    "empremta": "ec5278c91df48bf6feedfbd722b749ca06bdf6326b35708da1ac8cc8956a830f",
+    "font": "fitxes/ud6-repas.html",
     "pagines": 2
   },
   "ud6-solucionari.pdf": {
