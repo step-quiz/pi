@@ -43,7 +43,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
 | 5 · Decimals i arrel quadrada | **Feta** (29/9/2026): caixa (18 a 21, i la 2.4), targeta «Decimals i arrels», sis fitxes i examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
 | 6 · Sentit espacial | **Feta** (29/9/2026): caixa (22 a 25), targeta «Formes», sis fitxes i examen (`generadors/examens/ud6.js`). El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
-| 7 · Patrons i llenguatge algebraic | **En curs**: pla validat (29/9/2026), caixa (26 a 28), targeta «Patrons i símbols» i fitxes 1 a 3 fetes. Falten les fitxes 4 i 5 i l'examen (el pas 3). El pla: `MAPA-ADAPTACIO.md`, apartat 8 quater |
+| 7 · Patrons i llenguatge algebraic | **Feta** (29/9/2026): caixa (26 a 28), targeta «Patrons i símbols», cinc fitxes i examen (`generadors/examens/ud7.js`). |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
 passi): treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4
@@ -271,13 +271,14 @@ El que ja se'n sap, i el nucli que hi ha a `dades/unitats.js` (una **proposta** 
 ## 10. Per començar la conversa nova
 
 El docent et passarà el ZIP del repositori i el de la programació, i et dirà per quina unitat
-començar. Si no ho diu, proposa-li la unitat 7 (la SA7, que al llibre és la UD8). Demana-li
-també el ZIP del llibre del grup (`llibre_1ESO`). Proposa-li els lliuraments en tres passos, com a
-la unitat 6: la caixa; la targeta i les fitxes 1 a 3; la resta de fitxes i l'examen. Un primer
-missatge que pot fer servir:
+començar. **Les set unitats del curs són fetes (29/9/2026).** El que queda és el que el docent vegi
+en provar-les a l'aula: canvis a fitxes concretes, els apartats «nous» dels exàmens (unitats 5, 6 i
+7), els nou avisos de frases llargues de les unitats 2 a 4, i el pronom de «Busca-ho» de
+`ud3-equivalents.html`. Abans de lliurar qualsevol fitxa, mira'n el PDF fet amb WeasyPrint.
+Un primer missatge que pot fer servir:
 
-> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, comença la unitat 7: llegeix-ne
-> la programació i el llibre, i proposa'm el pla, com a les unitats anteriors.
+> Llegeix `1eso/docs/TRASPAS.md` i els documents que diu. Després, t'explico què he vist a l'aula
+> i què cal canviar.
 
 ## 11. Coses que van fallar a la unitat 4 (i com evitar-les)
 

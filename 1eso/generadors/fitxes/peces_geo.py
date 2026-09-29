@@ -289,3 +289,37 @@ def figures_d(a, b, fins, m, aria_patro):
     """Les figures 1 a `fins` d'un patró, de costat, amb el número a sota."""
     return "".join(f'''<div style="text-align:center"><div>{patro_d(a, b, n, m, f"{aria_patro}: la figura {n}, amb {a * n + b} quadrets").svg("")}</div>
         <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">{n}</p></div>''' for n in range(1, fins + 1))
+
+
+def barres_d(dades, aria, m=0.42, ini=0, max_eix=None, buit=False, pintades=None, pas=2):
+    """Un gràfic de barres de quadrets, com a la caixa (tasca 28): cada quadret és 1. `ini`: on
+    comença l'eix (per a la regla trencada: un eix que no comença a zero). Amb `buit`, la quadrícula
+    per pintar-hi les barres; `pintades` = quantes barres ja van pintades a mà (l'apartat resolt)."""
+    top = max_eix or max(v for _, v in dades)
+    files = top - ini
+    esq, baix, amp_b = 1.0, 0.9, 1.9
+    W = esq + len(dades) * amp_b + 0.3
+    H = files * m + baix + 0.4
+    d = Dibuix(W, H, aria)
+    y0 = 0.3 + files * m
+    for k in range(files + 1):
+        v = ini + k
+        y = y0 - k * m
+        if (v - ini) % pas == 0 or k == files:
+            d.cru(f'<line x1="{d.px(esq)}" y1="{d.px(y)}" x2="{d.px(W - 0.1)}" y2="{d.px(y)}" stroke="{G3}" stroke-width="0.9"/>')
+            d.text(esq - 0.18, y + 0.12, str(v), 0.34, 400, ancora="end")
+    _linia(d, esq, y0, esq, 0.2, G1, 2.2)
+    _linia(d, esq, y0, W - 0.1, y0, G1, 2.2)
+    for i, (et, v) in enumerate(dades):
+        x = esq + i * amp_b + (amp_b - m) / 2
+        n = v - ini
+        if buit and not (pintades and i < pintades):
+            d.graella(x, y0 - files * m, files, 1, m)
+        else:
+            for k in range(n):
+                if buit:
+                    d.pintat(x, y0 - (k + 1) * m, 1, 1, m)
+                else:
+                    d.quadret(x, y0 - (k + 1) * m, m)
+        d.text(esq + i * amp_b + amp_b / 2, y0 + 0.5, et, 0.34, 700)
+    return d

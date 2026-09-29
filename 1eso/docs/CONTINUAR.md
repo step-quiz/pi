@@ -152,7 +152,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    **La unitat 7, «Llenguatge algebraic i patrons», del 19 de maig a l'1 de juny: en curs.** El pla,
    validat el 29 de setembre de 2026 (el producte amb el punt, targeta nova, només barres i taules),
    i la caixa: tasques 26 a 28 ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8 quater). Falten
-   la targeta i les fitxes 1 a 3 (pas 2, fet el 29/9/2026), i les fitxes 4 i 5 i l'examen (pas 3).
+   la targeta i les fitxes 1 a 3 (pas 2), i les fitxes 4 i 5 i l'examen (pas 3), tot fet el
+   29/9/2026. **La unitat 7 és acabada, i amb ella tot el curs.** Falta revisar l'apartat 2 d) de
+   l'examen, que és nou, i provar-la a l'aula.
    **Arreglat el 29 de setembre de 2026:** la pàgina 5 d'`ud2-repartir` i la pàgina 5 d'`ud3-sumes`
    sortien malament al PDF (les opcions en columna, encavalcades o estirades). Si ja s'havien
    imprès, cal tornar-les a imprimir.

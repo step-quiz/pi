@@ -158,7 +158,9 @@ window.UNITATS = [
     fitxes: [
       { fitxa: "fitxes/ud7.html", titol: "Patrons de quadrets" },
       { fitxa: "fitxes/ud7-regla.html", titol: "La regla del patró" },
-      { fitxa: "fitxes/ud7-simbols.html", titol: "De la paraula al símbol" }
+      { fitxa: "fitxes/ud7-simbols.html", titol: "De la paraula al símbol" },
+      { fitxa: "fitxes/ud7-grafics.html", titol: "Taules i gràfics" },
+      { fitxa: "fitxes/ud7-repas.html", titol: "Repàs i el meu curs" }
     ],
     tasques: [26, 27, 28]
   }

@@ -77,7 +77,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat, caixa (tasques 22 a 25), targeta «Formes», les sis fitxes i l'examen fets |
-| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | En curs: pla validat, caixa (tasques 26 a 28), targeta «Patrons i símbols» i fitxes 1 a 3 fetes. Falten les fitxes 4 i 5 i l'examen |
+| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | En curs: pla validat, caixa (tasques 26 a 28), targeta «Patrons i símbols», les cinc fitxes i l'examen fets |
 
 Els codis dels criteris són els de les SA del departament, i quadren, codi i text, amb la llista
 oficial que porta la plantilla del Departament d'Educació. L'avaluació d'aquest alumnat es fa
@@ -610,8 +610,8 @@ gràfic de barres són columnes de quadrets.
 | 1 · `ud7.html` | Patrons de quadrets: què és fix, què creix, la figura següent; patrons de nombres | En Pau: 2, 4, 6, 8 «creix multiplicant per 2» | Feta (29/9/2026) |
 | 2 · `ud7-regla.html` | La taula figura–quadrets i la regla a · n + b; la figura 10 | La Ivet: 5, 8, 11, 14 és 3 · n (oblida la part fixa) | Feta (29/9/2026) |
 | 3 · `ud7-simbols.html` | De la paraula al símbol; calcular per a una n | La Zoe: «si n = 3, 2n = 23» | Feta (29/9/2026) |
-| 4 · `ud7-grafics.html` | Llegir un gràfic de barres i una taula; què no diu | La barra el doble d'alta amb l'eix que no comença a zero | Per fer |
-| 5 · `ud7-repas.html` | Repàs, «El meu curs» (un exemple de cada unitat) i un patró de l'entorn | — | Per fer |
+| 4 · `ud7-grafics.html` | Llegir i fer gràfics de barres de quadrets; el meu gràfic d'una setmana | La barra el doble d'alta amb l'eix que no comença a zero: en Martí | Feta (29/9/2026) |
+| 5 · `ud7-repas.html` | Repàs, «El meu curs» (un exemple de cada unitat) i un patró de l'entorn | — | Feta (29/9/2026) |
 
 **Queda fora, i per què:** les equacions (a 2n); Fibonacci i la proporció àuria (ja a la SA2; només
 de repte); els gràfics de línia, com el trajecte de la Marta (un altre model); els nombres
@@ -632,6 +632,12 @@ del dossier, amb el grup.
   blanca i discontínua (a la caixa, taronja). Les frases «s'hi afegeix» i «quants n'hi ha» de la
   caixa (tasques 26 i 28) han passat a «què creix» i «quantes persones»: sense pronoms febles
   (regla I). La tasca 28.2 ara es diu «Quantes persones?».
+- 29 de setembre de 2026 (pas 3): les fitxes 4 i 5 (`ud7-grafics.html` i `ud7-repas.html`) i l'examen
+  (`generadors/examens/ud7.js`, vuit exercicis, dos per part; el gràfic de barres, com a imatge; l'únic
+  apartat «nou» és el 2 d). La lectura crítica del llibre compara dos cursos; aquí, «classe A» i
+  «classe B» (anonimat: cap nom de curs al material). «El meu curs», al repàs, fa el paper del mapa
+  conceptual final del grup: una idea i un exemple de cada unitat de l'any. **Amb aquesta, les set
+  unitats del curs són fetes.**
 
 ---
 
