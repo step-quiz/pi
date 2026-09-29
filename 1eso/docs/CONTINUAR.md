@@ -134,8 +134,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    tenien la unitat 4: ara sí.
    **La unitat 5, «Decimals i arrel quadrada», de l'1 al 15 de març: en curs.** El pla, validat el 29
    de setembre de 2026 (decimals fins a 9,99, periòdics fora, targeta nova «Decimals i arrels»), i
-   la caixa: tasques 18 a 21 i la 2.4 ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8 bis).
-   Falten, per aquest ordre: la targeta, les sis fitxes, els PDF i l'examen.
+   la caixa: tasques 18 a 21 i la 2.4, i la targeta «Decimals i arrels» (`targetes/decimals.html`)
+   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8 bis). Falten, per aquest ordre: el PDF de la
+   targeta (al Codespace, amb `generadors/gen_pdf.py`), les sis fitxes, els seus PDF i l'examen.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

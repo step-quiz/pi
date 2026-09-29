@@ -158,5 +158,15 @@ window.TARGETES = [
     fitxer: "targetes/fraccions.html",
     pdf: "pdf/targeta-fraccions.pdf",
     unitat: 3
+  },
+  {
+    id: "decimals",
+    titol: "Decimals i arrels",
+    descripcio: "El quadrat de 100 és 1: la columna és 0,1 i el quadret, 0,01. Com es llegeix un " +
+                "decimal, i com es compara, s'arrodoneix i se suma. A l'altra cara, la fracció, el " +
+                "decimal i el percentatge al mateix quadrat, i els quadrats i les arrels fins al 100.",
+    fitxer: "targetes/decimals.html",
+    pdf: "pdf/targeta-decimals.pdf",
+    unitat: 5
   }
 ];

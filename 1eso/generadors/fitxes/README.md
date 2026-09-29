@@ -19,7 +19,7 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud2_repartir.py` | `ud2-repartir.html` | `fitxa_ud3_mapes.py` | `ud3-mapes.html` |
 | `fitxa_ud2_divisors.py` | `ud2-divisors.html` | `fitxa_ud3_repas.py` | `ud3-repas.html` |
 | `fitxa_ud2_factors.py` | `ud2-factors.html` | `targeta_fraccions.py` | `targetes/fraccions.html` |
-| `fitxa_ud2_repas.py` | `ud2-repas.html` | | |
+| `fitxa_ud2_repas.py` | `ud2-repas.html` | `targeta_decimals.py` | `targetes/decimals.html` |
 
 Les peces comunes: `fitxa_ud1.py` (la classe `Dibuix`, `ms()`, `buit()`, els colors: els altres
 n'executen la primera part), `peces_ud2.py` (opcions per marcar, pàgines, el document, la graella

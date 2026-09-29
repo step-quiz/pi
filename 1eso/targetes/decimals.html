@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decimals i arrels · targeta de consulta</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  TARGETA DE CONSULTA · Decimals i arrels
+  La tercera targeta, de la unitat 5 (decisió del docent del 29/9/2026). S'imprimeix a doble cara,
+  girant per la vora llarga, i es plastifica.
+
+  Cara 1: les tres peces (unitat, dècima i centèsima), com s'escriu i com es llegeix un decimal, i
+  les regles de comparar, arrodonir i sumar. Cara 2: la fracció, el decimal i el percentatge al
+  mateix quadrat de 100, i els quadrats i les arrels de 1 · 1 a 10 · 10.
+
+  Surt de generadors/fitxes/targeta_decimals.py: si s'hi ha de canviar res, es canvia allà i es
+  torna a generar. Després, eines/comprova.py i el PDF amb generadors/gen_pdf.py.
+-->
+
+<div class="full targeta">
+  <h1 class="cara-titol">Els decimals</h1>
+  <div style="display:flex;gap:.9cm;align-items:flex-start">
+    <div style="flex:1 1 0;text-align:center">
+      <p style="font-size:14pt;color:var(--gris-2);margin:0 0 .15cm;white-space:nowrap">Quadrat de 100</p>
+      <div style="height:3.25cm;display:flex;align-items:flex-end;justify-content:center"><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un quadrat de 10 files de 10 quadrets">
+  <rect x="3.8" y="3.8" width="113.4" height="113.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="3.8" y1="15.1" x2="117.2" y2="15.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="26.5" x2="117.2" y2="26.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="37.8" x2="117.2" y2="37.8" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="49.1" x2="117.2" y2="49.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="60.5" x2="117.2" y2="60.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="71.8" x2="117.2" y2="71.8" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="83.1" x2="117.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="94.5" x2="117.2" y2="94.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="105.8" x2="117.2" y2="105.8" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="15.1" y1="3.8" x2="15.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="26.5" y1="3.8" x2="26.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="37.8" y1="3.8" x2="37.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="49.1" y1="3.8" x2="49.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="60.5" y1="3.8" x2="60.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="71.8" y1="3.8" x2="71.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="83.1" y1="3.8" x2="83.1" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="94.5" y1="3.8" x2="94.5" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="105.8" y1="3.8" x2="105.8" y2="117.2" stroke="#8A8A8A" stroke-width="0.7"/>
+</svg></div>
+      <p style="font-size:17pt;font-weight:800;margin:.2cm 0 0;white-space:nowrap">1 unitat = <span style="font-size:22pt">1</span></p>
+    </div>
+    <div style="flex:1 1 0;text-align:center">
+      <p style="font-size:14pt;color:var(--gris-2);margin:0 0 .15cm;white-space:nowrap">Columna de 10</p>
+      <div style="height:3.25cm;display:flex;align-items:flex-end;justify-content:center"><svg viewBox="0 0 18.9 120.9" style="width:0.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Una columna de 10 quadrets">
+  <rect x="3.8" y="3.8" width="11.3" height="113.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="3.8" y1="15.1" x2="15.1" y2="15.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="26.5" x2="15.1" y2="26.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="37.8" x2="15.1" y2="37.8" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="49.1" x2="15.1" y2="49.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="60.5" x2="15.1" y2="60.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="71.8" x2="15.1" y2="71.8" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="83.1" x2="15.1" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="94.5" x2="15.1" y2="94.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="105.8" x2="15.1" y2="105.8" stroke="#8A8A8A" stroke-width="0.7"/>
+</svg></div>
+      <p style="font-size:17pt;font-weight:800;margin:.2cm 0 0;white-space:nowrap">1 dècima = <span style="font-size:22pt">0,1</span></p>
+    </div>
+    <div style="flex:1 1 0;text-align:center">
+      <p style="font-size:14pt;color:var(--gris-2);margin:0 0 .15cm;white-space:nowrap">Quadret</p>
+      <div style="height:3.25cm;display:flex;align-items:flex-end;justify-content:center"><svg viewBox="0 0 18.9 18.9" style="width:0.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un quadret">
+  <rect x="3.8" y="3.8" width="11.3" height="11.3" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+</svg></div>
+      <p style="font-size:17pt;font-weight:800;margin:.2cm 0 0;white-space:nowrap">1 centèsima = <span style="font-size:22pt">0,01</span></p>
+    </div>
+  </div>
+  <p style="font-size:15pt;margin:.35cm 0 0">10 quadrets fan 1 columna: 10 centèsimes fan 1 dècima.</p>
+  <p style="font-size:15pt;margin:.1cm 0 0">10 columnes fan 1 quadrat: 10 dècimes fan 1 unitat.</p>
+
+  <h2 style="font-size:16pt;margin:.5cm 0 .2cm">Com s'escriu i com es llegeix</h2>
+  <div style="display:flex;gap:.7cm;align-items:center">
+    <div><svg viewBox="0 0 289.9 86.9" style="width:7.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Els blocs de 2,43: 2 quadrats de 100, 4 columnes de 10 i 3 quadrets">
+  <rect x="3.8" y="3.8" width="79.4" height="79.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="3.8" y1="11.7" x2="83.1" y2="11.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="19.7" x2="83.1" y2="19.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="27.6" x2="83.1" y2="27.6" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="35.5" x2="83.1" y2="35.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="43.5" x2="83.1" y2="43.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="51.4" x2="83.1" y2="51.4" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="59.3" x2="83.1" y2="59.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="67.3" x2="83.1" y2="67.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="3.8" y1="75.2" x2="83.1" y2="75.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="11.7" y1="3.8" x2="11.7" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="19.7" y1="3.8" x2="19.7" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="27.6" y1="3.8" x2="27.6" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="35.5" y1="3.8" x2="35.5" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="43.5" y1="3.8" x2="43.5" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="51.4" y1="3.8" x2="51.4" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="59.3" y1="3.8" x2="59.3" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="67.3" y1="3.8" x2="67.3" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="75.2" y1="3.8" x2="75.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <rect x="93.7" y="3.8" width="79.4" height="79.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="93.7" y1="11.7" x2="173.1" y2="11.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="19.7" x2="173.1" y2="19.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="27.6" x2="173.1" y2="27.6" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="35.5" x2="173.1" y2="35.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="43.5" x2="173.1" y2="43.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="51.4" x2="173.1" y2="51.4" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="59.3" x2="173.1" y2="59.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="67.3" x2="173.1" y2="67.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="93.7" y1="75.2" x2="173.1" y2="75.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="101.7" y1="3.8" x2="101.7" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="109.6" y1="3.8" x2="109.6" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="117.5" y1="3.8" x2="117.5" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="125.5" y1="3.8" x2="125.5" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="133.4" y1="3.8" x2="133.4" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="141.4" y1="3.8" x2="141.4" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="149.3" y1="3.8" x2="149.3" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="157.2" y1="3.8" x2="157.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="165.2" y1="3.8" x2="165.2" y2="83.1" stroke="#8A8A8A" stroke-width="0.7"/>
+  <rect x="192" y="3.8" width="7.9" height="79.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="192" y1="11.7" x2="199.9" y2="11.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="19.7" x2="199.9" y2="19.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="27.6" x2="199.9" y2="27.6" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="35.5" x2="199.9" y2="35.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="43.5" x2="199.9" y2="43.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="51.4" x2="199.9" y2="51.4" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="59.3" x2="199.9" y2="59.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="67.3" x2="199.9" y2="67.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="192" y1="75.2" x2="199.9" y2="75.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <rect x="204.5" y="3.8" width="7.9" height="79.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="204.5" y1="11.7" x2="212.4" y2="11.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="19.7" x2="212.4" y2="19.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="27.6" x2="212.4" y2="27.6" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="35.5" x2="212.4" y2="35.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="43.5" x2="212.4" y2="43.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="51.4" x2="212.4" y2="51.4" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="59.3" x2="212.4" y2="59.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="67.3" x2="212.4" y2="67.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="204.5" y1="75.2" x2="212.4" y2="75.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <rect x="216.9" y="3.8" width="7.9" height="79.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="216.9" y1="11.7" x2="224.9" y2="11.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="19.7" x2="224.9" y2="19.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="27.6" x2="224.9" y2="27.6" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="35.5" x2="224.9" y2="35.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="43.5" x2="224.9" y2="43.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="51.4" x2="224.9" y2="51.4" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="59.3" x2="224.9" y2="59.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="67.3" x2="224.9" y2="67.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="216.9" y1="75.2" x2="224.9" y2="75.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <rect x="229.4" y="3.8" width="7.9" height="79.4" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <line x1="229.4" y1="11.7" x2="237.4" y2="11.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="19.7" x2="237.4" y2="19.7" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="27.6" x2="237.4" y2="27.6" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="35.5" x2="237.4" y2="35.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="43.5" x2="237.4" y2="43.5" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="51.4" x2="237.4" y2="51.4" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="59.3" x2="237.4" y2="59.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="67.3" x2="237.4" y2="67.3" stroke="#8A8A8A" stroke-width="0.7"/>
+  <line x1="229.4" y1="75.2" x2="237.4" y2="75.2" stroke="#8A8A8A" stroke-width="0.7"/>
+  <rect x="256.3" y="75.2" width="7.9" height="7.9" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <rect x="267.2" y="75.2" width="7.9" height="7.9" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+  <rect x="278.2" y="75.2" width="7.9" height="7.9" fill="#D4D4D4" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
+</svg></div>
+    <div><table class="mini" style="width:auto;margin:0"><tr><th style="width:2.1cm">Unitats</th><th style="width:.5cm;border:0;background:none"></th><th style="width:2.1cm">Dècimes</th><th style="width:2.1cm">Centèsimes</th></tr><tr><td style="text-align:center;font-size:20pt;font-weight:800">2</td><td style="border:0;text-align:center;font-size:22pt;font-weight:800">,</td><td style="text-align:center;font-size:20pt;font-weight:800">4</td><td style="text-align:center;font-size:20pt;font-weight:800">3</td></tr></table></div>
+  </div>
+  <table style="border-collapse:collapse;margin:.3cm 0 0">
+    <tr><td style="border:0;padding:.05rem .6rem .05rem 0;font-size:20pt;font-weight:800;text-align:left">2,43</td>
+        <td style="border:0;padding:.05rem 0;font-size:15pt;text-align:left">dues unitats i quaranta-tres centèsimes</td></tr>
+    <tr><td style="border:0;padding:.05rem .6rem .05rem 0;font-size:20pt;font-weight:800;text-align:left">3,04</td>
+        <td style="border:0;padding:.05rem 0;font-size:15pt;text-align:left">tres unitats i quatre centèsimes: el 0 guarda el lloc</td></tr>
+  </table>
+
+  <section class="clau" style="margin-top:.45cm">
+    <h2>Per recordar</h2>
+    <p><b>Comparar.</b> Escriu els dos amb dues xifres després de la coma: 0,8 és 0,80. Com que 80 és més que 75, 0,8 és més gran que 0,75.</p>
+    <p><b>Arrodonir a les dècimes.</b> Mira les centèsimes. 5 o més, amunt: 3,47 s'arrodoneix a 3,5. Menys de 5, avall: 3,42 s'arrodoneix a 3,4.</p>
+    <p style="margin:0"><b>Sumar i restar.</b> La coma sota la coma: <span style="white-space:nowrap">2,50 + 1,35 = 3,85</span>.</p>
+  </section>
+  <div class="pag">Targeta dels decimals · cara 1</div>
+</div>
+
+<div class="full targeta">
+  <h1 class="cara-titol">Un nombre, moltes cares</h1>
+  <table style="border-collapse:collapse;width:auto">
+    <tr><th style="font-size:12.5pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600">Al quadrat de 100</th><th style="font-size:12.5pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600">Fracció</th><th style="font-size:12.5pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600">Decimal</th><th style="font-size:12.5pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600">Percentatge</th><th style="font-size:12.5pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600"></th></tr>
+    <tr>
+      <td style="border:0;padding:.05rem .3rem"><svg viewBox="0 0 68 68" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El quadrat de 100 amb 50 quadrets pintats">
+  <rect x="3.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="9.8" x2="64.3" y2="9.8" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="9.8" y1="3.8" x2="9.8" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="15.9" x2="64.3" y2="15.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="15.9" y1="3.8" x2="15.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="21.9" x2="64.3" y2="21.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="21.9" y1="3.8" x2="21.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="28" x2="64.3" y2="28" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="28" y1="3.8" x2="28" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="34" x2="64.3" y2="34" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="34" y1="3.8" x2="34" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="40.1" x2="64.3" y2="40.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="40.1" y1="3.8" x2="40.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="46.1" x2="64.3" y2="46.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="46.1" y1="3.8" x2="46.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="52.2" x2="64.3" y2="52.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="52.2" y1="3.8" x2="52.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="58.2" x2="64.3" y2="58.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="58.2" y1="3.8" x2="58.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <rect x="3.8" y="3.8" width="60.5" height="60.5" fill="none" stroke="#333" stroke-width="2"/>
+</svg></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">2</span></span></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">0,5</td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">50 %</td>
+      <td style="border:0;padding:.05rem .3rem;font-size:14pt">50 quadrets de 100</td>
+    </tr>
+    <tr>
+      <td style="border:0;padding:.05rem .3rem"><svg viewBox="0 0 68 68" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El quadrat de 100 amb 25 quadrets pintats">
+  <rect x="3.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="9.8" x2="64.3" y2="9.8" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="9.8" y1="3.8" x2="9.8" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="15.9" x2="64.3" y2="15.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="15.9" y1="3.8" x2="15.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="21.9" x2="64.3" y2="21.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="21.9" y1="3.8" x2="21.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="28" x2="64.3" y2="28" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="28" y1="3.8" x2="28" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="34" x2="64.3" y2="34" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="34" y1="3.8" x2="34" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="40.1" x2="64.3" y2="40.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="40.1" y1="3.8" x2="40.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="46.1" x2="64.3" y2="46.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="46.1" y1="3.8" x2="46.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="52.2" x2="64.3" y2="52.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="52.2" y1="3.8" x2="52.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="58.2" x2="64.3" y2="58.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="58.2" y1="3.8" x2="58.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <rect x="3.8" y="3.8" width="60.5" height="60.5" fill="none" stroke="#333" stroke-width="2"/>
+</svg></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">4</span></span></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">0,25</td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">25 %</td>
+      <td style="border:0;padding:.05rem .3rem;font-size:14pt">25 quadrets de 100</td>
+    </tr>
+    <tr>
+      <td style="border:0;padding:.05rem .3rem"><svg viewBox="0 0 68 68" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El quadrat de 100 amb 75 quadrets pintats">
+  <rect x="3.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="15.9" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="21.9" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="28" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="34" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="40.1" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="46.1" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="46.1" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="46.1" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="46.1" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="46.1" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="9.8" x2="64.3" y2="9.8" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="9.8" y1="3.8" x2="9.8" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="15.9" x2="64.3" y2="15.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="15.9" y1="3.8" x2="15.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="21.9" x2="64.3" y2="21.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="21.9" y1="3.8" x2="21.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="28" x2="64.3" y2="28" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="28" y1="3.8" x2="28" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="34" x2="64.3" y2="34" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="34" y1="3.8" x2="34" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="40.1" x2="64.3" y2="40.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="40.1" y1="3.8" x2="40.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="46.1" x2="64.3" y2="46.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="46.1" y1="3.8" x2="46.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="52.2" x2="64.3" y2="52.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="52.2" y1="3.8" x2="52.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="58.2" x2="64.3" y2="58.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="58.2" y1="3.8" x2="58.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <rect x="3.8" y="3.8" width="60.5" height="60.5" fill="none" stroke="#333" stroke-width="2"/>
+</svg></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">3</span><span style="display:block;padding:.04em .18em 0">4</span></span></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">0,75</td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">75 %</td>
+      <td style="border:0;padding:.05rem .3rem;font-size:14pt">75 quadrets de 100</td>
+    </tr>
+    <tr>
+      <td style="border:0;padding:.05rem .3rem"><svg viewBox="0 0 68 68" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El quadrat de 100 amb 20 quadrets pintats">
+  <rect x="3.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="9.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="9.8" x2="64.3" y2="9.8" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="9.8" y1="3.8" x2="9.8" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="15.9" x2="64.3" y2="15.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="15.9" y1="3.8" x2="15.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="21.9" x2="64.3" y2="21.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="21.9" y1="3.8" x2="21.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="28" x2="64.3" y2="28" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="28" y1="3.8" x2="28" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="34" x2="64.3" y2="34" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="34" y1="3.8" x2="34" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="40.1" x2="64.3" y2="40.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="40.1" y1="3.8" x2="40.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="46.1" x2="64.3" y2="46.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="46.1" y1="3.8" x2="46.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="52.2" x2="64.3" y2="52.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="52.2" y1="3.8" x2="52.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="58.2" x2="64.3" y2="58.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="58.2" y1="3.8" x2="58.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <rect x="3.8" y="3.8" width="60.5" height="60.5" fill="none" stroke="#333" stroke-width="2"/>
+</svg></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">5</span></span></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">0,2</td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">20 %</td>
+      <td style="border:0;padding:.05rem .3rem;font-size:14pt">20 quadrets de 100</td>
+    </tr>
+    <tr>
+      <td style="border:0;padding:.05rem .3rem"><svg viewBox="0 0 68 68" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="El quadrat de 100 amb 10 quadrets pintats">
+  <rect x="3.8" y="3.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="9.8" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="15.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="21.9" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="28" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="34" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="40.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="46.1" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="52.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <rect x="3.8" y="58.2" width="6" height="6" fill="#D4D4D4" stroke="none"/>
+  <line x1="3.8" y1="9.8" x2="64.3" y2="9.8" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="9.8" y1="3.8" x2="9.8" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="15.9" x2="64.3" y2="15.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="15.9" y1="3.8" x2="15.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="21.9" x2="64.3" y2="21.9" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="21.9" y1="3.8" x2="21.9" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="28" x2="64.3" y2="28" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="28" y1="3.8" x2="28" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="34" x2="64.3" y2="34" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="34" y1="3.8" x2="34" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="40.1" x2="64.3" y2="40.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="40.1" y1="3.8" x2="40.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="46.1" x2="64.3" y2="46.1" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="46.1" y1="3.8" x2="46.1" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="52.2" x2="64.3" y2="52.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="52.2" y1="3.8" x2="52.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="3.8" y1="58.2" x2="64.3" y2="58.2" stroke="#8A8A8A" stroke-width="0.8"/>
+  <line x1="58.2" y1="3.8" x2="58.2" y2="64.3" stroke="#8A8A8A" stroke-width="0.8"/>
+  <rect x="3.8" y="3.8" width="60.5" height="60.5" fill="none" stroke="#333" stroke-width="2"/>
+</svg></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center"><span class="fr" style="display:inline-block;vertical-align:middle;text-align:center;line-height:1.05;font-weight:800;margin:0 .1em;font-size:17pt"><span style="display:block;border-bottom:.09em solid;padding:0 .18em .04em">1</span><span style="display:block;padding:.04em .18em 0">10</span></span></td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">0,1</td>
+      <td style="border:0;padding:.05rem .3rem;text-align:center;font-size:20pt;font-weight:800">10 %</td>
+      <td style="border:0;padding:.05rem .3rem;font-size:14pt">10 quadrets de 100</td>
+    </tr>
+  </table>
+  <p style="font-size:15pt;margin:.2cm 0 0">Pinta la fracció al quadrat de 100 i compta les columnes i els quadrets.</p>
+
+  <h2 style="font-size:16pt;margin:.4cm 0 .1cm">Els quadrats i les arrels</h2>
+  <table style="border-collapse:collapse;width:auto">
+    <tr><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">1 · 1 = 1</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√1 = 1</td><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">6 · 6 = 36</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√36 = 6</td></tr>
+    <tr><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">2 · 2 = 4</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√4 = 2</td><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">7 · 7 = 49</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√49 = 7</td></tr>
+    <tr><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">3 · 3 = 9</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√9 = 3</td><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">8 · 8 = 64</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√64 = 8</td></tr>
+    <tr><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">4 · 4 = 16</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√16 = 4</td><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">9 · 9 = 81</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√81 = 9</td></tr>
+    <tr><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">5 · 5 = 25</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√25 = 5</td><td style="border:0;padding:.08rem .35rem;font-size:17pt;white-space:nowrap">10 · 10 = 100</td><td style="border:0;padding:.08rem 1.1rem .08rem .35rem;font-size:17pt;font-weight:800;white-space:nowrap">√100 = 10</td></tr>
+  </table>
+  <div style="display:flex;gap:.6cm;align-items:center;margin-top:.35cm">
+    <div style="flex:0 0 auto"><svg viewBox="0 0 74.8 99.4" style="width:2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un quadrat de 4 files de 4 quadrets: el costat fa 4">
+  <rect x="6.5" y="31" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.3" y="31" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="38.2" y="31" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="54.1" y="31" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="6.5" y="46.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.3" y="46.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="38.2" y="46.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="54.1" y="46.9" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="6.5" y="62.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.3" y="62.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="38.2" y="62.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="54.1" y="62.8" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="6.5" y="78.7" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.3" y="78.7" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="38.2" y="78.7" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="54.1" y="78.7" width="14.3" height="14.3" rx="2.1" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <path d="M5.7 31 V23.4 H69.2 V31" fill="none" stroke="#5E5E5E" stroke-width="1.6"/>
+  <text x="37.4" y="17.8" font-size="18.9" font-weight="400" text-anchor="middle" fill="#333">4</text>
+</svg></div>
+    <section class="clau" style="flex:1 1 auto">
+      <p><b>L'arrel és el costat del quadrat.</b> <span style="white-space:nowrap">√16 = 4</span>, perquè <span style="white-space:nowrap">4 · 4 = 16</span>. No és la meitat.</p>
+      <p style="margin:0">Si el nombre no és a la llista, l'arrel és entre dos nombres. Per exemple, 20 és entre 16 i 25: <span style="white-space:nowrap">√20</span> és entre 4 i 5.</p>
+    </section>
+  </div>
+  <div class="pag">Targeta dels decimals · cara 2</div>
+</div>
+
+</body>
+</html>
