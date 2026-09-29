@@ -43,7 +43,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
 | 5 · Decimals i arrel quadrada | **Feta** (29/9/2026): caixa (18 a 21, i la 2.4), targeta «Decimals i arrels», sis fitxes i examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
 | 6 · Sentit espacial | **Feta** (29/9/2026): caixa (22 a 25), targeta «Formes», sis fitxes i examen (`generadors/examens/ud6.js`). El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
-| 7 · Patrons i llenguatge algebraic | **En curs**: pla validat (29/9/2026) i caixa feta (26 a 28). Falten la targeta «Patrons i símbols», les cinc fitxes i l'examen, en dos passos. El pla: `MAPA-ADAPTACIO.md`, apartat 8 quater |
+| 7 · Patrons i llenguatge algebraic | **En curs**: pla validat (29/9/2026), caixa (26 a 28), targeta «Patrons i símbols» i fitxes 1 a 3 fetes. Falten les fitxes 4 i 5 i l'examen (el pas 3). El pla: `MAPA-ADAPTACIO.md`, apartat 8 quater |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
 passi): treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4

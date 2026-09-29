@@ -267,3 +267,25 @@ def cercle_d(r, aria, centre=True, radi=False, diametre=False, rot_radi=None, ro
     if centre:
         _punt(d, cx, cy, 0.1)
     return d
+
+
+def patro_d(a, b, n, m, aria):
+    """Una figura del patró a · n + b, com a la caixa (tasca 26): la part fixa (b quadrets, blancs
+    i discontinus, en una columna a l'esquerra) i a files de n quadrets grisos. En paper no hi ha
+    color: la part fixa es distingeix pel traç."""
+    alt = max(a, b, 1)
+    x_n = (m * 1.35 if b else 0)
+    d = Dibuix(x_n + n * m + 0.2, alt * m + 0.2, aria)
+    y0 = 0.1 + alt * m
+    for i in range(b):
+        d.quadret(0.1, y0 - (i + 1) * m, m, fons="#fff", traç=G1, gruix=1.8, discontinu=True)
+    for f_ in range(a):
+        for c in range(n):
+            d.quadret(0.1 + x_n + c * m, y0 - (f_ + 1) * m, m)
+    return d
+
+
+def figures_d(a, b, fins, m, aria_patro):
+    """Les figures 1 a `fins` d'un patró, de costat, amb el número a sota."""
+    return "".join(f'''<div style="text-align:center"><div>{patro_d(a, b, n, m, f"{aria_patro}: la figura {n}, amb {a * n + b} quadrets").svg("")}</div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">{n}</p></div>''' for n in range(1, fins + 1))

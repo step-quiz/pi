@@ -30,6 +30,8 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud6_poligons.py` | `ud6-poligons.html` | `peces_geo.py` | (les peces de dibuix de la unitat 6) |
 | `fitxa_ud6_triangles.py` | `ud6-triangles.html` | `fitxa_ud6_cercle.py` | `ud6-cercle.html` |
 | `fitxa_ud6_perimetre.py` | `ud6-perimetre.html` | `fitxa_ud6_repas.py` | `ud6-repas.html` |
+| `fitxa_ud7.py` | `ud7.html` | `targeta_patrons.py` | `targetes/patrons.html` |
+| `fitxa_ud7_regla.py` | `ud7-regla.html` | `fitxa_ud7_simbols.py` | `ud7-simbols.html` |
 
 Les peces comunes: `fitxa_ud1.py` (la classe `Dibuix`, `ms()`, `buit()`, els colors: els altres
 n'executen la primera part), `peces_ud2.py` (opcions per marcar, pàgines, el document, la graella

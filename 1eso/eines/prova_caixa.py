@@ -1184,7 +1184,7 @@ def main():
             return dict((x.rsplit(" ", 1)[0], x.rsplit(" ", 1)[1]) for x in dades.split(", "))[et]
         for mod, pref, id_, nom, bona in [("patrons", "pu", "26.2", "Quants en té la següent?", bona262),
                                           ("simbols", "sz", "27.2", "Quin és el símbol?", bona272),
-                                          ("grafics", "gs", "28.2", "Quants n'hi ha?", bona282)]:
+                                          ("grafics", "gs", "28.2", "Quantes persones?", bona282)]:
             codis[id_] = (tasca_dec(pg, mod, 2, pref, bona, id_), nom, (5, 4, 1, 0))
             print(f"  {id_}: cinc passos, un error amb pista; codi {codis[id_][0]}")
 

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 7 · Patrons de quadrets</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 7 · Llenguatge algebraic i patrons · Patrons de quadrets
+  La primera fitxa de la unitat 7. Adapta les activitats 1 i 2 de la situació (el
+  llibre, UD8): un patró creix sempre igual, què hi ha de fix i què s'hi afegeix.
+  Els casos són els del llibre i els de la tasca 26 de la caixa (regla 8).
+
+  La regla trencada és «2, 4, 6, 8 creix multiplicant per 2»: en Pau, pàgina 4.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs</b>. Fer les figures 1, 2 i 3 d'un patró, i després la 4.</div>
+  <h1>Patrons de quadrets</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div style="display:flex;gap:1.2cm;align-items:flex-end;justify-content:center;margin-top:.8rem">
+    <div style="text-align:center"><div><svg viewBox="0 0 74.2 64.3" style="width:2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un patró: la figura 1, amb 3 quadrets">
+  <rect x="5.2" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="43.5" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="43.5" y="5.2" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">1</p></div><div style="text-align:center"><div><svg viewBox="0 0 102.5 64.3" style="width:2.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un patró: la figura 2, amb 5 quadrets">
+  <rect x="5.2" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="43.5" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="71.8" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="43.5" y="5.2" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="71.8" y="5.2" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">2</p></div><div style="text-align:center"><div><svg viewBox="0 0 130.9 64.3" style="width:3.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un patró: la figura 3, amb 7 quadrets">
+  <rect x="5.2" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="43.5" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="71.8" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="100.2" y="33.5" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="43.5" y="5.2" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="71.8" y="5.2" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="100.2" y="5.2" width="25.5" height="25.5" rx="3.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">3</p></div>
+  </div>
+  <table style="margin-top:.6rem">
+    <tr class="resolt"><td class="esq">Quants quadrets té cada figura?</td><td style="width:4.4cm"><span class="ms">3, 5 i 7</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets més té cada figura?</td><td><span class="ms">2</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants en té la figura 4?</td><td><span class="ms">7 + 2 = 9</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Un patró creix sempre igual.</p>
+    <p style="margin:.2rem 0 0">El quadret blanc és fix. Cada figura té 2 quadrets més.</p>
+  </div>
+  <div class="pag">Unitat 7 · Patrons de quadrets · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Mira les figures 1, 2 i 3. Quants quadrets té la figura 4?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Compta quants quadrets més té la figura 3 que la 2.</p></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">a)</span></p>
+      <div style="display:flex;gap:.7cm;align-items:flex-end;flex-wrap:wrap"><div style="text-align:center"><div><svg viewBox="0 0 25.7 43.8" style="width:0.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: la figura 1, amb 2 quadrets">
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">1</p></div><div style="text-align:center"><div><svg viewBox="0 0 43.8 43.8" style="width:1.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: la figura 2, amb 4 quadrets">
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">2</p></div><div style="text-align:center"><div><svg viewBox="0 0 62 43.8" style="width:1.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat a: la figura 3, amb 6 quadrets">
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="41" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="41" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">3</p></div></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada figura té <span class="ms">2</span> quadrets més. La figura 4 té <span class="ms">8</span> quadrets.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">b)</span></p>
+      <div style="display:flex;gap:.7cm;align-items:flex-end;flex-wrap:wrap"><div style="text-align:center"><div><svg viewBox="0 0 25.7 62" style="width:0.7cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: la figura 1, amb 3 quadrets">
+  <rect x="4.7" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">1</p></div><div style="text-align:center"><div><svg viewBox="0 0 43.8 62" style="width:1.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: la figura 2, amb 6 quadrets">
+  <rect x="4.7" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">2</p></div><div style="text-align:center"><div><svg viewBox="0 0 62 62" style="width:1.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat b: la figura 3, amb 9 quadrets">
+  <rect x="4.7" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="41" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="41" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="22.8" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="41" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">3</p></div></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada figura té <u style="padding:0 1.1rem"></u> quadrets més. La figura 4 té <u style="padding:0 1.1rem"></u> quadrets.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">c)</span></p>
+      <div style="display:flex;gap:.7cm;align-items:flex-end;flex-wrap:wrap"><div style="text-align:center"><div><svg viewBox="0 0 50.2 43.8" style="width:1.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: la figura 1, amb 3 quadrets">
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="29.2" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">1</p></div><div style="text-align:center"><div><svg viewBox="0 0 68.3 43.8" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: la figura 2, amb 4 quadrets">
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="29.2" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">2</p></div><div style="text-align:center"><div><svg viewBox="0 0 86.5 43.8" style="width:2.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat c: la figura 3, amb 5 quadrets">
+  <rect x="4.7" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="4.7" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="29.2" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="65.5" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">3</p></div></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada figura té <u style="padding:0 1.1rem"></u> quadrets més. La figura 4 té <u style="padding:0 1.1rem"></u> quadrets.</p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .15rem"><span class="apartat">d)</span></p>
+      <div style="display:flex;gap:.7cm;align-items:flex-end;flex-wrap:wrap"><div style="text-align:center"><div><svg viewBox="0 0 50.2 62" style="width:1.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: la figura 1, amb 4 quadrets">
+  <rect x="4.7" y="41" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="29.2" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="29.2" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="29.2" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">1</p></div><div style="text-align:center"><div><svg viewBox="0 0 68.3 62" style="width:1.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: la figura 2, amb 7 quadrets">
+  <rect x="4.7" y="41" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="29.2" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="29.2" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="29.2" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">2</p></div><div style="text-align:center"><div><svg viewBox="0 0 86.5 62" style="width:2.3cm;max-width:100%;margin:0 auto;" role="img" aria-label="Apartat d: la figura 3, amb 10 quadrets">
+  <rect x="4.7" y="41" width="16.3" height="16.3" rx="2.4" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="29.2" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="65.5" y="41" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="29.2" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="65.5" y="22.8" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="29.2" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="47.3" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="65.5" y="4.7" width="16.3" height="16.3" rx="2.4" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">3</p></div></div>
+      <p class="frase" style="margin:.1rem 0 0;font-size:15pt">Cada figura té <u style="padding:0 1.1rem"></u> quadrets més. La figura 4 té <u style="padding:0 1.1rem"></u> quadrets.</p>
+    </div>
+  </div>
+  <div class="pag">Unitat 7 · Patrons de quadrets · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Escriu els dos nombres següents. Escriu també quant se suma o es resta cada vegada.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Mira quant hi ha de l'un a l'altre. El d va cap avall: és la taula del 8.</p></div>
+    <table class="mini">
+      <tr><th>El patró</th><th style="width:2.4cm">Següent</th><th style="width:2.4cm">I el següent</th><th style="width:3cm">Cada vegada</th></tr>
+      <tr class="resolt"><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">a)</span> 6, 11, 16, 21</td><td style="text-align:center"><span class="ms">26</span></td><td style="text-align:center"><span class="ms">31</span></td><td style="text-align:center"><span class="ms">+ 5</span></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">b)</span> 5, 10, 15, 20</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">c)</span> 3, 7, 11, 15</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">d)</span> 80, 72, 64, 56</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 7 · Patrons de quadrets · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">En Pau diu que 2, 4, 6, 8 creix multiplicant per 2. Té raó? Com creix cada patró?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Comprova el patró amb el tercer nombre, no només amb el segon.</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:18pt;font-weight:800"><span class="apartat">a)</span> 2, 4, 6, 8</p>
+      <div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Multiplica per 2</label></div><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Suma sempre el mateix</label></div></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:18pt;font-weight:800"><span class="apartat">b)</span> 3, 6, 9, 12</p>
+      <div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Multiplica per 2</label></div><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Suma sempre el mateix</label></div></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:18pt;font-weight:800"><span class="apartat">c)</span> 1, 2, 4, 8</p>
+      <div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Multiplica per 2</label></div><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Suma sempre el mateix</label></div></div>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:18pt;font-weight:800"><span class="apartat">d)</span> 5, 10, 15, 20</p>
+      <div style="margin:.25rem 0"><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Multiplica per 2</label></div><div class="tria" style="margin:0 0 .35rem;width:3.8cm"><label style="min-width:3.8cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Suma sempre el mateix</label></div></div>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Comprova sempre el tercer nombre.</p>
+    <p style="margin:.2rem 0 0">2 · 2 = 4, però 4 · 2 = 8, i el tercer és 6. El patró 2, 4, 6, 8 suma 2 cada vegada.</p>
+  </div>
+  <div class="pag">Unitat 7 · Patrons de quadrets · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">Les taules d'un menjador es posen en fila. Quantes cadires hi caben?</div></div>
+    <table class="mini">
+      <tr><th>Taules</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr class="resolt"><th>Cadires</th><td style="text-align:center">4</td><td style="text-align:center">6</td><td style="text-align:center">8</td>
+        <td style="text-align:center"><span class="ms">10</span></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Amb escuradents es fan quadrats en fila. Quants escuradents calen?</div></div>
+    <table class="mini">
+      <tr><th>Quadrats</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr><th>Escuradents</th><td style="text-align:center">4</td><td style="text-align:center">7</td><td style="text-align:center">10</td>
+        <td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+    <p class="frase" style="margin:.2rem 0 0">Cada quadrat nou porta <u style="padding:0 1.1rem"></u> escuradents més.</p>
+  </div>
+  <div class="pag">Unitat 7 · Patrons de quadrets · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 7 · Patrons de quadrets · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> Un patró creix sempre igual: el que hi ha de fix (el quadret blanc,
+    discontinu) i el que s'hi afegeix a cada figura. És la tasca 26 de la caixa, on la part fixa surt
+    en taronja. La targeta «Patrons i símbols» porta un exemple.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs: fer les figures 1, 2 i 3 del patró de la pàgina 1 (3, 5 i 7 blocs) i
+  construir la 4. Si els blocs fixos són d'un altre color, es veu què s'hi afegeix.</p>
+  <h3>1. La figura 4</h3>
+  <p>b) s'afegeixen 3; la figura 4 en té 12. c) s'afegeix 1; en té 6. d) s'afegeixen 3; en té 13.</p>
+  <h3>2. Patrons de nombres</h3>
+  <p>b) 25, 30 (+ 5). c) 19, 23 (+ 4). d) 48, 40 (− 8, la taula del 8 cap avall). La a) és del llibre, i la
+  d) també.</p>
+</div>
+
+<div class="full sol">
+  <h3>3. En Pau · la regla trencada</h3>
+  <p>b) suma sempre el mateix (3); c) multiplica per 2: 1, 2, 4, 8; d) suma sempre el mateix (5).
+  <b>Error típic:</b> mirar només el primer pas (2 · 2 = 4) i dir que multiplica per 2, com en Pau del
+  llibre. És la regla trencada d'aquesta fitxa. No l'expliqueu: que ho comprovi amb el tercer nombre.
+  L'apartat c és a posta: n'hi ha que sí que multipliquen per 2. <b>Compta per als nivells alts, no
+  per al mínim.</b></p>
+  <h3>4 i 5. A la vida de cada dia</h3>
+  <p>4) 5 taules, 12 cadires (s'afegeixen 2 a cada taula). 5) 13 i 16 escuradents; cada quadrat nou
+  n'afegeix 3 (els escuradents del llibre).</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=26</b> (26.1 El patró; 26.2
+  Quants en té la següent?). La 26.2 dona un codi de verificació; les respostes falses són sumar-ne
+  sempre 1 i multiplicar per 2, l'error d'en Pau.</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (2.1, 3.1, 4.1, 5.1 i 7.2) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs, construeix la figura següent d'un patró.</li>
+    <li>Diu quants quadrets s'afegeixen i quants en té la figura següent (exercici 1).</li>
+    <li>Continua un patró de nombres i diu què s'hi fa cada vegada (exercicis 2, 4 i 5).</li>
+    <li>Nivells alts: diu per què 2, 4, 6, 8 no multiplica per 2 (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

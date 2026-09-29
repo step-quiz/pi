@@ -77,7 +77,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat, caixa (tasques 22 a 25), targeta «Formes», les sis fitxes i l'examen fets |
-| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | En curs: pla validat i caixa feta (tasques 26 a 28). Falten la targeta «Patrons i símbols», les cinc fitxes i l'examen |
+| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | En curs: pla validat, caixa (tasques 26 a 28), targeta «Patrons i símbols» i fitxes 1 a 3 fetes. Falten les fitxes 4 i 5 i l'examen |
 
 Els codis dels criteris són els de les SA del departament, i quadren, codi i text, amb la llista
 oficial que porta la plantilla del Departament d'Educació. L'avaluació d'aquest alumnat es fa
@@ -601,15 +601,15 @@ gràfic de barres són columnes de quadrets.
 |---|---|---|
 | 26 · Patrons | 26.1 El patró (cinc patrons, la figura de l'1 al 10, la taula i la regla) · **26.2 Quants en té la següent?** | Sumar-ne sempre 1; multiplicar per 2 (en Pau del llibre) |
 | 27 · Símbols | 27.1 La paraula i el símbol (el dibuix i el càlcul per a una n) · **27.2 Quin és el símbol?** | El triple fet suma (n + 3); el més fet producte (5 · n); al revés (1 − n) |
-| 28 · Gràfics | 28.1 Llegeix el gràfic (tres enquestes, una del llibre) · **28.2 Quants n'hi ha?** | Llegir la ratlla de sobre o la de sota |
+| 28 · Gràfics | 28.1 Llegeix el gràfic (tres enquestes, una del llibre) · **28.2 Quantes persones?** | Llegir la ratlla de sobre o la de sota |
 
 **Les fitxes de la unitat 7:**
 
 | Fitxa | Què porta | Regla trencada | Estat |
 |---|---|---|---|
-| 1 · `ud7.html` | Patrons de quadrets: què hi ha de fix, què s'hi afegeix, la figura següent | En Pau: 2, 4, 6, 8 «creix multiplicant per 2» | Per fer |
-| 2 · `ud7-regla.html` | La taula figura–quadrets i la regla a · n + b; la figura 10 | La Ivet: 5, 8, 11, 14 és 3 · n (oblida la part fixa) | Per fer |
-| 3 · `ud7-simbols.html` | De la paraula al símbol; calcular per a una n | La Zoe: «si n = 3, 2n = 23» | Per fer |
+| 1 · `ud7.html` | Patrons de quadrets: què és fix, què creix, la figura següent; patrons de nombres | En Pau: 2, 4, 6, 8 «creix multiplicant per 2» | Feta (29/9/2026) |
+| 2 · `ud7-regla.html` | La taula figura–quadrets i la regla a · n + b; la figura 10 | La Ivet: 5, 8, 11, 14 és 3 · n (oblida la part fixa) | Feta (29/9/2026) |
+| 3 · `ud7-simbols.html` | De la paraula al símbol; calcular per a una n | La Zoe: «si n = 3, 2n = 23» | Feta (29/9/2026) |
 | 4 · `ud7-grafics.html` | Llegir un gràfic de barres i una taula; què no diu | La barra el doble d'alta amb l'eix que no comença a zero | Per fer |
 | 5 · `ud7-repas.html` | Repàs, «El meu curs» (un exemple de cada unitat) i un patró de l'entorn | — | Per fer |
 
@@ -627,6 +627,11 @@ del dossier, amb el grup.
   part fixa, en taronja, i a files de n quadrets) i `barres` (el gràfic de barres de quadrets). El
   mateix dia, els números dels angles de la tasca 24 (unitat 6) van passar a sobre d'un cercle del
   color del fons: en mode fosc no tenien prou contrast sobre el blau.
+- 29 de setembre de 2026 (pas 2): la targeta «Patrons i símbols» (`targetes/patrons.html`) i les fitxes
+  1 a 3 (`ud7.html`, `ud7-regla.html` i `ud7-simbols.html`). En paper, la part fixa dels patrons és
+  blanca i discontínua (a la caixa, taronja). Les frases «s'hi afegeix» i «quants n'hi ha» de la
+  caixa (tasques 26 i 28) han passat a «què creix» i «quantes persones»: sense pronoms febles
+  (regla I). La tasca 28.2 ara es diu «Quantes persones?».
 
 ---
 

@@ -126,7 +126,7 @@ ESTATS = [
     ("27.1 La paraula i el símbol",      "caixa-eines.html", "?task=27.1", None),
     ("27.2 Quin és el símbol? · tocada", "caixa-eines.html", "?task=27.2", "boto_sz"),
     ("28.1 Llegeix el gràfic",           "caixa-eines.html", "?task=28.1", None),
-    ("28.2 Quants n'hi ha? · tocada",    "caixa-eines.html", "?task=28.2", "boto_gs"),
+    ("28.2 Quantes persones? · tocada",    "caixa-eines.html", "?task=28.2", "boto_gs"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
     ("La portada",                       "index.html",       "",          None),
     ("Fitxes",                           "fitxes.html",      "",          None),

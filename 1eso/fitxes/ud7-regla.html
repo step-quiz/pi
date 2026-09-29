@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 7 · La regla del patró</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<!--
+  FITXA · Unitat 7 · Llenguatge algebraic i patrons · La regla del patró
+  La segona fitxa de la unitat 7. Adapta l'activitat 4 de la situació (el llibre,
+  UD8: «El terme general»): a · n + b, el que creix davant de la n i el que és fix
+  al final. Els casos són els del llibre i els de la tasca 26 de la caixa.
+
+  La regla trencada és oblidar la part fixa: la Ivet, pàgina 4.
+
+  Cada bloc .full acaba amb un </div> a principi de línia; els de dins van
+  sagnats. Les regles són a docs/CRITERIS-DISSENY.md. Després de canviar
+  res: eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
+-->
+
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>miniblocs de dos colors</b>. Els fixos d'un color i els que creixen de l'altre. Fer les figures 1, 2 i 3.</div>
+  <h1>La regla del patró</h1>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+  <div style="display:flex;gap:1.2cm;align-items:flex-end;justify-content:center;margin-top:.8rem">
+    <div style="text-align:center"><div><svg viewBox="0 0 56.4 69.9" style="width:1.5cm;max-width:100%;margin:0 auto;" role="img" aria-label="El patró 3 · n + 2: la figura 1, amb 5 quadrets">
+  <rect x="4.8" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="4.8" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="32.9" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="32.9" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="32.9" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">1</p></div><div style="text-align:center"><div><svg viewBox="0 0 77.2 69.9" style="width:2cm;max-width:100%;margin:0 auto;" role="img" aria-label="El patró 3 · n + 2: la figura 2, amb 8 quadrets">
+  <rect x="4.8" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="4.8" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="32.9" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="53.7" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="32.9" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="53.7" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="32.9" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="53.7" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">2</p></div><div style="text-align:center"><div><svg viewBox="0 0 98 69.9" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="El patró 3 · n + 2: la figura 3, amb 11 quadrets">
+  <rect x="4.8" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="4.8" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#fff" stroke="#333" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <rect x="32.9" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="53.7" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="74.5" y="46.4" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="32.9" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="53.7" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="74.5" y="25.6" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="32.9" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="53.7" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="74.5" y="4.8" width="18.7" height="18.7" rx="2.7" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg></div>
+        <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">3</p></div>
+  </div>
+  <table style="margin-top:.6rem">
+    <tr class="resolt"><td class="esq">Quants quadrets fixos hi ha?</td><td style="width:4.4cm"><span class="ms">2</span></td></tr>
+    <tr class="resolt"><td class="esq">Quants quadrets més té cada figura?</td><td><span class="ms">3</span></td></tr>
+    <tr class="resolt"><td class="esq">La regla</td><td><span class="ms">3 · n + 2</span></td></tr>
+  </table>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0">El que creix va davant de la n. El que és fix va al final.</p>
+    <p style="margin:.2rem 0 0;font-size:24pt;font-weight:800">3 · n + 2</p>
+    <p style="margin:0">La figura 10: 3 · 10 + 2 = 32.</p>
+  </div>
+  <div class="pag">Unitat 7 · La regla del patró · pàgina 1</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div><div class="q">Fes servir la regla. Omple la taula: quants quadrets té cada figura?</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Posa el número de la figura on hi ha la n. Figura 3 amb 2 · n: 2 · 3 = 6.</p></div>
+    <table class="mini">
+      <tr><th>La regla</th><th>Figura 1</th><th>Figura 2</th><th>Figura 3</th><th>Figura 4</th><th>Figura 10</th></tr>
+      <tr class="resolt"><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">a)</span> 2 · n</td><td style="text-align:center"><span class="ms">2</span></td><td style="text-align:center"><span class="ms">4</span></td><td style="text-align:center"><span class="ms">6</span></td><td style="text-align:center"><span class="ms">8</span></td><td style="text-align:center"><span class="ms">20</span></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">b)</span> 3 · n + 1</td><td style="text-align:center;font-size:16pt;font-weight:700">4</td><td style="text-align:center;font-size:16pt;font-weight:700">7</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">c)</span> 2 · n + 3</td><td style="text-align:center;font-size:16pt;font-weight:700">5</td><td style="text-align:center;font-size:16pt;font-weight:700">7</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.2rem .5rem"><span class="apartat">d)</span> 5 · n</td><td style="text-align:center;font-size:16pt;font-weight:700">5</td><td style="text-align:center;font-size:16pt;font-weight:700">10</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="pag">Unitat 7 · La regla del patró · pàgina 2</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div><div class="q">Escriu la regla de cada patró.</div></div>
+    <div class="clau" style="margin:.3rem 0 .5rem">
+      <p style="margin:0 0 .2rem">1. Quant creix cada vegada? Aquest nombre va davant de la n.</p>
+      <p style="margin:0">2. Compara la figura 1 amb aquest nombre. El que sobra és fix.</p>
+    </div>
+    <table class="mini">
+      <tr><th>El patró</th><th style="width:6cm">La regla</th></tr>
+      <tr class="resolt"><td style="font-size:17pt;font-weight:800;padding:.25rem .5rem"><span class="apartat">a)</span> 3, 5, 7, 9</td>
+        <td style="text-align:center"><span class="ms">2 · n + 1</span></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.25rem .5rem"><span class="apartat">b)</span> 4, 8, 12, 16</td>
+        <td style="text-align:center"></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.25rem .5rem"><span class="apartat">c)</span> 6, 7, 8, 9</td>
+        <td style="text-align:center"></td></tr>
+      <tr><td style="font-size:17pt;font-weight:800;padding:.25rem .5rem"><span class="apartat">d)</span> 10, 20, 30, 40</td>
+        <td style="text-align:center"></td></tr>
+    </table>
+    <p style="margin:.4rem 0 0;font-size:14pt">A la a): creix 2, i la figura 1 té 3. De 2 a 3 en sobra 1: 2 · n + 1.</p>
+  </div>
+  <div class="pag">Unitat 7 · La regla del patró · pàgina 3</div>
+</div>
+
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div><div class="q">La Ivet mira quant creix i escriu la regla. Té raó? Comprova la regla amb la figura 1.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">a)</span> 5, 8, 11, 14</p>
+      <p style="margin:0 0 .1rem;font-size:15pt">La Ivet diu: 3 · n. Té raó?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt;border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No</label></div>
+      <p class="frase" style="margin:0;font-size:15pt">La regla bona: <span class="ms">3 · n + 2</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">b)</span> 4, 7, 10, 13</p>
+      <p style="margin:0 0 .1rem;font-size:15pt">La Ivet diu: 3 · n. Té raó?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div>
+      <p class="frase" style="margin:0;font-size:15pt">La regla bona: <u></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">c)</span> 3, 6, 9, 12</p>
+      <p style="margin:0 0 .1rem;font-size:15pt">La Ivet diu: 3 · n. Té raó?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div>
+      <p class="frase" style="margin:0;font-size:15pt">La regla bona: <u></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p style="margin:0 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">d)</span> 7, 9, 11, 13</p>
+      <p style="margin:0 0 .1rem;font-size:15pt">La Ivet diu: 2 · n. Té raó?</p>
+      <div class="tria" style="margin:.25rem 0;flex-wrap:wrap"><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>Sí</label><label style="min-width:2.2cm;white-space:nowrap;font-size:13pt"><span class="quadret"></span>No</label></div>
+      <p class="frase" style="margin:0;font-size:15pt">La regla bona: <u></u></p>
+    </div>
+    </div>
+  </div>
+  <div class="avis gruixut" style="text-align:center">
+    <p style="margin:0;font-weight:700">Compta també la part fixa.</p>
+    <p style="margin:.2rem 0 0">Amb 3 · n, la figura 1 fa 3 · 1 = 3. Però en té 5: sobren 2. La regla és 3 · n + 2.</p>
+  </div>
+  <div class="pag">Unitat 7 · La regla del patró · pàgina 4</div>
+</div>
+
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div><div class="q">La taula del 7 també és un patró: 7, 14, 21, 28…</div></div>
+    <div class="resolt" style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0"><span class="apartat">a)</span> La regla: <span class="ms">7 · n</span></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0"><span class="apartat">b)</span> El número 10 del patró: <u></u></p>
+    </div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0"><span class="apartat">c)</span> El 56 és el número <u style="padding:0 1.1rem"></u> del patró. Mira la targeta de les taules.</p>
+    </div>
+  </div>
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div><div class="q">Les taules del menjador, en fila. Amb 1 taula, 4 cadires. Amb 2 taules, 6 cadires. Amb 3 taules, 8 cadires.</div></div>
+    <div style="border-radius:10px;padding:.35rem .6rem;margin-bottom:.3rem">
+      <p class="frase" style="margin:0">La regla: <u></u>. Per a 10 taules calen <u style="padding:0 1.1rem"></u> cadires.</p>
+    </div>
+  </div>
+  <div class="pag">Unitat 7 · La regla del patró · pàgina 5</div>
+</div>
+
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 7 · La regla del patró · full per al professorat</p>
+  <div class="abans">
+    <b>Abans de començar.</b> La regla d'un patró de quadrets: el que creix a cada figura va davant de
+    la n, i el que és fix va al final. Sempre amb el punt: 3 · n + 2 (la decisió de la unitat). Es
+    comprova amb la figura 1. No és una equació: la n és el número de la figura, i se substitueix.
+  </div>
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts amb miniblocs de dos colors: els 2 fixos d'un color i els que creixen, de l'altre. A
+  cada figura se'n posen 3 més. És el patró de la Ivet (5, 8, 11), vist amb blocs.</p>
+  <h3>1. Omple la taula</h3>
+  <p>b) 3 · n + 1: 4, 7, 10, 13 i 31. c) 2 · n + 3: 5, 7, 9, 11 i 23. d) 5 · n: 5, 10, 15, 20 i 50.</p>
+  <h3>2. Escriu la regla</h3>
+  <p>b) 4 · n; c) n + 5; d) 10 · n (els casos del llibre). <b>Error típic:</b> escriure el primer nombre
+  en lloc del que creix (6 · n per a 6, 7, 8, 9).</p>
+</div>
+
+<div class="full sol">
+  <h3>3. La Ivet · la regla trencada</h3>
+  <p>b) No: 3 · n + 1. c) Sí: 3 · n. d) No: 2 · n + 5. <b>Error típic:</b> escriure només el que creix i
+  oblidar la part fixa, com la Ivet del llibre. És la regla trencada d'aquesta fitxa. No l'expliqueu:
+  que comprovi la regla amb la figura 1. L'apartat c és a posta: quan no hi ha part fixa, la Ivet
+  encerta. <b>Compta per als nivells alts, no per al mínim.</b></p>
+  <h3>4 i 5. A la vida de cada dia</h3>
+  <p>4b) 7 · 10 = 70. 4c) el 8 (7 · 8 = 56), la pregunta del llibre. 5) 2 · n + 2; per a 10 taules,
+  2 · 10 + 2 = 22 cadires.</p>
+  <h3>La caixa d'eines</h3>
+  <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=26</b> (26.1 El patró, que
+  ensenya la regla de cada patró i la figura que es vulgui fins a la 10).</p>
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (2.1, 3.1, 4.1, 5.1 i 7.2) són de
+  referència: l'avaluació es fa amb els criteris del PI.</p>
+  <ul>
+    <li>Amb miniblocs de dos colors, diu què és fix i què creix.</li>
+    <li>Fa servir una regla per saber quants quadrets té una figura (exercici 1).</li>
+    <li>Escriu la regla d'un patró (exercici 2).</li>
+    <li>Nivells alts: comprova una regla amb la figura 1 i hi posa la part fixa (exercici 3).</li>
+  </ul>
+</div>
+
+</body>
+</html>

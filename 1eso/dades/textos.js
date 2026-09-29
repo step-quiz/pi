@@ -921,25 +921,25 @@ window.TEXTOS = {
   "26.1": {
     nom:           'El patró',
     titol:         'El patró de quadrets',
-    ajuda:         'Tria un patró i una figura. Mira què hi ha de fix i què s\'hi afegeix.',
+    ajuda:         'Tria un patró i una figura. Mira què és fix i què creix.',
     patro_n:       'Patró {n}',
     et_figura:     'Figura',
     figura:        'Figura',
     quadrets:      'Quadrets',
     te:            'La figura {n} té {quadrets}.',
     fixos:         'Els quadrets fixos, en taronja: {b}.',
-    afegeix:       'A cada figura s\'hi afegeixen {quadrets}.',
+    afegeix:       'Cada figura té {quadrets} més que l\'anterior.',
     aria:          'La figura {n} del patró: {q} quadrets'
   },
   "26.2": {
     nom:           'Quants en té la següent?',
     titol:         'Quants en té la figura 4?',
     ajuda:         'Mira les figures 1, 2 i 3. Després toca quants quadrets té la figura 4.',
-    comenca:       'Compta quants quadrets s\'afegeixen de la figura 2 a la 3.',
-    encert:        'La figura 3 en té {q3}. S\'hi afegeixen {a}: la figura 4 en té {q4}.',
-    error_mes1:    'No s\'hi afegeix 1 quadret: s\'hi afegeixen {a}.',
-    error_doble:   'No es multiplica per 2: s\'hi afegeixen {a} quadrets cada vegada.',
-    pista:         'Compta els quadrets de la figura 2 i de la figura 3. Quants n\'hi ha de més?'
+    comenca:       'Compta quants quadrets més té la figura 3 que la 2.',
+    encert:        'La figura 3 té {q3} quadrets. Cada figura en té {a} més. La figura 4 té {q4} quadrets.',
+    error_mes1:    'Cada figura té {a} quadrets més, no 1.',
+    error_doble:   'No es multiplica per 2: cada figura té {a} quadrets més.',
+    pista:         'Compta els quadrets de la figura 2 i de la figura 3. Quina és la diferència?'
   },
   "27.1": {
     nom:           'La paraula i el símbol',
@@ -990,10 +990,10 @@ window.TEXTOS = {
     aria:          'Gràfic de barres, {titol}: {dades}'
   },
   "28.2": {
-    nom:           'Quants n\'hi ha?',
-    titol:         'Quants n\'hi ha?',
+    nom:           'Quantes persones?',
+    titol:         'Quantes persones?',
     ajuda:         'Mira la barra taronja. Compta els quadrets o mira el nombre de l\'eix.',
-    pregunta:      '{et}: quants n\'hi ha?',
+    pregunta:      '{et}: quantes persones?',
     comenca:       'Mira on acaba la barra taronja.',
     encert:        '{et}: {v}.',
     error_dalt:    'Has llegit la ratlla de sobre. La barra acaba abans.',

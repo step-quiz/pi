@@ -155,7 +155,11 @@ window.UNITATS = [
            "El triple d'un nombre s'escriu 3 · n. Un gràfic de barres són columnes de quadrets.",
     material: "Miniblocs: fer les tres primeres figures d'un patró i la quarta.",
     criteris: "2.1, 3.1, 4.1, 5.1, 7.2",
-    fitxes: [],
+    fitxes: [
+      { fitxa: "fitxes/ud7.html", titol: "Patrons de quadrets" },
+      { fitxa: "fitxes/ud7-regla.html", titol: "La regla del patró" },
+      { fitxa: "fitxes/ud7-simbols.html", titol: "De la paraula al símbol" }
+    ],
     tasques: [26, 27, 28]
   }
 ];
@@ -198,5 +202,15 @@ window.TARGETES = [
     fitxer: "targetes/formes.html",
     pdf: "pdf/targeta-formes.pdf",
     unitat: 6
+  },
+  {
+    id: "patrons",
+    titol: "Patrons i símbols",
+    descripcio: "Un patró creix sempre igual: què és fix i què creix, i la regla, com 2 · n + 1. A " +
+                "l'altra cara, de la paraula al símbol (el doble, el triple, la meitat…), sempre amb el " +
+                "punt, i com es llegeix un gràfic de barres.",
+    fitxer: "targetes/patrons.html",
+    pdf: "pdf/targeta-patrons.pdf",
+    unitat: 7
   }
 ];

@@ -96,7 +96,7 @@ pantalla van a `css/app.css`.
 | 25 | Perímetre | `perimetre.js` | 25.1 Perímetre i àrea · **25.2 Quin és el perímetre?** | 3 per 4: perímetre 14, àrea 12 |
 | 26 | Patrons | `patrons.js` | 26.1 El patró · **26.2 Quants en té la següent?** | 2 · n + 1, figura 3: 7 quadrets |
 | 27 | Símbols | `simbols.js` | 27.1 La paraula i el símbol · **27.2 Quin és el símbol?** | El triple, n = 4: 3 · 4 = 12 |
-| 28 | Gràfics | `grafics.js` | 28.1 Llegeix el gràfic · **28.2 Quants n'hi ha?** | Com venim a l'institut: 12, 8, 6 i 4 |
+| 28 | Gràfics | `grafics.js` | 28.1 Llegeix el gràfic · **28.2 Quantes persones?** | Com venim a l'institut: 12, 8, 6 i 4 |
 
 Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), les 14 a 17, de la unitat 4, i les 18 a 21 i la 2.4, de la unitat 5 (els decimals i l'arrel), les 22 a 25, de la unitat 6 (angles, polígons, triangles i perímetre), i les 26 a 28, de la unitat 7 (patrons, símbols i gràfics). La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
