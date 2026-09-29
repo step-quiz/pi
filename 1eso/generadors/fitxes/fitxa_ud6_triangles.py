@@ -58,7 +58,7 @@ for l, pts, mq, bona, r in E1:
     it.append(caixa(f'''      <div style="display:flex;gap:.5cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
         <div style="width:3.2cm;display:flex;justify-content:center">{triangle_d(pts, f"Apartat {l}: un triangle amb ratlletes als costats iguals", marques=mq).svg("")}</div>
-        <div>{tria(["Equilàter", "Isòsceles", "Escalè"], bona if r else None, mida="13pt", ample="3cm", columna=True)}</div>
+        <div>{tria(["Equilàter", "Isòsceles", "Escalè"], bona if r else None, mida="14pt", ample="3cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 N2 = [("a", "4, 4 i 4", "Equilàter", True), ("b", "5, 5 i 8", "Isòsceles", False), ("c", "3, 4 i 6", "Escalè", False)]
 files = "".join(f'''<tr{' class="resolt"' if r else ''}><td class="apartat" style="text-align:center">{l})</td><td style="text-align:center;font-size:17pt;font-weight:800">{c}</td><td style="text-align:center">{ms(b) if r else ""}</td></tr>''' for l, c, b, r in N2)
@@ -81,10 +81,12 @@ E3 = [("a", RECT, 0, "Rectangle", True), ("b", OBT, None, "Obtusangle", False),
       ("c", ACU, None, "Acutangle", False), ("d", RECT_G, None, "Rectangle", False)]
 it = []
 for l, pts, c, bona, r in E3:
-    it.append(caixa(f'''      <div style="display:flex;gap:.5cm;align-items:center">
+    # Amb la lletra de les opcions a 14 pt, «Obtusangle» fa la capsa més ampla: el dibuix
+    # i els espais s'estrenyen perquè tot càpiga a mitja pàgina (29/9/2026).
+    it.append(caixa(f'''      <div style="display:flex;gap:.3cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
-        <div style="width:3.4cm;display:flex;justify-content:center">{triangle_d(pts, f"Apartat {l}: un triangle", cantonada_a=c).svg("")}</div>
-        <div>{tria(["Rectangle", "Acutangle", "Obtusangle"], bona if r else None, mida="13pt", ample="3.2cm", columna=True)}</div>
+        <div style="width:2.8cm;display:flex;justify-content:center">{triangle_d(pts, f"Apartat {l}: un triangle", cantonada_a=c).svg("")}</div>
+        <div>{tria(["Rectangle", "Acutangle", "Obtusangle"], bona if r else None, mida="14pt", ample="3.2cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">Posa la cantonada d'un full a cada angle. Com es diu el triangle?</div></div>
@@ -105,7 +107,7 @@ for l, t1, t2, bona, r in P4:
           <div>{triangle_d(t1, "El primer triangle", arcs=True, marge=0.3).svg("")}</div>
           <div>{triangle_d(t2, "El segon triangle", arcs=True, marge=0.3).svg("")}</div>
         </div>
-        <div>{tria(["Iguals", "Diferents"], bona if r else None, mida="13pt", ample="2.6cm", columna=True)}</div>
+        <div>{tria(["Iguals", "Diferents"], bona if r else None, mida="14pt", ample="2.6cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">4</div><div class="q">En Pau diu que el triangle gran té els angles més grans. Té raó?</div></div>

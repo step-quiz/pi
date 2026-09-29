@@ -151,6 +151,12 @@ window.CE = (function () {
     const enrere = $(".sub-enrere", arrel);
     const avant = $(".sub-avant", arrel);
     const rotul = $(".sub-rotul", arrel);
+    // Un enllaç a un exercici concret (?task=1.2) porta a aquell exercici i prou:
+    // la barra diu on s'és, però les fletxes no hi són, i no es pot passar als
+    // altres exercicis. Amb l'enllaç a tota l'eina (?task=1) les fletxes hi són.
+    // És la regla N de 1eso/. CE.subDemanada el posa app.js abans d'obrir el mòdul.
+    const barra = $(".subbarra", arrel);
+    if (barra && window.CE.subDemanada) barra.classList.add("fixa");
     // el número de tasca surt de la pestanya, per no repetir-lo al marcatge
     const pestanya = $('.segment[data-mod="' + arrel.id.replace("mod-", "") + '"]');
     const tasca = pestanya ? pestanya.dataset.tasca : "";

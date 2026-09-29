@@ -86,6 +86,61 @@ def alcada_cm(cap, full, carpeta):
     return fons(doc.pages[0]._page_box) / 96 * 2.54 - 1.3
 
 
+# El marge dret: a partir d'aquí, el que es veu surt del marge; a 1,4 cm més, del full.
+MARGE_DRET_CM = 21 - 1.4
+
+
+def _visible(caixa):
+    """Si una caixa de WeasyPrint es veu: text, dibuixos, o capses amb vora o fons.
+    Les capses buides i sense vora poden ser més amples que la pàgina sense que es vegi res."""
+    nom = type(caixa).__name__
+    if nom == "TextBox" or "Replaced" in nom or (getattr(caixa, "element_tag", None) or "").endswith("svg"):
+        return True
+    estil = getattr(caixa, "style", None)
+    if estil is None:
+        return False
+    try:
+        return (estil["border_right_width"] > 0 or estil["border_bottom_width"] > 0
+                or estil["background_color"][3] > 0)
+    except (KeyError, TypeError, IndexError):
+        return False
+
+
+def mida(cap, full, carpeta):
+    """Mesura un bloc .full com surt al PDF. Torna un diccionari:
+        alcada     l'alçada del contingut, en cm, sense els marges de la pàgina
+        dreta      quant surt pel marge dret el que es veu, en cm (0 si no en surt res)
+        capses     els textos que surten de la capsa de la seva opció (<label>)
+    Les dues últimes van entrar el 29/9/2026: a ud2.html el «No» dels apartats c) i f)
+    quedava fora del full, i a ud6-cercle.html «Circumferència» sortia de la capsa, i
+    cap prova no ho veia: només es mesurava l'alçada."""
+    from weasyprint import HTML, CSS
+    doc = HTML(string=cap + full + "</body></html>", base_url=carpeta + "/").render(
+        stylesheets=[CSS(string=FULL_ALT)])
+    limit = MARGE_DRET_CM / 2.54 * 96
+    r = {"fons": 0.0, "dreta": 0.0, "capses": set()}
+
+    def mira(caixa, label=None):
+        if getattr(caixa, "element_tag", None) not in (None, "html"):
+            r["fons"] = max(r["fons"], caixa.position_y + caixa.height)
+        try:
+            x2 = caixa.border_box_x() + caixa.border_width()
+        except (AttributeError, TypeError):
+            x2 = None
+        if x2 is not None and _visible(caixa):
+            r["dreta"] = max(r["dreta"], x2 - limit)
+        if getattr(caixa, "element_tag", None) == "label" and type(caixa).__name__ != "TextBox" and x2 is not None:
+            if label is None or caixa.element is not label[0]:
+                label = (caixa.element, x2)
+        if type(caixa).__name__ == "TextBox" and label is not None and caixa.position_x + caixa.width > label[1] + 1:
+            r["capses"].add(caixa.text.strip()[:24])
+        for fill in getattr(caixa, "children", []):
+            mira(fill, label)
+    mira(doc.pages[0]._page_box)
+    return {"alcada": r["fons"] / 96 * 2.54 - 1.3, "dreta": max(0.0, r["dreta"] / 96 * 2.54),
+            "capses": sorted(r["capses"])}
+
+
 def lletres_del_pdf(cami):
     """Noms de les lletres incrustades en un PDF.
 

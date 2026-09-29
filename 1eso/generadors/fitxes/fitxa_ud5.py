@@ -93,7 +93,8 @@ pagina(f'''  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>la qua
 files_t = []
 for lletra, c, resolt in [("a", 243, True), ("b", 150, False), ("c", 304, False), ("d", 75, False)]:
     u, d, q = xifres(c)
-    dib = blocs(u, d, q, 0.16, aria(c, lletra))
+    # A 0,145 i no a 0,16: amb les capçaleres a 14 pt, la taula sortia pel marge dret (29/9/2026).
+    dib = blocs(u, d, q, 0.145, aria(c, lletra))
     if resolt:
         cel = "".join(f'<td style="text-align:center">{ms(str(v))}</td>' for v in (u, d, q)) + \
               f'<td style="text-align:center">{ms(dec(c))}</td>'

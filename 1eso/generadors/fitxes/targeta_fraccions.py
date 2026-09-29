@@ -56,7 +56,7 @@ for d, s1, p1, ex in NOMS:
 cara1 = f'''<div class="full targeta">
   <h1 class="cara-titol">Els noms de les fraccions</h1>
   <table style="width:100%;border-collapse:collapse">
-      <tr><th style="border:0;text-align:left;font-size:12pt;color:var(--gris-2)">El dibuix</th><th style="border:0;font-size:12pt;color:var(--gris-2)" colspan="2">Un</th><th style="border:0;font-size:12pt;color:var(--gris-2)" colspan="2">Més d'un</th></tr>
+      <tr><th style="border:0;text-align:left;font-size:14pt;color:var(--gris-2)">El dibuix</th><th style="border:0;font-size:14pt;color:var(--gris-2)" colspan="2">Un</th><th style="border:0;font-size:14pt;color:var(--gris-2)" colspan="2">Més d'un</th></tr>
 {chr(10).join(files)}
   </table>
   <section class="clau" style="margin-top:.6cm">

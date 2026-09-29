@@ -425,6 +425,24 @@ for f in (glob.glob(os.path.join(REPO, '**', '*.md'), recursive=True)
 comprova(not trobats, f"termes que trenquen l'anonimat: {trobats[:6]}")
 print(f"  termes que trencarien l'anonimat: {len(trobats)}")
 
+# Dignitat: el que llegeix l'alumnat no diu que és adaptat, ni al títol de la
+# pestanya, que també és el títol del PDF. Com a 1eso/ (regla J). El
+# solucionari és per a l'adult i pot parlar del mapa d'adaptació.
+adaptat = []
+for f in sorted(glob.glob(ruta('fitxes', '*.html'))):
+    text = re.sub(r'<!--.*?-->', '', open(f, encoding='utf-8').read(), flags=re.S)
+    cap = text[:text.index('<body>')]
+    alumnat = [b for b in re.findall(r'<div class="full[^"]*">.*?\n</div>', text, re.S)
+               if 'class="full sol"' not in b]
+    for tros in [cap] + alumnat:
+        adaptat += [(os.path.basename(f), m.group(0))
+                    for m in re.finditer(r'adapta(t|da|ts|des|ció|cions)\b', tros, re.I)]
+for f in (ruta('caixa-eines.html'), ruta('dades', 'textos.js')):
+    text = re.sub(r'<!--.*?-->|/\*.*?\*/', '', open(f, encoding='utf-8').read(), flags=re.S)
+    adaptat += [(os.path.basename(f), m.group(0)) for m in re.finditer(r'adapta\w*', text, re.I)]
+comprova(not adaptat, f"l'alumnat no ha de llegir «adaptat»: {adaptat[:6]}")
+print(f"  «adaptat» on ho llegeix l'alumnat: {len(adaptat)}")
+
 print("\nDEPENDÈNCIES EXTERNES")
 remots = []
 for f in glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True) + glob.glob(ruta('css', '*.css')):

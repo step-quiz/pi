@@ -84,7 +84,7 @@ for l, p, bo, r in E4:
     bona = ("Sí" if bo else "No") if r else None
     it2.append(caixa(f'''      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">{l})</span> És el 100%?</p>
       <div style="width:4.6cm">{cos.svg("")}</div>
-      {tria(["Sí", "No"], bona, mida="13pt", ample="2.1cm")}''', r, ".2rem"))
+      {tria(["Sí", "No"], bona, mida="14pt", ample="2.1cm")}''', r, ".2rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">Escriu la fracció de cada percentatge. Mira la targeta.</div></div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.2rem .5cm">

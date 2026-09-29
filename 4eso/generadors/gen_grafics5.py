@@ -27,11 +27,12 @@ def doble_mapa(cm=6, m_per_cm=50, w=560, h=124):
     """Dues regles alineades: a dalt els cm del mapa, a baix els metres.
     Els noms de les dues regles van a l'esquerra, fora de la zona dels números:
     a sobre xocaven amb el 0 i amb l'1."""
-    x0, x1, dalt, baix = 150, 542, 46, 94
+    # x0 de 178: amb la lletra a 20, «de veritat (m)» no hi cabia a l'esquerra (29/9/2026)
+    x0, x1, dalt, baix = 178, 542, 46, 96
     def px(k): return x0 + k / cm * (x1 - x0)
-    o = [f'<text x="{x0 - 14}" y="{dalt + 6}" text-anchor="end" font-size="16" fill="{GRIS}" '
+    o = [f'<text x="{x0 - 14}" y="{dalt + 6}" text-anchor="end" font-size="20" fill="{GRIS}" '
          f'{TIP}>al mapa (cm)</text>',
-         f'<text x="{x0 - 14}" y="{baix + 6}" text-anchor="end" font-size="16" fill="{GRIS}" '
+         f'<text x="{x0 - 14}" y="{baix + 6}" text-anchor="end" font-size="20" fill="{GRIS}" '
          f'{TIP}>de veritat (m)</text>']
     # les verticals que lliguen les dues regles
     for k in range(cm + 1):
@@ -44,7 +45,7 @@ def doble_mapa(cm=6, m_per_cm=50, w=560, h=124):
             o.append(f'<line x1="{px(k):.1f}" y1="{y - 7}" x2="{px(k):.1f}" y2="{y + 7}" '
                      f'stroke="{NEG}" stroke-width="2"/>')
             dy = -14 if y == dalt else 26
-            o.append(f'<text x="{px(k):.1f}" y="{y + dy}" text-anchor="middle" font-size="17" '
+            o.append(f'<text x="{px(k):.1f}" y="{y + dy}" text-anchor="middle" font-size="20" '
                      f'fill="{NEG}" {TIP}>{et}</text>')
     # el primer tram, ombrejat: és el que lliga 1 cm amb 50 m. La frase va a la
     # fitxa, no al dibuix: dins del tram no hi cabia sense trepitjar el segon.
@@ -59,10 +60,11 @@ def doble_mapa(cm=6, m_per_cm=50, w=560, h=124):
 G["DOBLE_MAPA"] = doble_mapa()
 
 # dofí: h = -0,75x² + 3x   vèrtex (2 , 3)   talls 0 i 4
-G["DOFI"] = graf(-0.75, 3, 0, 0, 4.4, 0, 3.6, 1, 1, "distància (m)", "altura (m)")
+# Van de costat a la fitxa (9 cm cadascun): lletra més gran que la de les de sola.
+G["DOFI"] = graf(-0.75, 3, 0, 0, 4.4, 0, 3.6, 1, 1, "distància (m)", "altura (m)", fs=28)
 
 # cable: h = 0,25x² − 2x + 6   vèrtex (4 , 2)   cap tall
-G["CABLE"] = graf(0.25, -2, 6, 0, 8.4, 0, 7.2, 1, 1, "distància (m)", "altura (m)")
+G["CABLE"] = graf(0.25, -2, 6, 0, 8.4, 0, 7.2, 1, 1, "distància (m)", "altura (m)", fs=28)
 
 with open("grafics5.json", "w", encoding="utf-8") as f:
     json.dump(G, f)

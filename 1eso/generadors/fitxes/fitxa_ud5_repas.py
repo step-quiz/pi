@@ -136,8 +136,8 @@ FR = [("Escric un decimal a partir dels blocs.", "2 quadrats, 4 columnes i 3 qua
       ("Comparo dos decimals amb dues xifres després de la coma.", "0,80 és més gran que 0,75"),
       ("Arrodoneixo a les dècimes amb la recta.", "3,47 arrodonit és 3,5"),
       ("Sumo i resto amb la coma sota la coma.", "2,50 + 1,35 = 3,85"),
-      ("Passo una fracció a decimal amb el quadrat de 100.", f"{fr(1, 4, '13pt')} = 0,25"),
-      ("Passo un decimal a fracció.", f"0,3 = {fr(3, 10, '13pt')}"),
+      ("Passo una fracció a decimal amb el quadrat de 100.", f"{fr(1, 4, '14pt')} = 0,25"),
+      ("Passo un decimal a fracció.", f"0,3 = {fr(3, 10, '14pt')}"),
       ("Trobo l'arrel d'un quadrat de la targeta.", "√49 = 7"),
       ("Dic entre quins dos nombres és una arrel.", "√20 és entre 4 i 5")]
 files_q = "\n".join(

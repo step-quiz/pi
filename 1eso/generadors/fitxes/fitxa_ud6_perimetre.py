@@ -91,7 +91,7 @@ for l, fi, co, diu, r in E3:
         <div>{dib.svg("")}</div>
         <div>
           <p style="margin:0;font-size:15pt">Té raó?</p>
-          {tria(["Sí", "No"], ("Sí" if bo else "No") if r else None, mida="13pt", ample="2.2cm", columna=True)}
+          {tria(["Sí", "No"], ("Sí" if bo else "No") if r else None, mida="14pt", ample="2.2cm", columna=True)}
         </div>
       </div>
       <p class="frase" style="margin:0;font-size:15pt">El perímetre és {ms(str(per(fi, co))) if r else buit_curt()}</p>''', r, ".3rem"))

@@ -138,7 +138,9 @@ pagina(f'''  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>materi
 files_t = []
 for lletra, n, resolt in [("a", 243, True), ("b", 250, False), ("c", 403, False), ("d", 17, False)]:
     c, dd, u = xifres(n)
-    dib = blocs(c, dd, u, 0.17, f"Apartat {lletra}: {c} quadrats de 100, {dd} columnes de 10 i {u} quadrets solts")
+    # Els blocs, a 0,12 i no a 0,17: amb quatre quadrats de 100 (el 403), la columna dels blocs
+    # empenyia la taula fora del full, i al PDF «El nombre» quedava tallat (29/9/2026).
+    dib = blocs(c, dd, u, 0.12, f"Apartat {lletra}: {c} quadrats de 100, {dd} columnes de 10 i {u} quadrets solts")
     if resolt:
         cel = "".join(f'<td style="text-align:center">{ms(str(v))}</td>' for v in (c, dd, u)) + \
               f'<td style="text-align:center">{ms(str(n))}</td>'
@@ -153,7 +155,7 @@ for lletra, n, resolt in [("a", 243, True), ("b", 250, False), ("c", 403, False)
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">1</div><div class="q">Mira els blocs. Escriu quants n'hi ha de cada. Després escriu el nombre.</div></div>
     <table class="mini" style="margin-top:.5rem">
-      <tr><th>Els blocs</th><th style="width:2.4cm">Centenes</th><th style="width:2.4cm">Desenes</th><th style="width:2.4cm">Unitats</th><th style="width:2.4cm">El nombre</th></tr>
+      <tr><th>Els blocs</th><th style="width:2.2cm">Centenes</th><th style="width:2.2cm">Desenes</th><th style="width:2.2cm">Unitats</th><th style="width:2.2cm">El nombre</th></tr>
 {chr(10).join(files_t)}
     </table>
   </div>
@@ -225,7 +227,9 @@ NOMS_ITEMS = [("a", 243, "dos-cents quaranta-tres"), ("b", 510, None), ("c", 222
 items_noms = "\n".join(
     f'''    <p class="frase" style="margin:.1rem 0;display:flex;gap:.6rem;align-items:baseline">'''
     f'''<span class="apartat">{l})</span><b style="min-width:1.6cm;display:inline-block">{n}</b>'''
-    + (f'''{ms(nom)}</p>''' if nom else f'''<u style="flex:1"></u></p>''')
+    # La ratlla porta un espai dur: buida, el motor dels PDF no li trobava la línia de base i la
+    # posava fora del full, i al PDF els apartats b) a e) no tenien on escriure (29/9/2026).
+    + (f'''{ms(nom)}</p>''' if nom else f'''<u style="flex:1">&nbsp;</u></p>''')
     for l, n, nom in NOMS_ITEMS)
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">Escriu el nom de cada nombre. Mira la clau.</div></div>

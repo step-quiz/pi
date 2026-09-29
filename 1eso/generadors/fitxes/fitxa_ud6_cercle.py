@@ -49,7 +49,7 @@ for l, dib, bona, r in E1:
     it.append(caixa(f'''      <div style="display:flex;gap:.5cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
         <div>{dib.svg("")}</div>
-        <div>{tria(["Centre", "Radi", "Diàmetre", "Circumferència"], bona if r else None, mida="13pt", ample="2.4cm")}</div>
+        <div style="flex:1;min-width:0">{tria(["Centre", "Radi", "Diàmetre", "Circumferència"], bona if r else None, mida="14pt", ample="2.4cm", ajusta=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">1</div><div class="q">Com es diu el que està marcat? Mira la targeta.</div></div>
@@ -84,7 +84,7 @@ for l, d_, diu, bona, bo_n, r in E3:
         <div>{cercle_d(0.9, f"Una circumferència de {d_} cm de diàmetre", diametre=True, rot_diam=f"{d_} cm").svg("")}</div>
         <div>
           <p style="margin:0;font-size:15pt;font-weight:700"><span class="apartat">{l})</span> Diàmetre de {d_} cm. La Nerea diu: una mica més de {diu} cm. Té raó?</p>
-          <div style="display:flex;gap:.6cm;align-items:center">{tria(["Sí", "No"], bona if r else None, mida="13pt", ample="2cm")}<span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de {ms(bo_n + " cm") if r else buit_curt() + " cm"}</span></div>
+          <div style="display:flex;gap:.6cm;align-items:center">{tria(["Sí", "No"], bona if r else None, mida="14pt", ample="2cm")}<span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de {ms(bo_n + " cm") if r else buit_curt() + " cm"}</span></div>
         </div>
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">

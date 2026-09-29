@@ -113,7 +113,7 @@ for l, c, n, d, r in E2:
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">2</div><div class="q">Escriu la fracció de cada decimal. Mira el dibuix i la targeta.</div></div>
-    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">0,3 són 3 columnes de 10. Com que hi ha 10 columnes, és {fr(3, 10, "13pt")}.</p></div>
+    <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">0,3 són 3 columnes de 10. Com que hi ha 10 columnes, és {fr(3, 10, "14pt")}.</p></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5cm">
 {chr(10).join(it)}
     </div>

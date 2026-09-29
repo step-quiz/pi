@@ -92,7 +92,7 @@ for l, n, sm, diu, bo_v, r in Z:
     bona = "Sí" if str(bo_v) == diu else "No"
     it.append(caixa(f'''      <p style="margin:0 0 .1rem;font-size:16pt;font-weight:800"><span class="apartat">{l})</span> Si n és {n}, <span class="revisa">{sm} = {diu}</span></p>
       <p style="margin:0 0 .1rem;font-size:15pt">La Zoe diu que sí. Té raó?</p>
-      {tria(["Sí", "No"], bona if r else None, mida="13pt", ample="2.2cm")}
+      {tria(["Sí", "No"], bona if r else None, mida="14pt", ample="2.2cm")}
       <p class="frase" style="margin:0;font-size:15pt">{sm} val {ms(str(bo_v)) if r else buit_curt()}</p>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">4</div><div class="q">La Zoe posa el nombre al costat, en lloc de multiplicar. Té raó?</div></div>

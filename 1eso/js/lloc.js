@@ -3,7 +3,8 @@
    ----------------------------------------------------------------------------
    Dues graelles: les targetes de consulta i les set unitats. Una unitat sense
    fitxa encara surt a la graella, però no s'hi pot clicar. Si la unitat té
-   tasques a la caixa d'eines, la targeta ho diu.
+   tasques a la caixa d'eines, la targeta ho diu. Cada fitxa porta els seus dos
+   PDF: el de l'alumnat i el del solucionari, que fa generadors/gen_pdf.py.
    ========================================================================== */
 
 (function () {
@@ -29,17 +30,29 @@
     });
   }
 
+  /** Els dos PDF d'una fitxa: fitxes/ud1-nombres.html → pdf/ud1-nombres-alumnat.pdf
+      i pdf/ud1-nombres-solucionari.pdf. Els noms són els de generadors/gen_pdf.py. */
+  function pdfs(f) {
+    const base = "pdf/" + f.fitxa.replace(/^fitxes\//, "").replace(/\.html$/, "");
+    return '<span class="pdfs-fitxa">' +
+      '<a class="pdf petit" href="' + base + '-alumnat.pdf" download ' +
+        'aria-label="PDF de l\'alumnat: ' + f.titol + '">PDF</a>' +
+      '<a class="pdf petit sol" href="' + base + '-solucionari.pdf" download ' +
+        'aria-label="PDF del solucionari: ' + f.titol + '">Solucionari</a>' +
+      "</span>";
+  }
+
   function graellaUnitats(cont) {
     UNITATS.forEach(function (u) {
-      // Les fitxes de la unitat. Amb una de sola, tota la targeta és l'enllaç;
-      // amb més d'una, la targeta porta la llista, en l'ordre de classe.
+      // Les fitxes de la unitat, en l'ordre de classe. Cada una porta el seu
+      // enllaç i els seus dos PDF; per això la targeta no és un enllaç sencer,
+      // ni quan la unitat només en té una.
       const fitxes = u.fitxes || (u.fitxa ? [{ fitxa: u.fitxa, titol: u.titol }] : []);
       const una = fitxes.length === 1;
-      const d = fes(una ? "a" : "div", "targeta");
-      if (una) d.href = fitxes[0].fitxa;
-      const llista = fitxes.length > 1
+      const d = fes("div", "targeta");
+      const llista = fitxes.length
         ? '<ol class="enllacos-fitxes">' + fitxes.map(function (f) {
-            return '<li><a href="' + f.fitxa + '">' + f.titol + "</a></li>";
+            return '<li><a href="' + f.fitxa + '">' + f.titol + "</a> " + pdfs(f) + "</li>";
           }).join("") + "</ol>"
         : "";
       d.innerHTML =
@@ -50,7 +63,6 @@
           '<span class="et">' + u.dates + "</span>" +
           (fitxes.length ? '<span class="et fita">' + (una ? "Fitxa feta" : fitxes.length + " fitxes fetes") + "</span>"
                          : '<span class="et">En preparació</span>') +
-          // Sense enllaç: quan hi ha fitxa, la targeta sencera ja és un enllaç.
           (u.tasques ? '<span class="et fita">Caixa d\'eines · tasques ' + u.tasques.join(", ") +
                        "</span>" : "") +
         "</div>";

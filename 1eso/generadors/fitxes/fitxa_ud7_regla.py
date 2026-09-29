@@ -90,7 +90,7 @@ it = []
 for l, sq, diu, bona, rg, r in P:
     it.append(caixa(f'''      <p style="margin:0 0 .1rem;font-size:17pt;font-weight:800"><span class="apartat">{l})</span> {", ".join(map(str, sq))}</p>
       <p style="margin:0 0 .1rem;font-size:15pt">La Ivet diu: {diu}. Té raó?</p>
-      {tria(["Sí", "No"], bona if r else None, mida="13pt", ample="2.2cm")}
+      {tria(["Sí", "No"], bona if r else None, mida="14pt", ample="2.2cm")}
       <p class="frase" style="margin:0;font-size:15pt">La regla bona: {ms(rg) if r else buit()}</p>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">La Ivet mira quant creix i escriu la regla. Té raó? Comprova la regla amb la figura 1.</div></div>

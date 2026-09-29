@@ -70,12 +70,12 @@ tri_costats = [([(0, 0), (2, 0), (1, 1.73)], [1, 1, 1], "Equilàter", "3 costats
                ([(0, 0), (1.8, 0), (0.9, 1.9)], [0, 1, 1], "Isòsceles", "2 costats iguals."),
                ([(0, 0), (2.2, 0), (0.5, 1.3)], [1, 2, 3], "Escalè", "Cap costat igual.")]
 tc = "".join(f'''<td style="border:0;text-align:center;padding:0 .3rem">{triangle_d(p, f"Un triangle {n.lower()}", marques=mq, marge=0.3).svg("")}
-      <p style="margin:0;font-size:14pt"><b>{n}</b></p><p style="margin:0;font-size:13.5pt">{fr}</p></td>''' for p, mq, n, fr in tri_costats)
+      <p style="margin:0;font-size:14pt"><b>{n}</b></p><p style="margin:0;font-size:14pt">{fr}</p></td>''' for p, mq, n, fr in tri_costats)
 tri_angles = [([(0, 0), (2, 0), (0, 1.6)], 0, "Rectangle", "Té un angle recte."),
               ([(0, 0), (2, 0), (0.9, 1.6)], None, "Acutangle", "3 angles aguts."),
               ([(0, 0), (2.4, 0), (-0.6, 1.0)], None, "Obtusangle", "Té un angle obtús.")]
 ta = "".join(f'''<td style="border:0;text-align:center;padding:0 .3rem">{triangle_d(p, f"Un triangle {n.lower()}", cantonada_a=c, marge=0.3).svg("")}
-      <p style="margin:0;font-size:14pt"><b>{n}</b></p><p style="margin:0;font-size:13.5pt">{fr}</p></td>''' for p, c, n, fr in tri_angles)
+      <p style="margin:0;font-size:14pt"><b>{n}</b></p><p style="margin:0;font-size:14pt">{fr}</p></td>''' for p, c, n, fr in tri_angles)
 
 cara2 = f'''<div class="full targeta">
   <h1 class="cara-titol">Polígons i triangles</h1>

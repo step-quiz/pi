@@ -68,15 +68,15 @@ pagina(f'''  <div class="exercici">
   </div>''')
 
 # ===================================================================== pàgina 4: què he après?
-FR = [("Sé què diuen el de dalt i el de baix.", f"{fr(3, 4, '13pt')}: 3 trossos pintats de 4"),
+FR = [("Sé què diuen el de dalt i el de baix.", f"{fr(3, 4, '14pt')}: 3 trossos pintats de 4"),
       ("Pinto una fracció en un rectangle.", "Trossos iguals"),
-      ("Dic el nom d'una fracció amb la targeta.", f"{fr(4, 9, '13pt')}: quatre novens"),
-      ("Sé si és nul·la, pròpia, unitat o impròpia.", f"{fr(5, 4, '13pt')}: impròpia"),
-      ("Comparo fraccions amb el mateix de baix.", f"{fr(3, 5, '13pt')} és més gran que {fr(2, 5, '13pt')}"),
-      ("Comparo fraccions amb el mateix de dalt.", f"{fr(1, 3, '13pt')} és més gran que {fr(1, 5, '13pt')}"),
-      ("Trobo una fracció equivalent pintant.", f"{fr(1, 2, '13pt')} = {fr(2, 4, '13pt')}"),
-      ("Amplifico: multiplico dalt i baix.", f"{fr(2, 3, '13pt')} = {fr(8, 12, '13pt')}"),
-      ("Sumo i resto amb el mateix de baix.", f"{fr(3, 8, '13pt')} + {fr(2, 8, '13pt')} = {fr(5, 8, '13pt')}"),
+      ("Dic el nom d'una fracció amb la targeta.", f"{fr(4, 9, '14pt')}: quatre novens"),
+      ("Sé si és nul·la, pròpia, unitat o impròpia.", f"{fr(5, 4, '14pt')}: impròpia"),
+      ("Comparo fraccions amb el mateix de baix.", f"{fr(3, 5, '14pt')} és més gran que {fr(2, 5, '14pt')}"),
+      ("Comparo fraccions amb el mateix de dalt.", f"{fr(1, 3, '14pt')} és més gran que {fr(1, 5, '14pt')}"),
+      ("Trobo una fracció equivalent pintant.", f"{fr(1, 2, '14pt')} = {fr(2, 4, '14pt')}"),
+      ("Amplifico: multiplico dalt i baix.", f"{fr(2, 3, '14pt')} = {fr(8, 12, '14pt')}"),
+      ("Sumo i resto amb el mateix de baix.", f"{fr(3, 8, '14pt')} + {fr(2, 8, '14pt')} = {fr(5, 8, '14pt')}"),
       ("Sé per què no se sumen els de baix.", "La pàgina 5 de la fitxa de sumes")]
 files_q = "\n".join(
     f'''      <tr><td class="esq" style="padding:.15rem .5rem;line-height:1.3">{f_}<br><span style="font-size:14pt;color:var(--gris-2)">{ex}</span></td>'''

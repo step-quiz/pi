@@ -36,8 +36,9 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | `textos.html` | pàgina per canviar-les sense tocar codi |
 | `pdf/` | dos PDF per unitat: un per a l'alumnat i un per al professorat |
 | `docs/` | mapa d'adaptació, criteris de disseny, arquitectura i feina pendent |
-| `generadors/` | scripts Python que dibuixen els gràfics SVG i generen els PDF; a `examens/`, el contingut de cada examen DOCX |
+| `generadors/` | scripts Python que dibuixen els gràfics SVG (`posa_grafics.py` els posa a les fitxes) i generen els PDF; a `examens/`, el contingut de cada examen DOCX |
 | `eines/` | el test del projecte, la mesura de les pàgines i l'auditoria d'accessibilitat |
+| `fonts/` | la lletra manuscrita, Caveat, i la seva llicència |
 
 ---
 
@@ -51,7 +52,7 @@ sense `/4eso`, continuen funcionant: la `404.html` de l'arrel els porta aquí.
 | n | tasca |
 |---|---|
 | 0 | Calculadora (surt sempre) |
-| 1 | Recta · té 6 exercicis: `?task=1.1` a `?task=1.6` |
+| 1 | Recta · té 6 exercicis: `?task=1.1` a `?task=1.6`. Amb el número de l'exercici s'obre aquell i prou, sense les fletxes per passar als altres |
 | 2 | Doble recta |
 | 3 | Percentatges |
 | 4 | Escales |
@@ -114,15 +115,19 @@ python3 generadors/gen_pdf.py
 ```
 
 **Si has afegit contingut a una fitxa**, passa abans `python3 eines/mesura.py`: comprova
-que cada pàgina segueixi cabent en un A4. Si alguna vessa, la solució no és encongir la
-lletra —el cos de 14 pt és una restricció del projecte— sinó treure contingut o partir
+que cada pàgina segueixi cabent en un A4, d'alt i d'ample (res no pot sortir pel marge
+dret, ni el text d'una opció de la seva capsa). Si alguna vessa, la solució no és encongir
+la lletra —el cos de 14 pt és una restricció del projecte— sinó treure contingut o partir
 la pàgina en dues.
 
-> ⚠ **Els PDF d'ara no porten la pàgina «A la vida de cada dia».** Es va afegir a les set
-> fitxes i els PDF no s'han pogut regenerar (calen WeasyPrint i la font Carlito). Fes
-> `python3 eines/mesura.py` i després `python3 generadors/gen_pdf.py` abans de repartir-ne
-> cap. Les pàgines noves es van mesurar amb Chromium i totes queden per sota de les
-> pàgines més plenes que ja hi havia, però qui mana és `mesura.py`.
+Els catorze PDF són al dia (29/9/2026): porten la pàgina «A la vida de cada dia» i el
+model resolt en lletra manuscrita. `gen_pdf.py` s'atura si un PDF amb text manuscrit no
+porta la lletra Caveat a dins.
+
+**Si canvies un gràfic**, canvia el seu generador (`generadors/gen_grafics*.py`) i passa
+`python3 generadors/posa_grafics.py`: torna a fer tots els gràfics i els posa a les fitxes,
+on cada un va entre dos marcadors (`<!--grafic:NOM-->…<!--/grafic-->`). Després,
+`mesura.py` i `gen_pdf.py`.
 
 ---
 
@@ -145,8 +150,12 @@ python3 eines/auditoria.py
 ```
 
 Obre l'app en un navegador de veritat i mesura les dianes tàctils i el contrast real de
-cada text, en mode clar i fosc, a 320 px i a escriptori. Ara mateix: **0 problemes en 56
-estats**.
+cada text, en mode clar i fosc, a 320 px i a escriptori. També mesura la lletra de les
+fitxes tal com surt al PDF: cap text de l'alumnat per sota de 14 pt i cap rètol de gràfic
+per sota de 12 pt. Ara mateix: **0 problemes en 60 estats i 7 fitxes**.
+
+`comprova.py` fa servir Python 3.12 o més nou (el del Codespace). Amb el 3.11 s'atura amb
+un `SyntaxError`.
 
 ---
 
@@ -162,9 +171,19 @@ llegeix a `verifica.html`.
 
 **Pendent**, documentat a `docs/CONTINUAR.md`:
 
-- **regenerar els catorze PDF** perquè incloguin la pàgina nova (`mesura.py` i `gen_pdf.py`);
 - contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real;
 - no hi ha mòdul d'estadística ni d'atzar (per a la U6 l'eina és el full de càlcul).
+
+---
+
+## La lletra manuscrita
+
+`fonts/Caveat.ttf` és la lletra Caveat, de The Caveat Project Authors, sota la llicència SIL
+Open Font License 1.1 (`fonts/OFL.txt`). És la mateixa de `1eso/` i dels exàmens DOCX. No és
+part del codi ni del contingut d'aquest material, i no li afecta la llicència de sota. Va dins
+del repositori perquè el model resolt surti en lletra manuscrita a qualsevol ordinador i al
+PDF: fins al 29/9/2026 depenia de les lletres de cada ordinador, i els PDF el treien en lletra
+d'impremta.
 
 <!-- atribucio-centre:inici -->
 

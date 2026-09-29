@@ -47,17 +47,20 @@ pagina(f'''  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>un ful
 E1 = [("a", "segment", True), ("b", "recta", False), ("c", "semirecta", False), ("d", "punt", False)]
 it = []
 for l, t, r in E1:
-    it.append(caixa(f'''      <div style="display:flex;gap:.6cm;align-items:center">
+    # Les quatre opcions, en una sola fila (nowrap): amb la lletra a 14 pt, la peça i els
+    # espais s'estrenyen perquè «Semirecta» hi càpiga. Si passaven a una segona fila, la
+    # pàgina no cabia en un A4 (29/9/2026).
+    it.append(caixa(f'''      <div style="display:flex;gap:.25cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
-        <div style="width:2.2cm">{peca_linia(t, f"Apartat {l}: una peça per dir-ne el nom", amp=2.2).svg("")}</div>
-        <div>{tria(["Punt", "Segment", "Semirecta", "Recta"], t.capitalize() if r else None, mida="12.5pt", ample="3.1cm")}</div>
+        <div style="width:1.6cm">{peca_linia(t, f"Apartat {l}: una peça per dir-ne el nom", amp=1.6).svg("")}</div>
+        <div style="flex:1;min-width:0">{tria(["Punt", "Segment", "Semirecta", "Recta"], t.capitalize() if r else None, mida="14pt", ample="2cm", ajusta=True).replace("flex-wrap:wrap", "flex-wrap:nowrap")}</div>
       </div>''', r, ".25rem"))
 OBJ = [("a", "Una estrella al cel", "Punt", True), ("b", "La vora d'una regla", "Segment", False),
        ("c", "La llum d'una llanterna", "Semirecta", False), ("d", "La vora d'una taula", "Segment", False)]
 it2 = []
 for l, t, bona, r in OBJ:
     it2.append(caixa(f'''      <p style="margin:0 0 .1rem"><span class="apartat">{l})</span> {t}</p>
-      {tria(["Punt", "Segment", "Semirecta"], bona if r else None, mida="13.5pt", ample="2.8cm")}''', r, ".25rem"))
+      {tria(["Punt", "Segment", "Semirecta"], bona if r else None, mida="14pt", ample="2.8cm")}''', r, ".25rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">1</div><div class="q">Com es diu cada dibuix? Mira la targeta.</div></div>
 {chr(10).join(it)}
@@ -73,10 +76,12 @@ pagina(f'''  <div class="exercici">
 E3 = [("a", "perpendiculars", True), ("b", "paral·leles", False), ("c", "secants", False), ("d", "perpendiculars", False)]
 it = []
 for l, t, r in E3:
-    it.append(caixa(f'''      <div style="display:flex;gap:.4cm;align-items:center">
+    # Les rectes, a 2 cm i no a 3: amb la lletra a 14 pt, «Perpendiculars» fa la capsa més
+    # ampla, i la columna de la dreta sortia del full (29/9/2026).
+    it.append(caixa(f'''      <div style="display:flex;gap:.3cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
-        <div style="width:3cm">{rectes_d(t, f"Apartat {l}: dues rectes", marca=False, amp=3.0, alt=2.0).svg("")}</div>
-        <div>{tria(["Paral·leles", "Secants", "Perpendiculars"], t.capitalize() if r else None, mida="13pt", ample="3.4cm", columna=True)}</div>
+        <div style="width:2cm">{rectes_d(t, f"Apartat {l}: dues rectes", marca=False, amp=2.0, alt=1.5).svg("")}</div>
+        <div>{tria(["Paral·leles", "Secants", "Perpendiculars"], t.capitalize() if r else None, mida="14pt", ample="3.4cm", columna=True)}</div>
       </div>''', r, ".25rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">Com són les dues rectes? Posa la cantonada d'un full on es tallen.</div></div>
@@ -93,7 +98,7 @@ for l, g, r in E4:
     it.append(caixa(f'''      <div style="display:flex;gap:.4cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
         <div style="width:3.6cm;display:flex;justify-content:center">{angle_d(g, f"Apartat {l}: un angle, amb la cantonada al vèrtex", llarg=1.6).svg("")}</div>
-        <div>{tria(NOMS, nom_de(g) if r else None, mida="13pt", ample="2.4cm")}</div>
+        <div>{tria(NOMS, nom_de(g) if r else None, mida="14pt", ample="2.4cm")}</div>
       </div>''', r, ".25rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">4</div><div class="q">Quin angle és? Mira la cantonada discontínua.</div></div>
@@ -106,12 +111,12 @@ E5 = [("a", (45, 2.4), (120, 1.0), "Angle 2", True), ("b", (90, 2.4), (90, 1.0),
 it = []
 for l, (g1, l1), (g2, l2), bona, r in E5:
     it.append(caixa(f'''      <p style="margin:0 0 .1rem;font-size:15pt;font-weight:700"><span class="apartat">{l})</span> Quin angle és més gran?</p>
-      <div style="display:flex;gap:.4cm;align-items:center">
+      <div style="display:flex;gap:.3cm;align-items:center">
         <div style="display:flex;gap:.3cm;align-items:flex-end">
-          <div><p style="margin:0;font-weight:800;font-size:16pt">1</p>{angle_d(g1, "L'angle 1", llarg=l1 * 0.85, cantonada=False).svg("")}</div>
-          <div><p style="margin:0;font-weight:800;font-size:16pt">2</p>{angle_d(g2, "L'angle 2", llarg=l2 * 0.85, cantonada=False).svg("")}</div>
+          <div><p style="margin:0;font-weight:800;font-size:16pt">1</p>{angle_d(g1, "L'angle 1", llarg=l1 * 0.7, cantonada=False).svg("")}</div>
+          <div><p style="margin:0;font-weight:800;font-size:16pt">2</p>{angle_d(g2, "L'angle 2", llarg=l2 * 0.7, cantonada=False).svg("")}</div>
         </div>
-        <div>{tria(["Angle 1", "Angle 2", "Iguals"], bona if r else None, mida="13pt", ample="2.6cm", columna=True)}</div>
+        <div>{tria(["Angle 1", "Angle 2", "Iguals"], bona if r else None, mida="14pt", ample="2.6cm", columna=True)}</div>
       </div>''', r, ".25rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">5</div><div class="q">En Marc diu que l'angle amb els costats més llargs és el més gran. Té raó?</div></div>
@@ -132,7 +137,7 @@ for l, h, bona, r in V:
     it.append(caixa(f'''      <p style="margin:0 0 .1rem"><span class="apartat">{l})</span> Les {h} en punt</p>
       <div style="display:flex;gap:.5cm;align-items:center">
         <div style="width:3cm">{rellotge(h, f"Un rellotge a les {h} en punt").svg("")}</div>
-        <div>{tria(NOMS, bona if r else None, mida="13pt", ample="1.8cm", columna=True)}</div>
+        <div>{tria(NOMS, bona if r else None, mida="14pt", ample="1.8cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <h2>A la vida de cada dia</h2>
   <div class="exercici">

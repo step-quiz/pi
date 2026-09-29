@@ -18,7 +18,7 @@ def barra_sencera(total=300):
     w, h, x0, x1, y, alt = 560, 130, 30, 530, 46, 54
     o = [f'<rect x="{x0}" y="{y}" width="{x1-x0}" height="{alt}" fill="{FONS}" stroke="{NEG}" stroke-width="3"/>']
     o.append(f'<text x="{(x0+x1)/2}" y="{y+36}" text-anchor="middle" font-size="24" font-weight="800" fill="{NEG}" {TIP}>{total} €</text>')
-    o.append(f'<text x="{(x0+x1)/2}" y="{y-14}" text-anchor="middle" font-size="18" fill="{GRIS}" {TIP}>tota la bici · 100 %</text>')
+    o.append(f'<text x="{(x0+x1)/2}" y="{y-14}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>tota la bici · 100 %</text>')
     return env("".join(o), w, h)
 
 
@@ -41,8 +41,8 @@ def barra_partida(total=300, treu=20):
     o.append(f'<text x="{(xtall+x1)/2:.1f}" y="{y-16}" text-anchor="middle" font-size="20" font-weight="800" fill="{NEG}" {TIP}>{treu} %</text>')
     o.append(f'<text x="{(x0+xtall)/2:.1f}" y="{y+35}" text-anchor="middle" font-size="24" font-weight="800" fill="{NEG}" {TIP}>{total*queda//100} €</text>')
     o.append(f'<text x="{(xtall+x1)/2:.1f}" y="{y+35}" text-anchor="middle" font-size="22" font-weight="800" fill="{NEG}" {TIP}>{total*treu//100} €</text>')
-    o.append(f'<text x="{(x0+xtall)/2:.1f}" y="{y+alt+30}" text-anchor="middle" font-size="19" fill="{GRIS}" {TIP}>això queda</text>')
-    o.append(f'<text x="{(xtall+x1)/2:.1f}" y="{y+alt+30}" text-anchor="middle" font-size="19" fill="{GRIS}" {TIP}>això se&#39;n va</text>')
+    o.append(f'<text x="{(x0+xtall)/2:.1f}" y="{y+alt+30}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>això queda</text>')
+    o.append(f'<text x="{(xtall+x1)/2:.1f}" y="{y+alt+30}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>això se&#39;n va</text>')
     return env("".join(o), w, h)
 
 
@@ -54,28 +54,36 @@ G["BARRA_PARTIDA"] = barra_partida()
 def area_ponderada(parts, nota_max=10):
     """parts: llista de (nom, nota, pes). L'amplada és el pes i l'altura la nota,
     de manera que l'àrea de cada rectangle és nota × pes i el total és la nota final."""
-    w, h = 560, 310
-    ml, mr, mt, mb = 62, 24, 30, 62
+    w, h = 560, 330                  # 330 i no 310: hi ha lloc per a un nom en dues línies
+    # mr de 118: la «nota final» va a la dreta de les barres, a l'altura de la línia. A
+    # sobre, amb la lletra a 20, xocava amb el 8 de la darrera barra (29/9/2026).
+    ml, mr, mt, mb = 50, 118, 34, 84
+    coma = lambda v: f"{v:g}".replace(".", ",")   # 0,5 i 6,6, com a la taula de la fitxa
     def px(p): return ml + p * (w - ml - mr)
     def py(n): return h - mb - n / nota_max * (h - mb - mt)
     o = []
     for n in range(0, nota_max + 1, 2):
         o.append(f'<line x1="{ml}" y1="{py(n):.1f}" x2="{w-mr}" y2="{py(n):.1f}" stroke="{CLAR}" stroke-width="1"/>')
-        o.append(f'<text x="{ml-10}" y="{py(n)+5:.1f}" text-anchor="end" font-size="15" fill="{GRIS}" {TIP}>{n}</text>')
+        o.append(f'<text x="{ml-10}" y="{py(n)+5:.1f}" text-anchor="end" font-size="20" fill="{GRIS}" {TIP}>{n}</text>')
     acc, total = 0.0, 0.0
     for i, (nom, nota, pes) in enumerate(parts):
         xa, xb = px(acc), px(acc + pes)
         o.append(f'<rect x="{xa:.1f}" y="{py(nota):.1f}" width="{xb-xa:.1f}" height="{py(0)-py(nota):.1f}" '
                  f'fill="{FONS if i % 2 == 0 else MIG}" stroke="{NEG}" stroke-width="3"/>')
-        o.append(f'<text x="{(xa+xb)/2:.1f}" y="{py(nota)+26:.1f}" text-anchor="middle" font-size="19" font-weight="800" fill="{NEG}" {TIP}>{nota:g}</text>')
-        o.append(f'<text x="{(xa+xb)/2:.1f}" y="{py(0)+24:.0f}" text-anchor="middle" font-size="15" fill="{NEG}" {TIP}>{nom}</text>')
-        o.append(f'<text x="{(xa+xb)/2:.1f}" y="{py(0)+44:.0f}" text-anchor="middle" font-size="15" fill="{GRIS}" {TIP}>pes {pes:g}</text>')
+        # La nota, damunt de la barra: a dins, la línia de la nota final la travessava.
+        o.append(f'<text x="{(xa+xb)/2:.1f}" y="{py(nota)-8:.1f}" text-anchor="middle" font-size="20" font-weight="800" fill="{NEG}" {TIP}>{coma(nota)}</text>')
+        # El nom, en dues línies si no cap a sota de la barra («Feina diària»).
+        linies = nom.split(" ", 1) if len(nom) * 20 * 0.58 > xb - xa - 6 and " " in nom else [nom]
+        for k, t in enumerate(linies):
+            o.append(f'<text x="{(xa+xb)/2:.1f}" y="{py(0)+24+22*k:.0f}" text-anchor="middle" font-size="20" fill="{NEG}" {TIP}>{t}</text>')
+        o.append(f'<text x="{(xa+xb)/2:.1f}" y="{py(0)+24+22*len(linies):.0f}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>pes {coma(pes)}</text>')
         acc += pes; total += nota * pes
     o.append(f'<line x1="{ml}" y1="{py(0):.1f}" x2="{w-mr}" y2="{py(0):.1f}" stroke="{NEG}" stroke-width="3"/>')
     o.append(f'<line x1="{ml}" y1="{py(0):.1f}" x2="{ml}" y2="{mt-4}" stroke="{NEG}" stroke-width="3"/>')
     # la nota final és l'altura que tindria un sol rectangle de la mateixa àrea
     o.append(f'<line x1="{ml}" y1="{py(total):.1f}" x2="{w-mr}" y2="{py(total):.1f}" stroke="{NEG}" stroke-width="3" stroke-dasharray="10 6"/>')
-    o.append(f'<text x="{w-mr}" y="{py(total)-12:.1f}" text-anchor="end" font-size="18" font-weight="800" fill="{NEG}" {TIP}>nota final {total:g}</text>')
+    o.append(f'<text x="{w-mr+10}" y="{py(total)-4:.1f}" font-size="20" font-weight="800" fill="{NEG}" {TIP}>nota final</text>')
+    o.append(f'<text x="{w-mr+10}" y="{py(total)+22:.1f}" font-size="22" font-weight="800" fill="{NEG}" {TIP}>{coma(round(total, 2))}</text>')
     return env("".join(o), w, h), total
 
 

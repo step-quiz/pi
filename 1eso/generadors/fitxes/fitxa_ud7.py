@@ -79,7 +79,7 @@ P = [("a", [2, 4, 6, 8], "Suma sempre el mateix", True), ("b", [3, 6, 9, 12], "S
 it = []
 for l, sq, bona, r in P:
     it.append(caixa(f'''      <p style="margin:0 0 .1rem;font-size:18pt;font-weight:800"><span class="apartat">{l})</span> {", ".join(map(str, sq))}</p>
-      {tria(["Multiplica per 2", "Suma sempre el mateix"], bona if r else None, mida="13pt", ample="3.8cm", columna=True)}''', r, ".3rem"))
+      {tria(["Multiplica per 2", "Suma sempre el mateix"], bona if r else None, mida="14pt", ample="3.8cm", columna=True)}''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">En Pau diu que 2, 4, 6, 8 creix multiplicant per 2. Té raó? Com creix cada patró?</div></div>
     <div class="clau" style="margin:.3rem 0 .5rem"><p style="margin:0">Comprova el patró amb el tercer nombre, no només amb el segon.</p></div>
