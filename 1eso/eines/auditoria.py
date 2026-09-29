@@ -91,6 +91,26 @@ ESTATS = [
     ("12.2 Quant és? · tocada",          "caixa-eines.html", "?task=12.2", "primera_sb"),
     ("13.1 Compta l'àrea",               "caixa-eines.html", "?task=13.1", None),
     ("13.2 Quina àrea té? · tocada",     "caixa-eines.html", "?task=13.2", "area_ab"),
+    # Unitat 4: no hi eren (29/9/2026).
+    ("14.1 Reparteix i pinta",           "caixa-eines.html", "?task=14.1", None),
+    ("14.2 Quant és? · tocada",          "caixa-eines.html", "?task=14.2", "boto_fq"),
+    ("15.1 El tros de tros",             "caixa-eines.html", "?task=15.1", None),
+    ("15.2 Quin tros és? · tocada",      "caixa-eines.html", "?task=15.2", "boto_mg"),
+    ("16.1 Pinta el percentatge",        "caixa-eines.html", "?task=16.1", None),
+    ("16.2 Quin percentatge és? · tocada", "caixa-eines.html", "?task=16.2", "boto_pq"),
+    ("17.1 El doble i el triple",        "caixa-eines.html", "?task=17.1", None),
+    ("17.2 Quantes vegades? · tocada",   "caixa-eines.html", "?task=17.2", "boto_dq"),
+    # Unitat 5.
+    ("2.4 Entre quins dos nombres? · tocada", "caixa-eines.html", "?task=2.4", "boto_q4"),
+    ("18.1 Fes el decimal",              "caixa-eines.html", "?task=18.1", None),
+    ("18.2 Quin decimal és? · tocada",   "caixa-eines.html", "?task=18.2", "boto_xb"),
+    ("18.3 Quin és més gran? · tocada",  "caixa-eines.html", "?task=18.3", "boto_xc"),
+    ("19.1 El decimal a la recta",       "caixa-eines.html", "?task=19.1", None),
+    ("19.2 Arrodoneix · tocada",         "caixa-eines.html", "?task=19.2", "boto_rb"),
+    ("20.1 Suma i resta · la resta",     "caixa-eines.html", "?task=20.1", "resta_sc"),
+    ("20.2 Quant és? · tocada",          "caixa-eines.html", "?task=20.2", "boto_sd"),
+    ("21.1 Pinta la fracció",            "caixa-eines.html", "?task=21.1", None),
+    ("21.2 De fracció a decimal · tocada", "caixa-eines.html", "?task=21.2", "boto_fd"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
     ("La portada",                       "index.html",       "",          None),
     ("Fitxes",                           "fitxes.html",      "",          None),
@@ -278,6 +298,11 @@ def prepara(pg, accio):
         pg.click("#ab-opcions .opcio-area >> nth=0")
     elif accio == "resta_sa":
         pg.click("#sa-op .pastilla >> nth=1")
+    elif accio and accio.startswith("boto_"):
+        # una tasca de triar entre botons (unitats 4 i 5): la primera opció, encertada o no
+        pg.click(f"#{accio.split('_')[1]}-opcions button >> nth=0")
+    elif accio == "resta_sc":
+        pg.click("#sc-ops .pastilla >> nth=3")
     elif accio == "garbell_3":
         pg.click("#g8-comenca")
         for _ in range(3):

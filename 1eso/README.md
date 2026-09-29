@@ -34,7 +34,7 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 |---|---|
 | `caixa-eines?task=0` | Taules: 0.1 La taula · 0.2 Troba el resultat a la taula · 0.3 El número que falta |
 | `caixa-eines?task=1` | Rectangles: 1.1 Fes un rectangle · 1.2 El rectangle d'una multiplicació · 1.3 Gira el rectangle · 1.4 Parteix el rectangle |
-| `caixa-eines?task=2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat |
+| `caixa-eines?task=2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat · 2.4 Entre quins dos nombres? (unitat 5) |
 | `caixa-eines?task=3` | Nombres: 3.1 Centenes, desenes i unitats · 3.2 Fes el nombre |
 | `caixa-eines?task=4` | Ordre: 4.1 Mira l'ordre · 4.2 Què es fa primer? |
 | `caixa-eines?task=5` | Múltiples (unitat 2): 5.1 La graella de 100 · 5.2 És múltiple? · 5.3 Els trucs · 5.4 Múltiple de 3? |
@@ -50,12 +50,17 @@ pestanya Taules, que és la targeta de les taules a la pantalla:
 | `caixa-eines?task=15` | Multiplicar fraccions (unitat 4): 15.1 El tros de tros · 15.2 Quin tros és? |
 | `caixa-eines?task=16` | Percentatges (unitat 4): 16.1 Pinta el percentatge · 16.2 Quin percentatge és? |
 | `caixa-eines?task=17` | Dobles i triples (unitat 4): 17.1 El doble i el triple · 17.2 Quantes vegades hi cap? |
+| `caixa-eines?task=18` | Decimals (unitat 5): 18.1 Fes el decimal · 18.2 Quin decimal és? · 18.3 Quin és més gran? |
+| `caixa-eines?task=19` | Arrodonir (unitat 5): 19.1 El decimal a la recta · 19.2 Arrodoneix |
+| `caixa-eines?task=20` | Sumar decimals (unitat 5): 20.1 Suma i resta · 20.2 Quant és? |
+| `caixa-eines?task=21` | Fracció i decimal (unitat 5): 21.1 Pinta la fracció · 21.2 De fracció a decimal |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
 exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
 `caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
 tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 3,
-9.2, 10.2, 11.2, 12.2 i 13.2; i de la unitat 4, 14.2, 15.2, 16.2 i 17.2) acaben amb
+9.2, 10.2, 11.2, 12.2 i 13.2; de la unitat 4, 14.2, 15.2, 16.2 i 17.2; i de la unitat 5,
+2.4, 18.2, 18.3, 19.2, 20.2 i 21.2) acaben amb
 un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 

@@ -131,8 +131,18 @@
       Cada zona és un SVG a part dins de `cont`, perquè a la pantalla estreta
       baixin de línia en lloc d'encongir-se. La mida del quadret és la mateixa
       a les tres zones: un quadrat de 100 és de debò deu columnes de 10.
-      `o` = {c, d, u} i, si es vol, {peus: [text C, text D, text U], ets: [...]} */
+      `o` = {c, d, u} i, si es vol, {peus: [text C, text D, text U], ets: [...]}.
+      Amb `o.b` = {c, d, u}, les últimes peces de cada zona són la segona part
+      (unitat 5): el segon sumand, amb la classe «q b nou» (un altre color i el
+      traç discontinu), o, amb `o.treu`, el que es resta: buit, amb el traç
+      discontinu i una ratlla, com el que es treu de les fraccions. */
   function blocs(cont, o) {
+    const b = o.b || { c: 0, d: 0, u: 0 };
+    const classe = (i, total, k) => (i >= total - b[k] ? (o.treu ? "q falta" : "q b nou") : "q");
+    const ratlla = (svg, x, y, w, h, i, total, k) => {
+      if (o.treu && i >= total - b[k])
+        svg.appendChild(el("line", { x1: x + 2, y1: y + h - 2, x2: x + w - 2, y2: y + 2, class: "q-ratlla" }));
+    };
     const m = (cont.clientWidth || 300) >= 560 ? 9 : 7;
     const aire = 8;
     if (!cont.children.length) {
@@ -153,23 +163,33 @@
       caixa.appendChild(svg);
     };
     // centenes: tres per fila
-    const S = 10 * m, fc = Math.max(1, Math.ceil(o.c / 3));
-    dibuixa(0, 3 * S + 2 * aire, fc * S + (fc - 1) * aire, svg => {
+    // L'amplada, la dels quadrats que hi ha (tres com a molt per fila): amb 0 o 1
+    // quadrat, les columnes no queden lluny (unitat 5, on sovint no n'hi ha cap).
+    const S = 10 * m, fc = Math.max(1, Math.ceil(o.c / 3)), ac = Math.max(1, Math.min(3, o.c));
+    dibuixa(0, ac * S + (ac - 1) * aire, fc * S + (fc - 1) * aire, svg => {
       for (let i = 0; i < o.c; i++) {
         const x = (i % 3) * (S + aire), y = Math.floor(i / 3) * (S + aire);
-        rectangle(svg, x, y, 10, 10, m, "q");
+        rectangle(svg, x, y, 10, 10, m, classe(i, o.c, "c"));
+        ratlla(svg, x, y, S, S, i, o.c, "c");
       }
       if (!o.c) svg.appendChild(el("rect", { x: 1, y: 1, width: S - 2, height: S - 2, rx: 6, class: "q falta" }));
     });
     // desenes: columnes de 10, de dalt a baix
     dibuixa(1, Math.max(1, o.d) * (m + 5), S, svg => {
-      for (let i = 0; i < o.d; i++) rectangle(svg, i * (m + 5), 0, 10, 1, m, "q");
+      for (let i = 0; i < o.d; i++) {
+        rectangle(svg, i * (m + 5), 0, 10, 1, m, classe(i, o.d, "d"));
+        ratlla(svg, i * (m + 5), 0, m, S, i, o.d, "d");
+      }
       if (!o.d) svg.appendChild(el("rect", { x: 1, y: 1, width: m - 2, height: S - 2, rx: 3, class: "q falta" }));
     });
     // unitats: tres per fila, com els punts d'un dau
     const fu = Math.max(1, Math.ceil(o.u / 3));
     dibuixa(2, 3 * (m + 3), fu * (m + 3), svg => {
-      for (let i = 0; i < o.u; i++) quadret(svg, (i % 3) * (m + 3), Math.floor(i / 3) * (m + 3), m, "q");
+      for (let i = 0; i < o.u; i++) {
+        const x = (i % 3) * (m + 3), y = Math.floor(i / 3) * (m + 3);
+        quadret(svg, x, y, m, classe(i, o.u, "u"));
+        ratlla(svg, x, y, m, m, i, o.u, "u");
+      }
       if (!o.u) svg.appendChild(el("rect", { x: 1, y: 1, width: m - 2, height: m - 2, rx: 2, class: "q falta" }));
     });
     ["c", "d", "u"].forEach((k, i) => {
@@ -231,6 +251,71 @@
     });
     svg.setAttribute("viewBox", "0 0 " + AMP + " " + Math.max(40, Math.round(y - AIRE + 8)));
     return rs;
+  }
+
+  /* ================================================ els decimals (unitat 5) ===== */
+
+  /* El quadrat de 100 és 1: una columna és 0,1 (una dècima) i un quadret és 0,01 (una
+     centèsima). Els decimals es guarden com a centèsimes enteres (2,43 és 243), perquè
+     els comptes surtin exactes. Fins a 9,99, amb dues xifres decimals com a molt
+     (decisió del docent del 29/9/2026): 999 centèsimes, el mateix límit de sempre. */
+
+  /** Les centèsimes escrites com a decimal, amb coma: dec(243) és «2,43». Amb `x`
+      (1 o 2), sempre amb aquelles xifres decimals: dec(350, 1) és «3,5» i dec(100, 1)
+      és «1,0». Sense `x`, les justes: dec(240) és «2,4» i dec(300) és «3». */
+  function dec(c, x) {
+    const u = Math.floor(c / 100), r = c % 100;
+    if (x === 2) return u + "," + String(r).padStart(2, "0");
+    if (x === 1) return u + "," + Math.round(r / 10);
+    if (r === 0) return String(u);
+    return u + "," + (r % 10 === 0 ? String(r / 10) : String(r).padStart(2, "0"));
+  }
+
+  /** El quadrat de 100 amb `n` quadrets pintats, columna a columna i de dalt a baix:
+      2 columnes i 5 quadrets són 0,25. Sense números a dins, perquè el que es compta
+      són les columnes. Els llocs buits de la columna a mig fer van amb traç
+      discontinu. viewBox 0 0 340 340, com la taula de quadrets. */
+  const Q100 = { m: 30, x: 20, y: 20, mida: 340 };
+  function quadrat100(svg, n) {
+    svg.textContent = "";
+    graella(svg, Q100.x, Q100.y, 10, 10, Q100.m);
+    const plenes = Math.floor(n / 10);
+    for (let i = 0; i < 100; i++) {
+      const col = Math.floor(i / 10), fila = i % 10;
+      const x = Q100.x + col * Q100.m, y = Q100.y + fila * Q100.m;
+      if (i < n) quadret(svg, x, y, Q100.m, "q");
+      else if (col === plenes && n % 10) quadret(svg, x, y, Q100.m, "q falta");
+    }
+    svg.appendChild(el("rect", { x: Q100.x, y: Q100.y, width: 10 * Q100.m, height: 10 * Q100.m, class: "q-vora" }));
+    svg.setAttribute("viewBox", "0 0 " + Q100.mida + " " + Q100.mida);
+  }
+
+  /** La recta numèrica, el segon model del curs (docs/MAPA-ADAPTACIO.md, apartat 3): de
+      `ini` a `fi`, en centèsimes, amb una ratlla cada `pas`. `o`:
+        mig      la ratlla del mig, més llarga i amb el seu nombre: on es decideix cap a
+                 on s'arrodoneix
+        punt     on va el punt, amb el seu nombre a sobre
+      Els dos extrems porten el nombre a sota, en negreta. viewBox 0 0 320 130: estreta i
+      amb la lletra gran, perquè al mòbil els nombres es llegeixin. */
+  const RECTA = { x0: 30, x1: 290, y: 68, mida: [320, 130] };
+  function recta(svg, ini, fi, pas, o) {
+    o = o || {};
+    svg.textContent = "";
+    const X = v => RECTA.x0 + (v - ini) / (fi - ini) * (RECTA.x1 - RECTA.x0), y = RECTA.y;
+    svg.appendChild(el("line", { x1: RECTA.x0 - 14, y1: y, x2: RECTA.x1 + 14, y2: y, class: "q-eix" }));
+    const mig = (ini + fi) / 2;
+    for (let v = ini; v <= fi; v += pas) {
+      const gran = v === ini || v === fi, esMig = o.mig && v === mig;
+      const h = gran ? 13 : esMig ? 11 : 6;
+      svg.appendChild(el("line", { x1: X(v), y1: y - h, x2: X(v), y2: y + h, class: "q-eix" + (esMig ? " mig" : "") }));
+      if (gran || esMig) text(svg, X(v), y + 34, dec(v, gran && fi - ini < 100 ? 1 : undefined),
+                              "q-text" + (gran ? " fort" : ""), gran ? 24 : 20);
+    }
+    if (o.punt != null) {
+      svg.appendChild(el("circle", { cx: X(o.punt), cy: y, r: 7, class: "q-punt" }));
+      text(svg, X(o.punt), y - 34, dec(o.punt), "q-text fort", 24);
+    }
+    svg.setAttribute("viewBox", "0 0 " + RECTA.mida.join(" "));
   }
 
   /* ======================================================= les fraccions ===== */
@@ -309,5 +394,6 @@
 
   CE.q = { quadret, rectangle, graella, text, clau, taula, cellaTocada, fletxa, blocs, T,
            graella100, rectanglesDe, divisorsDe, dibuixaRectangles,
-           TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio, graella2D };
+           TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio, graella2D,
+           dec, Q100, quadrat100, RECTA, recta };
 })();

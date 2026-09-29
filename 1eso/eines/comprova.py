@@ -321,8 +321,15 @@ def caracters_de_la_lletra(cami):
 # --------------------------------------------------------------------------
 # Un tros també pot començar per un signe: amb un buit al davant, «… · 4 = 20» es
 # llegeix «· 4 = 20», que no es pot calcular, i no «4 = 20», que seria fals.
-TROS_CALCUL = re.compile(r'[\d(√·+−\-/][\d\s·+−\-()²√=/]*[\d)²]')
-PECES_CALCUL = re.compile(r'\d+|[·+−\-()²√=/]')
+# Els decimals (unitat 5) s'escriuen amb coma i sense espais: «2,5 + 1,35 = 3,85». Una
+# coma seguida d'un espai és la d'una frase («3, 4 i 5») i talla el tros, com abans.
+TROS_CALCUL = re.compile(r'[\d(√·+−\-/](?:[\d\s·+−\-()²√=/]|,(?=\d))*[\d)²]')
+PECES_CALCUL = re.compile(r'\d+(?:,\d+)?|[·+−\-()²√=/]')
+
+
+def es_nombre(p):
+    """«12» o «2,43»: un nombre, natural o decimal."""
+    return bool(p) and bool(re.fullmatch(r'\d+(?:,\d+)?', p))
 
 
 def valor_de(peces):
@@ -354,9 +361,10 @@ def valor_de(peces):
             if arrel * arrel != v:
                 raise ValueError
             return arrel
-        if p.isdecimal():
+        if es_nombre(p):
             pren()
-            return int(p)
+            # Un decimal es calcula exacte, com les fraccions: 0,25 = 1/4 i 3,4 = 3,40.
+            return int(p) if p.isdecimal() else Fraction(p.replace(',', '.'))
         raise ValueError
 
     def potencia():
@@ -403,8 +411,8 @@ def igualtats(text):
         peces = PECES_CALCUL.findall(tros)
         trams, ara = [], []
         for p in peces:
-            obre = p.isdecimal() or p in ('(', '√')
-            tanca = bool(ara) and (ara[-1].isdecimal() or ara[-1] in (')', '²'))
+            obre = es_nombre(p) or p in ('(', '√')
+            tanca = bool(ara) and (es_nombre(ara[-1]) or ara[-1] in (')', '²'))
             if obre and tanca:
                 trams.append(ara)
                 ara = []
@@ -497,6 +505,15 @@ LLENGUATGE = [(r'\bEncercla\b', "«Encercla»: el verb és «Marca»"),
               (r'\bho \w+ries\b', "«ho …ries»: sense pronoms febles"),
               (r'\bnomés fas\b', "«només fas»: deixa de ser veritat si s'hi afegeixen apartats")]
 NOMBRE = re.compile(r'(?<![\d.,])\d{1,3}(?:\.\d{3})+(?![\d,])|(?<![\d.,])\d+')
+# Els decimals de la unitat 5: fins a 9,99, amb dues xifres decimals com a molt (decisió del
+# docent del 29/9/2026). És el mateix límit de sempre: 9,99 són 999 centèsimes, els blocs de
+# la unitat 1 amb el quadrat de 100 com a unitat. Les mil·lèsimes (0,125) en demanarien 1.000.
+DECIMAL = re.compile(r'(?<![\d.,])(\d+),(\d+)(?![\d,])')
+
+
+def decimal_fora(t):
+    """Els decimals d'un text que passen de 9,99 o tenen més de dues xifres decimals."""
+    return [m.group(0) for m in DECIMAL.finditer(t) if int(m.group(1)) > 9 or len(m.group(2)) > 2]
 
 n_frases = n_operacions = 0
 for f in PAPER:
@@ -527,6 +544,8 @@ for f in PAPER:
                 continue
             comprova(int(m.group(0).replace('.', '')) <= 999,
                      f"{nom}: el nombre {m.group(0)} passa de 999: «{frase[:50]}»")
+        for d in decimal_fora(frase):
+            comprova(False, f"{nom}: el decimal {d} passa de 9,99 o té més de dues xifres decimals: «{frase[:50]}»")
         for tall in re.split(r'(?<=[.!?])\s+', frase):
             paraules = re.findall(r"[\w·'’]+", tall)
             comprova(len(paraules) <= 20, f"{nom}: frase de {len(paraules)} paraules: «{tall[:50]}…»")
@@ -618,6 +637,12 @@ else:
     comprova(darrer > max([app.rfind(f'js/moduls/{c}.js') for c in carregats] + [-1]),
              "js/app.js s'ha de carregar després de tots els mòduls")
     comprova('href="../favicon.svg"' in app, "caixa-eines.html: la icona és ../favicon.svg")
+    # Cada identificador, una sola vegada. Amb dos iguals, $("#x") troba el primer i un
+    # mòdul dibuixa dins d'un altre: la tasca 15 escrivia a la taula de la tasca 0,
+    # perquè totes dues feien servir tt- i tf- (trobat el 29/9/2026).
+    ids = re.findall(r'\bid="([^"]+)"', app)
+    repetits = sorted({i for i in ids if ids.count(i) > 1})
+    comprova(not repetits, f"caixa-eines.html: identificadors repetits {repetits}: cada eina ha de tenir el seu prefix")
     pestanyes_html = re.findall(r'<button[^>]*class="segment"[^>]*>', app)
     numeros = [(re.search(r'data-tasca="([^"]*)"', b) or [None, None])[1] for b in pestanyes_html]
     mods = [(re.search(r'data-mod="(\w+)"', b) or [None, '?'])[1] for b in pestanyes_html]
@@ -732,6 +757,8 @@ else:
     comprova(not re.search(r"\d\s*[xX]\s*\d", vist), "a la caixa una «x» multiplica")
     grans = sorted({int(n) for n in re.findall(r"(?<![\d.,])\d+(?![\d,])", "\n".join(frases_t.values())) if int(n) > 999})
     comprova(not grans, f"frases de la caixa amb nombres de més de 999: {grans}")
+    dec_fora = sorted({d for t in frases_t.values() for d in decimal_fora(t)})
+    comprova(not dec_fora, f"frases de la caixa amb decimals de més de 9,99 o amb més de dues xifres: {dec_fora}")
     for clau, t in frases_t.items():
         for patro, per_que in LLENGUATGE:
             avisa(not re.search(patro, t), f"{clau}: {per_que}")
@@ -993,6 +1020,15 @@ print("\nDADES")
 # dades/unitats.js és el que llegeix fitxes.html. Ha de quadrar amb el disc.
 # --------------------------------------------------------------------------
 dades = llegeix(ruta('dades', 'unitats.js'))
+# Una clau repetida dins d'un objecte no dona cap error al navegador: es queda amb l'última.
+# A la unitat 4 hi havia «fitxes: [...]» i, més avall, «fitxes: []», i fitxes.html no en
+# veia cap (28/9/2026). Cada objecte comença amb «  {» i els seus camps van a quatre espais.
+for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
+    camps = re.findall(r'^    (\w+):', bloc, re.M)
+    repetits = sorted({c for c in camps if camps.count(c) > 1})
+    ident = (re.search(r'^    (?:num|id):\s*("?[\w-]+"?)', bloc, re.M) or [None, '?'])[1]
+    comprova(not repetits, f"dades/unitats.js: l'objecte {ident} té camps repetits {repetits}: "
+                           f"el navegador es queda amb l'últim")
 nums = [int(n) for n in re.findall(r'\bnum:\s*(\d+)', dades)]
 comprova(nums == list(range(1, len(nums) + 1)), f"dades/unitats.js: les unitats no van seguides ({nums})")
 fitxes_dades = re.findall(r'fitxa:\s*"([^"]+)"', dades)

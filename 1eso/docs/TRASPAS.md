@@ -33,26 +33,30 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 - **El descans:** si veus que són entre les 23 h i les 7 h, digues-li-ho una vegada, amb tacte,
   al final de la resposta, i continua fent la feina.
 
-## 2. On som (28/9/2026)
+## 2. On som (29/9/2026)
 
 | Unitat | Estat |
 |---|---|
 | 1 · Nombres naturals | Feta: caixa (tasques 0 a 4), quatre fitxes, targeta de les taules, examen. PDF fets |
-| 2 · Divisibilitat | Feta: caixa (5 a 8), cinc fitxes, examen. Falten els PDF |
-| 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. Falten els PDF |
-| 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. Falten els PDF |
-| 5 · Decimals i arrel quadrada | **Per fer** |
+| 2 · Divisibilitat | Feta: caixa (5 a 8), cinc fitxes, examen. PDF fets |
+| 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. PDF fets |
+| 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
+| 5 · Decimals i arrel quadrada | **En curs**: pla validat (29/9/2026) i caixa feta (18 a 21, i la 2.4). Falten la targeta «Decimals i arrels», les sis fitxes, els PDF i l'examen. El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
 | 6 · Sentit espacial | **Per fer** |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
-passi): fer els PDF que falten amb `generadors/gen_pdf.py`; treure del repositori els dos DOCX de
-l'examen de la unitat 1 (`generadors/examens/examen-ud1-*.docx`), que es publiquen al web. **No esborris els `fitxes/ud4*.html` ni `generadors/examens/ud4.js`:** les fitxes velles d'una
+passi): treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4
+(`generadors/examens/examen-ud*-*.docx`), que es publiquen al web. Les ordres: `git rm --cached` i
+moure'ls a `docx/` (`CONTINUAR.md`, apartat 4). **No esborris els `fitxes/ud4*.html` ni `generadors/examens/ud4.js`:** les fitxes velles d'una
 antiga unitat 4 (les fraccions) ja no hi són, i els que hi ha ara són els de la unitat 4 de debò.
 Les ordres exactes són a `CONTINUAR.md`.
 
-**No hi ha material del grup** per a les unitats 5 a 7: el docent té la **programació** (set
-fulls de càlcul, un per situació d'aprenentatge). Treballa a partir d'aquí (apartat 8).
+**El material del grup per a les unitats 5 a 7**: la **programació** (set fulls de càlcul, un per
+situació d'aprenentatge) i, des del 29/9/2026, el **llibre del grup** (`llibre_1ESO`, en LaTeX: una
+carpeta per unitat, `1eso/udN/1eso-udN-M.tex`). Demana tots dos ZIP. Els casos surten del llibre
+(regla 8). **Compte:** el llibre té vuit unitats i la programació set. La SA6 hi és partida en dues
+(UD6 formes i UD7 mesura), i la SA7 hi és la UD8. El material segueix les SA (apartat 8).
 
 ## 3. L'entorn on treballes
 
@@ -288,3 +292,17 @@ començar. Si no ho diu, proposa-li la unitat 5. Un primer missatge que pot fer 
   a la unitat 4 dues estaven mal assignades.
 - **Les xifres d'un context real** (un ou, un ocell) s'han de comprovar: no n'inventis.
 - **El ZIP porta `1eso/` sense `pdf/` ni `docx/`** (apartat 6): els PDF els fa el docent al Codespace.
+
+**Trobat el 29/9/2026, en començar la unitat 5** (les proves no tenien la unitat 4, i per això
+ningú no ho havia vist):
+
+- **La tasca 15 no dibuixava.** Feia servir els prefixos `tt-` i `tf-`, que ja eren de la tasca 0:
+  `$("#tt-svg")` trobava la taula de les taules. Ara s'hi diuen `mf-` i `mg-`, i `comprova.py` falla
+  amb qualsevol identificador repetit.
+- **Les tasques 16 i 17 donaven el codi de la 15.** El codi només tenia 4 bits per a la tasca (de
+  la 0 a la 15). Ara hi caben fins a la 63, i els codis de les tasques 0 a 15 són els d'abans.
+- **`fitxes.html` no ensenyava les fitxes de la unitat 4.** A `dades/unitats.js` hi havia
+  `fitxes: [...]` i, més avall, `fitxes: []`: el navegador es queda amb l'últim. `comprova.py`
+  ara falla amb qualsevol camp repetit.
+- **Lliçó:** cada eina nova entra a `prova_caixa.py` i a `auditoria.py` el mateix dia. El que no es
+  prova no se sap si funciona.

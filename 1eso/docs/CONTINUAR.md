@@ -29,7 +29,7 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
   (`ud2-repartir.html`), divisors i primers (`ud2-divisors.html`), la factorització
   (`ud2-factors.html`) i el repàs amb «Què he après?» (`ud2-repas.html`). I l'**examen de la
   unitat 2** (`generadors/examens/ud2.js`): vuit exercicis en 4 pàgines, i el solucionari en 2.
-  La unitat 2 és acabada; només en falten els PDF
+  La unitat 2 és acabada, amb els PDF
   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 6).
 - **Els tests de la caixa**: `comprova.py` la revisa per dins, i dos tests nous la fan servir en
   un navegador: `eines/prova_caixa.py` (que funcioni) i `eines/auditoria.py` (accessibilitat).
@@ -99,36 +99,43 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 
 ## 4. Pendent
 
-1. **Treure del repositori els dos DOCX de l'examen de la unitat 1**, que hi van quedar el 25 de
-   setembre de 2026 a `generadors/examens/`. Tot el repositori es publica al web, i s'hi podrien
-   obrir l'examen i el solucionari abans de l'examen. Són la versió anònima, sense cap dada
-   privada. `comprova.py` ho avisa fins que no hi siguin.
+1. **Treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4** (alumnat i
+   solucionari), que el 28 de setembre de 2026 eren a `generadors/examens/`. Tot el repositori es
+   publica al web, i s'hi podrien obrir l'examen i el solucionari abans de l'examen. Les ordres
+   són al `README.md` («L'examen»): `git rm --cached` i moure'ls a `docx/`, que Git ignora. Si es
+   pugen amb *Upload files* del web de GitHub, el `.gitignore` no els atura: millor no fer-ho.
+   `comprova.py` ho avisa fins que no hi siguin.
 2. **Imprimir la targeta** i dir què s'hi ha de canviar.
 3. **Provar la caixa a l'aula** i dir què s'hi ha de canviar. Els enllaços per a l'alumnat són a
    la portada, a «Per al professorat».
-4. **Els PDF de les cinc fitxes de la unitat 2**, al Codespace, amb `eines/mesura.py` i
-   `generadors/gen_pdf.py`, que necessiten WeasyPrint. Els de la unitat 1 i el de la targeta ja
-   hi són (25 de setembre de 2026). Fins que es facin els de la unitat 2, `comprova.py` en diu
-   deu problemes, i és el que toca. Després, imprimir-les i mirar
-   si les quadrícules i les graelles de 100 es poden pintar bé a mà.
+4. ~~**Els PDF de les fitxes de les unitats 1 a 4.**~~ **FETS · 28 de setembre de 2026.** Els 44
+   PDF són al dia (`comprova.py` no en diu cap de pendent). Queda imprimir-les i mirar si les
+   quadrícules i les graelles de 100 es poden pintar bé a mà.
 5. **Revisar l'examen de la unitat 1** a Google Docs. Si es vol amb el curs a la capçalera,
    es fa al Codespace amb el fitxer privat (vegeu el `README.md`, «L'examen»).
 6. **La unitat 2 (Divisibilitat), del 3 al 19 de novembre: feta.** La caixa (tasques 5 a 8), les
-   cinc fitxes i l'examen. Falta: provar-la a l'aula, fer-ne els PDF (punt 4) i revisar l'examen
-   a Google Docs.
+   cinc fitxes, els PDF i l'examen. Falta: provar-la a l'aula i revisar l'examen a Google Docs.
    **La unitat 3, «Com és de gran Gaza?», del 23 de novembre al 18 de desembre.** Segons la
    programació, és la que introdueix les fraccions, a partir de l'àrea. Les fraccions ja hi són: la
    caixa (tasques 9 a 12), la targeta «Els noms de les fraccions» (`targetes/fraccions.html`), les
    cinc fitxes (`fitxes/ud3*.html`, amb el full que explica per què 1/2 + 1/4 no pot donar 2/6) i
    l'examen (`generadors/examens/ud3.js`). I la mesura i l'àrea: la tasca 13 de la caixa i les
    fitxes `ud3-area.html` (la primera) i `ud3-mapes.html` (els km² de Barcelona i de Gaza). La
-   unitat 3 és acabada; només en falten els PDF ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7).
+   unitat 3 és acabada, amb els PDF ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 7).
    **La unitat 4, «És gran l'ou del kiwi?», del 12 al 28 de gener: feta.** La caixa (tasques 14 a 17:
    la fracció d'un nombre, el tros de tros, els percentatges i els dobles i triples), les cinc fitxes
-   (`fitxes/ud4*.html`) i l'examen (`generadors/examens/ud4.js`). Falten els PDF de les cinc fitxes
+   (`fitxes/ud4*.html`), els PDF i l'examen (`generadors/examens/ud4.js`)
    ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8). **Per revisar abans de fer-la servir:** les
    xifres de l'exercici 3 de la fitxa 4 (l'ou i l'ocell) són un exemple inventat, no dades reals; i
-   l'apartat 6 d) de l'examen, que és nou.
+   l'apartat 6 d) de l'examen, que és nou. **Arreglat el 29 de setembre de 2026:** la tasca 15 no
+   dibuixava (compartia els identificadors `tt-` i `tf-` amb la tasca 0); les tasques 16 i 17
+   donaven el codi de la 15; i `fitxes.html` no ensenyava les fitxes de la unitat (un camp
+   `fitxes` repetit a `dades/unitats.js`). Cap d'aquests errors no el veien les proves, que no
+   tenien la unitat 4: ara sí.
+   **La unitat 5, «Decimals i arrel quadrada», de l'1 al 15 de març: en curs.** El pla, validat el 29
+   de setembre de 2026 (decimals fins a 9,99, periòdics fora, targeta nova «Decimals i arrels»), i
+   la caixa: tasques 18 a 21 i la 2.4 ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8 bis).
+   Falten, per aquest ordre: la targeta, les sis fitxes, els PDF i l'examen.
 7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure

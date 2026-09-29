@@ -39,6 +39,10 @@
     <button class="segment" role="tab" data-tasca="15" data-mod="multfrac" aria-selected="false">Multiplicar fraccions</button>
     <button class="segment" role="tab" data-tasca="16" data-mod="percentatges" aria-selected="false">Percentatges</button>
     <button class="segment" role="tab" data-tasca="17" data-mod="dobletriple" aria-selected="false">Dobles i triples</button>
+    <button class="segment" role="tab" data-tasca="18" data-mod="decimals" aria-selected="false">Decimals</button>
+    <button class="segment" role="tab" data-tasca="19" data-mod="arrodonir" aria-selected="false">Arrodonir</button>
+    <button class="segment" role="tab" data-tasca="20" data-mod="sumadec" aria-selected="false">Sumar decimals</button>
+    <button class="segment" role="tab" data-tasca="21" data-mod="fracdec" aria-selected="false">Fracció i decimal</button>
   </div>
 </header>
 
@@ -233,6 +237,24 @@
       <div class="comptadors"><div id="q3-quants"></div></div>
       <svg class="llenc quadricula" id="q3-svg" viewBox="0 0 340 340" role="img"></svg>
       <div class="lectura" id="q3-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 2.4 · tasca tancada (unitat 5): entre quins dos nombres és l'arrel? -->
+  <div class="subtasca" data-sub="4" hidden>
+    <div class="targeta">
+      <h2 data-text="2.4.titol"></h2>
+      <p class="ajuda" data-text="2.4.ajuda"></p>
+      <div id="q4-recorregut"></div>
+      <div class="represa" id="q4-represa" hidden></div>
+      <div id="q4-cos">
+        <p class="pregunta-gran" id="q4-pregunta"></p>
+        <div class="opcions-sino" id="q4-opcions" role="group" aria-label="Les parelles de nombres per triar"></div>
+        <div class="avis neutre" id="q4-avis" aria-live="polite"></div>
+        <svg class="llenc quadricula" id="q4-svg" viewBox="0 0 340 340" role="img" hidden></svg>
+        <div class="passa"><button class="btn" id="q4-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="q4-final" hidden></div>
     </div>
   </div>
 </section>
@@ -753,11 +775,11 @@
     <div class="targeta">
       <div class="cap">
         <div><h2 data-text="15.1.titol"></h2><p class="ajuda" data-text="15.1.ajuda"></p></div>
-        <span class="marca" id="tt-marca" data-text="comu.exemple"></span>
+        <span class="marca" id="mf-marca" data-text="comu.exemple"></span>
       </div>
-      <div class="pastilles" id="tt-parells" role="group" aria-label="Les dues fraccions"></div>
-      <svg class="llenc" id="tt-svg" viewBox="0 0 380 260" role="img" style="max-width:24rem;margin:.5rem auto"></svg>
-      <div class="lectura" id="tt-lectura" aria-live="polite"></div>
+      <div class="pastilles" id="mf-parells" role="group" aria-label="Les dues fraccions"></div>
+      <svg class="llenc" id="mf-svg" viewBox="0 0 380 260" role="img" style="max-width:24rem;margin:.5rem auto"></svg>
+      <div class="lectura" id="mf-lectura" aria-live="polite"></div>
     </div>
   </div>
 
@@ -765,16 +787,16 @@
     <div class="targeta">
       <h2 data-text="15.2.titol"></h2>
       <p class="ajuda" data-text="15.2.ajuda"></p>
-      <div id="tf-recorregut"></div>
-      <div class="represa" id="tf-represa" hidden></div>
-      <div id="tf-cos">
-        <p class="pregunta-gran" id="tf-pregunta"></p>
-        <svg class="llenc" id="tf-svg" viewBox="0 0 380 260" role="img" hidden style="max-width:24rem;margin:.5rem auto"></svg>
-        <div class="opcions-sino" id="tf-opcions" role="group" aria-label="Els resultats per triar"></div>
-        <div class="avis neutre" id="tf-avis" aria-live="polite"></div>
-        <div class="passa"><button class="btn" id="tf-seguent" disabled></button></div>
+      <div id="mg-recorregut"></div>
+      <div class="represa" id="mg-represa" hidden></div>
+      <div id="mg-cos">
+        <p class="pregunta-gran" id="mg-pregunta"></p>
+        <svg class="llenc" id="mg-svg" viewBox="0 0 380 260" role="img" hidden style="max-width:24rem;margin:.5rem auto"></svg>
+        <div class="opcions-sino" id="mg-opcions" role="group" aria-label="Els resultats per triar"></div>
+        <div class="avis neutre" id="mg-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="mg-seguent" disabled></button></div>
       </div>
-      <div class="final-tasca" id="tf-final" hidden></div>
+      <div class="final-tasca" id="mg-final" hidden></div>
     </div>
   </div>
 </section>
@@ -854,6 +876,194 @@
   </div>
 </section>
 
+<!-- ===================================================== 18 · DECIMALS ==== -->
+<section id="mod-decimals" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 18.1 · el quadrat de 100 és 1: la columna és 0,1 i el quadret, 0,01 -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="18.1.titol"></h2><p class="ajuda" data-text="18.1.ajuda"></p></div>
+        <span class="marca" id="xa-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="xa-u"></div><div id="xa-d"></div><div id="xa-c"></div></div>
+      <div class="blocs" id="xa-blocs" role="img"></div>
+      <div id="xa-taula"></div>
+      <div class="lectura" id="xa-lectura" aria-live="polite"></div>
+      <div class="llegenda">
+        <p data-text="18.1.llegenda_u"></p>
+        <p data-text="18.1.llegenda_d"></p>
+        <p data-text="18.1.llegenda_c"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18.2 · tasca tancada: quin decimal fan els blocs? -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="18.2.titol"></h2>
+      <p class="ajuda" data-text="18.2.ajuda"></p>
+      <div id="xb-recorregut"></div>
+      <div class="represa" id="xb-represa" hidden></div>
+      <div id="xb-cos">
+        <div class="blocs" id="xb-blocs" role="img"></div>
+        <div class="opcions-sino" id="xb-opcions" role="group" aria-label="Els decimals per triar"></div>
+        <div class="avis neutre" id="xb-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="xb-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="xb-final" hidden></div>
+    </div>
+  </div>
+
+  <!-- 18.3 · tasca tancada: quin és més gran? La regla trencada: més xifres no vol dir més gran -->
+  <div class="subtasca" data-sub="3" hidden>
+    <div class="targeta">
+      <h2 data-text="18.3.titol"></h2>
+      <p class="ajuda" data-text="18.3.ajuda"></p>
+      <div id="xc-recorregut"></div>
+      <div class="represa" id="xc-represa" hidden></div>
+      <div id="xc-cos">
+        <div class="opcions-sino" id="xc-opcions" role="group" aria-label="Els dos decimals"></div>
+        <div class="avis neutre" id="xc-avis" aria-live="polite"></div>
+        <div class="dos-blocs" id="xc-dibuix" hidden>
+          <p class="peu-dibuix" id="xc-cap-0"></p>
+          <div class="blocs" id="xc-blocs-0" role="img"></div>
+          <p class="peu-dibuix" id="xc-cap-1"></p>
+          <div class="blocs" id="xc-blocs-1" role="img"></div>
+        </div>
+        <div class="passa"><button class="btn" id="xc-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="xc-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================== 19 · ARRODONIR ==== -->
+<section id="mod-arrodonir" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 19.1 · el decimal a la recta: de quina dècima és més a prop? -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="19.1.titol"></h2><p class="ajuda" data-text="19.1.ajuda"></p></div>
+        <span class="marca" id="ra-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="comptadors"><div id="ra-u"></div><div id="ra-d"></div><div id="ra-c"></div></div>
+      <svg class="llenc recta" id="ra-svg" viewBox="0 0 320 130" role="img"></svg>
+      <div class="lectura" id="ra-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 19.2 · tasca tancada: arrodoneix a les dècimes -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="19.2.titol"></h2>
+      <p class="ajuda" data-text="19.2.ajuda"></p>
+      <div id="rb-recorregut"></div>
+      <div class="represa" id="rb-represa" hidden></div>
+      <div id="rb-cos">
+        <p class="pregunta-gran" id="rb-pregunta"></p>
+        <svg class="llenc recta" id="rb-svg" viewBox="0 0 320 130" role="img"></svg>
+        <div class="opcions-sino" id="rb-opcions" role="group" aria-label="Els decimals per triar"></div>
+        <div class="avis neutre" id="rb-avis" aria-live="polite"></div>
+        <div class="passa"><button class="btn" id="rb-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="rb-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================== 20 · SUMAR DECIMALS ==== -->
+<section id="mod-sumadec" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 20.1 · suma i resta: la coma sota la coma -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="20.1.titol"></h2><p class="ajuda" data-text="20.1.ajuda"></p></div>
+        <span class="marca" id="sc-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="sc-ops" role="group" aria-label="Les operacions"></div>
+      <div id="sc-columna"></div>
+      <div class="blocs" id="sc-blocs" role="img"></div>
+      <div class="lectura" id="sc-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 20.2 · tasca tancada: quant és? -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="20.2.titol"></h2>
+      <p class="ajuda" data-text="20.2.ajuda"></p>
+      <div id="sd-recorregut"></div>
+      <div class="represa" id="sd-represa" hidden></div>
+      <div id="sd-cos">
+        <p class="pregunta-gran" id="sd-pregunta"></p>
+        <div class="opcions-sino" id="sd-opcions" role="group" aria-label="Els resultats per triar"></div>
+        <div class="avis neutre" id="sd-avis" aria-live="polite"></div>
+        <div id="sd-columna" hidden></div>
+        <div class="passa"><button class="btn" id="sd-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="sd-final" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 21 · FRACCIÓ I DECIMAL ==== -->
+<section id="mod-fracdec" class="modul" hidden>
+  <div class="subbarra">
+    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
+    <span class="sub-rotul"></span>
+    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
+  </div>
+
+  <!-- 21.1 · la fracció al quadrat de 100: 1/4 són 25 quadrets, 0,25 -->
+  <div class="subtasca" data-sub="1">
+    <div class="targeta">
+      <div class="cap">
+        <div><h2 data-text="21.1.titol"></h2><p class="ajuda" data-text="21.1.ajuda"></p></div>
+        <span class="marca" id="fc-marca" data-text="comu.exemple"></span>
+      </div>
+      <div class="pastilles" id="fc-pastilles" role="group" aria-label="Les fraccions"></div>
+      <svg class="llenc quadrat100" id="fc-svg" viewBox="0 0 340 340" role="img"></svg>
+      <div class="lectura" id="fc-lectura" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- 21.2 · tasca tancada: de fracció a decimal -->
+  <div class="subtasca" data-sub="2" hidden>
+    <div class="targeta">
+      <h2 data-text="21.2.titol"></h2>
+      <p class="ajuda" data-text="21.2.ajuda"></p>
+      <div id="fd-recorregut"></div>
+      <div class="represa" id="fd-represa" hidden></div>
+      <div id="fd-cos">
+        <p class="pregunta-gran" id="fd-pregunta"></p>
+        <div class="opcions-sino" id="fd-opcions" role="group" aria-label="Els decimals per triar"></div>
+        <div class="avis neutre" id="fd-avis" aria-live="polite"></div>
+        <svg class="llenc quadrat100" id="fd-svg" viewBox="0 0 340 340" role="img" hidden></svg>
+        <div class="passa"><button class="btn" id="fd-seguent" disabled></button></div>
+      </div>
+      <div class="final-tasca" id="fd-final" hidden></div>
+    </div>
+  </div>
+</section>
+
 
 
 </div>
@@ -884,6 +1094,10 @@
 <script src="js/moduls/multfrac.js"></script>
 <script src="js/moduls/percentatges.js"></script>
 <script src="js/moduls/dobletriple.js"></script>
+<script src="js/moduls/decimals.js"></script>
+<script src="js/moduls/arrodonir.js"></script>
+<script src="js/moduls/sumadec.js"></script>
+<script src="js/moduls/fracdec.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

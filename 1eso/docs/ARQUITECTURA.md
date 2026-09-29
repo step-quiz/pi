@@ -70,7 +70,7 @@ pantalla van a `css/app.css`.
 |---|---|---|---|---|
 | 0 | Taules | `taules.js` | 0.1 La taula · **0.2 Troba el resultat a la taula** · **0.3 El número que falta** | 7 · 8 = 56, el cas de la clau de la targeta |
 | 1 | Rectangles | `rectangles.js` | 1.1 Fes un rectangle · **1.2 El rectangle d'una multiplicació** · 1.3 Gira el rectangle · 1.4 Parteix el rectangle | 3 · 4; 3 · 12 a la 1.4 |
-| 2 | Quadrats | `quadrats.js` | 2.1 El quadrat d'un nombre · **2.2 Quin dibuix és?** · 2.3 El costat del quadrat | 3² = 9; 16 quadrets a la 2.3 |
+| 2 | Quadrats | `quadrats.js` | 2.1 El quadrat d'un nombre · **2.2 Quin dibuix és?** · 2.3 El costat del quadrat · **2.4 Entre quins dos nombres?** (unitat 5) | 3² = 9; 16 quadrets a la 2.3 |
 | 3 | Nombres | `nombres.js` | 3.1 Centenes, desenes i unitats · **3.2 Fes el nombre** | 243, «dos-cents quaranta-tres» |
 | 4 | Ordre | `ordre.js` | 4.1 Mira l'ordre · **4.2 Què es fa primer?** | 2 + 3 · 4 = 14 |
 | 5 | Múltiples | `multiples.js` | 5.1 La graella de 100 · **5.2 És múltiple?** · 5.3 Els trucs · **5.4 Múltiple de 3?** | Els múltiples del 2; el 126 a la 5.3 |
@@ -86,8 +86,12 @@ pantalla van a `css/app.css`.
 | 15 | Multiplicar fraccions | `multfrac.js` | 15.1 El tros de tros · **15.2 Quin tros és?** | 1/2 de 1/4: 8 trossos, 1/8 |
 | 16 | Percentatges | `percentatges.js` | 16.1 Pinta el percentatge · **16.2 Quin percentatge és?** | El 25 %: 25 quadrets de 100 |
 | 17 | Dobles i triples | `dobletriple.js` | 17.1 El doble i el triple · **17.2 Quantes vegades hi cap?** | 3 i 6 quadrets: el doble |
+| 18 | Decimals | `decimals.js` | 18.1 Fes el decimal · **18.2 Quin decimal és?** · **18.3 Quin és més gran?** | 2,43: els blocs del 243, amb el quadrat de 100 com a unitat |
+| 19 | Arrodonir | `arrodonir.js` | 19.1 El decimal a la recta · **19.2 Arrodoneix** | 3,47: més a prop de 3,5; truncat, 3,4 |
+| 20 | Sumar decimals | `sumadec.js` | 20.1 Suma i resta · **20.2 Quant és?** | 2,5 + 1,35 = 3,85, la regla trencada de la fitxa |
+| 21 | Fracció i decimal | `fracdec.js` | 21.1 Pinta la fracció · **21.2 De fracció a decimal** | 1/4 = 0,25: 25 quadrets de 100 |
 
-Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), i les 14 a 17, de la unitat 4. La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
+Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), les 14 a 17, de la unitat 4, i les 18 a 21 i la 2.4, de la unitat 5 (els decimals i l'arrel). La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són
@@ -113,11 +117,14 @@ Deixa a `CE.q`:
 | `graella`, `text`, `clau` | La quadrícula buida, un rètol i una clau amb el seu rètol («3 files») |
 | `taula` | La **taula de quadrets**: 10 per 10 amb els números de l'1 al 10 a dalt i a l'esquerra. La fan servir la 0.1, la 1.1, la 1.2, la 2.1 i la 2.3 |
 | `cellaTocada`, `fletxa` | On s'ha tocat la taula, i com la mouen les fletxes del teclat |
-| `blocs` | Quadrats de 100, columnes de 10 i quadrets solts, a la mateixa escala |
+| `blocs` | Quadrats de 100, columnes de 10 i quadrets solts, a la mateixa escala. Amb `b`, les últimes peces són la segona part: el segon sumand (`q b nou`, taronja i discontinu) o, amb `treu`, el que es resta (buit i ratllat). Ho fa servir la 20.1 |
 | `graella100` | La graella de 100 de l'activitat dels múltiples del grup: cada nombre pot anar pintat, encerclat (un primer) o ratllat. La fan servir la 5.1 i la 8.1 |
 | `rectanglesDe`, `divisorsDe` | Els rectangles que es poden fer amb n quadrets (sense comptar el girat dues vegades), i els divisors que en surten |
 | `dibuixaRectangles` | Tots els rectangles de n, un sota l'altre i a la mateixa escala, amb el rètol «2 · 6». La fan servir la 7.1, la 7.2 i la 8.2 |
 | `tira`, `fraccio` | El rectangle de les fraccions, sempre de la mateixa mida perquè es puguin comparar, partit en trossos iguals: pintats, del segon sumand (taronja), ratllats (el que es resta) o partits en trossos més petits (les equivalents). `fraccio` en posa tants com calguin per a una impròpia |
+| `dec` | Un decimal escrit amb coma, a partir de les centèsimes: `dec(243)` és «2,43», `dec(350, 1)` és «3,5». Els decimals es guarden com a centèsimes enteres, fins a 999 (9,99): així els comptes surten exactes |
+| `quadrat100` | El quadrat de 100 dels decimals, pintat columna a columna i sense números: 25 quadrets són 2 columnes i 5 quadrets, 0,25. La fan servir la 21.1 i la 21.2 |
+| `recta` | La recta numèrica, el segon model del curs: de la dècima d'abans a la de després, una ratlla per centèsima, la del mig discontínua i el punt. La fan servir la 19.1 i la 19.2 |
 | `nomFraccio`, `htmlFraccio`, `tipusFraccio` | El nom («quatre novens», amb els noms de la targeta de les fraccions, a `frac.s_N` i `frac.p_N` de les frases), la fracció escrita com a fracció, i si és nul·la, pròpia, unitat o impròpia |
 
 La taula de quadrets és el mateix objecte que la taula de multiplicar: el quadret de la fila 3 i
@@ -199,6 +206,16 @@ perquè les proves comprovin que cap cas trenca les regles.
    resta, i la seva explicació a `TEXTOS_GUIA`.
 4. Si és tancada: `CE.tasca({ tasca, sub, … })` i `CE.registraCataleg("t.n", …)`.
 
+**Els prefixos dels identificadors, únics.** Cada subtasca fa servir un prefix de dues lletres
+(`xa-`, `rb-`…). Si dues eines en comparteixen un, `$("#…")` troba el primer element i una eina
+dibuixa dins de l'altra: la tasca 15 (unitat 4) escrivia a la taula de la tasca 0 perquè totes
+dues feien servir `tt-` i `tf-`. Ara s'hi diuen `mf-` i `mg-`, i `comprova.py` falla si hi ha
+cap identificador repetit (29/9/2026).
+
+**El número de la tasca, fins al 63.** El codi de verificació (`js/codi.js`) té 4 bits per a la
+tasca i 2 per al bloc de 16: fins al 63. Abans eren 4 bits i prou, i les tasques 16 i 17 donaven
+el codi de la 15. Els codis de les tasques 0 a 15 no han canviat.
+
 **Una eina nova:** un fitxer a `js/moduls/`, amb `CE.registra("id", inicia)`; el seu `<script>` a
 `caixa-eines.html`, abans de `js/app.js`; la pestanya `<button class="segment" data-tasca="5"
 data-mod="id">` amb el número lliure següent, i la `<section id="mod-id">`. `js/app.js` no es
@@ -214,8 +231,8 @@ funciona.
 
 | Test | Què fa | Què necessita |
 |---|---|---|
-| `eines/comprova.py` | Les regles que es poden llegir als fitxers: estructura, frases, Lectura Fàcil, subtasques, «·», fins a 999, contrast de la paleta, `pi1-`, sal pròpia | Només Python |
-| `eines/prova_caixa.py` | La caixa, feta servir de debò: toca, s'equivoca, acaba les cinc tasques i llegeix els codis a `verifica.html` | Playwright i Chromium |
+| `eines/comprova.py` | Les regles que es poden llegir als fitxers: estructura, frases, Lectura Fàcil, subtasques, «·», fins a 999 i decimals fins a 9,99, contrast de la paleta, `pi1-`, sal pròpia, identificadors sense repetir i cap camp repetit a `dades/unitats.js` | Només Python |
+| `eines/prova_caixa.py` | La caixa, feta servir de debò: toca, s'equivoca, acaba totes les tasques tancades (26) i llegeix els codis a `verifica.html` | Playwright i Chromium |
 | `eines/auditoria.py` | L'accessibilitat aplicada: contrast real, mida de cada botó i focus, en clar i en fosc, a 320 i a 1100 px | Playwright i Chromium |
 
 Tots tres han de dir que està bé («Tot correcte.» o «0 problemes») abans de lliurar res. Com

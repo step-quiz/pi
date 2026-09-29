@@ -1,8 +1,9 @@
 /* ============================================================================
    codi.js · el codi de verificació que surt en acabar una tasca
    ----------------------------------------------------------------------------
-   Còpia del de la caixa de 4eso/, amb una sola diferència: la SAL. És el que
-   fa que un codi d'aquesta caixa no sigui vàlid a l'altra, i a l'inrevés.
+   Còpia del de la caixa de 4eso/, amb dues diferències. La SAL, que fa que un
+   codi d'aquesta caixa no sigui vàlid a l'altra, i a l'inrevés. I el número de
+   la tasca, que aquí passa de 15 (vegeu «LES TASQUES DE LA 16 A LA 63»).
 
    PER QUÈ UN CODI
    L'alumnat acaba una tasca a la caixa d'eines i el docent n'ha de poder tenir
@@ -17,8 +18,8 @@
    0 o 1, perquè és el que volia dir.
 
    QUÈ HI HA A DINS (45 bits)
-     versió  2 bits   0-3       per poder canviar el format sense trencar res
-     tasca   4 bits   0-15      el número de ?task=
+     bloc    2 bits   0-3       el número de la tasca, dividit per 16
+     tasca   4 bits   0-15      el que en queda: tasca = bloc · 16 + tasca
      sub     3 bits   0-7       la subtasca (0 si no n'hi ha)
      cas     3 bits   0-7       el cas triat dins del mòdul
      dia     9 bits   0-511     dies des de l'1 de setembre del curs
@@ -30,6 +31,13 @@
    control. Sense això, els codis de la mateixa tasca començaven tots igual
    («000-…» a la Calculadora) i semblaven un error. La barreja es desfà en
    llegir-lo, perquè el control viatja sense barrejar.
+
+   LES TASQUES DE LA 16 A LA 63 (29/9/2026)
+   Al principi, els 2 primers bits eren la «versió» i sempre valien 0, i la
+   tasca només tenia 4 bits: de la 0 a la 15. Les tasques 16 i 17 (unitat 4)
+   donaven un codi de la 15, i verifica.html deia «15.2». Ara aquells 2 bits
+   són el bloc de 16 tasques: els codis de les tasques 0 a 15 són exactament
+   els d'abans (bloc 0), i hi caben fins a la 63.
 
    QUÈ NO ÉS
    No és xifratge. Qui llegeixi aquest fitxer pot fabricar un codi vàlid. Serveix
@@ -45,10 +53,10 @@
   // mateix domini, i sense això un codi de l'una es llegiria com a vàlid a
   // l'altra. Canviar-la invalida tots els codis que ja s'hagin donat.
   const SAL = "pi.step-quiz · caixa d'eines · quadrícula";
-  const VERSIO = 0;
+  const MAX_TASCA = 63;                       // 4 blocs de 16
 
   // Mida de cada camp, en l'ordre en què s'empaqueten.
-  const CAMPS = [["versio", 4], ["tasca", 16], ["sub", 8], ["cas", 8],
+  const CAMPS = [["bloc", 4], ["tasca", 16], ["sub", 8], ["cas", 8],
                  ["dia", 512], ["a", 32], ["b", 32], ["c", 32]];
   const CONTROL = 512;
 
@@ -109,11 +117,14 @@
       un 40 és impossible de representar en 5 bits i val més un 31 que un error. */
   function fes(dades) {
     const avui = dades.data || new Date();
-    const v = { versio: VERSIO, dia: diesEntre(iniciCurs(avui), avui) };
+    const v = { dia: diesEntre(iniciCurs(avui), avui) };
     CAMPS.forEach(([nom, mida]) => {
-      if (nom === "versio" || nom === "dia") return;
+      if (nom === "bloc" || nom === "dia" || nom === "tasca") return;
       v[nom] = Math.max(0, Math.min(mida - 1, Math.round(Number(dades[nom]) || 0)));
     });
+    const t = Math.max(0, Math.min(MAX_TASCA, Math.round(Number(dades.tasca) || 0)));
+    v.bloc = Math.floor(t / 16);
+    v.tasca = t % 16;
     const carrega = empaqueta(v);
     const ctl = control(carrega);
     let n = barreja(carrega, ctl) * CONTROL + ctl;
@@ -146,7 +157,7 @@
     if (ctl !== control(carrega)) return null;
 
     const v = desempaqueta(carrega);
-    if (v.versio !== VERSIO) return null;
+    const tasca = v.bloc * 16 + v.tasca;
 
     // El dia es compta des de l'inici del curs d'avui. Si surt una data futura,
     // el codi és del curs passat.
@@ -157,7 +168,7 @@
       inici = new Date(inici.getFullYear() - 1, 8, 1);
       data = new Date(inici.getFullYear(), 8, 1 + v.dia);
     }
-    return { tasca: v.tasca, sub: v.sub, cas: v.cas, a: v.a, b: v.b, c: v.c, data };
+    return { tasca, sub: v.sub, cas: v.cas, a: v.a, b: v.b, c: v.c, data };
   }
 
   window.CE.codi = { fes, llegeix };

@@ -25,6 +25,14 @@
      que es pot. Si en sobren, van a la vora del quadrat següent, i els llocs
      que falten per acabar-lo es veuen buits. Així 13 és entre 9 i 16, i l'arrel
      de 13 és entre 3 i 4: és l'exercici del grup, dit amb el dibuix.
+
+   2.4 · ENTRE QUINS DOS NOMBRES?  (unitat 5: les arrels no exactes)
+     Una tasca tancada de cinc passos: √20, i tres parelles de nombres. Les
+     dolentes són les confusions de debò: la regla trencada de la fitxa de la
+     unitat 5, «l'arrel és la meitat» (l'error del Joel del llibre: √16 = 8),
+     que aquí dona 10 i 11; i passar-se d'un (5 i 6), sense mirar que 5 · 5 ja
+     passa de 20. Tots els nombres, fins al 100: els quadrats hi són a la
+     targeta, de 1 · 1 a 10 · 10. En contestar, surt el dibuix de la 2.3.
    ========================================================================== */
 
 (function () {
@@ -184,12 +192,19 @@
     return v;
   }
 
-  function pinta23() {
-    const n = q3, k = Math.floor(Math.sqrt(n)), sobren = n - k * k, svg = $("#q3-svg");
+  /** El quadrat més gran que es pot fer amb n quadrets, i els que sobren a la vora
+      del següent. El fan servir la 2.3 i la 2.4. */
+  function dibuixaCostat(svg, n) {
+    const k = Math.floor(Math.sqrt(n)), sobren = n - k * k;
     Q.taula(svg, { f: k, c: k, extra: (s, T) => {
       if (!sobren) return;
       vora(k).forEach((p, i) => Q.quadret(s, T.x + p.c * T.m, T.y + p.f * T.m, T.m, i < sobren ? "q b" : "q falta"));
     } });
+  }
+
+  function pinta23() {
+    const n = q3, k = Math.floor(Math.sqrt(n)), sobren = n - k * k, svg = $("#q3-svg");
+    dibuixaCostat(svg, n);
     const k2 = k + 1, q1 = k * k, q2 = k2 * k2;
     let paraules, simbols;
     if (!sobren) {
@@ -221,9 +236,81 @@
     pinta23();
   }
 
+  /* ================================ 2.4 · Entre quins dos nombres? ====== */
+
+  const NS24 = [10, 13, 20, 30, 40, 50, 70, 90];
+  const N24 = 5;
+  let t4 = null, n4 = 0, i4 = 0, opcions4 = [];
+
+  /** La bona (4 i 5 per a √20); la meitat (10 i 11), la regla trencada; i passar-se
+      d'un (5 i 6). */
+  function opcionsDe24(n) {
+    const k = Math.floor(Math.sqrt(n)), m = Math.floor(n / 2);
+    return [["bona", k, k + 1], ["meitat", m, m + 1], ["dalt", k + 1, k + 2]];
+  }
+  function pas24(i, e) {
+    n4 = e.extra.ns[i]; i4 = 0;
+    $("#q4-pregunta").textContent = txtPla("2.4.pregunta", { n: n4 });
+    opcions4 = e.extra.torns[i].map(k => opcionsDe24(n4)[k]);
+    const cont = $("#q4-opcions");
+    cont.innerHTML = opcions4.map((o, k) => '<button type="button" class="btn opcio-sino opcio-arrel" data-k="' + k + '">' +
+      txt("2.4.opcio", { a: o[1], b: o[2] }) + "</button>").join("");
+    $$(".opcio-arrel", cont).forEach(b => { b.onclick = () => tria24(Number(b.dataset.k), b); });
+    dibuixaCostat($("#q4-svg"), n4);
+    const k = Math.floor(Math.sqrt(n4));
+    $("#q4-svg").setAttribute("aria-label", txtPla("2.3.no_fa", { quadrets: qu(n4) }) + " " +
+                                           txtPla("2.3.arrel", { de_n: deN(n4), k, k2: k + 1 }));
+    $("#q4-svg").toggleAttribute("hidden", !t4.resolt());
+    const avis = $("#q4-avis");
+    avis.className = "avis neutre";
+    avis.innerHTML = t4.resolt() ? txt("comu.ja_fet") : txt("2.4.comenca", { n: n4 });
+    $("#q4-seguent").disabled = !t4.resolt();
+    $("#q4-seguent").innerHTML = txt(t4.esUltim() ? "comu.acaba" : "comu.seguent");
+    if (t4.resolt()) marca24();
+  }
+  function marca24() {
+    $$(".opcio-arrel", $("#q4-opcions")).forEach(b => { b.disabled = true; b.classList.toggle("bona", opcions4[b.dataset.k][0] === "bona"); });
+    // El dibuix de la 2.3, només quan ja s'ha contestat: si no, la resposta es veuria.
+    $("#q4-svg").toggleAttribute("hidden", false);
+  }
+  function tria24(kk, boto) {
+    const e = t4.estat();
+    if (!e || e.acabada || t4.resolt()) return;
+    const o = opcions4[kk], avis = $("#q4-avis"), k = Math.floor(Math.sqrt(n4));
+    const frase = txt("2.3.entre", { n: n4, q1: k * k, q2: (k + 1) * (k + 1) }) + " " +
+                  txt("2.3.arrel", { de_n: deN(n4), k, k2: k + 1 });
+    if (o[0] === "bona") { t4.anota(i4 === 0 ? "be" : "pista"); retroaccio(avis, "encert", frase); marca24(); }
+    else if (i4 === 0) {
+      i4 = 1; boto.classList.add("mal"); boto.disabled = true;
+      const cos = o[0] === "meitat" ? txt("2.4.error_meitat", { n: n4 })
+                                    : txt("2.4.error_dalt", { k: k + 1, q: (k + 1) * (k + 1), n: n4 });
+      retroaccio(avis, "error", cos, txt("2.4.pista", { n: n4 }));
+    } else { t4.anota("mostrat"); retroaccio(avis, "mostra", frase); marca24(); }
+    $("#q4-seguent").disabled = !t4.resolt();
+  }
+  let fet24 = false;
+  function inicia24() {
+    if (fet24) return;
+    fet24 = true;
+    t4 = CE.tasca({
+      tasca: 2, sub: 4,
+      recorregut: $("#q4-recorregut"), represa: $("#q4-represa"), final: $("#q4-final"), cos: [$("#q4-cos")],
+      desa: true,
+      valida: e => e.total === N24 && e.extra && Array.isArray(e.extra.ns) && e.extra.ns.length === N24 &&
+                   e.extra.ns.every(n => NS24.includes(n)) && Array.isArray(e.extra.torns),
+      nom: () => "2.4 · " + txtPla("2.4.nom"),
+      pinta: pas24
+    });
+    $("#q4-seguent").onclick = () => t4.seguent();
+    t4.inicia(() => {
+      const ns = CE.barreja(NS24).slice(0, N24);
+      return { total: N24, extra: { ns, torns: ns.map(() => CE.barreja([0, 1, 2])) } };
+    });
+  }
+
   /* ==================================================== arrencada ====== */
 
-  const ARRENCA = { 1: inicia21, 2: inicia22, 3: inicia23 };
+  const ARRENCA = { 1: inicia21, 2: inicia22, 3: inicia23, 4: inicia24 };
   let subs = null, subActual = null;
 
   function inicia() {
@@ -239,5 +326,8 @@
   CE.registraCataleg("2.2", { nom: txtPla("2.2.nom"),
     recomptes: [txtPla("comu.r_passos"), txtPla("comu.r_primer"), txtPla("comu.r_pista")],
     resta: txtPla("comu.r_mostrat") });
-  CE.dades = Object.assign(CE.dades || {}, { quadrat: { EX21, NS, EX23 } });
+  CE.registraCataleg("2.4", { nom: txtPla("2.4.nom"),
+    recomptes: [txtPla("comu.r_passos"), txtPla("comu.r_primer"), txtPla("comu.r_pista")],
+    resta: txtPla("comu.r_mostrat") });
+  CE.dades = Object.assign(CE.dades || {}, { quadrat: { EX21, NS, EX23, NS24, opcionsDe24 } });
 })();

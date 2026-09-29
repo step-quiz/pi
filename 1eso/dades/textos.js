@@ -66,6 +66,12 @@ window.TEXTOS = {
     desenes:      'desenes',
     unitat:       'unitat',
     unitats:      'unitats',
+    decima:       'dècima',
+    decimes:      'dècimes',
+    centesima:    'centèsima',
+    centesimes:   'centèsimes',
+    columna:      'columna',
+    columnes:     'columnes',
     represa:      'Aquesta tasca no està acabada. Es va aturar al *pas {n} de {total}*.',
     represa_dia:  'Es va desar el {dia}.',
     continua:     'Continua al pas {n}',
@@ -220,6 +226,17 @@ window.TEXTOS = {
     gran:         'Per fer el quadrat {de_k} per {k}, calen {quadrets}.',
     entre:        '{n} és entre {q1} i {q2}.',
     arrel:        'L\'arrel quadrada {de_n} és entre {k} i {k2}.'
+  },
+  "2.4": {
+    nom:          'Entre quins dos nombres?',
+    titol:        'Entre quins dos nombres?',
+    ajuda:        'Busca els quadrats a la targeta. Després toca la resposta.',
+    pregunta:     'Entre quins dos nombres és √{n}?',
+    comenca:      'Busca el quadrat més gran que no passa de {n}.',
+    opcio:        '{a} i {b}',
+    error_meitat: 'Això surt de la meitat de {n}. L\'arrel és el costat del quadrat, no la meitat.',
+    error_dalt:   '{k} · {k} = {q}, i {q} ja passa de {n}.',
+    pista:        'Busca a la targeta el quadrat més gran que no passa de {n}.'
   },
 
   /* ------------------------------------------------ 3 · Nombres ---------- */
@@ -666,6 +683,116 @@ window.TEXTOS = {
     error:          'No és aquesta.',
     pista:          'Compta de {n} en {n} quadrets, des de l\'esquerra.',
     aria:           'La fila petita de {n} quadrets, i la fila gran de {r} quadrets'
+  },
+
+  /* ------------------------------------------ unitat 5 · decimals ------- */
+  "18.1": {
+    nom:          'Fes el decimal',
+    titol:        'Fes el decimal',
+    ajuda:        'Tria quants quadrats, columnes i quadrets vols. Mira quin decimal és.',
+    et_u:         'Unitats',
+    sub_u:        'quadrats de 100',
+    et_d:         'Dècimes',
+    sub_d:        'columnes de 10',
+    et_c:         'Centèsimes',
+    sub_c:        'quadrets sols',
+    compta:       '{u}, {d} i {c}.',
+    total:        'En total hi ha {quadrets}: són {cent}.',
+    llegeix:      'Es llegeix: {nom}.',
+    llegenda_u:   'Un quadrat de 100 quadrets és *1 unitat*.',
+    llegenda_d:   'Una columna de 10 quadrets és *1 dècima*: 0,1.',
+    llegenda_c:   'Un quadret sol és *1 centèsima*: 0,01.'
+  },
+  "18.2": {
+    nom:          'Quin decimal és?',
+    titol:        'Quin decimal és?',
+    ajuda:        'Compta els quadrats, les columnes i els quadrets. Després toca el decimal.',
+    comenca:      'Compta els quadrats, les columnes i els quadrets sols.',
+    encert:       'Hi ha {u}, {d} i {c}: és {n}.',
+    error_girat:  'Les columnes són les dècimes, i van just després de la coma.',
+    error_natural: 'Ara el quadrat de 100 és 1 unitat. Després de les unitats va la coma.',
+    pista:        'Compta per separat els quadrats, les columnes i els quadrets sols.',
+    aria:         'Quadrats de 100: {q}. Columnes de 10: {col}. Quadrets sols: {qs}.'
+  },
+  "18.3": {
+    nom:          'Quin és més gran?',
+    titol:        'Quin és més gran?',
+    ajuda:        'Toca el decimal més gran.',
+    comenca:      'Mira primer les unitats. Després, les dècimes.',
+    encert:       '{g} és més gran: són {cg} quadrets. {p} són {cp} quadrets.',
+    error_llarg:  'Tenir més xifres no vol dir ser més gran.',
+    error_curt:   'Tenir menys xifres tampoc no vol dir ser més gran.',
+    pista:        'Escriu els dos amb dues xifres després de la coma: {a} i {b}.'
+  },
+  "19.1": {
+    nom:          'El decimal a la recta',
+    titol:        'El decimal a la recta',
+    ajuda:        'Tria el decimal. Mira de quina dècima és més a prop.',
+    entre:        '{n} és entre {a} i {b}.',
+    mig:          'La ratlla del mig és {m}.',
+    amunt:        '{n} passa de la ratlla del mig: és més a prop de {b}.',
+    justa:        '{n} és a la ratlla del mig: s\'arrodoneix cap amunt, a {b}.',
+    avall:        '{n} no arriba a la ratlla del mig: és més a prop de {a}.',
+    arrodonit:    'Arrodonit a les dècimes: *{r}*.',
+    truncat:      'Truncat a les dècimes: *{t}*. Es talla i prou.',
+    ja_decima:    '{n} només té dècimes: arrodonit i truncat, és el mateix.',
+    aria:         'La recta de {a} a {b}, amb el punt a {n}'
+  },
+  "19.2": {
+    nom:          'Arrodoneix',
+    titol:        'Arrodoneix',
+    ajuda:        'Mira on és el punt a la recta. Després toca el decimal arrodonit.',
+    pregunta:     'Arrodoneix {n} a les dècimes.',
+    comenca:      'Mira si el punt passa de la ratlla del mig.',
+    encert:       '{n} és més a prop de {r}: arrodonit, és {r}.',
+    encert_justa: '{n} és a la ratlla del mig: s\'arrodoneix cap amunt, a {r}.',
+    error_truncat: 'Això és truncar: tallar sense mirar. Arrodonir és buscar el més a prop.',
+    error_amunt:  '{n} no arriba a la ratlla del mig: no va cap amunt.',
+    error_unitat: 'Demanen les dècimes: la resposta porta una xifra després de la coma.',
+    pista:        'Mira la ratlla del mig de la recta. El punt és abans o després?'
+  },
+  "20.1": {
+    nom:          'Suma i resta',
+    titol:        'Suma i resta',
+    ajuda:        'Tria una operació. Mira com va la coma sota la coma.',
+    suma:         'Se sumen quadrats amb quadrats, columnes amb columnes i quadrets amb quadrets.',
+    resta:        'Es treuen quadrats de quadrats, columnes de columnes i quadrets de quadrets.',
+    zero:         '{n} és el mateix que {n2}: el zero no canvia res.',
+    u:            'Els quadrats: {calcul}.',
+    d:            'Les columnes: {calcul}.',
+    c:            'Els quadrets sols: {calcul}.',
+    aria_suma:    '{a} i {b}, junts: {r}',
+    aria_resta:   'Tenies {a} i treus {b}: queden {r}'
+  },
+  "20.2": {
+    nom:          'Quant és?',
+    titol:        'Quant és?',
+    ajuda:        'Fes l\'operació amb la coma sota la coma. Després toca el resultat.',
+    comenca:      'Escriu la coma sota la coma, i cada xifra al seu lloc.',
+    encert:       '{calcul}.',
+    error_dreta:  'Has posat les xifres a la dreta. Posa la coma sota la coma.',
+    error_parts:  'Després de la coma, cada xifra té el seu lloc: primer les dècimes i després les centèsimes.'
+  },
+  "21.1": {
+    nom:          'Pinta la fracció',
+    titol:        'Pinta la fracció',
+    ajuda:        'Tria una fracció. Mira quants quadrets de 100 es pinten.',
+    quadrets:     '{f} de 100 quadrets són {quadrets}.',
+    columnes:     'Són {col} i {qs}: {d} i {c}.',
+    columnes_sol: 'Són {col}: {d}.',
+    percent:      'És el {p} %.',
+    aria:         '{n} quadrets pintats de 100'
+  },
+  "21.2": {
+    nom:          'De fracció a decimal',
+    titol:        'Quin decimal és la fracció?',
+    ajuda:        'Busca quants quadrets de 100 són. Després toca el decimal.',
+    pregunta:     'Quin decimal és {f}?',
+    comenca:      'Pensa quants quadrets de 100 són.',
+    encert:       '{f} de 100 quadrets són {q} quadrets: és {r}.',
+    error_baix:   'El de baix no va després de la coma.',
+    error_barra:  'La barra de la fracció no és una coma.',
+    pista:        'Busca quants quadrets de 100 són {f}. Cada quadret és 0,01.'
   }
 };
 
@@ -700,6 +827,12 @@ window.TEXTOS_GUIA = {
     desenes:      ["Paraula: 4 desenes, 0 desenes", []],
     unitat:       ["Paraula: 1 unitat", []],
     unitats:      ["Paraula: 3 unitats, 0 unitats", []],
+    decima:       ["Una: «1 dècima»", []],
+    decimes:      ["Més d'una: «4 dècimes»", []],
+    centesima:    ["Una: «1 centèsima»", []],
+    centesimes:   ["Més d'una: «43 centèsimes»", []],
+    columna:      ["Una columna de 10 quadrets", []],
+    columnes:     ["Més d'una columna de 10 quadrets", []],
     represa:      ["Pregunta quan hi ha una tasca a mitges", ["n", "total"]],
     represa_dia:  ["Dia en què es va desar la tasca a mitges", ["dia"]],
     continua:     ["Botó per continuar la tasca a mitges", ["n"]],
@@ -848,6 +981,17 @@ window.TEXTOS_GUIA = {
     gran:         ["El quadrat següent, que no es pot acabar", ["de_k", "k", "quadrets"]],
     entre:        ["Entre quins quadrats és", ["n", "q1", "q2"]],
     arrel:        ["Entre quins nombres és l'arrel", ["de_n", "k", "k2"]]
+  },
+  "2.4": {
+    nom:          ["Nom de la subtasca a la barra de fletxes", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    pregunta:     ["Pregunta de cada pas", ["n"]],
+    comenca:      ["Avís abans de contestar", ["n"]],
+    opcio:        ["Cada opció: «4 i 5»", ["a", "b"]],
+    error_meitat: ["Error: l'arrel com la meitat (la regla trencada)", ["n"]],
+    error_dalt:   ["Error: passar-se d'un", ["k", "q", "n"]],
+    pista:        ["Pista del primer error", ["n"]]
   },
   "3.1": {
     nom:          ["Nom de la subtasca a la barra de fletxes", []],
@@ -1290,5 +1434,113 @@ window.TEXTOS_GUIA = {
     error:          ["Resposta incorrecta", []],
     pista:          ["Pista del primer error", ["n"]],
     aria:           ["Per al lector de pantalla", ["n", "r"]]
+  },
+  "18.1": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    et_u:         ["Comptador i taula: les unitats", []],
+    sub_u:        ["Sota el comptador: què és una unitat", []],
+    et_d:         ["Comptador i taula: les dècimes", []],
+    sub_d:        ["Sota el comptador: què és una dècima", []],
+    et_c:         ["Comptador i taula: les centèsimes", []],
+    sub_c:        ["Sota el comptador: què és una centèsima", []],
+    compta:       ["Quantes unitats, dècimes i centèsimes", ["u", "d", "c"]],
+    total:        ["Quants quadrets petits en total", ["quadrets", "cent"]],
+    llegeix:      ["Com es llegeix el decimal", ["nom"]],
+    llegenda_u:   ["Llegenda: el quadrat", []],
+    llegenda_d:   ["Llegenda: la columna", []],
+    llegenda_c:   ["Llegenda: el quadret", []]
+  },
+  "18.2": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    comenca:      ["Avís abans de contestar", []],
+    encert:       ["Resposta correcta", ["u", "d", "c", "n"]],
+    error_girat:  ["Error: girar les dècimes i les centèsimes", []],
+    error_natural: ["Error: llegir-lo sense coma, com a la unitat 1", []],
+    pista:        ["Pista del primer error", []],
+    aria:         ["Per al lector de pantalla: els blocs", ["q", "col", "qs"]]
+  },
+  "18.3": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    comenca:      ["Avís abans de contestar", []],
+    encert:       ["Resposta correcta, amb els quadrets de cada un", ["g", "cg", "p", "cp"]],
+    error_llarg:  ["Error: triar el que té més xifres (la regla trencada)", []],
+    error_curt:   ["Error: triar el que té menys xifres", []],
+    pista:        ["Pista del primer error (també a la 20.2)", ["a", "b"]]
+  },
+  "19.1": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    entre:        ["Entre quines dues dècimes és", ["n", "a", "b"]],
+    mig:          ["La ratlla del mig", ["m"]],
+    amunt:        ["Quan passa de la ratlla del mig", ["n", "a", "b"]],
+    justa:        ["Quan és just a la ratlla del mig", ["n", "a", "b"]],
+    avall:        ["Quan no hi arriba", ["n", "a", "b"]],
+    arrodonit:    ["L'arrodonit a les dècimes", ["r"]],
+    truncat:      ["El truncat a les dècimes", ["t"]],
+    ja_decima:    ["Quan el decimal només té dècimes", ["n"]],
+    aria:         ["Per al lector de pantalla: la recta", ["a", "b", "n"]]
+  },
+  "19.2": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    pregunta:     ["Pregunta de cada pas", ["n"]],
+    comenca:      ["Avís abans de contestar", []],
+    encert:       ["Resposta correcta", ["n", "r"]],
+    encert_justa: ["Resposta correcta, just a la ratlla del mig", ["n", "r"]],
+    error_truncat: ["Error: truncar en lloc d'arrodonir (la regla trencada)", []],
+    error_amunt:  ["Error: anar amunt quan no toca", ["n"]],
+    error_unitat: ["Error: arrodonir a les unitats", []],
+    pista:        ["Pista del primer error", []]
+  },
+  "20.1": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    suma:         ["Com se suma", []],
+    resta:        ["Com es resta", []],
+    zero:         ["El zero que iguala les xifres: 2,5 és 2,50", ["n", "n2"]],
+    u:            ["El compte dels quadrats: «2 + 1 = 3»", ["calcul"]],
+    d:            ["El compte de les columnes: «5 + 3 = 8»", ["calcul"]],
+    c:            ["El compte dels quadrets sols: «0 + 5 = 5»", ["calcul"]],
+    aria_suma:    ["Per al lector de pantalla: la suma", ["a", "b", "r"]],
+    aria_resta:   ["Per al lector de pantalla: la resta", ["a", "b", "r"]]
+  },
+  "20.2": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    comenca:      ["Avís abans de contestar", []],
+    encert:       ["Resposta correcta, amb dues xifres decimals: «2,50 + 1,35 = 3,85»", ["calcul"]],
+    error_dreta:  ["Error: les xifres a la dreta, sense mirar la coma", []],
+    error_parts:  ["Error: sumar el que hi ha després de la coma com si fos igual", []]
+  },
+  "21.1": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    quadrets:     ["Quants quadrets de 100 és la fracció", ["f", "quadrets"]],
+    columnes:     ["Quantes columnes i quadrets, i quantes dècimes i centèsimes", ["col", "qs", "d", "c"]],
+    columnes_sol: ["Quan són columnes senceres", ["col", "d"]],
+    percent:      ["El percentatge", ["p"]],
+    aria:         ["Per al lector de pantalla", ["n"]]
+  },
+  "21.2": {
+    nom:          ["Nom de la subtasca a la barra", []],
+    titol:        ["Títol de la targeta", []],
+    ajuda:        ["Consigna sota el títol", []],
+    pregunta:     ["Pregunta de cada pas", ["f"]],
+    comenca:      ["Avís abans de contestar", []],
+    encert:       ["Resposta correcta", ["f", "q", "r"]],
+    error_baix:   ["Error: el de baix després de la coma (la regla trencada)", []],
+    error_barra:  ["Error: la barra com una coma", []],
+    pista:        ["Pista del primer error", ["f"]]
   }
 };

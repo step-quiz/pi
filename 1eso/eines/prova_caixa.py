@@ -110,6 +110,10 @@ def revisa_pantalla(pg, on):
     comprova(not re.search(r"\d\s*[xX]\s*\d", visible), f"{on}: una «x» multiplica")
     grans = [int(n) for n in re.findall(r"\d+", visible) if int(n) > 999]
     comprova(not grans, f"{on}: nombres de més de 999: {grans}")
+    # Els decimals de la unitat 5: fins a 9,99, amb dues xifres decimals com a molt.
+    fora = [m.group(0) for m in re.finditer(r"(?<![\d,])(\d+),(\d+)(?![\d,])", visible)
+            if int(m.group(1)) > 9 or len(m.group(2)) > 2]
+    comprova(not fora, f"{on}: decimals de més de 9,99 o amb més de dues xifres: {fora}")
 
 
 def llegeix_codi(pg, codi):
@@ -133,14 +137,18 @@ def main():
         # ------------------------------------------------------------------
         titol("TOTES LES SUBTASQUES S'OBREN")
         obre(pg)
-        for mod, n in [("taules", 3), ("rect", 4), ("quadrat", 3), ("cdu", 2), ("ordre", 2),
-                       ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2),
-                       ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2), ("area", 2)]:
+        subs = [("taules", 3), ("rect", 4), ("quadrat", 4), ("cdu", 2), ("ordre", 2),
+                ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2),
+                ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2), ("area", 2),
+                ("fraccnombre", 2), ("multfrac", 2), ("percentatges", 2), ("dobletriple", 2),
+                ("decimals", 3), ("arrodonir", 2), ("sumadec", 2), ("fracdec", 2)]
+        for mod, n in subs:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
                 pg.wait_for_timeout(120)
                 revisa_pantalla(pg, f"{mod} {sub}")
-        print(f"  34 subtasques, cap frase sense definir ni cap nombre de més de 999: {not errors}")
+        print(f"  {sum(n for _, n in subs)} subtasques, cap frase sense definir, cap nombre de més de 999 "
+              f"i cap decimal de més de 9,99: {not errors}")
 
         # ------------------------------------------------------------------
         titol("DADES DELS MÒDULS")
@@ -882,6 +890,217 @@ def main():
         codis["13.2"] = (codi, "Quina àrea té?", (5, 4, 1, 0))
         print(f"  cinc passos, un error amb pista; codi {codi}")
 
+
+        # ------------------------------------------------------------------
+        titol("UNITAT 4 · LES QUATRE TASQUES TANCADES")
+        # Aquestes proves no hi eren: la tasca 15 escrivia dins de la taula de la tasca 0
+        # (tt- i tf- repetits) i ningú no ho va veure (29/9/2026). Es contesten tocant les
+        # opcions per ordre fins que surt «Correcte.»: el resum ha de sumar 5 i el codi,
+        # llegir-se a verifica.html amb els mateixos recomptes.
+        def tasca_tocant(pg, mod, pref, nom):
+            modul(pg, mod, 2)
+            for pas in range(5):
+                for intent in range(3):
+                    lliures = pg.locator(f"#{pref}-opcions button:not([disabled])")
+                    if not lliures.count() or pg.is_enabled(f"#{pref}-seguent"):
+                        break
+                    lliures.nth(0).click()
+                    av = text(pg, f"#{pref}-avis")
+                    if intent == 0 and av.startswith("Incorrecte."):
+                        comprova("Pista" in av, f"{nom}: el primer error no porta pista: «{av}»")
+                comprova(pg.is_enabled(f"#{pref}-seguent"), f"{nom}: el pas {pas + 1} no s'acaba")
+                pg.click(f"#{pref}-seguent")
+            nums, codi = final_de(pg, pref)
+            n = [int(nums.get(k, -9)) for k in ("Passos", "Correctes al primer intent",
+                                                  "Correctes amb una pista", "Amb la resposta ensenyada")]
+            comprova(n[0] == 5 and sum(n[1:]) == 5, f"{nom}: el resum no quadra: {nums}")
+            comprova(bool(codi), f"{nom}: no surt el codi")
+            return codi, tuple(n)
+
+        obre(pg)
+        for mod, pref, id_, nom in [("fraccnombre", "fq", "14.2", "Quant és?"), ("multfrac", "mg", "15.2", "Quin tros és?"),
+                                    ("percentatges", "pq", "16.2", "Quin percentatge és?"),
+                                    ("dobletriple", "dq", "17.2", "Quantes vegades hi cap?")]:
+            codi, n = tasca_tocant(pg, mod, pref, id_)
+            codis[id_] = (codi, nom, n)
+            print(f"  {id_}: {n[0]} passos ({n[1]} al primer intent, {n[2]} amb pista, {n[3]} ensenyats); codi {codi}")
+        modul(pg, "multfrac", 1)
+        comprova(pg.locator("#mf-svg rect").count() > 0 and "1/2 · 1/4 = 1/8" in text(pg, "#mf-lectura"),
+                 "15.1: el tros de tros no es dibuixa")
+        print("  15.1: el tros de tros es dibuixa al seu lloc (1/2 · 1/4 = 1/8)")
+
+        # ------------------------------------------------------------------
+        titol("DADES DE LA UNITAT 5 (DECIMALS I ARREL)")
+        def dec(c, x=None):
+            """Com CE.q.dec: 243 → «2,43»; amb x = 1 o 2, amb aquelles xifres decimals."""
+            u, r = divmod(c, 100)
+            if x == 2:
+                return f"{u},{r:02d}"
+            if x == 1:
+                return f"{u},{round(r / 10)}"
+            if r == 0:
+                return str(u)
+            return f"{u},{r // 10}" if r % 10 == 0 else f"{u},{r:02d}"
+        def centesimes(t):
+            """«2,43» → 243; «3» → 300."""
+            u, _, r = t.strip().partition(",")
+            return int(u) * 100 + (int(r.ljust(2, "0")) if r else 0)
+
+        d5 = pg.evaluate("""() => {
+            const D = CE.dades;
+            return { zero: D.decimals.ZERO_MIG, altres: D.decimals.ALTRES, trenc: D.decimals.TRENCADES,
+                     control: D.decimals.CONTROL,
+                     op18: D.decimals.ZERO_MIG.concat(D.decimals.ALTRES).map(c => D.decimals.opcionsDe(c)),
+                     amunt: D.arrodonir.AMUNT, avall: D.arrodonir.AVALL,
+                     op19: D.arrodonir.AMUNT.concat(D.arrodonir.AVALL).map(c => D.arrodonir.opcionsDe(c)),
+                     ops: D.sumadec.OPS, casos20: D.sumadec.CASOS2, op20: D.sumadec.CASOS2.map(c => D.sumadec.opcionsDe(c)),
+                     fr: D.fracdec.FRACCIONS, casos21: D.fracdec.CASOS2, op21: D.fracdec.CASOS2.map(f => D.fracdec.opcionsDe(f)),
+                     ns24: D.quadrat.NS24, op24: D.quadrat.NS24.map(n => D.quadrat.opcionsDe24(n)),
+                     noms: [243, 304, 340, 75, 1, 10, 100, 121, 222, 931, 0, 999, 5].map(c => [c, D.decimals.nomDecimal(c)]) };
+        }""")
+        comprova(all(0 < c <= 999 for c in d5["zero"] + d5["altres"]), "18.2: decimals fora de 0,01 a 9,99")
+        comprova(all(c // 10 % 10 == 0 and c % 10 for c in d5["zero"]), "18.2: ZERO_MIG ha de tenir un zero a les dècimes")
+        comprova(all(len({o[1] for o in ops}) == 3 for ops in d5["op18"]), "18.2: dues opcions iguals")
+        ndec = lambda c: len(dec(c).partition(",")[2])
+        comprova(all(g > p_ and ndec(g) < ndec(p_) for g, p_ in d5["trenc"]), "18.3: a les trencades, el gran ha de tenir menys xifres")
+        comprova(all(g > p_ and ndec(g) > ndec(p_) for g, p_ in d5["control"]), "18.3: a les altres, el gran ha de tenir més xifres")
+        esperats = {243: "dues unitats i quaranta-tres centèsimes", 304: "tres unitats i quatre centèsimes",
+                    340: "tres unitats i quatre dècimes", 75: "setanta-cinc centèsimes", 1: "una centèsima",
+                    10: "una dècima", 100: "una unitat", 121: "una unitat i vint-i-una centèsimes",
+                    222: "dues unitats i vint-i-dues centèsimes", 931: "nou unitats i trenta-una centèsimes",
+                    0: "zero", 999: "nou unitats i noranta-nou centèsimes", 5: "cinc centèsimes"}
+        for c, nom_ in d5["noms"]:
+            comprova(nom_ == esperats[c], f"nom del decimal {dec(c)}: «{nom_}» i hauria de ser «{esperats[c]}»")
+        comprova(all(c % 10 >= 5 for c in d5["amunt"]) and all(0 < c % 10 < 5 for c in d5["avall"]),
+                 "19.2: els casos d'amunt i d'avall no quadren")
+        comprova(all(len({o[1] for o in ops}) == 3 for ops in d5["op19"]), "19.2: dues opcions iguals")
+        comprova(all(c < 900 for c in d5["amunt"] + d5["avall"]), "19.2: arrodonit passaria de 9,99")
+        for a, b, r in d5["ops"] + d5["casos20"]:
+            xa, xb = [(c // 100, c // 10 % 10, c % 10) for c in (a, b)]
+            if r:
+                comprova(all(p_ >= q for p_, q in zip(xa, xb)), f"20: {dec(a)} − {dec(b)} demana portar-ne")
+            else:
+                comprova(all(p_ + q <= 9 for p_, q in zip(xa, xb)), f"20: {dec(a)} + {dec(b)} demana portar-ne")
+        for (a, b, r), ops in zip(d5["casos20"], d5["op20"]):
+            comprova(len({o[1] for o in ops}) == 3 and ops[0][1] == dec(a - b if r else a + b),
+                     f"20.2: {dec(a)} i {dec(b)}: les opcions no quadren ({ops})")
+        comprova(all(d in (2, 4, 5, 10) and 0 < n < d for n, d in d5["fr"] + d5["casos21"]),
+                 "21: les fraccions han de fer quadrets sencers de 100, amb els denominadors 2, 4, 5 i 10")
+        comprova(all(len({o[1] for o in ops}) == 3 for ops in d5["op21"]), "21.2: dues opcions iguals")
+        comprova(all(1 < n <= 100 and int(n ** 0.5) ** 2 != n for n in d5["ns24"]), "2.4: nombres que són quadrats o passen de 100")
+        comprova(all(len({(o[1], o[2]) for o in ops}) == 3 for ops in d5["op24"]), "2.4: dues opcions iguals")
+        print(f"  {len(d5['zero']) + len(d5['altres'])} decimals per llegir, {len(d5['trenc']) + len(d5['control'])} parelles per comparar, "
+              f"{len(d5['amunt']) + len(d5['avall'])} per arrodonir, {len(d5['casos20'])} operacions sense portar-ne, "
+              f"{len(d5['casos21'])} fraccions i {len(d5['ns24'])} arrels; {len(esperats)} noms de decimals")
+
+        titol("18.1 · FES EL DECIMAL")
+        obre(pg); modul(pg, "decimals", 1)
+        lec = text(pg, "#xa-lectura")
+        comprova("2,43" in lec and "Es llegeix: dues unitats i quaranta-tres centèsimes." in lec, f"18.1: el 2,43: «{lec}»")
+        comprova(pg.is_visible("#xa-marca"), "18.1: s'obre sense la marca «Exemple»")
+        mou(pg, "#xa-d", 0)
+        lec = text(pg, "#xa-lectura")
+        comprova("2,03" in lec and "dues unitats i tres centèsimes" in lec, f"18.1: el 2,03: «{lec}»")
+        comprova(not pg.is_visible("#xa-marca"), "18.1: la marca «Exemple» amb un altre cas")
+        print("  2,43 dues unitats i quaranta-tres centèsimes; 2,03, amb el zero que manté el lloc")
+
+        def tasca_dec(pg, mod, sub, pref, bona, nom, sel="button"):
+            """Una tasca tancada de triar. `bona(pg)` diu el text de l'opció bona."""
+            modul(pg, mod, sub)
+            for pas in range(5):
+                b = bona(pg)
+                if pas == 2:
+                    pg.click(f'#{pref}-opcions {sel}:not(:text-is("{b}")) >> nth=0')
+                    av = text(pg, f"#{pref}-avis")
+                    comprova(av.startswith("Incorrecte.") and "Pista" in av, f"{nom}: la pista del primer error: «{av}»")
+                pg.click(f'#{pref}-opcions {sel}:text-is("{b}")')
+                comprova(text(pg, f"#{pref}-avis").startswith("Correcte."), f"{nom}: pas {pas + 1}: la bona era {b}")
+                pg.click(f"#{pref}-seguent")
+            nums, codi = final_de(pg, pref)
+            comprova(nums == {"Passos": "5", "Correctes al primer intent": "4", "Correctes amb una pista": "1",
+                              "Amb la resposta ensenyada": "0"}, f"{nom}: el resum no quadra: {nums}")
+            return codi
+
+        titol("18.2 · QUIN DECIMAL ÉS?")
+        def bona182(pg):
+            q, col, qs = [int(x) for x in re.findall(r": (\d+)", pg.get_attribute("#xb-blocs", "aria-label"))]
+            return dec(q * 100 + col * 10 + qs)
+        codis["18.2"] = (tasca_dec(pg, "decimals", 2, "xb", bona182, "18.2"), "Quin decimal és?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['18.2'][0]}")
+
+        titol("18.3 · QUIN ÉS MÉS GRAN?")
+        def bona183(pg):
+            ts = pg.eval_on_selector_all("#xc-opcions button", "bs => bs.map(b => b.textContent)")
+            return max(ts, key=centesimes)
+        modul(pg, "decimals", 3)
+        comprova(pg.is_hidden("#xc-dibuix"), "18.3: els blocs es veuen abans de contestar")
+        codis["18.3"] = (tasca_dec(pg, "decimals", 3, "xc", bona183, "18.3"), "Quin és més gran?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; els blocs, només després de contestar; codi {codis['18.3'][0]}")
+
+        titol("19.1 · EL DECIMAL A LA RECTA")
+        modul(pg, "arrodonir", 1)
+        lec = text(pg, "#ra-lectura")
+        comprova("més a prop de 3,5" in lec and "Arrodonit a les dècimes: 3,5." in lec and "Truncat a les dècimes: 3,4." in lec,
+                 f"19.1: el 3,47: «{lec}»")
+        mou(pg, "#ra-c", 5)
+        comprova("a la ratlla del mig" in text(pg, "#ra-lectura"), "19.1: el 3,45 és a la ratlla del mig")
+        mou(pg, "#ra-c", 2)
+        comprova("més a prop de 3,4" in text(pg, "#ra-lectura"), "19.1: el 3,42 va avall")
+        mou(pg, "#ra-u", 0); mou(pg, "#ra-d", 9); mou(pg, "#ra-c", 6)
+        comprova("Arrodonit a les dècimes: 1,0." in text(pg, "#ra-lectura"), f"19.1: el 0,96 arrodonit és 1,0: «{text(pg, '#ra-lectura')}»")
+        comprova(pg.locator("#ra-svg circle.q-punt").count() == 1, "19.1: a la recta hi falta el punt")
+        print("  3,47 → 3,5 i 3,4; 3,45 a la ratlla del mig; 3,42 avall; 0,96 → 1,0")
+
+        titol("19.2 · ARRODONEIX")
+        def bona192(pg):
+            c = centesimes(re.search(r"(\d+,\d+)", text(pg, "#rb-pregunta")).group(1))
+            return dec(c - c % 10 + (10 if c % 10 >= 5 else 0), 1)
+        codis["19.2"] = (tasca_dec(pg, "arrodonir", 2, "rb", bona192, "19.2"), "Arrodoneix", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['19.2'][0]}")
+
+        titol("20.1 · SUMA I RESTA")
+        modul(pg, "sumadec", 1)
+        lec = text(pg, "#sc-lectura")
+        comprova("2,5 + 1,35 = 3,85" in lec and "2,5 és el mateix que 2,50" in lec, f"20.1: 2,5 + 1,35: «{lec}»")
+        comprova(pg.locator("#sc-blocs rect.nou").count() > 0, "20.1: el segon sumand no es distingeix")
+        pg.click("#sc-ops .pastilla >> nth=3")
+        lec = text(pg, "#sc-lectura")
+        comprova("5,85 − 2,3 = 3,55" in lec and pg.locator("#sc-blocs line.q-ratlla").count() > 0, f"20.1: la resta: «{lec}»")
+        print("  2,5 + 1,35 = 3,85, amb 2,50; 5,85 − 2,3 = 3,55, amb el que es treu ratllat")
+
+        titol("20.2 · QUANT ÉS?")
+        def bona202(pg):
+            t = text(pg, "#sd-pregunta")
+            a, b = [centesimes(x) for x in re.findall(r"\d+(?:,\d+)?", t)]
+            return dec(a - b if "−" in t else a + b)
+        codis["20.2"] = (tasca_dec(pg, "sumadec", 2, "sd", bona202, "20.2"), "Quant és?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['20.2'][0]}")
+
+        titol("21.1 · PINTA LA FRACCIÓ")
+        modul(pg, "fracdec", 1)
+        comprova(pg.locator("#fc-svg rect.q:not(.falta)").count() == 25 and "= 0,25" in text(pg, "#fc-lectura")
+                 and "2 columnes i 5 quadrets" in text(pg, "#fc-lectura"), f"21.1: 1/4: «{text(pg, '#fc-lectura')}»")
+        pg.click("#fc-pastilles .pastilla >> nth=2")
+        comprova(pg.locator("#fc-svg rect.q:not(.falta)").count() == 75 and "= 0,75" in text(pg, "#fc-lectura"), "21.1: 3/4")
+        print("  1/4: 25 quadrets, 2 columnes i 5 quadrets, 0,25; 3/4: 75 quadrets, 0,75")
+
+        titol("21.2 · DE FRACCIÓ A DECIMAL")
+        def bona212(pg):
+            n, d = map(int, re.findall(r"\d+", text(pg, "#fd-pregunta")))
+            return dec(100 // d * n)
+        modul(pg, "fracdec", 2)
+        comprova(pg.get_attribute("#fd-svg", "hidden") is not None, "21.2: el quadrat pintat es veu abans de contestar")
+        codis["21.2"] = (tasca_dec(pg, "fracdec", 2, "fd", bona212, "21.2"), "De fracció a decimal", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['21.2'][0]}")
+
+        titol("2.4 · ENTRE QUINS DOS NOMBRES?")
+        def bona24(pg):
+            n = int(re.search(r"√(\d+)", text(pg, "#q4-pregunta")).group(1))
+            k = int(n ** 0.5)
+            return f"{k} i {k + 1}"
+        codis["2.4"] = (tasca_dec(pg, "quadrat", 4, "q4", bona24, "2.4"), "Entre quins dos nombres?", (5, 4, 1, 0))
+        print(f"  cinc passos, un error amb pista; codi {codis['2.4'][0]}")
+
         # ------------------------------------------------------------------
         titol("CODIS A verifica.html")
         for id_, (codi, nom, (pas, be, pista, most)) in codis.items():
@@ -928,6 +1147,9 @@ def main():
         comprova(pg.is_visible("#mod-cdu .sub-avant"), "?task=3: amb l'enllaç a tota l'eina, les fletxes hi han de ser")
         obre(pg, CAIXA + "?task=0.2")
         comprova(text(pg, "#mod-taules .sub-rotul").startswith("0.2"), "?task=0.2 no obre la 0.2")
+        obre(pg, CAIXA + "?task=18.3")
+        comprova(text(pg, "#mod-decimals .sub-rotul").startswith("18.3") and not pg.is_visible("#mod-decimals .sub-avant"),
+                 "?task=18.3 no obre la 18.3, o s'hi veuen les fletxes")
         print("  represa al pas 2; claus pi1-; ?task=1.3 sense fletxes, ?task=3 amb fletxes, ?task=0.2")
 
         # ------------------------------------------------------------------

@@ -360,3 +360,41 @@ svg.tira-frac{max-width:28rem;margin:.5rem auto}
 .frac>span:last-child{padding:.06em .22em 0}
 .opcio-frac{font-size:1.45rem;min-height:4.4rem;min-width:5.5rem}
 
+
+/* ======================================================== unitat 5 ====== */
+
+/* El segon sumand (20.1): un altre color i, a més, el traç discontinu, perquè el
+   color no sigui l'única diferència. */
+.q.b.nou{stroke-dasharray:4 2}
+
+/* La recta numèrica (19.1, 19.2): l'eix, les ratlles i el punt. La ratlla del mig,
+   discontínua: és la que diu cap a on s'arrodoneix. */
+svg.recta{width:100%;max-width:24rem;margin:.4rem auto;display:block}
+.q-eix{stroke:var(--etiqueta);stroke-width:2.5;stroke-linecap:round}
+.q-eix.mig{stroke-dasharray:4 3;stroke-width:2.5}
+.q-punt{fill:var(--blau);stroke:var(--superficie);stroke-width:2.5}
+
+/* El quadrat de 100 dels decimals (21.1, 21.2). */
+svg.quadrat100{max-width:20rem;margin:.4rem auto}
+
+/* La taula de posicions dels decimals: Unitats | , | Dècimes | Centèsimes. La coma,
+   en una columna estreta. */
+.vp-col.vp-coma{flex:0 0 1.2rem;min-width:1.2rem}
+.vp-coma .vp-cel{background:none;font-size:2.2rem}
+
+/* 18.2, 18.3, 19.2, 20.2 i 21.2: les opcions són decimals, en lletra gran. */
+.opcio-dec{font-size:1.5rem;font-variant-numeric:tabular-nums}
+
+/* 20.1 i 20.2: la suma i la resta en columna, amb la coma sota la coma. */
+table.columna{border-collapse:collapse;margin:.6rem 0;font-size:1.7rem;font-weight:700;
+  font-variant-numeric:tabular-nums}
+table.columna td{padding:.05rem .35rem;text-align:center;min-width:1.4rem}
+table.columna td.op{color:var(--etiqueta-2);font-weight:600}
+table.columna tr.resultat td{border-top:3px solid var(--etiqueta)}
+table.columna tr.resultat td.op{border-top:0}
+table.columna th{font-size:.8rem;font-weight:600;color:var(--etiqueta-2);padding:0 .35rem}
+
+/* 18.3: els blocs dels dos decimals, un sota l'altre, amb el decimal a sobre. */
+.dos-blocs{margin:.2rem 0 .6rem}
+.dos-blocs .peu-dibuix{font-size:1.4rem;font-weight:800;margin:.7rem 0 0;font-variant-numeric:tabular-nums}
+.dos-blocs .blocs{margin-top:.3rem}

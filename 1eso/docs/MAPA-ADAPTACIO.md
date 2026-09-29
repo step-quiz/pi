@@ -71,11 +71,11 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 
 | Unitat | Dates del grup | Sessions | Criteris de la SA (referència) | Estat |
 |---|---|---|---|---|
-| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Targeta de les taules, caixa d'eines, quatre fitxes i examen fets. Falten els PDF de les fitxes |
-| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Caixa d'eines (tasques 5 a 8), cinc fitxes i examen fets. Falten els PDF de les fitxes |
-| 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes i examen. Falten els PDF |
-| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes i examen. Falten els PDF de les fitxes |
-| 5 · Decimals i arrel quadrada | 1–15 de març | 7 | 5.1, 7.1, 8.1 | Per fer |
+| 1 · Nombres naturals | des del 9 de setembre | 13 i un examen | 1.3, 2.1, 8.1 | Feta: targeta de les taules, caixa d'eines, quatre fitxes, els PDF i l'examen |
+| 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Feta: caixa (tasques 5 a 8), cinc fitxes, els PDF i l'examen |
+| 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
+| 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
+| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat i caixa feta (tasques 18 a 21 i la 2.4). Falten la targeta, les sis fitxes i l'examen |
 | 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
@@ -355,7 +355,7 @@ El valor decimal de les fraccions (1/8 = 0,125) és de la unitat 5.
 | 4 · `ud4-dobletriple.html` | Dobles i triples, amb dues files de quadrets | Feta |
 | 5 · `ud4-repas.html` | El repàs de la unitat, i «Què he après?» | Feta |
 
-Falten els PDF, que es fan al Codespace amb `generadors/gen_pdf.py`.
+Els PDF es fan al Codespace amb `generadors/gen_pdf.py`.
 
 **Les decisions, amb data:**
 
@@ -389,6 +389,82 @@ Falten els PDF, que es fan al Codespace amb `generadors/gen_pdf.py`.
 **Per revisar:** les xifres de l'exercici 3 de la fitxa 4 (l'ou i l'ocell: 6, 40 i 50 cm) són un
 exemple inventat per il·lustrar, no dades reals: un ou de kiwi de veritat és més llarg (uns 12 cm,
 a comprovar). Cal posar-hi les del grup.
+
+---
+
+## 8 bis. La unitat 5: «Decimals i arrel quadrada», activitat per activitat
+
+**El material del grup.** La programació (SA5, de l'1 al 15 de març, 7 sessions) i, des del 29 de
+setembre de 2026, el llibre del grup (`llibre_1ESO`, en LaTeX, unitat 5 amb vuit activitats; la
+vuitena és un examen). El llibre és el que es fa servir per als casos (regla 8): 3,4 i 3,04, l'error
+de la Berta (0,8 i 0,75), 5,86 truncat i arrodonit, 3,47 → 3,5, el √16 = 8 del Joel i √50 entre 7 i
+8. Ull per a més endavant: el llibre parteix la SA6 en dues unitats (UD6 formes i UD7 mesura) i la
+SA7 hi és la UD8. El material segueix les SA.
+
+**El pla el va validar el docent el 29 de setembre de 2026.** El nucli: el quadrat de 100 quadrets
+és 1, com el tot dels percentatges de la unitat 4. Una columna és 0,1 (una dècima) i un quadret és
+0,01 (una centèsima): 2,43 es fa amb els mateixos blocs que el 243 de la unitat 1, i 1/4 = 0,25 són
+els 25 quadrets del 25 %. L'arrel continua sent el costat del quadrat. El nivell 1 del criteri 5.1 és
+justament aquest nucli: decimals exactes ↔ fracció, i √(a²) = a.
+
+| Activitat del grup | Què hi fa el grup | Què en fa aquest material | On |
+|---|---|---|---|
+| 1 · Què en sabem? Quadrats de cartolina | Diagnòstic, i el costat de quadrats de 9, 16 i 25 | Els quadrats de cartolina són el graó físic de la fitxa de l'arrel | Fitxa 5 |
+| 2 · Els decimals | Representar, ordenar, arrodonir i truncar | Els blocs, amb el quadrat de 100 com a unitat; comparar; arrodonir a les dècimes a la recta, i truncar | Caixa 18 i 19 · fitxes 1 i 2 |
+| 3 · Operacions amb decimals | Sumar, restar, multiplicar i dividir | Sumar i restar amb la coma sota la coma, sense portar-ne, i amb euros i cèntims. **Multiplicar i dividir, fora** | Caixa 20 · fitxa 3 |
+| 4 · De la fracció al decimal | Exactes i periòdics | Les fraccions de denominador 2, 4, 5 i 10 al quadrat de 100, i al revés (0,3 = 3/10). **Els periòdics, fora** | Caixa 21 · fitxa 4 |
+| 5 · Quadrats perfectes i arrel | Quadrats perfectes, arrel exacta i no exacta, aproximar amb decimals | Els quadrats de la targeta (fins a 10 · 10), l'arrel com a costat, i les no exactes entre dos nombres. **Aproximar amb decimals, fora** | Caixa 2.3 i 2.4 · fitxa 5 |
+| 6 · Mapa conceptual del bloc | Un mapa col·lectiu, i la reflexió emocional | Es fa amb el grup. A la fitxa de repàs, el carnet d'un nombre (fracció, decimal, percentatge i quadrets) en fa el paper | Fitxa 6 |
+| 7 · Projecte de les rajoles | Mesurar l'aula i calcular les rajoles | Un plànol quadriculat amb les mesures donades: files per columnes, i si l'última fila és mitja rajola, en cal una de sencera | Fitxa 6 |
+| 8 · Examen (només al llibre) | Set exercicis | L'examen, en el mateix ordre | Examen |
+
+**Queda fora, i per què:** multiplicar i dividir decimals, també per 10 i per 100 (no tenen una imatge
+senzilla amb quadrets i surten de la targeta), i per això el problema de les pomes; aproximar una
+arrel amb decimals (3,1² = 9,61) i les arrels de més de 100 (√144, √169), perquè la targeta acaba a
+10 · 10; el truc dels factors 2 i 5 del denominador (nivell 3); mesurar l'aula de debò (el mateix
+llibre proposa donar les mesures a l'alumnat amb suports); i la calculadora, que la programació fa
+essencial per primer cop: aquí no hi entra (regla C).
+
+**La caixa de la unitat 5**, amb les regles trencades de les fitxes a les tasques tancades:
+
+| Tasca | Què fa | La regla trencada, o la confusió de debò |
+|---|---|---|
+| 18 · Decimals | 18.1 Fes el decimal (2,43) · **18.2 Quin decimal és?** · **18.3 Quin és més gran?** | 18.2: girar les columnes i els quadrets (3,4 per 3,04) i llegir-lo sense coma (243). 18.3: «més xifres vol dir més gran» (0,75 i 0,8) |
+| 19 · Arrodonir | 19.1 El decimal a la recta (3,47) · **19.2 Arrodoneix** | Arrodonir sempre avall, o tallar (3,47 → 3,4); anar amunt quan no toca; arrodonir a les unitats |
+| 20 · Sumar decimals | 20.1 Suma i resta (2,5 + 1,35) · **20.2 Quant és?** | Les xifres a la dreta, sense mirar la coma (2,5 + 1,35 = 1,60); sumar el que hi ha després de la coma com si fos igual (5 + 35 = 40, i 3,40) |
+| 21 · Fracció i decimal | 21.1 Pinta la fracció (1/4) · **21.2 De fracció a decimal** | El de baix després de la coma (1/4 = 0,4); la barra com una coma (1/4 = 1,4) |
+| 2 · Quadrats | **2.4 Entre quins dos nombres?**, al costat de la 2.3 | «L'arrel és la meitat» (√20 entre 10 i 11); passar-se d'un (5 i 6) |
+
+**Les fitxes de la unitat 5** (`fitxes/ud5*.html`), en l'ordre de la programació:
+
+| Fitxa | Què porta | Regla trencada | Estat |
+|---|---|---|---|
+| 1 · `ud5.html` | Els decimals: llegir-los i escriure'ls amb blocs, el zero que manté el lloc, i comparar | «Més xifres vol dir més gran» (0,75 i 0,8) | Per fer |
+| 2 · `ud5-arrodonir.html` | Arrodonir i truncar, amb la recta i la mitja columna | Arrodonir sempre avall (3,47 → 3,4) | Per fer |
+| 3 · `ud5-sumes.html` | Sumar i restar amb la coma sota la coma, amb euros i cèntims | No alinear la coma (2,5 + 1,35 = 1,60) | Per fer |
+| 4 · `ud5-fraccions.html` | De la fracció al decimal al quadrat de 100, i al revés | 1/4 = 0,4 | Per fer |
+| 5 · `ud5-arrel.html` | Quadrats perfectes, l'arrel com a costat, i les no exactes entre dos nombres | «L'arrel és la meitat» (√16 = 8) | Per fer |
+| 6 · `ud5-repas.html` | El carnet d'un nombre, les rajoles i «Què he après?» | — | Per fer |
+
+**L'examen:** set exercicis, en l'ordre de l'examen del llibre (valor i ordre, arrodonir i truncar,
+sumar i restar, fracció a decimal, l'arrel, un problema de diners i les rajoles), cada un amb l'a)
+resolt i tres apartats per fer, de les fitxes.
+
+**Les decisions, amb data:**
+
+- 29 de setembre de 2026: el pla, validat, amb les tres recomanacions. **Els decimals s'escriuen fins
+  a 9,99, amb dues xifres decimals com a molt**: 999 centèsimes, el mateix límit de sempre, amb els
+  blocs de la unitat 1 (les mil·lèsimes, com 0,125 = 1/8, en demanarien 1.000). **Els decimals
+  periòdics, fora**: el nivell 1 no els demana. **Una targeta nova, «Decimals i arrels»**: una cara
+  amb els blocs i els noms (unitat, dècima, centèsima) i l'altra amb les cares d'un nombre (1/2 = 0,5
+  = 50 %…) i els quadrats de l'1 al 10. És el «Quadern d'eines» del llibre i la fitxa de quadrats
+  perfectes que proposa la pestanya d'inclusió.
+- 29 de setembre de 2026: la caixa. Quatre eines noves (tasques 18 a 21) i una subtasca tancada a
+  Quadrats (la 2.4): l'arrel ja hi era, a la 2.3. Peces noves a `js/quadricula.js`: `dec` (el
+  decimal escrit a partir de les centèsimes), `quadrat100` (pintat per columnes, sense números),
+  `recta` (el segon model del curs, per a l'arrodoniment) i els blocs amb una segona part (el
+  segon sumand, o el que es resta). `comprova.py` calcula exactes les igualtats amb decimals i vigila
+  el límit de 9,99.
 
 ---
 

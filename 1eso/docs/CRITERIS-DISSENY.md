@@ -67,6 +67,11 @@ plastificades per a tothom.
    L'única excepció és «1 km = 1.000 m», a la unitat 3 (decisió del docent del 26/9/2026). El
    1.000 hi pot sortir només dins d'aquesta equivalència, i `eines/comprova.py` ho vigila. El
    1.000.000 dels km², mai: el km² es dibuixa, però no es converteix.
+- **Els decimals, fins a 9,99, amb dues xifres decimals com a molt** (unitat 5, decisió del
+   docent del 29/9/2026). És el mateix límit: 9,99 són 999 centèsimes, els blocs de la unitat 1
+   amb el quadrat de 100 com a unitat. Res de mil·lèsimes (0,125) ni de periòdics (0,333…).
+   `eines/comprova.py` ho vigila a les fitxes i a les frases de la caixa, i calcula exactes les
+   igualtats amb decimals («2,5 + 1,35 = 3,85», «1/4 = 0,25»).
 - **Sumes i restes sense portar-ne.** Si un càlcul en necessita, es canvien les dades.
 - **Multiplicacions: les de la targeta**, d'una xifra per una xifra o per 10.
 

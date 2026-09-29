@@ -102,19 +102,21 @@ window.UNITATS = [
       { fitxa: "fitxes/ud4-dobletriple.html", titol: "Dobles i triples" },
       { fitxa: "fitxes/ud4-repas.html", titol: "Repàs de la unitat" }
     ],
-    tasques: [14, 15, 16, 17],
-    fitxes: []
+    tasques: [14, 15, 16, 17]
   },
   {
     num: 5,
     titol: "Decimals i arrel quadrada",
     dates: "de l'1 al 15 de març",
     sessions: "7",
-    nucli: "A la quadrícula de 100, una columna és 0,1 i un quadret és 0,01. " +
+    nucli: "El quadrat de 100 quadrets és 1: una columna és 0,1 (una dècima) i un quadret és 0,01 " +
+           "(una centèsima). 2,43 són 2 quadrats, 4 columnes i 3 quadrets. " +
            "L'arrel és el costat del quadrat.",
-    material: "Quadrícula de 100: pintar una columna i un quadret. Fer un quadrat de 9 miniblocs.",
+    material: "Quadrícula de 100: pintar una columna i un quadret. " +
+              "Quadrats de cartolina: buscar el costat d'un quadrat de 9 i de 16 quadrets.",
     criteris: "5.1, 7.1, 8.1",
-    fitxes: []
+    fitxes: [],
+    tasques: [0, 2, 18, 19, 20, 21]
   },
   {
     num: 6,
