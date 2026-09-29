@@ -130,10 +130,14 @@ window.UNITATS = [
     titol: "Sentit espacial",
     dates: "del 5 d'abril al 10 de maig",
     sessions: "16",
-    nucli: "Polígons al geoplà. El perímetre és comptar costats de quadret.",
-    material: "Geoplà: fer un rectangle i resseguir-ne la vora comptant.",
+    nucli: "La cantonada d'un quadret és l'angle recte: agut és més petit, obtús és més gran. " +
+           "Polígons al geoplà. El perímetre és comptar els costats de quadret de la vora; " +
+           "l'àrea, els quadrets de dins.",
+    material: "Geoplà: fer un rectangle i resseguir-ne la vora comptant. " +
+              "Un full: la cantonada és l'angle recte.",
     criteris: "1.1, 3.1, 5.1, 6.1, 7.1, 9.1",
-    fitxes: []
+    fitxes: [],
+    tasques: [22, 23, 24, 25, 13]
   },
   {
     num: 7,

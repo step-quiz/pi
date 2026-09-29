@@ -42,7 +42,7 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 3 · Com és de gran Gaza? | Feta: caixa (9 a 13), set fitxes (l'àrea, les fraccions, els km²), targeta de les fraccions, examen. PDF fets |
 | 4 · És gran l'ou del kiwi? | Feta: caixa (14 a 17), cinc fitxes (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs), examen. PDF fets |
 | 5 · Decimals i arrel quadrada | **Feta** (29/9/2026): caixa (18 a 21, i la 2.4), targeta «Decimals i arrels», sis fitxes i examen (`generadors/examens/ud5.js`). El pla sencer i les decisions: `MAPA-ADAPTACIO.md`, apartat 8 bis |
-| 6 · Sentit espacial | **Per fer** |
+| 6 · Sentit espacial | **En curs**: pla validat (29/9/2026) i caixa feta (22 a 25). Falten la targeta «Formes», les sis fitxes i l'examen, en dos passos. El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
 | 7 · Patrons i llenguatge algebraic | **Per fer** |
 
 **Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et

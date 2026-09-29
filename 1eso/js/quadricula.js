@@ -318,6 +318,126 @@
     svg.setAttribute("viewBox", "0 0 " + RECTA.mida.join(" "));
   }
 
+  /* ============================================== la geometria (unitat 6) ===== */
+
+  /* La cantonada d'un quadret és l'angle recte: un angle agut és més petit que la
+     cantonada, un obtús és més gran i un de pla és una recta (decisió del docent del
+     29/9/2026: els angles es comparen amb la cantonada, sense transportador). */
+
+  /** Un angle: el vèrtex al mig de baix, un costat cap a la dreta i l'altre obert `graus`
+      (de 0 a 180). `o`:
+        llarg      la llargada dels costats (per defecte, 120): no canvia l'angle
+        cantonada  la cantonada d'un quadret al vèrtex, discontínua: l'angle recte
+      viewBox 0 0 360 200. */
+  const ANGLE = { vx: 180, vy: 185, mida: [360, 200] };
+  function angle(svg, graus, o) {
+    o = o || {};
+    svg.textContent = "";
+    const L = o.llarg || 120, a = graus * Math.PI / 180, r = 34, { vx, vy } = ANGLE;
+    const px = x => Math.round(x * 10) / 10;
+    const x2 = px(vx + L * Math.cos(a)), y2 = px(vy - L * Math.sin(a));
+    const ax = px(vx + r * Math.cos(a)), ay = px(vy - r * Math.sin(a));
+    svg.appendChild(el("path", { d: `M${vx} ${vy} L${vx + r} ${vy} A${r} ${r} 0 0 0 ${ax} ${ay} Z`, class: "angle-sector" }));
+    if (o.cantonada) svg.appendChild(el("path", { d: `M${vx + 46} ${vy} V${vy - 46} H${vx}`, class: "cantonada" }));
+    svg.appendChild(el("line", { x1: vx, y1: vy, x2: vx + L, y2: vy, class: "angle-costat" }));
+    svg.appendChild(el("line", { x1: vx, y1: vy, x2: x2, y2: y2, class: "angle-costat" }));
+    svg.appendChild(el("circle", { cx: vx, cy: vy, r: 5, class: "angle-vertex" }));
+    svg.setAttribute("viewBox", "0 0 " + ANGLE.mida.join(" "));
+  }
+  /** El tipus d'un angle, pel que fa a la cantonada: "agut", "recte", "obtus" o "pla". */
+  const tipusAngle = g => (g < 90 ? "agut" : g === 90 ? "recte" : g < 180 ? "obtus" : "pla");
+
+  /** El geoplà: una quadrícula de punts de 6 per 6 i un polígon pels punts `pts`, cada un
+      [x, y] de 0 a 5 (y cap avall). Els vèrtexs, més marcats. viewBox 0 0 340 340. */
+  const GEO = { n: 6, m: 56, x0: 30, mida: 340 };
+  function geopla(svg, pts, o) {
+    o = o || {};
+    svg.textContent = "";
+    const X = v => GEO.x0 + v * GEO.m;
+    for (let i = 0; i < GEO.n; i++)
+      for (let j = 0; j < GEO.n; j++)
+        svg.appendChild(el("circle", { cx: X(i), cy: X(j), r: 3.5, class: "geo-punt" }));
+    if (pts && pts.length) {
+      svg.appendChild(el("polygon", { points: pts.map(([x, y]) => X(x) + "," + X(y)).join(" "),
+                                      class: o.classe || "poligon" }));
+      pts.forEach(([x, y]) => svg.appendChild(el("circle", { cx: X(x), cy: X(y), r: 7, class: "angle-vertex" })));
+    }
+    svg.setAttribute("viewBox", "0 0 " + GEO.mida + " " + GEO.mida);
+  }
+
+  /** Els angles d'un triangle de vèrtexs enters, en graus, i si n'hi ha cap de recte o
+      d'obtús: amb enters, el producte escalar diu si és recte (0) o obtús (negatiu) sense
+      arrodonir res. */
+  function anglesTriangle(pts) {
+    return pts.map((p, i) => {
+      const a = pts[(i + 1) % 3], b = pts[(i + 2) % 3];
+      const u = [a[0] - p[0], a[1] - p[1]], v = [b[0] - p[0], b[1] - p[1]];
+      const pe = u[0] * v[0] + u[1] * v[1];
+      const g = Math.acos(pe / (Math.hypot(...u) * Math.hypot(...v))) * 180 / Math.PI;
+      return { g, pe };
+    });
+  }
+  const tipusTriangle = pts => {
+    const as = anglesTriangle(pts);
+    return as.some(a => a.pe === 0) ? "rectangle" : as.some(a => a.pe < 0) ? "obtusangle" : "acutangle";
+  };
+
+  /** Un triangle al geoplà, amb un arc numerat a cada angle (1, 2 i 3: el número, i no
+      només el color, diu quin és cada un). viewBox 0 0 340 340. */
+  function triangle(svg, pts, o) {
+    o = o || {};
+    geopla(svg, pts, { classe: "poligon" });
+    const X = v => GEO.x0 + v * GEO.m, r = 30;
+    if (!o.arcs) return;
+    pts.forEach((p, i) => {
+      const a = pts[(i + 1) % 3], b = pts[(i + 2) % 3];
+      let t1 = Math.atan2(-(a[1] - p[1]), a[0] - p[0]), t2 = Math.atan2(-(b[1] - p[1]), b[0] - p[0]);
+      let d = t2 - t1;
+      while (d <= -Math.PI) d += 2 * Math.PI;
+      while (d > Math.PI) d -= 2 * Math.PI;
+      const cx = X(p[0]), cy = X(p[1]);
+      const pt = t => [Math.round((cx + r * Math.cos(t)) * 10) / 10, Math.round((cy - r * Math.sin(t)) * 10) / 10];
+      const [x1, y1] = pt(t1), [x2, y2] = pt(t1 + d), m = t1 + d / 2;
+      svg.appendChild(el("path", { d: `M${cx} ${cy} L${x1} ${y1} A${r} ${r} 0 0 ${d > 0 ? 0 : 1} ${x2} ${y2} Z`,
+                                   class: "ang ang" + (i + 1) }));
+      text(svg, cx + 48 * Math.cos(m), cy - 48 * Math.sin(m) + 6, String(i + 1), "q-text fort", 18);
+    });
+  }
+
+  /** Els tres angles d'un triangle, un al costat de l'altre al mateix punt: fan un angle
+      pla. Amb els mateixos números i les mateixes classes que `triangle`. viewBox 0 0 360 180. */
+  function anglesJunts(svg, pts) {
+    svg.textContent = "";
+    const as = anglesTriangle(pts).map(a => a.g), cx = 180, cy = 160, r = 120;
+    svg.appendChild(el("line", { x1: 20, y1: cy, x2: 340, y2: cy, class: "angle-costat" }));
+    let ini = 0;
+    as.forEach((g, i) => {
+      const t1 = ini * Math.PI / 180, t2 = (ini + g) * Math.PI / 180, m = (t1 + t2) / 2;
+      const pt = t => [Math.round((cx + r * Math.cos(t)) * 10) / 10, Math.round((cy - r * Math.sin(t)) * 10) / 10];
+      const [x1, y1] = pt(t1), [x2, y2] = pt(t2);
+      svg.appendChild(el("path", { d: `M${cx} ${cy} L${x1} ${y1} A${r} ${r} 0 0 0 ${x2} ${y2} Z`, class: "ang ang" + (i + 1) }));
+      text(svg, cx + 78 * Math.cos(m), cy - 78 * Math.sin(m) + 7, String(i + 1), "q-text fort", 20);
+      ini += g;
+    });
+    svg.appendChild(el("circle", { cx, cy, r: 5, class: "angle-vertex" }));
+    svg.setAttribute("viewBox", "0 0 360 180");
+  }
+
+  /** Un rectangle de f files i c columnes de quadrets, amb la vora gruixuda i els costats
+      numerats per fora: c a dalt i a baix, f a l'esquerra i a la dreta. El perímetre és
+      la vora; l'àrea, els quadrets de dins. viewBox 0 0 340 300. */
+  function vora(svg, f, c) {
+    svg.textContent = "";
+    const m = Math.min(40, Math.floor(230 / Math.max(f, c))), x0 = 170 - c * m / 2, y0 = 150 - f * m / 2;
+    for (let i = 0; i < f; i++) for (let j = 0; j < c; j++) quadret(svg, x0 + j * m, y0 + i * m, m, "q");
+    svg.appendChild(el("rect", { x: x0, y: y0, width: c * m, height: f * m, class: "vora-gruixuda" }));
+    text(svg, 170, y0 - 12, String(c), "q-text fort", 20);
+    text(svg, 170, y0 + f * m + 28, String(c), "q-text fort", 20);
+    text(svg, x0 - 18, 157, String(f), "q-text fort", 20);
+    text(svg, x0 + c * m + 18, 157, String(f), "q-text fort", 20);
+    svg.setAttribute("viewBox", "0 0 340 300");
+  }
+
   /* ======================================================= les fraccions ===== */
 
   /* El rectangle de les fraccions (unitat 3): sempre de la mateixa mida, perquè dues
@@ -395,5 +515,6 @@
   CE.q = { quadret, rectangle, graella, text, clau, taula, cellaTocada, fletxa, blocs, T,
            graella100, rectanglesDe, divisorsDe, dibuixaRectangles,
            TIRA, tira, fraccio, nomFraccio, htmlFraccio, tipusFraccio, graella2D,
-           dec, Q100, quadrat100, RECTA, recta };
+           dec, Q100, quadrat100, RECTA, recta,
+           ANGLE, angle, tipusAngle, GEO, geopla, anglesTriangle, tipusTriangle, triangle, anglesJunts, vora };
 })();

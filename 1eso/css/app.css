@@ -398,3 +398,33 @@ table.columna th{font-size:.8rem;font-weight:600;color:var(--etiqueta-2);padding
 .dos-blocs{margin:.2rem 0 .6rem}
 .dos-blocs .peu-dibuix{font-size:1.4rem;font-weight:800;margin:.7rem 0 0;font-variant-numeric:tabular-nums}
 .dos-blocs .blocs{margin-top:.3rem}
+
+/* ======================================================== unitat 6 ====== */
+
+/* L'angle (22): els costats, el vèrtex, l'obertura i la cantonada del quadret, que és
+   l'angle recte de referència (discontínua, perquè no sigui només el color). */
+.angle-costat{stroke:var(--etiqueta);stroke-width:4;stroke-linecap:round}
+.angle-vertex{fill:var(--etiqueta)}
+.angle-sector{fill:var(--blau-suau);stroke:var(--blau);stroke-width:2}
+.cantonada{fill:none;stroke:var(--taronja);stroke-width:3;stroke-dasharray:6 4}
+svg.angle{max-width:24rem;margin:.4rem auto;display:block;width:100%}
+
+/* El geoplà (23 i 24): els punts i el polígon. */
+.geo-punt{fill:var(--etiqueta-3)}
+.poligon{fill:var(--blau-suau);stroke:var(--blau-text);stroke-width:4;stroke-linejoin:round}
+svg.geopla{max-width:20rem;margin:.4rem auto;display:block;width:100%}
+
+/* Els tres angles d'un triangle (24): cada un amb el seu número i un to diferent. */
+.ang{stroke:var(--etiqueta);stroke-width:1.5}
+.ang1{fill:var(--blau-suau)}
+.ang2{fill:var(--taronja-suau)}
+.ang3{fill:var(--verd-suau)}
+svg.junts{max-width:24rem;margin:.4rem auto;display:block;width:100%}
+
+/* El perímetre (25): la vora, gruixuda i discontínua. */
+.vora-gruixuda{fill:none;stroke:var(--tinta);stroke-width:4;stroke-dasharray:10 5}
+svg.vora{max-width:22rem;margin:.4rem auto;display:block;width:100%}
+
+/* 22.2, 23.2, 24.2 i 25.2: les opcions són paraules, en lletra gran. */
+.opcio-geo{font-size:1.25rem}
+#pp-opcions .opcio-geo{text-transform:capitalize}

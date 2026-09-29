@@ -76,7 +76,7 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
 | 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
-| 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Per fer |
+| 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat i caixa feta (tasques 22 a 25). Falten la targeta «Formes», les sis fitxes i l'examen |
 | 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Per fer |
 
 Els codis dels criteris són els de les SA del departament, i quadren, codi i text, amb la llista
@@ -521,6 +521,56 @@ sol tipus. Cada exercici té l'a) resolt i tres apartats per fer, de les fitxes;
 - 29 de setembre de 2026: l'examen (`generadors/examens/ud5.js`). Vuit exercicis en comptes de set: el
   valor i l'ordre, separats. El motor dels exàmens (comú a 1r i 4t) avisa de qualsevol «sencer»; a les
   rajoles es diu «cal una fila més de rajoles» per no tocar-lo.
+
+## 8 ter. La unitat 6: «Sentit espacial», activitat per activitat
+
+**El material del grup.** La programació (SA6, del 5 d'abril al 10 de maig, 16 sessions) i el llibre,
+que la parteix en dues unitats: la UD6 (formes: vocabulari, angles, polígons, triangles, GeoGebra,
+el mural i les Fotomàtiques) i la UD7 (mesura: magnituds, unitats, superfície, escales, perímetres,
+la circumferència i π, àrees). La nostra unitat 6 segueix la programació: la UD6 del llibre, i els
+perímetres i la circumferència de la UD7. La resta de la UD7 ja és a la unitat 3 (l'àrea comptant
+quadrets, m, km, m², escales) o queda fora.
+
+**El pla el va validar el docent el 29 de setembre de 2026.** El nucli: la cantonada d'un quadret és
+l'angle recte (agut, més petit; obtús, més gran; pla, una recta). El perímetre és comptar els costats
+de quadret de la vora; l'àrea, de la unitat 3, és comptar els quadrets de dins. Els polígons, al
+geoplà, que és una quadrícula de punts.
+
+**La caixa de la unitat 6:**
+
+| Tasca | Què fa | La regla trencada, o la confusió de debò |
+|---|---|---|
+| 22 · Angles | 22.1 Obre l'angle (amb la cantonada al vèrtex i la llargada dels costats) · **22.2 Quin angle és?** | «Costats més llargs, angle més gran»: la llargada no canvia l'angle |
+| 23 · Polígons | 23.1 El polígon al geoplà (set formes) · **23.2 Com es diu?** | «Un quadrat girat ja no és un quadrat»; comptar malament els costats d'un còncau |
+| 24 · Triangles | 24.1 Els tres angles (junts fan un angle pla) · **24.2 Quin triangle és?** | «Un triangle més gran té els angles més grans»; un rectangle girat |
+| 25 · Perímetre | 25.1 Perímetre i àrea (el rectangle, la vora i els de dins) · **25.2 Quin és el perímetre?** | Donar l'àrea; sumar només dos costats |
+
+**Les fitxes de la unitat 6**, en l'ordre de la programació:
+
+| Fitxa | Què porta | Regla trencada | Estat |
+|---|---|---|---|
+| 1 · `ud6.html` | Punts, rectes i angles, amb la cantonada del quadret | «Costats més llargs, angle més gran» | Per fer |
+| 2 · `ud6-poligons.html` | Polígons al geoplà: costats, vèrtexs, noms, regulars i còncaus | «Un quadrat girat ja no és un quadrat» | Per fer |
+| 3 · `ud6-triangles.html` | Triangles pels costats (marques) i pels angles; els tres angles fan un angle pla | «Un triangle més gran té els angles més grans» | Per fer |
+| 4 · `ud6-perimetre.html` | La vora del quadrat, del rectangle i dels polígons regulars | Comptar els quadrets de dins (l'àrea) | Per fer |
+| 5 · `ud6-cercle.html` | Centre, radi i diàmetre (el doble del radi); la vora, una mica més de 3 vegades el diàmetre | — | Per fer |
+| 6 · `ud6-repas.html` | «Una de cada», «Què he après?» i «La meva Fotomàtica» | — | Per fer |
+
+**Queda fora, i per què:** GeoGebra (la caixa fa de laboratori); el transportador i els graus (els
+angles es comparen amb la cantonada; 90° i 180° només com a nom, a la targeta); calcular amb
+π = 3,14 (demana multiplicar decimals); la condició d'existència del triangle; la massa i la
+capacitat; les àrees amb fórmules i l'àrea del cercle; els polígons estrellats i els mosaics; el
+mural i les presentacions, que es fan amb el grup.
+
+**Les decisions, amb data:**
+
+- 29 de setembre de 2026: el pla, validat, amb les tres recomanacions. **Els angles es comparen amb
+  la cantonada del quadret**, sense transportador. **La circumferència, només la idea**: radi,
+  diàmetre i «una mica més de 3 vegades el diàmetre». **Els lliuraments, en tres passos**: la caixa;
+  la targeta i les fitxes 1 a 3; les fitxes 4 a 6 i l'examen. Un sol ZIP per pas.
+- 29 de setembre de 2026: la caixa (tasques 22 a 25). Peces noves a `js/quadricula.js`: `angle`
+  (amb la cantonada), `geopla`, `triangle` (els angles numerats), `anglesJunts` (els tres angles
+  fan un angle pla), `vora` (el perímetre) i els tipus d'angle i de triangle, calculats amb enters.
 
 ---
 

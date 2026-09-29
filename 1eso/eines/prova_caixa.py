@@ -141,7 +141,8 @@ def main():
                 ("multiples", 4), ("repartir", 2), ("divisors", 2), ("primers", 2),
                 ("fraccio", 2), ("equivalents", 2), ("compara", 2), ("sumes", 2), ("area", 2),
                 ("fraccnombre", 2), ("multfrac", 2), ("percentatges", 2), ("dobletriple", 2),
-                ("decimals", 3), ("arrodonir", 2), ("sumadec", 2), ("fracdec", 2)]
+                ("decimals", 3), ("arrodonir", 2), ("sumadec", 2), ("fracdec", 2),
+                ("angles", 2), ("poligons", 2), ("triangles", 2), ("perimetre", 2)]
         for mod, n in subs:
             for sub in range(1, n + 1):
                 modul(pg, mod, sub)
@@ -1100,6 +1101,55 @@ def main():
             return f"{k} i {k + 1}"
         codis["2.4"] = (tasca_dec(pg, "quadrat", 4, "q4", bona24, "2.4"), "Entre quins dos nombres?", (5, 4, 1, 0))
         print(f"  cinc passos, un error amb pista; codi {codis['2.4'][0]}")
+
+        # ------------------------------------------------------------------
+        titol("UNITAT 6 · ANGLES, POLÍGONS, TRIANGLES I PERÍMETRE")
+        d6 = pg.evaluate("""() => {
+            const D = CE.dades, Q = CE.q;
+            return { tri: D.triangles.CASOS.map(t => Q.tipusTriangle(t)), tri1: D.triangles.TRIANGLES.map(t => Q.tipusTriangle(t)),
+                     sumes: D.triangles.CASOS.map(t => Q.anglesTriangle(t).reduce((a, x) => a + x.g, 0)),
+                     pol: D.poligons.CASOS.map(c => c.length), per: D.perimetre.CASOS,
+                     opPer: D.perimetre.CASOS.map(c => D.perimetre.opcionsDe(c).map(o => o[1])),
+                     ang: D.angles.CASOS.map(g => Q.tipusAngle(g)) };
+        }""")
+        comprova(all(d6["tri"].count(t) >= 2 for t in ("rectangle", "acutangle", "obtusangle")), f"24.2: cal més d'un triangle de cada tipus: {d6['tri']}")
+        comprova(all(abs(x - 180) < 1e-6 for x in d6["sumes"]), "24: els angles d'un triangle no sumen un angle pla")
+        comprova(all(3 <= n <= 6 for n in d6["pol"]), "23.2: polígons de fora de 3 a 6 costats")
+        comprova(all(f + c <= 10 for f, c in d6["per"]) and all(len(set(o)) == 3 for o in d6["opPer"]),
+                 "25.2: files + columnes passa de 10, o dues opcions iguals")
+        comprova(set(d6["ang"]) == {"agut", "recte", "obtus", "pla"}, "22.2: falten tipus d'angle")
+        print(f"  {len(d6['tri'])} triangles ({', '.join(sorted(set(d6['tri'])))}), els angles sumen 180; "
+              f"{len(d6['pol'])} polígons; {len(d6['per'])} rectangles sense perímetre igual a l'àrea")
+
+        obre(pg); modul(pg, "angles", 1)
+        comprova("és un angle agut" in text(pg, "#an-lectura"), "22.1: l'exemple no és agut")
+        modul(pg, "triangles", 1)
+        comprova("fan un angle pla" in text(pg, "#tr-lectura") and "triangle rectangle" in text(pg, "#tr-lectura"), "24.1: la lectura")
+        comprova(pg.locator("#tr-junts path.ang").count() == 3, "24.1: els tres angles junts")
+        modul(pg, "perimetre", 1)
+        lec = text(pg, "#pe-lectura")
+        comprova("4 + 3 + 4 + 3 = 14" in lec and "3 · 4 = 12" in lec, f"25.1: 3 per 4: «{lec}»")
+        print("  22.1 agut; 24.1 els tres angles fan un angle pla; 25.1 perímetre 14 i àrea 12")
+
+        NOM_ANGLE = {"agut": "Agut", "recte": "Recte", "obtus": "Obtús", "pla": "Pla"}
+        def bona222(pg):
+            g = int(re.search(r"(\d+) graus", pg.get_attribute("#ao-svg", "aria-label")).group(1))
+            return NOM_ANGLE["agut" if g < 90 else "recte" if g == 90 else "obtus" if g < 180 else "pla"]
+        def bona232(pg):
+            n = int(re.search(r"(\d+) vèrtexs", pg.get_attribute("#pp-svg", "aria-label")).group(1))
+            return {3: "triangle", 4: "quadrilàter", 5: "pentàgon", 6: "hexàgon"}[n]
+        def bona242(pg):
+            gs = [int(x) for x in re.findall(r"\d+", pg.get_attribute("#ts-svg", "aria-label"))]
+            return "Rectangle" if 90 in gs else "Obtusangle" if max(gs) > 90 else "Acutangle"
+        def bona252(pg):
+            f, c = [int(x) for x in re.findall(r"\d+", pg.get_attribute("#pf-svg", "aria-label"))]
+            return str(2 * (f + c))
+        for mod, pref, id_, nom, bona in [("angles", "ao", "22.2", "Quin angle és?", bona222),
+                                          ("poligons", "pp", "23.2", "Com es diu?", bona232),
+                                          ("triangles", "ts", "24.2", "Quin triangle és?", bona242),
+                                          ("perimetre", "pf", "25.2", "Quin és el perímetre?", bona252)]:
+            codis[id_] = (tasca_dec(pg, mod, 2, pref, bona, id_), nom, (5, 4, 1, 0))
+            print(f"  {id_}: cinc passos, un error amb pista; codi {codis[id_][0]}")
 
         # ------------------------------------------------------------------
         titol("CODIS A verifica.html")

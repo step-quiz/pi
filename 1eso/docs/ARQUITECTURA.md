@@ -90,8 +90,12 @@ pantalla van a `css/app.css`.
 | 19 | Arrodonir | `arrodonir.js` | 19.1 El decimal a la recta · **19.2 Arrodoneix** | 3,47: més a prop de 3,5; truncat, 3,4 |
 | 20 | Sumar decimals | `sumadec.js` | 20.1 Suma i resta · **20.2 Quant és?** | 2,5 + 1,35 = 3,85, la regla trencada de la fitxa |
 | 21 | Fracció i decimal | `fracdec.js` | 21.1 Pinta la fracció · **21.2 De fracció a decimal** | 1/4 = 0,25: 25 quadrets de 100 |
+| 22 | Angles | `angles.js` | 22.1 Obre l'angle · **22.2 Quin angle és?** | Un angle agut de costats llargs, amb la cantonada |
+| 23 | Polígons | `poligons.js` | 23.1 El polígon al geoplà · **23.2 Com es diu?** | El rectangle |
+| 24 | Triangles | `triangles.js` | 24.1 Els tres angles · **24.2 Quin triangle és?** | El triangle rectangle: 90 + 45 + 45 |
+| 25 | Perímetre | `perimetre.js` | 25.1 Perímetre i àrea · **25.2 Quin és el perímetre?** | 3 per 4: perímetre 14, àrea 12 |
 
-Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), les 14 a 17, de la unitat 4, i les 18 a 21 i la 2.4, de la unitat 5 (els decimals i l'arrel). La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
+Les tasques 0 a 4 són de la unitat 1; les 5 a 8, de la unitat 2, i les 9 a 13, de la unitat 3 (les fraccions i l'àrea), les 14 a 17, de la unitat 4, i les 18 a 21 i la 2.4, de la unitat 5 (els decimals i l'arrel), i les 22 a 25, de la unitat 6 (angles, polígons, triangles i perímetre). La tasca 15 fa servir una peça nova de `js/quadricula.js`, `graella2D`, la primera de dues dimensions: la primera fracció es pinta per columnes, la segona es ressegueix per files, i el resultat, on coincideixen, porta un traç gruixut, perquè el color no sigui l'única diferència. La 0 (les taules) es veu
 sempre, perquè és la targeta a la pantalla.
 
 En negreta, les tasques tancades: cinc passos, resum i codi de verificació. Les altres són
@@ -125,6 +129,10 @@ Deixa a `CE.q`:
 | `dec` | Un decimal escrit amb coma, a partir de les centèsimes: `dec(243)` és «2,43», `dec(350, 1)` és «3,5». Els decimals es guarden com a centèsimes enteres, fins a 999 (9,99): així els comptes surten exactes |
 | `quadrat100` | El quadrat de 100 dels decimals, pintat columna a columna i sense números: 25 quadrets són 2 columnes i 5 quadrets, 0,25. La fan servir la 21.1 i la 21.2 |
 | `recta` | La recta numèrica, el segon model del curs: de la dècima d'abans a la de després, una ratlla per centèsima, la del mig discontínua i el punt. La fan servir la 19.1 i la 19.2 |
+| `angle`, `tipusAngle` | Un angle amb el vèrtex a baix i, si es vol, la cantonada d'un quadret al vèrtex (l'angle recte de referència). El tipus: agut, recte, obtús o pla |
+| `geopla` | El geoplà de 6 per 6 punts i un polígon pels punts que es diguin |
+| `triangle`, `anglesTriangle`, `tipusTriangle`, `anglesJunts` | Un triangle al geoplà amb els angles numerats, els seus angles (amb enters, el producte escalar diu si n'hi ha de recte o d'obtús sense arrodonir) i els tres angles junts, que fan un angle pla |
+| `vora` | Un rectangle de quadrets amb la vora gruixuda i els costats numerats: el perímetre |
 | `nomFraccio`, `htmlFraccio`, `tipusFraccio` | El nom («quatre novens», amb els noms de la targeta de les fraccions, a `frac.s_N` i `frac.p_N` de les frases), la fracció escrita com a fracció, i si és nul·la, pròpia, unitat o impròpia |
 
 La taula de quadrets és el mateix objecte que la taula de multiplicar: el quadret de la fila 3 i
@@ -232,7 +240,7 @@ funciona.
 | Test | Què fa | Què necessita |
 |---|---|---|
 | `eines/comprova.py` | Les regles que es poden llegir als fitxers: estructura, frases, Lectura Fàcil, subtasques, «·», fins a 999 i decimals fins a 9,99, contrast de la paleta, `pi1-`, sal pròpia, identificadors sense repetir i cap camp repetit a `dades/unitats.js` | Només Python |
-| `eines/prova_caixa.py` | La caixa, feta servir de debò: toca, s'equivoca, acaba totes les tasques tancades (26) i llegeix els codis a `verifica.html` | Playwright i Chromium |
+| `eines/prova_caixa.py` | La caixa, feta servir de debò: toca, s'equivoca, acaba totes les tasques tancades (30) i llegeix els codis a `verifica.html` | Playwright i Chromium |
 | `eines/auditoria.py` | L'accessibilitat aplicada: contrast real, mida de cada botó i focus, en clar i en fosc, a 320 i a 1100 px | Playwright i Chromium |
 
 Tots tres han de dir que està bé («Tot correcte.» o «0 problemes») abans de lliurar res. Com
