@@ -80,6 +80,7 @@ a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0,
 }
 .et.fita   { background: var(--verd-suau);    color: var(--etiqueta) }
 .et.avis   { background: var(--taronja-suau); color: var(--etiqueta) }
+.et.estat  { font-size: .78rem; padding: .1rem .5rem }
 
 /* ------------------------------------------------------------ detall -- */
 
@@ -87,6 +88,9 @@ a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0,
 .detall dl { margin: 0; display: grid; grid-template-columns: 9.5rem 1fr; gap: .45rem 1rem; font-size: .95rem }
 .detall dt { color: var(--etiqueta-2) }
 .detall dd { margin: 0 }
+/* El camí mínim i les regles trencades: una línia per fitxa. */
+.detall ul.cami { margin: .3rem 0 0; padding-left: 1.1rem }
+.detall ul.cami li { margin: .1rem 0 }
 @media (max-width: 34rem) {
   .detall dl { grid-template-columns: 1fr; gap: .1rem 0 }
   .detall dt { margin-top: .6rem }

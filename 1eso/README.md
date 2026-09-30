@@ -80,7 +80,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | | |
 |---|---|
 | `index.html` | La portada: tria entre les fitxes i la caixa d'eines, i a sota, «Per al professorat» |
-| `fitxes.html` | Índex de les targetes de consulta i de les set unitats, amb els dos PDF de cada fitxa (alumnat i solucionari) |
+| `fitxes.html` | Índex de les targetes de consulta i de les set unitats, amb els dos PDF de cada fitxa (alumnat i solucionari). Al final, el detall de cada unitat per al docent: el nucli, el graó físic, el rol a l'aula ordinària, la fita, el camí mínim i les regles trencades |
 | `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |

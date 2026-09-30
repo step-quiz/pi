@@ -36,6 +36,11 @@ cara1 = f'''<div class="full targeta">
     <p>La figura 10: 2 · 10 + 1 = 21.</p>
     <p style="margin:0">Comprova la regla amb la figura 1: 2 · 1 + 1 = 3. Ha de donar el que té la figura 1.</p>
   </section>
+  <section class="diu">
+    <h2>Com ho dic</h2>
+    <p>«Cada figura té 1 quadret fix, i en creixen 2.»</p>
+    <p>«La figura 10 té 2 · 10 + 1 = 21 quadrets.»</p>
+  </section>
   <div class="pag">Targeta dels patrons · cara 1</div>
 </div>'''
 

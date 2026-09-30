@@ -32,7 +32,7 @@ ordinària.
 | | Aula de suport | Aula ordinària |
 |---|---|---|
 | Qui | Dos professionals de suport | El docent de matemàtiques, amb codocència quan n'hi ha |
-| Què s'hi fa | El graó físic, la part de concepte de la fitxa i la consolidació | Els exercicis de la fitxa, al mateix temps que el grup |
+| Què s'hi fa | El graó físic, la part de concepte de la fitxa i la consolidació | Els exercicis de la fitxa, al mateix temps que el grup, amb un rol propi dins del grup (apartat 4 bis) |
 | Calculadora | Sí, però només per comprovar | No, perquè no hi hagi greuge |
 | Targeta de les taules | Sí | Sí: la programació ja la preveu per a tothom |
 
@@ -75,9 +75,9 @@ a [`../dades/unitats.js`](../dades/unitats.js), que és el que llegeix la portad
 | 2 · Divisibilitat | 3–19 de novembre | 11 | 1.4, 3.2, 4.2, 5.2 | Feta: caixa (tasques 5 a 8), cinc fitxes, els PDF i l'examen |
 | 3 · Com és de gran Gaza? | 23 de novembre – 18 de desembre | 15 | 1.2, 5.2, 6.1, 9.1 | Feta: caixa (tasques 9 a 13), targeta de les fraccions, set fitxes, els PDF i l'examen |
 | 4 · És gran l'ou del kiwi? | 12–28 de gener | 11 | 1.3, 2.1, 5.1, 6.1 | Feta: caixa (tasques 14 a 17), cinc fitxes, els PDF i l'examen |
-| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | En curs: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
-| 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | En curs: pla validat, caixa (tasques 22 a 25), targeta «Formes», les sis fitxes i l'examen fets |
-| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | En curs: pla validat, caixa (tasques 26 a 28), targeta «Patrons i símbols», les cinc fitxes i l'examen fets |
+| 5 · Decimals i arrel quadrada | 1–15 de març | 7 i un examen | 5.1, 7.1, 8.1 | Feta: pla validat, caixa (tasques 18 a 21 i la 2.4), targeta «Decimals i arrels», les sis fitxes i l'examen fets |
+| 6 · Sentit espacial | 5 d'abril – 10 de maig | 16 | 1.1, 3.1, 5.1, 6.1, 7.1, 9.1 | Feta: pla validat, caixa (tasques 22 a 25), targeta «Formes», les sis fitxes i l'examen fets |
+| 7 · Patrons i llenguatge algebraic | 19 de maig – 1 de juny | 6 | 2.1, 3.1, 4.1, 5.1, 7.2 | Feta: pla validat, caixa (tasques 26 a 28), targeta «Patrons i símbols», les cinc fitxes i l'examen fets |
 
 Els codis dels criteris són els de les SA del departament, i quadren, codi i text, amb la llista
 oficial que porta la plantilla del Departament d'Educació. L'avaluació d'aquest alumnat es fa
@@ -85,6 +85,43 @@ amb els criteris propis del PI.
 
 Les SA del grup són ambicioses (conjectures, algorismes, fraccions amb multiplicació i divisió,
 decimals periòdics). De cada una només s'agafa el nucli. La resta no es rebaixa: no hi és.
+
+### 4 bis. El camí mínim, la fita, el rol i l'estat (30/9/2026, proposta per validar)
+
+Quatre idees que venen de `4eso/`. Són a [`../dades/unitats.js`](../dades/unitats.js) i surten a
+`fitxes.html`, a «El detall de cada unitat».
+
+**El camí mínim.** Hi ha unitats amb molta feina: la 5 té 33 pàgines per a 7 sessions, i la 7, 25
+per a 6. Com que només la meitat de les hores són a l'aula de suport, cada fitxa diu quines pàgines
+són el nucli (el camp `minim`) i la resta és ampliació. El criteri de la proposta: la pàgina 1 (el
+concepte i «Què hi veus?») i la primera pàgina d'exercicis de cada fitxa; «A la vida de cada dia»
+de la primera fitxa de la unitat; i, al repàs, «Una de cada» i «Què he après?» (a la unitat 7,
+també «El meu curs»). Les regles trencades queden a l'ampliació perquè compten per als nivells alts
+(regla G). **Cap unitat no passa de dues pàgines per sessió del grup**, i `eines/comprova.py` ho mira.
+
+| Unitat | Pàgines | Camí mínim | Sessions del grup |
+|---|---|---|---|
+| 1 | 27 | 9 | 13 |
+| 2 | 30 | 11 | 11 |
+| 3 | 37 | 15 | 15 |
+| 4 | 24 | 11 | 11 |
+| 5 | 33 | 13 | 7 |
+| 6 | 30 | 13 | 16 |
+| 7 | 25 | 12 | 6 |
+
+**La fita.** El nivell d'assoliment realista de cada unitat (NA, AS, AN, AE), com a `4eso/`. La
+proposta: AS a les unitats 1 a 4; NA o AS a la 5 (és on el material se separa més del grup, sense
+calculadora) i a la 7 (el símbol és el salt més gran del curs); AS a la 6, amb AN possible a les
+formes, que són el canal més visual. **Es revisa al desembre**, en acabar la unitat 3, amb la
+revisió del PI, i es torna a ajustar al final de cada trimestre.
+
+**El rol a l'aula ordinària.** S'hi adapta el rol dins del grup, no la tasca: qui fa els rectangles
+amb els miniblocs, qui compta els quadrets als mapes, qui construeix al geoplà. Un per unitat.
+
+**L'estat de cada fitxa.** «Per revisar» (feta, el docent encara no l'ha mirada), «revisada» o
+«provada a l'aula». Les de les unitats 1 a 4 són «revisada»; les de les unitats 5, 6 i 7, fetes el
+29/9/2026, «per revisar». **Abans d'imprimir-les en sèrie, val la pena provar-les a l'aula**, i
+canviar l'estat a mà a `dades/unitats.js`.
 
 ---
 
@@ -647,6 +684,9 @@ Amb els criteris del PI. Cada solucionari acaba amb «Què mirar per avaluar»: 
 veuen, sempre amb la targeta al davant, escrites perquè es puguin passar al PI tal com són.
 
 Mai no s'avalua el que es recorda, sinó el que es fa amb la targeta al davant.
+
+Cada unitat té una **fita realista** (apartat 4 bis) i el PI es revisa **al desembre**, en acabar la
+unitat 3: és el moment de mirar si les fites de les unitats 4 a 7 s'han d'ajustar.
 
 ---
 
