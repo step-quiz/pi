@@ -200,6 +200,16 @@ svg { display: block; width: 100% ; height: auto }
 .clau li { margin: 0 0 .7rem }
 .clau .resposta { font-size: 30pt; line-height: 1; padding: .1rem .9rem }
 
+/* «Com ho dic»: una o dues frases per dir en veu alta, com al «Com ho dic» de 4eso/.
+   Van a la targeta, i no només al solucionari, perquè l'alumnat les té davant. */
+.diu {
+  border: 2px solid var(--vora); border-radius: 10px;
+  padding: .45rem .75rem; margin: .35cm 0 0; font-size: 15pt; line-height: 1.4;
+}
+.diu h2 { font-size: 15pt; margin: 0 0 .2rem }
+.diu p  { margin: 0 }
+.diu-dins { margin-top: .5rem !important; padding-top: .4rem; border-top: 1.5px solid var(--vora-suau) }
+
 /* ----------------------------------------------------- opcions i avisos -- */
 
 .tria { display: flex; gap: .8rem; flex-wrap: wrap; margin: .5rem 0 }

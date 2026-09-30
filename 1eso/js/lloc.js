@@ -1,7 +1,9 @@
 /* ============================================================================
    lloc.js · construeix la portada a partir de dades/unitats.js
    ----------------------------------------------------------------------------
-   Dues graelles: les targetes de consulta i les set unitats. Una unitat sense
+   Dues graelles, les targetes de consulta i les set unitats, i el detall de cada
+   unitat per al docent (el nucli, el graó físic, el rol a l'aula ordinària, la fita,
+   el camí mínim i les regles trencades). Una unitat sense
    fitxa encara surt a la graella, però no s'hi pot clicar. Si la unitat té
    tasques a la caixa d'eines, la targeta ho diu. Cada fitxa porta els seus dos
    PDF: el de l'alumnat i el del solucionari, que fa generadors/gen_pdf.py.
@@ -52,7 +54,8 @@
       const d = fes("div", "targeta");
       const llista = fitxes.length
         ? '<ol class="enllacos-fitxes">' + fitxes.map(function (f) {
-            return '<li><a href="' + f.fitxa + '">' + f.titol + "</a> " + pdfs(f) + "</li>";
+            return '<li><a href="' + f.fitxa + '">' + f.titol + "</a> " + pdfs(f) +
+              (f.estat ? ' <span class="et estat">' + f.estat + "</span>" : "") + "</li>";
           }).join("") + "</ol>"
         : "";
       d.innerHTML =
@@ -70,6 +73,41 @@
     });
   }
 
+  /** «1, 2 i 9» */
+  const llista = ns => ns.length > 1 ? ns.slice(0, -1).join(", ") + " i " + ns[ns.length - 1] : String(ns[0]);
+
+  /* ---- el detall de cada unitat, per al docent ----
+     El camí mínim: les pàgines que són el nucli (minim a dades/unitats.js). La resta és
+     ampliació: es fa si hi ha temps, i les regles trencades hi són per als nivells alts. */
+  function detallUnitats(cont) {
+    UNITATS.forEach(function (u) {
+      const fitxes = u.fitxes || [];
+      const minim = fitxes.reduce((a, f) => a + (f.minim || []).length, 0);
+      const sessions = parseInt(u.sessions, 10);
+      const cami = fitxes.length
+        ? "<b>" + minim + " pàgines</b> per a " + sessions + " sessions del grup" +
+          "<ul class=\"cami\">" + fitxes.map(f =>
+            "<li>" + f.titol + ": pàgines " + llista(f.minim || []) + "</li>").join("") + "</ul>"
+        : "—";
+      const trencades = fitxes.filter(f => f.trencada);
+      const d = fes("div", "detall");
+      d.innerHTML =
+        '<h3 style="margin:0 0 .8rem"><span class="num" style="margin:0 .5rem 0 0">' + u.num +
+          "</span>" + u.titol + "</h3>" +
+        "<dl>" +
+          "<dt>El nucli</dt><dd>" + u.nucli + "</dd>" +
+          "<dt>Cinc minuts abans</dt><dd>" + u.material + "</dd>" +
+          (u.rol ? "<dt>A l'aula ordinària</dt><dd>" + u.rol + "</dd>" : "") +
+          (u.fita ? "<dt>Fita realista</dt><dd>" + u.fita + "</dd>" : "") +
+          "<dt>Criteris del grup</dt><dd>" + u.criteris + " (referència: s'avalua amb els del PI)</dd>" +
+          "<dt>Camí mínim</dt><dd>" + cami + "</dd>" +
+          (trencades.length ? "<dt>Regles trencades</dt><dd><ul class=\"cami\">" + trencades.map(f =>
+            "<li>" + f.titol + " · " + f.trencada + "</li>").join("") + "</ul></dd>" : "") +
+        "</dl>";
+      cont.appendChild(d);
+    });
+  }
+
   function arrenca() {
     if (typeof UNITATS === "undefined" || typeof TARGETES === "undefined") {
       console.error("lloc.js: falta dades/unitats.js");
@@ -79,6 +117,8 @@
     if (t) graellaTargetes(t);
     const u = document.getElementById("graella-unitats");
     if (u) graellaUnitats(u);
+    const d = document.getElementById("detall-unitats");
+    if (d) detallUnitats(d);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrenca);

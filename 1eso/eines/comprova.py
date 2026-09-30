@@ -1056,6 +1056,41 @@ if tasques_dades:
 print(f"  unitats: {len(nums)} · amb fitxa: {len(fitxes_dades)} · targetes: {len(fitxers_t)} · "
       f"tasques de la caixa citades: {len(tasques_dades)}")
 
+# El camí mínim, l'estat, la regla trencada, la fita i el rol (grup 3, 30/9/2026).
+# El camí mínim són les pàgines de l'alumnat que són el nucli de cada fitxa: han
+# d'existir, i la unitat sencera no pot passar de dues pàgines per sessió del grup,
+# perquè només la meitat de les hores són a l'aula de suport.
+ESTATS = {"per revisar", "revisada", "provada a l'aula"}
+n_minim = 0
+for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
+    num = re.search(r'^    num:\s*(\d+)', bloc, re.M)
+    if not num:
+        continue                                   # una targeta
+    num = int(num[1])
+    comprova(re.search(r'^    fita:\s*"[^"]+"', bloc, re.M), f"dades/unitats.js: la unitat {num} no té fita")
+    comprova(re.search(r'^    rol:\s*"[^"]+"', bloc, re.M), f"dades/unitats.js: la unitat {num} no diu el rol a l'aula ordinària")
+    sessions = int(re.search(r'^    sessions:\s*"(\d+)', bloc, re.M)[1])
+    total = 0
+    for f_obj in re.findall(r'\{ fitxa:.*?\}', bloc, re.S):
+        cami = re.search(r'fitxa:\s*"([^"]+)"', f_obj)[1]
+        estat = (re.search(r'estat:\s*"([^"]+)"', f_obj) or [None, None])[1]
+        comprova(estat in ESTATS, f"dades/unitats.js: {cami} té l'estat «{estat}» (val: {sorted(ESTATS)})")
+        minim = [int(x) for x in re.findall(r'\d+', (re.search(r'minim:\s*\[([^\]]*)\]', f_obj) or [None, ''])[1])]
+        comprova(minim, f"dades/unitats.js: {cami} no diu el camí mínim")
+        if os.path.exists(ruta(cami)):
+            html = llegeix(ruta(cami))
+            pags = len([b for b in re.findall(r'<div class="full[^"]*">.*?\n</div>', html, re.S)
+                        if 'class="full sol"' not in b[:30]])
+            comprova(all(1 <= x <= pags for x in minim) and minim == sorted(set(minim)),
+                     f"dades/unitats.js: el camí mínim de {cami} ({minim}) no són pàgines de la fitxa (en té {pags})")
+        if not cami.endswith('-repas.html'):
+            comprova('trencada:' in f_obj, f"dades/unitats.js: {cami} no diu on és la regla trencada")
+        total += len(minim)
+    comprova(total <= 2 * sessions, f"dades/unitats.js: el camí mínim de la unitat {num} fa {total} pàgines "
+                                    f"per a {sessions} sessions (el màxim són {2 * sessions})")
+    n_minim += total
+print(f"  camí mínim: {n_minim} pàgines de l'alumnat, i cap unitat no passa de 2 per sessió")
+
 # Els enllaços per a l'alumnat de la portada (index.html, «Per al professorat»).
 # Fins al 29/9/2026 s'aturaven a la unitat 3, i ningú no ho veia: les tasques 14
 # a 28 no hi eren. Ara, sota «Unitat N» hi ha d'haver totes les tasques que

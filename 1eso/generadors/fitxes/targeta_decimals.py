@@ -115,6 +115,7 @@ cara1 = f'''<div class="full targeta">
     <p><b>Arrodonir a les dècimes.</b> Mira les centèsimes. 5 o més, amunt: 3,47 s'arrodoneix a 3,5. Menys de 5, avall: 3,42 s'arrodoneix a 3,4.</p>
     <p style="margin:0"><b>Sumar i restar.</b> La coma sota la coma: <span style="white-space:nowrap">2,50 + 1,35 = 3,85</span>.</p>
   </section>
+  <p class="diu"><b>Com ho dic:</b> «2,43: 2 quadrats, 4 columnes i 3 quadrets.»</p>
   <div class="pag">Targeta dels decimals · cara 1</div>
 </div>'''
 

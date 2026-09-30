@@ -99,7 +99,13 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 
 ## 4. Pendent
 
-1. **Treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4** (alumnat i
+0. **Validar el grup 3 (30/9/2026).** A `fitxes.html`, «El detall de cada unitat»: la fita de cada
+   unitat, el rol a l'aula ordinària, el camí mínim de cada fitxa i l'estat («per revisar»,
+   «revisada», «provada a l'aula»). Tot és a `dades/unitats.js`, i es canvia allà a mà
+   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 4 bis). Les targetes porten un «Com ho dic»
+   petit: una o dues frases per dir en veu alta.
+1. ~~**Treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4**~~ **FET:** ja no hi
+   són, i `comprova.py` ho vigila. (Alumnat i
    solucionari), que el 28 de setembre de 2026 eren a `generadors/examens/`. Tot el repositori es
    publica al web, i s'hi podrien obrir l'examen i el solucionari abans de l'examen. Les ordres
    són al `README.md` («L'examen»): `git rm --cached` i moure'ls a `docx/`, que Git ignora. Si es
