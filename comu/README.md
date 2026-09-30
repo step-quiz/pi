@@ -9,6 +9,7 @@ no es toca.
 | `examens/nucli.js` | El motor dels exàmens DOCX. Cada curs hi posa el contingut a `generadors/examens/udN.js` |
 | `docs/EXAMENS-DOCX.md` | Les regles i el procediment dels exàmens |
 | `docs/DESPLEGAMENT.md` | Com es publica el repositori a Cloudflare Pages |
+| `eines/diferencies.py` | Les diferències entre les còpies de `1eso/` i `4eso/`: quins fitxers s'han separat i com |
 
 **Si toques el motor**, torna a generar l'examen de la UD1 de `4eso/` i comprova que surt
 igual que abans.

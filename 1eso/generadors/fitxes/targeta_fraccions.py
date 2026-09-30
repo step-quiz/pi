@@ -7,8 +7,7 @@ llegeix una fracció, els tipus, les equivalents i la regla de la suma.
 """
 import os
 import sys
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
+from peces_comunes import *  # noqa: F401,F403
 
 NOMS = [(2, "mig", "mitjos", 2), (3, "terç", "terços", 2), (4, "quart", "quarts", 3), (5, "cinquè", "cinquens", 2),
         (6, "sisè", "sisens", 5), (7, "setè", "setens", 3), (8, "vuitè", "vuitens", 3), (9, "novè", "novens", 4),
@@ -139,5 +138,5 @@ cap = '''<!DOCTYPE html>
 '''
 html = cap + cara1 + "\n\n" + cara2 + "\n\n</body>\n</html>\n"
 sortida = sys.argv[1] if len(sys.argv) > 1 else "fraccions.html"
-open(sortida, "w", encoding="utf-8").write(html)
+desa(html, sortida)
 print(sortida)

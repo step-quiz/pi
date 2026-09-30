@@ -64,6 +64,8 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 ├── eines/
 │   ├── comprova.py         el test del projecte, sense dependències
 │   ├── mesura.py           si cada pàgina cap en un A4          (WeasyPrint)
+│   ├── prova_caixa.py      la caixa, de punta a punta           (Playwright)
+│   ├── empremta.py         l'empremta de cada PDF, per saber si és vell
 │   └── auditoria.py        dianes i contrast dins del navegador (Playwright)
 └── docs/                   la documentació
 ```

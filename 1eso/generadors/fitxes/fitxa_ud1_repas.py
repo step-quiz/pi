@@ -8,8 +8,7 @@ falta), 1_5 i 1_15 (el repàs: les multiplicacions mal fetes, una de cada) i 1_1
 import os
 import sys
 
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])       # Dibuix, ms, buit, buit_curt, ULL, colors…
+from peces_comunes import *  # noqa: F401,F403  # Dibuix, ms, buit, buit_curt, ULL, colors…
 
 PEU = "Unitat 1 · Repàs · pàgina"
 pagines = []
@@ -380,5 +379,5 @@ cap = '''<!DOCTYPE html>
 '''
 html = cap + "\n\n".join(pagines) + "\n\n</body>\n</html>\n"
 sortida = sys.argv[1] if len(sys.argv) > 1 else "ud1-repas.html"
-open(sortida, "w", encoding="utf-8").write(html)
+desa(html, sortida)
 print(sortida, len(pagines), "blocs")

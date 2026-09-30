@@ -1019,6 +1019,27 @@ comprova(not remots, f"recursos remots: {remots}")
 print(f"  recursos remots: {len(remots)}")
 
 # --------------------------------------------------------------------------
+print("\nGENERADORS")
+# Les fitxes i les targetes surten dels scripts de generadors/fitxes/ (menys la targeta de
+# les taules, que es va fer a mà). Cada HTML diu de quin script surt, perquè ningú no
+# l'editi a mà: el canvi es perdria la pròxima vegada que es generés (30/9/2026).
+# Els generadors ja no fan servir exec(): les peces comunes són mòduls.
+FETS_A_MA = {'targetes/taules.html'}
+sense_capcalera = []
+for f in sorted(FITXES) + sorted(TARGETES):
+    if rel(f) in FETS_A_MA:
+        continue
+    m = re.search(r'<!-- Generat per 1eso/(generadors/fitxes/[\w.]+\.py)\.', llegeix(f)[:400])
+    if not m or not os.path.exists(ruta(m[1])):
+        sense_capcalera.append(rel(f))
+comprova(not sense_capcalera, f"HTML sense la capçalera «Generat per …» o amb un generador que no existeix: {sense_capcalera}")
+amb_exec = [rel(g) for g in glob.glob(ruta('generadors', 'fitxes', '*.py'))
+            if re.search(r'^\s*exec\(', llegeix(g), re.M)]
+comprova(not amb_exec, f"generadors que tornen a fer servir exec(): {amb_exec}")
+print(f"  HTML amb el seu generador: {len(FITXES) + len(TARGETES) - len(FETS_A_MA) - len(sense_capcalera)}"
+      f" · fets a mà: {len(FETS_A_MA)} · exec(): {len(amb_exec)}")
+
+# --------------------------------------------------------------------------
 print("\nDADES")
 # dades/unitats.js és el que llegeix fitxes.html. Ha de quadrar amb el disc.
 # --------------------------------------------------------------------------

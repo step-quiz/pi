@@ -14,13 +14,16 @@ El mateix per a les fitxes de repàs (udN-repas.html → udN-repas-alumnat.pdf�
 targeta de consulta (targetes/NOM.html) fa un sol PDF amb totes les cares:
 pdf/targeta-NOM.pdf.
 
+A pdf/empremtes.json hi va l'empremta de la font de cada PDF (eines/empremta.py):
+eines/comprova.py la torna a calcular i diu quins PDF han quedat vells.
+
 PER QUÈ CAL UN FULL D'ESTIL A PART
 El navegador i el motor de paginació no mesuren igual. Aquí es fixa la geometria
 de la pàgina amb @page i es treu el padding de `.full`, que a pantalla fa de
 marge del full i en PDF duplicaria el marge de la pàgina. El cos de 14 pt NO es
 toca: si alguna pàgina no cabés, s'ha d'arreglar la fitxa, no encongir la lletra.
 """
-import glob, os, re, sys
+import glob, json, os, re, sys
 
 try:
     from weasyprint import HTML, CSS
@@ -28,6 +31,8 @@ except ImportError:
     sys.exit("Falta WeasyPrint:  pip install weasyprint --break-system-packages")
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ARREL, "eines"))
+from empremta import empremta  # noqa: E402  (només biblioteca estàndard)
 FITXES = os.path.join(ARREL, "fitxes")
 SORTIDA = os.path.join(ARREL, "pdf")
 
@@ -96,7 +101,9 @@ def fonts():
 def main():
     os.makedirs(SORTIDA, exist_ok=True)
     problemes = []
+    empremtes = {}
     for origen, nom, targeta in fonts():
+        e = {"font": os.path.relpath(origen, ARREL), "empremta": empremta(os.path.relpath(origen, ARREL))}
         cap, alumnat, sol = blocs(open(origen, encoding="utf-8").read())
         if targeta:
             # Una targeta és un sol PDF amb totes les cares, per imprimir a doble cara.
@@ -105,6 +112,7 @@ def main():
             if n1 != len(alumnat):
                 problemes.append(f"{nom}: {len(alumnat)} cares però {n1} pàgines al PDF")
             print(f"  {nom:22}  {n1} cares")
+            empremtes[desti] = e
             continue
         n1 = escriu(cap, alumnat, os.path.join(SORTIDA, f"{nom}-alumnat.pdf"))
         n2 = escriu(cap, sol, os.path.join(SORTIDA, f"{nom}-solucionari.pdf"))
@@ -119,6 +127,12 @@ def main():
                     "Caveat" in n for n in lletres_del_pdf(os.path.join(SORTIDA, desti))):
                 problemes.append(f"{desti}: hi ha text manuscrit però el PDF no porta Caveat")
         print(f"  {nom:22}  alumnat {n1} pàg.  ·  solucionari {n2} pàg.")
+        empremtes[f"{nom}-alumnat.pdf"] = empremtes[f"{nom}-solucionari.pdf"] = e
+
+    # L'empremta de cada PDF: eines/comprova.py la torna a calcular i avisa si és vell.
+    with open(os.path.join(SORTIDA, "empremtes.json"), "w", encoding="utf-8") as f:
+        json.dump(empremtes, f, ensure_ascii=False, indent=1, sort_keys=True)
+        f.write("\n")
 
     if problemes:
         print("\nPROBLEMES:")

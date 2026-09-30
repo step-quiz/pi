@@ -21,12 +21,9 @@ import os
 import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-_src = open(os.path.join(AQUI, "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])                      # Dibuix, els colors, ms…
-_nombres = open(os.path.join(AQUI, "fitxa_ud1_nombres.py"), encoding="utf-8").read()
-exec(_nombres[_nombres.index("def peca("):_nombres.index("def taula_xifres(")])   # peca() i blocs()
-_fr = open(os.path.join(AQUI, "peces_fraccions.py"), encoding="utf-8").read()
-exec(_fr[_fr.index("def fr("):_fr.index("def fr_buit(")])    # fr(): la fracció, amb la marca .fr
+from peces_comunes import *  # noqa: F401,F403  # Dibuix, els colors, ms…
+from peces_nombres import peca, blocs  # noqa: F401
+from peces_fraccions import fr  # noqa: F401
 
 
 def quadrat100(n, m, aria):
@@ -188,5 +185,5 @@ cap = '''<!DOCTYPE html>
 '''
 html = cap + cara1 + "\n\n" + cara2 + "\n\n</body>\n</html>\n"
 sortida = sys.argv[1] if len(sys.argv) > 1 else "decimals.html"
-open(sortida, "w", encoding="utf-8").write(html)
+desa(html, sortida)
 print(sortida)

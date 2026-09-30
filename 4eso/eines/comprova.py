@@ -13,7 +13,7 @@ claus i no facin servir variables que no existeixen, que les frases de
 l'alumnat segueixin les regles de Lectura Fàcil que es poden comprovar soles,
 i que els colors de la pantalla tinguin el contrast que demana la WCAG 2.2 AA.
 """
-import re, sys, glob, os
+import re, sys, glob, os, json
 from html.parser import HTMLParser
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # la carpeta del curs
@@ -217,8 +217,9 @@ for clau, t in frases_de(textos[:tall]).items():
             falles_lf.append(f"{clau}: frase de {len(paraules)} paraules")
         elif len(paraules) > 15:
             avisos_lf.append(f"{clau}: frase de {len(paraules)} paraules")
-    if re.search(r"\b(\w+)\s+\1\b", net, re.I):
-        falles_lf.append(f"{clau}: paraula repetida («{re.search(r'\b(\w+)\s+\1\b', net, re.I).group(0)}»)")
+    repetida = re.search(r"\b(\w+)\s+\1\b", net, re.I)     # fora de l'f-string: Python 3.11
+    if repetida:
+        falles_lf.append(f"{clau}: paraula repetida («{repetida.group(0)}»)")
     if re.search(r"\bclica\b|\bclic\b", net, re.I):
         falles_lf.append(f"{clau}: «clica aquí» no diu on porta")
     if re.search(r"\b([01]?\d|2[0-3]):[0-5]\d\b", net):
@@ -270,6 +271,19 @@ for f in sorted(glob.glob(ruta('fitxes', '*.html'))):
 esperats += [f'targeta-{os.path.basename(f)[:-5]}.pdf' for f in sorted(glob.glob(ruta('targetes', '*.html')))]
 falten = [p for p in esperats
           if not os.path.exists(ruta('pdf', p)) or os.path.getsize(ruta('pdf', p)) < 2000]
+
+# Si és vell: l'empremta de la font (i dels estils) ha de ser la que va desar gen_pdf.py.
+sys.path.insert(0, ruta('eines'))
+from empremta import empremta   # noqa: E402  (només biblioteca estàndard)
+try:
+    empremtes = json.load(open(ruta('pdf', 'empremtes.json'), encoding='utf-8'))
+except FileNotFoundError:
+    empremtes = {}
+def vell(pdf):
+    e = empremtes.get(pdf)
+    return not e or not os.path.exists(ruta(e['font'])) or e['empremta'] != empremta(e['font'])
+vells = [p for p in esperats if p not in falten and vell(p)]
+comprova(not vells, f"PDF d'abans de l'últim canvi de la seva fitxa o dels estils (passa generadors/gen_pdf.py): {vells}")
 comprova(not falten, f"PDF que falten o buits: {falten}")
 
 # El recompte de pàgines NO es fa aquí: WeasyPrint comprimeix els objectes del
@@ -277,7 +291,7 @@ comprova(not falten, f"PDF que falten o buits: {falten}")
 # passar errors sense dir res. Qui ho comprova de debò és generadors/gen_pdf.py,
 # que compara les pàgines generades amb els blocs .full de la fitxa i s'atura si
 # no quadren.
-print(f"  PDF presents: {len(esperats) - len(falten)}/{len(esperats)}")
+print(f"  PDF presents: {len(esperats) - len(falten)}/{len(esperats)} · al dia: {len(esperats) - len(falten) - len(vells)}")
 
 print("\nFULLS D'ESTIL")
 # Una clau sense tancar no dona cap error visible: el navegador la tanca al final

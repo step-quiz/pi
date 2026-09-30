@@ -20,7 +20,7 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 | `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
-| `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub |
+| `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub, i les comprovacions automàtiques. Si es pugen dos zip seguits, el segon espera el primer; i si les comprovacions fallen, no es desa res i el zip es queda a `_uploads/` |
 
 Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `css/`, `js/`, `dades/`, `pdf/`,
 `docs/`, `eines/` i `generadors/`. Les ordres de la seva documentació s'executen des de
@@ -130,6 +130,28 @@ Cada una ha de dir «Tot correcte.». Comproven les fitxes, la caixa d'eines i e
 desplegament, i que cap fitxer del repositori anomeni el curs, el tipus d'aula o un
 diagnòstic. Els noms de carpeta `4eso/` i `1eso/` en són l'única excepció: fan visible el
 curs a les adreces, i és una decisió presa.
+
+**GitHub les passa soles** a cada pujada i a cada pull request (`.github/workflows/comprova.yml`).
+A la pàgina del repositori, al costat de cada commit, surt una marca verda (tot correcte) o una
+creu vermella: clicant-hi es veu quina comprovació ha fallat i per què. Funcionen amb Python
+3.11 o més nou, sense instal·lar res.
+
+Les proves que obren un navegador (Playwright) es passen a mà, abans de lliurar:
+
+```bash
+python3 1eso/eines/prova_caixa.py      # la caixa de 1eso/, de punta a punta
+python3 4eso/eines/prova_caixa.py      # la caixa de 4eso/
+python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
+python3 4eso/eines/auditoria.py
+```
+
+**Les còpies dels dos cursos.** Cada curs té la seva còpia dels fitxers de la caixa i del paper.
+Per veure com s'han separat, i si un arreglament d'un curs també cal a l'altre:
+
+```bash
+python3 comu/eines/diferencies.py              # la taula
+python3 comu/eines/diferencies.py js/codi.js   # un fitxer, línia a línia
+```
 
 ---
 

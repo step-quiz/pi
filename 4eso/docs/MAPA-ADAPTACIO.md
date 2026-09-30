@@ -94,7 +94,12 @@ i amb quin dibuix de la fitxa enllaça.
 | 6 | fitxes o taps | fer munts desiguals i aplanar-los |
 | 7 | un dau i una moneda | tirar vint vegades i anotar |
 
-### El graó físic que faltava
+### El graó físic: la proposta d'origen
+
+> **La taula que val és la de dalt** («on és ara»): és la que porten les fitxes, a la pàgina 1,
+> i `dades/unitats.js`. Aquesta és la proposta d'on va sortir, i es conserva perquè té idees
+> que es poden aprofitar (el vídeo del bot a la U5, les 60 tirades a la U7). A les unitats 1, 2 i
+> 4 el material va canviar en fer la fitxa (30/9/2026: s'hi diu per evitar la confusió).
 
 Tot aquest material comença al dibuix. Li falta la baula d'abans: **tocar-ho**. La
 seqüència completa és **físic → visual → simbòlic**, i nosaltres n'estàvem fent només els

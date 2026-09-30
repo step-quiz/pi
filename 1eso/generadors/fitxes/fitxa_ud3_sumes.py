@@ -4,10 +4,9 @@ Adapta les activitats Fraccions 7, 8 i 9 del grup, sempre amb el mateix denomina
 afegeix el full que el docent va demanar el 26/9/2026: per què 1/2 + 1/4 no pot ser 2/6."""
 import os
 import sys
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
-exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "peces_ud2.py"), encoding="utf-8").read())
-exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "peces_fraccions.py"), encoding="utf-8").read())
+from peces_comunes import *  # noqa: F401,F403
+from peces_ud2 import *  # noqa: F401,F403
+from peces_fraccions import *  # noqa: F401,F403
 pagines = []
 pagina = fes_pagina(pagines, "Unitat 3 · Sumes · pàgina")
 op = lambda a, b, d, s="+": f"{fr(a, d)} {s} {fr(b, d)}"

@@ -41,7 +41,7 @@ compartirien la memòria del navegador, i un codi de l'una es llegiria com a và
 
 | Fitxer | Què fa |
 |---|---|
-| `caixa-eines.html` | El marcatge de les cinc eines. Cap frase: només `data-text="1.2.titol"` |
+| `caixa-eines.html` | El marcatge de les 29 eines. Cap frase: només `data-text="1.2.titol"` |
 | `verifica.html` | Llegeix els codis de verificació, un o molts alhora |
 | `textos.html` | Totes les frases en una pàgina, per canviar-les i baixar el fitxer nou |
 | `dades/textos.js` | Totes les frases (`window.TEXTOS`) i què fa cadascuna (`window.TEXTOS_GUIA`) |
@@ -50,7 +50,7 @@ compartirien la memòria del navegador, i un codi de l'una es llegiria com a và
 | `js/codi.js` | El codi de verificació (`K7Q-M2X-9RT`) |
 | `js/tasca.js` | El motor de les tasques tancades |
 | `js/quadricula.js` | El dibuix de tot el curs: quadrets, rectangles, la taula de quadrets, els blocs |
-| `js/moduls/*.js` | Les cinc eines, una per fitxer |
+| `js/moduls/*.js` | Les 29 eines, una per fitxer |
 | `js/app.js` | Les pestanyes i els enllaços `?task=n`. Va l'últim |
 
 L'ordre de càrrega és aquest i no un altre, i el test el comprova:

@@ -1,8 +1,10 @@
 """Peces comunes dels generadors de les fitxes de la unitat 3 (les fraccions).
 
-S'hi entra amb exec(), després de genfitxa.py i ud2comu.py: fa servir Dibuix, ms, buit,
+S'importa (from peces_fraccions import *); abans s'hi entrava amb exec(). Fa servir Dibuix, ms, buit,
 buit_curt, ULL, els colors, tria, fes_pagina i document.
 """
+from peces_comunes import *  # noqa: F401,F403
+from peces_ud2 import *  # noqa: F401,F403
 NUMS = ["zero", "un", "dos", "tres", "quatre", "cinc", "sis", "set", "vuit", "nou", "deu", "onze", "dotze"]
 SING = {2: "mig", 3: "terç", 4: "quart", 5: "cinquè", 6: "sisè", 7: "setè", 8: "vuitè", 9: "novè", 10: "desè",
         11: "onzè", 12: "dotzè"}
@@ -88,3 +90,6 @@ def caixa(cos, resolt=False, marge=".45rem"):
     return f'''    <div{fons} style="border-radius:10px;padding:.35rem .6rem;margin-bottom:{marge}">
 {cos}
     </div>'''
+
+
+__all__ = [n for n in dir() if not n.startswith("__")]

@@ -105,7 +105,8 @@ def final_de(pg, prefix):
 def revisa_pantalla(pg, on):
     """Les regles del curs que es poden mirar al text que es veu."""
     visible = pg.evaluate("() => document.querySelector('.modul:not([hidden])').innerText")
-    comprova(not re.search(r"\[[\w.]+\]", visible), f"{on}: frase sense definir: {re.findall(r'\[[\w.]+\]', visible)}")
+    sense_definir = re.findall(r"\[[\w.]+\]", visible)      # fora de l'f-string: Python 3.11
+    comprova(not sense_definir, f"{on}: frase sense definir: {sense_definir}")
     comprova("×" not in visible, f"{on}: surt «×»")
     comprova(not re.search(r"\d\s*[xX]\s*\d", visible), f"{on}: una «x» multiplica")
     grans = [int(n) for n in re.findall(r"\d+", visible) if int(n) > 999]

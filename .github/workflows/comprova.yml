@@ -1,0 +1,26 @@
+# Passa les comprovacions dels dos cursos a cada pujada i a cada pull request.
+# A GitHub, cada commit porta una marca verda (tot correcte) o una creu vermella:
+# clicant-hi, es veu quina comprovació ha fallat i per què. No cal obrir el Codespace.
+# Només fa servir la biblioteca estàndard de Python: no s'instal·la res.
+name: Comprovacions
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  comprova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 1eso/eines/comprova.py
+        run: python 1eso/eines/comprova.py
+      - name: 4eso/eines/comprova.py
+        if: always()
+        run: python 4eso/eines/comprova.py
