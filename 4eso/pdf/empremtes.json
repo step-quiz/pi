@@ -1,0 +1,126 @@
+{
+ "targeta-calculadora.pdf": {
+  "empremta": "91ca467c6395f8a226e7da52b932d002201340e10d121a5a72098608302f6a83",
+  "font": "targetes/calculadora.html"
+ },
+ "targeta-grafiques.pdf": {
+  "empremta": "ba978840927f91a107ca62091e307e6ef62a5aaffd169056e8cd801f8589a970",
+  "font": "targetes/grafiques.html"
+ },
+ "targeta-percentatges.pdf": {
+  "empremta": "83ae2f9256b99f68489020351a643c804aa261cc8dbbf92cc89c77c46b595d2b",
+  "font": "targetes/percentatges.html"
+ },
+ "ud1-alumnat.pdf": {
+  "empremta": "777451e54c178c119bbec77d154c5dc54aaf79aba6dd1cce3e402928304b78c8",
+  "font": "fitxes/ud1.html"
+ },
+ "ud1-repas-alumnat.pdf": {
+  "empremta": "a4eba0c14439a5b0ef3b227648c234ba315f3bf5cb8754ab0e664d0488f520fe",
+  "font": "fitxes/ud1-repas.html"
+ },
+ "ud1-repas-solucionari.pdf": {
+  "empremta": "a4eba0c14439a5b0ef3b227648c234ba315f3bf5cb8754ab0e664d0488f520fe",
+  "font": "fitxes/ud1-repas.html"
+ },
+ "ud1-solucionari.pdf": {
+  "empremta": "777451e54c178c119bbec77d154c5dc54aaf79aba6dd1cce3e402928304b78c8",
+  "font": "fitxes/ud1.html"
+ },
+ "ud2-alumnat.pdf": {
+  "empremta": "444495c8f2b3742407293f013183d49a710b2af497b788d9d9bbb621afaa8abc",
+  "font": "fitxes/ud2.html"
+ },
+ "ud2-repas-alumnat.pdf": {
+  "empremta": "ab6b71a8c8ac9b6918149dc11c3451bae5dea2494f35c1febf4c378054a91b26",
+  "font": "fitxes/ud2-repas.html"
+ },
+ "ud2-repas-solucionari.pdf": {
+  "empremta": "ab6b71a8c8ac9b6918149dc11c3451bae5dea2494f35c1febf4c378054a91b26",
+  "font": "fitxes/ud2-repas.html"
+ },
+ "ud2-solucionari.pdf": {
+  "empremta": "444495c8f2b3742407293f013183d49a710b2af497b788d9d9bbb621afaa8abc",
+  "font": "fitxes/ud2.html"
+ },
+ "ud3-alumnat.pdf": {
+  "empremta": "25688db0a7b02a8d2d426846e08d4619bea8d97b5247647cec23af70323b5873",
+  "font": "fitxes/ud3.html"
+ },
+ "ud3-repas-alumnat.pdf": {
+  "empremta": "171f4f710f39495efc884f938bcf253a4abe419c702f96aff678d38ca4f61bda",
+  "font": "fitxes/ud3-repas.html"
+ },
+ "ud3-repas-solucionari.pdf": {
+  "empremta": "171f4f710f39495efc884f938bcf253a4abe419c702f96aff678d38ca4f61bda",
+  "font": "fitxes/ud3-repas.html"
+ },
+ "ud3-solucionari.pdf": {
+  "empremta": "25688db0a7b02a8d2d426846e08d4619bea8d97b5247647cec23af70323b5873",
+  "font": "fitxes/ud3.html"
+ },
+ "ud4-alumnat.pdf": {
+  "empremta": "3e38b867daf7e6639444e594ccca7dcfd6433eb48909a089a799239293055353",
+  "font": "fitxes/ud4.html"
+ },
+ "ud4-repas-alumnat.pdf": {
+  "empremta": "b726cc3a63e5fcdc0db585cb9afb80d2ec4894bf436b48f92628d60b8b344c2d",
+  "font": "fitxes/ud4-repas.html"
+ },
+ "ud4-repas-solucionari.pdf": {
+  "empremta": "b726cc3a63e5fcdc0db585cb9afb80d2ec4894bf436b48f92628d60b8b344c2d",
+  "font": "fitxes/ud4-repas.html"
+ },
+ "ud4-solucionari.pdf": {
+  "empremta": "3e38b867daf7e6639444e594ccca7dcfd6433eb48909a089a799239293055353",
+  "font": "fitxes/ud4.html"
+ },
+ "ud5-alumnat.pdf": {
+  "empremta": "8d55c8491bfbd74e0dbc70959c05e6524124df89efe33009e1adbe574129c24a",
+  "font": "fitxes/ud5.html"
+ },
+ "ud5-repas-alumnat.pdf": {
+  "empremta": "992b58a32db8f772888d1b624e11439427ac4221d32e882d78277f65aadc6164",
+  "font": "fitxes/ud5-repas.html"
+ },
+ "ud5-repas-solucionari.pdf": {
+  "empremta": "992b58a32db8f772888d1b624e11439427ac4221d32e882d78277f65aadc6164",
+  "font": "fitxes/ud5-repas.html"
+ },
+ "ud5-solucionari.pdf": {
+  "empremta": "8d55c8491bfbd74e0dbc70959c05e6524124df89efe33009e1adbe574129c24a",
+  "font": "fitxes/ud5.html"
+ },
+ "ud6-alumnat.pdf": {
+  "empremta": "e984a05b3193e679949c63869163b1f83744f92455e65fef2fb4dcd91f34510b",
+  "font": "fitxes/ud6.html"
+ },
+ "ud6-repas-alumnat.pdf": {
+  "empremta": "054499ec2c35a4da7c6ff78a57987ab02e6c3610f86383e5282202c261b1d4a1",
+  "font": "fitxes/ud6-repas.html"
+ },
+ "ud6-repas-solucionari.pdf": {
+  "empremta": "054499ec2c35a4da7c6ff78a57987ab02e6c3610f86383e5282202c261b1d4a1",
+  "font": "fitxes/ud6-repas.html"
+ },
+ "ud6-solucionari.pdf": {
+  "empremta": "e984a05b3193e679949c63869163b1f83744f92455e65fef2fb4dcd91f34510b",
+  "font": "fitxes/ud6.html"
+ },
+ "ud7-alumnat.pdf": {
+  "empremta": "804845d8c3aa64667812ac9102bab3e8b80c2628df07435d05f79234767908ff",
+  "font": "fitxes/ud7.html"
+ },
+ "ud7-repas-alumnat.pdf": {
+  "empremta": "a046e4ea00b66ea9f8a183b53ade8fe4c951386abf1f497c77611dd8c39d66a4",
+  "font": "fitxes/ud7-repas.html"
+ },
+ "ud7-repas-solucionari.pdf": {
+  "empremta": "a046e4ea00b66ea9f8a183b53ade8fe4c951386abf1f497c77611dd8c39d66a4",
+  "font": "fitxes/ud7-repas.html"
+ },
+ "ud7-solucionari.pdf": {
+  "empremta": "804845d8c3aa64667812ac9102bab3e8b80c2628df07435d05f79234767908ff",
+  "font": "fitxes/ud7.html"
+ }
+}

@@ -7,8 +7,7 @@ Fa servir les peces de dibuix de la primera fitxa de la unitat 1 (genfitxa.py).
 import os
 import sys
 
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])       # Dibuix, ms, buit, buit_curt, ULL, colors…
+from peces_comunes import *  # noqa: F401,F403  # Dibuix, ms, buit, buit_curt, ULL, colors…
 
 PEU = "Unitat 2 · Múltiples · pàgina"
 MARCA = ('<svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">'
@@ -422,5 +421,5 @@ cap = '''<!DOCTYPE html>
 '''
 html = cap + "\n\n".join(pagines) + "\n\n</body>\n</html>\n"
 sortida = sys.argv[1] if len(sys.argv) > 1 else "ud2.html"
-open(sortida, "w", encoding="utf-8").write(html)
+desa(html, sortida)
 print(sortida, len(pagines), "blocs")

@@ -4,9 +4,8 @@ Adapta el Repàs U2 del grup (amb el carnet d'identitat de cada nombre) i hi afe
 «Què he après?», com a la unitat 1."""
 import os
 import sys
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
-exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "peces_ud2.py"), encoding="utf-8").read())
+from peces_comunes import *  # noqa: F401,F403
+from peces_ud2 import *  # noqa: F401,F403
 
 pagines = []
 pagina = fes_pagina(pagines, "Unitat 2 · Repàs · pàgina")

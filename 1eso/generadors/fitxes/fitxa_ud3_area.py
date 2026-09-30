@@ -5,10 +5,9 @@ el metre i el quilòmetre (amb l'excepció «1 km = 1.000 m», decisió del doce
 l'àrea de rectangles i de figures irregulars amb quadrets sencers i mitjos."""
 import os
 import sys
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
-exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "peces_ud2.py"), encoding="utf-8").read())
-exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "peces_fraccions.py"), encoding="utf-8").read())
+from peces_comunes import *  # noqa: F401,F403
+from peces_ud2 import *  # noqa: F401,F403
+from peces_fraccions import *  # noqa: F401,F403
 pagines = []
 pagina = fes_pagina(pagines, "Unitat 3 · Àrea · pàgina")
 

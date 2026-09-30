@@ -1,10 +1,11 @@
 """Peces de dibuix de la geometria (unitat 6): la targeta «Formes» i les fitxes ud6*.
 
-S'hi entra amb exec(), després de les peces de la unitat 1 (fitxa_ud1.py): fa servir Dibuix i els
+S'importa (from peces_geo import *); abans s'hi entrava amb exec(). Fa servir Dibuix i els
 colors d'allà. Totes les mides en cm. Els mateixos models que la caixa (tasques 22 a 25): la
 cantonada d'un quadret, discontínua, és l'angle recte; els polígons, al geoplà; els angles d'un
 triangle, numerats, i junts fan un angle pla.
 """
+from peces_comunes import *  # noqa: F401,F403
 import math
 
 
@@ -323,3 +324,6 @@ def barres_d(dades, aria, m=0.42, ini=0, max_eix=None, buit=False, pintades=None
                     d.quadret(x, y0 - (k + 1) * m, m)
         d.text(esq + i * amp_b + amp_b / 2, y0 + 0.5, et, 0.34, 700)
     return d
+
+
+__all__ = [n for n in dir() if not n.startswith("__")]

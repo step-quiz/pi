@@ -18,12 +18,10 @@ import os
 import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-_src = open(os.path.join(AQUI, "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])                       # Dibuix, ms, buit, ULL, els colors
-exec(open(os.path.join(AQUI, "peces_ud2.py"), encoding="utf-8").read())          # tria, fes_pagina, document
-exec(open(os.path.join(AQUI, "peces_fraccions.py"), encoding="utf-8").read())    # caixa
-_nombres = open(os.path.join(AQUI, "fitxa_ud1_nombres.py"), encoding="utf-8").read()
-exec(_nombres[_nombres.index("def peca("):_nombres.index("def taula_xifres(")])  # peca() i blocs()
+from peces_comunes import *  # noqa: F401,F403  # Dibuix, ms, buit, ULL, els colors
+from peces_ud2 import *  # noqa: F401,F403  # tria, fes_pagina, document
+from peces_fraccions import *  # noqa: F401,F403  # caixa
+from peces_nombres import peca, blocs  # noqa: F401
 
 pagines = []
 pagina = fes_pagina(pagines, "Unitat 5 · Els decimals · pàgina")

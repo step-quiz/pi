@@ -4,9 +4,8 @@ Adapta les activitats 2_5 (factorització), 2_8 i «ADN dels nombres» del grup,
 decisió del docent del 25/9/2026: tres factors primers com a molt, sense potències."""
 import os
 import sys
-_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
-exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "peces_ud2.py"), encoding="utf-8").read())
+from peces_comunes import *  # noqa: F401,F403
+from peces_ud2 import *  # noqa: F401,F403
 
 pagines = []
 pagina = fes_pagina(pagines, "Unitat 2 · Factors · pàgina")

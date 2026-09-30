@@ -10,11 +10,10 @@ import os
 import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-_src = open(os.path.join(AQUI, "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
-exec(open(os.path.join(AQUI, "peces_ud2.py"), encoding="utf-8").read())
-exec(open(os.path.join(AQUI, "peces_fraccions.py"), encoding="utf-8").read())
-exec(open(os.path.join(AQUI, "peces_geo.py"), encoding="utf-8").read())
+from peces_comunes import *  # noqa: F401,F403
+from peces_ud2 import *  # noqa: F401,F403
+from peces_fraccions import *  # noqa: F401,F403
+from peces_geo import *  # noqa: F401,F403
 
 pagines = []
 pagina = fes_pagina(pagines, "Unitat 7 · Repàs · pàgina")

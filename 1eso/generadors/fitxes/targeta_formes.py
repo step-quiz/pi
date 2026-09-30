@@ -21,9 +21,8 @@ import os
 import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-_src = open(os.path.join(AQUI, "fitxa_ud1.py"), encoding="utf-8").read()
-exec(_src[:_src.index("pagines = []")])
-exec(open(os.path.join(AQUI, "peces_geo.py"), encoding="utf-8").read())
+from peces_comunes import *  # noqa: F401,F403
+from peces_geo import *  # noqa: F401,F403
 
 C = 'style="border:0;padding:.08rem .3rem;vertical-align:middle"'
 
@@ -125,5 +124,5 @@ cap = '''<!DOCTYPE html>
 '''
 html = cap + cara1 + "\n\n" + cara2 + "\n\n</body>\n</html>\n"
 sortida = sys.argv[1] if len(sys.argv) > 1 else "formes.html"
-open(sortida, "w", encoding="utf-8").write(html)
+desa(html, sortida)
 print(sortida)

@@ -181,8 +181,19 @@ cada text, en mode clar i fosc, a 320 px i a escriptori. També mesura la lletra
 fitxes tal com surt al PDF: cap text de l'alumnat per sota de 14 pt i cap rètol de gràfic
 per sota de 12 pt. Ara mateix: **0 problemes en 68 estats i 17 fitxes o targetes**.
 
-`comprova.py` fa servir Python 3.12 o més nou (el del Codespace). Amb el 3.11 s'atura amb
-un `SyntaxError`.
+```
+python3 eines/prova_caixa.py
+```
+
+Prova la caixa de punta a punta en Chromium: obre totes les pestanyes i els enllaços `?task=n`,
+mou els mòduls i acaba una tasca tancada (x² = 36), fins a llegir-ne el codi a `verifica.html`.
+
+`comprova.py` també mira que cap PDF sigui vell: `gen_pdf.py` desa a `pdf/empremtes.json`
+l'empremta de la fitxa i dels estils de cada PDF, i si la fitxa canvia i el PDF no, ho diu.
+
+`comprova.py` funciona amb Python 3.11 o més nou, sense cap dependència. GitHub el passa sol a
+cada pujada (`.github/workflows/comprova.yml`): a la pàgina del repositori, cada commit porta una
+marca verda o una creu vermella.
 
 ---
 

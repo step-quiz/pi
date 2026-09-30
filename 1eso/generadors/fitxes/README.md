@@ -34,7 +34,20 @@ python3 1eso/eines/comprova.py                                     # l'estructur
 | `fitxa_ud7_regla.py` | `ud7-regla.html` | `fitxa_ud7_simbols.py` | `ud7-simbols.html` |
 | `fitxa_ud7_grafics.py` | `ud7-grafics.html` | `fitxa_ud7_repas.py` | `ud7-repas.html` |
 
-Les peces comunes: `fitxa_ud1.py` (la classe `Dibuix`, `ms()`, `buit()`, els colors: els altres
-n'executen la primera part), `peces_ud2.py` (opcions per marcar, pàgines, el document, la graella
-de 100, els rectangles, l'arbre de factors) i `peces_fraccions.py` (`fr()`, les tires, les caixes).
-Si canvies una fitxa a mà, el generador ja no la farà igual: canvia-la sempre al generador.
+Les peces comunes són mòduls, i cada generador les importa (`from peces_comunes import *`):
+
+| Mòdul | Què hi ha |
+|---|---|
+| `peces_comunes.py` | la classe `Dibuix`, els colors, `ms()`, `buit()`, `ULL` i `desa()`, que escriu l'HTML |
+| `peces_ud2.py` | opcions per marcar, pàgines, el document, la graella de 100, els rectangles, l'arbre de factors |
+| `peces_fraccions.py` | `fr()`, les tires, les caixes |
+| `peces_nombres.py` | `peca()` i `blocs()`: centenes, desenes i unitats |
+| `peces_geo.py` | les peces de dibuix de la unitat 6 |
+
+Fins al 30/9/2026 no eren mòduls: els generadors executaven amb `exec()` un tros de
+`fitxa_ud1.py` (fins a la línia `pagines = []`) i dels altres fitxers. Si aquella línia es movia,
+deixaven de funcionar. `eines/comprova.py` vigila que no torni a passar.
+
+**Cada HTML diu de quin generador surt**, a la segona línia: `<!-- Generat per … -->`. Si canvies
+una fitxa a mà, el generador ja no la farà igual i el canvi es perdrà: canvia-la sempre al
+generador. L'única feta a mà és la targeta de les taules (`targetes/taules.html`).

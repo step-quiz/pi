@@ -83,7 +83,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `fitxes.html` | Índex de les targetes de consulta i de les set unitats, amb els dos PDF de cada fitxa (alumnat i solucionari). Al final, el detall de cada unitat per al docent: el nucli, el graó físic, el rol a l'aula ordinària, la fita, el camí mínim i les regles trencades |
 | `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
-| `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
+| `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les 29 eines a `moduls/`, una per fitxer |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1), la dels noms de les fraccions (unitat 3), la dels decimals i les arrels (unitat 5), la de les formes (unitat 6) i la dels patrons i els símbols (unitat 7) |
 | `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les set de la unitat 3 (mesurar l'àrea, quants km², què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs), i les cinc de la unitat 4 (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |

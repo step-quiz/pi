@@ -1,8 +1,9 @@
 """Peces comunes dels generadors de les fitxes de la unitat 2.
 
-S'hi entra amb exec(), després de les peces de la unitat 1 (genfitxa.py): fa servir
+S'importa (from peces_ud2 import *); abans s'hi entrava amb exec(). Fa servir
 Dibuix, ms, buit, buit_curt, ULL i els colors d'allà.
 """
+from peces_comunes import *  # noqa: F401,F403
 
 MARCA = ('<svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">'
          '<path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" '
@@ -145,5 +146,8 @@ def document(titol, comentari, pagines, sortida):
 
 '''
     html = cap + "\n\n".join(pagines) + "\n\n</body>\n</html>\n"
-    open(sortida, "w", encoding="utf-8").write(html)
+    desa(html, sortida)
     print(sortida, len(pagines), "blocs")
+
+
+__all__ = [n for n in dir() if not n.startswith("__")]
