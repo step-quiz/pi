@@ -235,8 +235,8 @@ dir-l'hi: aquesta sí que la va voler aprovar.
 
 Sis blocs, de la comparativa entre les dues carpetes. Tot passa `eines/comprova.py`,
 `eines/mesura.py` i `eines/auditoria.py` (0 problemes en 68 estats i 17 pàgines de paper).
-**Les targetes i els repassos són propostes per validar amb el docent**: ho diuen al comentari.
-Els apartats «nou» dels exàmens ja estan revisats (vegeu més avall).
+Tot queda tancat el 30/9/2026, per encàrrec del docent: les targetes, els repassos i els apartats
+«nou» dels exàmens es van revisar el mateix dia (vegeu més avall).
 
 | Bloc | Què s'ha fet |
 |---|---|
@@ -247,8 +247,9 @@ Els apartats «nou» dels exàmens ja estan revisats (vegeu més avall).
 | Caixa d'eines | dos mòduls nous: Aplanar (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de la U7, tasca 9) |
 | La doble recta | declarada model del curs (`CRITERIS-DISSENY.md`, regla 10) i amb el cas «Equació x + 3 = 7» per a la U4 |
 
-**Què queda per decidir amb el docent:** si les targetes es poden fer servir a l'examen, i
-el contingut concret de cada «Una de cada». Els apartats «nou» dels exàmens es van revisar el
+**Decidit el 30/9/2026:** les targetes es poden tenir a la taula a l'examen, com a `1eso/` (la
+de la calculadora ja ho diu), i el contingut de cada «Una de cada» queda com és: un apartat per
+cada tipus d'exercici de la fitxa, amb els comptes comprovats. Els apartats «nou» dels exàmens es van revisar el
 30/9/2026, per encàrrec del docent: cada xifra comprovada, i el mateix tipus d'ítem que la fitxa.
 
 **La revisió del 30/9/2026.** Es van llegir totes les fitxes, repassos i targetes dels dos cursos.

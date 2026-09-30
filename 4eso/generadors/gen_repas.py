@@ -16,7 +16,7 @@ pàgina 1 no es copia a mà: surt de la pàgina 1 de la fitxa de la unitat (un g
 amb marcador <!--grafic:NOM--> o un dibuix fet a mà), perquè sigui sempre el mateix.
 Si el gràfic és d'un generador, posa_grafics.py el torna a posar al dia a totes dues.
 
-Proposta del 30/9/2026, per validar amb el docent. Després de canviar res:
+Fet el 30/9/2026 i revisat el mateix dia, per encàrrec del docent. Després de canviar res:
 python3 eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
 """
 import os, re
