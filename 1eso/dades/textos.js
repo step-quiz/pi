@@ -37,6 +37,9 @@ window.TEXTOS = {
 
   /* ---------------------------------------------------- comunes a tot ---- */
   "comu": {
+    tria_totes:   'Totes',
+    tria_unitat:  'Unitat {n}',
+    tria_nom:     'Les eines de cada unitat',
     si:           'Sí',
     no:           'No',
     i:            'i',
@@ -1004,6 +1007,9 @@ window.TEXTOS = {
 
 window.TEXTOS_GUIA = {
   "comu": {
+    tria_totes:   ["Botó per veure les eines de totes les unitats", []],
+    tria_unitat:  ["Botó per veure només les eines d'una unitat", ["n"]],
+    tria_nom:     ["Nom del grup de botons de les unitats, per al lector de pantalla", []],
     si:           ["Botó Sí de les tasques de sí o no", []],
     no:           ["Botó No de les tasques de sí o no", []],
     i:            ["La «i» de les llistes: 1, 2 i 3", []],

@@ -627,7 +627,22 @@ else:
     fitxers_mod = sorted(glob.glob(ruta('js', 'moduls', '*.js')))
     registrats = sorted({m.group(1) for x in fitxers_mod
                          for m in [re.search(r'CE\.registra\("(\w+)"', llegeix(x))] if m})
-    carregats = re.findall(r'<script src="js/moduls/([\w-]+)\.js"', app)
+    # Els mòduls es carreguen quan s'obren: cada pestanya diu el seu fitxer a data-src (30/9/2026).
+    carregats = re.findall(r'data-src="js/moduls/([\w-]+)\.js"', app)
+    # Un mòdul que fa servir una funció d'un altre (CE.botonsSiNo és de multiples.js) l'ha
+    # de dir a data-cal, perquè es carregui abans: si no, surt sense botons.
+    defineix = {n: re.search(r'CE\.registra\("(\w+)"', llegeix(x))[1]
+                for x in fitxers_mod for n in re.findall(r'CE\.(\w+) = ', llegeix(x)) if n != 'dades'}
+    cals = dict(re.findall(r'data-mod="(\w+)"[^>]*?data-cal="([^"]*)"', app))
+    for x in fitxers_mod:
+        codi = llegeix(x)
+        propi = re.search(r'CE\.registra\("(\w+)"', codi)[1]
+        cal = {defineix[n] for n in re.findall(r'CE\.(\w+)\(', codi) if n in defineix and defineix[n] != propi}
+        comprova(cal <= set(cals.get(propi, '').split()),
+                 f"caixa-eines.html: la pestanya {propi} fa servir {sorted(cal)} i no ho diu a data-cal")
+    for mod, src in re.findall(r'data-mod="(\w+)" data-src="([^"]+)"', app):
+        comprova(os.path.exists(ruta(src)) and f'CE.registra("{mod}"' in llegeix(ruta(src)),
+                 f"caixa-eines.html: la pestanya {mod} diu data-src=\"{src}\", que no registra «{mod}»")
     comprova(pestanyes == seccions == registrats,
              f"identificadors descompassats: pestanyes {pestanyes} · seccions {seccions} · registrats {registrats}")
     comprova(sorted(carregats) == sorted(os.path.basename(x)[:-3] for x in fitxers_mod),
@@ -637,8 +652,9 @@ else:
     comprova(all(x >= 0 for x in posicions) and posicions == sorted(posicions),
              "els scripts base van en aquest ordre: " + ", ".join(ordre_bo))
     darrer = app.rfind('src="js/app.js"')
-    comprova(darrer > max([app.rfind(f'js/moduls/{c}.js') for c in carregats] + [-1]),
-             "js/app.js s'ha de carregar després de tots els mòduls")
+    comprova(darrer > max(posicions), "js/app.js s'ha de carregar després dels scripts base")
+    comprova(not re.search(r'<script src="js/moduls/', app),
+             "caixa-eines.html: els mòduls no es carreguen d'entrada, sinó quan s'obren (data-src)")
     comprova('href="../favicon.svg"' in app, "caixa-eines.html: la icona és ../favicon.svg")
     # Cada identificador, una sola vegada. Amb dos iguals, $("#x") troba el primer i un
     # mòdul dibuixa dins d'un altre: la tasca 15 escrivia a la taula de la tasca 0,

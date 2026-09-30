@@ -116,8 +116,8 @@ window.TEXTOS = {
     boto_no:   'Els decimals no s\'acaben mai',
     encert_si: '{nom} és exactament *{valor}*. Els decimals s\'acaben.',
     encert_no: '{nom} té decimals que no s\'acaben mai.',
-    pista_si:  'Mira el final de la pantalla. No hi ha els tres punts «…». El nombre és *{valor}* i prou.',
-    pista_no:  'Mira el final de la pantalla. Hi ha els tres punts «…». Vol dir que els decimals continuen.'
+    pista_si:  'Mira la pantalla. Surt *{valor}* i prou: no hi ha cap decimal.',
+    pista_no:  'Mira la pantalla. Està plena de xifres: els decimals continuen i ja no hi caben.'
   },
 
   "1.4": {

@@ -289,6 +289,14 @@ svg.real { width: 11cm; max-width: 100%; margin: 0 auto }
 .targeta table { margin: .2rem 0 }
 .targeta td, .targeta th { padding: .35rem .5rem }
 
+/* La barra de dalt, només a la pantalla: tornar a l'índex i baixar el PDF (30/9/2026). */
+.navega { max-width: 21cm; margin: 1rem auto 0; padding: 0 .2rem; display: flex; flex-wrap: wrap;
+          gap: .5rem 1rem; align-items: center; font: 15px/1.4 var(--tipus) }
+.navega .pdf { display: inline-block; border: 1.5px solid currentColor; border-radius: 999px;
+               padding: .2rem .8rem; text-decoration: none; font-weight: 600 }
+.navega .pdf:hover { text-decoration: underline }
+@media print { .navega { display: none } }
+
 @media print {
   body { background: #fff }
   .full { margin: 0; max-width: none; padding: 1.3cm 1.4cm; min-height: 0; page-break-after: always }

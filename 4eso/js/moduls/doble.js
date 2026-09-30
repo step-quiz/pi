@@ -39,40 +39,57 @@
   ];
   let dr = DOBLES[0], drPas = DOBLES[0].inici, drRevelat = true;
 
+  /* LA LLETRA AL MÒBIL (30/9/2026). El dibuix fa 660 d'ample i s'encongeix amb la
+     pantalla: a 320 px, una lletra de 15 hi feia uns 7 px, i «per cent» quedava tallat a
+     l'esquerra. Ara els noms de les dues rectes van a sobre del dibuix, en text normal
+     (#dr-noms), i la lletra del dibuix creix quan el dibuix és estret: en píxels de
+     pantalla, mai per sota de 13. */
+  function mides(svg) {
+    const ample = svg.getBoundingClientRect().width || 660;
+    const escala = 660 / ample;
+    return { rotul: Math.min(32, Math.max(18, 13 * escala)), valor: Math.min(38, Math.max(24, 17 * escala)) };
+  }
+
   function pintaDoble() {
     const svg = $("#dr-svg"); svg.textContent = "";
-    const x0 = 74, x1 = 596, yA = 96, yB = 214;
+    const x0 = 44, x1 = 616, yA = 100, yB = 196;
+    const m = mides(svg);
+    $("#dr-noms").innerHTML = "<b>A dalt:</b> " + dr.nomA + " · <b>A baix:</b> " + dr.nomB;
     const t = drPas / dr.passos;
     const px = u => x0 + u * (x1 - x0);
     const lloc = (min, max, u) => (min || 0) + (max - (min || 0)) * u;
     const A = lloc(dr.minA, dr.maxA, t), B = lloc(dr.minB, dr.maxB, t);
     const gris = "var(--etiqueta-3)", sec = "var(--etiqueta-2)";
 
-    const recta = (y, nom, minim, maxim, unitat, dec, aDalt) => {
+    const recta = (y, minim, maxim, unitat, dec, aDalt) => {
+      // Si els rètols no hi caben un al costat de l'altre, se'n posa un de cada dos:
+      // la marca hi continua sent (com els gràfics de les fitxes, gen_grafics.py).
+      const rotuls = [];
+      for (let k = 0; k <= dr.marques; k++) rotuls.push(num(lloc(minim, maxim, k / dr.marques), dec) + unitat);
+      const ample = Math.max(...rotuls.map(r => r.length)) * m.rotul * 0.58 + m.rotul * 0.4;
+      const cada = ample > (x1 - x0) / dr.marques ? 2 : 1;
       svg.appendChild(el("line", { x1: x0, y1: y, x2: x1, y2: y,
         style: "stroke:" + gris, "stroke-width": 3, "stroke-linecap": "round" }));
       for (let k = 0; k <= dr.marques; k++) {
         const u = k / dr.marques;
         svg.appendChild(el("line", { x1: px(u), y1: y - 9, x2: px(u), y2: y + 9,
           style: "stroke:" + gris, "stroke-width": 2 }));
-        svg.appendChild(el("text", { x: px(u), y: y + (aDalt ? -20 : 34), "text-anchor": "middle",
-          "font-size": 15, style: "fill:" + sec, "font-family": "inherit" },
-          num(lloc(minim, maxim, u), dec) + unitat));
+        if (k % cada) continue;
+        svg.appendChild(el("text", { x: px(u), y: y + (aDalt ? -18 : 18 + m.rotul), "text-anchor": "middle",
+          "font-size": m.rotul, style: "fill:" + sec, "font-family": "inherit" }, rotuls[k]));
       }
-      svg.appendChild(el("text", { x: x0 - 14, y: y + 6, "text-anchor": "end", "font-size": 15,
-        style: "fill:" + sec, "font-family": "inherit" }, nom));
     };
 
     // el connector vertical és el que fa veure que les dues rectes van lligades
     svg.appendChild(el("line", { x1: px(t), y1: yA, x2: px(t), y2: yB,
       style: "stroke:var(--blau)", "stroke-width": 3, "stroke-dasharray": "7 6" }));
 
-    recta(yA, dr.nomA, dr.minA, dr.maxA, dr.unA, dr.decA, true);
-    recta(yB, dr.nomB, dr.minB, dr.maxB, dr.unB, dr.decB, false);
+    recta(yA, dr.minA, dr.maxA, dr.unA, dr.decA, true);
+    recta(yB, dr.minB, dr.maxB, dr.unB, dr.decB, false);
 
-    [[yA, A, dr.unA, dr.decA, -34], [yB, B, dr.unB, dr.decB, 52]].forEach(([y, v, u, d, dy]) => {
+    [[yA, A, dr.unA, dr.decA, -24 - m.rotul], [yB, B, dr.unB, dr.decB, 30 + m.rotul + m.valor * 0.8]].forEach(([y, v, u, d, dy]) => {
       svg.appendChild(el("circle", { cx: px(t), cy: y, r: 11, style: "fill:var(--blau)" }));
-      svg.appendChild(el("text", { x: px(t), y: y + dy, "text-anchor": "middle", "font-size": 24,
+      svg.appendChild(el("text", { x: px(t), y: y + dy, "text-anchor": "middle", "font-size": m.valor,
         "font-weight": 700, style: "fill:var(--etiqueta)", "font-family": "inherit" },
         num(v, d) + u));
     });
@@ -109,6 +126,8 @@
     $("#dr-menys").onclick = () => { if (drPas > 0) { drPas--; drRevelat = true; pintaDoble(); } };
     $("#dr-mes").onclick   = () => { if (drPas < dr.passos) { drPas++; drRevelat = true; pintaDoble(); } };
     pintaDoble();
+    // En girar el mòbil o canviar la finestra, la lletra es torna a calcular.
+    window.addEventListener("resize", () => { if (!$("#mod-doble").hidden) pintaDoble(); });
   }
 
   CE.registra("doble", iniciaDoble);

@@ -20,36 +20,40 @@
   <!-- data-tasca: el número dels enllaços filtrats, caixa-eines?task=n (vegeu js/app.js).
        La tasca 0 es mostra sempre i va la primera. Un número que ja s'ha enviat a
        l'alumnat no es canvia mai: un mòdul nou pren el següent número lliure. -->
+  <!-- La caixa sencera té 29 pestanyes: es poden veure les d'una sola unitat. data-unitats
+       diu de quines unitats és cada eina (les tasques de dades/unitats.js); la tasca 0 surt
+       sempre. Als enllaços ?task=n aquesta tria no surt (vegeu js/app.js). -->
+  <div class="pastilles tria-unitat" id="tria-unitat" role="group"></div>
   <div class="segments" role="tablist" aria-label="Eines">
-    <button class="segment" role="tab" data-tasca="0" data-mod="taules" aria-selected="false">Taules</button>
-    <button class="segment" role="tab" data-tasca="1" data-mod="rect" aria-selected="false">Rectangles</button>
-    <button class="segment" role="tab" data-tasca="2" data-mod="quadrat" aria-selected="false">Quadrats</button>
-    <button class="segment" role="tab" data-tasca="3" data-mod="cdu" aria-selected="false">Nombres</button>
-    <button class="segment" role="tab" data-tasca="4" data-mod="ordre" aria-selected="false">Ordre</button>
-    <button class="segment" role="tab" data-tasca="5" data-mod="multiples" aria-selected="false">Múltiples</button>
-    <button class="segment" role="tab" data-tasca="6" data-mod="repartir" aria-selected="false">Repartir</button>
-    <button class="segment" role="tab" data-tasca="7" data-mod="divisors" aria-selected="false">Divisors</button>
-    <button class="segment" role="tab" data-tasca="8" data-mod="primers" aria-selected="false">Primers</button>
-    <button class="segment" role="tab" data-tasca="9" data-mod="fraccio" aria-selected="false">Fraccions</button>
-    <button class="segment" role="tab" data-tasca="10" data-mod="equivalents" aria-selected="false">Equivalents</button>
-    <button class="segment" role="tab" data-tasca="11" data-mod="compara" aria-selected="false">Compara</button>
-    <button class="segment" role="tab" data-tasca="12" data-mod="sumes" aria-selected="false">Sumes</button>
-    <button class="segment" role="tab" data-tasca="13" data-mod="area" aria-selected="false">Àrea</button>
-    <button class="segment" role="tab" data-tasca="14" data-mod="fraccnombre" aria-selected="false">Fracció d'un nombre</button>
-    <button class="segment" role="tab" data-tasca="15" data-mod="multfrac" aria-selected="false">Multiplicar fraccions</button>
-    <button class="segment" role="tab" data-tasca="16" data-mod="percentatges" aria-selected="false">Percentatges</button>
-    <button class="segment" role="tab" data-tasca="17" data-mod="dobletriple" aria-selected="false">Dobles i triples</button>
-    <button class="segment" role="tab" data-tasca="18" data-mod="decimals" aria-selected="false">Decimals</button>
-    <button class="segment" role="tab" data-tasca="19" data-mod="arrodonir" aria-selected="false">Arrodonir</button>
-    <button class="segment" role="tab" data-tasca="20" data-mod="sumadec" aria-selected="false">Sumar decimals</button>
-    <button class="segment" role="tab" data-tasca="21" data-mod="fracdec" aria-selected="false">Fracció i decimal</button>
-    <button class="segment" role="tab" data-tasca="22" data-mod="angles" aria-selected="false">Angles</button>
-    <button class="segment" role="tab" data-tasca="23" data-mod="poligons" aria-selected="false">Polígons</button>
-    <button class="segment" role="tab" data-tasca="24" data-mod="triangles" aria-selected="false">Triangles</button>
-    <button class="segment" role="tab" data-tasca="25" data-mod="perimetre" aria-selected="false">Perímetre</button>
-    <button class="segment" role="tab" data-tasca="26" data-mod="patrons" aria-selected="false">Patrons</button>
-    <button class="segment" role="tab" data-tasca="27" data-mod="simbols" aria-selected="false">Símbols</button>
-    <button class="segment" role="tab" data-tasca="28" data-mod="grafics" aria-selected="false">Gràfics</button>
+    <button class="segment" role="tab" data-tasca="0" data-unitats="totes" data-mod="taules" data-src="js/moduls/taules.js" aria-selected="false">Taules</button>
+    <button class="segment" role="tab" data-tasca="1" data-unitats="1" data-mod="rect" data-src="js/moduls/rectangles.js" aria-selected="false">Rectangles</button>
+    <button class="segment" role="tab" data-tasca="2" data-unitats="1 5" data-mod="quadrat" data-src="js/moduls/quadrats.js" aria-selected="false">Quadrats</button>
+    <button class="segment" role="tab" data-tasca="3" data-unitats="1" data-mod="cdu" data-src="js/moduls/nombres.js" aria-selected="false">Nombres</button>
+    <button class="segment" role="tab" data-tasca="4" data-unitats="1" data-mod="ordre" data-src="js/moduls/ordre.js" aria-selected="false">Ordre</button>
+    <button class="segment" role="tab" data-tasca="5" data-unitats="2" data-mod="multiples" data-src="js/moduls/multiples.js" aria-selected="false">Múltiples</button>
+    <button class="segment" role="tab" data-tasca="6" data-unitats="2" data-mod="repartir" data-src="js/moduls/repartir.js" data-cal="multiples" aria-selected="false">Repartir</button>
+    <button class="segment" role="tab" data-tasca="7" data-unitats="2" data-mod="divisors" data-src="js/moduls/divisors.js" aria-selected="false">Divisors</button>
+    <button class="segment" role="tab" data-tasca="8" data-unitats="2" data-mod="primers" data-src="js/moduls/primers.js" data-cal="multiples" aria-selected="false">Primers</button>
+    <button class="segment" role="tab" data-tasca="9" data-unitats="3" data-mod="fraccio" data-src="js/moduls/fraccio.js" aria-selected="false">Fraccions</button>
+    <button class="segment" role="tab" data-tasca="10" data-unitats="3" data-mod="equivalents" data-src="js/moduls/equivalents.js" data-cal="multiples" aria-selected="false">Equivalents</button>
+    <button class="segment" role="tab" data-tasca="11" data-unitats="3" data-mod="compara" data-src="js/moduls/compara.js" aria-selected="false">Compara</button>
+    <button class="segment" role="tab" data-tasca="12" data-unitats="3" data-mod="sumes" data-src="js/moduls/sumes.js" aria-selected="false">Sumes</button>
+    <button class="segment" role="tab" data-tasca="13" data-unitats="3 6" data-mod="area" data-src="js/moduls/area.js" aria-selected="false">Àrea</button>
+    <button class="segment" role="tab" data-tasca="14" data-unitats="4" data-mod="fraccnombre" data-src="js/moduls/fraccnombre.js" aria-selected="false">Fracció d'un nombre</button>
+    <button class="segment" role="tab" data-tasca="15" data-unitats="4" data-mod="multfrac" data-src="js/moduls/multfrac.js" aria-selected="false">Multiplicar fraccions</button>
+    <button class="segment" role="tab" data-tasca="16" data-unitats="4" data-mod="percentatges" data-src="js/moduls/percentatges.js" aria-selected="false">Percentatges</button>
+    <button class="segment" role="tab" data-tasca="17" data-unitats="4" data-mod="dobletriple" data-src="js/moduls/dobletriple.js" aria-selected="false">Dobles i triples</button>
+    <button class="segment" role="tab" data-tasca="18" data-unitats="5" data-mod="decimals" data-src="js/moduls/decimals.js" aria-selected="false">Decimals</button>
+    <button class="segment" role="tab" data-tasca="19" data-unitats="5" data-mod="arrodonir" data-src="js/moduls/arrodonir.js" aria-selected="false">Arrodonir</button>
+    <button class="segment" role="tab" data-tasca="20" data-unitats="5" data-mod="sumadec" data-src="js/moduls/sumadec.js" aria-selected="false">Sumar decimals</button>
+    <button class="segment" role="tab" data-tasca="21" data-unitats="5" data-mod="fracdec" data-src="js/moduls/fracdec.js" aria-selected="false">Fracció i decimal</button>
+    <button class="segment" role="tab" data-tasca="22" data-unitats="6" data-mod="angles" data-src="js/moduls/angles.js" aria-selected="false">Angles</button>
+    <button class="segment" role="tab" data-tasca="23" data-unitats="6" data-mod="poligons" data-src="js/moduls/poligons.js" aria-selected="false">Polígons</button>
+    <button class="segment" role="tab" data-tasca="24" data-unitats="6" data-mod="triangles" data-src="js/moduls/triangles.js" aria-selected="false">Triangles</button>
+    <button class="segment" role="tab" data-tasca="25" data-unitats="6" data-mod="perimetre" data-src="js/moduls/perimetre.js" aria-selected="false">Perímetre</button>
+    <button class="segment" role="tab" data-tasca="26" data-unitats="7" data-mod="patrons" data-src="js/moduls/patrons.js" aria-selected="false">Patrons</button>
+    <button class="segment" role="tab" data-tasca="27" data-unitats="7" data-mod="simbols" data-src="js/moduls/simbols.js" aria-selected="false">Símbols</button>
+    <button class="segment" role="tab" data-tasca="28" data-unitats="7" data-mod="grafics" data-src="js/moduls/grafics.js" aria-selected="false">Gràfics</button>
   </div>
 </header>
 
@@ -1330,42 +1334,15 @@
 </div>
 
 <!-- Les frases i el nucli primer; després el codi de verificació, les tasques
-     i la quadrícula, que fan servir tots els mòduls; els mòduls es registren
-     sols, i app.js sempre l'últim. -->
+     i la quadrícula, que fan servir tots els mòduls, i app.js l'últim.
+     Els mòduls NO es carreguen aquí: cada pestanya diu el seu fitxer a data-src,
+     i app.js el carrega la primera vegada que s'obre (CE.carrega, a js/nucli.js).
+     Abans la pàgina carregava les 29 eines d'entrada (30/9/2026). -->
 <script src="dades/textos.js"></script>
 <script src="js/nucli.js"></script>
 <script src="js/codi.js"></script>
 <script src="js/tasca.js"></script>
 <script src="js/quadricula.js"></script>
-<script src="js/moduls/taules.js"></script>
-<script src="js/moduls/rectangles.js"></script>
-<script src="js/moduls/quadrats.js"></script>
-<script src="js/moduls/nombres.js"></script>
-<script src="js/moduls/ordre.js"></script>
-<script src="js/moduls/multiples.js"></script>
-<script src="js/moduls/repartir.js"></script>
-<script src="js/moduls/divisors.js"></script>
-<script src="js/moduls/primers.js"></script>
-<script src="js/moduls/fraccio.js"></script>
-<script src="js/moduls/equivalents.js"></script>
-<script src="js/moduls/compara.js"></script>
-<script src="js/moduls/sumes.js"></script>
-<script src="js/moduls/area.js"></script>
-<script src="js/moduls/fraccnombre.js"></script>
-<script src="js/moduls/multfrac.js"></script>
-<script src="js/moduls/percentatges.js"></script>
-<script src="js/moduls/dobletriple.js"></script>
-<script src="js/moduls/decimals.js"></script>
-<script src="js/moduls/arrodonir.js"></script>
-<script src="js/moduls/sumadec.js"></script>
-<script src="js/moduls/fracdec.js"></script>
-<script src="js/moduls/angles.js"></script>
-<script src="js/moduls/poligons.js"></script>
-<script src="js/moduls/triangles.js"></script>
-<script src="js/moduls/perimetre.js"></script>
-<script src="js/moduls/patrons.js"></script>
-<script src="js/moduls/simbols.js"></script>
-<script src="js/moduls/grafics.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

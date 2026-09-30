@@ -30,6 +30,11 @@
 
   function obre(id) {
     if (permesos && !permesos.includes(id)) return;
+    // Encara no s'ha carregat: es carrega (CE.carrega) i, quan ja hi és, s'obre.
+    if (!moduls[id]) {
+      CE.carrega(id).then(() => obre(id), e => console.error(e.message));
+      return;
+    }
     $$(".modul").forEach(s => { s.hidden = true; });
     $$(".segment[data-mod]").forEach(p => p.setAttribute("aria-selected", String(p.dataset.mod === id)));
 
@@ -75,20 +80,61 @@
     return (triada || base).dataset.mod;
   }
 
+  /* LES EINES DE CADA UNITAT (30/9/2026)
+     La caixa sencera té 29 pestanyes seguides. A sobre hi ha una fila de botons,
+     «Totes · Unitat 1 · … · Unitat 7», que deixa veure només les eines d'una unitat
+     (l'atribut data-unitats de cada pestanya; la tasca 0 surt sempre). La tria es
+     desa. Als enllaços ?task=n no surt: allà ja només hi ha dues pestanyes. */
+  const CLAU_UNITAT = "pi1-caixa-unitat";
+  const unitatsDe = b => (b.dataset.unitats || "").split(" ");
+
+  function triaUnitat(botons, u, obreLaPrimera) {
+    botons.forEach(b => { b.hidden = !(u === "totes" || b.dataset.tasca === "0" || unitatsDe(b).includes(u)); });
+    $$("#tria-unitat .pastilla").forEach(p => p.setAttribute("aria-pressed", String(p.dataset.unitat === u)));
+    if (obreLaPrimera) {
+      const actiu = botons.find(b => b.getAttribute("aria-selected") === "true");
+      if (!actiu || actiu.hidden || (u !== "totes" && actiu.dataset.tasca === "0")) {
+        const primera = botons.find(b => !b.hidden && b.dataset.tasca !== "0") || botons[0];
+        if (primera) obre(primera.dataset.mod);
+      }
+    }
+  }
+
+  function filaUnitats(botons) {
+    const fila = $("#tria-unitat");
+    if (!fila) return;
+    if (permesos) { fila.hidden = true; return; }
+    fila.setAttribute("aria-label", CE.txt("comu.tria_nom"));
+    const nums = [...new Set(botons.flatMap(unitatsDe).filter(u => /^\d+$/.test(u)))].sort((a, b) => a - b);
+    ["totes", ...nums].forEach(u => {
+      const p = document.createElement("button");
+      p.className = "pastilla";
+      p.dataset.unitat = u;
+      p.innerHTML = u === "totes" ? CE.txt("comu.tria_totes") : CE.txt("comu.tria_unitat", { n: u });
+      p.onclick = () => { memoria.set(CLAU_UNITAT, u); triaUnitat(botons, u, true); };
+      fila.appendChild(p);
+    });
+    const desada = memoria.get(CLAU_UNITAT);
+    triaUnitat(botons, desada && (desada === "totes" || nums.includes(desada)) ? desada : "totes", false);
+  }
+
   function arrenca() {
     const botons = $$(".segment[data-mod]");
     botons.forEach(p => { p.onclick = () => obre(p.dataset.mod); });
 
     let inicial = aplicaFiltre(botons);
+    filaUnitats(botons);
     if (!inicial) {
       const desat = memoria.get(CLAU);
-      inicial = (desat && moduls[desat]) ? desat : (botons[0] && botons[0].dataset.mod);
+      const visible = b => b && !b.hidden;
+      inicial = (desat && visible(botons.find(b => b.dataset.mod === desat)))
+        ? desat : (botons.find(b => !b.hidden) || botons[0] || {}).dataset.mod;
     }
     if (inicial) obre(inicial);
   }
 
-  // Els mòduls s'han de poder registrar abans que això s'executi, i per això
-  // app.js va l'últim de tots els <script> de la pàgina.
+  // app.js va l'últim dels <script> de la pàgina. Els mòduls es carreguen quan
+  // s'obren (CE.carrega), i per això obre() espera que s'hagin registrat.
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrenca);
   else arrenca();
 

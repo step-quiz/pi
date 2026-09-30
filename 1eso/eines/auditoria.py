@@ -426,6 +426,9 @@ def main():
                     pg.goto(URL(pagina) + adreca)
                     pg.evaluate("localStorage.clear()")
                     pg.goto(URL(pagina) + adreca)
+                    # A la caixa, les eines es carreguen quan s'obren (CE.carrega): s'espera
+                    # que ja hi siguin abans de mesurar res.
+                    pg.evaluate("async () => { if (window.CE && CE.carregaTots) await CE.carregaTots(); }")
                     pg.wait_for_timeout(120)
                     prepara(pg, accio)
                     r = pg.evaluate(JS_MESURA, DIANA)

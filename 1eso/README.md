@@ -27,6 +27,9 @@ Doble clic a `index.html`. No cal servidor ni instal·lar res. Publicat, és a
 Les eines de pantalla de la unitat 1, amb el mateix dibuix que el paper: la quadrícula. S'obre
 amb doble clic a `caixa-eines.html`. Publicada, és a `https://pi.step-quiz.net/1eso/caixa-eines`.
 
+La caixa sencera té 29 eines: a sobre de les pestanyes, «Unitat 1 … Unitat 7» deixa veure només
+les d'una unitat. Cada eina es carrega quan s'obre, i no totes d'entrada.
+
 Per a l'alumnat es fa servir un enllaç que només ensenya una eina. Sempre hi surt també la
 pestanya Taules, que és la targeta de les taules a la pantalla:
 

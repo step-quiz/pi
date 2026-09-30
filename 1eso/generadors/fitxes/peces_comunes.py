@@ -142,6 +142,16 @@ def desa(html, sortida):
         html = "<!DOCTYPE html>\n" + avis + html[len("<!DOCTYPE html>\n"):]
     else:
         html = avis + html
+    # La barra de dalt, només a la pantalla: tornar a l'índex i baixar el PDF (30/9/2026).
+    nom = os.path.basename(sortida)[:-5]
+    if nom.startswith("ud"):
+        pdfs = (f'<a class="pdf" href="../pdf/{nom}-alumnat.pdf" download>PDF de l\'alumnat</a>'
+                f'<a class="pdf" href="../pdf/{nom}-solucionari.pdf" download>PDF del solucionari</a>')
+    else:
+        pdfs = f'<a class="pdf" href="../pdf/targeta-{nom}.pdf" download>PDF per imprimir</a>'
+    barra = (f'<nav class="navega no-imprimir" aria-label="Navegació">'
+             f'<a href="../fitxes.html">← totes les fitxes</a>{pdfs}</nav>\n')
+    html = html.replace("<body>\n", "<body>\n" + barra, 1)
     with open(sortida, "w", encoding="utf-8") as f:
         f.write(html)
 

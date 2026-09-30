@@ -21,6 +21,13 @@
   ];
   let rectaV = NOMBRES[0].v, rectaUs = null, rectaModel = true;
 
+  /* La pantalla de la calculadora, com la de l'aparell i la del mòdul Calculadora:
+     10 xifres i el punt decimal (SEP_DECIMAL de calculadora.js). √7 surt 2.645751311,
+     no «2,6458». Abans aquí hi havia coma i quatre decimals, i era el mateix aparell
+     amb dues pantalles diferents (30/9/2026). A la recta i a les frases, coma. */
+  const SEP_CALC = ".";
+  const pantallaCalc = v => String(Number(v.toPrecision(10))).replace(".", SEP_CALC);
+
   function pintaRecta() {
     const svg = $("#recta-svg"); svg.textContent = "";
     const x0 = 34, x1 = 626, y = 76, max = 6;
@@ -209,7 +216,7 @@
     posaAra = PER_POSAR[e.extra.ordre[i]];
     posaTocat = null; posaIntents = 0; posaCursor = null;
     $("#posa-nom").textContent = posaAra.et;
-    $("#posa-valor").textContent = fix(posaAra.v, 4);
+    $("#posa-valor").textContent = pantallaCalc(posaAra.v);
     const avis = $("#posa-avis");
     avis.className = "avis neutre";
     avis.innerHTML = txt("1.2.comenca");
@@ -270,7 +277,8 @@
      Si són totes del mateix tipus, contestar sempre el mateix botó encerta, i
      això no és el que es vol veure.
        · primer error → «Incorrecte. Ara provem-ho d'una altra manera.» i la
-         pista porta a mirar els tres punts (…) del final de la pantalla;
+         pista porta a mirar la pantalla: una arrel exacta hi surt sola (3), i una
+         que no s'acaba l'omple de xifres (2.645751311), com a l'aparell;
        · el segon intent ja és l'altre botó, i compta com a encert amb pista. */
   const ARRELS = [
     { et: "√9", v: 3, acaba: true },   { et: "√16", v: 4, acaba: true },
@@ -287,7 +295,7 @@
     acabaAra = ARRELS[e.extra.ordre[i]];
     acabaErrors = 0;
     $("#acaba-nom").textContent = acabaAra.et;
-    $("#acaba-valor").textContent = acabaAra.acaba ? fix(acabaAra.v, 0) : fix(acabaAra.v, 7) + "…";
+    $("#acaba-valor").textContent = pantallaCalc(acabaAra.v);
     const avis = $("#acaba-avis");
     avis.className = "avis neutre";
     avis.innerHTML = txt("1.3.comenca");

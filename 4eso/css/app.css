@@ -16,6 +16,10 @@ body{margin:0;background:var(--fons);color:var(--etiqueta);font-family:var(--tip
 
 h1{font-size:2.05rem;font-weight:700;letter-spacing:-.024em;margin:0;line-height:1.1}
 .subtitol{color:var(--etiqueta-2);font-size:1rem;margin:.2rem 0 0}
+/* «← inici», com a 1eso/ i a les pàgines de navegació (30/9/2026) */
+.tornar{margin:0 0 .8rem;font-size:.95rem}
+.tornar a{color:var(--blau-text);text-decoration:none;display:inline-block;min-height:24px}
+.tornar a:hover{text-decoration:underline}
 h2{font-size:1.32rem;font-weight:700;letter-spacing:-.012em;margin:0 0 .1rem;line-height:1.25}
 .ajuda{color:var(--etiqueta-2);font-size:.95rem;margin:0 0 .9rem;line-height:1.4}
 

@@ -50,12 +50,23 @@ compartirien la memòria del navegador, i un codi de l'una es llegiria com a và
 | `js/codi.js` | El codi de verificació (`K7Q-M2X-9RT`) |
 | `js/tasca.js` | El motor de les tasques tancades |
 | `js/quadricula.js` | El dibuix de tot el curs: quadrets, rectangles, la taula de quadrets, els blocs |
-| `js/moduls/*.js` | Les 29 eines, una per fitxer |
+| `js/moduls/*.js` | Les 29 eines, una per fitxer. Es carreguen quan s'obren (`CE.carrega`) |
 | `js/app.js` | Les pestanyes i els enllaços `?task=n`. Va l'últim |
 
 L'ordre de càrrega és aquest i no un altre, i el test el comprova:
 `dades/textos.js` → `js/nucli.js` → `js/codi.js` → `js/tasca.js` → `js/quadricula.js` →
-`js/moduls/*.js` → `js/app.js`.
+`js/app.js`.
+
+**Les eines es carreguen quan s'obren** (30/9/2026). Abans la pàgina carregava les 29 d'entrada.
+Ara cada pestanya diu el fitxer del seu mòdul a `data-src`, i `CE.carrega(id)` (a `js/nucli.js`)
+el carrega la primera vegada que s'obre. Si una eina fa servir una funció d'una altra (els botons
+Sí i No, `CE.botonsSiNo`, són de `multiples.js`), la pestanya ho diu a `data-cal="multiples"` i
+aquella es carrega abans. `comprova.py` ho vigila. Les proves (`prova_caixa.py`, `auditoria.py`)
+les carreguen totes d'entrada amb `CE.carregaTots()`.
+
+**La tria d'unitat.** A sobre de les pestanyes, «Totes · Unitat 1 · … · Unitat 7» deixa veure només
+les eines d'una unitat. Cada pestanya diu de quines unitats és a `data-unitats` (les `tasques` de
+`dades/unitats.js`). Als enllaços `?task=n` no surt.
 
 **No s'han de tocar** `css/tokens.css`, `css/fitxa.css`, `fonts/Caveat.ttf` ni `eines/paper.py`
 per res de la caixa. Formen l'empremta del PDF de la targeta (`pdf/empremtes.json`): si en canvia
@@ -229,9 +240,10 @@ cap identificador repetit (29/9/2026).
 tasca i 2 per al bloc de 16: fins al 63. Abans eren 4 bits i prou, i les tasques 16 i 17 donaven
 el codi de la 15. Els codis de les tasques 0 a 15 no han canviat.
 
-**Una eina nova:** un fitxer a `js/moduls/`, amb `CE.registra("id", inicia)`; el seu `<script>` a
-`caixa-eines.html`, abans de `js/app.js`; la pestanya `<button class="segment" data-tasca="5"
-data-mod="id">` amb el número lliure següent, i la `<section id="mod-id">`. `js/app.js` no es
+**Una eina nova:** un fitxer a `js/moduls/`, amb `CE.registra("id", inicia)`; la pestanya
+`<button class="segment" data-tasca="5" data-unitats="2" data-mod="id" data-src="js/moduls/id.js">`
+amb el número lliure següent (i `data-cal` si fa servir una altra eina), i la `<section id="mod-id">`.
+No porta `<script>`: es carrega quan s'obre. `js/app.js` no es
 toca. Si la unitat la fa servir, el número va a `tasques` de `dades/unitats.js`, i l'enllaç
 `?task=n`, a la llista «Enllaços per a l'alumnat» de la portada (`index.html`), sota la seva
 unitat i amb el nom de la pestanya. `comprova.py` falla si hi falta (29/9/2026: s'aturava a
