@@ -123,6 +123,10 @@ def arbre(nivell1, nivell2, resultats=True, w=580, h=330, fs=21):
 
 G["ARBRE_MENU"] = arbre(["Sopa", "Amanida"], ["Pollastre", "Peix", "Pasta"])
 G["ARBRE_BUIT"] = arbre(["", ""], ["", ""], resultats=False, h=280)
+# U7 4c: la regla trencada es desmunta amb l'arbre de les dues monedes (30/9/2026).
+# Una cara i una creu surt en dues branques de quatre; dues cares, en una.
+# 490 d'ample: va al costat de la frase final, a 10 cm (12,2 pt).
+G["ARBRE_MONEDES"] = arbre(["Cara", "Creu"], ["Cara", "Creu"], w=490, h=190)
 
 with open("grafics2.json", "w", encoding="utf-8") as f:
     json.dump(G, f)

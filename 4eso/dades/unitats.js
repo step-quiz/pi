@@ -21,11 +21,14 @@
      llibre     unitat corresponent del llibre digital
      repas      blocs de repas-main que se li poden obrir
      evitar     el que NO se li ha d'obrir (buit si no hi ha res)
+     tancament  la fitxa de repàs de la unitat («Una de cada» i «Què he après?»),
+                per al final de la unitat o per abans de l'examen. No és el camp
+                repas, que parla dels blocs de repas-main.
    ========================================================================== */
 
 window.UNITATS = [
   {
-    num: 1, titol: "Nombres reals des de l'estimació", fitxa: "fitxes/ud1.html",
+    num: 1, titol: "Nombres reals des de l'estimació", fitxa: "fitxes/ud1.html", tancament: "fitxes/ud1-repas.html",
     dates: "14–30 de setembre", sessions: 6,
     objectiu: "Situar nombres a la recta i decidir quants decimals calen a cada situació.",
     material: "una cinta mètrica i un objecte llarg per mesurar",
@@ -34,7 +37,7 @@ window.UNITATS = [
     repas: "full 1 · decimals, fraccions", evitar: ""
   },
   {
-    num: 2, titol: "Percentatges i matemàtica financera", fitxa: "fitxes/ud2.html",
+    num: 2, titol: "Percentatges i matemàtica financera", fitxa: "fitxes/ud2.html", tancament: "fitxes/ud2-repas.html",
     dates: "6 d'octubre – 3 de novembre", sessions: 15,
     objectiu: "Comparar dues maneres de pagar amb el factor multiplicador i decidir.",
     material: "monedes i bitllets de joguina",
@@ -43,7 +46,7 @@ window.UNITATS = [
     repas: "full 6 · percentatges, factor_multiplicador", evitar: ""
   },
   {
-    num: 3, titol: "Proporcionalitat i escales", fitxa: "fitxes/ud3.html",
+    num: 3, titol: "Proporcionalitat i escales", fitxa: "fitxes/ud3.html", tancament: "fitxes/ud3-repas.html",
     dates: "12–27 de gener", sessions: 7,
     objectiu: "Llegir una escala, passar de plànol a realitat i distingir directa d'inversa.",
     material: "una cinta mètrica i un full quadriculat",
@@ -52,7 +55,7 @@ window.UNITATS = [
     repas: "full 8 · escales, escales_calcul · full 6 · directa_inversa", evitar: ""
   },
   {
-    num: 4, titol: "Equacions de 2n grau", fitxa: "fitxes/ud4.html",
+    num: 4, titol: "Equacions de 2n grau", fitxa: "fitxes/ud4.html", tancament: "fitxes/ud4-repas.html",
     dates: "2 de febrer – 3 de març", sessions: 12,
     objectiu: "Comprovar solucions i decidir quina té sentit. No s'aïlla la incògnita.",
     material: "una bossa opaca i fitxes iguals",
@@ -61,7 +64,7 @@ window.UNITATS = [
     repas: "full 5 · primer_grau", evitar: "formula_general, factoritzacio"
   },
   {
-    num: 5, titol: "La paràbola", fitxa: "fitxes/ud5.html",
+    num: 5, titol: "La paràbola", fitxa: "fitxes/ud5.html", tancament: "fitxes/ud5-repas.html",
     dates: "9–26 de març", sessions: 8,
     objectiu: "Llegir vèrtex, talls i eix, i dir què volen dir en el fenomen.",
     material: "una pilota i espai per llançar-la",
@@ -70,23 +73,34 @@ window.UNITATS = [
     repas: "full 10 · funcions_quadratiques, només lectura de gràfica", evitar: ""
   },
   {
-    num: 6, titol: "Estadística amb dades reals", fitxa: "fitxes/ud6.html",
+    num: 6, titol: "Estadística amb dades reals", fitxa: "fitxes/ud6.html", tancament: "fitxes/ud6-repas.html",
     dates: "13 d'abril – 6 de maig", sessions: 10,
     objectiu: "Fer taula i gràfic amb el full de càlcul i dir si les dades estan escampades.",
     material: "fitxes o taps per fer munts",
     trencada: "Ex. 6 · el gràfic que comença a 90 i no a 0",
-    fita: "AS, AN a representació", moduls: [], llibre: "llibre · unitat 8",
+    fita: "AS, AN a representació", moduls: ["mitjana"], llibre: "llibre · unitat 8",
     repas: "full 11 · frequencies, grafics, centralitzacio", evitar: "dispersio"
   },
   {
-    num: 7, titol: "Atzar i decisions", fitxa: "fitxes/ud7.html",
+    num: 7, titol: "Atzar i decisions", fitxa: "fitxes/ud7.html", tancament: "fitxes/ud7-repas.html",
     dates: "13 de maig – 10 de juny", sessions: 10,
     objectiu: "Comptar amb arbre, calcular amb Laplace i entendre per què la casa guanya.",
     material: "un dau i una moneda",
     trencada: "Ex. 4c · una cara i una creu val el doble que dues cares",
-    fita: "AS, AN al recompte", moduls: ["doble"], llibre: "llibre · unitat 9",
+    fita: "AS, AN al recompte", moduls: ["doble", "atzar"], llibre: "llibre · unitat 9",
     repas: "full 12 · espais_mostrals, laplace", evitar: "probabilitat_composta, condicionada"
   }
+];
+
+/* Les targetes de consulta: una cartolina per tenir a la taula mentre es treballa.
+   Cada targeta és un fitxer de targetes/ i un sol PDF amb les dues cares. */
+window.TARGETES = [
+  { nom: "calculadora",  titol: "La calculadora",
+    per: "Les cinc seqüències de tecles del curs, què vol dir el que surt i quan s'arrodoneix." },
+  { nom: "percentatges", titol: "Percentatges i escales",
+    per: "La taula del factor, dos canvis seguits, la cadena de l'escala i el preu d'1." },
+  { nom: "grafiques",    titol: "Paràboles, dades i atzar",
+    per: "Les parts de la paràbola, mitjana, mediana i moda, i la probabilitat en dos passos." }
 ];
 
 /* Els mòduls de la caixa d'eines, per poder-los anomenar des dels índexs. */
@@ -98,5 +112,7 @@ window.MODULS = {
   parabola: "Paràboles",
   equacio:  "Equacions",
   calc:     "Calculadora",
-  frases:   "Com ho dic"
+  frases:   "Com ho dic",
+  mitjana:  "Aplanar",
+  atzar:    "Probabilitat"
 };

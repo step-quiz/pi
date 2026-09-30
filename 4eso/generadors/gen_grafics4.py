@@ -160,11 +160,40 @@ def barra_prob(cares=6, bona=5):
     return env("".join(o), w, h), pct
 
 
+# ---------- U2 i U3: la regla trencada es desmunta amb una recta ----------
+def recta_marcar(vmin, vmax, pas, unitat, decimals=0, w=560, fs=20, fletxa=False):
+    """Una recta de preus buida, perquè l'alumnat hi marqui els dos preus de l'apartat
+    que trenca la regla. El que queda més a l'esquerra és el més barat: la refutació surt
+    del dibuix, no d'un raonament (regla G de 1eso/, portada aquí el 30/9/2026)."""
+    x0, x1, y = 44, w - 44, 16
+    n = round((vmax - vmin) / pas)
+    def px(k): return x0 + k / n * (x1 - x0)
+    o = [f'<line x1="{x0}" y1="{y}" x2="{x1}" y2="{y}" stroke="{NEG}" stroke-width="3"/>']
+    for k in range(n + 1):
+        v = vmin + k * pas
+        et = (f"{v:.{decimals}f}".replace(".", ",")) + f" {unitat}"
+        o.append(f'<line x1="{px(k):.1f}" y1="{y - 10}" x2="{px(k):.1f}" y2="{y + 10}" stroke="{NEG}" stroke-width="2.5"/>')
+        o.append(f'<text x="{px(k):.1f}" y="{y + 10 + fs + 6}" text-anchor="middle" font-size="{fs}" '
+                 f'fill="{GRIS}" {TIP}>{et}</text>')
+    if not fletxa:                            # compacta: la fitxa ja diu què vol dir l'esquerra
+        return env("".join(o), w, y + 10 + fs + 14)
+    yf = y + 10 + 2 * fs + 22                 # la fletxa «més barat · més car», sota els números
+    o.append(f'<text x="{x0 - 30}" y="{yf + 7}" font-size="{fs}" fill="{GRIS}" {TIP}>més barat</text>')
+    o.append(f'<text x="{x1 + 30}" y="{yf + 7}" text-anchor="end" font-size="{fs}" fill="{GRIS}" {TIP}>més car</text>')
+    o.append(f'<line x1="{x0 + 90}" y1="{yf}" x2="{x1 - 80}" y2="{yf}" stroke="{GRIS}" stroke-width="2"/>')
+    o.append(f'<path d="M{x0 + 90},{yf} l10,-6 v12 z" fill="{GRIS}"/><path d="M{x1 - 80},{yf} l-10,-6 v12 z" fill="{GRIS}"/>')
+    return env("".join(o), w, yf + 16)
+
+
 DADES_U6 = [0, 1, 1, 1, 2, 2, 3, 4, 4]
 
 G["BARRA_ESCALA"], xt = barra_escala()
 G["REPARTIMENT"], mitj = repartiment(DADES_U6)
 G["BARRA_PROB"], pct = barra_prob()
+# U2 5c: el portàtil (al comptat 475 €, a terminis 460 €)
+G["RECTA_PORTATIL"] = recta_marcar(440, 500, 10, "€")
+# U3 6c: l'aigua (l'ampolla, 0,40 € el litre; la garrafa, 0,45 € el litre)
+G["RECTA_AIGUA"] = recta_marcar(0.30, 0.50, 0.05, "€", decimals=2)
 
 with open("grafics4.json", "w", encoding="utf-8") as f:
     json.dump(G, f)

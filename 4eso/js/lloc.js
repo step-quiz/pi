@@ -40,6 +40,27 @@
     });
   }
 
+  /** La fitxa de repàs d'una unitat: obrir-la i els seus dos PDF. */
+  const tancament = u => {
+    const nomf = u.tancament.replace(/^fitxes\//, "").replace(/\.html$/, "");
+    return '<a href="' + u.tancament + '">obre-la al navegador</a> · ' +
+      '<a class="pdf" href="pdf/' + nomf + '-alumnat.pdf" download>PDF</a> ' +
+      '<a class="pdf sol" href="pdf/' + nomf + '-solucionari.pdf" download>solucionari</a>';
+  };
+
+  /* ---- fitxes.html: les targetes de consulta ---- */
+  function targetes(cont) {
+    (window.TARGETES || []).forEach(t => {
+      const d = fes("div", "detall");
+      d.innerHTML =
+        '<h3 style="margin:0 0 .4rem">' + t.titol + "</h3>" +
+        '<p style="margin:0 0 .7rem">' + t.per + "</p>" +
+        '<a href="targetes/' + t.nom + '.html">obre-la al navegador</a> · ' +
+        '<a class="pdf" href="pdf/targeta-' + t.nom + '.pdf" download>PDF de les dues cares</a>';
+      cont.appendChild(d);
+    });
+  }
+
   /* ---- fitxes.html: el detall complet de cada unitat ---- */
   function detallUnitats(cont) {
     UNITATS.forEach(u => {
@@ -54,6 +75,7 @@
           "<dt>Fitxa</dt><dd><a href=\"" + u.fitxa + "\">obre-la al navegador</a> · " +
             u.dates + " · " + u.sessions + " sessions</dd>" +
           "<dt>Descarrega</dt><dd>" + pdfs(u) + "</dd>" +
+          (u.tancament ? "<dt>Fitxa de repàs</dt><dd>" + tancament(u) + "</dd>" : "") +
           "<dt>Objectiu nuclear</dt><dd>" + u.objectiu + "</dd>" +
           "<dt>Cinc minuts abans</dt><dd>" + u.material + "</dd>" +
           "<dt>La regla trencada</dt><dd>" + u.trencada + "</dd>" +
@@ -75,6 +97,7 @@
     }
     const g = $("#graella-unitats");   if (g) graellaUnitats(g);
     const d = $("#detall-unitats");    if (d) detallUnitats(d);
+    const t = $("#targetes");          if (t) targetes(t);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrenca);

@@ -52,12 +52,13 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── tasca.js            el motor de les tasques tancades: passos, represa, resum
 │   ├── app.js              navegació de la caixa d'eines
 │   ├── lloc.js             construeix els índexs a partir de les dades
-│   └── moduls/             un fitxer per mòdul, vuit en total
+│   └── moduls/             un fitxer per mòdul, deu en total
 │
 ├── dades/
-│   └── unitats.js          font única: les set unitats amb tota la metadada
+│   └── unitats.js          font única: les set unitats amb tota la metadada, i les targetes
 │
-├── fitxes/                 ud1.html … ud7.html
+├── fitxes/                 ud1.html … ud7.html, i udN-repas.html (les fa generadors/gen_repas.py)
+├── targetes/               les tres targetes de consulta, a doble cara
 ├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF,
 │                           i examens/udN.js, el contingut de cada examen DOCX
 ├── eines/
@@ -417,7 +418,8 @@ toca. Cada script **imprimeix les seves pròpies comprovacions numèriques** en 
 | `gen_grafics4.py` | doble recta de la U2, repartiment de la U6, barra de la U7 |
 | `gen_grafics5.py` | doble recta del mapa (U3) i les dues paràboles de «A la vida de cada dia» (U5) |
 | `posa_grafics.py` | executa els cinc `gen_grafics*.py` i posa cada gràfic a la seva fitxa |
-| `gen_pdf.py` | els catorze PDF, partint cada fitxa en alumnat i solucionari |
+| `gen_repas.py` | les set fitxes de repàs (`fitxes/udN-repas.html`): el dibuix de la pàgina 1 de la fitxa, «Una de cada» i «Què he après?» |
+| `gen_pdf.py` | els PDF de totes les fitxes (alumnat i solucionari) i de les targetes (un per targeta, amb les dues cares) |
 
 **Com arriben a les fitxes.** A cada fitxa, cada gràfic va entre dos marcadors:
 `<!--grafic:PILOTA_GRAN--><svg …>…</svg><!--/grafic-->`. `posa_grafics.py` torna a fer
@@ -455,9 +457,11 @@ són. Els comentaris `<!--§obertura p.1§-->` que queden a les fitxes només s�
 
 ## 7. Comprovacions
 
-`python3 eines/comprova.py` verifica, per a les set fitxes: cap valor cromàtic, HTML ben
-tancat, numeració de pàgines seguida, rètol de material, obertura i pàgina «A la vida de
-cada dia» presents. I per a l'app: que els identificadors del marcatge coincideixin amb
+`python3 eines/comprova.py` verifica, per a les fitxes: cap valor cromàtic, HTML ben
+tancat, numeració de pàgines seguida, rètol de material, obertura i solucionari, i la pàgina
+«A la vida de cada dia» a les de la unitat o «Una de cada» i «Què he après?» a les de repàs.
+Per a les targetes: B/N, cares numerades «· cara N» i sense solucionari. Els PDF que
+hi han de ser surten de les fonts, i `dades/unitats.js` ha de coincidir amb el disc. I per a l'app: que els identificadors del marcatge coincideixin amb
 els mòduls registrats i que no hi hagi recursos remots. A més:
 
 | Secció | Què mira |

@@ -202,6 +202,34 @@ window.TEXTOS = {
     r_proves:    'Números provats',
     solucions:   'Les solucions són {llista}.',
     solucio:     'La solució és {llista}.'
+  },
+
+  "8": {
+    titol:       'Aplana les columnes',
+    ajuda:       'Cada columna és una dada. Passa blocs de la més alta a la més baixa.',
+    passa_un:    'Passa un bloc',
+    aplana:      'Aplana-ho tot',
+    torna:       'Torna a començar',
+    encara:      'Encara no fan igual. Passa un bloc de la columna més alta a la més baixa.',
+    pla:         '*Ja fan igual.* Totes les columnes tenen {m} blocs. La mitjana és {m}.',
+    anaven:      'Abans, la dada més petita era {min} i la més gran, {max}.',
+    amb_numeros: 'I això, escrit amb números',
+    amagat:      'Aplana-ho per veure-ho.'
+  },
+
+  "9": {
+    titol:       'La barra de la probabilitat',
+    ajuda:       'Cada casella és una cara del dau. Pinta les cares que et van bé.',
+    vull:        'Vull treure: *{que}*',
+    toca:        'Toca les cares que et van bé',
+    cara:        'La cara {n}',
+    lectura:     'Em van bé *{b} de {t}* cares. La probabilitat és *{p} %*: {paraula}.',
+    impossible:  'impossible',
+    pot_passar:  'pot passar',
+    segur:       'segur',
+    buida:       'Esborra les cares',
+    amb_numeros: 'I això, escrit amb números',
+    amagat:      'Toca una cara per veure-ho.'
   }
 };
 
@@ -376,5 +404,31 @@ window.TEXTOS_GUIA = {
     r_proves:    ["Resum: quants valors ha provat", []],
     solucions:   ["Frase del final amb dues solucions o més", ["llista"]],
     solucio:     ["Frase del final amb una sola solució", ["llista"]]
+  },
+  "8": {
+    titol:       ["Títol de la targeta", []],
+    ajuda:       ["Línia sota el títol", []],
+    passa_un:    ["Botó que mou un bloc de la columna més alta a la més baixa", []],
+    aplana:      ["Botó que ho aplana tot d'un cop", []],
+    torna:       ["Botó per tornar a les columnes del principi", []],
+    encara:      ["Quan les columnes encara no fan igual", []],
+    pla:         ["Quan totes les columnes fan igual", ["m"]],
+    anaven:      ["Com estaven les dades abans d'aplanar-les", ["min", "max"]],
+    amb_numeros: ["Rètol sobre el compte amb números", []],
+    amagat:      ["El lloc del compte, abans d'aplanar", []]
+  },
+  "9": {
+    titol:       ["Títol de la targeta", []],
+    ajuda:       ["Línia sota el títol", []],
+    vull:        ["La pregunta del cas triat", ["que"]],
+    toca:        ["Rètol sobre els botons de les cares", []],
+    cara:        ["Nom de cada botó de cara, per al lector de pantalla", ["n"]],
+    lectura:     ["La lectura de la barra", ["b", "t", "p", "paraula"]],
+    impossible:  ["Paraula de l'escala i de {paraula}, al 0 %", []],
+    pot_passar:  ["Paraula de l'escala i de {paraula}, entre 0 i 100 %", []],
+    segur:       ["Paraula de l'escala i de {paraula}, al 100 %", []],
+    buida:       ["Botó que desmarca totes les cares", []],
+    amb_numeros: ["Rètol sobre el compte amb números", []],
+    amagat:      ["El lloc del compte, abans de tocar cap cara", []]
   }
 };

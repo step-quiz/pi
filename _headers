@@ -14,6 +14,8 @@
   Cache-Control: public, max-age=3600
 /4eso/fitxes/*
   Cache-Control: public, max-age=3600
+/4eso/targetes/*
+  Cache-Control: public, max-age=3600
 /1eso/css/*
   Cache-Control: public, max-age=3600
 /1eso/js/*

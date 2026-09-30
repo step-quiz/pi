@@ -1,6 +1,6 @@
 # Criteris de disseny
 
-Vuit regles. **No són preferències d'estil**: són el resultat d'iterar amb el docent, i
+Deu regles. **No són preferències d'estil**: són el resultat d'iterar amb el docent, i
 algunes van sortir de correccions seves. Qui toqui el material les ha de conèixer abans.
 
 ---
@@ -108,6 +108,18 @@ d'avaluació més valuosa de la fitxa.
 
 Si mai cal escurçar una fitxa, aquest exercici és l'últim que s'ha de treure.
 
+**La regla trencada es desmunta amb el dibuix** (la regla G de `1eso/`, portada aquí el
+30/9/2026). Provocar l'error i deixar-lo sense desmuntar pot fer que el que es quedi sigui
+l'error. Per això:
+
+1. **La refutació surt d'un dibuix, dins del mateix exercici**, no d'un raonament. A la U2 i
+   la U3, una recta on es marquen els dos preus: el que queda a l'esquerra és el més barat. A
+   la U7, l'arbre de les dues monedes: «una cara i una creu» surt en dues branques.
+2. **La pàgina acaba amb la forma bona a la vista**, en un avís gruixut («Al comptat no sempre
+   és més barat»).
+3. **A l'avaluació compta per als nivells alts** (AN, AE), no per al mínim. Els solucionaris
+   ho diuen.
+
 ## 8. Paper i pantalla mostren el mateix cas
 
 Els pictogrames de precisió de la U1, els 300 € de la U2, el 1:100 amb 8 cm de la U3, el
@@ -148,6 +160,25 @@ feina, després es diu. I segueix les vuit regles anteriors sense excepció, tam
 primer apartat resolt en lletra manuscrita.
 
 ---
+
+## 10. Un model que torna: la doble recta
+
+Aquest material fa servir molts dibuixos (recta, barra, balança, paràbola, arbre, model
+d'àrea), i cada dibuix nou és una cosa més per aprendre. Per això n'hi ha un que torna, i
+s'ha de dir que torna: **la doble recta**, dues magnituds alineades amb una vertical que les
+lliga.
+
+| Unitat | Què lliga | On és |
+|---|---|---|
+| 2 | euros i per cent: 240 € i 80 % cauen al mateix lloc | Pàgina 1 de la fitxa · Doble recta, «Percentatges» |
+| 3 | cm del plànol i metres de veritat | Pàgina 1 i «A la vida de cada dia» · Doble recta, «Escala 1 : 200» |
+| 4 | x i x + 3: on la de baix val 7, la de dalt val 4 | Doble recta, «Equació x + 3 = 7» (el pont si la balança no agafa) |
+| 7 | casos que van bé i probabilitat | Pàgina 3 (la barra amb l'escala) · Doble recta, «Probabilitat» |
+
+La recta sola també torna: a la U2 i la U3 desmunta la regla trencada (el preu que queda a
+l'esquerra és el més barat). **Quan una unitat nova necessiti un dibuix, primer es mira si
+la doble recta ja ho fa.** Estrenar-ne un de nou és el que convé evitar, sobretot al febrer
+(mapa d'adaptació, U4).
 
 ## L'obertura i el graó físic
 

@@ -60,6 +60,8 @@ ESTATS = [
     ("5 Paràboles · pista",         "?task=5",   "par_error"),
     ("6 Equacions",                 "?task=6",   None),
     ("7 Com ho dic",                "?task=7",   None),
+    ("8 Aplanar",                   "?task=8",   None),
+    ("9 Probabilitat",              "?task=9",   None),
 ]
 
 JS_MESURA = r"""
@@ -242,7 +244,8 @@ def lletra_al_paper(nav):
 
 def FITXERS_PAPER():
     import glob
-    return sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html")))
+    return (sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html")))
+            + sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html"))))
 
 
 def CSS_PDF():

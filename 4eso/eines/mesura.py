@@ -17,7 +17,7 @@ També mira l'amplada (29/9/2026), com a 1eso/: el que es veu no pot sortir més
 mig centímetre pel marge dret (a partir d'1,4 cm, surt del full), i el text d'una
 opció per marcar no pot sortir de la seva capsa.
 """
-import os, re, sys
+import glob, os, re, sys
 
 try:
     from weasyprint import HTML, CSS
@@ -86,10 +86,11 @@ def mida(cap, full):
 def main():
     print(f"Alçada útil d'un A4: {UTIL:.1f} cm\n")
     vessen, justes, amples, total = [], [], [], 0
-    for u in range(1, 8):
-        origen = os.path.join(FITXES, f"ud{u}.html")
-        if not os.path.exists(origen):
-            continue
+    fonts = (sorted(glob.glob(os.path.join(FITXES, "ud*.html")),
+                    key=lambda f: (int(re.search(r"ud(\d+)", f)[1]), "-" in os.path.basename(f), f))
+             + sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html"))))
+    for origen in fonts:
+        u = os.path.relpath(origen, ARREL)[:-5].replace("fitxes/", "")   # ud3, ud3-repas, targetes/…
         html = open(origen, encoding="utf-8").read()
         cap = html[:html.index("<body>") + 6]
         for i, full in enumerate(re.findall(r'<div class="full[^"]*">.*?\n</div>', html, re.S), 1):
@@ -98,15 +99,15 @@ def main():
             total += 1
             h, dreta, capses = mida(cap, full)
             if dreta > 0.5:
-                amples.append(f"ud{u} pàgina {i}: surt {dreta:.1f} cm pel marge dret")
+                amples.append(f"{u} pàgina {i}: surt {dreta:.1f} cm pel marge dret")
             elif dreta > 0.3:
-                justes.append(f"ud{u} pàgina {i}: arriba a {dreta:.1f} cm dins del marge dret")
+                justes.append(f"{u} pàgina {i}: arriba a {dreta:.1f} cm dins del marge dret")
             if capses:
-                amples.append(f"ud{u} pàgina {i}: text que surt de la capsa de l'opció: {', '.join(capses)}")
+                amples.append(f"{u} pàgina {i}: text que surt de la capsa de l'opció: {', '.join(capses)}")
             if h > UTIL:
-                vessen.append(f"ud{u} pàgina {i}: sobren {h-UTIL:.1f} cm")
+                vessen.append(f"{u} pàgina {i}: sobren {h-UTIL:.1f} cm")
             elif UTIL - h < 1.0:
-                justes.append(f"ud{u} pàgina {i}: només hi queda {UTIL-h:.1f} cm")
+                justes.append(f"{u} pàgina {i}: només hi queda {UTIL-h:.1f} cm")
 
     print(f"Pàgines de l'alumnat mesurades: {total}")
     if justes:

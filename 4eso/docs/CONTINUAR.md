@@ -62,8 +62,8 @@ unitat per unitat amb les fites d'avaluació.
 seguit, sis o set exercicis amb el primer apartat ja resolt, i un solucionari per al
 professorat amb els errors típics i la traça als criteris d'avaluació.
 
-**L'aplicació** té vuit mòduls: Recta, Doble recta, Percentatges, Escales, Paràboles,
-Equacions, Calculadora i Com ho dic.
+**L'aplicació** té deu mòduls: Recta, Doble recta, Percentatges, Escales, Paràboles,
+Equacions, Calculadora, Com ho dic, Aplanar (U6) i Probabilitat (U7).
 
 ---
 
@@ -228,6 +228,26 @@ canviar el rumb del material, per si serveixen d'orientació sobre com treballa:
 Si dubtes entre fer una cosa i preguntar-la, **fes-la i explica què has decidit i per
 què**, però no toquis l'ordre de les pàgines conceptuals d'una fitxa ja validada sense
 dir-l'hi: aquesta sí que la va voler aprovar.
+
+---
+
+## 10b. 30/9/2026: el que 4eso/ agafa de 1eso/
+
+Sis blocs, de la comparativa entre les dues carpetes. Tot passa `eines/comprova.py`,
+`eines/mesura.py` i `eines/auditoria.py` (0 problemes en 68 estats i 17 pàgines de paper).
+**Són propostes per validar amb el docent**: els textos nous ho diuen al comentari.
+
+| Bloc | Què s'ha fet |
+|---|---|
+| Targetes de consulta | `targetes/`: la calculadora (les cinc seqüències de tecles), percentatges i escales, i paràboles, dades i atzar. Un PDF per targeta, a doble cara |
+| Fitxes de repàs | `fitxes/udN-repas.html`, una per unitat: dibuix de la unitat, «Una de cada» i «Què he après?». Les fa `generadors/gen_repas.py` |
+| Exàmens | `generadors/examens/ud2.js` a `ud7.js`, amb el motor comú. Els apartats nous porten «nou» al solucionari |
+| Regla G | a les regles trencades de la U2 (5c), la U3 (6c) i la U7 (4c), la refutació és un dibuix: una recta de preus o l'arbre |
+| Caixa d'eines | dos mòduls nous: Aplanar (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de la U7, tasca 9) |
+| La doble recta | declarada model del curs (`CRITERIS-DISSENY.md`, regla 10) i amb el cas «Equació x + 3 = 7» per a la U4 |
+
+**Què queda per decidir amb el docent:** si les targetes es poden fer servir a l'examen,
+el contingut concret de cada «Una de cada» i els apartats «nou» dels exàmens.
 
 ---
 

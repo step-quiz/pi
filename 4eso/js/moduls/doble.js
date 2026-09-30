@@ -4,9 +4,12 @@
   "use strict";
   const { $, $$, num, fix, euros, el, icona, pastilles, memoria } = CE;
 
-  /* Un sol dibuix per a tres unitats: percentatges (U2), escales (U3) i
-     probabilitat (U7). Dues magnituds que van juntes, alineades, i el punt es mou
-     a totes dues alhora.
+  /* Un sol dibuix per a quatre unitats: percentatges (U2), escales (U3),
+     probabilitat (U7) i, si la balança de la U4 no agafa, equacions (x i x + 3).
+     Dues magnituds que van juntes, alineades, i el punt es mou a totes dues alhora.
+     És el model que torna al llarg del curs (docs/CRITERIS-DISSENY.md, regla 10).
+     minA i minB (0 si no hi són): on comença cada recta. Amb l'equació, la de baix
+     comença al 3, perquè x + 3 val 3 quan x val 0.
 
      L'EXPRESSIÓ AMB NÚMEROS ESTÀ AMAGADA FINS QUE ES MOU EL PUNT.
      És a posta: el símbol ha d'emergir del dibuix, no aparèixer al seu costat.
@@ -26,7 +29,13 @@
       nomA: "casos que em van bé", maxA: 6,   unA: "",   decA: 0,
       nomB: "probabilitat",        maxB: 100, unB: " %", decB: 1,
       passos: 6, marques: 6, inici: 3,                   // 3 de 6 → 50 %
-      simbolic: (a, b) => num(a, 0) + " ÷ 6 = " + num(b / 100, 3) + " → " + num(b, 1) + " %" }
+      simbolic: (a, b) => num(a, 0) + " ÷ 6 = " + num(b / 100, 3) + " → " + num(b, 1) + " %" },
+    { et: "Equació x + 3 = 7",
+      nomA: "x",     minA: 0, maxA: 8,  unA: "", decA: 0,
+      nomB: "x + 3", minB: 3, maxB: 11, unB: "", decB: 0,
+      passos: 8, marques: 8, inici: 4,                   // x = 4 → x + 3 = 7
+      simbolic: (a, b) => "x = " + num(a, 0) + " → " + num(a, 0) + " + 3 = " + num(b, 0) +
+                          (b === 7 ? ". És la solució." : ". No és 7.") }
   ];
   let dr = DOBLES[0], drPas = DOBLES[0].inici, drRevelat = true;
 
@@ -35,10 +44,11 @@
     const x0 = 74, x1 = 596, yA = 96, yB = 214;
     const t = drPas / dr.passos;
     const px = u => x0 + u * (x1 - x0);
-    const A = dr.maxA * t, B = dr.maxB * t;
+    const lloc = (min, max, u) => (min || 0) + (max - (min || 0)) * u;
+    const A = lloc(dr.minA, dr.maxA, t), B = lloc(dr.minB, dr.maxB, t);
     const gris = "var(--etiqueta-3)", sec = "var(--etiqueta-2)";
 
-    const recta = (y, nom, maxim, unitat, dec, aDalt) => {
+    const recta = (y, nom, minim, maxim, unitat, dec, aDalt) => {
       svg.appendChild(el("line", { x1: x0, y1: y, x2: x1, y2: y,
         style: "stroke:" + gris, "stroke-width": 3, "stroke-linecap": "round" }));
       for (let k = 0; k <= dr.marques; k++) {
@@ -47,7 +57,7 @@
           style: "stroke:" + gris, "stroke-width": 2 }));
         svg.appendChild(el("text", { x: px(u), y: y + (aDalt ? -20 : 34), "text-anchor": "middle",
           "font-size": 15, style: "fill:" + sec, "font-family": "inherit" },
-          num(maxim * u, dec) + unitat));
+          num(lloc(minim, maxim, u), dec) + unitat));
       }
       svg.appendChild(el("text", { x: x0 - 14, y: y + 6, "text-anchor": "end", "font-size": 15,
         style: "fill:" + sec, "font-family": "inherit" }, nom));
@@ -57,8 +67,8 @@
     svg.appendChild(el("line", { x1: px(t), y1: yA, x2: px(t), y2: yB,
       style: "stroke:var(--blau)", "stroke-width": 3, "stroke-dasharray": "7 6" }));
 
-    recta(yA, dr.nomA, dr.maxA, dr.unA, dr.decA, true);
-    recta(yB, dr.nomB, dr.maxB, dr.unB, dr.decB, false);
+    recta(yA, dr.nomA, dr.minA, dr.maxA, dr.unA, dr.decA, true);
+    recta(yB, dr.nomB, dr.minB, dr.maxB, dr.unB, dr.decB, false);
 
     [[yA, A, dr.unA, dr.decA, -34], [yB, B, dr.unB, dr.decB, 52]].forEach(([y, v, u, d, dy]) => {
       svg.appendChild(el("circle", { cx: px(t), cy: y, r: 11, style: "fill:var(--blau)" }));
