@@ -120,7 +120,7 @@ cara1 = f'''<div class="full targeta">
 
 # ============================================================= cara 2: moltes cares, i les arrels
 CARES = [(1, 2), (1, 4), (3, 4), (1, 5), (1, 10)]           # els percentatges de la unitat 4
-th = 'style="font-size:12.5pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600"'
+th = 'style="font-size:14pt;color:var(--gris-2);border:0;padding:0 .3rem .15rem;font-weight:600"'
 files = []
 for n, dnm in CARES:
     q = 100 // dnm * n

@@ -85,9 +85,9 @@ for l, ini, a, b, bona, r in R:
         <div>
           <p class="frase" style="margin:0;font-size:15pt">Classe A: {ms(str(a)) if r else buit_curt()}. Classe B: {ms(str(b)) if r else buit_curt()}.</p>
           <p style="margin:.2rem 0 0;font-size:15pt">L'eix comença a 0?</p>
-          {tria(["Sí", "No"], "No" if r else None, mida="13pt", ample="2.2cm")}
+          {tria(["Sí", "No"], "No" if r else None, mida="14pt", ample="2.2cm")}
           <p style="margin:.2rem 0 0;font-size:15pt">Té raó en Martí?</p>
-          {tria(["Sí", "No"], bona if r else None, mida="13pt", ample="2.2cm")}
+          {tria(["Sí", "No"], bona if r else None, mida="14pt", ample="2.2cm")}
         </div>
       </div>''', r, ".35rem"))
 pagina(f'''  <div class="exercici">

@@ -158,7 +158,7 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    **Arreglat el 29 de setembre de 2026:** la pàgina 5 d'`ud2-repartir` i la pàgina 5 d'`ud3-sumes`
    sortien malament al PDF (les opcions en columna, encavalcades o estirades). Si ja s'havien
    imprès, cal tornar-les a imprimir.
-7. **Per decidir: la lletra petita de la fitxa 1.** La regla 3 demana 14 pt com a mínim. A la
+7. ~~**Per decidir: la lletra petita de la fitxa 1.**~~ **FET · 29 de setembre de 2026**, amb la resta: tot el text de l'alumnat de les fitxes i les targetes és a 14 pt com a mínim, també les capçaleres de les taules, «Digues-ho o assenyala-ho» i «Nom:». `eines/auditoria.py` ho mesura com surt al PDF. El que hi havia escrit: La regla 3 demana 14 pt com a mínim. A la
    fitxa 1 hi ha rètols de 12 pt a la pàgina 5 i dues línies de 13 pt a les pàgines 8 i 9; i, des
    de `css/fitxa.css`, les capçaleres de les taules a 11 pt i els rètols de les caixes per escriure
    a 11,5 pt. Les fitxes 2, 3 i 4 ja són totes a 14 pt com a mínim, amb `.mini` a les taules.

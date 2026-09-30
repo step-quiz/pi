@@ -1056,6 +1056,40 @@ if tasques_dades:
 print(f"  unitats: {len(nums)} · amb fitxa: {len(fitxes_dades)} · targetes: {len(fitxers_t)} · "
       f"tasques de la caixa citades: {len(tasques_dades)}")
 
+# Els enllaços per a l'alumnat de la portada (index.html, «Per al professorat»).
+# Fins al 29/9/2026 s'aturaven a la unitat 3, i ningú no ho veia: les tasques 14
+# a 28 no hi eren. Ara, sota «Unitat N» hi ha d'haver totes les tasques que
+# dades/unitats.js dona a la unitat N (menys la 0, que va a «Sempre»), i cada
+# enllaç ha de començar amb el nom de la pestanya de la caixa.
+portada = llegeix(ruta('index.html'))
+pestanyes = dict(re.findall(r'data-tasca="(\d+)"[^>]*>([^<]+)</button>', llegeix(ruta('caixa-eines.html'))))
+blocs_portada = re.split(r'<p class="enllacos-unitat">', portada)[1:]
+enllacos = {}                                     # «Sempre» o el número de la unitat → {tasca}
+for b in blocs_portada:
+    rotol = b[:b.index('</p>')]
+    clau = 'Sempre' if rotol.startswith('Sempre') else int((re.match(r'Unitat (\d+)', rotol) or [0, 0])[1])
+    llista = b[:b.index('</ul>')] if '</ul>' in b else b
+    for tasca, sub, nom in re.findall(r'href="caixa-eines\.html\?task=(\d+)(?:\.(\d+))?"><code>[^<]*</code></a>\s*([^<]+)</li>', llista):
+        enllacos.setdefault(clau, set()).add(int(tasca))
+        esperat = pestanyes.get(tasca, '?')
+        comprova(nom.strip().startswith(esperat),
+                 f"index.html: l'enllaç ?task={tasca}{'.' + sub if sub else ''} diu «{nom.strip()}», "
+                 f"i la pestanya de la caixa es diu «{esperat}»")
+comprova(enllacos.get('Sempre') == {0}, "index.html: a «Sempre» hi ha d'haver la tasca 0, i prou")
+for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
+    num = re.search(r'^    num:\s*(\d+)', bloc, re.M)
+    grup = re.search(r'^    tasques:\s*\[([^\]]*)\]', bloc, re.M)
+    if not num:
+        continue
+    volgudes = {int(n) for n in re.findall(r'\d+', grup[1])} - {0} if grup else set()
+    hi_son = enllacos.get(int(num[1]), set())
+    comprova(volgudes <= hi_son, f"index.html: als enllaços de la unitat {num[1]} hi falten les tasques "
+                                 f"{sorted(volgudes - hi_son)}")
+    comprova(hi_son <= volgudes, f"index.html: als enllaços de la unitat {num[1]} hi ha tasques que "
+                                 f"dades/unitats.js no li dona: {sorted(hi_son - volgudes)}")
+print(f"  enllaços per a l'alumnat a la portada: {sum(len(v) for v in enllacos.values())}, "
+      f"en {len(enllacos)} grups")
+
 # --------------------------------------------------------------------------
 print()
 if avisos:

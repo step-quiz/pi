@@ -18,7 +18,7 @@ Els tests vigilen les que es poden comprovar soles. La llista és al final.
 |---|---|---|
 | 1 | **Blanc i negre estricte.** Les diferències es fan amb grisos, gruix i tipus de traç | S'imprimeix en B/N al centre |
 | 2 | **Cap paràgraf** a les pàgines de l'alumnat | Un paràgraf és una barrera abans de començar |
-| 3 | **Cos de 14 pt cap amunt**, i molt d'aire | Llegibilitat |
+| 3 | **Cos de 14 pt cap amunt**, i molt d'aire. Tot el que llegeix l'alumnat: també les capçaleres de les taules, «Digues-ho o assenyala-ho», «Nom:» i les opcions per marcar (29/9/2026) | Llegibilitat |
 | 4 | **El primer apartat de cada exercici ja ve resolt, en lletra manuscrita**, un 30% més gran que la d'impremta del voltant (`.ms`, a `css/fitxa.css`) | És el model: ensenya com es fa sense explicar-ho, i ha de destacar. La mida la va decidir el docent el 24 de setembre de 2026, veient la primera fitxa |
 | 5 | **El símbol surt del dibuix.** Primer el dibuix, després la paraula, i el símbol al final. Mai s'anuncia al costat | El símbol sense dibuix no s'agafa a res |
 | 6 | **Obertura: «Què hi veus?»**, abans del primer dibuix. Es respon mirant i dient | Comença per on tothom pot entrar |
@@ -188,7 +188,15 @@ ni cap «adaptat», i que la memòria del navegador comenci per `pi1-` i la sal 
 punta a punta, amb encerts, errors, pistes, resums i codis; que el text que surt de debò no
 trenqui cap regla (cap frase sense definir, cap «×», fins a 999); que les sumes de les dades no
 portin i les multiplicacions siguin de la targeta; el contrast aplicat, la mida de cada botó i el
-focus, en clar i en fosc, al mòbil i a l'ordinador.
+focus, en clar i en fosc, al mòbil i a l'ordinador. I la lletra de les fitxes i les targetes
+tal com surt al PDF: cap text de l'alumnat per sota de 14 pt. Els rètols dels dibuixos per sota
+de 12 pt, de moment, només en surten com a avís: els números de dins de les graelles de 100 i de
+les quadrícules són molt més petits, i fer-los créixer demana redibuixar-les.
+
+**Amb el motor dels PDF** (`eines/mesura.py`, amb WeasyPrint): que cada pàgina càpiga en un A4
+d'alt i d'ample. Res no pot sortir més de mig centímetre pel marge dret, ni el text d'una opció
+per marcar de la seva capsa (29/9/2026: al PDF d'`ud2.html`, el «No» dels apartats c) i f)
+quedava fora del full).
 
 **Ho ha de mirar una persona:** que hi hagi una sola consigna per frase; que les sumes i restes
 no portin; que el model sigui la quadrícula; que el símbol surti del dibuix; que la regla

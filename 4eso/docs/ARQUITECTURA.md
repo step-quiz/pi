@@ -228,10 +228,12 @@ function inicia() {
 
 `subActual` fa que, en tornar a la pestanya, es reprengui on s'estava.
 
-**Enllaços.** `?task=1` obre la tasca 1 per l'exercici 1; **`?task=1.3` obre
-directament el tercer**. És el que permet enviar un exercici concret i no la
-tasca sencera. Si el número no existeix o el format no és `n` ni `n.m`, es cau a
-la tasca 0, com sempre.
+**Enllaços.** `?task=1` obre la tasca 1 per l'exercici 1, amb les fletxes per
+passar als altres; **`?task=1.3` obre directament el tercer, i prou**: la barra
+diu on s'és, però les fletxes no hi són (`.subbarra.fixa`). És el que permet
+enviar un exercici concret i no la tasca sencera, sense que l'alumnat es perdi
+pels del costat. És la regla N de `1eso/` (29/9/2026). Si el número no existeix o
+el format no és `n` ni `n.m`, es cau a la tasca 0, com sempre.
 
 **El número de subtasca no es renumera mai**, per la mateixa raó que el de tasca:
 els enllaços viuen en fulls fotocopiats. Si una subtasca es retira, el seu número
@@ -414,7 +416,20 @@ toca. Cada script **imprimeix les seves pròpies comprovacions numèriques** en 
 | `gen_grafics3.py` | barres de percentatge de la U2 i model d'àrea de la U6 |
 | `gen_grafics4.py` | doble recta de la U2, repartiment de la U6, barra de la U7 |
 | `gen_grafics5.py` | doble recta del mapa (U3) i les dues paràboles de «A la vida de cada dia» (U5) |
+| `posa_grafics.py` | executa els cinc `gen_grafics*.py` i posa cada gràfic a la seva fitxa |
 | `gen_pdf.py` | els catorze PDF, partint cada fitxa en alumnat i solucionari |
+
+**Com arriben a les fitxes.** A cada fitxa, cada gràfic va entre dos marcadors:
+`<!--grafic:PILOTA_GRAN--><svg …>…</svg><!--/grafic-->`. `posa_grafics.py` torna a fer
+tots els gràfics i substitueix el que hi ha entre els marcadors. Si un marcador anomena un
+gràfic que no existeix, o un gràfic no surt a cap fitxa, ho diu i no toca res. Abans
+(fins al 29/9/2026) s'enganxaven a mà.
+
+**La lletra dels gràfics.** 12 pt com a mínim tal com surten al PDF (vegeu
+`CRITERIS-DISSENY.md`, regla 4). A `gen_grafics.py`, la funció `graf()` té el paràmetre `fs`:
+20 per als gràfics d'amplada sencera i 28 per als que van de costat. Les marques dels eixos
+són els múltiples del pas (`marques()`): abans es comptava des de l'extrem, i amb un eix que
+començava a −0,5 els números sortien desplaçats («−0, 0, 2, 2, 4, 4»).
 
 ## 6b. Els PDF i l'alçada de les pàgines
 
@@ -423,16 +438,18 @@ verificat amb un motor de paginació, i quan es va fer resulta que set pàgines 
 entre mig centímetre i vuit.
 
 `eines/mesura.py` renderitza cada pàgina en un full molt alt, mira on acaba el contingut
-i ho compara amb els 27,1 cm útils d'un A4. `generadors/gen_pdf.py` falla si el PDF de
-l'alumnat no té tantes pàgines com blocs té la fitxa.
+i ho compara amb els 27,1 cm útils d'un A4. També mira l'amplada (29/9/2026): el que es
+veu no pot sortir més de mig centímetre pel marge dret, i el text d'una opció per marcar no
+pot sortir de la seva capsa. `generadors/gen_pdf.py` falla si el PDF de l'alumnat no té
+tantes pàgines com blocs té la fitxa, i si un PDF amb text manuscrit no porta Caveat.
 
 L'ajust es va fer al `@media print` de `fitxa.css`: dibuixos més petits i ritme vertical
 més estret. **El cos de 14 pt no s'hi toca.** Si una pàgina no cap, s'arregla la fitxa.
 
-Escriuen un `.json` amb els SVG, que s'incrusten a les fitxes substituint marcadors
-`§NOM§`. Els fitxers publicats ja tenen les substitucions fetes; els marcadors que hi
-queden són comentaris HTML de traça (`<!--§obertura p.1§-->`) que serveixen per trobar
-i desfer una inserció.
+Els generadors de gràfics escriuen un `.json` amb els SVG, i `posa_grafics.py` els posa
+a les fitxes entre els marcadors `<!--grafic:NOM-->` i `<!--/grafic-->` (vegeu l'apartat 6).
+Els marcadors `§NOM§` i `aplica_millores.py` de què parlaven versions anteriors ja no hi
+són. Els comentaris `<!--§obertura p.1§-->` que queden a les fitxes només són de traça.
 
 ---
 
@@ -458,5 +475,11 @@ només es pot mesurar amb el navegador: la mida real de cada diana tàctil (WCAG
 2.5.8, mínim 24 × 24 px), el contrast de cada text **amb el fons compost capa a capa**, i
 que cap element enfocable no es quedi sense indicador de focus. Inclou els estats difícils
 (un error amb pista, el resum final), que és on solen aparèixer els problemes.
+
+També mesura **la lletra de les fitxes al paper** (29/9/2026): maqueta cada fitxa com el
+PDF (el full d'estil de `gen_pdf.py` i els 18,2 cm útils d'un A4) i mira la mida real de
+cada text de l'alumnat, amb els dibuixos escalats. Cap text per sota de 14 pt, i cap rètol
+de gràfic per sota de 12 pt. El solucionari, el rètol del graó físic i el peu de pàgina
+són per a l'adult i no hi compten.
 
     python3 eines/auditoria.py --md /tmp/informe.md

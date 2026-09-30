@@ -196,8 +196,13 @@ generadors/gen_grafics.py    → paràboles de la U5
 generadors/gen_grafics2.py   → diagrames de punts, barres i arbres de la U6 i la U7
 generadors/gen_grafics3.py   → barres de percentatge de la U2 i model d'àrea de la U6
 generadors/gen_grafics4.py   → doble recta de la U2, repartiment de la U6, barra d'atzar de la U7
-generadors/aplica_millores.py → insereix aquests tres a les fitxes i hi posa l'obertura
+generadors/gen_grafics5.py   → doble recta del mapa (U3) i les dues paràboles de la vida (U5)
+generadors/posa_grafics.py   → els executa tots i posa cada gràfic a la seva fitxa
 ```
+
+> **29/9/2026.** `aplica_millores.py` i els marcadors `§NOM§` ja no hi són. Ara cada gràfic
+> va entre `<!--grafic:NOM-->` i `<!--/grafic-->`, i n'hi ha prou amb
+> `python3 generadors/posa_grafics.py`. El que segueix és el text d'abans.
 
 
 Cada script escriu un `.json` amb els SVG i **imprimeix les comprovacions numèriques**
@@ -259,6 +264,14 @@ fitxer de 63 KB amb tot a dins i ara són vuit mòduls independents que es regis
 Res del contingut ha canviat en aquesta reorganització.
 
 **El que continua obert**, per ordre de valor:
+
+> **29/9/2026: el punt 1 és fet.** Els catorze PDF són al dia, amb la pàgina «A la vida de
+> cada dia», el model resolt en lletra manuscrita (Caveat, ara dins de `fonts/`), tot el text
+> de l'alumnat a 14 pt com a mínim i els rètols dels gràfics a 12 pt com a mínim. De passada,
+> es va corregir un error de les paràboles de la U5: quan l'eix no començava en un nombre
+> sencer, els números de les marques quedaven desplaçats («−0, 0, 2, 2, 4, 4»), i a les
+> gràfiques de «talls = solucions» els talls no queien sobre el seu número. I el model d'àrea
+> de la U6 escrivia «pes 0.5» i «6.6» amb punt: ara porta coma, com la taula de la fitxa.
 
 1. **Regenerar els catorze PDF.** Les set fitxes tenen una pàgina nova, «A la vida de cada
    dia», i els PDF de `pdf/` encara no la porten: no s'han pogut regenerar perquè al

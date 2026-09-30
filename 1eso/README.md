@@ -80,7 +80,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | | |
 |---|---|
 | `index.html` | La portada: tria entre les fitxes i la caixa d'eines, i a sota, «Per al professorat» |
-| `fitxes.html` | Índex de les targetes de consulta i de les set unitats |
+| `fitxes.html` | Índex de les targetes de consulta i de les set unitats, amb els dos PDF de cada fitxa (alumnat i solucionari) |
 | `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les cinc eines a `moduls/` |
@@ -111,7 +111,7 @@ un full d'estil, també:
 
 ```bash
 pip install weasyprint --break-system-packages     # només el primer cop de cada Codespace
-python3 1eso/eines/mesura.py                        # cada pàgina cap en un A4?
+python3 1eso/eines/mesura.py                        # cada pàgina cap en un A4, d'alt i d'ample?
 python3 1eso/generadors/gen_pdf.py                  # torna a fer els PDF
 ```
 
@@ -125,7 +125,7 @@ Playwright i Chromium:
 pip install playwright --break-system-packages      # només el primer cop de cada Codespace
 python3 -m playwright install --with-deps chromium  # ídem
 python3 1eso/eines/prova_caixa.py                   # que funcioni: ha de dir «Tot correcte.»
-python3 1eso/eines/auditoria.py                     # accessibilitat: ha de dir «0 problemes»
+python3 1eso/eines/auditoria.py                     # accessibilitat i lletra al paper: ha de dir «0 problemes»
 ```
 
 ---

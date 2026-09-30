@@ -47,9 +47,9 @@ def item(l, recorda, cos, r=False):
 fila = lambda dib, cos: f'<div style="display:flex;gap:.6cm;align-items:center"><div>{dib.svg("")}</div><div>{cos}</div></div>'
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">1</div><div class="q">Una de cada. Fes cada apartat amb el que ja saps.</div></div>
-{item("a", "Els angles. Quin angle és?", fila(angle_d(130, "Un angle, amb la cantonada al vèrtex", llarg=1.4), tria(["Agut", "Recte", "Obtús", "Pla"], "Obtús", mida="13pt", ample="2.2cm")), True)}
+{item("a", "Els angles. Quin angle és?", fila(angle_d(130, "Un angle, amb la cantonada al vèrtex", llarg=1.4), tria(["Agut", "Recte", "Obtús", "Pla"], "Obtús", mida="14pt", ample="2.2cm")), True)}
 {item("b", "Els polígons. Com es diu?", fila(geopla_d([[1, 0], [4, 0], [5, 2], [4, 4], [1, 4], [0, 2]], "Un polígon al geoplà", m=0.4), "Nom: " + buit()))}
-{item("c", "Els triangles. Com es diu pels angles?", fila(triangle_d([(0, 0), (2.4, 0), (0, 1.6)], "Un triangle"), tria(["Rectangle", "Acutangle", "Obtusangle"], None, mida="13pt", ample="2.9cm")))}
+{item("c", "Els triangles. Com es diu pels angles?", fila(triangle_d([(0, 0), (2.4, 0), (0, 1.6)], "Un triangle"), tria(["Rectangle", "Acutangle", "Obtusangle"], None, mida="14pt", ample="2.9cm", ajusta=True)))}
 {item("d", "El perímetre. Compta la vora.", fila(figura_quadrets(rectangle_cel(2, 4), 0.45, "Un rectangle de 2 files de 4 quadrets", rotuls=True), "Perímetre: " + buit()))}
 {item("e", "La circumferència. El radi fa 6 cm.", "El diàmetre fa " + buit_curt() + " cm.")}
   </div>''')

@@ -180,6 +180,8 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .sub-rotul b{color:var(--blau-text);margin-right:.35rem}
 .subbarra .btn{min-width:3rem;font-size:1.4rem;line-height:1;padding:.4rem .9rem}
 .subbarra .btn:disabled{opacity:.35}
+/* Amb un enllaç a un exercici concret (?task=1.2) no hi ha fletxes: vegeu CE.subtasques. */
+.subbarra.fixa .sub-enrere,.subbarra.fixa .sub-avant{visibility:hidden}
 
 /* La pantalla de calculadora, en versió reduïda per als exercicis on només
    fa de suport i no és el protagonista. */

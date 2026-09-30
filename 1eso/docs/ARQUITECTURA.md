@@ -232,7 +232,10 @@ el codi de la 15. Els codis de les tasques 0 a 15 no han canviat.
 **Una eina nova:** un fitxer a `js/moduls/`, amb `CE.registra("id", inicia)`; el seu `<script>` a
 `caixa-eines.html`, abans de `js/app.js`; la pestanya `<button class="segment" data-tasca="5"
 data-mod="id">` amb el número lliure següent, i la `<section id="mod-id">`. `js/app.js` no es
-toca. Si la unitat la fa servir, el número va a `tasques` de `dades/unitats.js`.
+toca. Si la unitat la fa servir, el número va a `tasques` de `dades/unitats.js`, i l'enllaç
+`?task=n`, a la llista «Enllaços per a l'alumnat» de la portada (`index.html`), sota la seva
+unitat i amb el nom de la pestanya. `comprova.py` falla si hi falta (29/9/2026: s'aturava a
+la unitat 3 i ningú no ho veia).
 
 **Després, sempre:** els tres tests de l'apartat següent. A `eines/prova_caixa.py` i a
 `eines/auditoria.py` s'hi afegeixen els estats de l'eina nova: el que no es prova no se sap si

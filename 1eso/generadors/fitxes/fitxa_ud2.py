@@ -24,13 +24,15 @@ def pagina(cos, classe="full"):
 
 def tria(opcions, bona=None):
     """Les opcions per marcar, l'una al costat de l'altra: prou amples per marcar-les, i
-    prou estretes perquè Sí i No càpiguen en mitja pàgina."""
+    prou estretes perquè Sí i No càpiguen en un terç de pàgina (la pàgina 4 en posa tres
+    per fila). Amb 2,7 cm, al PDF la tercera columna sortia del full i el «No» dels
+    apartats c) i f) quedava tallat (29/9/2026)."""
     peces = []
     for o in opcions:
         if o == bona:
-            peces.append(f'<label style="min-width:2.7cm;border-width:3px;border-color:var(--tinta)"><span class="quadret">{MARCA}</span>{o}</label>')
+            peces.append(f'<label style="min-width:1.9cm;border-width:3px;border-color:var(--tinta)"><span class="quadret">{MARCA}</span>{o}</label>')
         else:
-            peces.append(f'<label style="min-width:2.7cm"><span class="quadret"></span>{o}</label>')
+            peces.append(f'<label style="min-width:1.9cm"><span class="quadret"></span>{o}</label>')
     return '<div class="tria" style="margin:.25rem 0;flex-wrap:nowrap">' + "".join(peces) + "</div>"
 
 

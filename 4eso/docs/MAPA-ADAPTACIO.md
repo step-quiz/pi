@@ -565,9 +565,9 @@ traça als criteris, i serveixen directament per construir-les.
 - **Revisió del PI al desembre.** Les tres primeres unitats et diran si el nivell de 5è
   en aritmètica és estable o si amb calculadora funciona per sobre del que sembla. És el
   moment de recalibrar les fites de la taula de l'apartat 8.
-- **La lletra manuscrita de les fitxes.** Depèn de les fonts instal·lades als ordinadors
-  del centre. Si no surt lligada, hi ha un bloc `@font-face` comentat al principi del CSS
-  de cada fitxa: només cal desar un `.woff2` al costat i descomentar-lo.
+- **La lletra manuscrita de les fitxes.** Ja no depèn de les fonts de cada ordinador:
+  des del 29/9/2026 és Caveat, dins del repositori (`fonts/`), la mateixa de `1eso/` i dels
+  exàmens, i surt igual a la pantalla i al PDF.
 - **El teclat de la calculadora a l'app.** La disposició de tecles i l'etiqueta `FORMAT`
   estan pendents de contrastar amb una fx-82SP CW real. Hi ha una constant `SEP_DECIMAL`
   per si les vostres unitats estan configurades amb coma en comptes de punt.

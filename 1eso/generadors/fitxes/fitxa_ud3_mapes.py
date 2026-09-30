@@ -36,7 +36,7 @@ pagina(f'''  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>la gra
   <p class="nom">Nom: <span></span></p>
   <div class="obertura">{ULL}<div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
   <div style="width:6.2cm;margin:.6rem auto 0">{mapa(10, 1, 0.47, "Barcelona dibuixada amb quadrets: un quadrat de 10 per 10 i un quadret més").svg("")}</div>
-  <p style="text-align:center;margin:0;font-size:13pt;color:var(--gris-2)">Barcelona, dibuixada amb quadrets. És un esquema: no és la forma de debò.</p>
+  <p style="text-align:center;margin:0;font-size:14pt;color:var(--gris-2)">Barcelona, dibuixada amb quadrets. És un esquema: no és la forma de debò.</p>
   <p style="font-size:16.5pt;font-weight:700;text-align:center;margin:.4rem 0 .6rem">Cada quadret és 1 km².</p>
   <table>
     <tr class="resolt"><td class="esq">Quants quadrets té el quadrat de 10 per 10?</td><td style="width:4.2cm">{ms("100")}</td></tr>
@@ -50,7 +50,7 @@ pagina(f'''  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>la gra
 # ===================================================================== pàgina 2: Gaza (la vida)
 pagina(f'''  <h2>A la vida de cada dia</h2>
   <div style="width:17.8cm">{mapa(36, 5, 0.45, "Gaza dibuixada amb quadrets: una franja de 10 files i 36 columnes, i 5 quadrets més").svg("")}</div>
-  <p style="text-align:center;margin:0;font-size:13pt;color:var(--gris-2)">Gaza, dibuixada amb quadrets. És un esquema: no és la forma de debò. Cada quadret és 1 km².</p>
+  <p style="text-align:center;margin:0;font-size:14pt;color:var(--gris-2)">Gaza, dibuixada amb quadrets. És un esquema: no és la forma de debò. Cada quadret és 1 km².</p>
   <div class="exercici">
     <div class="tasca"><div class="n">1</div><div class="q">Quants km² fa Gaza? Compta per quadrats de 100, columnes de 10 i quadrets solts.</div></div>
     <table style="margin-top:.2rem">

@@ -16,13 +16,18 @@ def fes_pagina(pagines, peu):
     return pagina
 
 
-def tria(opcions, bona=None, revisa=False, mida="15pt", columna=False, ample="3.4cm"):
+def tria(opcions, bona=None, revisa=False, mida="15pt", columna=False, ample="3.4cm", ajusta=False):
     """Opcions per marcar, senceres i sense partir-se. Amb `revisa`, cada opció va dins
-    de .revisa: poden ser igualtats falses a posta, i comprova.py no les comprova."""
+    de .revisa: poden ser igualtats falses a posta, i comprova.py no les comprova.
+    Amb `ajusta`, en fila, cada capsa mesura com a mínim el seu text (flex:1 1 auto): per a
+    opcions de llargades molt diferents («Circumferència»). Sense, totes fan el mateix, i
+    un text més llarg que `ample` sortia de la capsa al PDF (29/9/2026). No és el valor per
+    defecte perquè, dins d'una altra fila flexible, el motor dels PDF parteix les opcions en
+    dues files encara que hi càpiguen: cal mirar-ho pàgina per pàgina."""
     peces = []
     for o in opcions:
         text = f'<span class="revisa">{o}</span>' if revisa else o
-        estil = f"min-width:{ample};white-space:nowrap;font-size:{mida}"
+        estil = ("flex:1 1 auto;" if ajusta else "") + f"min-width:{ample};white-space:nowrap;font-size:{mida}"
         if o == bona:
             peces.append(f'<label style="{estil};border-width:3px;border-color:var(--tinta)"><span class="quadret">{MARCA}</span>{text}</label>')
         else:
@@ -31,8 +36,11 @@ def tria(opcions, bona=None, revisa=False, mida="15pt", columna=False, ample="3.
         # Una fila per opció. Amb flex-direction:column, WeasyPrint (el motor dels PDF) estirava
         # les opcions i les encavalcava, encara que Chromium les ensenyés bé: va passar als PDF
         # d'ud2-repartir i d'ud3-sumes (trobat el 29/9/2026). Cada opció, dins del seu .tria.
+        # El .tria és una taula: `ample` és l'amplada mínima i, si el text és més llarg, la
+        # capsa creix amb el text. Amb `width`, «Obtusangle» o «Perpendiculars» sortien de la
+        # capsa al PDF (29/9/2026).
         return (f'<div style="margin:.25rem 0">' +
-                "".join(f'<div class="tria" style="margin:0 0 .35rem;width:{ample}">{p}</div>' for p in peces) +
+                "".join(f'<div class="tria" style="margin:0 0 .35rem;display:table;width:{ample}">{p}</div>' for p in peces) +
                 "</div>")
     return f'<div class="tria" style="margin:.25rem 0;flex-wrap:wrap">' + "".join(peces) + "</div>"
 

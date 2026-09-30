@@ -64,7 +64,7 @@ body {
 h1 { font-size: 25pt; font-weight: 800; margin: 0; line-height: 1.12; letter-spacing: -.02em }
 h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 
-.nom { font-size: 13pt; color: var(--gris-2); margin: 1.1rem 0 0 }
+.nom { font-size: 14pt; color: var(--gris-2); margin: 1.1rem 0 0 }
 .nom span { display: inline-block; border-bottom: 2px solid var(--vora-suau); min-width: 11cm }
 
 /* L'obertura: es respon mirant i dient, no escrivint. Va SEMPRE abans del
@@ -78,15 +78,17 @@ h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 }
 .obertura .ull { flex: 0 0 auto; width: 2rem; height: 2rem }
 .obertura .q   { font-size: 16.5pt; font-weight: 800; line-height: 1.15 }
-.obertura .com { font-size: 11pt; color: var(--gris-2) }
+.obertura .com { font-size: 14pt; color: var(--gris-2) }   /* la consigna de l'obertura: a 14 pt, com tot (abans 11) */
 
 /* -------------------------------------------------------- model resolt -- */
 
-/* El primer apartat de cada exercici ja ve fet, amb lletra lligada. */
-.ms { font-family: var(--manuscrita); color: var(--manuscrit); font-size: 1.14em; line-height: 1.3 }
+/* El primer apartat de cada exercici ja ve fet, amb lletra manuscrita (Caveat).
+   Caveat és més petita que la d'impremta al mateix cos: amb 1,3 vegades la
+   mida d'abans es veu igual de gran que la lletra que hi havia (1,14 · 1,3). */
+.ms { font-family: var(--manuscrita); color: var(--manuscrit); font-size: 1.48em; line-height: 1.2 }
 .resolt { background: var(--fons-1) }
 .et-resolt {
-  font-family: var(--manuscrita); color: var(--manuscrit); font-size: 12pt;
+  font-family: var(--manuscrita); color: var(--manuscrit); font-size: 15.5pt;
   display: inline-block; transform: rotate(-1.5deg);
 }
 /* Encerclat i ratllat a mà, per als apartats de triar i descartar. */
@@ -121,17 +123,17 @@ h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 
 table { border-collapse: collapse; width: 100%; margin: .5rem 0 }
 th, td { border: 2px solid var(--vora); padding: .5rem .55rem; text-align: center; font-size: 15pt }
-th { background: var(--fons-2); font-size: 11pt; font-weight: 700; color: var(--gris-1); letter-spacing: .02em }
+th { background: var(--fons-2); font-size: 14pt; font-weight: 700; color: var(--gris-1); letter-spacing: .02em }
 td.dada   { font-weight: 700; background: var(--fons-1) }
 td.omplir { height: 1.5cm; background: #fff }   /* espai per escriure-hi */
 td.esq    { text-align: left }
-td.ms     { font-size: 15pt }
+td.ms     { font-size: 19.5pt }                   /* 15 pt · 1,3: Caveat és més petita */
 .mini th, .mini td { font-size: 14pt; padding: .35rem .4rem }
 
 /* Caselles grans soltes, fora de taula. */
 .caixes { display: flex; gap: .9rem; flex-wrap: wrap; margin: .6rem 0 }
 .caixa-buida { flex: 1; min-width: 4.6cm }
-.caixa-buida .et { font-size: 11.5pt; color: var(--gris-2); margin-bottom: .15rem }
+.caixa-buida .et { font-size: 14pt; color: var(--gris-2); margin-bottom: .15rem }
 .caixa-buida .q  { height: 1.9cm; border: 2px solid var(--vora); border-radius: 9px }
 
 /* ------------------------------------------------------------ dibuixos -- */
@@ -143,7 +145,7 @@ svg { display: block; width: 100% ; height: auto }
           margin: .4rem auto; max-width: 15cm }
 .figura.neta { border: 0; padding: 0 }
 .figura svg { display: block; width: 100%; height: auto }
-.retol-graf { font-size: 12.5pt; color: var(--gris-2); text-align: center; margin: .15rem 0 0 }
+.retol-graf { font-size: 14pt; color: var(--gris-2); text-align: center; margin: .15rem 0 0 }
 
 .centrat { max-width: 15cm; margin: 0 auto }
 /* Mida física real: el plànol de la U3 està dibuixat a escala 1:100 i s'ha de
@@ -174,11 +176,11 @@ svg.real { width: 11cm; max-width: 100%; margin: 0 auto }
 /* U1 · les tres targetes de precisió (ho dic / ho compro / ho tallo) */
 .targetes { display: flex; gap: .9rem; margin-top: 1.6rem; text-align: center }
 .targetes > div { flex: 1; border: 2px solid var(--vora); border-radius: 13px; padding: .9rem .4rem }
-.targetes .et  { font-size: 11.5pt; color: var(--gris-2) }
+.targetes .et  { font-size: 14pt; color: var(--gris-2) }
 .targetes .val { font-size: 24pt; font-weight: 800; margin-top: .25rem }
 .situacio { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
             border: 2px solid var(--vora-suau); border-radius: 12px; padding: .8rem .9rem; margin: .7rem 0 }
-.situacio .txt { flex: 1; min-width: 6cm; font-size: 13pt; line-height: 1.4 }
+.situacio .txt { flex: 1; min-width: 6cm; font-size: 14pt; line-height: 1.4 }
 .situacio .val { font-size: 17pt; font-weight: 800; white-space: nowrap }
 .encercla { display: flex; gap: 1rem; flex-wrap: wrap; margin: .5rem 0 0; align-items: center }
 .encercla span.n { border: 2px solid var(--vora-suau); border-radius: 999px;
@@ -188,14 +190,14 @@ svg.real { width: 11cm; max-width: 100%; margin: 0 auto }
 .barra-preu { position: relative; height: 1.5cm; border: 2px solid var(--tinta);
               border-radius: 6px; background: #fff; margin: .35rem 0 .1rem; overflow: hidden }
 .barra-preu i { display: block; height: 100%; background: var(--fons-3); border-right: 2px solid var(--tinta) }
-.barra-et { font-size: 11.5pt; color: var(--gris-2) }
+.barra-et { font-size: 14pt; color: var(--gris-2) }
 .opcio { border: 2px solid var(--vora-suau); border-radius: 12px; padding: .7rem .85rem;
-         font-size: 13.5pt; line-height: 1.45 }
+         font-size: 14pt; line-height: 1.45 }
 .opcio b { font-size: 15pt }
 .parella-op { display: flex; gap: .8rem; flex-wrap: wrap; margin: .5rem 0 }
 .parella-op > * { flex: 1; min-width: 7cm }
 .tiquet { border: 2px dashed var(--tinta); border-radius: 8px; padding: .8rem 1rem;
-          font-family: ui-monospace, "Courier New", monospace; font-size: 13pt;
+          font-family: ui-monospace, "Courier New", monospace; font-size: 14pt;
           line-height: 1.9; max-width: 9.5cm; margin: .5rem 0 }
 .tiquet div { display: flex; justify-content: space-between; gap: 1rem }
 .tiquet hr { border: 0; border-top: 1px dashed var(--gris-3); margin: .4rem 0 }
@@ -205,7 +207,7 @@ svg.real { width: 11cm; max-width: 100%; margin: 0 auto }
 .dues-taules > div { flex: 1; min-width: 7.5cm }
 .sentit { font-size: 20pt; font-weight: 800; line-height: 1 }   /* les fletxes ↑ ↓ */
 .oferta { border: 2px solid var(--vora-suau); border-radius: 12px; padding: .6rem .8rem;
-          font-size: 13.5pt; line-height: 1.4 }
+          font-size: 14pt; line-height: 1.4 }
 
 /* U4 · equacions */
 .equacio { font-size: 22pt; font-weight: 800; text-align: center; letter-spacing: .02em; margin: .5rem 0 }
@@ -277,7 +279,7 @@ svg.real { width: 11cm; max-width: 100%; margin: 0 auto }
      Si s'hi afegeix contingut, cal tornar a passar `python3 eines/mesura.py`. */
   .figura   { max-width: 12.6cm }
   .centrat  { max-width: 12.6cm }
-  .exercici { margin-bottom: 1.4rem }
+  .exercici { margin-bottom: 1rem }       /* 1rem i no 1,4: el que ha fet créixer la lletra a 14 pt i la manuscrita (29/9/2026) */
   .avis     { margin: .8rem 0; padding: .75rem 1rem }
   .frase    { line-height: 2.0; margin: .4rem 0 }
   td.omplir { height: 1.35cm }

@@ -17,18 +17,18 @@ def env(cos, w=560, h=300):
 def punts(dades, xmin=0, xmax=10, titol="", w=560, h=190):
     ml, mr, mb = 40, 24, 46
     def px(x): return ml + (x - xmin) / (xmax - xmin) * (w - ml - mr)
-    o = [f'<text x="{ml}" y="20" font-size="17" font-weight="700" fill="{NEG}" {TIP}>{titol}</text>']
+    o = [f'<text x="{ml}" y="20" font-size="20" font-weight="700" fill="{NEG}" {TIP}>{titol}</text>']
     o.append(f'<line x1="{px(xmin)}" y1="{h-mb}" x2="{px(xmax)}" y2="{h-mb}" stroke="{NEG}" stroke-width="2.5"/>')
     for x in range(xmin, xmax + 1):
         o.append(f'<line x1="{px(x):.1f}" y1="{h-mb}" x2="{px(x):.1f}" y2="{h-mb+7}" stroke="{NEG}" stroke-width="2"/>')
-        o.append(f'<text x="{px(x):.1f}" y="{h-mb+28}" text-anchor="middle" font-size="16" fill="{GRIS}" {TIP}>{x}</text>')
+        o.append(f'<text x="{px(x):.1f}" y="{h-mb+28}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>{x}</text>')
     compte = {}
     for d in sorted(dades):
         compte[d] = compte.get(d, 0) + 1
         o.append(f'<circle cx="{px(d):.1f}" cy="{h-mb-13-(compte[d]-1)*24:.1f}" r="9" fill="{NEG}"/>')
     mitjana = sum(dades) / len(dades)
     o.append(f'<line x1="{px(mitjana):.1f}" y1="{h-mb+2}" x2="{px(mitjana):.1f}" y2="30" stroke="{NEG}" stroke-width="2" stroke-dasharray="7 5"/>')
-    o.append(f'<text x="{px(mitjana):.1f}" y="26" text-anchor="middle" font-size="15" fill="{GRIS}" {TIP}>mitjana {mitjana:g}</text>')
+    o.append(f'<text x="{px(mitjana):.1f}" y="26" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>mitjana {mitjana:g}</text>')
     return env("".join(o), w, h)
 
 
@@ -37,16 +37,18 @@ G["DOT_B"] = punts([1, 3, 5, 5, 7, 9], titol="Jugadora B")
 
 
 # ---------- U6: gràfic de barres ----------
-def barres(etiquetes, valors, ymin, ymax, ystep, titol="", w=560, h=300, ample=54):
+def barres(etiquetes, valors, ymin, ymax, ystep, titol="", w=560, h=300, ample=54, fs=20):
+    """fs: la lletra. 20 per als de 560 d'ample (12,4 pt al PDF); els de 270, que van de
+    costat a 8,5 cm, amb 15 ja fan 13,4 pt."""
     ml, mr, mt, mb = 58, 20, 34, 54
     def py(v): return h - mb - (v - ymin) / (ymax - ymin) * (h - mb - mt)
     n = len(valors)
     pas = (w - ml - mr) / n
-    o = [f'<text x="{ml}" y="22" font-size="17" font-weight="700" fill="{NEG}" {TIP}>{titol}</text>']
+    o = [f'<text x="{ml}" y="22" font-size="{fs + 2}" font-weight="700" fill="{NEG}" {TIP}>{titol}</text>']
     v = ymin
     while v <= ymax + 1e-9:
         o.append(f'<line x1="{ml}" y1="{py(v):.1f}" x2="{w-mr}" y2="{py(v):.1f}" stroke="{CLAR}" stroke-width="1"/>')
-        o.append(f'<text x="{ml-10}" y="{py(v)+5:.1f}" text-anchor="end" font-size="15" fill="{GRIS}" {TIP}>{v:g}</text>')
+        o.append(f'<text x="{ml-10}" y="{py(v)+5:.1f}" text-anchor="end" font-size="{fs}" fill="{GRIS}" {TIP}>{v:g}</text>')
         v += ystep
     o.append(f'<line x1="{ml}" y1="{py(ymin):.1f}" x2="{w-mr}" y2="{py(ymin):.1f}" stroke="{NEG}" stroke-width="2.5"/>')
     o.append(f'<line x1="{ml}" y1="{py(ymin):.1f}" x2="{ml}" y2="{mt-6}" stroke="{NEG}" stroke-width="2.5"/>')
@@ -54,30 +56,31 @@ def barres(etiquetes, valors, ymin, ymax, ystep, titol="", w=560, h=300, ample=5
         cx = ml + pas * (i + .5)
         alt = py(ymin) - py(val)
         o.append(f'<rect x="{cx-ample/2:.1f}" y="{py(val):.1f}" width="{ample}" height="{alt:.1f}" fill="{FONS}" stroke="{NEG}" stroke-width="2.5"/>')
-        o.append(f'<text x="{cx:.1f}" y="{py(val)-10:.1f}" text-anchor="middle" font-size="17" font-weight="700" fill="{NEG}" {TIP}>{val:g}</text>')
-        o.append(f'<text x="{cx:.1f}" y="{h-mb+26:.0f}" text-anchor="middle" font-size="16" fill="{GRIS}" {TIP}>{e}</text>')
+        o.append(f'<text x="{cx:.1f}" y="{py(val)-10:.1f}" text-anchor="middle" font-size="{fs + 2}" font-weight="700" fill="{NEG}" {TIP}>{val:g}</text>')
+        o.append(f'<text x="{cx:.1f}" y="{h-mb+26:.0f}" text-anchor="middle" font-size="{fs}" fill="{GRIS}" {TIP}>{e}</text>')
     return env("".join(o), w, h)
 
 
 G["TRANSPORT"] = barres(["a peu", "bus", "cotxe", "bici"], [12, 9, 5, 4], 0, 14, 2,
                         titol="Com venen a l'institut")
 G["ENGANY_0"] = barres(["Marca A", "Marca B"], [95, 100], 0, 110, 20,
-                       titol="Gràfic 1", w=270, h=250, ample=52)
+                       titol="Gràfic 1", w=270, h=250, ample=52, fs=15)
 G["ENGANY_90"] = barres(["Marca A", "Marca B"], [95, 100], 90, 102, 2,
-                        titol="Gràfic 2", w=270, h=250, ample=52)
+                        titol="Gràfic 2", w=270, h=250, ample=52, fs=15)
 
 
 # ---------- U7: la línia de la probabilitat ----------
 def linia_prob():
-    w, h, ml, mr, y = 560, 170, 46, 46, 78
+    # marges de 66: amb la lletra a 20, «impossible» centrat al 0 sortia per l'esquerra
+    w, h, ml, mr, y = 560, 170, 66, 66, 78
     def px(p): return ml + p / 100 * (w - ml - mr)
     o = [f'<line x1="{ml}" y1="{y}" x2="{w-mr}" y2="{y}" stroke="{NEG}" stroke-width="4"/>']
     for p, et in [(0, "0 %"), (25, "25 %"), (50, "50 %"), (75, "75 %"), (100, "100 %")]:
         o.append(f'<line x1="{px(p):.1f}" y1="{y-11}" x2="{px(p):.1f}" y2="{y+11}" stroke="{NEG}" stroke-width="3"/>')
-        o.append(f'<text x="{px(p):.1f}" y="{y+36}" text-anchor="middle" font-size="17" fill="{GRIS}" {TIP}>{et}</text>')
+        o.append(f'<text x="{px(p):.1f}" y="{y+36}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>{et}</text>')
     for p, et, dy in [(0, "impossible", -26), (50, "pot passar", -26), (100, "segur", -26)]:
-        o.append(f'<text x="{px(p):.1f}" y="{y+dy}" text-anchor="middle" font-size="18" font-weight="700" fill="{NEG}" {TIP}>{et}</text>')
-    o.append(f'<text x="{ml}" y="{y+74}" font-size="16" fill="{GRIS}" {TIP}>com més a la dreta, més fàcil que passi</text>')
+        o.append(f'<text x="{px(p):.1f}" y="{y+dy}" text-anchor="middle" font-size="20" font-weight="700" fill="{NEG}" {TIP}>{et}</text>')
+    o.append(f'<text x="{ml}" y="{y+74}" font-size="20" fill="{GRIS}" {TIP}>com més a la dreta, més fàcil que passi</text>')
     return env("".join(o), w, h)
 
 
@@ -85,10 +88,13 @@ G["LINIA_PROB"] = linia_prob()
 
 
 # ---------- U7: diagrames d'arbre ----------
-def arbre(nivell1, nivell2, resultats=True, w=560, h=330):
-    """Arbre de dos nivells. Si `resultats`, escriu les combinacions a la dreta."""
+def arbre(nivell1, nivell2, resultats=True, w=580, h=330, fs=21):
+    """Arbre de dos nivells. Si `resultats`, escriu les combinacions a la dreta.
+    580 d'ample i lletra de 21: «Amanida + Pollastre» ha de cabre a la dreta, i al PDF
+    (12,2 cm) la lletra fa 12,5 pt. Abans eren 560 i 15-17 (9-10 pt) (29/9/2026)."""
     o = []
-    x0, x1, x2, x3 = 40, 190, 330, 360
+    x0, x1, x2 = 10, 70, 214
+    a1, a2 = 112, 126                # amplada de les capses del primer i del segon nivell
     n1, n2 = len(nivell1), len(nivell2)
     total = n1 * n2
     alt = h - 40
@@ -98,20 +104,20 @@ def arbre(nivell1, nivell2, resultats=True, w=560, h=330):
         ya = 30 + alt * (i + .5) / n1
         o.append(f'<line x1="{x0}" y1="{h/2:.0f}" x2="{x1}" y2="{ya:.1f}" stroke="{NEG}" stroke-width="2.5"/>')
         etq = a if a else ""
-        o.append(f'<rect x="{x1}" y="{ya-17:.1f}" width="118" height="34" rx="7" fill="{FONS if a else "#fff"}" stroke="{NEG}" stroke-width="2.5"/>')
+        o.append(f'<rect x="{x1}" y="{ya-18:.1f}" width="{a1}" height="36" rx="7" fill="{FONS if a else "#fff"}" stroke="{NEG}" stroke-width="2.5"/>')
         if etq:
-            o.append(f'<text x="{x1+59}" y="{ya+7:.1f}" text-anchor="middle" font-size="17" font-weight="700" fill="{NEG}" {TIP}>{etq}</text>')
+            o.append(f'<text x="{x1+a1/2:.0f}" y="{ya+7:.1f}" text-anchor="middle" font-size="{fs}" font-weight="700" fill="{NEG}" {TIP}>{etq}</text>')
         for j, b in enumerate(nivell2):
             yb = 30 + alt * (k + .5) / total
             k += 1
-            o.append(f'<line x1="{x1+118}" y1="{ya:.1f}" x2="{x2}" y2="{yb:.1f}" stroke="{NEG}" stroke-width="2.5"/>')
-            o.append(f'<rect x="{x2}" y="{yb-15:.1f}" width="112" height="30" rx="7" fill="{FONS if b else "#fff"}" stroke="{NEG}" stroke-width="2.5"/>')
+            o.append(f'<line x1="{x1+a1}" y1="{ya:.1f}" x2="{x2}" y2="{yb:.1f}" stroke="{NEG}" stroke-width="2.5"/>')
+            o.append(f'<rect x="{x2}" y="{yb-16:.1f}" width="{a2}" height="32" rx="7" fill="{FONS if b else "#fff"}" stroke="{NEG}" stroke-width="2.5"/>')
             if b:
-                o.append(f'<text x="{x2+56}" y="{yb+6:.1f}" text-anchor="middle" font-size="16" font-weight="700" fill="{NEG}" {TIP}>{b}</text>')
+                o.append(f'<text x="{x2+a2/2:.0f}" y="{yb+7:.1f}" text-anchor="middle" font-size="{fs}" font-weight="700" fill="{NEG}" {TIP}>{b}</text>')
             if resultats and a and b:
-                o.append(f'<text x="{x2+124}" y="{yb+6:.1f}" font-size="15" fill="{GRIS}" {TIP}>{a} + {b}</text>')
+                o.append(f'<text x="{x2+a2+10}" y="{yb+7:.1f}" font-size="{fs}" fill="{GRIS}" {TIP}>{a} + {b}</text>')
             elif not resultats:
-                o.append(f'<rect x="{x2+122}" y="{yb-15:.1f}" width="72" height="30" rx="7" fill="#fff" stroke="{CLAR}" stroke-width="2"/>')
+                o.append(f'<rect x="{x2+a2+10}" y="{yb-16:.1f}" width="90" height="32" rx="7" fill="#fff" stroke="{CLAR}" stroke-width="2"/>')
     return env("".join(o), w, h)
 
 

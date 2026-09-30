@@ -46,9 +46,9 @@ def barra_escala(total=300, treu=20, passos=5):
         val = round(total * p / 100)
         fort = (val == total * queda // 100)
         o.append(f'<line x1="{x(p):.1f}" y1="{y_eur-7}" x2="{x(p):.1f}" y2="{y_eur}" stroke="{NEG}" stroke-width="2"/>')
-        o.append(f'<text x="{x(p):.1f}" y="{y_eur-14}" text-anchor="middle" font-size="17" '
+        o.append(f'<text x="{x(p):.1f}" y="{y_eur-14}" text-anchor="middle" font-size="20" '
                  f'font-weight="{"800" if fort else "400"}" fill="{NEG if fort else GRIS}" {TIP}>{val}</text>')
-    o.append(f'<text x="{x0-8}" y="{y_eur+5}" text-anchor="end" font-size="16" fill="{GRIS}" {TIP}>€</text>')
+    o.append(f'<text x="{x0-8}" y="{y_eur+5}" text-anchor="end" font-size="20" fill="{GRIS}" {TIP}>€</text>')
 
     # eix de baix: percentatge
     o.append(f'<line x1="{x0}" y1="{y_pct}" x2="{x1}" y2="{y_pct}" stroke="{NEG}" stroke-width="2.5"/>')
@@ -56,9 +56,9 @@ def barra_escala(total=300, treu=20, passos=5):
         p = 100 * i / passos
         fort = abs(p - queda) < 1e-9
         o.append(f'<line x1="{x(p):.1f}" y1="{y_pct}" x2="{x(p):.1f}" y2="{y_pct+7}" stroke="{NEG}" stroke-width="2"/>')
-        o.append(f'<text x="{x(p):.1f}" y="{y_pct+27}" text-anchor="middle" font-size="17" '
+        o.append(f'<text x="{x(p):.1f}" y="{y_pct+27}" text-anchor="middle" font-size="20" '
                  f'font-weight="{"800" if fort else "400"}" fill="{NEG if fort else GRIS}" {TIP}>{p:g}</text>')
-    o.append(f'<text x="{x0-8}" y="{y_pct+5}" text-anchor="end" font-size="16" fill="{GRIS}" {TIP}>%</text>')
+    o.append(f'<text x="{x0-8}" y="{y_pct+5}" text-anchor="end" font-size="20" fill="{GRIS}" {TIP}>%</text>')
 
     # la vertical que lliga els dos eixos: 240 € i 80 % són el mateix lloc
     o.append(f'<line x1="{xt:.1f}" y1="{y_eur}" x2="{xt:.1f}" y2="{y_pct}" stroke="{NEG}" '
@@ -115,9 +115,9 @@ def repartiment(dades):
     o.append(f'<line x1="{xb-10}" y1="{ym}" x2="{xb+amp+14}" y2="{ym}" stroke="{NEG}" '
              f'stroke-width="3" stroke-dasharray="9 6"/>')
     o.append(f'<text x="{xb+amp+18}" y="{ym+6}" font-size="20" font-weight="800" fill="{NEG}" {TIP}>{mitjana}</text>')
-    o.append(f'<text x="{xa+amp/2:.0f}" y="{base+34}" text-anchor="middle" font-size="16" fill="{GRIS}" {TIP}>'
+    o.append(f'<text x="{xa+amp/2:.0f}" y="{base+34}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>'
              f'com estan</text>')
-    o.append(f'<text x="{xb+amp/2:.0f}" y="{base+34}" text-anchor="middle" font-size="16" fill="{GRIS}" {TIP}>'
+    o.append(f'<text x="{xb+amp/2:.0f}" y="{base+34}" text-anchor="middle" font-size="20" fill="{GRIS}" {TIP}>'
              f'repartits igual</text>')
     return env("".join(o), w, h), mitjana
 
@@ -143,10 +143,10 @@ def barra_prob(cares=6, bona=5):
     for i in range(cares + 1):
         xa = x0 + i * amp
         o.append(f'<line x1="{xa:.1f}" y1="{y_pct}" x2="{xa:.1f}" y2="{y_pct+7}" stroke="{NEG}" stroke-width="2"/>')
-    for p, et in ((0, "0"), (100, "100")):
-        o.append(f'<text x="{x0+(x1-x0)*p/100:.1f}" y="{y_pct+27}" text-anchor="middle" font-size="16" '
+    # «0 %» i «100 %», i no un «%» a part: amb la lletra a 20 xocava amb el 100 (29/9/2026).
+    for p, et in ((0, "0 %"), (100, "100 %")):
+        o.append(f'<text x="{x0+(x1-x0)*p/100:.1f}" y="{y_pct+27}" text-anchor="middle" font-size="20" '
                  f'fill="{GRIS}" {TIP}>{et}</text>')
-    o.append(f'<text x="{x1+2}" y="{y_pct+27}" text-anchor="start" font-size="14" fill="{GRIS}" {TIP}>%</text>')
 
     # el tros que val: una casella, amidada contra l'escala
     xa = x0 + (bona - 1) * amp
@@ -155,7 +155,7 @@ def barra_prob(cares=6, bona=5):
              f'stroke-width="2" stroke-dasharray="7 5"/>')
     o.append(f'<line x1="{xa+amp:.1f}" y1="{y+alt}" x2="{xa+amp:.1f}" y2="{y_pct}" stroke="{NEG}" '
              f'stroke-width="2" stroke-dasharray="7 5"/>')
-    o.append(f'<text x="{xa+amp/2:.1f}" y="{h-8}" text-anchor="middle" font-size="19" '
+    o.append(f'<text x="{xa+amp/2:.1f}" y="{h-8}" text-anchor="middle" font-size="20" '
              f'font-weight="800" fill="{NEG}" {TIP}>{("%.1f" % pct).replace(".", ",")} %</text>')
     return env("".join(o), w, h), pct
 

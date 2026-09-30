@@ -13,6 +13,19 @@
       Aquí el color sí que hi és, perquè no s'imprimeix mai.
    ========================================================================== */
 
+/* La lletra manuscrita va dins del repositori (fonts/Caveat.ttf, llicència OFL
+   a fonts/OFL.txt), com a 1eso/. Abans depenia de les lletres de cada
+   ordinador, i el motor dels PDF, que no en tenia cap, la canviava per una
+   d'impremta: els 14 PDF sortien amb el model resolt en lletra d'impremta.
+   És la mateixa lletra que la dels exàmens DOCX.
+   Caveat no té √ ni →: si surten en un text manuscrit, el navegador i el motor
+   dels PDF els dibuixen amb la lletra d'impremta, i la resta queda manuscrita. */
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/Caveat.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   /* ---------- 1 · PAPER: escala de grisos ---------- */
   --tinta:      #000;
@@ -30,13 +43,9 @@
      de la impresa sense semblar un error d'impressió. */
   --manuscrit:  #3A3A3A;
 
-  /* Pila de fonts per a la lletra lligada dels apartats ja resolts.
-     Resol a Segoe Script o Ink Free a Windows i a Bradley Hand a Mac.
-     Si cap no hi és, cau a la genèrica `cursive`, que sempre existeix.
-     Per fixar-ne una d'igual a tot arreu: desa un .woff2 al costat i
-     descomenta el @font-face de sota. */
-  --manuscrita: "LligadaEscola", "Segoe Script", "Ink Free", "Bradley Hand",
-                "Snell Roundhand", "Chalkboard SE", "Comic Sans MS", cursive;
+  /* La lletra manuscrita dels apartats ja resolts. Caveat és al repositori,
+     o sigui que surt igual a tot arreu; les altres només són de reserva. */
+  --manuscrita: "Caveat", "Segoe Script", "Ink Free", "Bradley Hand", cursive;
 
   --paper-cos:  system-ui, -apple-system, "Segoe UI", Verdana, sans-serif;
 
@@ -101,5 +110,3 @@
     --taronja-suau: rgba(255, 159, 10, .22);
   }
 }
-
-/* @font-face { font-family:"LligadaEscola"; src:url("../assets/lligada.woff2") format("woff2"); font-display:swap; } */

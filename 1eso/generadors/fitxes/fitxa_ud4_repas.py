@@ -114,9 +114,9 @@ pagina(f'''  <div class="exercici">
   </div>''')
 
 # ===================================================================== pàgina 3: què he après?
-FR = [("Reparteixo un nombre en grups iguals.", f"{fr(1, 3, '13pt')} de 12: 4"),
-      ("Pinto els grups que em diu la fracció.", f"{fr(2, 3, '13pt')} de 12: 8"),
-      ("Faig un tros de tros amb dues fraccions.", f"{fr(1, 2, '13pt')} de {fr(1, 4, '13pt')} és {fr(1, 8, '13pt')}"),
+FR = [("Reparteixo un nombre en grups iguals.", f"{fr(1, 3, '14pt')} de 12: 4"),
+      ("Pinto els grups que em diu la fracció.", f"{fr(2, 3, '14pt')} de 12: 8"),
+      ("Faig un tros de tros amb dues fraccions.", f"{fr(1, 2, '14pt')} de {fr(1, 4, '14pt')} és {fr(1, 8, '14pt')}"),
       ("Multiplico els dos denominadors.", "2 · 4 = 8"),
       ("Pinto un percentatge a la graella de 100.", "25% = 25 quadrets"),
       ("Compto quants quadrets és un percentatge.", "50 quadrets = 50%"),

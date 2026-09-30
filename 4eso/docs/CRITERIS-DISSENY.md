@@ -48,10 +48,31 @@ decimals que s'acaben», no «Encercla el que s'acaba».
 Consignes a 15,5 pt, números de taula a 15 pt, xifres destacades a 20-26 pt. Interlineat
 1,65. Caselles d'1,5 cm d'alçada per escriure-hi a mà amb comoditat.
 
+**Tot el que llegeix l'alumnat, a 14 pt com a mínim**, també les capçaleres de les taules,
+«Digues-ho o assenyala-ho», «Nom:» i els rètols dels dibuixos fets amb HTML. Abans hi havia
+capçaleres a 11 pt i paràgrafs a 13 pt: gairebé un terç del text de l'alumnat era per sota
+de 14 pt (29/9/2026).
+
+**Els rètols dels gràfics, a 12 pt com a mínim tal com surten al PDF.** Un gràfic s'escala:
+«15» en un dibuix de 560 d'ample que ocupa 12 cm fa 9 pt. Els generadors fan servir 20 per
+als gràfics sencers i 28 per als que van de costat; si els números no hi caben, se'n posa
+un de cada dos (la marca i la línia de la graella hi continuen sent) i cada rètol porta un
+halo blanc perquè es llegeixi damunt de la corba.
+
+`eines/auditoria.py` ho mesura tot com surt al PDF, i `eines/mesura.py` vigila que cada
+pàgina continuï cabent en un A4, d'alt i d'ample.
+
 ## 5. El primer apartat, sempre resolt en lletra manuscrita
 
 Veu el model abans de començar, amb una lletra que es distingeix de la impresa. Classes
 `.ms`, `.resolt` i `.et-resolt`; la pila de fonts és a `tokens.css`.
+
+La lletra és **Caveat**, dins del repositori (`fonts/Caveat.ttf`), la mateixa de `1eso/` i
+dels exàmens. Fins al 29/9/2026 depenia de les lletres de cada ordinador, i el motor dels PDF,
+que no en tenia cap de manuscrita, la canviava per la d'impremta: als catorze PDF el model
+resolt no es distingia de la resta. Caveat és més petita que la d'impremta al mateix cos, i
+per això `.ms` va a 1,48 em (1,14 · 1,3). `generadors/gen_pdf.py` s'atura si un PDF amb text
+manuscrit no la porta a dins.
 
 **La caixa d'eines fa el mateix**: cada mòdul s'obre ja resolt amb un exemple, i un botó
 el buida per al cas de l'alumnat.

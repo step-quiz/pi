@@ -51,8 +51,8 @@ def columna(a, b, resta, estat, cel="1.25cm"):
     signe = "−" if resta else "+"
     r = a - b if resta else a + b
     td = f'style="width:{cel};height:1.05cm;text-align:center;font-size:17pt"'
-    coma = '<td style="border:0;width:.45cm;text-align:center;font-size:20pt;font-weight:800;background:none">,</td>'
-    op = lambda s: f'<td style="border:0;width:.8cm;text-align:center;font-size:18pt;font-weight:800;background:none">{s}</td>'
+    coma = '<td style="border:0;width:.35cm;padding:0;text-align:center;font-size:20pt;font-weight:800;background:none">,</td>'
+    op = lambda s: f'<td style="border:0;width:.6cm;padding:0 .1cm 0 0;text-align:center;font-size:18pt;font-weight:800;background:none">{s}</td>'
 
     def fila(c, s, ultima=False):
         vora = ' style="border-top:3px solid var(--tinta)"' if ultima else ""
@@ -63,9 +63,13 @@ def columna(a, b, resta, estat, cel="1.25cm"):
         else:
             cel_ = [f'<td class="omplir" {td}></td>'] * 3
         return f'<tr{vora}>{op(s)}{cel_[0]}{coma}{cel_[1]}{cel_[2]}</tr>'
-    cap = ('<tr><th style="border:0;background:none"></th><th style="font-size:11.5pt">Unitats</th>'
-           '<th style="border:0;background:none"></th><th style="font-size:11.5pt">Dècimes</th>'
-           '<th style="font-size:11.5pt">Centèsimes</th></tr>')
+    # Les capçaleres, a 14 pt però sense negreta i ajustades: amb dues taules per fila, en
+    # negreta «Centèsimes» feia la taula més ampla que mitja pàgina, i al PDF la de la dreta
+    # quedava tallada (29/9/2026).
+    th = 'style="font-size:14pt;font-weight:400;letter-spacing:0;padding:.3rem .12rem"'
+    cap = (f'<tr><th style="border:0;background:none;padding:0"></th><th {th}>Unitats</th>'
+           f'<th style="border:0;background:none;padding:0"></th><th {th}>Dècimes</th>'
+           f'<th {th}>Centèsimes</th></tr>')
     # Dins de .revisa: les xifres van en caselles separades, i el verificador no les pot llegir
     # com una igualtat. L'operació sencera va escrita a la frase del costat, i aquesta sí que es
     # comprova.
@@ -122,7 +126,7 @@ def pagina_ops(n, consigna, clau, casos, resta):
     pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">{n}</div><div class="q">{consigna}</div></div>
     <div class="clau" style="margin:.3rem 0 .5rem">{clau}</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .5cm">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.3rem .4cm">
 {chr(10).join(it)}
     </div>
   </div>''')

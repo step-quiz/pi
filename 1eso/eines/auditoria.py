@@ -25,6 +25,10 @@ rectangle girat…), en mode clar i fosc, a 320 px (el mòbil més estret) i a
   FOCUS
     Que cap element que es pot enfocar no tingui l'outline anul·lat del tot.
 
+  LLETRA AL PAPER
+    Les fitxes i les targetes, maquetades com al PDF: cap text de l'alumnat per
+    sota de 14 pt, i cap rètol de dibuix per sota de 12 pt (de moment, avís).
+
 Per què no és dins d'eines/comprova.py: aquell test no té dependències i es pot
 passar a qualsevol ordinador. Aquest necessita un navegador. El contrast de la
 paleta sí que és a comprova.py; aquí es comprova com queda aplicat de debò.
@@ -326,6 +330,88 @@ def prepara(pg, accio):
     pg.wait_for_timeout(80)
 
 
+
+# ------------------------------------------------------------------ el paper
+# LA LLETRA AL PAPER (29/9/2026). La regla 4 (cos de 14 pt cap amunt) només es
+# podia mirar a ull. Aquí es mesura cada text de les pàgines de l'alumnat tal com
+# surt al PDF: amb el full d'estil dels PDF i l'amplada útil d'un A4 (18,2 cm).
+# Els dibuixos (SVG) s'escalen: un rètol de 15 en un dibuix de 560 d'ample que
+# ocupa 12 cm fa 9 pt, encara que el codi digui «15». El solucionari, el rètol
+# del graó físic (.previ) i el peu de pàgina són per a l'adult i no hi compten.
+PAPER_MIN_TEXT = 14          # el text de l'alumnat
+PAPER_MIN_DIBUIX = 12        # els rètols dels dibuixos
+AMPLE_A4 = round((21 - 2 * 1.4) / 2.54 * 96)     # l'amplada útil d'un A4, en px
+
+JS_LLETRA = r"""
+() => {
+  const res = [];
+  const fulls = [...document.querySelectorAll('.full')];
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n;
+  while ((n = w.nextNode())) {
+    const t = n.textContent.trim(); if (!t) continue;
+    const el = n.parentElement, full = el.closest('.full');
+    if (!full || full.classList.contains('sol') || el.closest('.previ, .pag, .no-imprimir')) continue;
+    if (el.closest('[aria-hidden="true"]') && el.closest('svg')) continue;   // els halos blancs
+    const cs = getComputedStyle(el);
+    if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+    let px = parseFloat(cs.fontSize); const svg = !!el.closest('svg');
+    if (svg) { const m = el.getScreenCTM(); if (m) px *= Math.hypot(m.a, m.b); }
+    res.push([Math.round(px * 0.75 * 10) / 10, svg, fulls.indexOf(full) + 1, t.slice(0, 24)]);
+  }
+  return res;
+}
+"""
+
+
+def lletra_al_paper(nav):
+    """Torna (quants textos, problemes, avisos) de totes les pàgines de paper."""
+    import glob
+    fitxers = FITXERS_PAPER()
+    ctx = nav.new_context(viewport={"width": AMPLE_A4, "height": 1000})
+    pg = ctx.new_page()
+    pg.emulate_media(media="print")
+    n, problemes, avisos = 0, [], []
+    for f in fitxers:
+        pg.goto("file://" + f)
+        pg.add_style_tag(content=CSS_PDF() + " html, body { margin: 0 !important; padding: 0 !important }")
+        pg.wait_for_timeout(60)
+        petits_dibuix = []
+        for pt, svg, pag, text in pg.evaluate(JS_LLETRA):
+            n += 1
+            nom = os.path.relpath(f, ARREL)
+            if not svg and pt < PAPER_MIN_TEXT - .05:
+                problemes.append(f"- {nom}, pàgina {pag}: «{text}» fa {pt} pt (el mínim és {PAPER_MIN_TEXT})")
+            elif svg and pt < PAPER_MIN_DIBUIX - .05:
+                petits_dibuix.append((pt, pag, text))
+        if petits_dibuix:
+            pitjor = min(petits_dibuix)
+            linia = (f"- {os.path.relpath(f, ARREL)}: {len(petits_dibuix)} rètols de dibuix per sota de "
+                     f"{PAPER_MIN_DIBUIX} pt (el més petit, «{pitjor[2]}», fa {pitjor[0]} pt, pàgina {pitjor[1]})")
+            (problemes if DIBUIXOS_OBLIGATORIS else avisos).append(linia)
+    ctx.close()
+    return n, problemes, avisos
+
+
+def FITXERS_PAPER():
+    import glob
+    return (sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html")))
+            + sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html"))))
+
+
+def CSS_PDF():
+    """El full d'estil dels PDF, el mateix d'eines/paper.py (que només fa servir la
+    biblioteca estàndard: no cal WeasyPrint)."""
+    import re
+    sys.path.insert(0, os.path.join(ARREL, "eines"))
+    import paper
+    return re.sub(r"@page\s*\{[^}]*\}", "", paper.FULL_PDF)
+
+
+# Als rètols dels dibuixos, de moment només avisa: els números de dins de les
+# graelles de 100 (unitat 4) i de les quadrícules són molt més petits, i fer-los
+# créixer demana redibuixar-les. Quan estiguin fets, es posa a True.
+DIBUIXOS_OBLIGATORIS = False
+
 def main():
     md = sys.argv[sys.argv.index("--md") + 1] if "--md" in sys.argv else None
     files, problemes = [], 0
@@ -347,6 +433,7 @@ def main():
                     problemes += n
                     files.append((mode, ample, etiqueta, r))
                 ctx.close()
+        n_paper, prob_paper, avisos_paper = lletra_al_paper(nav)
         nav.close()
 
     linies = ["| Mode | Amplada | Estat | Dianes < 24 px | Textos sense contrast | Focus anul·lat |",
@@ -363,10 +450,17 @@ def main():
         for f in r["focus"]:
             detall.append(f"- {etiqueta} ({mode}, {ample} px): {f} no té indicador de focus")
     informe = "\n".join(linies) + "\n\n" + ("\n".join(detall) if detall else "Cap problema.") + "\n"
+    problemes += len(prob_paper)
+    informe += (f"\nLLETRA AL PAPER (com al PDF): {n_paper} textos de l'alumnat. Text: {PAPER_MIN_TEXT} pt "
+                f"com a mínim; rètols dels dibuixos: {PAPER_MIN_DIBUIX} pt"
+                f"{'' if DIBUIXOS_OBLIGATORIS else ' (de moment, només avís)'}.\n")
+    informe += ("\n".join(prob_paper) if prob_paper else "Cap problema.") + "\n"
+    if avisos_paper:
+        informe += "\nAvisos (no compten com a problema):\n" + "\n".join(avisos_paper) + "\n"
     print(informe)
     if md:
         open(md, "w", encoding="utf-8").write(informe)
-    print(f"{problemes} problemes en {len(files)} estats auditats.")
+    print(f"{problemes} problemes en {len(files)} estats auditats i {len(FITXERS_PAPER())} pàgines de paper.")
     sys.exit(1 if problemes else 0)
 
 

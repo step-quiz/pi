@@ -82,7 +82,7 @@ for l, dib, bona, r in REG:
     it.append(caixa(f'''      <div style="display:flex;gap:.5cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
         <div style="width:3.2cm;display:flex;justify-content:center">{dib.svg("")}</div>
-        <div>{tria(["Regular", "No regular"], bona if r else None, mida="13pt", ample="3cm", columna=True)}</div>
+        <div>{tria(["Regular", "No regular"], bona if r else None, mida="14pt", ample="3cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 CON = [("a", [[0, 0], [5, 0], [5, 5], [3, 5], [3, 2], [0, 2]], "Còncau", True), ("b", [[0, 1], [5, 1], [5, 4], [0, 4]], "Convex", False)]
 it3 = []
@@ -90,7 +90,7 @@ for l, pts, bona, r in CON:
     it3.append(caixa(f'''      <div style="display:flex;gap:.5cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
         <div style="width:3cm">{geopla_d(pts, f"Apartat {l}: un polígon al geoplà", m=0.5).svg("")}</div>
-        <div>{tria(["Còncau", "Convex"], bona if r else None, mida="13pt", ample="2.6cm", columna=True)}</div>
+        <div>{tria(["Còncau", "Convex"], bona if r else None, mida="14pt", ample="2.6cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">3</div><div class="q">És regular? Mira si tots els costats són iguals.</div></div>
@@ -114,7 +114,7 @@ for l, pts, bona, r in QG:
     it.append(caixa(f'''      <div style="display:flex;gap:.5cm;align-items:center">
         <p class="apartat" style="margin:0">{l})</p>
         <div style="width:3.2cm">{geopla_d(pts, f"Apartat {l}: un quadrilàter al geoplà", m=0.55).svg("")}</div>
-        <div><p style="margin:0 0 .1rem;font-size:15pt">És un quadrat?</p>{tria(["Sí", "No"], bona if r else None, mida="13pt", ample="2.2cm", columna=True)}</div>
+        <div><p style="margin:0 0 .1rem;font-size:15pt">És un quadrat?</p>{tria(["Sí", "No"], bona if r else None, mida="14pt", ample="2.2cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">5</div><div class="q">En Nil diu que un quadrat girat ja no és un quadrat. Té raó?</div></div>

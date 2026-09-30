@@ -306,7 +306,7 @@ def passos(a, u, resolt):
                   ("La part petita", f"{a} · {u} = {buit_curt()} quadrets"),
                   ("Ajunta-les", f"{buit_curt()} + {buit_curt()} = {buit_curt()}"),
                   ("El resultat", f"{a} · {10 + u} = {buit_curt()}")]
-    return "\n".join(f'        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:12pt;color:var(--gris-2)">{et}:</span> {v}</p>'
+    return "\n".join(f'        <p class="frase" style="margin:0;font-size:14.5pt;line-height:1.95;white-space:nowrap"><span style="font-size:14pt;color:var(--gris-2)">{et}:</span> {v}</p>'
                      for et, v in linies)
 
 
@@ -459,7 +459,7 @@ pagina(f'''  <div class="exercici">
 {arrel_exacta(9, False, "b")}
 {arrel_exacta(25, False, "c")}
     </div>
-    <p style="margin:.6rem 0 0;font-size:13pt;color:var(--gris-2)">√16 es llegeix: l'arrel quadrada de 16.</p>
+    <p style="margin:.6rem 0 0;font-size:14pt;color:var(--gris-2)">√16 es llegeix: l'arrel quadrada de 16.</p>
   </div>
 
   <div class="exercici">
@@ -560,7 +560,7 @@ pagina(f'''  <h2>A la vida de cada dia</h2>
       <div style="padding:.4rem .6rem">
         <p style="margin:0"><span class="apartat">b)</span> Un altre terra quadrat té 25 rajoles. Quantes rajoles té cada costat?</p>
         <div class="caixa-buida" style="margin-top:.6rem"><div class="et">Rajoles de cada costat</div><div class="q"></div></div>
-        <p style="margin:.6rem 0 0;font-size:13pt;color:var(--gris-2)">Pots fer el quadrat amb miniblocs.</p>
+        <p style="margin:.6rem 0 0;font-size:14pt;color:var(--gris-2)">Pots fer el quadrat amb miniblocs.</p>
       </div>
     </div>
   </div>''', classe="full vida")

@@ -64,7 +64,7 @@ body {
 h1 { font-size: 25pt; font-weight: 800; margin: 0; line-height: 1.12; letter-spacing: -.02em }
 h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 
-.nom { font-size: 13pt; color: var(--gris-2); margin: 1.1rem 0 0 }
+.nom { font-size: 14pt; color: var(--gris-2); margin: 1.1rem 0 0 }
 .nom span { display: inline-block; border-bottom: 2px solid var(--vora-suau); min-width: 11cm }
 
 /* L'obertura: es respon mirant i dient, no escrivint. Va SEMPRE abans del
@@ -78,7 +78,7 @@ h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 }
 .obertura .ull { flex: 0 0 auto; width: 2rem; height: 2rem }
 .obertura .q   { font-size: 16.5pt; font-weight: 800; line-height: 1.15 }
-.obertura .com { font-size: 11pt; color: var(--gris-2) }
+.obertura .com { font-size: 14pt; color: var(--gris-2) }   /* la consigna de l'obertura: a 14 pt, com tot (abans 11) */
 
 /* -------------------------------------------------------- model resolt -- */
 
@@ -124,7 +124,7 @@ h2 { font-size: 19pt; font-weight: 800; margin: 0 0 .9rem; line-height: 1.2 }
 
 table { border-collapse: collapse; width: 100%; margin: .5rem 0 }
 th, td { border: 2px solid var(--vora); padding: .5rem .55rem; text-align: center; font-size: 15pt }
-th { background: var(--fons-2); font-size: 11pt; font-weight: 700; color: var(--gris-1); letter-spacing: .02em }
+th { background: var(--fons-2); font-size: 14pt; font-weight: 700; color: var(--gris-1); letter-spacing: .02em }
 td.dada   { font-weight: 700; background: var(--fons-1) }
 td.omplir { height: 1.5cm; background: #fff }   /* espai per escriure-hi */
 td.esq    { text-align: left }
@@ -133,7 +133,7 @@ td.esq    { text-align: left }
 /* Caselles grans soltes, fora de taula. */
 .caixes { display: flex; gap: .9rem; flex-wrap: wrap; margin: .6rem 0 }
 .caixa-buida { flex: 1; min-width: 4.6cm }
-.caixa-buida .et { font-size: 11.5pt; color: var(--gris-2); margin-bottom: .15rem }
+.caixa-buida .et { font-size: 14pt; color: var(--gris-2); margin-bottom: .15rem }
 .caixa-buida .q  { height: 1.9cm; border: 2px solid var(--vora); border-radius: 9px }
 
 /* ------------------------------------------------------------ dibuixos -- */
@@ -145,7 +145,7 @@ svg { display: block; width: 100% ; height: auto }
           margin: .4rem auto; max-width: 15cm }
 .figura.neta { border: 0; padding: 0 }
 .figura svg { display: block; width: 100%; height: auto }
-.retol-graf { font-size: 12.5pt; color: var(--gris-2); text-align: center; margin: .15rem 0 0 }
+.retol-graf { font-size: 14pt; color: var(--gris-2); text-align: center; margin: .15rem 0 0 }
 
 .centrat { max-width: 15cm; margin: 0 auto }
 .duo { display: flex; gap: 1rem; flex-wrap: wrap }
