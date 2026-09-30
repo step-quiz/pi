@@ -112,7 +112,7 @@ const solucionari = privat => [
   ...sol.titol(2),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Sense calculadora: la *targeta de les taules* és al davant tota l'estona.`,
-    "*Com s'ha construït:* l'ordre és el dels vuit exercicis de l'examen del grup. El carnet d'identitat es treballa a la fitxa de repàs, i no hi és. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les cinc fitxes de la unitat. Cap pregunta de justificació oberta. L'apartat marcat «nou» no és a les fitxes: revisa'l abans de fer servir l'examen.",
+    "*Com s'ha construït:* l'ordre és el dels vuit exercicis de l'examen del grup. El carnet d'identitat es treballa a la fitxa de repàs, i no hi és. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les cinc fitxes de la unitat. Cap pregunta de justificació oberta. L'apartat marcat «nou» no és a les fitxes; es va revisar el 30/9/2026.",
     "*Si cal, en dues sessions:* els exercicis 1 a 4 (múltiples, repartir i trucs) i els 5 a 8 (divisors, primers i factorització).",
     "*Dues valoracions separades:* si falla un resultat, mira si ha triat bé què fer (la taula, el truc, el rectangle) i si ha buscat bé a la targeta. Un error de targeta no hauria de fer baixar la valoració del que ha decidit.",
   ]),

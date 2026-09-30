@@ -99,11 +99,12 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 
 ## 4. Pendent
 
-0. **Validar el grup 3 (30/9/2026).** A `fitxes.html`, «El detall de cada unitat»: la fita de cada
-   unitat, el rol a l'aula ordinària, el camí mínim de cada fitxa i l'estat («per revisar»,
-   «revisada», «provada a l'aula»). Tot és a `dades/unitats.js`, i es canvia allà a mà
-   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 4 bis). Les targetes porten un «Com ho dic»
-   petit: una o dues frases per dir en veu alta.
+0. ~~**Validar el grup 3.**~~ **FET · 30/9/2026, per encàrrec del docent.** La fita i el rol de
+   cada unitat queden fixats, el camí mínim revisat (a la unitat 1 hi entra la pàgina del quadrat d'un nombre) i
+   les fitxes de les unitats 5 a 7 passen a «revisada», després d'una revisió de totes les fitxes
+   dels dos cursos (els errors trobats: `MAPA-ADAPTACIO.md`, apartat 4 bis). Tot és a
+   `dades/unitats.js`, i es canvia allà a mà. La fita es torna a mirar al desembre, amb el PI, i
+   «provada a l'aula» la posa el docent quan una fitxa s'hagi fet servir.
 1. ~~**Treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4**~~ **FET:** ja no hi
    són, i `comprova.py` ho vigila. (Alumnat i
    solucionari), que el 28 de setembre de 2026 eren a `generadors/examens/`. Tot el repositori es
@@ -131,9 +132,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    **La unitat 4, «És gran l'ou del kiwi?», del 12 al 28 de gener: feta.** La caixa (tasques 14 a 17:
    la fracció d'un nombre, el tros de tros, els percentatges i els dobles i triples), les cinc fitxes
    (`fitxes/ud4*.html`), els PDF i l'examen (`generadors/examens/ud4.js`)
-   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8). **Per revisar abans de fer-la servir:** les
-   xifres de l'exercici 3 de la fitxa 4 (l'ou i l'ocell) són un exemple inventat, no dades reals; i
-   l'apartat 6 d) de l'examen, que és nou. **Arreglat el 29 de setembre de 2026:** la tasca 15 no
+   ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8). **Revisat el 30/9/2026:** l'exercici 3 de
+   la fitxa 4 ja porta xifres aproximades reals (l'ou de kiwi, 12 cm; el de gallina, 6 cm), i
+   l'apartat 6 d) de l'examen, que és nou, està comprovat. **Arreglat el 29 de setembre de 2026:** la tasca 15 no
    dibuixava (compartia els identificadors `tt-` i `tf-` amb la tasca 0); les tasques 16 i 17
    donaven el codi de la 15; i `fitxes.html` no ensenyava les fitxes de la unitat (un camp
    `fitxes` repetit a `dades/unitats.js`). Cap d'aquests errors no el veien les proves, que no

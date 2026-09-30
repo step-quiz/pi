@@ -15,7 +15,7 @@
     i la doble recta del mapa són a la fitxa, i l'examen en fa servir només les mides.
   · La regla trencada de la fitxa (6c, l'ampolla petita que guanya la garrafa) hi és, com a
     apartat c) de l'exercici 6.
-  Proposta del 30/9/2026, per validar amb el docent.
+  Fet el 30/9/2026. Els apartats «nou», revisats el mateix dia per encàrrec del docent.
 */
 "use strict";
 
@@ -119,7 +119,7 @@ const solucionari = privat => [
   ...sol.titol(3),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* al criteri 1.1, amb *AN* a la part d'escales. Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud3.html_) i del seu solucionari. Sense la pregunta oberta de la fitxa (5e). Els apartats marcats «nou» no són a la fitxa: revisa'ls abans de fer servir l'examen.",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud3.html_) i del seu solucionari. Sense la pregunta oberta de la fitxa (5e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 

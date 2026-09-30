@@ -123,7 +123,7 @@ pagines.append(f'''<div class="full sol">
   <p>b) 2 · n + 3. c) 3 · n. d) 11. e) 6 alumnes. Cada apartat torna a una fitxa de la unitat.</p>
   <h3>La pàgina 4: el meu curs</h3>
   <p>2) 1, 2, 3 i 6 (els rectangles de 6 quadrets). 3) {fr(3, 4)}. 4) 25 quadrets. 5) 3,8. 6) 14. 7) 15.
-  Si un exemple no surt, és la unitat que cal repassar abans de 2n: la targeta de cada unitat i la seva
+  Si un exemple no surt, és la unitat que cal repassar abans del curs que ve: la targeta de cada unitat i la seva
   tasca de la caixa hi ajuden.</p>
 </div>''')
 pagines.append('''<div class="full sol">

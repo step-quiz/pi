@@ -215,8 +215,8 @@ pagines.append('''<div class="full sol">
   <h3>La caixa d'eines</h3>
   <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=2</b> (2.3 El costat del
   quadrat; 2.4 Entre quins dos nombres?). La 2.4 dona un codi de verificació; les respostes falses
-  són la del Joel (la meitat) i passar-se d'un. Els nombres dels exercicis 3 i 4 surten de la llista
-  de la 2.4.</p>
+  són la del Joel (la meitat) i passar-se d'un. Els nombres de l'exercici 4, i el 30 de l'exercici 6,
+  surten de la llista de la 2.4.</p>
   <h3>Què mirar per avaluar</h3>
   <p>Sempre amb la targeta al davant. Els criteris de la SA del grup (5.1, 7.1 i 8.1) són de referència:
   l'avaluació es fa amb els criteris del PI.</p>

@@ -86,16 +86,16 @@ pagina(f'''  <div class="exercici">
 
 # ===================================================================== pàgina 4: la regla trencada
 pagina(f'''  <div class="exercici">
-    <div class="tasca"><div class="n">3</div><div class="q">Un ou de kiwi fa 6 cm. Un ou de gallina fa 6 cm. Un ocell kiwi fa 40 cm. Una gallina fa 50 cm.</div></div>
+    <div class="tasca"><div class="n">3</div><div class="q">Un ou de kiwi fa 12 cm. Un ou de gallina fa 6 cm. Un kiwi fa 40 cm. Una gallina fa 50 cm.</div></div>
     <div class="clau" style="margin:.3rem 0 .6rem"><p style="margin:0">Compara l'ou amb l'ocell que el fa, no un ou amb l'altre.</p></div>
 {caixa(f"""      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Quin ou és més gran, comparat amb l'ocell que el fa?</p>
-      <p class="frase" style="margin:0">{ms("El del kiwi")}: 6 cm és molt, comparat amb 40 cm.</p>""", True)}
-{caixa("""      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> Els dos ous fan la mateixa mida (6 cm). Vol dir que els dos ocells són igual de grans?</p>
+      <p class="frase" style="margin:0">{ms("El del kiwi")}: 12 cm és molt, comparat amb 40 cm.</p>""", True)}
+{caixa("""      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> L'ou de kiwi és el doble de l'ou de gallina: 6 · 2 = 12. Vol dir que el kiwi és el doble de gran que la gallina?</p>
       """ + tria(["Sí", "No"], mida="14pt", ample="2.5cm"))}
   </div>
   <div class="avis gruixut" style="text-align:center">
-    <p style="margin:0;font-weight:700">Un ou petit pot ser gran, comparat amb l'ocell que el fa.</p>
-    <p style="margin:.2rem 0 0">Un ou de kiwi és petit, però és molt gran comparat amb la mida del kiwi.</p>
+    <p style="margin:0;font-weight:700">Un ou pot ser gran, comparat amb l'ocell que el fa.</p>
+    <p style="margin:.2rem 0 0">L'ou de kiwi fa el doble. Però el kiwi és més petit que la gallina.</p>
   </div>''')
 
 # ===================================================================== pàgina 5: la vida
@@ -117,9 +117,9 @@ pagines.append('''<div class="full sol">
   <div class="abans">
     <b>Abans de començar.</b> El doble i el triple es llegeixen en dues files de quadrets, una sota
     l'altra: la de dalt és el nombre petit, la de baix és el doble o el triple. Serveix per comparar
-    mides relatives: un ou petit pot ser el doble d'un altre ou petit, i és aquí on la situació «És
-    gran l'ou del kiwi?» hi arriba (un ou de kiwi és petit en absolut, però molt gran comparat amb
-    la mida del kiwi). Els casos són els de la tasca 17 de la caixa.
+    mides relatives: l'ou de kiwi fa el doble que el de gallina, però el kiwi és més petit que la
+    gallina, i és aquí on la situació «És gran l'ou del kiwi?» hi arriba (comparat amb la mida del
+    kiwi, el seu ou és molt gran). Els casos són els de la tasca 17 de la caixa.
   </div>
   <h3>El graó físic, abans de la pàgina 1</h3>
   <p>Cinc minuts amb miniblocs: una fila de 3 i, a sota, una altra de 6. Comptar quantes vegades hi
@@ -132,9 +132,10 @@ pagines.append('''<div class="full sol">
 </div>''')
 pagines.append('''<div class="full sol">
   <h3>3. L'ou del kiwi</h3>
-  <p>b) No. <b>Error típic:</b> pensar que dos ous de la mateixa mida volen dir dos ocells igual de
-  grans, sense mirar l'ocell que els fa. És la regla trencada d'aquesta fitxa. No l'expliqueu: que
-  compari cada ou amb la mida del seu ocell, no un ou amb l'altre.</p>
+  <p>b) No: l'ou fa el doble, però el kiwi (40 cm) és més petit que la gallina (50 cm). <b>Error
+  típic:</b> pensar que si un ou fa el doble, l'ocell també, sense mirar l'ocell que el fa. És la
+  regla trencada d'aquesta fitxa. No l'expliqueu: que compari cada ou amb la mida del seu ocell, no
+  un ou amb l'altre. Les xifres són aproximades: un ou de kiwi fa uns 12 cm, i un de gallina, uns 6.</p>
   <h3>4. A la vida de cada dia</h3>
   <p>b) Petita: 5 cm és molt petit comparat amb 200 cm, com l'ou del kiwi comparat amb l'ocell.</p>
   <h3>La caixa d'eines</h3>
@@ -157,6 +158,6 @@ document("Unitat 4 · Dobles i triples", """  FITXA · Unitat 4 · És gran l'ou
   el fa). Sis dels deu casos de la tasca 17 de la caixa (regla 8); el cas
   9 x 2 = 18 queda fora perquè la fila no cap bé en una pàgina de paper.
 
-  La regla trencada és pensar que dues mides absolutes iguals volen dir la
-  mateixa proporció (exercici 3).""", pagines,
+  La regla trencada és pensar que si l'ou fa el doble, l'ocell també fa el
+  doble (exercici 3: l'ou de kiwi, uns 12 cm, i el de gallina, uns 6).""", pagines,
     sys.argv[1] if len(sys.argv) > 1 else "ud4-dobletriple.html")

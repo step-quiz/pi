@@ -78,7 +78,7 @@ pagines.append('''<div class="full sol">
   <h1 style="font-size:19pt">Solucionari</h1>
   <p style="color:var(--gris-2);margin-top:.15rem">Unitat 3 · Quants km²? · full per al professorat</p>
   <div class="abans">
-    <b>Abans de començar.</b> És l'última fitxa de la unitat 3, la de la tasca final de la programació
+    <b>Abans de començar.</b> És l'última fitxa de la unitat 3 abans del repàs, la de la tasca final de la programació
     («Quants km² medeix Barcelona?» i «Com és de gran Gaza?»). Els dos contorns són esquemes, i així
     ho diu la fitxa: no és la forma de debò, sinó la mateixa àrea feta amb quadrets d'1 km². Les dades
     són aproximades: Barcelona fa uns 101 km², i Gaza, uns 365 km². La fitxa només porta les dades

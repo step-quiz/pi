@@ -14,11 +14,11 @@
   · Les gràfiques es dibuixen aquí amb la mateixa funció que generadors/gen_grafics.py
     (graf(), portada a JavaScript) i els mateixos paràmetres: són les de la fitxa. Les que
     van de dues en dues porten la lletra a 28, com les de costat de la fitxa, perquè al
-    paper no baixi de 12 pt. Les noves (la pilota de bàsquet, el salt de granota i dues
+    paper no baixi de 12 pt. Les noves (l'arc d'un pont, l'arc d'una porta i dues
     funcions de l'exercici 7) segueixen el mateix patró.
   · Sense les preguntes obertes de la fitxa (6f, 7c i 8e).
   · La regla trencada de la fitxa (ex. 2, el vèrtex que és un mínim i sense talls) hi és.
-  Proposta del 30/9/2026, per validar amb el docent.
+  Fet el 30/9/2026. Els apartats «nou», revisats el mateix dia per encàrrec del docent.
 */
 "use strict";
 
@@ -81,8 +81,8 @@ function graf(a, b, c, xmin, xmax, ymin, ymax, xstep, ystep, etiqx, etiqy, { dec
 const DOS = { fs: 28 };
 X.registra("pilota",   graf(-5, 10, 0, 0, 2.4, 0, 6, 0.5, 1, "temps (s)", "altura (m)", { decX: 1, ...DOS }));
 X.registra("sortidor", graf(-0.5, 2, 0, 0, 4.6, 0, 3, 1, 0.5, "distància (m)", "altura (m)", { decY: 1, ...DOS }));
-X.registra("basquet",  graf(-1, 6, 0, 0, 6.6, 0, 10, 1, 2, "temps (s)", "altura (m)", DOS));              // nou
-X.registra("granota",  graf(-2, 4, 0, 0, 2.4, 0, 3, 0.5, 1, "distància (m)", "altura (m)", { decX: 1, ...DOS }));  // nou
+X.registra("pont",     graf(-1, 6, 0, 0, 6.6, 0, 10, 1, 2, "distància (m)", "altura (m)", DOS));          // nou
+X.registra("porta",    graf(-2, 4, 0, 0, 2.4, 0, 3, 0.5, 1, "distància (m)", "altura (m)", { decX: 1, ...DOS }));  // nou
 X.registra("tarifa",   graf(1, -8, 20, 0, 8, 0, 22, 1, 2, "peces", "cost (€)"));
 X.registra("coet",     graf(-5, 20, 0, 0, 4.4, 0, 22, 1, 2, "temps (s)", "altura (m)"));
 X.registra("eq1",      graf(1, -5, 6, -0.4, 5.4, -2, 7, 1, 1, "x", "y", DOS));
@@ -96,8 +96,8 @@ X.registra("cable",    graf(0.25, -2, 6, 0, 8.4, 0, 7.2, 1, 1, "distància (m)",
 const vertex = (a, b, c) => [-b / (2 * a), c - b * b / (4 * a)];
 const talls = (a, b, c) => { const d = b * b - 4 * a * c; if (d < 0) return [];
   return [(-b - Math.sqrt(d)) / (2 * a), (-b + Math.sqrt(d)) / (2 * a)].sort((p, q) => p - q); };
-cal(vertex(-1, 6, 0).join() === "3,9" && talls(-1, 6, 0).join() === "0,6", "bàsquet");
-cal(vertex(-2, 4, 0).join() === "1,2" && talls(-2, 4, 0).join() === "0,2", "granota");
+cal(vertex(-1, 6, 0).join() === "3,9" && talls(-1, 6, 0).join() === "0,6", "el pont");
+cal(vertex(-2, 4, 0).join() === "1,2" && talls(-2, 4, 0).join() === "0,2", "la porta");
 cal(talls(1, -6, 8).join() === "2,4" && talls(1, 0, -1).join() === "-1,1", "eq3 i eq4");
 cal(talls(1, -8, 20).length === 0 && talls(0.25, -2, 6).length === 0, "tarifa i cable no tallen");
 
@@ -123,8 +123,8 @@ const alumnat = [
   ...X.exercici(1, "Llegeix el vèrtex i els punts de tall de cada gràfica.", {}, [
     duo([["pilota", "a) Una pilota xutada.", "Paràbola de la pilota: puja de 0 a 5 metres i torna a terra al segon 2"],
          ["sortidor", "b) Un sortidor d'aigua.", "Paràbola del sortidor, de 0 a 4 metres de distància"],
-         ["basquet", "c) Una pilota de bàsquet.", "Paràbola de la pilota de bàsquet, de 0 a 6 segons"],
-         ["granota", "d) El salt d'una granota.", "Paràbola del salt de la granota, de 0 a 2 metres"]]),
+         ["pont", "c) L'arc d'un pont.", "Paràbola de l'arc d'un pont, de 0 a 6 metres"],
+         ["porta", "d) L'arc d'una porta.", "Paràbola de l'arc d'una porta, de 0 a 2 metres"]]),
     () => X.espai(12, { keepNext: true }),
     X.taulaResposta([10, 30, 30, 30], ["", "Vèrtex", "Primer tall", "Segon tall"], [
       ["a)", ms("(1 , 5)"), ms("0"), ms("2")],
@@ -218,7 +218,7 @@ const solucionari = privat => [
   ...sol.titol(5),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AN*, i AE possible al criteri 5.1. És la unitat on més pot lluir.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i les gràfiques de la fitxa (_fitxes/ud5.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (6f, 7c i 8e). Els apartats marcats «nou» no són a la fitxa: revisa'ls abans de fer servir l'examen.",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i les gràfiques de la fitxa (_fitxes/ud5.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (6f, 7c i 8e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*No cal calcular res:* tot l'examen és lectura de gràfiques. Si fa servir la calculadora, és per comprovar, no per resoldre.",
   ]),
 
@@ -227,8 +227,8 @@ const solucionari = privat => [
     ["", "Vèrtex", "Primer tall", "Segon tall"],
     ["a) resolt · pilota", "(1 , 5)", "0", "2"],
     ["b) sortidor", "*(2 , 2)*", "*0*", "*4*"],
-    ["c) nou · bàsquet", "*(3 , 9)*", "*0*", "*6*"],
-    ["d) nou · granota", "*(1 , 2)*", "*0*", "*2*"],
+    ["c) nou · pont", "*(3 , 9)*", "*0*", "*6*"],
+    ["d) nou · porta", "*(1 , 2)*", "*0*", "*2*"],
   ]),
   sol.p("*Error típic:* escriure les coordenades del vèrtex a l'inrevés, (5 , 1). És l'apartat a) de l'exercici 5."),
 

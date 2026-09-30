@@ -16,7 +16,7 @@ comú, i cada curs hi posa el seu contingut.
 |---|---|
 | `comu/examens/nucli.js` | La maquinària comuna: pàgina, lletra, grisos, peces, dibuixos i comprovacions |
 | `4eso/generadors/examens/ud1.js` | El contingut de la UD1. És el model per a les altres unitats |
-| `4eso/generadors/examens/ud2.js` … `ud7.js` | Les altres sis unitats (30/9/2026, per validar amb el docent). Les gràfiques de la UD5 es dibuixen amb la mateixa funció que `gen_grafics.py`; les de la UD6 i l'arbre de la UD7 es llegeixen dels marcadors de la fitxa |
+| `4eso/generadors/examens/ud2.js` … `ud7.js` | Les altres sis unitats (30/9/2026; els apartats «nou», revisats el mateix dia). Les gràfiques de la UD5 es dibuixen amb la mateixa funció que `gen_grafics.py`; les de la UD6 i l'arbre de la UD7 es llegeixen dels marcadors de la fitxa |
 | `4eso/generadors/examens-privat.json` | El curs i l'adaptació. **No es puja mai**: el `.gitignore` ja el deixa fora |
 | `4eso/docx/` | On surten els dos DOCX. Tampoc es puja, perquè porten les dades privades |
 

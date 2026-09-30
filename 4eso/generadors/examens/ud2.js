@@ -15,7 +15,7 @@
   · La regla trencada de la fitxa (5c, el portàtil que surt més barat a terminis) hi és,
     com a apartat c) de l'exercici 5.
   · Cada xifra, calculada aquí i comprovada abans d'escriure-la (cal()).
-  Proposta del 30/9/2026, per validar amb el docent.
+  Fet el 30/9/2026. Els apartats «nou», revisats el mateix dia per encàrrec del docent.
 */
 "use strict";
 
@@ -109,7 +109,7 @@ const alumnat = [
              ms(nb("64 €")), ms(nb("63 €")), ms("Per internet")],
       ["b)", txt("Gimnàs, un mes. Abonament de 40 € amb − 25 %. O 12 entrades de 3 €."), "", "", ""],
       ["c)", txt("Un llibre. A la llibreria, 20 € amb − 5 %. Per internet, 18 € i 2 € d'enviament."), "", "", ""], // nou
-      ["d)", txt("Cinema. 5 entrades de 8 €. O un carnet de 5 entrades per 30 €."), "", "", ""],                  // nou
+      ["d)", txt("Unes sabatilles. A la botiga, 60 € amb − 30 %. Al mercat, 45 € sense descompte."), "", "", ""],  // nou
     ]),
   ]),
 ];
@@ -122,7 +122,7 @@ const solucionari = privat => [
   ...sol.titol(2),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* als criteris 1.1 i 5.1. Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud2.html_) i del seu solucionari. Sense les dues preguntes de justificació oberta de la fitxa (6e i 7c). Els apartats marcats «nou» no són a la fitxa: revisa'ls abans de fer servir l'examen.",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud2.html_) i del seu solucionari. Sense les dues preguntes de justificació oberta de la fitxa (6e i 7c). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 
@@ -175,9 +175,9 @@ const solucionari = privat => [
     ["a) resolt", "Bambes", "80 × 0,8 = 64 €", "70 × 0,9 = 63 €", "*Per internet*"],
     ["b)", "Gimnàs", "40 × 0,75 = 30 €", "12 × 3 = 36 €", "*L'abonament*"],
     ["c) nou", "Llibre", "20 × 0,95 = 19 €", "18 + 2 = 20 €", "*La llibreria*"],
-    ["d) nou", "Cinema", "5 × 8 = 40 €", "30 €", "*El carnet*"],
+    ["d) nou", "Sabatilles", "60 × 0,7 = 42 €", "45 €", "*La botiga*"],
   ]),
-  sol.p("A l'apartat a), el descompte més gran (20 %) no guanya: és la mateixa idea de l'exercici 5c en una altra situació. Al c), el preu més baix per internet (18 €) tampoc: cal sumar-hi l'enviament."),
+  sol.p("A l'apartat a), el descompte més gran (20 %) no guanya: és la mateixa idea de l'exercici 5c en una altra situació. Al c), el preu més baix per internet (18 €) tampoc: cal sumar-hi l'enviament. Al d), passa al revés: el preu de partida més alt (60 €) acaba sent el més barat."),
 
   sol.h3("Què mirar per avaluar"),
   ...sol.vinyetes([

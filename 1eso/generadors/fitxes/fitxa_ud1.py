@@ -519,8 +519,9 @@ pagines.append(('''<div class="full sol">
   per fer el quadrat següent. <b>Nivells alts.</b></p>
 
   <h3>10 i 11. A la vida de cada dia</h3>
-  <p>10b) 2 · 6 = 12 ous. 11b) 5 rajoles a cada costat, perquè 5 · 5 = 25. És la mateixa
-  decisió que als exercicis 8 i 1: si el terra és quadrat, el costat és l'arrel.</p>
+  <p>10b) 2 · 6 = 12 ous, un rectangle com els de l'exercici 1. 11b) 5 rajoles a cada costat,
+  perquè 5 · 5 = 25. És la mateixa decisió que a l'exercici 8: si el terra és quadrat, el costat
+  és l'arrel.</p>
 
   <h3>La caixa d'eines</h3>
   <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=1</b> (rectangles: fer-los,

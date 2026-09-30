@@ -172,7 +172,7 @@ const solucionari = privat => [
   ...sol.titol(1),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Sense calculadora: la *targeta de les taules* és al davant tota l'estona, i a l'exercici 9 hi ha la clau dels noms.`,
-    "*Com s'ha construït:* l'ordre dels exercicis és el de l'examen del grup, sense els exercicis de propietats de les potències i de potències de 10. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les quatre fitxes de la unitat. Cap pregunta de justificació oberta. Els apartats marcats «nou» no són a les fitxes: revisa'ls abans de fer servir l'examen.",
+    "*Com s'ha construït:* l'ordre dels exercicis és el de l'examen del grup, sense els exercicis de propietats de les potències i de potències de 10. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les quatre fitxes de la unitat. Cap pregunta de justificació oberta. Els apartats marcats «nou» no són a les fitxes; es van revisar el 30/9/2026.",
     "*Si cal, en dues sessions:* els exercicis 1 a 5 (la multiplicació) i els 6 a 10 (quadrats, arrels, nombres i ordre).",
     "*Dues valoracions separades:* si falla un resultat, mira si ha triat bé què fer (la taula, la part de 10, l'operació que va primer) i si ha buscat bé a la targeta. Un error de targeta no hauria de fer baixar la valoració del que ha decidit.",
   ]),

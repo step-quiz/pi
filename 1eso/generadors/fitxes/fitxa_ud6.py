@@ -133,9 +133,10 @@ pagina(f'''  <div class="exercici">
 V = [("a", 3, "Recte", True), ("b", 6, "Pla", False), ("c", 1, "Agut", False), ("d", 5, "Obtús", False)]
 it = []
 for l, h, bona, r in V:
-    it.append(caixa(f'''      <p style="margin:0 0 .1rem"><span class="apartat">{l})</span> Les {h} en punt</p>
+    hora, a_hora = ("La una", "a la una") if h == 1 else (f"Les {h}", f"a les {h}")
+    it.append(caixa(f'''      <p style="margin:0 0 .1rem"><span class="apartat">{l})</span> {hora} en punt</p>
       <div style="display:flex;gap:.5cm;align-items:center">
-        <div style="width:3cm">{rellotge(h, f"Un rellotge a les {h} en punt").svg("")}</div>
+        <div style="width:3cm">{rellotge(h, f"Un rellotge {a_hora} en punt").svg("")}</div>
         <div>{tria(NOMS, bona if r else None, mida="14pt", ample="1.8cm", columna=True)}</div>
       </div>''', r, ".3rem"))
 pagina(f'''  <h2>A la vida de cada dia</h2>

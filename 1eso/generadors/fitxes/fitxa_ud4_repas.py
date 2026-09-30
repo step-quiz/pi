@@ -136,7 +136,7 @@ pagina(f'''  <h2>Què he après?</h2>
 pagina(f'''  <h2>A la vida de cada dia</h2>
   <div class="exercici">
     <div class="tasca"><div class="n">2</div><div class="q">Mira la targeta de les taules i de les fraccions.</div></div>
-{caixa(f"""      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Una capsa de 20 llapis. Un quart són vermells. Quants llapis vermells hi ha?</p>
+{caixa(f"""      <p style="margin:0 0 .2rem"><span class="apartat">a)</span> Una capsa de 20 llapis. Una quarta part són vermells. Quants llapis vermells hi ha?</p>
       <p class="frase" style="margin:0">{fr(1, 4, ma=True)} de 20: {ms("5")}</p>""", True)}
 {caixa(f"""      <p style="margin:0 0 .2rem"><span class="apartat">b)</span> En una botiga, el 10% dels productes són rebaixats. De 100 productes, quants són rebaixats?</p>
       <p class="frase" style="margin:0">{buit_curt()} productes</p>""")}

@@ -124,7 +124,7 @@ pagina(f'''  <div class="exercici">
   </div>''')
 
 # ===================================================================== pàgina 5: la vida
-V = [("a", "Una capsa de 20 llapis. En un terç hi ha llapis vermells.", 1, 4, 20, True),
+V = [("a", "Una capsa de 20 llapis. Una quarta part són vermells.", 1, 4, 20, True),
      ("b", "24 alumnes a la classe. Una sisena part porta ulleres.", 1, 6, 24, False),
      ("c", "30 cromos. En repartim tres cinquenes parts a un amic.", 3, 5, 30, False)]
 it = []
@@ -164,11 +164,12 @@ pagines.append('''<div class="full sol">
   quadrets. És la regla trencada d'aquesta fitxa. No l'expliqueu: que compti els quadrets de cada
   grup, un per un, i vegi que no coincideixen.</p>
   <h3>4. A la vida de cada dia</h3>
-  <p>b) 6 · 4 = 24; c) 5 · 6 = 30, i 6 · 3 = 18.</p>
+  <p>b) 24 en 6 grups de 4 (6 · 4 = 24): 1 · 4 = 4 alumnes. c) 30 en 5 grups de 6 (5 · 6 = 30):
+  3 · 6 = 18 cromos.</p>
   <h3>La caixa d'eines</h3>
   <p>Per consolidar, amb l'ordinador: <b style="white-space:nowrap">?task=14</b> (14.1 Reparteix i
   pinta; 14.2 Quant és?). La 14.2 dona un codi de verificació; les respostes falses són les dues
-  confusions: dir el nombre d'un grup en lloc del resultat, i una altra confusió propera.</p>
+  confusions: dir el nombre d'un grup en lloc del resultat, i girar el numerador i el denominador.</p>
   <h3>Què mirar per avaluar</h3>
   <p>Sempre amb la targeta de les taules al davant. Els criteris de la SA del grup (1.3, 2.1, 5.1 i
   6.1) són de referència: l'avaluació es fa amb els criteris del PI.</p>

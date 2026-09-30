@@ -15,7 +15,7 @@
     l'examen ensenya exactament el que s'ha treballat a la fitxa.
   · Sense les preguntes obertes de la fitxa (3e, 4e, 6f i 7e).
   · La regla trencada de la fitxa (6, el gràfic que comença a 90) hi és, com a exercici 6.
-  Proposta del 30/9/2026, per validar amb el docent.
+  Fet el 30/9/2026. Els apartats «nou», revisats el mateix dia per encàrrec del docent.
 */
 "use strict";
 
@@ -149,7 +149,7 @@ const solucionari = privat => [
   ...sol.titol(6),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* sòlid, amb *AN* a la representació (criteris 5.1 i 2.1). Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i els gràfics de la fitxa (_fitxes/ud6.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (3e, 4e, 6f i 7e). Els apartats marcats «nou» no són a la fitxa: revisa'ls abans de fer servir l'examen.",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i els gràfics de la fitxa (_fitxes/ud6.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (3e, 4e, 6f i 7e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*La dispersió, com a idea visual:* «juntes» o «escampades». No es demana cap fórmula de dispersió.",
   ]),
 
