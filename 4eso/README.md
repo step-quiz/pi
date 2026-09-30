@@ -152,8 +152,8 @@ npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5
 NODE_PATH=/tmp/eines/node_modules node 4eso/generadors/examens/ud2.js
 ```
 
-Surten a `docx/`, que no es puja mai. Els de la UD2 a la UD7 (30/9/2026) són per validar
-amb el docent: els apartats nous porten la marca «nou» al solucionari.
+Surten a `docx/`, que no es puja mai. Els de la UD2 a la UD7 són del 30/9/2026: els apartats
+nous porten la marca «nou» al solucionari, i es van revisar el mateix dia.
 
 ---
 
@@ -228,6 +228,6 @@ d'impremta.
 ---
 
 Material desenvolupat per **David Arso Civil** per al Departament de Matemàtiques de l'INS Miquel Tarradell.
-Contingut sota CC BY-NC-SA 4.0, codi sota llicència MIT. Vegeu [`LLICENCIA.md`](LLICENCIA.md).
+Contingut sota CC BY-NC-SA 4.0, codi sota llicència MIT. Vegeu [`LLICENCIA.md`](../LLICENCIA.md), a l'arrel.
 
 <!-- atribucio-centre:final -->

@@ -4,8 +4,8 @@ eines/prova_caixa.py · la caixa d'eines, provada de debò en un navegador
 =========================================================================
 
 Obre caixa-eines.html en Chromium i fa el que faria l'alumnat: toca, s'equivoca,
-llegeix la pista, s'hi torna i acaba les cinc tasques tancades. Després llegeix
-els cinc codis a verifica.html. Si alguna cosa no respon com diu la
+llegeix la pista, s'hi torna i acaba les tasques tancades. Després llegeix
+els codis a verifica.html. Si alguna cosa no respon com diu la
 documentació, ho diu i acaba amb error.
 
     python3 1eso/eines/prova_caixa.py
@@ -21,7 +21,7 @@ QUÈ COMPROVA
   · Com es llegeixen els nombres: vint-i-u, cent u, dos-cents quaranta-tres…
   · Les dades dels mòduls: sumes sense portar-ne, multiplicacions de la
     targeta, i cap cas que no es pugui fer amb el material.
-  · Les cinc tasques tancades de punta a punta: encert, encert amb pista i
+  · Les tasques tancades de punta a punta: encert, encert amb pista i
     resposta ensenyada, el resum i el codi, i que verifica.html el llegeix.
   · La represa d'una tasca a mitges, els enllaços ?task=n i ?task=n.m, i que
     totes les claus del navegador comencen per «pi1-».

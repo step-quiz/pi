@@ -16,7 +16,7 @@
   · Sense les preguntes obertes de la fitxa (6e i 7d). La balança, sense dibuix: l'equació
     sola, amb la frase de la balança al context.
   · La regla trencada de la fitxa (5d, el congelador a −3) hi és, com a apartat d) de l'exercici 5.
-  Proposta del 30/9/2026, per validar amb el docent.
+  Fet el 30/9/2026. Els apartats «nou», revisats el mateix dia per encàrrec del docent.
 */
 "use strict";
 
@@ -44,7 +44,7 @@ cal(PROVES.map(P).join() === "0,0,2,2", "x² − 5x + 6");
 const VIDA = [["El terra quadrat d'una habitació fa 16 m². La x és el costat.", 16, "4 m"],
               ["Una pedra cau d'un pont. La x són els segons que triga.", 9, "3 s"],
               ["Un pàrquing a sota terra. La x és la planta on pares.", 4, "la planta −2"],
-              ["Un submarí baixa sota el mar. La x és l'altura, en metres.", 100, "−10 m"]];      // el d és nou
+              ["Un submarí sota el mar. La x és on és, en metres, respecte del nivell del mar.", 100, "−10 m"]];      // el d és nou
 
 /* ------------------------------------------------------------- l'alumnat -- */
 const alumnat = [
@@ -108,7 +108,7 @@ const solucionari = privat => [
   ...sol.titol(4),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *NA o AS*; el criteri on més pot lluir és l'1.1, interpretar les solucions. Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud4.html_) i del seu solucionari. No es demana mai aïllar la incògnita ni la fórmula general, com a la fitxa. Sense les preguntes obertes de la fitxa (6e i 7d). Els apartats marcats «nou» no són a la fitxa: revisa'ls abans de fer servir l'examen.",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud4.html_) i del seu solucionari. No es demana mai aïllar la incògnita ni la fórmula general, com a la fitxa. Sense les preguntes obertes de la fitxa (6e i 7d). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 

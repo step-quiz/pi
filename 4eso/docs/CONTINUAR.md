@@ -235,7 +235,8 @@ dir-l'hi: aquesta sí que la va voler aprovar.
 
 Sis blocs, de la comparativa entre les dues carpetes. Tot passa `eines/comprova.py`,
 `eines/mesura.py` i `eines/auditoria.py` (0 problemes en 68 estats i 17 pàgines de paper).
-**Són propostes per validar amb el docent**: els textos nous ho diuen al comentari.
+**Les targetes i els repassos són propostes per validar amb el docent**: ho diuen al comentari.
+Els apartats «nou» dels exàmens ja estan revisats (vegeu més avall).
 
 | Bloc | Què s'ha fet |
 |---|---|
@@ -246,8 +247,16 @@ Sis blocs, de la comparativa entre les dues carpetes. Tot passa `eines/comprova.
 | Caixa d'eines | dos mòduls nous: Aplanar (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de la U7, tasca 9) |
 | La doble recta | declarada model del curs (`CRITERIS-DISSENY.md`, regla 10) i amb el cas «Equació x + 3 = 7» per a la U4 |
 
-**Què queda per decidir amb el docent:** si les targetes es poden fer servir a l'examen,
-el contingut concret de cada «Una de cada» i els apartats «nou» dels exàmens.
+**Què queda per decidir amb el docent:** si les targetes es poden fer servir a l'examen, i
+el contingut concret de cada «Una de cada». Els apartats «nou» dels exàmens es van revisar el
+30/9/2026, per encàrrec del docent: cada xifra comprovada, i el mateix tipus d'ítem que la fitxa.
+
+**La revisió del 30/9/2026.** Es van llegir totes les fitxes, repassos i targetes dels dos cursos.
+A `4eso/` es van arreglar: la barra enganyosa de la U6, que fa el doble d'alt i no «molt més del
+doble»; «Ell» en dues frases sobre el rol als productes (U6 i U7), que deien el gènere; dues
+concordances («En falten 1», «em faltarien 1 €»); una nota d'història al solucionari de la U3; i
+el «Per avaluar» dels repassos, que ara diu la lletra de l'apartat de la regla trencada. La
+llista de `1eso/` és a `1eso/docs/MAPA-ADAPTACIO.md`, apartat 4 bis.
 
 ---
 

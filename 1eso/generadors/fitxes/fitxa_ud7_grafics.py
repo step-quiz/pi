@@ -4,7 +4,7 @@
 Adapta l'activitat 5 de la situació «Llenguatge algebraic i patrons» (el llibre, UD8: «Interpretar
 gràfics i taules de la vida real»). Només barres i taules (decisió del docent del 29/9/2026): un
 gràfic de barres són columnes de quadrets, i cada quadret és 1. Els casos són els del llibre (com
-venen a l'institut: 12, 8, 6 i 4; la lectura crítica dels dos gràfics de 1r i 4t) i els de la tasca
+venen a l'institut: 12, 8, 6 i 4; la lectura crítica dels gràfics de dos cursos) i els de la tasca
 28 de la caixa.
 
 La regla trencada (regla G): «si la barra és el doble d'alta, n'hi ha el doble», amb un eix que no

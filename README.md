@@ -13,7 +13,7 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 
 | Carpeta o fitxer | Què hi ha |
 |---|---|
-| `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
+| `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes i les seves fitxes de repàs, tres targetes de consulta, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
 | `1eso/` | Tot el material de Matemàtiques: les targetes de consulta, les fitxes, la caixa d'eines i el test. Vegeu [`1eso/README.md`](1eso/README.md) |
 | `comu/` | El que comparteixen els dos materials: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
 | `index.html` | La porta d'entrada: deixa triar entre `4eso/` i `1eso/` |

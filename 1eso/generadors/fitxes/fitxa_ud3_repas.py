@@ -105,7 +105,8 @@ pagines.append('''<div class="full sol">
   <h1 style="font-size:19pt">Solucionari</h1>
   <p style="color:var(--gris-2);margin-top:.15rem">Unitat 3 · Repàs de la unitat · full per al professorat</p>
   <div class="abans">
-    <b>Abans de començar.</b> És la fitxa de repàs: va després de les altres quatre de la unitat. El
+    <b>Abans de començar.</b> És la fitxa de repàs: va després de les altres sis de la unitat, i
+    repassa les quatre de fraccions (l'àrea i els km² es repassen amb la tasca 13 de la caixa). El
     carnet de cada fracció recull tot el que es treballa a la unitat, i «Què he après?» és la llista
     de comprovació del grup, en frases que diuen què es fa. Les dues targetes són al davant tota
     l'estona.
@@ -132,10 +133,10 @@ pagines.append('''<div class="full sol">
   que ho ensenyi amb un exemple. Les de «Encara no» diuen què s'ha de repassar, i on:</p>
   <table>
     <tr><th>Frase</th><th>On es repassa</th></tr>
-    <tr><td>1, 2 i 3 · el de dalt i el de baix, pintar, el nom</td><td>Fitxa 1; caixa 9.1 i 9.2</td></tr>
-    <tr><td>4, 5 i 6 · els tipus i comparar</td><td>Fitxa 2; caixa 9.1, 11.1 i 11.2</td></tr>
-    <tr><td>7 i 8 · equivalents i amplificar</td><td>Fitxa 3; caixa 10.1 i 10.2</td></tr>
-    <tr><td>9 i 10 · sumar i restar</td><td>Fitxa 4; caixa 12.1 i 12.2</td></tr>
+    <tr><td>1, 2 i 3 · el de dalt i el de baix, pintar, el nom</td><td>Fitxa 2, «Què és una fracció»; caixa 9.1 i 9.2</td></tr>
+    <tr><td>4, 5 i 6 · els tipus i comparar</td><td>Fitxa 3, «Els tipus i comparar»; caixa 9.1, 11.1 i 11.2</td></tr>
+    <tr><td>7 i 8 · equivalents i amplificar</td><td>Fitxa 4, «Fraccions equivalents»; caixa 10.1 i 10.2</td></tr>
+    <tr><td>9 i 10 · sumar i restar</td><td>Fitxa 5, «Sumar i restar»; caixa 12.1 i 12.2</td></tr>
   </table>
   <h3>La caixa d'eines</h3>
   <p>Per repassar, amb l'ordinador: les tasques de la 9 a la 12. Les quatre tasques tancades (9.2,

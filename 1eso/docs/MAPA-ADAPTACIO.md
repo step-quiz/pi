@@ -86,22 +86,27 @@ amb els criteris propis del PI.
 Les SA del grup són ambicioses (conjectures, algorismes, fraccions amb multiplicació i divisió,
 decimals periòdics). De cada una només s'agafa el nucli. La resta no es rebaixa: no hi és.
 
-### 4 bis. El camí mínim, la fita, el rol i l'estat (30/9/2026, proposta per validar)
+### 4 bis. El camí mínim, la fita, el rol i l'estat (30/9/2026)
 
 Quatre idees que venen de `4eso/`. Són a [`../dades/unitats.js`](../dades/unitats.js) i surten a
-`fitxes.html`, a «El detall de cada unitat».
+`fitxes.html`, a «El detall de cada unitat». Es van proposar i fixar el 30/9/2026: el docent va
+encarregar tancar-les i fer una revisió de totes les fitxes dels dos cursos (vegeu el final
+d'aquest apartat).
 
 **El camí mínim.** Hi ha unitats amb molta feina: la 5 té 33 pàgines per a 7 sessions, i la 7, 25
 per a 6. Com que només la meitat de les hores són a l'aula de suport, cada fitxa diu quines pàgines
-són el nucli (el camp `minim`) i la resta és ampliació. El criteri de la proposta: la pàgina 1 (el
+són el nucli (el camp `minim`) i la resta és ampliació. El criteri: la pàgina 1 (el
 concepte i «Què hi veus?») i la primera pàgina d'exercicis de cada fitxa; «A la vida de cada dia»
 de la primera fitxa de la unitat; i, al repàs, «Una de cada» i «Què he après?» (a la unitat 7,
 també «El meu curs»). Les regles trencades queden a l'ampliació perquè compten per als nivells alts
 (regla G). **Cap unitat no passa de dues pàgines per sessió del grup**, i `eines/comprova.py` ho mira.
+Dues excepcions al criteri: a la primera fitxa de la unitat 1 també hi entra la pàgina 6 (el
+quadrat d'un nombre, que porta a l'arrel), i a la primera de la unitat 3, la pàgina 3 (l'àrea del
+rectangle) en lloc de la 2 (les unitats de mesura).
 
 | Unitat | Pàgines | Camí mínim | Sessions del grup |
 |---|---|---|---|
-| 1 | 27 | 9 | 13 |
+| 1 | 27 | 10 | 13 |
 | 2 | 30 | 11 | 11 |
 | 3 | 37 | 15 | 15 |
 | 4 | 24 | 11 | 11 |
@@ -109,19 +114,40 @@ també «El meu curs»). Les regles trencades queden a l'ampliació perquè comp
 | 6 | 30 | 13 | 16 |
 | 7 | 25 | 12 | 6 |
 
-**La fita.** El nivell d'assoliment realista de cada unitat (NA, AS, AN, AE), com a `4eso/`. La
-proposta: AS a les unitats 1 a 4; NA o AS a la 5 (és on el material se separa més del grup, sense
-calculadora) i a la 7 (el símbol és el salt més gran del curs); AS a la 6, amb AN possible a les
-formes, que són el canal més visual. **Es revisa al desembre**, en acabar la unitat 3, amb la
+**La fita.** El nivell d'assoliment realista de cada unitat (NA, AS, AN, AE), com a `4eso/`.
+Fixada: AS a les unitats 1 a 4 (amb AN possible als rectangles de la 1 i a l'àrea de la 3); NA o
+AS a la 5 (és on el material se separa més del grup, sense calculadora) i a la 7 (el símbol és el
+salt més gran del curs); AS a la 6, amb AN possible a les formes, que són el canal més visual. **Es revisa al desembre**, en acabar la unitat 3, amb la
 revisió del PI, i es torna a ajustar al final de cada trimestre.
 
 **El rol a l'aula ordinària.** S'hi adapta el rol dins del grup, no la tasca: qui fa els rectangles
-amb els miniblocs, qui compta els quadrets als mapes, qui construeix al geoplà. Un per unitat.
+amb els miniblocs, qui compta els quadrets als mapes, qui construeix al geoplà. Un per unitat, i
+cada un lligat a una activitat concreta del grup (el GeoGebra de les caixes, els mapes de Gaza, el
+kiwi, les Fotomàtiques, el mapa del curs).
 
 **L'estat de cada fitxa.** «Per revisar» (feta, el docent encara no l'ha mirada), «revisada» o
-«provada a l'aula». Les de les unitats 1 a 4 són «revisada»; les de les unitats 5, 6 i 7, fetes el
-29/9/2026, «per revisar». **Abans d'imprimir-les en sèrie, val la pena provar-les a l'aula**, i
-canviar l'estat a mà a `dades/unitats.js`.
+«provada a l'aula». Totes són «revisada»: les de les unitats 5, 6 i 7, fetes el 29/9/2026, es van
+revisar el 30/9/2026. **«Provada a l'aula» la posa el docent**, a mà a `dades/unitats.js`, quan una
+fitxa s'ha fet servir.
+
+**La revisió del 30/9/2026.** Es van llegir totes les fitxes i targetes de `1eso/` i de `4eso/`,
+amb els comptes comprovats un per un. Els errors trobats i arreglats a `1eso/`:
+
+- Unitat 4, fitxa 1, exercici 4 a): deia «en un terç» i el compte era 1/4 de 20. Ara, «una quarta
+  part». El solucionari del 4 donava 6 · 4 = 24 en lloc del resultat (1 · 4 = 4).
+- Unitat 4, fitxa 4, exercici 3: els dos ous feien 6 cm, i un ou de kiwi en fa uns 12. Ara hi ha
+  xifres aproximades reals, i la pregunta és si el kiwi és el doble de gran perquè l'ou ho és.
+- Unitat 6, fitxa 1: «Les 1 en punt» és «La una en punt».
+- Solucionaris: el repàs de la unitat 3 numerava les fitxes com quan n'hi havia quatre (ara n'hi ha
+  sis abans del repàs); a la fitxa 1 de la unitat 3, «4b», «5f» i «5h» per a files sense lletra; a
+  l'arrel, els nombres de l'exercici 3 no són de la llista de la 2.4; a la unitat 1, «els exercicis
+  8 i 1»; a la 14.2, «una altra confusió propera» en lloc de «girar el numerador i el denominador».
+- Anonimat: el repàs de la unitat 7 deia «abans de 2n», i ara «abans del curs que ve».
+
+A `4eso/`: la barra enganyosa de la U6 fa el doble d'alt, no «molt més del doble»; dues frases
+deien «Ell» per parlar del rol als productes (U6 i U7); dues concordances («En falten 1», «em
+faltarien 1 €»); i el «Per avaluar» dels repassos citava una frase que no surt a cap apartat. Ara
+diu la lletra de l'apartat i l'exercici de la regla trencada.
 
 ---
 
@@ -420,12 +446,13 @@ Els PDF es fan al Codespace amb `generadors/gen_pdf.py`.
   El dibuix n'ensenya 6, de trossos.
 - Percentatges: dir el 100 % sense que estigui tot pintat; a la caixa, també dir els quadrets que
   falten en lloc dels que hi ha.
-- Dobles i triples: pensar que dues mides iguals volen dir la mateixa mida en relatiu (dos ous de
-  6 cm, dos ocells igual de grans).
+- Dobles i triples: pensar que si un ou fa el doble, l'ocell també fa el doble (l'ou de kiwi fa
+  el doble que el de gallina, però el kiwi és més petit que la gallina).
 
-**Per revisar:** les xifres de l'exercici 3 de la fitxa 4 (l'ou i l'ocell: 6, 40 i 50 cm) són un
-exemple inventat per il·lustrar, no dades reals: un ou de kiwi de veritat és més llarg (uns 12 cm,
-a comprovar). Cal posar-hi les del grup.
+**Revisat el 30/9/2026:** l'exercici 3 de la fitxa 4 portava dos ous de 6 cm, i un ou de kiwi de
+veritat en fa uns 12. Ara hi ha xifres aproximades reals: l'ou de kiwi, 12 cm; el de gallina,
+6 cm; el kiwi, 40 cm, i la gallina, 50 cm. L'apartat b) pregunta si el kiwi és el doble de gran
+perquè l'ou ho és.
 
 ---
 

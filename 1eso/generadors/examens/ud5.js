@@ -163,7 +163,7 @@ const solucionari = privat => [
   ...sol.titol(5),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Sense calculadora: la *targeta «Decimals i arrels»* i la *targeta de les taules* són al davant tota l'estona.`,
-    "*Com s'ha construït:* en l'ordre de l'examen del llibre del grup (el valor i l'ordre, arrodonir i truncar, sumar i restar, de fracció a decimal, l'arrel, un problema de diners i les rajoles). El valor i l'ordre van en dos exercicis, perquè cada exercici sigui d'un sol tipus. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les sis fitxes de la unitat. L'únic apartat marcat «nou» és el 8 d): revisa'l abans de fer servir l'examen.",
+    "*Com s'ha construït:* en l'ordre de l'examen del llibre del grup (el valor i l'ordre, arrodonir i truncar, sumar i restar, de fracció a decimal, l'arrel, un problema de diners i les rajoles). El valor i l'ordre van en dos exercicis, perquè cada exercici sigui d'un sol tipus. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les sis fitxes de la unitat. L'únic apartat marcat «nou» és el 8 d), revisat el 30/9/2026.",
     "*Queda fora, com a les fitxes:* multiplicar i dividir decimals, les mil·lèsimes, els decimals periòdics i aproximar una arrel amb decimals.",
     "*Si cal, en dues sessions:* els exercicis 1 a 4 (els decimals) i els 5 a 8 (fraccions, arrels i problemes).",
     "*Es pot dibuixar:* blocs, una recta o un quadrat de 100 al marge és una estratègia bona, no un error.",
@@ -191,7 +191,7 @@ const solucionari = privat => [
   sol.p(`${resta(DINERS, ([, a, b, r], l) => `${l} ${dec(a, 2)} ${r ? "−" : "+"} ${dec(b, 2)} = *${euros(res([a, b, r]))}*`)}. Són els casos de la fitxa 3. Els preus ja porten dues xifres després de la coma.`, TRAS),
 
   sol.h3("8. Les rajoles · la d, nova"),
-  sol.p(`${resta(RAJ, ([l_, a], l) => `${l} ${files(a)} files: ${l_} · ${files(a)} = *${l_ * files(a)} rajoles*`)}. Quan l'amplada acaba en mig metre, cal una fila més de rajoles d'1 metre, que es retallen: es compta cap amunt. Les tres primeres són de la fitxa 6. La d) és nova (3 m per 4,5 m): revisa-la abans de fer servir l'examen.`, TRAS),
+  sol.p(`${resta(RAJ, ([l_, a], l) => `${l} ${files(a)} files: ${l_} · ${files(a)} = *${l_ * files(a)} rajoles*`)}. Quan l'amplada acaba en mig metre, cal una fila més de rajoles d'1 metre, que es retallen: es compta cap amunt. Les tres primeres són de la fitxa 6. La d) és nova (3 m per 4,5 m), revisada el 30/9/2026.`, TRAS),
 
   sol.h3("Què mirar per avaluar"),
   ...sol.vinyetes([

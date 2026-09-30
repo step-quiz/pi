@@ -10,21 +10,23 @@
      dates        quan la fa el grup (orientatiu: el calendari no mana)
      sessions     sessions de la SA del grup
      nucli        l'única idea que es treballa, dibuixada a la quadrícula.
-                  És una PROPOSTA: es valida unitat per unitat abans d'escriure
+                  El docent el va validar unitat per unitat abans d'escriure
                   la fitxa (vegeu docs/MAPA-ADAPTACIO.md)
      material     el graó físic de l'aula de suport, abans de la fitxa
      criteris     els criteris de la SA del grup, com a referència. L'avaluació
                   es fa amb els criteris propis del PI
-     fita         el nivell d'assoliment realista (NA, AS, AN, AE), per a la revisió
-                  del PI al desembre. Proposta del 30/9/2026, per validar
-     rol          què fa a l'aula ordinària mentre el grup treballa: s'hi adapta el
-                  rol dins del grup, no la tasca. Proposta del 30/9/2026
+     fita         el nivell d'assoliment realista (NA, AS, AN, AE) amb els criteris del
+                  PI. Es revisa al desembre, amb el PI. Fixada el 30/9/2026
+     rol          què fa a l'aula ordinària mentre el grup treballa, lligat a una activitat
+                  del grup: s'hi adapta el rol dins del grup, no la tasca. Fixat el 30/9/2026
      fitxes       les fitxes de la unitat, en l'ordre de classe. Cada una té dos
                   camps: fitxa (el camí, fitxes/udN.html) i titol. Una unitat en pot
                   tenir més d'una: la segona i les següents es diuen udN-nom.html.
                   Sense cap, []. A més:
                     estat     «per revisar» (feta, el docent encara no l'ha mirada),
-                              «revisada» o «provada a l'aula». Es canvia a mà
+                              «revisada» o «provada a l'aula». Es canvia a mà. Les de
+                              les unitats 5 a 7 es van revisar el 30/9/2026, per encàrrec
+                              del docent. «Provada a l'aula» la posa el docent
                     minim     el camí mínim: les pàgines de l'alumnat que són el nucli.
                               La resta és ampliació. La unitat sencera no passa de dues
                               pàgines per sessió del grup (eines/comprova.py ho mira)
@@ -47,10 +49,10 @@ window.UNITATS = [
            "3² és un quadrat de 3 per 3.",
     material: "Miniblocs: fer el rectangle de 3 per 4 i comptar-ne els quadrets.",
     criteris: "1.3, 2.1, 8.1",
-    fita: "AS",
-    rol: "Fa els rectangles amb els miniblocs quan el grup multiplica, i els ensenya.",
+    fita: "AS, AN possible als rectangles",
+    rol: "Fa amb els miniblocs els rectangles de les multiplicacions que treballa el grup, i els ensenya a la parella.",
     fitxes: [
-      { fitxa: "fitxes/ud1.html", titol: "Rectangles de quadrets", estat: "revisada", minim: [1, 2, 9],
+      { fitxa: "fitxes/ud1.html", titol: "Rectangles de quadrets", estat: "revisada", minim: [1, 2, 6, 9],
         trencada: "Ex. 7 · 3² no és 3 · 2 = 6: és 3 · 3" },
       { fitxa: "fitxes/ud1-nombres.html", titol: "Centenes, desenes i unitats", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 4 · «tres-cents cinc» no és 35: el zero manté el lloc" },
@@ -70,7 +72,7 @@ window.UNITATS = [
     material: "Miniblocs: fer tots els rectangles de 12, i després els de 7.",
     criteris: "1.4, 3.2, 4.2, 5.2",
     fita: "AS",
-    rol: "Porta els miniblocs i fa els rectangles de cada nombre: els divisors es veuen.",
+    rol: "A l'activitat de les caixes i les boles del GeoGebra, fa les caixes amb miniblocs de veritat i diu si en sobren.",
     fitxes: [
       { fitxa: "fitxes/ud2.html", titol: "Els múltiples", estat: "revisada", minim: [1, 2, 7],
         trencada: "Ex. 3 · el 13 i el 23 acaben en 3 i no són múltiples del 3" },
@@ -93,10 +95,10 @@ window.UNITATS = [
            "el de baix diu quants n'hi ha, i el de dalt, quants se'n pinten.",
     material: "Quadrícula i tires de paper: comptar els quadrets d'una figura, ajuntar dues meitats i doblegar una tira en trossos iguals.",
     criteris: "1.2, 5.2, 6.1, 9.1",
-    fita: "AS",
-    rol: "Compta els quadrets als mapes quadriculats del grup, i pinta les fraccions.",
+    fita: "AS, AN possible a l'àrea",
+    rol: "Compta els quadrets dels mapes quadriculats del grup (els km² de Gaza i de Barcelona) i els apunta.",
     fitxes: [
-      { fitxa: "fitxes/ud3-area.html", titol: "Mesurar l'àrea", estat: "revisada", minim: [1, 2],
+      { fitxa: "fitxes/ud3-area.html", titol: "Mesurar l'àrea", estat: "revisada", minim: [1, 3],
         trencada: "Ex. 4 · mig quadret no és un quadret sencer" },
       { fitxa: "fitxes/ud3.html", titol: "Què és una fracció", estat: "revisada", minim: [1, 2, 6],
         trencada: "Ex. 3 · 3 trossos que no són iguals no fan terços" },
@@ -126,7 +128,7 @@ window.UNITATS = [
               "Dues files de quadrets per comparar mides.",
     criteris: "1.3, 2.1, 5.1, 6.1",
     fita: "AS",
-    rol: "Pinta a la quadrícula de 100 el percentatge que diu el grup.",
+    rol: "Pinta a la quadrícula de 100 el percentatge que diu el grup. A l'activitat del kiwi, posa les dues files de quadrets per comparar les mides.",
     fitxes: [
       { fitxa: "fitxes/ud4.html", titol: "La fracció d'un nombre", estat: "revisada", minim: [1, 2, 5],
         trencada: "Ex. 3 · grups amb quadrets diferents no són grups iguals" },
@@ -135,7 +137,7 @@ window.UNITATS = [
       { fitxa: "fitxes/ud4-percentatges.html", titol: "Els percentatges", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 4 · molts quadrets pintats no és el 100 %: cal comptar-los" },
       { fitxa: "fitxes/ud4-dobletriple.html", titol: "Dobles i triples", estat: "revisada", minim: [1, 2],
-        trencada: "Ex. 3 · dos ous iguals no volen dir dos ocells igual de grans" },
+        trencada: "Ex. 3 · l'ou de kiwi fa el doble, però el kiwi no és el doble de gran" },
       { fitxa: "fitxes/ud4-repas.html", titol: "Repàs de la unitat", estat: "revisada", minim: [2, 3] }
     ],
     tasques: [14, 15, 16, 17]
@@ -152,19 +154,19 @@ window.UNITATS = [
               "Quadrats de cartolina: buscar el costat d'un quadrat de 9 i de 16 quadrets.",
     criteris: "5.1, 7.1, 8.1",
     fita: "NA o AS",
-    rol: "Posa els decimals a la quadrícula de 100 perquè el grup els vegi.",
+    rol: "Posa a la quadrícula de 100 els decimals que surten a classe, perquè el grup els vegi.",
     fitxes: [
-      { fitxa: "fitxes/ud5.html", titol: "Els decimals", estat: "per revisar", minim: [1, 2, 7],
+      { fitxa: "fitxes/ud5.html", titol: "Els decimals", estat: "revisada", minim: [1, 2, 7],
         trencada: "Ex. 5 · més xifres no vol dir més gran: 0,8 és més que 0,75" },
-      { fitxa: "fitxes/ud5-arrodonir.html", titol: "Arrodonir i truncar", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud5-arrodonir.html", titol: "Arrodonir i truncar", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · l'Oriol sempre arrodoneix avall (3,47 → 3,4)" },
-      { fitxa: "fitxes/ud5-sumes.html", titol: "Sumar i restar decimals", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud5-sumes.html", titol: "Sumar i restar decimals", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · la Júlia no alinea la coma (2,5 + 1,35 = 1,60)" },
-      { fitxa: "fitxes/ud5-fraccions.html", titol: "De la fracció al decimal", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud5-fraccions.html", titol: "De la fracció al decimal", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · en Pol diu que 1/4 = 0,4" },
-      { fitxa: "fitxes/ud5-arrel.html", titol: "Quadrats i arrels", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud5-arrel.html", titol: "Quadrats i arrels", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · en Joel diu que l'arrel és la meitat (√16 = 8)" },
-      { fitxa: "fitxes/ud5-repas.html", titol: "Repàs de la unitat", estat: "per revisar", minim: [3, 4] }
+      { fitxa: "fitxes/ud5-repas.html", titol: "Repàs de la unitat", estat: "revisada", minim: [3, 4] }
     ],
     tasques: [0, 2, 18, 19, 20, 21]
   },
@@ -180,19 +182,19 @@ window.UNITATS = [
               "Un full: la cantonada és l'angle recte.",
     criteris: "1.1, 3.1, 5.1, 6.1, 7.1, 9.1",
     fita: "AS, AN possible a les formes",
-    rol: "Construeix al geoplà els polígons i els angles que treballa el grup.",
+    rol: "Al mural i a les Fotomàtiques del grup, busca i fotografia les formes. Al geoplà, construeix els polígons.",
     fitxes: [
-      { fitxa: "fitxes/ud6.html", titol: "Punts, rectes i angles", estat: "per revisar", minim: [1, 2, 6],
+      { fitxa: "fitxes/ud6.html", titol: "Punts, rectes i angles", estat: "revisada", minim: [1, 2, 6],
         trencada: "Ex. 5 · en Marc: costats més llargs, angle més gran" },
-      { fitxa: "fitxes/ud6-poligons.html", titol: "Polígons", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud6-poligons.html", titol: "Polígons", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 5 · en Nil: un quadrat girat ja no és un quadrat" },
-      { fitxa: "fitxes/ud6-triangles.html", titol: "Triangles", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud6-triangles.html", titol: "Triangles", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 4 · en Pau: un triangle més gran té els angles més grans" },
-      { fitxa: "fitxes/ud6-perimetre.html", titol: "El perímetre", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud6-perimetre.html", titol: "El perímetre", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · la Carlota compta els quadrets de dins" },
-      { fitxa: "fitxes/ud6-cercle.html", titol: "La circumferència", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud6-cercle.html", titol: "La circumferència", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · la Nerea calcula la vora amb el radi" },
-      { fitxa: "fitxes/ud6-repas.html", titol: "Repàs de la unitat", estat: "per revisar", minim: [2, 3] }
+      { fitxa: "fitxes/ud6-repas.html", titol: "Repàs de la unitat", estat: "revisada", minim: [2, 3] }
     ],
     tasques: [22, 23, 24, 25, 13]
   },
@@ -206,17 +208,17 @@ window.UNITATS = [
     material: "Miniblocs: fer les tres primeres figures d'un patró i la quarta.",
     criteris: "2.1, 3.1, 4.1, 5.1, 7.2",
     fita: "NA o AS",
-    rol: "Fa les figures dels patrons amb miniblocs, i apunta la taula figura–quadrets.",
+    rol: "Fa amb miniblocs les figures dels patrons i apunta la taula figura–quadrets. Al mapa del curs del grup, hi porta «El meu curs».",
     fitxes: [
-      { fitxa: "fitxes/ud7.html", titol: "Patrons de quadrets", estat: "per revisar", minim: [1, 2, 5],
+      { fitxa: "fitxes/ud7.html", titol: "Patrons de quadrets", estat: "revisada", minim: [1, 2, 5],
         trencada: "Ex. 3 · en Pau: 2, 4, 6, 8 «creix multiplicant per 2»" },
-      { fitxa: "fitxes/ud7-regla.html", titol: "La regla del patró", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud7-regla.html", titol: "La regla del patró", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · la Ivet oblida la part fixa (5, 8, 11, 14 no és 3 · n)" },
-      { fitxa: "fitxes/ud7-simbols.html", titol: "De la paraula al símbol", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud7-simbols.html", titol: "De la paraula al símbol", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 4 · la Zoe: si n = 3, 2n no és 23" },
-      { fitxa: "fitxes/ud7-grafics.html", titol: "Taules i gràfics", estat: "per revisar", minim: [1, 2],
+      { fitxa: "fitxes/ud7-grafics.html", titol: "Taules i gràfics", estat: "revisada", minim: [1, 2],
         trencada: "Ex. 3 · en Martí: l'eix no comença a zero" },
-      { fitxa: "fitxes/ud7-repas.html", titol: "Repàs i el meu curs", estat: "per revisar", minim: [2, 3, 4] }
+      { fitxa: "fitxes/ud7-repas.html", titol: "Repàs i el meu curs", estat: "revisada", minim: [2, 3, 4] }
     ],
     tasques: [26, 27, 28]
   }

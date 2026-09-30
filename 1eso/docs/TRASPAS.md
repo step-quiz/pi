@@ -45,8 +45,8 @@ unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer 
 | 6 · Sentit espacial | **Feta** (29/9/2026): caixa (22 a 25), targeta «Formes», sis fitxes i examen (`generadors/examens/ud6.js`). El pla: `MAPA-ADAPTACIO.md`, apartat 8 ter |
 | 7 · Patrons i llenguatge algebraic | **Feta** (29/9/2026): caixa (26 a 28), targeta «Patrons i símbols», cinc fitxes i examen (`generadors/examens/ud7.js`). |
 
-**Pendent al Codespace** (recorda-li-ho si no ho ha fet; comprova-ho al ZIP del repositori que et
-passi): treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4
+**Fet** (comprovat el 30/9/2026: el repositori ja no té cap DOCX, i `comprova.py` ho vigila):
+treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4
 (`generadors/examens/examen-ud*-*.docx`), que es publiquen al web. Les ordres: `git rm --cached` i
 moure'ls a `docx/` (`CONTINUAR.md`, apartat 4). **No esborris els `fitxes/ud4*.html` ni `generadors/examens/ud4.js`:** les fitxes velles d'una
 antiga unitat 4 (les fraccions) ja no hi són, i els que hi ha ara són els de la unitat 4 de debò.
@@ -218,6 +218,9 @@ Són a `CRITERIS-DISSENY.md`; aquestes són les que més fàcilment es trenquen:
   `textos.js`, `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, els mòduls i `app.js`.
 
 ## 8. Les unitats que falten, segons la programació
+
+> **30/9/2026:** les set unitats ja són fetes (apartat 2). Aquest apartat queda com a història del
+> que se'n sabia abans de fer-les; les decisions bones són a `MAPA-ADAPTACIO.md`.
 
 Demana al docent el ZIP de la programació (els set fulls de càlcul) si no te l'ha passat. Es
 llegeixen amb `openpyxl`:

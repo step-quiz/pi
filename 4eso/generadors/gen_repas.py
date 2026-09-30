@@ -35,6 +35,7 @@ def ms(t):
 #              de l'obertura) es reprodueixen
 #   diu        la frase que anomena el dibuix: va després, mai abans
 #   recorda    la idea de la unitat, amb la forma bona de la regla trencada
+#   trencada   la lletra de l'apartat d'«Una de cada» que torna a la regla trencada
 #   una        (pista, frase, resposta, exercici de la fitxa). La primera ja va feta.
 #   apres      (què sé fer, exemple, exercici de la fitxa)
 UNITATS = {
@@ -42,6 +43,7 @@ UNITATS = {
     titol="Nombres reals", material="una cinta mètrica i un objecte llarg per mesurar",
     dibuix=[0], diu="Els nombres que ja coneixes. Els irracionals tenen decimals que no s'acaben.",
     recorda="Arrodonir no és tallar. Primer pensa per a què ho vols.",
+    trencada="b",
     una=[
       ("Entre quins dos nombres sencers cau.", f"√7 = 2,6457… cau entre {ms('2')} i {ms('3')}.", "2 i 3", 1),
       ("Arrodoneix a 1 decimal.", f"3,4817… → {B}", "3,5", 3),
@@ -62,6 +64,7 @@ UNITATS = {
     titol="Percentatges", material="monedes i bitllets de joguina",
     dibuix=[0, 1, 2], diu="Una bici de 300 €, amb un 20 % de descompte. Amb la regla de 0 a 100 a sota: de cada 100 €, en queden 80.",
     recorda="Al comptat no sempre és més barat. Fes els dos comptes.",
+    trencada="g",
     una=[
       ("El factor d'un descompte.", f"−20 % → × {ms('0,8')}", "× 0,8", 1),
       ("El factor d'una pujada.", f"+15 % → × {B}", "× 1,15", 1),
@@ -84,6 +87,7 @@ UNITATS = {
     titol="Escales", material="una cinta mètrica i un full quadriculat",
     dibuix=[0], diu="A escala 1 : 100, 1 cm del plànol són 100 cm de veritat: 1 m.",
     recorda="El paquet gran no sempre surt més barat. Compara el preu d'1 litre.",
+    trencada="f",
     una=[
       ("Quant val 1 cm del plànol.", f"1 : 200 → 1 cm són {ms('200 cm = 2 m')}", "2 m", 1),
       ("Del plànol a la realitat: multiplica.", f"1 : 100. Al plànol, 7 cm. De veritat: {B} m", "700 cm = 7 m", 2),
@@ -105,6 +109,7 @@ UNITATS = {
     titol="Equacions", material="una bossa opaca i fitxes iguals",
     dibuix=[0], diu="Una equació és una balança: x + 2 = 6. Les dues bandes pesen igual.",
     recorda="El negatiu no sempre es ratlla. Mira què vol dir la x.",
+    trencada="f",
     una=[
       ("La balança: treu el mateix de cada banda.", f"x + 3 = 9 → x = {ms('6')}", "x = 6", 1),
       ("Comprovar: posa el número i compara.", f"x + 4 = 10. Provo x = 5: 5 + 4 = {B}. Funciona? {B}", "9. No.", 2),
@@ -127,6 +132,7 @@ UNITATS = {
     titol="La paràbola", material="una pilota i espai per llançar-la",
     dibuix=[0], diu="La pilota puja, arriba dalt de tot i baixa. La corba es diu paràbola.",
     recorda="El vèrtex no sempre és el punt més alt. De vegades no hi ha cap tall.",
+    trencada="g",
     una=[
       ("Cap on s'obre: mira el signe de x².", f"y = −2x² + 8x → s'obre cap {ms('avall')}", "avall", 3),
       ("Cap on s'obre.", f"y = 3x² − 6 → s'obre cap {B}", "amunt", 3),
@@ -149,6 +155,7 @@ UNITATS = {
     titol="Estadística", material="fitxes o taps per fer munts",
     dibuix=[0, 1], diu="Dues jugadores amb la mateixa mitjana, 5. La A és regular; la B, escampada.",
     recorda="La mitjana no ho explica tot. Mira també si les dades estan juntes o escampades.",
+    trencada="g",
     una=[
       ("Taula de vegades: compta.", f"2 3 2 4 2 3 → el 2 surt {ms('3')} vegades", "3", 1),
       ("La mitjana: suma i divideix.", f"4 6 5 5 → (4 + 6 + 5 + 5) ÷ 4 = {B}", "20 ÷ 4 = 5", 2),
@@ -171,6 +178,7 @@ UNITATS = {
     titol="Atzar", material="un dau i una moneda",
     dibuix=[0], diu="Tot el que pot passar cau en algun punt d'aquesta línia: d'impossible a segur.",
     recorda="Una cara i una creu surt de 2 maneres. La casa sempre guanya.",
+    trencada="e",
     una=[
       ("Impossible, pot passar o segur.", f"Treure un 7 amb un dau: {ms('impossible')}", "impossible", 1),
       ("L'arbre: multiplica les branques.", f"3 primers i 2 postres: {B} × {B} = {B} menús", "3 × 2 = 6", 2),
@@ -303,7 +311,7 @@ def fitxa(n, u):
         h += f'    <tr><td>{frase}</td><td>la fitxa, ex. {ex}</td></tr>\n'
     h += f"""  </table>
   <p><b>Per avaluar:</b> el repàs no és evidència d'avaluació. Si es vol fer servir, l'apartat
-  de la regla trencada (el que diu «{u["recorda"].split(".")[0]}») és el que val més.</p>
+  {u["trencada"]}) és el que val més: és la regla trencada de la fitxa (exercici {u["una"]["abcdefgh".index(u["trencada"])][3]}).</p>
 </div>
 
 </body>

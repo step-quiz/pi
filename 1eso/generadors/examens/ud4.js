@@ -163,7 +163,7 @@ const solucionari = privat => [
   ...sol.titol(4),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Sense calculadora: la *targeta de les taules* i la *targeta dels noms de les fraccions* són al davant tota l'estona.`,
-    "*Com s'ha construït:* la programació d'aquesta unitat no porta cap examen (l'activitat 11 és una avaluació individual i una autoavaluació), així que l'examen té dos exercicis per cada part de la unitat: la fracció d'un nombre, multiplicar fraccions, els percentatges i els dobles i triples, en l'ordre de les fitxes. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les cinc fitxes de la unitat. Cap pregunta de justificació oberta: la comparació de l'ou i l'ocell (fitxa 4, exercici 3) hi queda fora, perquè és una valoració qualitativa. L'únic apartat marcat «nou» és el 6 d): revisa'l abans de fer servir l'examen.",
+    "*Com s'ha construït:* la programació d'aquesta unitat no porta cap examen (l'activitat 11 és una avaluació individual i una autoavaluació), així que l'examen té dos exercicis per cada part de la unitat: la fracció d'un nombre, multiplicar fraccions, els percentatges i els dobles i triples, en l'ordre de les fitxes. A cada exercici, l'apartat a) resolt com a model i tres per fer, amb els ítems de les cinc fitxes de la unitat. Cap pregunta de justificació oberta: la comparació de l'ou i l'ocell (fitxa 4, exercici 3) hi queda fora, perquè és una valoració qualitativa. L'únic apartat marcat «nou» és el 6 d), revisat el 30/9/2026.",
     "*Si cal, en dues sessions:* els exercicis 1 a 4 (la fracció d'un nombre i multiplicar fraccions) i els 5 a 8 (els percentatges i els dobles i triples).",
     "*Es pot dibuixar:* un rectangle, o files de quadrets, al marge, per repartir o per fer el tros de tros, és una estratègia bona, no un error.",
   ]),
@@ -184,7 +184,7 @@ const solucionari = privat => [
   sol.p(`${resta(GRAELLES, (p, l) => `${l} *${PCT(p)}*`)}. Cada fila de la graella té 10 quadrets. *Error típic:* dir els quadrets que falten (25 % en lloc de 75 %), o dir 100 % encara que no estigui tot pintat. És la regla trencada de la fitxa 3.`, TRAS),
 
   sol.h3("6. La fracció del percentatge · la d, nova"),
-  sol.p(`b) ${PCT(25)} és *1/4*; c) ${PCT(75)} és *3/4*; d) nou: ${PCT(20)} és *1/5*. Els tres primers són de la fitxa 3. La d) és nova: el 20 % és a la llista de percentatges de la unitat (10, 20, 25, 50 i 75 %), però la fitxa no el porta com a apartat. Revisa-la abans de fer servir l'examen.`, TRAS),
+  sol.p(`b) ${PCT(25)} és *1/4*; c) ${PCT(75)} és *3/4*; d) nou: ${PCT(20)} és *1/5*. Els tres primers són de la fitxa 3. La d) és nova: el 20 % és a la llista de percentatges de la unitat (10, 20, 25, 50 i 75 %), però la fitxa no el porta com a apartat. Es fa amb el dibuix d'«un cinquè» de la targeta de les fraccions.`, TRAS),
 
   sol.h3("7. El doble i el triple"),
   sol.p(`${resta(DT1, ([n, k], l) => `${l} ${n} · ${k} = *${n * k}*`)}. El doble és 2 vegades; el triple, 3 vegades. Són els apartats de la fitxa 4.`, TRAS),
