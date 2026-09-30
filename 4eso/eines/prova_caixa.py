@@ -118,7 +118,7 @@ def main():
         despres = text(pg, "#dr-lectura")
         comprova(abans != despres and "%" in despres, f"doble recta: el punt no es mou ({abans} → {despres})")
         pg.click("#dr-pastilles .pastilla >> text=Equació x + 3 = 7"); pg.wait_for_timeout(60)
-        comprova("x + 3" in pg.text_content("#dr-svg"),
+        comprova("x + 3" in text(pg, "#dr-noms") and "11" in pg.text_content("#dr-svg"),
                  "doble recta: el cas de l'equació no dibuixa la recta de x + 3")
 
         # L'escala: 8 cm a 1 : 100 són 8 m, i al revés.

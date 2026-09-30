@@ -63,6 +63,9 @@ svg.llenc:focus-visible{outline-offset:4px;border-radius:12px}
 svg.llenc:focus:not(:focus-visible){outline:none}
 
 .pastilles{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 .9rem}
+/* La tria d'unitat, a sobre de les pestanyes de la caixa sencera */
+.tria-unitat{margin:.2rem 0 .6rem}
+.tria-unitat .pastilla{font-size:.88rem;padding:.35rem .8rem;min-height:36px}
 .pastilla{border:0;background:var(--camp);color:var(--etiqueta);border-radius:999px;
   padding:.5rem 1rem;font:inherit;font-size:1.05rem;font-weight:600;cursor:pointer;min-height:44px}
 .pastilla[aria-pressed="true"]{background:var(--blau);color:#fff}

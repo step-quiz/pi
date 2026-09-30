@@ -65,6 +65,10 @@ def titol(t):
 def obre(pg, url=CAIXA):
     pg.goto(url)
     pg.wait_for_timeout(250)
+    # Els mòduls es carreguen quan s'obren (CE.carrega). La prova els carrega tots
+    # d'entrada, perquè llegeix les dades de tots i toca pestanyes seguides.
+    if url.startswith(CAIXA):
+        pg.evaluate("() => CE.carregaTots()")
 
 
 def modul(pg, mod, sub=1):
@@ -136,6 +140,18 @@ def main():
         codis = {}
 
         # ------------------------------------------------------------------
+        titol("LA CÀRREGA A DEMANDA")
+        pg.goto(CAIXA)
+        pg.evaluate("localStorage.clear()")
+        pg.goto(CAIXA)
+        pg.wait_for_timeout(250)
+        n_scripts = lambda: pg.eval_on_selector_all('script[src*="js/moduls/"]', "s => s.length")
+        comprova(n_scripts() == 1, f"d'entrada s'ha de carregar només l'eina que s'obre, i se'n carreguen {n_scripts()}")
+        pg.click('.segment[data-mod="grafics"]')
+        pg.wait_for_function("() => !document.querySelector('#mod-grafics').hidden && CE.moduls.grafics")
+        comprova(n_scripts() == 2, f"en obrir Gràfics s'havia de carregar una eina més, i n'hi ha {n_scripts()}")
+        revisa_pantalla(pg, "Gràfics, carregada en obrir-la")
+
         titol("TOTES LES SUBTASQUES S'OBREN")
         obre(pg)
         subs = [("taules", 3), ("rect", 4), ("quadrat", 4), ("cdu", 2), ("ordre", 2),

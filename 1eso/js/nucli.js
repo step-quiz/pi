@@ -247,7 +247,34 @@ window.CE = (function () {
     moduls[id] = inicia;
   }
 
+  /* CÀRREGA A DEMANDA (30/9/2026). Cada pestanya diu a data-src el fitxer del seu
+     mòdul, i es carrega la primera vegada que s'obre: la caixa té 29 eines i no cal
+     baixar-les totes per fer-ne servir una. Funciona també amb doble clic (file://):
+     són scripts clàssics, no mòduls ES. Torna una promesa que es compleix quan el
+     mòdul ja s'ha registrat. verifica.html no ho fa servir: carrega els mòduls que
+     necessita directament. */
+  const carregant = {};
+  function carrega(id) {
+    if (moduls[id]) return Promise.resolve();
+    if (carregant[id]) return carregant[id];
+    const boto = $('.segment[data-mod="' + id + '"]');
+    if (!boto || !boto.dataset.src) return Promise.reject(new Error("CE: no hi ha cap mòdul «" + id + "»"));
+    // data-cal: els mòduls que aquest fa servir (els botons Sí i No són de «multiples»).
+    // Es carreguen abans que ell.
+    const cal = (boto.dataset.cal || "").split(" ").filter(Boolean);
+    carregant[id] = Promise.all(cal.map(carrega)).then(() => new Promise((fet, error) => {
+      const s = document.createElement("script");
+      s.src = boto.dataset.src;
+      s.onload = () => fet();
+      s.onerror = () => { delete carregant[id]; error(new Error("CE: no s'ha pogut carregar " + s.src)); };
+      document.body.appendChild(s);
+    }));
+    return carregant[id];
+  }
+  /** Tots alhora: per a les proves, que llegeixen les dades de tots els mòduls. */
+  const carregaTots = () => Promise.all($$(".segment[data-mod]").map(b => carrega(b.dataset.mod)));
+
   return { $, $$, memoria, el, pastilles, premPastilla, txt, txtPla, omplirTextos,
-           subtasques, subDemanada, moduls, registra, diaLlarg, cataleg, registraCataleg,
+           subtasques, subDemanada, moduls, registra, carrega, carregaTots, diaLlarg, cataleg, registraCataleg,
            quants, deN, delNombre, elNombre, rect, lectura, comptador, quiet, demanada: null };
 })();
