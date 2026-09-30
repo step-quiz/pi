@@ -240,7 +240,7 @@ de concepte sense text seguit, sis o set exercicis amb el primer apartat resolt,
 criteris d'avaluació.
 
 **La caixa d'eines** (`caixa-eines.html`): fitxer únic, vainilla, sense CDN ni
-dependències, amb vuit mòduls. Cada eina **s'obre ja resolta** amb un exemple i un botó
+dependències, amb deu mòduls. Cada eina **s'obre ja resolta** amb un exemple i un botó
 la buida per al cas de l'alumnat.
 
 | Mòdul | Unitat | Què fa |
@@ -253,15 +253,22 @@ la buida per al cas de l'alumnat.
 | Paràboles | 5 | Toca el vèrtex, els talls i l'eix sobre tres fenòmens reals |
 | Calculadora | totes | Demostració tecla a tecla de la Casio fx-82SP CW |
 | Com ho dic | totes | Frases model per completar i copiar |
+| Aplanar | 6 | Columnes de blocs que es reparteixen fins que fan igual: l'altura és la mitjana |
+| Probabilitat | 7 | La barra del dau: es pinten les cares que van bé i es llegeix el % a l'escala de la U2 |
 
 **Paper i pantalla mostren el mateix cas.** Els pictogrames de precisió de la U1, els
 300 € de la U2, el 1:100 amb 8 cm de la U3, el x+3=7 de la U4 i els tres fenòmens de la
 U5 són idèntics a la fitxa i a l'app. No és estètic: evita que hagi d'aprendre dues
 vegades el mateix.
 
-**El que falta.** No hi ha mòdul d'estadística ni d'atzar. Per a la U6 l'eina és el
-full de càlcul mateix, que ja fa servir al nivell del grup; per a la U7, un mòdul
-d'arbre interactiu seria l'addició natural si es veu que li cal.
+**Estadística i atzar (30/9/2026).** Per a la U6 l'eina principal continua sent el full de
+càlcul, que ja fa servir al nivell del grup; el mòdul Aplanar és el gest de la pàgina 3 de
+la fitxa, amb els mateixos gols (0 1 1 1 2 2 3 4 4). Per a la U7, el mòdul Probabilitat és
+la barra de la pàgina 3. Un arbre interactiu seria l'addició següent si es veu que li cal.
+
+**Material de repàs i de consulta (30/9/2026).** Cada unitat té una fitxa de repàs
+(`fitxes/udN-repas.html`) amb «Una de cada» i «Què he après?», i hi ha tres targetes de
+consulta (`targetes/`) per tenir a la taula, com a `1eso/`.
 
 **Avís permanent sobre `repas-main`.** Està calibrat per a alumnat que entra a
 batxillerat. **No li passis ni el diagnòstic inicial ni l'itinerari automàtic**: el
@@ -376,7 +383,8 @@ de calculadora, sense manipulació. Val la pena que se n'adoni.
 **Si la balança no acaba d'agafar, hi ha sortida i no és estrenar res.** La U4 és
 l'única unitat que introdueix un model nou en el pitjor moment del curs. Si es veu que la
 balança no li diu res, **l'alternativa és fer l'equació per la doble recta**, que al febrer
-ja portarà treballada des de la U2 i la U3. No és millor model: és el model que ja té.
+ja portarà treballada des de la U2 i la U3. No és millor model: és el model que ja té. Des
+del 30/9/2026, el mòdul Doble recta de la caixa té el cas «Equació x + 3 = 7» per fer-ho.
 Estrenar-ne un de nou al febrer és el que convé evitar, no la balança en si.
 
 **Base prèvia (aula de suport, i amb temps):** `2eso-ud4-1` (la balança), `2eso-ud4-3` (solució i

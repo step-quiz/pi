@@ -7,8 +7,8 @@ Material de matemàtiques per a **alumnat amb dificultats de tipus cognitiu** qu
 part de les hores a l'**aula de suport** i l'altra a l'aula ordinària, en l'itinerari
 d'**Aplicades**.
 
-Set fitxes imprimibles, una caixa d'eines digital i la documentació que explica per què
-tot és com és.
+Set fitxes imprimibles, amb una fitxa de repàs per unitat, tres targetes de consulta, una
+caixa d'eines digital i la documentació que explica per què tot és com és.
 
 ---
 
@@ -28,13 +28,15 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | | |
 |---|---|
 | `index.html` | portada: tria entre les fitxes i la caixa d'eines |
-| `fitxes.html` | índex de les set unitats: tria ràpida i, per a cada una, material previ, regla trencada, fita, recursos |
-| `caixa-eines.html` | l'aplicació, amb vuit mòduls |
+| `fitxes.html` | índex de les set unitats: tria ràpida i, per a cada una, material previ, regla trencada, fita, recursos, fitxa de repàs; al final, les targetes de consulta |
+| `caixa-eines.html` | l'aplicació, amb deu mòduls |
 | `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
+| `fitxes/udN-repas.html` | la fitxa de repàs de cada unitat: el dibuix de la unitat, «Una de cada» i «Què he après?». No s'editen a mà: les fa `generadors/gen_repas.py` |
+| `targetes/` | tres targetes de consulta per tenir a la taula (calculadora, percentatges i escales, paràboles, dades i atzar), a doble cara |
 | `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |
 | `textos.html` | pàgina per canviar-les sense tocar codi |
-| `pdf/` | dos PDF per unitat: un per a l'alumnat i un per al professorat |
+| `pdf/` | dos PDF per fitxa (alumnat i professorat) i un per targeta |
 | `docs/` | mapa d'adaptació, criteris de disseny, arquitectura i feina pendent |
 | `generadors/` | scripts Python que dibuixen els gràfics SVG (`posa_grafics.py` els posa a les fitxes) i generen els PDF; a `examens/`, el contingut de cada examen DOCX |
 | `eines/` | el test del projecte, la mesura de les pàgines i l'auditoria d'accessibilitat |
@@ -59,6 +61,8 @@ sense `/4eso`, continuen funcionant: la `404.html` de l'arrel els porta aquí.
 | 5 | Paràboles |
 | 6 | Equacions |
 | 7 | Com ho dic |
+| 8 | Aplanar · la mitjana de la U6 |
+| 9 | Probabilitat · la barra del dau de la U7 |
 
 Els números no canvien mai, perquè ja poden ser en enllaços enviats.
 
@@ -86,7 +90,7 @@ El perfil és desigual, i tot el material en surt:
 
 ## Abans de tocar res
 
-Llegeix **`docs/CRITERIS-DISSENY.md`**. Hi ha vuit regles que no són preferències
+Llegeix **`docs/CRITERIS-DISSENY.md`**. Hi ha deu regles que no són preferències
 d'estil: són el resultat d'iterar amb el docent i algunes van sortir de correccions
 seves. Les dues que més fàcilment es trenquen sense adonar-se'n:
 
@@ -100,12 +104,14 @@ seves. Les dues que més fàcilment es trenquen sense adonar-se'n:
 
 ## Els PDF
 
-Cada unitat té dos PDF a `pdf/`, enllaçats des de `fitxes.html`:
+Cada fitxa té dos PDF a `pdf/`, enllaçats des de `fitxes.html`:
 
 | | |
 |---|---|
 | `udN-alumnat.pdf` | les pàgines que es reparteixen |
 | `udN-solucionari.pdf` | el full del professorat, amb els errors típics i els criteris |
+| `udN-repas-alumnat.pdf`, `udN-repas-solucionari.pdf` | el mateix, per a la fitxa de repàs |
+| `targeta-NOM.pdf` | les dues cares d'una targeta, per imprimir a doble cara |
 
 Es tornen a generar amb:
 
@@ -120,14 +126,34 @@ dret, ni el text d'una opció de la seva capsa). Si alguna vessa, la solució no
 la lletra —el cos de 14 pt és una restricció del projecte— sinó treure contingut o partir
 la pàgina en dues.
 
-Els catorze PDF són al dia (29/9/2026): porten la pàgina «A la vida de cada dia» i el
-model resolt en lletra manuscrita. `gen_pdf.py` s'atura si un PDF amb text manuscrit no
+Els PDF són al dia (30/9/2026): els catorze de les unitats, els catorze de les fitxes de
+repàs i els tres de les targetes. `gen_pdf.py` s'atura si un PDF amb text manuscrit no
 porta la lletra Caveat a dins.
+
+**Les fitxes de repàs no s'editen a mà.** Es canvien a `generadors/gen_repas.py` i es
+tornen a fer amb `python3 generadors/gen_repas.py`. El dibuix de la seva pàgina 1 surt de la
+pàgina 1 de la fitxa de la unitat: si aquesta canvia, cal tornar a passar `gen_repas.py`.
 
 **Si canvies un gràfic**, canvia el seu generador (`generadors/gen_grafics*.py`) i passa
 `python3 generadors/posa_grafics.py`: torna a fer tots els gràfics i els posa a les fitxes,
 on cada un va entre dos marcadors (`<!--grafic:NOM-->…<!--/grafic-->`). Després,
 `mesura.py` i `gen_pdf.py`.
+
+---
+
+## Els exàmens
+
+Hi ha un examen en DOCX per unitat, de la UD1 a la UD7: el contingut és a
+`generadors/examens/udN.js` i la maquinària i les regles, a `../comu/examens/nucli.js` i
+`../comu/docs/EXAMENS-DOCX.md`. Des de l'arrel del repositori:
+
+```
+npm install --prefix /tmp/eines docx@9.6.1 sharp@0.34.5
+NODE_PATH=/tmp/eines/node_modules node 4eso/generadors/examens/ud2.js
+```
+
+Surten a `docx/`, que no es puja mai. Els de la UD2 a la UD7 (30/9/2026) són per validar
+amb el docent: els apartats nous porten la marca «nou» al solucionari.
 
 ---
 
@@ -139,7 +165,8 @@ python3 eines/comprova.py
 
 Verifica que les fitxes no tinguin cap valor cromàtic, que l'HTML tanqui bé, que la
 numeració de pàgines sigui seguida, que cada fitxa porti el rètol de material, l'obertura
-i la pàgina «A la vida de cada dia», i que els mòduls declarats a `caixa-eines.html`
+i la pàgina «A la vida de cada dia» (a les de repàs, «Una de cada» i «Què he après?»), que
+les targetes siguin en B/N amb les cares numerades, que hi hagi tots els PDF, i que els mòduls declarats a `caixa-eines.html`
 coincideixin amb els que es registren de debò. També revisa les frases de l'alumnat amb
 les regles de Lectura Fàcil que es poden comprovar soles i calcula el contrast de la
 paleta de pantalla (WCAG 2.2 AA).
@@ -152,7 +179,7 @@ python3 eines/auditoria.py
 Obre l'app en un navegador de veritat i mesura les dianes tàctils i el contrast real de
 cada text, en mode clar i fosc, a 320 px i a escriptori. També mesura la lletra de les
 fitxes tal com surt al PDF: cap text de l'alumnat per sota de 14 pt i cap rètol de gràfic
-per sota de 12 pt. Ara mateix: **0 problemes en 60 estats i 7 fitxes**.
+per sota de 12 pt. Ara mateix: **0 problemes en 68 estats i 17 fitxes o targetes**.
 
 `comprova.py` fa servir Python 3.12 o més nou (el del Codespace). Amb el 3.11 s'atura amb
 un `SyntaxError`.
@@ -161,7 +188,7 @@ un `SyntaxError`.
 
 ## Estat
 
-Set unitats completes. Vuit mòduls a la caixa d'eines.
+Set unitats completes, amb una fitxa de repàs per unitat i tres targetes de consulta. Deu mòduls a la caixa d'eines.
 
 Cada fitxa acaba amb una pàgina **«A la vida de cada dia»**: un context real i una segona
 situació on la mateixa decisió s'ha de tornar a prendre en un escenari diferent. Cinc

@@ -10,13 +10,17 @@ solucionari (`.full.sol`). Aquest script parteix la fitxa en dos documents:
     pdf/udN-alumnat.pdf       tots els .full menys el solucionari
     pdf/udN-solucionari.pdf   només el solucionari
 
+El mateix per a les fitxes de repàs (udN-repas.html → udN-repas-alumnat.pdf…), i cada
+targeta de consulta (targetes/NOM.html) fa un sol PDF amb totes les cares:
+pdf/targeta-NOM.pdf.
+
 PER QUÈ CAL UN FULL D'ESTIL A PART
 El navegador i el motor de paginació no mesuren igual. Aquí es fixa la geometria
 de la pàgina amb @page i es treu el padding de `.full`, que a pantalla fa de
 marge del full i en PDF duplicaria el marge de la pàgina. El cos de 14 pt NO es
 toca: si alguna pàgina no cabés, s'ha d'arreglar la fitxa, no encongir la lletra.
 """
-import os, re, sys
+import glob, os, re, sys
 
 try:
     from weasyprint import HTML, CSS
@@ -79,28 +83,42 @@ def escriu(cap, fulls, desti):
     return len(pagines.pages)
 
 
+def fonts():
+    """Les pàgines de paper, en ordre: cada fitxa (udN.html i, si en té, udN-repas.html) i
+    cada targeta de consulta (targetes/NOM.html). Torna (camí, nom del PDF, és targeta)."""
+    fitxes = sorted(glob.glob(os.path.join(FITXES, "ud*.html")),
+                    key=lambda f: (int(re.search(r"ud(\d+)", f)[1]), "-" in os.path.basename(f), f))
+    targetes = sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html")))
+    return ([(f, os.path.basename(f)[:-5], False) for f in fitxes]
+            + [(f, "targeta-" + os.path.basename(f)[:-5], True) for f in targetes])
+
+
 def main():
     os.makedirs(SORTIDA, exist_ok=True)
     problemes = []
-    for u in range(1, 8):
-        origen = os.path.join(FITXES, f"ud{u}.html")
-        if not os.path.exists(origen):
-            continue
+    for origen, nom, targeta in fonts():
         cap, alumnat, sol = blocs(open(origen, encoding="utf-8").read())
-
-        n1 = escriu(cap, alumnat, os.path.join(SORTIDA, f"ud{u}-alumnat.pdf"))
-        n2 = escriu(cap, sol, os.path.join(SORTIDA, f"ud{u}-solucionari.pdf"))
+        if targeta:
+            # Una targeta és un sol PDF amb totes les cares, per imprimir a doble cara.
+            desti = f"{nom}.pdf"
+            n1 = escriu(cap, alumnat, os.path.join(SORTIDA, desti))
+            if n1 != len(alumnat):
+                problemes.append(f"{nom}: {len(alumnat)} cares però {n1} pàgines al PDF")
+            print(f"  {nom:22}  {n1} cares")
+            continue
+        n1 = escriu(cap, alumnat, os.path.join(SORTIDA, f"{nom}-alumnat.pdf"))
+        n2 = escriu(cap, sol, os.path.join(SORTIDA, f"{nom}-solucionari.pdf"))
 
         # Cada .full de l'alumnat ha de ser exactament una pàgina.
         if n1 != len(alumnat):
-            problemes.append(f"ud{u}: {len(alumnat)} pàgines de fitxa però {n1} al PDF")
+            problemes.append(f"{nom}: {len(alumnat)} pàgines de fitxa però {n1} al PDF")
         # Si hi ha text manuscrit, el PDF ha de portar Caveat. Fins al 29/9/2026 no hi
         # era: els 14 PDF sortien amb el model resolt en lletra d'impremta i no avisava ningú.
-        for blocs_, desti in ((alumnat, f"ud{u}-alumnat.pdf"), (sol, f"ud{u}-solucionari.pdf")):
+        for blocs_, desti in ((alumnat, f"{nom}-alumnat.pdf"), (sol, f"{nom}-solucionari.pdf")):
             if MANUSCRITA.search("".join(blocs_)) and not any(
                     "Caveat" in n for n in lletres_del_pdf(os.path.join(SORTIDA, desti))):
                 problemes.append(f"{desti}: hi ha text manuscrit però el PDF no porta Caveat")
-        print(f"  ud{u}  alumnat {n1} pàg.  ·  solucionari {n2} pàg.")
+        print(f"  {nom:22}  alumnat {n1} pàg.  ·  solucionari {n2} pàg.")
 
     if problemes:
         print("\nPROBLEMES:")

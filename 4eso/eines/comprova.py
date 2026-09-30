@@ -6,8 +6,9 @@
 Verifica les regles que és fàcil trencar sense adonar-se'n: que les fitxes no
 tinguin cap color, que l'HTML tanqui bé, que la numeració de pàgines sigui
 seguida, que cada fitxa porti el rètol de material, la pregunta d'obertura i
-la pàgina de la vida de cada dia, que els mòduls declarats al marcatge de
-l'app siguin els que es registren, que els fulls d'estil tanquin totes les
+la pàgina de la vida de cada dia (i «Una de cada» a les de repàs), que les
+targetes de consulta siguin en B/N i amb les cares numerades, que els mòduls
+declarats al marcatge de l'app siguin els que es registren, que els fulls d'estil tanquin totes les
 claus i no facin servir variables que no existeixen, que les frases de
 l'alumnat segueixin les regles de Lectura Fàcil que es poden comprovar soles,
 i que els colors de la pantalla tinguin el contrast que demana la WCAG 2.2 AA.
@@ -78,11 +79,38 @@ for f in sorted(glob.glob(ruta('fitxes', '*.html'))):
     comprova(enllac and not inline, f"{nom}: no enllaça css/fitxa.css o encara té <style>")
     comprova(s.count('class="previ"') == 1, f"{nom}: falta el rètol de material")
     comprova(s.count('Què hi veus?') == 1, f"{nom}: falta la pregunta d'obertura")
-    # La pàgina de la vida de cada dia: un context real i una segona situació
-    # amb la mateixa decisió, perquè el que s'aprèn no es quedi lligat a un cas.
-    comprova(s.count('class="full vida"') == 1, f"{nom}: falta la pàgina «A la vida de cada dia»")
+    comprova(s.count('class="full sol"') >= 1, f"{nom}: falta el solucionari")
+    if re.fullmatch(r'ud\d+\.html', nom):
+        # La pàgina de la vida de cada dia: un context real i una segona situació
+        # amb la mateixa decisió, perquè el que s'aprèn no es quedi lligat a un cas.
+        comprova(s.count('class="full vida"') == 1, f"{nom}: falta la pàgina «A la vida de cada dia»")
+    else:
+        # La fitxa de repàs (udN-repas.html): un exercici de cada tipus de la unitat
+        # i l'autoavaluació en frases que l'alumnat pot marcar.
+        comprova(re.fullmatch(r'ud\d+-repas\.html', nom), f"{nom}: nom de fitxa desconegut")
+        comprova('Una de cada' in s, f"{nom}: falta «Una de cada»")
+        comprova('Què he après?' in s, f"{nom}: falta «Què he après?»")
     print(f"  {nom:12} {len(pags)} pàg · html {'ok' if estructura else 'ERROR'}"
           f" · color {'cap' if not color else color} · css extern {enllac and not inline}")
+
+print("\nTARGETES")
+# Les targetes de consulta (targetes/*.html): B/N com les fitxes, cares numerades
+# «· cara N» i sense solucionari. Cada una fa un sol PDF, targeta-NOM.pdf.
+for f in sorted(glob.glob(ruta('targetes', '*.html'))):
+    nom = os.path.basename(f)
+    s = open(f, encoding='utf-8').read()
+    e = Estructura(); e.feed(s)
+    estructura = not e.err and not e.pila
+    color = cromatics(s)
+    cares = [int(n) for n in re.findall(r'· cara (\d+)</div>', s)]
+    blocs = len(re.findall(r'<div class="full[^"]*">.*?\n</div>', s, re.S))
+    comprova(estructura, f"targetes/{nom}: HTML mal tancat")
+    comprova(not color, f"targetes/{nom}: hi ha color ({color})")
+    comprova(cares == list(range(1, blocs + 1)) and blocs, f"targetes/{nom}: cares {cares} per a {blocs} blocs")
+    comprova('../css/fitxa.css' in s and '<style>' not in s, f"targetes/{nom}: no enllaça css/fitxa.css")
+    comprova('class="full sol"' not in s, f"targetes/{nom}: una targeta no porta solucionari")
+    print(f"  {nom:18} {len(cares)} cares · html {'ok' if estructura else 'ERROR'}"
+          f" · color {'cap' if not color else color}")
 
 print("\nCAIXA D'EINES")
 app = open(ruta('caixa-eines.html'), encoding='utf-8').read()
@@ -233,15 +261,15 @@ if not re.search(r'class="subtasca"', app):
     print("  cap mòdul en té")
 
 print("\nPDF")
-# Un PDF per unitat i per destinatari. Es generen amb generadors/gen_pdf.py.
-falten = []
-for u in range(1, 8):
-    if not os.path.exists(ruta('fitxes', f'ud{u}.html')):
-        continue
-    for mena in ('alumnat', 'solucionari'):
-        f = ruta('pdf', f'ud{u}-{mena}.pdf')
-        if not os.path.exists(f) or os.path.getsize(f) < 2000:
-            falten.append(f'ud{u}-{mena}.pdf')
+# Un PDF per fitxa i per destinatari, i un per targeta. Es generen amb
+# generadors/gen_pdf.py. La llista surt de les fonts: una fitxa nova ja en demana el PDF.
+esperats = []
+for f in sorted(glob.glob(ruta('fitxes', '*.html'))):
+    b = os.path.basename(f)[:-5]
+    esperats += [f'{b}-alumnat.pdf', f'{b}-solucionari.pdf']
+esperats += [f'targeta-{os.path.basename(f)[:-5]}.pdf' for f in sorted(glob.glob(ruta('targetes', '*.html')))]
+falten = [p for p in esperats
+          if not os.path.exists(ruta('pdf', p)) or os.path.getsize(ruta('pdf', p)) < 2000]
 comprova(not falten, f"PDF que falten o buits: {falten}")
 
 # El recompte de pàgines NO es fa aquí: WeasyPrint comprimeix els objectes del
@@ -249,7 +277,7 @@ comprova(not falten, f"PDF que falten o buits: {falten}")
 # passar errors sense dir res. Qui ho comprova de debò és generadors/gen_pdf.py,
 # que compara les pàgines generades amb els blocs .full de la fitxa i s'atura si
 # no quadren.
-print(f"  PDF presents: {14 - len(falten)}/14")
+print(f"  PDF presents: {len(esperats) - len(falten)}/{len(esperats)}")
 
 print("\nFULLS D'ESTIL")
 # Una clau sense tancar no dona cap error visible: el navegador la tanca al final
@@ -429,7 +457,7 @@ print(f"  termes que trencarien l'anonimat: {len(trobats)}")
 # pestanya, que també és el títol del PDF. Com a 1eso/ (regla J). El
 # solucionari és per a l'adult i pot parlar del mapa d'adaptació.
 adaptat = []
-for f in sorted(glob.glob(ruta('fitxes', '*.html'))):
+for f in sorted(glob.glob(ruta('fitxes', '*.html')) + glob.glob(ruta('targetes', '*.html'))):
     text = re.sub(r'<!--.*?-->', '', open(f, encoding='utf-8').read(), flags=re.S)
     cap = text[:text.index('<body>')]
     alumnat = [b for b in re.findall(r'<div class="full[^"]*">.*?\n</div>', text, re.S)
@@ -453,12 +481,20 @@ print(f"  recursos remots: {len(remots)}")
 
 print("\nDADES")
 dades = open(ruta('dades', 'unitats.js'), encoding='utf-8').read()
-unitats = re.findall(r'fitxa: "(fitxes/\w+\.html)"', dades)
-for u in unitats:
+unitats = re.findall(r'fitxa: "(fitxes/[\w-]+\.html)"', dades)
+repassos = re.findall(r'tancament: "(fitxes/[\w-]+\.html)"', dades)
+targetes = re.findall(r'\{ nom: "([\w-]+)"', dades)
+for u in unitats + repassos:
     comprova(os.path.exists(ruta(u)), f"dades/unitats.js apunta a {u}, que no existeix")
-comprova(len(unitats) == len(glob.glob(ruta('fitxes', '*.html'))),
-         "el nombre d'unitats no coincideix amb el de fitxes")
-print(f"  unitats declarades: {len(unitats)} · fitxes al disc: {len(glob.glob(ruta('fitxes','*.html')))}")
+for n in targetes:
+    comprova(os.path.exists(ruta('targetes', n + '.html')), f"dades/unitats.js apunta a la targeta {n}, que no existeix")
+al_disc = glob.glob(ruta('fitxes', '*.html'))
+comprova(len(unitats) + len(repassos) == len(al_disc),
+         "el nombre de fitxes declarades no coincideix amb el de fitxes al disc")
+comprova(sorted(targetes) == sorted(os.path.basename(f)[:-5] for f in glob.glob(ruta('targetes', '*.html'))),
+         "les targetes declarades no coincideixen amb les de targetes/")
+print(f"  unitats: {len(unitats)} · fitxes de repàs: {len(repassos)} · fitxes al disc: {len(al_disc)}"
+      f" · targetes: {len(targetes)}")
 
 print()
 if falles:

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La calculadora · targeta de consulta</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+<p class="no-imprimir"><a href="../fitxes.html">← totes les fitxes</a></p>
+<!--
+  TARGETA DE CONSULTA · La calculadora (totes les unitats)
+  Fa en paper el que fa el mòdul Calculadora de la caixa d'eines: els cinc casos són els
+  mateixos, amb les mateixes tecles i la mateixa pantalla (js/moduls/calculadora.js). Ha de
+  poder estar a la taula també a l'examen, on la calculadora es fa servir sempre.
+  S'imprimeix a doble cara, girant per la vora llarga, i es plastifica. Proposta del
+  30/9/2026, per validar amb el docent.
+-->
+
+<div class="full targeta">
+  <h1 class="cara-titol">Com es fa amb la calculadora</h1>
+  <table>
+    <tr><th style="width:56%">El cas i les tecles</th><th style="width:44%">Surt → vol dir</th></tr>
+    <tr><td class="esq" style="border-bottom:0;padding-bottom:0"><b>Rebaixa del 20 %</b><br><span style="color:var(--gris-2)">25 € amb un 20 % de descompte</span></td>
+        <td class="esq" style="border-bottom:0;padding-bottom:0;white-space:nowrap"><span style="font-family:ui-monospace,'Courier New',monospace">20</span> → <b>20 €</b></td></tr>
+    <tr><td class="esq" colspan="2" style="border-top:0"><span style="white-space:nowrap"><span class="tecla">2</span><span class="tecla">5</span><span class="tecla">×</span><span class="tecla">0</span><span class="tecla">.</span><span class="tecla">8</span><span class="tecla exe">EXE</span></span></td></tr>
+    <tr><td class="esq" style="border-bottom:0;padding-bottom:0"><b>IVA del 21 %</b><br><span style="color:var(--gris-2)">40 € sense IVA</span></td>
+        <td class="esq" style="border-bottom:0;padding-bottom:0;white-space:nowrap"><span style="font-family:ui-monospace,'Courier New',monospace">48.4</span> → <b>48,40 €</b></td></tr>
+    <tr><td class="esq" colspan="2" style="border-top:0"><span style="white-space:nowrap"><span class="tecla">4</span><span class="tecla">0</span><span class="tecla">×</span><span class="tecla">1</span><span class="tecla">.</span><span class="tecla">2</span><span class="tecla">1</span><span class="tecla exe">EXE</span></span></td></tr>
+    <tr><td class="esq" style="border-bottom:0;padding-bottom:0"><b>Dos canvis</b><br><span style="color:var(--gris-2)">300 €: primer − 20 %, després + 21 %</span></td>
+        <td class="esq" style="border-bottom:0;padding-bottom:0;white-space:nowrap"><span style="font-family:ui-monospace,'Courier New',monospace">290.4</span> → <b>290,40 €</b></td></tr>
+    <tr><td class="esq" colspan="2" style="border-top:0"><span style="white-space:nowrap"><span class="tecla">3</span><span class="tecla">0</span><span class="tecla">0</span><span class="tecla">×</span><span class="tecla">0</span><span class="tecla">.</span><span class="tecla">8</span><span class="tecla">×</span><span class="tecla">1</span><span class="tecla">.</span><span class="tecla">2</span><span class="tecla">1</span><span class="tecla exe">EXE</span></span></td></tr>
+    <tr><td class="esq" style="border-bottom:0;padding-bottom:0"><b>Terminis</b><br><span style="color:var(--gris-2)">12 quotes de 24 €</span></td>
+        <td class="esq" style="border-bottom:0;padding-bottom:0;white-space:nowrap"><span style="font-family:ui-monospace,'Courier New',monospace">288</span> → <b>288 €</b></td></tr>
+    <tr><td class="esq" colspan="2" style="border-top:0"><span style="white-space:nowrap"><span class="tecla">1</span><span class="tecla">2</span><span class="tecla">×</span><span class="tecla">2</span><span class="tecla">4</span><span class="tecla exe">EXE</span></span></td></tr>
+    <tr><td class="esq" style="border-bottom:0;padding-bottom:0"><b>Arrel</b><br><span style="color:var(--gris-2)">√7</span></td>
+        <td class="esq" style="border-bottom:0;padding-bottom:0;white-space:nowrap"><span style="font-family:ui-monospace,'Courier New',monospace">2.645751311</span> → <b>2,645751311…</b></td></tr>
+    <tr><td class="esq" colspan="2" style="border-top:0"><span style="white-space:nowrap"><span class="tecla">√</span><span class="tecla">7</span><span class="tecla exe">EXE</span></span></td></tr>
+  </table>
+  <div class="clau">
+    <p>A la calculadora, la coma s'escriu amb un <b>punt</b>: 0,8 és <span style="white-space:nowrap"><span class="tecla">0</span><span class="tecla">.</span><span class="tecla">8</span></span>.</p>
+    <p><span class="tecla exe">EXE</span> dona el resultat. <span class="tecla">AC</span> ho esborra tot. <span class="tecla">DEL</span> esborra l'última tecla.</p>
+  </div>
+  <div class="pag">Targeta de la calculadora · cara 1</div>
+</div>
+
+<div class="full targeta">
+  <h1 class="cara-titol">Què faig amb el resultat</h1>
+  <h2>Primer pensa per a què el vols</h2>
+  <div class="targetes">
+    <div><div class="et">Ho dic</div><div class="val">1,7</div><div class="et">1 decimal</div></div>
+    <div><div class="et">Ho compro</div><div class="val">1,70</div><div class="et">2 decimals</div></div>
+    <div><div class="et">Ho tallo</div><div class="val">1,697</div><div class="et">3 decimals</div></div>
+  </div>
+  <div class="clau">
+    <h2>Arrodonir</h2>
+    <p>Mira la xifra que ve just després de l'última que et quedes.</p>
+    <p>Si és 0, 1, 2, 3 o 4, l'última no canvia. Si és 5, 6, 7, 8 o 9, l'última puja 1.</p>
+    <p>2,6457513… amb 2 decimals: <b>2,65</b>. Amb 1 decimal: <b>2,6</b>.</p>
+  </div>
+  <div class="clau">
+    <h2>Els diners, sempre amb 2 decimals</h2>
+    <p>Surt 48.4 → escriu <b>48,40 €</b>.</p>
+  </div>
+  <div class="clau">
+    <h2>Abans d'escriure</h2>
+    <p>Pregunta't: què he demanat a la calculadora, i per què?</p>
+  </div>
+  <div class="pag">Targeta de la calculadora · cara 2</div>
+</div>
+
+</body>
+</html>
