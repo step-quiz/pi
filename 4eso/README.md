@@ -209,8 +209,7 @@ llegeix a `verifica.html`.
 
 **Pendent**, documentat a `docs/CONTINUAR.md`:
 
-- contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real;
-- no hi ha mòdul d'estadística ni d'atzar (per a la U6 l'eina és el full de càlcul).
+- contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real.
 
 ---
 

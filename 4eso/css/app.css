@@ -96,6 +96,9 @@ input[type=number],input[type=text]{font:inherit;font-family:var(--tipus);border
 .precisio button[aria-pressed="true"]{background:var(--blau);color:#fff}
 .precisio button[aria-pressed="true"] .et{color:#fff}
 .precisio svg{width:28px;height:28px;margin:0 auto .25rem;display:block}
+.precisio .rotul{font-size:1.05rem;font-weight:700;margin-bottom:.15rem}
+/* Al mòbil, una sota l'altra: de costat, la tercera sortia de la pantalla (6/10/2026). */
+@media (max-width:30rem){.precisio{flex-direction:column}}
 
 /* ---- llistes de canvis (mòdul factor) ---- */
 .canvis{list-style:none;margin:.6rem 0 0;padding:0}

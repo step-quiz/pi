@@ -485,6 +485,19 @@ for f in (ruta('caixa-eines.html'), ruta('dades', 'textos.js')):
 comprova(not adaptat, f"l'alumnat no ha de llegir «adaptat»: {adaptat[:6]}")
 print(f"  «adaptat» on ho llegeix l'alumnat: {len(adaptat)}")
 
+# El terme matemàtic és «enter», no «sencer», quan parla de nombres. És la decisió del
+# docent en revisar l'examen de la UD1 (comu/docs/EXAMENS-DOCX.md), la mateixa regla I de
+# 1eso/. Fins al 6/10/2026, la caixa, la fitxa i el repàs de la UD1 deien «sencers» i
+# l'examen, «enters». «Metres sencers» o «la barra sencera» són català correcte i s'hi queden.
+SENCER = re.compile(r'\b(nombres?|quantitats?|coses?|xifres?|dos)\s+sencer(s|a|es)?\b', re.I)
+sencers = []
+for f in (sorted(glob.glob(ruta('fitxes', '*.html')) + glob.glob(ruta('targetes', '*.html')))
+          + [ruta('caixa-eines.html'), ruta('dades', 'textos.js')]):
+    text = re.sub(r'<!--.*?-->|/\*.*?\*/', '', open(f, encoding='utf-8').read(), flags=re.S)
+    sencers += [(os.path.basename(f), m.group(0)) for m in SENCER.finditer(text)]
+comprova(not sencers, f"«sencer» parlant de nombres (el terme és «enter»): {sencers[:6]}")
+print(f"  «sencer» parlant de nombres: {len(sencers)}")
+
 print("\nDEPENDÈNCIES EXTERNES")
 remots = []
 for f in glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True) + glob.glob(ruta('css', '*.css')):

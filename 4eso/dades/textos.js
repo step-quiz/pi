@@ -18,7 +18,7 @@
      · Literal: res de frases fetes ni de metàfores. «Fes-hi un cop d'ull» no;
        «Mira la taula» sí.
      · La mateixa paraula per a la mateixa cosa, aquí i a les fitxes:
-       «nombres sencers», no «enters» en un lloc i «sencers» en un altre.
+       «nombres enters», no «enters» en un lloc i «sencers» en un altre.
      · Sense majúscules seguides, xifres romanes ni hores en format 24 h.
      · Una resposta equivocada es diu «Incorrecte» i va seguida d'una pista que
        proposa un camí diferent, no de la mateixa consigna repetida.
@@ -78,7 +78,7 @@ window.TEXTOS = {
   "1.1": {
     nom:       'On és el nombre a la recta?',
     titol:     'On és el nombre a la recta?',
-    ajuda:     'Tria un nombre. Mira entre quins dos nombres sencers és.',
+    ajuda:     'Tria un nombre. Mira entre quins dos nombres enters és.',
     marca:     '',
     situa:     'El nombre és entre *{baix}* i *{alt}*. És més a prop del *{prop}*.',
     titol2:    'Quants decimals fem servir?',
@@ -88,6 +88,9 @@ window.TEXTOS = {
     us_dic:    'Dic el nombre a una altra persona',
     us_compro: 'Pago una compra amb euros i cèntims',
     us_tallo:  'Tallo una fusta i mesuro els mil·límetres',
+    et_dic:    'Ho dic',
+    et_compro: 'Ho compro',
+    et_tallo:  'Ho tallo',
     decimal:   'decimal',
     decimals:  'decimals',
     puja:      'L\'última xifra puja 1, perquè la xifra següent és 5 o més.',
@@ -297,6 +300,9 @@ window.TEXTOS_GUIA = {
     us_dic:    ["Targeta de precisió: parlar", []],
     us_compro: ["Targeta de precisió: comprar", []],
     us_tallo:  ["Targeta de precisió: tallar", []],
+    et_dic:    ["Rètol de la targeta de precisió «parlar»: el mateix de la fitxa i de la targeta de la calculadora", []],
+    et_compro: ["Rètol de la targeta de precisió «comprar»: el mateix de la fitxa i de la targeta de la calculadora", []],
+    et_tallo:  ["Rètol de la targeta de precisió «tallar»: el mateix de la fitxa i de la targeta de la calculadora", []],
     decimal:   ["Paraula en singular, a les targetes", []],
     decimals:  ["Paraula en plural, a les targetes", []],
     puja:      ["Avís quan l'arrodoniment fa pujar l'última xifra", []],

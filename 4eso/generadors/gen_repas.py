@@ -45,7 +45,7 @@ UNITATS = {
     recorda="Arrodonir no és tallar. Primer pensa per a què ho vols.",
     trencada="b",
     una=[
-      ("Entre quins dos nombres sencers cau.", f"√7 = 2,6457… cau entre {ms('2')} i {ms('3')}.", "2 i 3", 1),
+      ("Entre quins dos nombres enters cau.", f"√7 = 2,6457… cau entre {ms('2')} i {ms('3')}.", "2 i 3", 1),
       ("Arrodoneix a 1 decimal.", f"3,4817… → {B}", "3,5", 3),
       ("Els decimals que s'acaben.", f"√10, √49 o π? El que s'acaba: {B}", "√49 = 7", 4),
       ("Ho compro: 2 decimals.", f"Tela, per centímetres: 2,4851… m. En demano {B} m.", "2,49 m", 5),
@@ -53,7 +53,7 @@ UNITATS = {
       ("Amunt o avall?", f"Som 17. A cada taxi hi caben 4. Calen {B} taxis.", "17 ÷ 4 = 4,25 → amunt: 5 taxis", 7),
     ],
     apres=[
-      ("Dic entre quins dos sencers cau un nombre.", "√7 és entre 2 i 3", 1),
+      ("Dic entre quins dos enters cau un nombre.", "√7 és entre 2 i 3", 1),
       ("Marco un nombre a la recta.", "√7 cau prop del 3", 2),
       ("Arrodoneixo amb els decimals que em demanen.", "2,6457… → 2,65", 3),
       ("Sé quins nombres tenen decimals que s'acaben.", "√9 = 3", 4),
