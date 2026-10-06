@@ -257,14 +257,14 @@ def cercle_d(r, aria, centre=True, radi=False, diametre=False, rot_radi=None, ro
         _linia(d, cx - r, cy, cx + r, cy, NEGRE, 3)
         _punt(d, cx - r, cy, 0.07); _punt(d, cx + r, cy, 0.07)
         if rot_diam:
-            d.text(cx, cy + min(0.5, r * 0.55), rot_diam, min(0.42, r * 0.34), 800)
+            d.text(cx, cy + min(0.5, r * 0.55), rot_diam, RETOL, 800)
     if radi:
         x, y = _pt(cx, cy, r, 50)
         _linia(d, cx, cy, x, y, NEGRE, 3)
         _punt(d, x, y, 0.07)
         if rot_radi:
             tx, ty = _pt(cx, cy, r * 0.55, 72)
-            d.text(tx, ty, rot_radi, 0.42, 800)
+            d.text(tx, ty, rot_radi, RETOL, 800)
     if centre:
         _punt(d, cx, cy, 0.1)
     return d
@@ -292,13 +292,13 @@ def figures_d(a, b, fins, m, aria_patro):
         <p style="margin:.1rem 0 0;font-size:14pt;font-weight:800">{n}</p></div>''' for n in range(1, fins + 1))
 
 
-def barres_d(dades, aria, m=0.42, ini=0, max_eix=None, buit=False, pintades=None, pas=2):
+def barres_d(dades, aria, m=0.42, ini=0, max_eix=None, buit=False, pintades=None, pas=2, amp_b=2.3):
     """Un gràfic de barres de quadrets, com a la caixa (tasca 28): cada quadret és 1. `ini`: on
     comença l'eix (per a la regla trencada: un eix que no comença a zero). Amb `buit`, la quadrícula
     per pintar-hi les barres; `pintades` = quantes barres ja van pintades a mà (l'apartat resolt)."""
     top = max_eix or max(v for _, v in dades)
     files = top - ini
-    esq, baix, amp_b = 1.0, 0.9, 1.9
+    esq, baix = 1.0, 0.9
     W = esq + len(dades) * amp_b + 0.3
     H = files * m + baix + 0.4
     d = Dibuix(W, H, aria)
@@ -308,7 +308,7 @@ def barres_d(dades, aria, m=0.42, ini=0, max_eix=None, buit=False, pintades=None
         y = y0 - k * m
         if (v - ini) % pas == 0 or k == files:
             d.cru(f'<line x1="{d.px(esq)}" y1="{d.px(y)}" x2="{d.px(W - 0.1)}" y2="{d.px(y)}" stroke="{G3}" stroke-width="0.9"/>')
-            d.text(esq - 0.18, y + 0.12, str(v), 0.34, 400, ancora="end")
+            d.text(esq - 0.18, y + 0.15, str(v), RETOL, 400, ancora="end")
     _linia(d, esq, y0, esq, 0.2, G1, 2.2)
     _linia(d, esq, y0, W - 0.1, y0, G1, 2.2)
     for i, (et, v) in enumerate(dades):
@@ -322,7 +322,7 @@ def barres_d(dades, aria, m=0.42, ini=0, max_eix=None, buit=False, pintades=None
                     d.pintat(x, y0 - (k + 1) * m, 1, 1, m)
                 else:
                     d.quadret(x, y0 - (k + 1) * m, m)
-        d.text(esq + i * amp_b + amp_b / 2, y0 + 0.5, et, 0.34, 700)
+        d.text(esq + i * amp_b + amp_b / 2, y0 + 0.55, et, RETOL, 700)
     return d
 
 

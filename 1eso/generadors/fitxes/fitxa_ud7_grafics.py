@@ -72,7 +72,7 @@ pagina(f'''  <div class="exercici">
 
 # ===================================================================== pàgina 4: la regla trencada
 def dos(ini, a, b, aria):
-    return barres_d([("Classe A", a), ("Classe B", b)], aria, m=0.4, ini=ini, max_eix=b + 1, pas=1 if b - ini < 8 else 2)
+    return barres_d([("Classe A", a), ("Classe B", b)], aria, m=0.55, ini=ini, max_eix=b + 1, pas=1 if b - ini < 8 else 2)
 
 
 R = [("a", 20, 22, 24, "No", True), ("b", 10, 12, 16, "No", False)]
@@ -107,7 +107,7 @@ pagina(f'''  <h2>A la vida de cada dia: el meu gràfic</h2>
       <tr><th>Dia</th>{"".join(f"<th>{x}</th>" for x in dies)}</tr>
       <tr><th>Hores</th>{'<td class="omplir"></td>' * 7}</tr>
     </table>
-    <div class="figura neta" style="margin-top:.5rem">{barres_d([(x, 12) for x in dies], "Un gràfic buit per pintar les hores de son de cada dia", m=0.42, buit=True, max_eix=12).svg("")}</div>
+    <div class="figura neta" style="margin-top:.5rem">{barres_d([(x, 12) for x in dies], "Un gràfic buit per pintar les hores de son de cada dia", m=0.42, buit=True, max_eix=12, amp_b=1.9).svg("")}</div>
     <p class="frase" style="margin:.2rem 0 0">El dia que vaig dormir més: {buit()}.</p>
   </div>''', classe="full vida")
 

@@ -13,6 +13,9 @@ CM = 37.795            # píxels CSS per centímetre
 NEGRE, G1, G2, G3 = "#000", "#333", "#5E5E5E", "#8A8A8A"
 VORA_SUAU, F1, F2, F3, F4 = "#BFBFBF", "#F2F2F2", "#E4E4E4", "#D4D4D4", "#C4C4C4"
 MS = "#3A3A3A"         # la tinta de la lletra manuscrita
+# Els rètols dels dibuixos: 12 pt com a mínim tal com surten al PDF (regla 3). 0,43 cm són
+# 12,2 pt. Fins al 6/10/2026 eren 0,42 cm, que fan 11,9 pt, i alguns, 0,34 cm (9,6 pt).
+RETOL = 0.43
 
 
 def f(v):
@@ -73,12 +76,12 @@ class Dibuix:
         self.el.append(f'<text x="{self.px(x)}" y="{self.px(y)}" font-size="{self.px(mida)}" '
                        f'font-weight="{pes}" text-anchor="{ancora}" fill="{c}"{estil}>{t}</text>')
 
-    def clau_dalt(self, x1, x2, y, t, mida=0.42):
+    def clau_dalt(self, x1, x2, y, t, mida=RETOL):
         self.el.append(f'<path d="M{self.px(x1)} {self.px(y + 0.2)} V{self.px(y)} H{self.px(x2)} '
                        f'V{self.px(y + 0.2)}" fill="none" stroke="{G2}" stroke-width="1.6"/>')
         self.text((x1 + x2) / 2, y - 0.15, t, mida, color=G1)
 
-    def clau_esq(self, x, y1, y2, t, mida=0.42):
+    def clau_esq(self, x, y1, y2, t, mida=RETOL):
         self.el.append(f'<path d="M{self.px(x + 0.2)} {self.px(y1)} H{self.px(x)} V{self.px(y2)} '
                        f'H{self.px(x + 0.2)}" fill="none" stroke="{G2}" stroke-width="1.6"/>')
         self.text(x - 0.15, (y1 + y2) / 2 + mida * 0.35, t, mida, ancora="end", color=G1)

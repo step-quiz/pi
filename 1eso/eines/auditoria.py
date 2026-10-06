@@ -408,8 +408,9 @@ def CSS_PDF():
 
 
 # Als rètols dels dibuixos, de moment només avisa: els números de dins de les
-# graelles de 100 (unitat 4) i de les quadrícules són molt més petits, i fer-los
-# créixer demana redibuixar-les. Quan estiguin fets, es posa a True.
+# graelles de 100 (unitats 2 i 4) i els dels angles dels triangles de la unitat 6
+# són més petits, i fer-los créixer demana redibuixar-los. La resta ja fan 12 pt
+# (6/10/2026). Quan estiguin fets, es posa a True.
 DIBUIXOS_OBLIGATORIS = False
 
 def main():

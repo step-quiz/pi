@@ -61,7 +61,9 @@ en un document a part:
 | `comu/docs/EXAMENS-DOCX.md` | Les regles: com ha de ser l'examen i per què, i el procediment pas a pas |
 | `4eso/generadors/examens-privat.json` | El curs i l'adaptació que surten a l'examen imprès. Només a l'ordinador de qui genera l'examen: no es puja mai |
 
-Ara hi ha l'examen de la **UD1**. Les unitats 2 a 7 encara no en tenen.
+Les set unitats ja tenen examen als dos cursos: `4eso/generadors/examens/ud1.js` a `ud7.js` i
+`1eso/generadors/examens/ud1.js` a `ud7.js`. Els passos de sota serveixen per fer-ne un de nou
+o per tornar a fer un examen que ja existeix.
 
 ### Fer l'examen d'una unitat nova amb una IA
 

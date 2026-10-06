@@ -25,92 +25,92 @@
     "pagines": 2
   },
   "ud1-alumnat.pdf": {
-    "empremta": "7152e16be3e831781466504506ee0f4dc451ae6048d6fff5bdd2ad0f5865bc38",
+    "empremta": "755ebd3f8c2682ec56bc379528b8b50223f4b1795f103c859845e9f4db86f571",
     "font": "fitxes/ud1.html",
     "pagines": 9
   },
   "ud1-nombres-alumnat.pdf": {
-    "empremta": "50ce2a78b9486e860658022e5e531da3f9f4fae5135cb415840b6a723328dcf4",
+    "empremta": "0f2de672203e7f20da8313e7b3a487ce6957195a638b17298f0053877a72e7fe",
     "font": "fitxes/ud1-nombres.html",
     "pagines": 6
   },
   "ud1-nombres-solucionari.pdf": {
-    "empremta": "50ce2a78b9486e860658022e5e531da3f9f4fae5135cb415840b6a723328dcf4",
+    "empremta": "0f2de672203e7f20da8313e7b3a487ce6957195a638b17298f0053877a72e7fe",
     "font": "fitxes/ud1-nombres.html",
     "pagines": 2
   },
   "ud1-ordre-alumnat.pdf": {
-    "empremta": "2d3780e122d4fdaca287ebeffb5df695b7420c6a68253d6491523b0834f61d57",
+    "empremta": "76523d4ed9df4093ad7dcbb8328581c44acecb40347a7f58a2a24287effd12af",
     "font": "fitxes/ud1-ordre.html",
     "pagines": 6
   },
   "ud1-ordre-solucionari.pdf": {
-    "empremta": "2d3780e122d4fdaca287ebeffb5df695b7420c6a68253d6491523b0834f61d57",
+    "empremta": "76523d4ed9df4093ad7dcbb8328581c44acecb40347a7f58a2a24287effd12af",
     "font": "fitxes/ud1-ordre.html",
     "pagines": 2
   },
   "ud1-repas-alumnat.pdf": {
-    "empremta": "4937aa565cafcf3fbdb708d9066314f6c16af8c17e50c94f02861a7995e90cca",
+    "empremta": "7470247b761a2237967f32c3383a7f542b0df5b7ea465ebb25e118c94b38181c",
     "font": "fitxes/ud1-repas.html",
     "pagines": 6
   },
   "ud1-repas-solucionari.pdf": {
-    "empremta": "4937aa565cafcf3fbdb708d9066314f6c16af8c17e50c94f02861a7995e90cca",
+    "empremta": "7470247b761a2237967f32c3383a7f542b0df5b7ea465ebb25e118c94b38181c",
     "font": "fitxes/ud1-repas.html",
     "pagines": 2
   },
   "ud1-solucionari.pdf": {
-    "empremta": "7152e16be3e831781466504506ee0f4dc451ae6048d6fff5bdd2ad0f5865bc38",
+    "empremta": "755ebd3f8c2682ec56bc379528b8b50223f4b1795f103c859845e9f4db86f571",
     "font": "fitxes/ud1.html",
     "pagines": 3
   },
   "ud2-alumnat.pdf": {
-    "empremta": "86ce068b4dcdfb8b983d08246343126086fe7170c3ddf32dfaef621b959a4012",
+    "empremta": "8aad7804b7c8e1f3b3892ad460ee643dc31d9492beee5553656536333af93487",
     "font": "fitxes/ud2.html",
     "pagines": 7
   },
   "ud2-divisors-alumnat.pdf": {
-    "empremta": "860161a5ea58f0abb33cd520573ba9be99e43ad578852f895b848cb50f62339d",
+    "empremta": "fa46dff35405a29351743676ab6809d53953fcbddfdfcea2d087f6316ceaa669",
     "font": "fitxes/ud2-divisors.html",
     "pagines": 6
   },
   "ud2-divisors-solucionari.pdf": {
-    "empremta": "860161a5ea58f0abb33cd520573ba9be99e43ad578852f895b848cb50f62339d",
+    "empremta": "fa46dff35405a29351743676ab6809d53953fcbddfdfcea2d087f6316ceaa669",
     "font": "fitxes/ud2-divisors.html",
     "pagines": 2
   },
   "ud2-factors-alumnat.pdf": {
-    "empremta": "d77c785c57962c76731c296b27a2fe4dddb8d2f5a25e27ffdfbe6dff18a181bf",
+    "empremta": "6530f9a2f9b04a4a83fac28c29623253b1fc472fc4678e86db6b484c5a38f244",
     "font": "fitxes/ud2-factors.html",
     "pagines": 5
   },
   "ud2-factors-solucionari.pdf": {
-    "empremta": "d77c785c57962c76731c296b27a2fe4dddb8d2f5a25e27ffdfbe6dff18a181bf",
+    "empremta": "6530f9a2f9b04a4a83fac28c29623253b1fc472fc4678e86db6b484c5a38f244",
     "font": "fitxes/ud2-factors.html",
     "pagines": 2
   },
   "ud2-repartir-alumnat.pdf": {
-    "empremta": "b265c9d6a3b816d7a157692001c249765bac6eb09208257dad9e4e0bc0b9e63a",
+    "empremta": "d2cce4827e4b726742a93aa3f520926683608ac6f4ae4f2f5e326f71beddcaa7",
     "font": "fitxes/ud2-repartir.html",
     "pagines": 6
   },
   "ud2-repartir-solucionari.pdf": {
-    "empremta": "b265c9d6a3b816d7a157692001c249765bac6eb09208257dad9e4e0bc0b9e63a",
+    "empremta": "d2cce4827e4b726742a93aa3f520926683608ac6f4ae4f2f5e326f71beddcaa7",
     "font": "fitxes/ud2-repartir.html",
     "pagines": 2
   },
   "ud2-repas-alumnat.pdf": {
-    "empremta": "f929dac5f1726fee55a12459567a5aa23c0c01c291f510a6d721ac758cd98963",
+    "empremta": "0253c906fb6a039e28bc825c45a574d7637419af45582467eaec1625668d4308",
     "font": "fitxes/ud2-repas.html",
     "pagines": 6
   },
   "ud2-repas-solucionari.pdf": {
-    "empremta": "f929dac5f1726fee55a12459567a5aa23c0c01c291f510a6d721ac758cd98963",
+    "empremta": "0253c906fb6a039e28bc825c45a574d7637419af45582467eaec1625668d4308",
     "font": "fitxes/ud2-repas.html",
     "pagines": 2
   },
   "ud2-solucionari.pdf": {
-    "empremta": "86ce068b4dcdfb8b983d08246343126086fe7170c3ddf32dfaef621b959a4012",
+    "empremta": "8aad7804b7c8e1f3b3892ad460ee643dc31d9492beee5553656536333af93487",
     "font": "fitxes/ud2.html",
     "pagines": 3
   },
@@ -185,7 +185,7 @@
     "pagines": 2
   },
   "ud4-alumnat.pdf": {
-    "empremta": "cec60f3610136bee6887d083efb513bcc44cbf89717ced189fddb18746e523fe",
+    "empremta": "89885589782a1ebea45d538b21a5969dec5fd98c29302f784be4053dd48ea660",
     "font": "fitxes/ud4.html",
     "pagines": 5
   },
@@ -200,12 +200,12 @@
     "pagines": 2
   },
   "ud4-multfrac-alumnat.pdf": {
-    "empremta": "a99abc7c9b81ad4cf61f1eda4136fdad6ef26e8e66bc7deb8e6270a7bb0c6330",
+    "empremta": "f10950d0d3bb61ecf71e075c640fff3c1e2679b26a1979b5499317b53ff11b67",
     "font": "fitxes/ud4-multfrac.html",
     "pagines": 5
   },
   "ud4-multfrac-solucionari.pdf": {
-    "empremta": "a99abc7c9b81ad4cf61f1eda4136fdad6ef26e8e66bc7deb8e6270a7bb0c6330",
+    "empremta": "f10950d0d3bb61ecf71e075c640fff3c1e2679b26a1979b5499317b53ff11b67",
     "font": "fitxes/ud4-multfrac.html",
     "pagines": 2
   },
@@ -220,17 +220,17 @@
     "pagines": 2
   },
   "ud4-repas-alumnat.pdf": {
-    "empremta": "e55995a61705991d1d68ce7f23d011d46c3d301a3fe0bd92eed6b090a357fd91",
+    "empremta": "572c675150e2c4c410e38a477af139a2e5829ff20fcd713dde22bd2a8c9bc2e6",
     "font": "fitxes/ud4-repas.html",
     "pagines": 4
   },
   "ud4-repas-solucionari.pdf": {
-    "empremta": "e55995a61705991d1d68ce7f23d011d46c3d301a3fe0bd92eed6b090a357fd91",
+    "empremta": "572c675150e2c4c410e38a477af139a2e5829ff20fcd713dde22bd2a8c9bc2e6",
     "font": "fitxes/ud4-repas.html",
     "pagines": 2
   },
   "ud4-solucionari.pdf": {
-    "empremta": "cec60f3610136bee6887d083efb513bcc44cbf89717ced189fddb18746e523fe",
+    "empremta": "89885589782a1ebea45d538b21a5969dec5fd98c29302f784be4053dd48ea660",
     "font": "fitxes/ud4.html",
     "pagines": 2
   },
@@ -300,12 +300,12 @@
     "pagines": 6
   },
   "ud6-cercle-alumnat.pdf": {
-    "empremta": "725ca1f14f5576059802b33a26ce25291b87bc5fcf83c81e1e54686ec26d3280",
+    "empremta": "26deff1ec6c1f92303001847b36e3cb490ae5bb6485f4b5b27eac3edc192aae3",
     "font": "fitxes/ud6-cercle.html",
     "pagines": 5
   },
   "ud6-cercle-solucionari.pdf": {
-    "empremta": "725ca1f14f5576059802b33a26ce25291b87bc5fcf83c81e1e54686ec26d3280",
+    "empremta": "26deff1ec6c1f92303001847b36e3cb490ae5bb6485f4b5b27eac3edc192aae3",
     "font": "fitxes/ud6-cercle.html",
     "pagines": 2
   },
@@ -360,12 +360,12 @@
     "pagines": 5
   },
   "ud7-grafics-alumnat.pdf": {
-    "empremta": "852ccce4b9c28bba126aa65a3a90ab93022e01235d114171ba5fafcd5c9d2372",
+    "empremta": "bc6aa5eac9af7c307aa944ccefc1f3a2764d6f445eb6a39aea08a38629e8a316",
     "font": "fitxes/ud7-grafics.html",
     "pagines": 5
   },
   "ud7-grafics-solucionari.pdf": {
-    "empremta": "852ccce4b9c28bba126aa65a3a90ab93022e01235d114171ba5fafcd5c9d2372",
+    "empremta": "bc6aa5eac9af7c307aa944ccefc1f3a2764d6f445eb6a39aea08a38629e8a316",
     "font": "fitxes/ud7-grafics.html",
     "pagines": 2
   },
@@ -380,12 +380,12 @@
     "pagines": 2
   },
   "ud7-repas-alumnat.pdf": {
-    "empremta": "09bb229cbef97e3c4dd97e523140a7e1d4f56ef6c7ecf93c659cc5df6b47aafd",
+    "empremta": "8e60b87746ea5e188554f3d8487673edee47b3f59664cf2cc58201e36e1592e7",
     "font": "fitxes/ud7-repas.html",
     "pagines": 5
   },
   "ud7-repas-solucionari.pdf": {
-    "empremta": "09bb229cbef97e3c4dd97e523140a7e1d4f56ef6c7ecf93c659cc5df6b47aafd",
+    "empremta": "8e60b87746ea5e188554f3d8487673edee47b3f59664cf2cc58201e36e1592e7",
     "font": "fitxes/ud7-repas.html",
     "pagines": 2
   },

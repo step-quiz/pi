@@ -80,7 +80,7 @@ it = []
 for l, d_, diu, bona, bo_n, r in E3:
     frase = "fa servir el diàmetre" if bona == "Sí" else "fa servir el radi"
     it.append(caixa(f'''      <div style="display:flex;gap:.6cm;align-items:center">
-        <div>{cercle_d(0.9, f"Una circumferència de {d_} cm de diàmetre", diametre=True, rot_diam=f"{d_} cm").svg("")}</div>
+        <div style="flex:0 0 auto">{cercle_d(1.0, f"Una circumferència de {d_} cm de diàmetre", diametre=True, rot_diam=f"{d_} cm").svg("")}</div>
         <div>
           <p style="margin:0;font-size:15pt;font-weight:700"><span class="apartat">{l})</span> Diàmetre de {d_} cm. La Nerea diu: una mica més de {diu} cm. Té raó?</p>
           <div style="display:flex;gap:.6cm;align-items:center">{tria(["Sí", "No"], bona if r else None, mida="14pt", ample="2cm")}<span class="frase" style="font-size:15pt;line-height:1.4">Una mica més de {ms(bo_n + " cm") if r else buit_curt() + " cm"}</span></div>

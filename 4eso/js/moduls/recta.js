@@ -13,11 +13,14 @@
     { et: "√11", v: Math.sqrt(11) },
     { et: "√30", v: Math.sqrt(30) }
   ];
-  /* Els mateixos tres usos que a la fitxa impresa, amb els mateixos decimals. */
+  /* Els mateixos tres usos que a la fitxa impresa, amb els mateixos decimals i el
+     mateix rètol: «Ho dic», «Ho compro», «Ho tallo» (regla 8: paper i pantalla mostren
+     el mateix). A sota, la frase literal de Lectura Fàcil. Fins al 6/10/2026 la
+     pantalla només en tenia la frase, i no se semblava a la fitxa ni a la targeta. */
   const USOS = [
-    { id: "parla",  clau: "1.1.us_dic",    dec: 1 },
-    { id: "compra", clau: "1.1.us_compro", dec: 2 },
-    { id: "talla",  clau: "1.1.us_tallo",  dec: 3 }
+    { id: "parla",  rotul: "1.1.et_dic",    clau: "1.1.us_dic",    dec: 1 },
+    { id: "compra", rotul: "1.1.et_compro", clau: "1.1.us_compro", dec: 2 },
+    { id: "talla",  rotul: "1.1.et_tallo",  clau: "1.1.us_tallo",  dec: 3 }
   ];
   let rectaV = NOMBRES[0].v, rectaUs = null, rectaModel = true;
 
@@ -98,11 +101,13 @@
       const b = document.createElement("button");
       b.setAttribute("aria-pressed", i === 1);         // el model: «Ho compro», 2 decimals
       b.appendChild(icona("i-" + u.id, 28));
+      const r = document.createElement("div"); r.className = "rotul";
+      r.innerHTML = txt(u.rotul);
       const e = document.createElement("div"); e.className = "et";
       e.innerHTML = txt(u.clau);
       const d = document.createElement("div"); d.style.fontWeight = 600;
       d.innerHTML = u.dec + " " + txt(u.dec === 1 ? "1.1.decimal" : "1.1.decimals");
-      b.append(e, d);
+      b.append(r, e, d);
       b.onclick = () => {
         $$("button", cont).forEach(x => x.setAttribute("aria-pressed", "false"));
         b.setAttribute("aria-pressed", "true");
@@ -124,7 +129,7 @@
      UNA TASCA TANCADA DE CINC NOMBRES, un cada vegada: Inici ● ○ ○ ○ ○ Final.
        · encert al primer intent            → «Correcte.»
        · primer error → «Incorrecte. Ara provem-ho d'una altra manera.» i la
-         pista: la recta marca l'interval entre els dos nombres sencers, que és
+         pista: la recta marca l'interval entre els dos nombres enters, que és
          l'estratègia de l'exercici 1.1, i diu cap a quina banda és;
        · segon error  → l'app ensenya on és, i es passa al següent.
      Amb el teclat: el tabulador porta a la recta, les fletxes mouen el cursor
@@ -149,7 +154,7 @@
     // prop de les vores, l'etiqueta s'alinea cap endins perquè no es talli
     const ancora = x => (x > 560 ? "end" : x < 100 ? "start" : "middle");
 
-    // la pista del primer error: l'interval entre els dos nombres sencers
+    // la pista del primer error: l'interval entre els dos nombres enters
     if (posaIntents >= 1 && res !== "be" && res !== "pista") {
       svg.appendChild(el("rect", { x: px(baix), y: y - 16, width: px(baix + 1) - px(baix), height: 32,
         rx: 7, style: "fill:var(--blau-suau)" }));

@@ -190,8 +190,10 @@ trenqui cap regla (cap frase sense definir, cap «×», fins a 999); que les sum
 portin i les multiplicacions siguin de la targeta; el contrast aplicat, la mida de cada botó i el
 focus, en clar i en fosc, al mòbil i a l'ordinador. I la lletra de les fitxes i les targetes
 tal com surt al PDF: cap text de l'alumnat per sota de 14 pt. Els rètols dels dibuixos per sota
-de 12 pt, de moment, només en surten com a avís: els números de dins de les graelles de 100 i de
-les quadrícules són molt més petits, i fer-los créixer demana redibuixar-les.
+de 12 pt, de moment, només en surten com a avís: els números de dins de les graelles de 100 i
+dels angles dels triangles de la unitat 6 són més petits, i fer-los créixer demana
+redibuixar-los. La resta de rètols ja hi arriben (6/10/2026): la mida és `RETOL`, a
+`generadors/fitxes/peces_comunes.py`.
 
 **Amb el motor dels PDF** (`eines/mesura.py`, amb WeasyPrint): que cada pàgina càpiga en un A4
 d'alt i d'ample. Res no pot sortir més de mig centímetre pel marge dret, ni el text d'una opció

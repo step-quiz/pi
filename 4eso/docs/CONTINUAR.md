@@ -176,9 +176,9 @@ Quan hi puguis accedir, no cal un resum del lloc. Cal respondre aquestes pregunt
 | Un patró d'obertura silenciosa | totes les pàgines 1 de les fitxes |
 | Una progressió d'animació aprofitable | mòduls de l'app, que ja fan revelació pas a pas |
 
-**Dos buits coneguts de l'app:** no hi ha mòdul d'estadística ni d'atzar. Per a la U6
-l'eina és el full de càlcul mateix, que l'alumnat ja fa servir al nivell del grup; per a
-la U7, un arbre interactiu seria l'addició natural.
+**Els dos buits que tenia l'app,** l'estadística i l'atzar, es van omplir el 30/9/2026 amb
+dos mòduls nous: Aplanar (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de
+la U7, tasca 9). Per a la U7, un arbre interactiu continua sent l'addició natural.
 
 **Un punt pendent i independent d'això:** la disposició de tecles i l'etiqueta `FORMAT`
 del mòdul Calculadora estan pendents de contrastar amb una Casio fx-82SP CW real. Hi ha
@@ -230,6 +230,19 @@ què**, però no toquis l'ordre de les pàgines conceptuals d'una fitxa ja valid
 dir-l'hi: aquesta sí que la va voler aprovar.
 
 ---
+
+## 10c. 6/10/2026: «enters», els rètols de precisió i els pendents al dia
+
+- **«Nombres enters», no «sencers».** La fitxa i el repàs de la UD1 i la caixa d'eines deien
+  «nombres sencers», i l'examen, «enters», que és el que va decidir el docent en revisar-lo
+  (`comu/docs/EXAMENS-DOCX.md`). «Coses senceres» passa a «quantitats enteres, sense
+  decimals». `eines/comprova.py` ara ho vigila, com a `1eso/`. PDF de la UD1 i del repàs refets.
+- **Les targetes de precisió de la caixa (1.1) diuen el mateix que el paper:** «Ho dic»,
+  «Ho compro» i «Ho tallo», com la fitxa i la targeta de la calculadora (regla 8). A sota hi ha
+  la frase literal de Lectura Fàcil, que ja hi era. Al mòbil van una sota l'altra: de costat,
+  la tercera sortia de la pantalla. `eines/auditoria.py`: 0 problemes en 68 estats.
+- **Pendents al dia:** el mòdul d'estadística i d'atzar ja hi és des del 30/9 (vegeu més avall),
+  i el `README.md` de l'arrel ja no diu que les unitats 2 a 7 no tenen examen.
 
 ## 10b. 30/9/2026: el que 4eso/ agafa de 1eso/
 
@@ -347,9 +360,9 @@ Res del contingut ha canviat en aquesta reorganització.
    que no s'ha pogut substituir és `PILOTA_GRAN` (la de la pàgina 1 de la U5): la versió que
    hi ha a la fitxa no coincideix amb la que genera l'script, segurament perquè es va
    retocar a mà. Si algun dia es regenera, mira-la abans.
-3. **No hi ha mòdul d'estadística ni d'atzar.** Per a la U6 l'eina és el full de càlcul,
-   que l'alumnat ja fa servir al nivell del grup. Per a la U7, un arbre interactiu seria
-   l'addició natural, i `VERIFICACIO-MATHISVISUAL.md` §6 avisa que allà no hi ha res per
-   copiar de fora.
+3. ~~**No hi ha mòdul d'estadística ni d'atzar.**~~ **FET · 30 de setembre de 2026:** Aplanar
+   (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de la U7, tasca 9). Per a
+   la U7, un arbre interactiu continua sent l'addició natural, i `VERIFICACIO-MATHISVISUAL.md`
+   §6 avisa que allà no hi ha res per copiar de fora.
 4. **El graó «raó → taxa» de la U3.** Ja hi ha el pas del preu unitari, però es podria
    marcar més com a pas propi.
