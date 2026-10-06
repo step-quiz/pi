@@ -212,7 +212,7 @@ pagina(f'''  <div class="exercici">
 
 # ===================================================================== pàgina 6: la vida
 def diners(n100, n10, n1, aria):
-    b1w, b1h, b2w, b2h, r = 2.05, 1.1, 1.7, 0.95, 0.42
+    b1w, b1h, b2w, b2h, r = 2.05, 1.1, 1.7, 0.95, 0.55
     g = 0.22
     amp = n100 * (b1w + g) + n10 * (b2w + g) + n1 * (2 * r + g) + 0.6
     d = Dibuix(amp, b1h + 0.2, aria)
@@ -229,13 +229,13 @@ def diners(n100, n10, n1, aria):
         y = 0.1 + (b1h - b2h) / 2
         d.cru(f'<rect x="{d.px(x)}" y="{d.px(y)}" width="{d.px(b2w)}" height="{d.px(b2h)}" rx="{d.px(0.1)}" '
               f'fill="#fff" stroke="{G1}" stroke-width="2"/>')
-        d.text(x + b2w / 2, y + b2h / 2 + 0.15, "10 €", 0.4, 800)
+        d.text(x + b2w / 2, y + b2h / 2 + 0.15, "10 €", RETOL, 800)
         x += b2w + g
     x += 0.2
     for _ in range(n1):
         cx, cy = x + r, 0.1 + b1h / 2
         d.cru(f'<circle cx="{d.px(cx)}" cy="{d.px(cy)}" r="{d.px(r)}" fill="{F2}" stroke="{G1}" stroke-width="2"/>')
-        d.text(cx, cy + 0.13, "1 €", 0.34, 800)
+        d.text(cx, cy + 0.15, "1\u202f€", RETOL, 800)
         x += 2 * r + g
     return d
 

@@ -67,7 +67,7 @@ def repartiment(n, k, m, aria, rotuls=True):
             d.clau_esq(esq - 0.2, dalt, dalt + q * m, files_plenes(q))
         d.clau_dalt(esq, esq + k * m, dalt - 0.25, f"{k} a cada fila")
         if r:
-            d.text(esq + k * m + 0.25, y + m / 2 + 0.15, sobren(r), 0.42, 700, ancora="start")
+            d.text(esq + k * m + 0.25, y + m / 2 + 0.15, sobren(r), RETOL, 700, ancora="start")
     return d
 
 

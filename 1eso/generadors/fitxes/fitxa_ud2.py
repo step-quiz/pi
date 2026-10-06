@@ -249,13 +249,13 @@ def capses(n, aria):
 
 
 def monedes(n, aria):
-    r = 0.5
-    d = Dibuix(n * (2 * r + 0.18) + 0.1, 2 * r + 0.2, aria)
+    r = 0.56
+    d = Dibuix(n * (2 * r + 0.06) + 0.1, 2 * r + 0.2, aria)
     for i in range(n):
-        cx = 0.1 + r + i * (2 * r + 0.18)
+        cx = 0.1 + r + i * (2 * r + 0.06)
         d.cru(f'<circle cx="{d.px(cx)}" cy="{d.px(0.1 + r)}" r="{d.px(r)}" fill="{F2}" stroke="{G1}" stroke-width="2"/>')
         d.cru(f'<circle cx="{d.px(cx)}" cy="{d.px(0.1 + r)}" r="{d.px(r - 0.1)}" fill="none" stroke="{G3}" stroke-width="1"/>')
-        d.text(cx, 0.1 + r + 0.14, "2 €", 0.36, 800)
+        d.text(cx, 0.1 + r + 0.15, "2\u202f€", RETOL, 800)
     return d
 
 

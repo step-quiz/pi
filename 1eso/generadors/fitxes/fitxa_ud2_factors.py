@@ -128,7 +128,7 @@ def pisos(n_pisos, files, cols, aria, m=0.5):
     for p in range(n_pisos):
         x = 0.1 + p * (cols * m + gap)
         d.rectangle(x, 0.1, files, cols, m)
-        d.text(x + cols * m / 2, files * m + 0.65, f"pis {p + 1}", 0.4, 700)
+        d.text(x + cols * m / 2, files * m + 0.65, f"pis {p + 1}", RETOL, 700)
     return d
 
 

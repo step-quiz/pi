@@ -86,7 +86,7 @@ def dibuix_rectangles(n, m, aria, rotuls=True):
     y = 0.1
     for a, b in rs:
         if rotuls:
-            d.text(esq - 0.3, y + a * m / 2 + 0.15, f"{a} · {b}", 0.42, 800, ancora="end")
+            d.text(esq - 0.3, y + a * m / 2 + 0.15, f"{a} · {b}", RETOL, 800, ancora="end")
         d.rectangle(esq, y, a, b, m)
         y += a * m + 0.35
     return d

@@ -185,6 +185,20 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    targetes de consulta i les set unitats, que abans eren a la portada. `_headers` ja té les
    línies de memòria cau de `/1eso/`, i la fila de `1eso/` del `README.md` de l'arrel ja no diu
    «quan es faci». Els enllaços per a l'alumnat, a «Per al professorat», van agrupats per unitat.
+10. **Els rètols dels dibuixos a 12 pt: fet, tret de les graelles de 100 i dels triangles petits
+    · 6/10/2026.** Abans n'hi havia 1.597 per sota de 12 pt en 17 fitxes; ara, 1.430 en 5. La
+    mida dels rètols és en un sol lloc, `RETOL` a `generadors/fitxes/peces_comunes.py` (0,43 cm,
+    12,2 pt). Les claus («3 files», «1 de 2», «3 grups»), els rectangles d'un nombre, els pisos de
+    bombons, els diners (monedes una mica més grans), la circumferència i els gràfics de barres de
+    la unitat 7 (barres més amples i, a la regla trencada de l'eix, quadrets més alts) ja hi són. A
+    «Tros de tros», la capsa era més estreta que el dibuix i l'encongia fins al 81 %. **Queda per
+    decidir amb el docent:**
+    - els números de dins de les graelles de 100 (unitat 2, pàgines 3 i 4, i la pàgina 5 de
+      `ud2-divisors`; unitat 4, `ud4-percentatges` i `ud4-repas`), de 3,5 a 11 pt. Fer-los
+      créixer demana quadrets d'1 cm com a mínim, o treure els números de les graelles petites;
+    - els números dels angles dels triangles de la unitat 6 (`ud6-triangles`), a 10 pt. A 12 pt,
+      als triangles petits de la pàgina 4 es toquen entre ells: caldria dibuixar més grans els
+      triangles, i a la pàgina només hi queden 1,7 cm.
 
 ---
 

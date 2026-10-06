@@ -71,7 +71,7 @@ for l, d1, d2, r in E1:
     cos = tros_de_tros(d1, d2)
     resultat = ms(str(dr)) if r else buit_curt()
     it.append(caixa(f'''      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">{l})</span> {fr(1, d1, "15pt")} de {fr(1, d2, "15pt")}. Parteix en {d1} columnes i en {d2} files.</p>
-      <div style="width:{d1 * 0.85 + 1.2:.1f}cm">{cos.svg("")}</div>
+      <div style="width:{cos.amp:.2f}cm">{cos.svg("")}</div>
       <p class="frase" style="margin:.1rem 0 0;font-size:15pt">En total hi ha {resultat} trossos petits.</p>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">1</div><div class="q">Parteix el rectangle en columnes i en files. Compta els trossos petits.</div></div>
@@ -89,7 +89,7 @@ for l, d1, d2, r in E2:
     cos = tros_de_tros(d1, d2)
     fresult = fr(1, dr, ma=True) if r else fr_buit("13pt")
     it.append(caixa(f'''      <p style="margin:0 0 .15rem;font-weight:700"><span class="apartat">{l})</span> {fr(1, d1, "15pt")} de {fr(1, d2, "15pt")}</p>
-      <div style="width:{d1 * 0.85 + 1.2:.1f}cm">{cos.svg("")}</div>
+      <div style="width:{cos.amp:.2f}cm">{cos.svg("")}</div>
       <p class="frase" style="margin:.1rem 0 0;font-size:15pt">{d1} · {d2} = {dr if r else buit_curt()}: {fresult}</p>''', r, ".3rem"))
 pagina(f'''  <div class="exercici">
     <div class="tasca"><div class="n">2</div><div class="q">Multiplica els dos denominadors. Escriu el resultat com a fracció.</div></div>
