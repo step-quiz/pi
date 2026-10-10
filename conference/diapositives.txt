@@ -1,0 +1,464 @@
+DIAPOSITIVES DE LA CONFERÈNCIA (15 minuts)
+
+Cada diapositiva té tres parts:
+  PANTALLA  el text que surt a la diapositiva
+  IMATGE    una descripció de les imatges (les imatges van dins de PANTALLA)
+  DIC       el que es diu en veu alta (no surt a la pantalla)
+
+Les rutes de les imatges són dins de la carpeta conference/.
+Les imatges «del document» s'han tret de
+«Elaborar material SIEI usant la IA i donant-li instruccions adequades.docx»
+i són a conference/imatges/.
+
+La presentació es fabrica a partir d'aquest fitxer:
+    python3 conference/presentacio/genera.py
+Les regles per escriure'l són a conference/presentacio/LLEGEIX-ME.txt.
+
+
+======================================================================
+PORTADA
+======================================================================
+
+TÍTOL
+Elaborar material per a SIEI usant la IA
+
+JORNADA
+XXVIII Jornada d'Educació Matemàtica ABEAM
+Matemàtiques per a tothom
+7 de novembre de 2026
+
+AUTOR
+David Arso Civil
+darso@instarradell.cat
+INS Miquel Tarradell
+Barri del Raval, Barcelona
+
+
+======================================================================
+DIAPOSITIVA 1 · 0:00–1:30
+======================================================================
+
+PANTALLA
+Una aplicació de matemàtiques per a un alumne de 4t d'ESO.
+
+Fast-build-A/captures/1-menu.png
+
+Feta amb IA en 2 minuts.
+La faríeu servir?
+Web 1 ([enllaç](https://arsocivil.github.io/pi3/conference/Fast-build-A/Fast-build-A-webapp.html))
+
+IMATGE
+El menú de la web A, a pantalla completa.
+
+DIC
+- Li vaig demanar a la IA material i una aplicació per a un alumne
+  de 4t amb necessitats educatives. Això és el que va sortir.
+- Pregunta al públic: qui la faria servir demà a l'aula? Mans amunt.
+- No ho comentis encara. Deixa la pregunta oberta.
+
+
+======================================================================
+DIAPOSITIVA 2 · 1:30–2:30
+======================================================================
+
+PANTALLA
+Exemple A: la feina feta en 2 minuts.
+
+Provem-la com ho faria l'alumne.
+Web 1 ([enllaç](https://arsocivil.github.io/pi3/conference/Fast-build-A/Fast-build-A-webapp.html))
+
+IMATGE
+Cap. Demostració en directe:
+Fast-build-A/Fast-build-A-webapp.html
+1. Prem «Percentatges».
+2. A l'exercici 1, escriu 75.
+3. Prem «Comprovar».
+4. No passa res.
+
+DIC
+- La resposta és correcta: 100 € amb un 25 % de descompte són 75 €.
+- L'alumne prem el botó i no rep cap resposta. Ni «Correcte» ni
+  «Incorrecte». Res.
+- Un alumne amb dificultats es bloqueja aquí.
+- Si la demostració falla, passa a la diapositiva següent:
+  té la mateixa captura.
+
+
+======================================================================
+DIAPOSITIVA 3 · 2:30–3:45
+======================================================================
+
+PANTALLA
+Exemple A: el que trobes en 5 minuts.
+
+- Encerta un exercici i prem 12 vegades: progrés del 150 %.
+
+Fast-build-A/captures/4-progres-150-per-cent.png
+
+- La calculadora diu que 12 ÷ 4 = 3.00
+
+Fast-build-A/captures/5-calculadora-3.00.png
+
+- La solució surt escrita abans de respondre.
+
+Fast-build-A/captures/3-percentatges-sense-correccio.png
+
+- Un cronòmetre per a un alumne amb TEA.
+
+Fast-build-A/captures/2-exercicis-amb-cronometre.png
+
+- Contingut de primària: 5 + 3 = ?
+
+IMATGE
+Cada captura, a pantalla completa, després de la frase que explica.
+La de Percentatges: l'alumne ha escrit 75 i ha premut «Comprovar»,
+i no surt cap resposta; l'explicació ja era a la vista.
+
+DIC
+- És com l'alumne que entrega l'examen als 2 minuts.
+  Ho ha fet tot. No ha revisat res.
+- La IA va dir: «He creat un paquet complet de recursos adaptats».
+  Ho diu amb molta seguretat. Això no vol dir que sigui veritat.
+
+
+======================================================================
+DIAPOSITIVA 4 · 3:45–4:45
+======================================================================
+
+PANTALLA
+Exemple B: la IA pensa més.
+
+Fast-build-B/captures/1-menu.png
+
+- Lletra gran. Botó de pausa. Sense cronòmetre.
+
+- Dos intents i, després, la solució pas a pas.
+
+Fast-build-B/captures/3-pas-a-pas-despres-de-dos-errors.png
+
+Sembla bona.
+Per això és més perillosa.
+Web 2 ([enllaç](https://arsocivil.github.io/pi3/conference/Fast-build-B/Fast-build-B-webapp.html))
+
+IMATGE
+El menú de la web B i la solució pas a pas després de dos errors.
+
+DIC
+- Mateixa petició, però amb un model que s'hi pensa més.
+- A primera vista, és correcta. Molta gent la faria servir.
+- Però mirem-la amb ulls de docent.
+
+
+======================================================================
+DIAPOSITIVA 5 · 4:45–5:45
+======================================================================
+
+PANTALLA
+Exemple B, amb ulls de docent.
+
+- Cada vegada surten números diferents.
+  El paper i la pantalla no coincideixen.
+
+- El docent no sap què ha fet l'alumne.
+
+- Equació 5x + 3 = 13. L'alumne respon 99.
+  L'aplicació diu: «Gairebé».
+
+Fast-build-B/captures/2-gairebe-amb-resposta-99.png
+
+- Tot el currículum de 4t, de Pitàgores a la probabilitat,
+  per a 4 hores a la setmana.
+
+IMATGE
+La resposta «Gairebé» després d'escriure 99. L'aplicació esborra
+la resposta, per això no es veu el 99.
+
+DIC
+- La resposta correcta és 2. Dir «Gairebé» a 99 és enganyar l'alumne.
+- Cobrir tot el currículum no vol dir ensenyar-lo.
+  Per a aquest alumne, és impossible i ningú no ho ha decidit.
+
+
+======================================================================
+DIAPOSITIVA 6 · 5:45–6:15
+======================================================================
+
+PANTALLA
+I les fitxes per imprimir?
+
+- A: 5 pàgines per a tot el curs.
+  Lletra de 9 a 11 pt, en color.
+
+imatges/fitxa-A-unitat1.png
+
+- A: la portada diu «DIL» i «TEA».
+
+- B: 54 pàgines.
+  Les solucions, dins del quadern de l'alumne.
+
+imatges/fitxa-B-equacions.png
+
+IMATGE
+A: la pàgina de la unitat 1. B: la pàgina de les equacions.
+
+DIC
+- La web no és tot: el docent reparteix paper. Mirem els PDF.
+- A: tot el curs de 4t cap en 5 pàgines. Gairebé tot el text fa
+  9, 10 o 11 pt. És en color, i al centre s'imprimeix en blanc i negre.
+- I la portada que rep l'alumne diu el seu diagnòstic.
+- B: 54 pàgines, amb 126 paraules per pàgina; les fitxes de 4t en tenen 83.
+  La pàgina de solucions és dins del quadern que rep l'alumne.
+- Les dades surten de comptar-ho als PDF: pàgines, mides de lletra
+  i paraules per pàgina.
+
+
+======================================================================
+DIAPOSITIVA 7 · 6:15–6:45
+======================================================================
+
+PANTALLA
+La mateixa idea: la balança.
+
+imatges/fitxa-B-equacions.png
+imatges/fitxa-4t-equacions.png
+
+- B: «Una equació és una balança.»
+  No hi ha cap balança.
+
+- Amb el docent: la balança, dibuixada.
+  Blanc i negre i 14 pt.
+
+El dibuix explica.
+Les paraules només etiqueten.
+
+IMATGE
+Les dues pàgines juntes: a l'esquerra B, a la dreta la primera
+pàgina de la UD4 de 4t.
+
+DIC
+- Les dues fitxes ensenyen el mateix: les equacions com una balança.
+- La de B ho diu amb una frase i passa als exercicis.
+- La nostra dibuixa la balança, pregunta «Què hi veus?» i deixa que
+  el símbol surti del dibuix.
+- Blanc i negre perquè s'imprimeix així. Tot el text de l'alumne a
+  14 pt. El solucionari és un PDF a part, i cap fitxa diu «adaptada».
+
+
+======================================================================
+DIAPOSITIVA 8 · 6:45–7:30
+======================================================================
+
+PANTALLA
+El moment clau.
+
+La IA va preguntar:
+- Pot treballar amb percentatges, o millor amb mig i quart?
+
+- Preferiu pictogrames o fotos de monedes?
+
+- Em passes els objectius del seu PI?
+
+La resposta va ser:
+«Fes tot el recobriment del currículum.»
+
+IMATGE
+Cap. (O una captura de Fast-build-B/Fast-build-B-conversa.docx)
+
+DIC
+- Aquí és on l'humà surt del bucle.
+- La IA va fer exactament les preguntes que faria un bon company
+  de departament. Ningú no les va respondre.
+- Tot el que ve després va de respondre aquestes preguntes.
+
+
+======================================================================
+DIAPOSITIVA 9 · 7:30–8:15
+======================================================================
+
+PANTALLA
+Amb el docent dins del bucle: 4 setmanes.
+
+Història 1: la primera fitxa tenia 700 paraules.
+El docent: «L'alumne no la podrà llegir.»
+
+imatges/ud1-4t-pagina-a-pagina.png
+
+Ara en té 181.
+
+Regla nova: el dibuix explica, les paraules només etiqueten.
+
+IMATGE
+Del document: «La UD1 de 4t, pàgina a pàgina, el 5, el 14, el 20
+i el 30 de setembre».
+
+DIC
+- La IA no sap llegir com llegeix el teu alumne. Tu sí.
+- Una correcció del docent es va convertir en una regla
+  per a tot el material.
+
+
+======================================================================
+DIAPOSITIVA 10 · 8:15–9:00
+======================================================================
+
+PANTALLA
+Història 2: la calculadora.
+
+La de la pantalla tenia la tecla «=».
+La Casio de l'alumne no la té: té EXE.
+
+imatges/calculadora-16-i-23-setembre-abans.png
+
+imatges/calculadora-16-i-23-setembre-ara.png
+
+Si la pantalla i l'aparell no coincideixen,
+l'alumne es bloqueja.
+
+IMATGE
+Del document: «La calculadora de la caixa d'eines el 16 i el 23
+de setembre», partida en dues: abans i ara.
+
+DIC
+- Cap IA sap quina calculadora hi ha a la taula del teu alumne.
+- Ara la pantalla és igual que l'aparell: la tecla EXE i els
+  mateixos decimals.
+
+
+======================================================================
+DIAPOSITIVA 11 · 9:00–9:45
+======================================================================
+
+PANTALLA
+Història 3: un model resolt que no lligava.
+
+L'enunciat deia: «En un terç hi ha llapis vermells.»
+El model resolt calculava 1/4 de 20.
+
+L'alumne copia el model resolt.
+Si el model té un error, ensenya l'error.
+
+IMATGE
+Cap.
+
+DIC
+- Un error així el veu un professor de matemàtiques
+  en un cop d'ull. La IA no el va veure.
+- Ara totes les igualtats impreses es comproven automàticament.
+
+
+======================================================================
+DIAPOSITIVA 12 · 9:45–10:30
+======================================================================
+
+PANTALLA
+Història 4: entendre o memoritzar?
+
+Tota la unitat arrodonint cap amunt.
+Al final: «Tens 11 €. Una entrada val 3 €.»
+
+imatges/a-la-vida-de-cada-dia.png
+
+Qui ha memoritzat, arrodoneix amunt i falla.
+
+Qui ho ha entès, arrodoneix avall.
+
+IMATGE
+Del document: «L'última pàgina d'exercicis de la UD1 el 5 de
+setembre i la pàgina "A la vida de cada dia" el 23 de setembre».
+
+DIC
+- Aquesta pàgina, «A la vida de cada dia», la va demanar el docent.
+- La IA no la va proposar mai. Ara n'hi ha una a cada unitat.
+
+
+======================================================================
+DIAPOSITIVA 13 · 10:30–12:30
+======================================================================
+
+PANTALLA
+Abans de pintar una casa, cal fer els fonaments.
+
+1. Funciona sense internet, des d'un llapis USB.
+
+2. Cada dada s'escriu en un sol lloc.
+
+3. Abans de publicar, una revisió automàtica.
+
+imatges/caixa-eines-sense-format-i-amb-format-abans.png
+
+imatges/caixa-eines-sense-format-i-amb-format-ara.png
+
+IMATGE
+Del document: «La caixa d'eines de 4t el 5 de setembre, sense
+format, i el 23 de setembre, amb format», partida en dues: abans i ara.
+
+DIC
+- 1. El filtre del centre bloqueja moltes coses. Si l'aplicació
+  depèn d'internet, el dia que falla la xarxa no hi ha classe.
+- 2. Com el llibre i el solucionari: si una dada és en dos llocs,
+  tard o d'hora es contradiuen.
+- 3. Com corregir amb el solucionari abans de fer les fotocòpies.
+  Si la revisió troba un error, no es publica res.
+- La imatge: el 5 de setembre, la pàgina només es veia bé si
+  l'ordinador tenia el mode fosc activat. A l'aula, era inservible.
+  Es va veure perquè el docent la va provar.
+- Si vas just de temps, deixa només la primera frase i la imatge.
+
+
+======================================================================
+DIAPOSITIVA 14 · 12:30–14:15
+======================================================================
+
+PANTALLA
+La recepta.
+
+1. Explica qui és l'alumne: el PI, què sap fer, quina calculadora té.
+
+2. Respon les preguntes de la IA. Si no en fa, demana-les.
+
+3. Demana poc i revisa molt: una fitxa, no tot el currículum.
+
+4. Prova-ho com un alumne: equivoca't a posta, imprimeix-ho.
+
+5. Escriu les teves regles perquè la IA les segueixi.
+
+IMATGE
+Cap.
+
+DIC
+- Cada punt correspon a una història de la xerrada:
+  1 i 2, la conversa B. 3, el currículum sencer.
+  4, el botó que no responia. 5, les 700 paraules.
+
+
+======================================================================
+DIAPOSITIVA 15 · 14:15–15:00
+======================================================================
+
+PANTALLA
+4 setmanes amb el docent dins del bucle:
+
+- 52 fitxes (14 de 4t i 38 de 1r)
+- 8 targetes de consulta
+- 39 eines a la pantalla
+- 14 exàmens adaptats
+
+La IA no substitueix el docent.
+El docent fa que la IA serveixi.
+
+IMATGE
+Cap.
+
+DIC
+- Torna a la pregunta del principi: qui faria servir ara
+  l'aplicació del primer minut?
+- Gràcies.
+
+
+======================================================================
+SI FALTA TEMPS, RETALLA (per ordre)
+======================================================================
+1. Diapositiva 13: deixa només la primera frase i la imatge.
+2. Diapositiva 11 (història 3).
+3. Diapositiva 4: ajunta-la amb la 5.
+No retallis les diapositives 7, 8 i 14: són el missatge de la xerrada.

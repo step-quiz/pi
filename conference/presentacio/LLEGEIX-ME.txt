@@ -1,0 +1,101 @@
+LA PRESENTACIÓ DE LA CONFERÈNCIA
+
+El text és a conference/diapositives.txt. Aquest programa el llegeix i en fa
+la presentació. Si vols canviar alguna cosa, canvia el txt i torna a fabricar-la.
+
+
+COM ES FABRICA (des del Codespace)
+
+    pip install python-pptx pillow
+    python3 conference/presentacio/genera.py
+
+Surt conference/presentacio/Conferencia-ABEAM-2026.pptx.
+Per obrir-la amb Google Slides: puja-la a Google Drive, clic dret,
+«Obre amb» → «Presentacions de Google».
+
+La primera ordre només cal la primera vegada.
+
+
+COM S'ESCRIU EL TXT
+
+Cada diapositiva comença amb tres línies com aquestes:
+
+    ======================================================================
+    DIAPOSITIVA 5 · 5:15–6:30
+    ======================================================================
+
+El número no compta: les diapositives surten en l'ordre del fitxer.
+El que va després del punt volat (·) surt a les notes de l'orador.
+
+
+ELS PASSOS (EL «JPG ANIMAT»)
+
+Cada diapositiva del txt es converteix en diverses diapositives. Cada una
+afegeix un detall a l'anterior, i res no es mou de lloc:
+  1. Només el títol.
+  2. Cada grup de línies de PANTALLA és un pas més.
+Una línia en blanc separa els grups. Si no hi poses cap línia en blanc,
+tot el text surt de cop en un sol pas.
+
+Una imatge és un grup de PANTALLA que només té rutes d'imatge. Surt sola,
+en una diapositiva sencera, tan gran com es pot (les captures de pantalla
+fan el 90 % de la diapositiva). Al pas següent torna el text, tal com
+s'havia quedat. Si un grup té dues rutes, les dues imatges surten juntes,
+una al costat de l'altra.
+
+PANTALLA
+  - La primera línia és el títol. Si acaba en punt, el punt no surt.
+  - Una línia que comença amb «- » és un punt de llista.
+  - Una línia que comença amb «1. », «2. »… és un punt numerat.
+  - Una línia que comença amb espais continua la línia anterior,
+    però en una línia nova.
+  - Una línia sense guió que ve després d'una llista surt destacada
+    (en negreta i de color lila). Serveix per a la idea final.
+  - Una línia que només té una ruta d'imatge (.png o .jpg), relativa a
+    la carpeta conference/, és una imatge a pantalla completa.
+    Exemple: Fast-build-A/captures/1-menu.png
+  - Un enllaç s'escriu així: [enllaç](https://adreça). Surt en blau.
+    Exemple: Web 1 ([enllaç](https://arsocivil.github.io/pi3/...))
+  - La lletra fa 24 pt. Si el text no hi cap, baixa fins a 14 pt.
+
+IMATGE
+  - Una descripció de les imatges, o les instruccions de la demostració.
+    Va a les notes de l'orador.
+  - Si s'hi escriu una ruta d'imatge, la imatge surt a pantalla completa
+    just després del títol. És millor posar-la a PANTALLA, al lloc on toca.
+  - Si una ruta està mal escrita, el programa avisa i no posa la imatge.
+
+DIC
+  - Va a les notes de l'orador. No surt a la pantalla.
+
+PORTADA
+  - El bloc PORTADA, amb TÍTOL, JORNADA i AUTOR, fa la portada.
+  - Si esborres el bloc, la presentació comença directament
+    per la primera diapositiva.
+
+El bloc «SI FALTA TEMPS, RETALLA» no surt a la presentació.
+
+
+ELS RECURSOS
+
+recursos/cartell.jpg       el cartell de la XXVIII Jornada
+recursos/abeam.png         el logo de l'ABEAM
+recursos/figura-*.png      figures retallades del cartell, amb fons transparent
+recursos/portada.png       la columna dreta del cartell, per a la portada
+../imatges/                les imatges del document «Elaborar material SIEI…»
+
+Les fa prepara_recursos.py. Només cal tornar-lo a executar si es canvia
+el cartell o el document. També parteix en «abans» i «ara» les imatges del
+document que en tenen dues, i fa les imatges de les pàgines de fitxes.
+
+Les captures de les webs A i B les fa captures.py (cal Playwright).
+
+
+EL FORMAT
+
+Pocs colors: negre per als títols, gris fosc per al text, lila per al
+plafó, les vinyetes i les frases destacades, i blau només per als enllaços
+(i el títol de la portada). La lletra és Arial. Cada diapositiva té el lema
+«Matemàtiques per a tothom» a dalt, en gris i cursiva, el logo a la dreta,
+una figura del cartell a l'esquerra i el contingut dins d'un plafó lila
+de cantons arrodonits. Els colors i les mides són a l'inici de genera.py.

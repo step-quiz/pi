@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemàtiques Adaptades - 4t ESO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .menu-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .menu-btn {
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            text-align: center;
+        }
+
+        .menu-btn-calc {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .menu-btn-calc:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+        }
+
+        .menu-btn-exercises {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .menu-btn-exercises:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .menu-btn-fractions {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .menu-btn-fractions:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(67, 233, 123, 0.4);
+        }
+
+        .menu-btn-percent {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .menu-btn-percent:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(250, 112, 154, 0.4);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .calculator {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .calc-input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="number"], select {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .calc-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .result-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        .result-box h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .result-text {
+            font-size: 28px;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .exercises-container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .exercise-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .exercise-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .exercise-item p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .exercise-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .exercise-input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .exercise-btn {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .exercise-btn:hover {
+            background: #764ba2;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+            font-weight: bold;
+        }
+
+        .feedback.correct {
+            display: block;
+            background: #c8e6c9;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
+        }
+
+        .feedback.incorrect {
+            display: block;
+            background: #ffcdd2;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timer {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timer span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .timer-btn {
+            padding: 10px 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .timer-btn:hover {
+            background: #f57c00;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.3s ease;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: #999;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #666;
+        }
+
+        .fraction-visual {
+            display: flex;
+            gap: 5px;
+            margin: 15px 0;
+        }
+
+        .fraction-part {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        .fraction-part.filled {
+            background: #4caf50;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .menu-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .calc-input-group {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 MATEMÀTIQUES ADAPTADES</h1>
+            <p>4t ESO - Material per a DIL + TEA</p>
+        </header>
+
+        <div class="main-content">
+            <!-- MENÚ PRINCIPAL -->
+            <div id="menu" class="section active">
+                <div class="menu-buttons">
+                    <button class="menu-btn menu-btn-calc" onclick="showSection('calculator')">
+                        🧮<br>Calculadora<br>Bàsica
+                    </button>
+                    <button class="menu-btn menu-btn-exercises" onclick="showSection('exercises')">
+                        ✏️<br>Exercicis<br>Interactius
+                    </button>
+                    <button class="menu-btn menu-btn-fractions" onclick="showSection('fractions')">
+                        🥧<br>Fraccions<br>Visuals
+                    </button>
+                    <button class="menu-btn menu-btn-percent" onclick="showSection('percentages')">
+                        📊<br>Percentatges<br>Fàcils
+                    </button>
+                </div>
+            </div>
+
+            <!-- CALCULADORA -->
+            <div id="calculator" class="section">
+                <button class="back-btn" onclick="showSection('menu')">← Tornar al menú</button>
+                <h2>🧮 Calculadora Bàsica</h2>
+
+                <div class="info-box">
+                    <strong>Usa aquesta calculadora per fer operacions senzilles:</strong><br>
+                    suma (+), resta (−), multiplicació (×) i divisió (÷)
+                </div>
+
+                <div class="calculator">
+                    <div class="calc-input-group">
+                        <input type="number" id="num1" placeholder="Primer número" value="0">
+                        <select id="operation">
+                            <option value="add">+ (Suma)</option>
+                            <option value="subtract">− (Resta)</option>
+                            <option value="multiply">× (Multiplicació)</option>
+                            <option value="divide">÷ (Divisió)</option>
+                        </select>
+                        <input type="number" id="num2" placeholder="Segon número" value="0">
+                    </div>
+                    <button class="calc-button" onclick="calculate()">
+                        📢 CALCULA
+                    </button>
+                </div>
+
+                <div id="calcResult" class="result-box">
+                    <h3>RESULTAT:</h3>
+                    <div class="result-text" id="resultValue">0</div>
+                </div>
+
+                <div class="info-box" style="margin-top: 20px;">
+                    <strong>Exemples:</strong><br>
+                    • 10 + 5 = 15<br>
+                    • 20 − 8 = 12<br>
+                    • 6 × 3 = 18<br>
+                    • 12 ÷ 4 = 3
+                </div>
+            </div>
+
+            <!-- EXERCICIS INTERACTIUS -->
+            <div id="exercises" class="section">
+                <button class="back-btn" onclick="showSection('menu')">← Tornar al menú</button>
+                <h2>✏️ Exercicis Interactius</h2>
+
+                <div class="timer">
+                    <span id="timerDisplay">00:00</span>
+                    <div>
+                        <button class="timer-btn" onclick="startTimer()">Iniciar ⏱️</button>
+                        <button class="timer-btn" onclick="resetTimer()">Reiniciar</button>
+                    </div>
+                </div>
+
+                <div class="exercises-container" id="exercisesContainer">
+                    <!-- Les exercicis es generen dinàmicament -->
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%">
+                        <span id="progressText">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRACCIONS -->
+            <div id="fractions" class="section">
+                <button class="back-btn" onclick="showSection('menu')">← Tornar al menú</button>
+                <h2>🥧 Fraccions Visuals</h2>
+
+                <div class="info-box">
+                    <strong>Una fracció es una part d'una cosa:</strong><br>
+                    Si talles una pizza en 4 parts iguals, cada part és 1/4 de la pizza.
+                </div>
+
+                <div class="exercises-container">
+                    <div class="exercise-item">
+                        <h4>Exercici: Quina és la fracció?</h4>
+                        <p>Mira els quadrats pintats. Quina fracció està pintada?</p>
+                        <div class="fraction-visual" id="fractionVisual1">
+                            <div class="fraction-part filled">1</div>
+                            <div class="fraction-part">2</div>
+                            <div class="fraction-part">3</div>
+                            <div class="fraction-part">4</div>
+                        </div>
+                        <p style="font-size: 14px; color: #666;">Dels 4 quadrats, 1 està pintat. Resposta: <strong>1/4</strong></p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercici: Pinta la fracció 1/2</h4>
+                        <p>Pinta la meitat dels quadrats (2 de 4):</p>
+                        <div class="fraction-visual" id="fractionVisual2">
+                            <div class="fraction-part filled">1</div>
+                            <div class="fraction-part filled">2</div>
+                            <div class="fraction-part">3</div>
+                            <div class="fraction-part">4</div>
+                        </div>
+                        <p style="font-size: 14px; color: #666;">Resposta: <strong>2/4 = 1/2 (la meitat)</strong></p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercici: 3/4 (tres quarts)</h4>
+                        <p>Pinta 3 de cada 4 quadrats:</p>
+                        <div class="fraction-visual" id="fractionVisual3">
+                            <div class="fraction-part filled">1</div>
+                            <div class="fraction-part filled">2</div>
+                            <div class="fraction-part filled">3</div>
+                            <div class="fraction-part">4</div>
+                        </div>
+                        <p style="font-size: 14px; color: #666;">Resposta: <strong>3/4 (tres quarts)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERCENTATGES -->
+            <div id="percentages" class="section">
+                <button class="back-btn" onclick="showSection('menu')">← Tornar al menú</button>
+                <h2>📊 Percentatges Fàcils</h2>
+
+                <div class="info-box">
+                    <strong>Un percentatge (%) mostra quantes parts de 100 tenim.</strong><br>
+                    • 25% = 25 de cada 100<br>
+                    • 50% = la meitat<br>
+                    • 100% = tot
+                </div>
+
+                <div class="exercises-container">
+                    <div class="exercise-item">
+                        <h4>Exercici 1: Descompte del 25%</h4>
+                        <p>Un producte costa 100€ amb 25% de descompte.</p>
+                        <p>Quant pagaràs?</p>
+                        <div class="exercise-input-group">
+                            <input type="number" id="percent1" placeholder="La teva resposta">
+                            <button class="exercise-btn" onclick="checkPercent(1, 75)">Comprovar</button>
+                        </div>
+                        <div class="feedback" id="feedback1">
+                            <span id="feedbackText1"></span>
+                        </div>
+                        <p style="font-size: 14px; color: #666; margin-top: 10px;">
+                            <strong>Explicació:</strong> Si el descompte és 25%, pagaràs el 75% (100% - 25% = 75%)
+                        </p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercici 2: Descompte del 50%</h4>
+                        <p>Un llibre costa 20€ amb 50% de descompte (la meitat).</p>
+                        <p>Quant pagaràs?</p>
+                        <div class="exercise-input-group">
+                            <input type="number" id="percent2" placeholder="La teva resposta">
+                            <button class="exercise-btn" onclick="checkPercent(2, 10)">Comprovar</button>
+                        </div>
+                        <div class="feedback" id="feedback2">
+                            <span id="feedbackText2"></span>
+                        </div>
+                        <p style="font-size: 14px; color: #666; margin-top: 10px;">
+                            <strong>Explicació:</strong> El 50% és la meitat. 20€ ÷ 2 = 10€
+                        </p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercici 3: Nota en percentatge</h4>
+                        <p>Has encertat 8 de 10 preguntes.</p>
+                        <p>Quin percentatge és? (Pista: calcula 8÷10 i multiplica per 100)</p>
+                        <div class="exercise-input-group">
+                            <input type="number" id="percent3" placeholder="La teva resposta">
+                            <button class="exercise-btn" onclick="checkPercent(3, 80)">Comprovar</button>
+                        </div>
+                        <div class="feedback" id="feedback3">
+                            <span id="feedbackText3"></span>
+                        </div>
+                        <p style="font-size: 14px; color: #666; margin-top: 10px;">
+                            <strong>Explicació:</strong> 8÷10 = 0,8 × 100 = 80%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval = null;
+        let timerSeconds = 0;
+        const exercises = [
+            { num1: 5, num2: 3, op: 'add', answer: 8 },
+            { num1: 10, num2: 4, op: 'subtract', answer: 6 },
+            { num1: 6, num2: 2, op: 'multiply', answer: 12 },
+            { num1: 12, num2: 3, op: 'divide', answer: 4 },
+            { num1: 7, num2: 2, op: 'add', answer: 9 },
+            { num1: 15, num2: 5, op: 'subtract', answer: 10 },
+            { num1: 4, num2: 3, op: 'multiply', answer: 12 },
+            { num1: 20, num2: 4, op: 'divide', answer: 5 },
+        ];
+
+        let correctAnswers = 0;
+
+        function showSection(sectionId) {
+            // Amagar totes les seccions
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Mostrar la secció seleccionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Si és exercicis, generar-los
+            if (sectionId === 'exercises') {
+                generateExercises();
+            }
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+            const operation = document.getElementById('operation').value;
+
+            let result = 0;
+            switch(operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num2 !== 0 ? (num1 / num2).toFixed(2) : 'Error: no es pot dividir per 0';
+                    break;
+            }
+
+            document.getElementById('resultValue').textContent = result;
+            document.getElementById('calcResult').classList.add('show');
+        }
+
+        function generateExercises() {
+            const container = document.getElementById('exercisesContainer');
+            container.innerHTML = '';
+            correctAnswers = 0;
+
+            exercises.forEach((ex, index) => {
+                const opSymbol = {
+                    'add': '+',
+                    'subtract': '−',
+                    'multiply': '×',
+                    'divide': '÷'
+                }[ex.op];
+
+                const exerciseDiv = document.createElement('div');
+                exerciseDiv.className = 'exercise-item';
+                exerciseDiv.innerHTML = `
+                    <h4>Exercici ${index + 1}</h4>
+                    <p style="font-size: 20px; font-weight: bold;">
+                        ${ex.num1} ${opSymbol} ${ex.num2} = ?
+                    </p>
+                    <div class="exercise-input-group">
+                        <input type="number" id="exercise${index}" placeholder="La teva resposta">
+                        <button class="exercise-btn" onclick="checkExercise(${index}, ${ex.answer})">
+                            Comprovar
+                        </button>
+                    </div>
+                    <div class="feedback" id="feedback${index}">
+                        <span id="feedbackText${index}"></span>
+                    </div>
+                `;
+                container.appendChild(exerciseDiv);
+            });
+
+            updateProgress();
+        }
+
+        function checkExercise(index, correctAnswer) {
+            const userAnswer = parseFloat(document.getElementById(`exercise${index}`).value);
+            const feedback = document.getElementById(`feedback${index}`);
+            const feedbackText = document.getElementById(`feedbackText${index}`);
+
+            if (userAnswer === correctAnswer) {
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+                feedbackText.textContent = '✅ Correcte! Molt bé!';
+                correctAnswers++;
+            } else {
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+                feedbackText.textContent = `❌ Incorrect. La resposta és ${correctAnswer}`;
+            }
+
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const total = exercises.length;
+            const percentage = Math.round((correctAnswers / total) * 100);
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = percentage + '%';
+        }
+
+        function startTimer() {
+            if (timerInterval) return;
+            timerInterval = setInterval(() => {
+                timerSeconds++;
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 0;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            document.getElementById('timerDisplay').textContent = 
+                String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+        }
+
+        function checkPercent(exerciseNum, correctAnswer) {
+            const userAnswer = parseFloat(document.getElementById(`percent${exerciseNum}`).value);
+            const feedback = document.getElementById(`feedback${exerciseNum}`);
+            const feedbackText = document.getElementById(`feedbackText${exerciseNum}`);
+
+            if (userAnswer === correctAnswer) {
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+                feedbackText.textContent = '✅ Correcte! Bravo!';
+            } else {
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+                feedbackText.textContent = `❌ Incorrect. La resposta és ${correctAnswer}`;
+            }
+        }
+
+        // Inicialitzar generant exercicis al cargar
+        window.addEventListener('load', () => {
+            generateExercises();
+        });
+    </script>
+</body>
+</html>

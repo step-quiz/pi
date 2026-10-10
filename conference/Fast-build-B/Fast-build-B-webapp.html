@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Practica Matemàtiques A · 4t ESO</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f5f8fb;--card:#fff;--tx:#1b2733;--pri:#1F4E79;--ok:#2e7d32;--okbg:#e8f3e8;--hint:#fff6d6;--bd:#c9d6e2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14202b;--card:#1d2d3b;--tx:#eef3f8;--pri:#7fb3e6;--ok:#7ed38a;--okbg:#1f3a27;--hint:#4a4223;--bd:#3a5062}}
+:root[data-theme="dark"]{--bg:#14202b;--card:#1d2d3b;--tx:#eef3f8;--pri:#7fb3e6;--ok:#7ed38a;--okbg:#1f3a27;--hint:#4a4223;--bd:#3a5062}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:20px/1.5 Verdana,Arial,sans-serif}main{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:28px;color:var(--pri);margin:8px 0}h2{font-size:20px;color:var(--pri);margin:18px 0 4px}
+.card{background:var(--card);border:2px solid var(--bd);border-radius:16px;padding:18px;margin:12px 0}
+button{font:inherit;font-weight:700;border:2px solid var(--pri);background:var(--card);color:var(--pri);border-radius:14px;padding:14px 18px;min-height:56px;cursor:pointer}
+button.p{background:var(--pri);color:var(--bg)}button:focus-visible,input:focus-visible{outline:4px solid #f5a623}
+.menu button{display:block;width:100%;text-align:left;margin:8px 0}
+input{font:inherit;width:100%;padding:14px;border:2px solid var(--bd);border-radius:14px;background:var(--bg);color:var(--tx);margin:10px 0;font-size:26px}
+.q{font-size:24px;font-weight:700}.fb{border-radius:14px;padding:14px;margin:10px 0}.good{background:var(--okbg);color:var(--ok);font-weight:700}.hint{background:var(--hint)}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row button{flex:1}.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.stars{font-size:24px;letter-spacing:3px}.steps{margin:6px 0 0 20px;padding:0}
+</style></head><body><main id="app"></main>
+<script>
+const $=s=>document.querySelector(s),app=$("#app"),R=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,pick=a=>a[R(0,a.length-1)];
+const sh=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const E=v=>(Math.round(v*100)/100).toString().replace(".",","),M=v=>E(v)+" €";
+const mk=(q,a,st,u="",o,neg)=>({q,a,st,u,o,neg});
+const frac=(f,t)=>{const s=f+"/"+t,d=sh([1,2,3,4,5].filter(x=>x!=f&&x<=t)).slice(0,2).map(x=>x+"/"+t);return{o:sh([s,...d]),a:s}};
+const fr=(q,f,t,st)=>{const x=frac(f,t);return mk(q,x.a,st,"",x.o)};
+const items=["entrepà","cafè","samarreta","llibre","pizza","gelat"];
+const G=[
+["Quadern 1 · Nombres i diners",[
+{n:"Combinacions",g(){const a=R(2,4),b=R(2,5);return mk(`Tens ${a} samarretes i ${b} pantalons. Quantes combinacions hi ha?`,a*b,[`Multiplico: ${a} × ${b}`,`Resultat: ${a*b}`])}},
+{n:"Temperatures",g(){const a=R(1,6),b=R(a+1,10);return mk(`Fa -${a} °C i la temperatura puja ${b} graus. Quants graus fa ara?`,b-a,[`Començo a -${a} i pujo ${b}.`,`${b} - ${a} = ${b-a}`],"",0,1)}},
+{n:"Ordre de les operacions",g(){const a=R(2,9),b=R(2,6),c=R(2,6);return mk(`Calcula: ${a} + ${b} × ${c}`,a+b*c,["Primer es fa la multiplicació.",`${b} × ${c} = ${b*c}`,`${a} + ${b*c} = ${a+b*c}`])}},
+{n:"Percentatges",g(){const p=pick([[10,10],[20,5],[50,2],[25,4]]),v=p[1]==4?R(2,10)*4:R(2,10)*10,d=v*p[0]/100,mes=pick([1,0]),w=mes?"puja":"baixa";return mk(`Un producte costa ${v} €. El preu ${w} un ${p[0]} %. Quant val ara?`,mes?v+d:v-d,[`${p[0]} % de ${v} = ${d} €.`,mes?`Sumo: ${v} + ${d}`:`Resto: ${v} - ${d}`],"€")}},
+{n:"Interès del banc",g(){const c=R(1,5)*100,p=R(1,4);return mk(`Guardes ${c} € amb un interès del ${p} % l'any. Quin interès reps (en €)?`,c*p/100,[`1 % de ${c} = ${c/100} €.`,`${c/100} × ${p} = ${c*p/100}`],"€")}}]],
+["Quadern 2 · Mesura i espai",[
+{n:"Unitats",g(){const k=pick([[100,"m","cm"],[1000,"km","m"],[1000,"kg","g"]]),v=R(2,9);return mk(`${v} ${k[1]} són quants ${k[2]}?`,v*k[0],[`1 ${k[1]} = ${k[0]} ${k[2]}.`,`${v} × ${k[0]} = ${v*k[0]}`])}},
+{n:"Àrea i perímetre",g(){const a=R(3,9),b=R(2,a),ar=pick([1,0]);return mk(`Rectangle de ${a} cm per ${b} cm. Quina és ${ar?"l'àrea":"el perímetre"}?`,ar?a*b:2*(a+b),ar?[`Àrea = llarg × ample`,`${a} × ${b} = ${a*b}`]:[`Perímetre = 2 × (llarg + ample)`,`2 × ${a+b} = ${2*(a+b)}`],ar?"cm²":"cm")}},
+{n:"Volum d'una caixa",g(){const a=R(2,6),b=R(2,5),c=R(2,5);return mk(`Una caixa fa ${a} cm × ${b} cm × ${c} cm. Quin és el volum?`,a*b*c,[`Volum = llarg × ample × alçada`,`${a} × ${b} × ${c} = ${a*b*c}`],"cm³")}},
+{n:"Pitàgores",g(){const t=pick([[3,4,5],[6,8,10],[5,12,13],[9,12,15],[8,15,17]]);return mk(`Un triangle rectangle té catets de ${t[0]} cm i ${t[1]} cm. Quant fa la hipotenusa?`,t[2],[`${t[0]}² + ${t[1]}² = ${t[0]*t[0]} + ${t[1]*t[1]} = ${t[2]*t[2]}`,`Quin número multiplicat per ell mateix dóna ${t[2]*t[2]}?`],"cm")}},
+{n:"Coordenades",g(){const x=R(-3,3),y=R(-3,3),d=R(1,4);return mk(`El punt (${x}, ${y}) es mou ${d} cap a la dreta. Quina és la nova x?`,x+d,["Cap a la dreta, la x puja.",`${x} + ${d} = ${x+d}`],"",0,1)}}]],
+["Quadern 3 · Àlgebra i funcions",[
+{n:"Patrons",g(){const s=R(1,6),d=R(2,5);return mk(`Continua: ${[0,1,2,3].map(i=>s+i*d).join(", ")}, __`,s+4*d,[`Cada vegada sumem ${d}.`,`${s+3*d} + ${d} = ${s+4*d}`])}},
+{n:"Posar un número a la lletra",g(){const a=R(2,5),x=R(2,8),b=R(1,6);return mk(`Si x = ${x}, calcula ${a} × x + ${b}.`,a*x+b,[`Poso ${x} en lloc de x: ${a} × ${x} + ${b}`,`${a*x} + ${b} = ${a*x+b}`])}},
+{n:"Equacions",g(){const x=R(2,9),a=R(2,5),b=R(1,9);return mk(`Troba x: ${a}x + ${b} = ${a*x+b}`,x,[`Resto ${b} als dos costats: ${a}x = ${a*x}.`,`Divideixo entre ${a}: x = ${x}`])}},
+{n:"Persones i hores",g(){const k=pick([12,24,36]),d=[2,3,4,6].filter(x=>k%x==0),p=pick(d),q=pick(d.filter(x=>x!=p));return mk(`${p} persones fan una feina en ${k/p} hores. Quant tardaran ${q} persones?`,k/q,[`Més persones, menys hores. ${p} × ${k/p} = ${k}.`,`${k} : ${q} = ${k/q}`],"hores")}},
+{n:"Es duplica cada hora",g(){const h=R(3,6);return mk(`Un bacteri es duplica cada hora. A l'hora 0 n'hi ha 1. Quants n'hi ha a l'hora ${h}?`,2**h,["Cada hora, multiplico per 2.",Array.from({length:h+1},(_,i)=>2**i).join(", ")])}}]],
+["Quadern 4 · Programar",[
+{n:"Bucles",g(){const n=R(3,6),k=R(2,5);return mk(`Total = 0. Repeteix ${n} vegades: total = total + ${k}. Quant val el total?`,n*k,[`Sumo ${k}, ${n} vegades.`,`${n} × ${k} = ${n*k}`])}},
+{n:"Variables",g(){const x=R(2,8),k=R(1,5);return mk(`x = ${x}. Després: x = x + ${k}. Quant val x ara?`,x+k,["La caixa x guarda un número.",`${x} + ${k} = ${x+k}`])}},
+{n:"Si... llavors... si no",g(){const p=R(4,15);return mk(`Si el preu és més petit que 10 €, compra. Si no, no compra. Preu = ${p} €. Què fa?`,p<10?"Compra":"No compra",[`Pregunta: ${p} és més petit que 10?`],"",["Compra","No compra"])}},
+{n:"Patró de lletres",g(){const n=R(7,15);return mk(`Patró: A B B A B B A B B... Quina lletra és la número ${n}?`,n%3==1?"A":"B",["El patró es repeteix cada 3 lletres.","Les posicions 1, 4, 7, 10, 13... són A."],"",["A","B"])}}]],
+["Quadern 5 · Dades i atzar",[
+{n:"Mitjana",g(){const m=R(4,9),a=R(1,3),b=R(0,3),v=sh([m-a,m+a,m-b,m+b]);return mk(`Calcula la mitjana de: ${v.join(", ")}`,m,[`Sumo tot: ${v.reduce((x,y)=>x+y)}.`,`Divideixo entre 4: ${m}`])}},
+{n:"Mediana",g(){const s=new Set;while(s.size<5)s.add(R(1,15));const o=[...s].sort((x,y)=>x-y);return mk(`Troba la mediana de: ${sh(o).join(", ")}`,o[2],[`Ordeno: ${o.join(", ")}`,"La mediana és el del mig."])}},
+{n:"Rang",g(){const s=new Set;while(s.size<5)s.add(R(1,20));const o=[...s].sort((x,y)=>x-y);return mk(`Troba el rang de: ${sh(o).join(", ")}`,o[4]-o[0],[`El més gran és ${o[4]} i el més petit ${o[0]}.`,`${o[4]} - ${o[0]} = ${o[4]-o[0]}`])}},
+{n:"Probabilitat amb un dau",g(){const k=pick([["un nombre parell",3],["un 3",1],["més de 4 (5 o 6)",2]]);return fr(`Llancem un dau. Quina és la probabilitat de treure ${k[0]}?`,k[1],6,["Casos favorables : casos possibles (6).",`Casos favorables: ${k[1]}`])}},
+{n:"Probabilitat amb boles",g(){const t=pick([5,8,10]),f=R(1,Math.min(4,t-1));return fr(`Una bossa té ${t} boles i ${f} són vermelles. Quina és la probabilitat de treure'n una de vermella?`,f,t,[`Casos favorables: ${f}.`,`Casos possibles: ${t}.`])}}]]];
+let cur,prob,tries,done=0,total=5,solved=false;
+function home(){app.innerHTML=`<h1>Practica Matemàtiques A</h1><div class="card menu"><p>Tria què vols practicar. Sense pressa. Pots fer pauses.</p>${G.map((g,gi)=>`<h2>${g[0]}</h2>`+g[1].map((a,i)=>`<button onclick="start(${gi},${i})">${a.n}</button>`).join("")).join("")}</div>`}
+function start(g,i){cur=G[g][1][i];done=0;next()}
+function next(){prob=cur.g();tries=0;solved=false;render("")}
+function pause(){app.innerHTML=`<div class="card"><h1>Pausa</h1><p>Respira amb calma.<br>Agafa aire pel nas 4 segons.<br>Deixa'l anar 4 segons.<br>Fes-ho 3 vegades.</p><button class="p" onclick="render('')">Tornar</button></div>`}
+function disp(){return prob.o?prob.a:E(prob.a)+(prob.u?" "+prob.u:"")}
+function render(fb){const st="★".repeat(done)+"☆".repeat(total-done);
+app.innerHTML=`<div class="top"><button onclick="home()">← Menú</button><button onclick="pause()">Pausa</button><span class="stars" aria-label="${done} de ${total}">${st}</span></div>
+<div class="card"><p><b>${cur.n}</b></p><p class="q">${prob.q}</p>
+${solved?"":prob.o?`<div class="row">${prob.o.map(o=>`<button data-o="${o}">${o}</button>`).join("")}</div><div class="row"><button onclick="hint()">Una pista</button></div>`:`<label for="r">La teva resposta (només el número):</label><input id="r" ${prob.neg?'inputmode="text"':'inputmode="decimal"'} autocomplete="off"><div class="row"><button class="p" onclick="chk()">Comprova</button><button onclick="hint()">Una pista</button></div>`}${fb}</div>`;
+if(!solved){const r=$("#r");if(r){r.focus();r.onkeydown=e=>{if(e.key=="Enter")chk()}}document.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>res(b.dataset.o==prob.a))}}
+function hint(){render(`<div class="fb hint"><b>Pista:</b> ${prob.st[0]}</div>`)}
+function chk(){const v=parseFloat($("#r").value.replace(",","."));if(isNaN(v)){render(`<div class="fb hint">Escriu un número.</div>`);return}res(Math.abs(v-prob.a)<.005)}
+function res(ok){if(ok){done++;solved=true;render(`<div class="fb good">Molt bé! Correcte: ${disp()}</div><div class="row">${done>=total?`<button class="p" onclick="end()">Has acabat!</button>`:`<button class="p" onclick="next()">Següent</button>`}</div>`)}
+else{tries++;if(tries>=2){solved=true;render(`<div class="fb hint"><b>Anem pas a pas:</b><ol class="steps">${prob.st.map(s=>`<li>${s}</li>`).join("")}</ol><p>Resposta: <b>${disp()}</b></p></div><div class="row"><button class="p" onclick="next()">Un altre</button></div>`)}else render(`<div class="fb hint">Gairebé. Torna-ho a provar. Pots demanar una pista.</div>`)}}
+function end(){app.innerHTML=`<div class="card"><h1>Fantàstic!</h1><p class="stars">★★★★★</p><p>Has fet 5 exercicis. Has fet una gran feina.</p><div class="row"><button class="p" onclick="next2()">Una altra tanda</button><button onclick="home()">Menú</button></div></div>`}
+function next2(){done=0;next()}
+home();
+</script></body></html>
