@@ -1,6 +1,6 @@
 # Verificació de mathisvisual.com
 
-**Tanca:** la feina pendent de l'apartat 4 del `handout.md`.
+**Tanca:** la feina pendent de l'apartat 4 del `handout.md` (avui `CONTINUAR.md`).
 **Fet per:** Claude, en una sessió **amb** accés a la web.
 **Data:** 4 de setembre de 2026.
 **Pàgines consultades:** portada, `/about/`, `/how-to/`, `/ratios-as-percentages/`,

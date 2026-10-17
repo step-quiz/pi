@@ -13,9 +13,11 @@ criteris de disseny que han anat sortint del procés i que convé mantenir.
 **El que s'ha tocat de les fitxes en aquesta versió.** Quatre insercions, cap
 redisseny: l'obertura a la pàgina 1 de les set, la doble recta a la U2, el pas del preu
 unitari a la U3, el repartiment a la U6 i la barra de probabilitat a la U7. Ni un estil
-nou fora de `.obertura`, ni una pàgina moguda de lloc, ni un exercici tocat. Tot està
-generat per `generadors/aplica_millores.py`, que es pot tornar a executar sense duplicar
-res i que deixa marcadors `§…§` allà on ha entrat.
+nou fora de `.obertura`, ni una pàgina moguda de lloc, ni un exercici tocat. Es va
+generar amb `generadors/aplica_millores.py`, que deixava marcadors `§…§` allà on entrava.
+*(Des del 29/9/2026, aquest script i els marcadors `§…§` ja no existeixen: cada gràfic va
+entre `<!--grafic:NOM-->` i `<!--/grafic-->` i el posa `generadors/posa_grafics.py`. Vegeu
+`CONTINUAR.md`.)*
 
 ---
 
