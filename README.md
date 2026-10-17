@@ -26,7 +26,6 @@ Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `css/`, `js/`, `dades
 `docs/`, `eines/` i `generadors/`. Les ordres de la seva documentació s'executen des de
 dins: `cd 4eso/`.
 
-
 ---
 
 ## Com s'obre
