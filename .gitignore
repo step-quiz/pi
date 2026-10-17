@@ -12,3 +12,6 @@ Thumbs.db
 docx/
 # Els exàmens no es publiquen: el DOCX surt a docx/, i per error no pot quedar als generadors
 **/generadors/**/*.docx
+
+# Sortides de les comprovacions
+sortida.log

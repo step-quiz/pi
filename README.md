@@ -21,20 +21,11 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
 | `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub, i les comprovacions automàtiques. Si es pugen dos zip seguits, el segon espera el primer; i si les comprovacions fallen, no es desa res i el zip es queda a `_uploads/` |
-| `conference/` | Material d'una xerrada sobre com elaborar material SIEI amb IA: dos prototips «Fast-build» (A i B) amb converses, pàgines web, captures i PDF |
 
 Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `css/`, `js/`, `dades/`, `pdf/`,
 `docs/`, `eines/` i `generadors/`. Les ordres de la seva documentació s'executen des de
 dins: `cd 4eso/`.
 
-
-> **Estat a 17 d'octubre de 2026.** `python3 4eso/eines/comprova.py` **falla**: els fitxers
-> `conference/Fast-build-*/Fast-build-*-webapp.html` contenen «4t ESO» i «DIL», termes que la
-> comprovació d'anonimat no admet enlloc del repositori. Per això, segons la regla de dalt,
-> `_uploads/vianda.zip` (una còpia sencera del repositori, 457 fitxers) **no s'ha descomprimit**
-> i continua a `_uploads/`. A l'arrel també hi ha `sortida.log`, una sortida de comprovació
-> pujada per error. Cal decidir si `conference/` ha de ser al repositori (o si la comprovació
-> l'ha d'excloure) i què s'ha de fer amb `vianda.zip`.
 
 ---
 
