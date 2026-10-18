@@ -293,5 +293,7 @@ fitxa. *Corregit:* cada pàgina 1 porta ara un rètol per a l'adult amb el mater
 i cada solucionari diu què fer-hi i amb quin dibuix enllaça. Vegeu la taula de l'apartat 5
 del mapa.
 
-**Segueix obert:** si els mòduls de l'app acumulen o buiden la pantalla entre passos. L'app
-no s'ha tocat en cap de les dues revisions.
+**Ja no queda res obert.** L'últim punt pendent, si els mòduls de l'app acumulen o buiden
+la pantalla entre passos, es va resoldre més tard: ara cada tasca amb passos en mostra un
+de sol (`js/tasca.js`) i el dibuix sencer només surt al final. Vegeu `CONTINUAR.md`
+(«Resolt d'aquesta llista»).
