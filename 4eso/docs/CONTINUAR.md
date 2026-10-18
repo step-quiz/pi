@@ -19,8 +19,10 @@ dificultats de tipus cognitiu.
 > (tercera versió). Els apartats 4, 5 i 6 d'aquest handout queden com a registre històric:
 > **no cal tornar a fer aquella feina.**
 >
-> Queda **una sola cosa oberta** i necessita el docent: el graó de percentatge de la U2,
-> descrit a l'apartat 5 del mapa.
+> L'única cosa que necessitava el docent, el graó de percentatge de la U2 (apartat 5 del
+> mapa), **ja és a la fitxa**: `fitxes/ud2.html` porta la barra amb l'escala de 0 a 100 %
+> (`BARRA_ESCALA`) entre la barra partida i el factor. Només falta que el docent el doni per
+> bo a l'aula.
 
 ---
 
