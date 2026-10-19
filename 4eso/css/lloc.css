@@ -112,4 +112,4 @@ a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0,
 
 hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 
-.peu { color: var(--etiqueta-3); font-size: .85rem; margin-top: 3rem }
+.peu { color: var(--etiqueta-2); font-size: .85rem; margin-top: 3rem }
