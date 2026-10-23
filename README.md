@@ -35,6 +35,9 @@ Doble clic a `index.html`: deixa triar el material (Matemàtiques o Matemàtique
 porta a la seva portada. No cal servidor ni instal·lar res. Cada portada, al seu torn, deixa
 triar entre les fitxes i la caixa d'eines: vegeu els `README.md` de `4eso/` i `1eso/`.
 
+Les dues caixes d'eines poden llegir cada targeta en veu alta: el botó petit de l'altaveu,
+a dalt a la dreta de la targeta. Quina veu sona millor a cada ordinador, als mateixos `README.md`.
+
 Amb `index.html?other-versions=1` (per exemple, `https://pi.step-quiz.net/?other-versions=1`),
 la portada no fa triar el material sinó la versió: la de la IA gratuïta, la de la IA de
 pagament (amb els seus PDF) o aquest projecte. Cada opció s'obre en una pestanya nova.
