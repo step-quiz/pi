@@ -50,6 +50,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── nucli.js            l'objecte global CE i el registre de mòduls
 │   ├── codi.js             el codi de verificació: fer-lo i llegir-lo
 │   ├── tasca.js            el motor de les tasques tancades: passos, represa, resum
+│   ├── veu.js              la lectura en veu alta de cada targeta (apartat 6c)
 │   ├── app.js              navegació de la caixa d'eines
 │   ├── lloc.js             construeix els índexs a partir de les dades
 │   └── moduls/             un fitxer per mòdul, deu en total
@@ -74,7 +75,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 
 ```
 tokens.css ← s'enllaça des de l'HTML, ABANS de fitxa.css / app.css / lloc.css
-nucli.js   ← codi.js, tasca.js ← js/moduls/*.js ← app.js
+nucli.js   ← codi.js, tasca.js, veu.js ← js/moduls/*.js ← app.js
 textos.js  ← tasca.js, js/moduls/*.js
 unitats.js ← lloc.js
 ```
@@ -454,6 +455,46 @@ Els generadors de gràfics escriuen un `.json` amb els SVG, i `posa_grafics.py` 
 a les fitxes entre els marcadors `<!--grafic:NOM-->` i `<!--/grafic-->` (vegeu l'apartat 6).
 Els marcadors `§NOM§` i `aplica_millores.py` de què parlaven versions anteriors ja no hi
 són. Els comentaris `<!--§obertura p.1§-->` que queden a les fitxes només són de traça.
+
+---
+
+## 6c. La veu: `js/veu.js`
+
+Cada targeta amb títol porta, a dalt a la dreta, un botó petit i gris amb un altaveu. En
+tocar-lo, el navegador llegeix la targeta en veu alta i marca el que llegeix; tornar-lo a tocar
+la para, i tocar qualsevol altre botó també. És el mateix fitxer a `1eso/` i a `4eso/`. Fa
+servir la síntesi de veu del navegador (Web Speech API): no cal xarxa ni servidor. Si el
+navegador no en té, el botó no surt.
+
+**Com llegeix, i per què.**
+
+- **En català**, amb la millor veu catalana de l'ordinador: primer les «naturals» (Edge en porta
+  dues, Joana i Enric), després qualsevol altra. Si l'ordinador no en té cap, el navegador fa
+  servir la que té.
+- **A poc a poc**: velocitat 0,85 (la normal és 1). Més lenta, la veu s'arrossega i es fa
+  estranya; més ràpida, no dona temps.
+- **Amb el to natural** (1). Un to més agut sona infantil.
+- **Un bloc cada vegada**, amb una pausa de 450 ms entre bloc i bloc: el títol, la consigna,
+  «Pas 2 de 5», la pregunta, cada línia de la lectura, l'avís. Una idea, i un silenci.
+- **Només quan es demana, i sempre igual.** Res no parla sol en obrir la pàgina.
+- **Els símbols, amb paraules**: «3 · 4 = 12» es diu «3 per 4 és igual a 12»; «7²», «7 al
+  quadrat»; «km²», «quilòmetres quadrats»; «√7», «l'arrel quadrada de 7». El punt volat de
+  «col·lecció» no es toca. Les fraccions i les expressions amb forat ja porten la seva lectura a
+  `aria-label` (`role="img"`), i es diu aquesta: «tres vuitens».
+- **No es llegeix** el que no és text per llegir: els botons, els dibuixos (`svg`), l'etiqueta
+  «Exemple» (`.marca`) ni l'«Inici» i el «Final» del rètol de progrés (`.fita`).
+
+**Com marca el que llegeix.** El bloc que sona té, darrere de les lletres, un fons blau molt
+suau, com un retolador fluix. Si la veu diu per on va (Edge, Safari i algunes veus de Chrome ho
+fan), la paraula que sona en té un de més marcat. Es fa amb `CSS.highlights`, que no toca el
+text ni mou res. Els estils són al final de `css/app.css`.
+
+**Les frases del botó** són `comu.veu_escolta` («Escolta la targeta») i `comu.veu_para` («Para
+la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `js/veu.js`.
+
+**Una eina nova no ha de fer res**: el botó surt sol a cada `.targeta` que tingui un `<h2>`.
+Si un text de l'eina es llegeix malament, el remei és un `aria-label` amb la lectura en paraules
+(i `role="img"`) a l'element que el conté, com les fraccions.
 
 ---
 

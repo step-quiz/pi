@@ -447,3 +447,20 @@ svg.barres{max-width:26rem;width:100%;margin:.4rem auto;display:block}
 /* Els números dels angles (24), sobre un cercle del color del fons: es llegeixen sobre
    qualsevol dels tres tons, en mode clar i fosc (l'auditoria, 29/9/2026). */
 .ang-fons{fill:var(--superficie);stroke:var(--etiqueta-3);stroke-width:1}
+
+/* ===================================================== la veu (js/veu.js) == */
+/* El botó de l'altaveu: a dalt a la dreta de cada targeta, petit i gris, perquè
+   no es confongui amb els botons de la tasca. Mentre llegeix, blau i amb un
+   quadrat de «para». Sense animacions. */
+.veu-boto{float:right;margin:-.45rem -.45rem .3rem .5rem;width:44px;height:44px;padding:0;border:0;
+  border-radius:999px;background:transparent;color:var(--etiqueta-2);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.veu-boto:hover{background:var(--camp)}
+.veu-boto[aria-pressed="true"]{background:var(--blau-suau);color:var(--blau-text)}
+.veu-boto svg{width:24px;height:24px;flex:none}
+/* El que s'està llegint: un fons blau molt suau darrere de les lletres. La
+   paraula que sona hi posa un segon fons a sobre, i queda una mica més marcada. */
+::highlight(veu-bloc),::highlight(veu-paraula){background-color:var(--blau-suau);color:inherit}
+/* Els navegadors sense ::highlight pinten tot el bloc (per sobre del fons dels
+   avisos, que és un color i no una imatge). */
+.veu-bloc{background-image:linear-gradient(var(--blau-suau),var(--blau-suau));border-radius:var(--r-p)}

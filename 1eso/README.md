@@ -74,6 +74,23 @@ tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.
 un codi de verificació, que es llegeix a
 `verifica.html`. Les frases es canvien a `textos.html`.
 
+### La lectura en veu alta
+
+Cada targeta de la caixa té, a dalt a la dreta, un botó petit amb un altaveu. En tocar-lo, la
+targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i es marca amb un fons suau
+el que s'està llegint. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
+
+La veu és la de l'ordinador, i n'hi ha de més bones que d'altres:
+
+- **Microsoft Edge** porta dues veus catalanes naturals (Joana i Enric). És el que sona millor,
+  i també marca la paraula que es diu.
+- **Chrome a Windows** fa servir les veus de Windows. Si no n'hi ha cap de catalana: Configuració
+  → Hora i idioma → Idioma i regió → Afegeix un idioma → Català, amb la casella de la veu.
+- **Chromebooks, tauletes i mòbils**: si llegeix amb accent castellà, cal instal·lar la veu
+  catalana a la configuració de «Text a veu» del dispositiu.
+
+Com està fet i per què: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md), apartat «La veu».
+
 Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 
 ---
