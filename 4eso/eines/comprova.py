@@ -453,11 +453,17 @@ PROHIBITS = CURS + [r"\bSIEI\b", r"\bDIL\b", r"discapacitat intel",
 # material. Ho va decidir el docent el 26/9/2026: allà no cal amagar-lo. Els altres
 # termes (el diagnòstic, «l'alumne») hi continuen prohibits, i el curs, a tot arreu més.
 PORTADA = os.path.join(REPO, 'index.html')
+# I other-versions/ no es mira: són les dues versions que va fer una IA, per comparar-les
+# amb aquest projecte (index.html?other-versions=1). El docent va decidir el 23/10/2026
+# deixar-les tal com les va fer la IA, amb el curs i el diagnòstic que hi surten.
+ALTRES_VERSIONS = os.path.join(REPO, 'other-versions') + os.sep
 trobats = []
 for f in (glob.glob(os.path.join(REPO, '**', '*.md'), recursive=True)
           + glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True)
           + glob.glob(os.path.join(REPO, '**', '*.js'), recursive=True)
           + glob.glob(os.path.join(REPO, '**', '*.css'), recursive=True)):
+    if os.path.abspath(f).startswith(ALTRES_VERSIONS):
+        continue
     text = open(f, encoding='utf-8').read()
     for patro in PROHIBITS:
         if os.path.abspath(f) == os.path.abspath(PORTADA) and patro in CURS:

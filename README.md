@@ -17,6 +17,7 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 | `1eso/` | Tot el material de Matemàtiques: les targetes de consulta, les fitxes, la caixa d'eines i el test. Vegeu [`1eso/README.md`](1eso/README.md) |
 | `comu/` | El que comparteixen els dos materials: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
 | `index.html` | La porta d'entrada: deixa triar entre `4eso/` i `1eso/` |
+| `other-versions/` | Dues versions de molta menys qualitat fetes amb una IA, per comparar-les amb aquest projecte: `gratis-2min.html` (IA gratuïta, 2 minuts, una instrucció) i `pagament-10min.html` (IA de pagament, 10 minuts, dues instruccions), amb el seu dossier i solucionari en PDF. Només s'hi arriba des de `index.html?other-versions=1`. Es deixen tal com les va fer la IA, i per això la comprovació de l'anonimat no hi mira |
 | `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
@@ -33,6 +34,10 @@ dins: `cd 4eso/`.
 Doble clic a `index.html`: deixa triar el material (Matemàtiques o Matemàtiques Aplicades) i
 porta a la seva portada. No cal servidor ni instal·lar res. Cada portada, al seu torn, deixa
 triar entre les fitxes i la caixa d'eines: vegeu els `README.md` de `4eso/` i `1eso/`.
+
+Amb `index.html?other-versions=1` (per exemple, `https://pi.step-quiz.net/?other-versions=1`),
+la portada no fa triar el material sinó la versió: la de la IA gratuïta, la de la IA de
+pagament (amb els seus PDF) o aquest projecte. Cada opció s'obre en una pestanya nova.
 
 ## On es publica
 
