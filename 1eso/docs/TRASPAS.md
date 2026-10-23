@@ -214,6 +214,7 @@ Són a `CRITERIS-DISSENY.md`; aquestes són les que més fàcilment es trenquen:
 - **L'anonimat:** res del diagnòstic, ni noms, ni el curs escrit, ni el nom de la carpeta sense la
   barra, ni frases que parlin d'una sola persona: els verificadors en tenen la llista, a l'apartat
   ANONIMAT. Parla sempre de «l'alumnat». La portada de l'arrel és l'única que pot dir el curs.
+  `other-versions/` no es mira: són versions fetes per una IA, i el docent les vol tal com són.
 - **Les claus del navegador** comencen per `pi1-`. L'ordre dels scripts de la caixa és fix:
   `textos.js`, `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, els mòduls i `app.js`.
 

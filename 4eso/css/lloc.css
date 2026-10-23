@@ -113,3 +113,11 @@ a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0,
 hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 
 .peu { color: var(--etiqueta-2); font-size: .85rem; margin-top: 3rem }
+
+/* La targeta de portada que porta més d'un enllaç (index.html?other-versions=1):
+   la targeta no és un enllaç, i a dins n'hi ha un de gran i els dels PDF. */
+.tria-enllac { display: block; color: inherit }
+.tria-enllac:hover { text-decoration: none }
+.tria-enllac:hover h2 { text-decoration: underline }
+/* .tria és una graella, i sense això «hidden» no l'amagaria. */
+[hidden] { display: none !important }
