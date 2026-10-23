@@ -69,13 +69,14 @@ Els números no canvien mai, perquè ja poden ser en enllaços enviats.
 ## La lectura en veu alta
 
 Cada targeta de la caixa té, a dalt a la dreta, un botó petit amb un altaveu. En tocar-lo, la
-targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i es marca amb un fons suau
-el que s'està llegint. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
+targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i el que s'està llegint
+es marca amb un fons groc clar, com de retolador. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
 
 La veu és la de l'ordinador, i n'hi ha de més bones que d'altres:
 
 - **Microsoft Edge** porta dues veus catalanes naturals (Joana i Enric). És el que sona millor,
-  i també marca la paraula que es diu.
+  i, a més del bloc, també marca
+  la paraula que es diu.
 - **Chrome a Windows** fa servir les veus de Windows. Si no n'hi ha cap de catalana: Configuració
   → Hora i idioma → Idioma i regió → Afegeix un idioma → Català, amb la casella de la veu.
 - **Chromebooks, tauletes i mòbils**: si llegeix amb accent castellà, cal instal·lar la veu
