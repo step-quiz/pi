@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mates per a la vida · 4t ESO</title>
+<style>
+:root{
+  --fs:20px;
+  --bg:#f6f4ee; --card:#ffffff; --ink:#1d2730; --muted:#55606b; --line:#d8d2c4;
+  --accent:#2b6a8a; --accent-ink:#ffffff; --soft:#e7f0f4;
+  --ok:#256b2c; --okbg:#e6f3e6; --no:#8a4b00; --nobg:#fff1dc; --orange:#b85f00;
+}
+body.contrast{
+  --bg:#ffffff; --card:#ffffff; --ink:#000000; --muted:#1a1a1a; --line:#000000;
+  --accent:#003e8a; --soft:#e6edfb; --ok:#004d00; --okbg:#dcffdc; --no:#6b2b00; --nobg:#ffefcc; --orange:#8a3d00;
+}
+*{box-sizing:border-box}
+html{font-size:var(--fs)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Verdana,Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.6}
+body.spaced{letter-spacing:.04em;word-spacing:.15em;line-height:1.95}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:4px solid #f0b400;outline-offset:2px}
+
+/* Capçalera */
+.top{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:2px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:space-between;padding:.45rem 16px}
+.top h1{font-size:1rem;margin:0;flex:1 1 auto}
+.tools{display:flex;flex-wrap:wrap;gap:.35rem}
+.tbtn{background:var(--soft);color:var(--ink);border:2px solid var(--line);border-radius:.6rem;padding:.3rem .6rem;font-size:.8rem;min-height:44px}
+.tbtn[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.tbtn.calm{background:#e3f1e4;border-color:#9cc59f}
+
+main{max-width:900px;margin:0 auto;padding:1rem 16px 4rem}
+h2{font-size:1.35rem;margin:.4rem 0 .6rem}
+h3{font-size:1.1rem;margin:1rem 0 .5rem}
+p{margin:.4rem 0 .8rem}
+.muted{color:var(--muted)}
+
+/* Inici */
+.hello{background:var(--card);border:2px solid var(--line);border-radius:1rem;padding:1rem}
+.tri{margin-top:1.4rem}
+.tri h3{display:flex;align-items:center;gap:.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.8rem}
+.ucard{display:flex;gap:.7rem;align-items:center;text-align:left;background:var(--card);color:var(--ink);
+  border:2px solid var(--line);border-radius:1rem;padding:.8rem;min-height:90px;text-decoration:none}
+.ucard:hover{border-color:var(--accent)}
+.ucard .ic{font-size:2rem;line-height:1}
+.ucard b{display:block;font-size:.95rem}
+.ucard small{display:block;color:var(--muted);font-size:.75rem}
+.ucard .prog{font-size:.75rem;color:var(--ok);font-weight:bold}
+
+/* Unitat */
+.uhead{display:flex;align-items:center;gap:.7rem}
+.uhead .ic{font-size:2.4rem}
+.steps{list-style:none;padding:0;margin:.8rem 0 1rem;display:flex;flex-wrap:wrap;gap:.35rem}
+.steps button{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:2rem;padding:.25rem .7rem;font-size:.75rem;min-height:44px}
+.steps button.cur{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:bold}
+.steps button.seen{border-color:var(--accent)}
+.panel{background:var(--card);border:2px solid var(--line);border-radius:1rem;padding:1rem 1.1rem}
+.panel .big{font-size:1.15rem}
+.stepnum{display:inline-block;font-size:.75rem;color:var(--muted);margin-bottom:.2rem}
+.words{display:grid;gap:.6rem}
+.word{border-left:6px solid var(--accent);background:var(--soft);padding:.5rem .8rem;border-radius:.4rem}
+.word b{display:block}
+.word .eg{font-family:inherit;color:var(--muted)}
+ol.how{padding-left:0;list-style:none;counter-reset:h}
+ol.how li{counter-increment:h;position:relative;padding:.5rem .5rem .5rem 3rem;margin:.4rem 0;background:var(--soft);border-radius:.6rem}
+ol.how li::before{content:counter(h);position:absolute;left:.6rem;top:.45rem;width:1.8rem;height:1.8rem;border-radius:50%;
+  background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:.9rem}
+.formula{display:inline-block;background:#fffbe6;border:2px dashed #c9a400;border-radius:.5rem;padding:.1rem .5rem;font-weight:bold}
+body.contrast .formula{background:#fff;border-color:#000}
+.fig{width:100%;max-width:560px;height:auto;display:block;margin:.8rem auto;color:var(--ink)}
+.figrow{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.figrow figure{margin:0;text-align:center;flex:1 1 160px;max-width:200px}
+.figrow figcaption{font-size:.8rem}
+.example{border:3px solid var(--accent);border-radius:1rem;padding:.8rem 1rem;background:var(--card)}
+.example h3{margin-top:0}
+.nav{display:flex;justify-content:space-between;gap:.6rem;margin-top:1rem}
+.btn{background:var(--accent);color:var(--accent-ink);border:none;border-radius:.7rem;padding:.6rem 1.1rem;min-height:48px;font-weight:bold}
+.btn.sec{background:var(--card);color:var(--ink);border:2px solid var(--line)}
+.btn:disabled{opacity:.35;cursor:default}
+.tblock{display:inline-block}
+
+/* Exercicis */
+.exs{display:grid;gap:1rem}
+.ex{border:2px solid var(--line);border-radius:1rem;padding:.8rem 1rem;background:var(--card)}
+.ex.done{border-color:var(--ok);background:var(--okbg)}
+.ex .q{font-weight:bold;margin-bottom:.5rem}
+.ex .q .n{display:inline-block;background:var(--accent);color:var(--accent-ink);border-radius:.4rem;padding:0 .45rem;margin-right:.4rem}
+.opts{display:flex;flex-wrap:wrap;gap:.5rem}
+.opt{background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:.7rem;padding:.5rem .9rem;min-height:48px;min-width:4rem}
+.opt.right{background:var(--okbg);border-color:var(--ok)}
+.opt.wrong{background:var(--nobg);border-color:var(--no)}
+.numrow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.numrow input{font:inherit;width:7.5rem;padding:.4rem .5rem;border:2px solid var(--line);border-radius:.6rem;min-height:48px}
+.small{font-size:.8rem}
+.fb{margin-top:.5rem;padding:.4rem .7rem;border-radius:.6rem;display:none}
+.fb.ok{display:block;background:var(--okbg);color:var(--ok);font-weight:bold}
+.fb.no{display:block;background:var(--nobg);color:var(--no)}
+.hint{display:none;margin-top:.4rem;padding:.4rem .7rem;border-left:5px solid #c9a400;background:#fffbe6;border-radius:.3rem}
+body.contrast .hint{background:#fff;border-color:#000}
+.hint.show{display:block}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.linkbtn{background:none;border:2px dotted var(--muted);color:var(--ink);border-radius:.6rem;padding:.25rem .6rem;font-size:.8rem;min-height:44px}
+.score{font-weight:bold;color:var(--ok)}
+
+.remember li{margin:.4rem 0;font-weight:bold}
+.fact{margin-top:1rem;background:var(--soft);border-radius:.8rem;padding:.7rem 1rem}
+.fact b:first-child{display:block}
+
+/* Programació per blocs */
+.blocks{display:inline-block;font-size:.9rem;margin:.6rem 0}
+.blk{background:#dbe9ff;border:2px solid #6b8fd1;border-radius:.4rem;padding:.25rem .6rem;margin:.25rem 0;color:#10264f}
+.blk.loop{background:#ffe9c7;border-color:#d39b3a;color:#4a3000}
+.blk.loop .blk{margin-left:1.2rem}
+.blk.cond{background:#e4f5dc;border-color:#78b05a;color:#1f3d10}
+.blk.cond .blk{margin-left:1.2rem}
+.code{font-family:Consolas,"Courier New",monospace;background:var(--soft);padding:.4rem .6rem;border-radius:.4rem;display:block;white-space:pre;overflow-x:auto;font-size:.9rem}
+
+.pascal{text-align:center;font-family:Consolas,monospace;line-height:1.7}
+.pascal span{display:inline-block;min-width:2rem}
+
+/* Emocions */
+.feel{display:flex;flex-wrap:wrap;gap:.5rem}
+.feel button{background:var(--card);border:2px solid var(--line);border-radius:1rem;padding:.5rem .8rem;min-height:56px;color:var(--ink)}
+.feel button.sel{border-color:var(--accent);background:var(--soft)}
+.feelmsg{margin-top:.6rem}
+
+/* Guia docent */
+table{border-collapse:collapse;width:100%;font-size:.78rem}
+th,td{border:1px solid var(--line);padding:.35rem .45rem;vertical-align:top;text-align:left}
+th{background:var(--soft)}
+.tablewrap{overflow-x:auto}
+details{background:var(--card);border:2px solid var(--line);border-radius:.8rem;padding:.5rem .9rem;margin:.6rem 0}
+summary{font-weight:bold;cursor:pointer;min-height:44px;display:flex;align-items:center}
+.guide li{margin:.3rem 0}
+
+/* Racó de calma */
+#calm{position:fixed;inset:0;background:rgba(232,242,235,.97);z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:16px;text-align:center}
+#calm[hidden]{display:none}
+body.contrast #calm{background:#fff}
+.breath{width:140px;height:140px;border-radius:50%;background:#9cc59f;animation:breathe 8s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.7)}50%{transform:scale(1.15)}}
+#calmTxt{font-size:1.4rem;font-weight:bold}
+
+.toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:.5rem 1rem;border-radius:.6rem;font-size:.85rem;z-index:30}
+
+@media (max-width:560px){
+  :root{--fs:18px}
+  .top h1{flex-basis:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}
+@media print{
+  .top,.nav,.steps,.links,#calm{display:none!important}
+  body{background:#fff}
+  .panel,.ex{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>📘 Mates per a la vida · 4t ESO</h1>
+  <div class="tools" role="toolbar" aria-label="Eines">
+    <button class="tbtn" id="bHome">🏠 Inici</button>
+    <button class="tbtn" id="bSmaller" aria-label="Lletra més petita">A−</button>
+    <button class="tbtn" id="bBigger" aria-label="Lletra més gran">A+</button>
+    <button class="tbtn" id="bSpaced" aria-pressed="false">↔ Espai</button>
+    <button class="tbtn" id="bContrast" aria-pressed="false">◐ Contrast</button>
+    <button class="tbtn" id="bSpeak">🔊 Escolta</button>
+    <button class="tbtn calm" id="bCalm">🌿 Pausa</button>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<div id="calm" hidden role="dialog" aria-modal="true" aria-labelledby="calmTxt">
+  <div class="breath" aria-hidden="true"></div>
+  <div id="calmTxt">Inspira…</div>
+  <p>Respira a poc a poc.<br>Pots tornar quan estiguis a punt.</p>
+  <button class="btn" id="bCalmOff">Ja estic millor ✔</button>
+</div>
+
+<script>
+/* =========================================================
+   FIGURES (SVG)
+   ========================================================= */
+function numberLine(){
+  let s='<svg viewBox="0 0 560 110" class="fig" role="img" aria-label="Recta numèrica de menys 5 a 5. Hi ha marcats menys 2 i 3.">';
+  s+='<text x="20" y="18" font-size="15" fill="currentColor">◀ més petit</text><text x="540" y="18" font-size="15" fill="currentColor" text-anchor="end">més gran ▶</text>';
+  s+='<line x1="16" y1="60" x2="544" y2="60" stroke="currentColor" stroke-width="2"/>';
+  for(let n=-5;n<=5;n++){const x=280+n*48;
+    s+=`<line x1="${x}" y1="52" x2="${x}" y2="68" stroke="currentColor" stroke-width="2"/><text x="${x}" y="92" text-anchor="middle" font-size="18" fill="currentColor">${n<0?'−'+(-n):n}</text>`;}
+  s+='<circle cx="184" cy="60" r="9" style="fill:var(--accent)"/><text x="184" y="40" text-anchor="middle" font-size="15" style="fill:var(--accent)">Vic −2 °C</text>';
+  s+='<circle cx="424" cy="60" r="9" style="fill:var(--orange)"/><text x="424" y="40" text-anchor="middle" font-size="15" style="fill:var(--orange)">BCN 3 °C</text>';
+  return s+'</svg>';
+}
+function treeFig(){
+  const L=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="2"/>`;
+  const T=(x,y,t,a)=>`<text x="${x}" y="${y}" font-size="16" fill="currentColor" dominant-baseline="middle" ${a?'text-anchor="'+a+'"':''}>${t}</text>`;
+  let s='<svg viewBox="0 0 560 280" class="fig" role="img" aria-label="Diagrama d’arbre: 2 samarretes i 3 pantalons fan 6 combinacions.">';
+  s+=T(10,140,'Roba');
+  s+=L(60,140,170,70)+L(60,140,170,210);
+  s+='<circle cx="182" cy="70" r="8" fill="#c0392b"/>'+T(196,70,'Vermella');
+  s+='<circle cx="182" cy="210" r="8" fill="#2b6a8a"/>'+T(196,210,'Blava');
+  const p=['Texans','Curts','Xandall'];
+  [[70,[30,70,110]],[210,[170,210,250]]].forEach(([y0,ys])=>ys.forEach((y,i)=>{s+=L(290,y0,370,y)+T(378,y,p[i]);}));
+  [30,70,110,170,210,250].forEach((y,i)=>{s+=T(545,y,(i+1)+'','end');});
+  return s+'</svg>';
+}
+function triangleFig(){
+  return `<svg viewBox="0 0 400 270" class="fig" style="max-width:400px" role="img" aria-label="Triangle rectangle amb catets 3 i 4 i hipotenusa 5.">
+  <polygon points="60,220 300,220 60,40" fill="none" stroke="currentColor" stroke-width="3"/>
+  <rect x="60" y="196" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"/>
+  <text x="180" y="248" text-anchor="middle" font-size="18" fill="currentColor">catet = 4</text>
+  <text x="48" y="135" text-anchor="end" font-size="18" fill="currentColor">catet = 3</text>
+  <text x="200" y="118" font-size="18" style="fill:var(--orange)" font-weight="bold">hipotenusa = 5</text>
+  <text x="92" y="212" font-size="14" fill="currentColor">90°</text></svg>`;
+}
+function gridFig(){
+  const o=165,c=30;let s=`<svg viewBox="0 0 330 330" class="fig" style="max-width:360px" role="img" aria-label="Pla de coordenades amb el punt A a 3, 2 i el punt B a menys 2, menys 3.">`;
+  for(let i=-5;i<=5;i++){const p=o+i*c;
+    s+=`<line x1="${p}" y1="15" x2="${p}" y2="315" stroke="currentColor" stroke-opacity=".18"/><line x1="15" y1="${p}" x2="315" y2="${p}" stroke="currentColor" stroke-opacity=".18"/>`;
+    if(i!==0){s+=`<text x="${p}" y="${o+18}" font-size="11" text-anchor="middle" fill="currentColor">${i<0?'−'+(-i):i}</text><text x="${o-8}" y="${o-i*c+4}" font-size="11" text-anchor="end" fill="currentColor">${i<0?'−'+(-i):i}</text>`;}
+  }
+  s+=`<line x1="15" y1="${o}" x2="318" y2="${o}" stroke="currentColor" stroke-width="2.5"/><line x1="${o}" y1="12" x2="${o}" y2="315" stroke="currentColor" stroke-width="2.5"/>`;
+  s+=`<text x="320" y="${o-8}" font-size="16" text-anchor="end" fill="currentColor" font-weight="bold">x</text><text x="${o+8}" y="24" font-size="16" fill="currentColor" font-weight="bold">y</text>`;
+  s+=`<line x1="${o}" y1="105" x2="255" y2="105" stroke="var(--accent)" stroke-dasharray="4 3"/><line x1="255" y1="${o}" x2="255" y2="105" stroke="var(--accent)" stroke-dasharray="4 3"/>`;
+  s+=`<circle cx="255" cy="105" r="7" style="fill:var(--accent)"/><text x="263" y="98" font-size="16" style="fill:var(--accent)" font-weight="bold">A</text>`;
+  s+=`<circle cx="105" cy="255" r="7" style="fill:var(--orange)"/><text x="88" y="250" font-size="16" style="fill:var(--orange)" font-weight="bold">B</text>`;
+  s+=`<text x="${o+4}" y="${o+30}" font-size="11" fill="currentColor">origen (0, 0)</text>`;
+  return s+'</svg>';
+}
+function barFig(){
+  const d=[['Futbol',8],['Ball',6],['Bàsquet',5],['Natació',3]];
+  let s='<svg viewBox="0 0 460 270" class="fig" style="max-width:460px" role="img" aria-label="Gràfic de barres dels esports preferits: futbol 8, ball 6, bàsquet 5, natació 3.">';
+  for(let v=0;v<=8;v+=2){const y=220-v*22;s+=`<line x1="40" y1="${y}" x2="450" y2="${y}" stroke="currentColor" stroke-opacity=".15"/><text x="32" y="${y+5}" font-size="13" text-anchor="end" fill="currentColor">${v}</text>`;}
+  d.forEach(([n,v],i)=>{const x=65+i*100,h=v*22;
+    s+=`<rect x="${x}" y="${220-h}" width="60" height="${h}" rx="4" style="fill:var(--accent)"/><text x="${x+30}" y="${214-h}" font-size="15" text-anchor="middle" fill="currentColor" font-weight="bold">${v}</text><text x="${x+30}" y="245" font-size="14" text-anchor="middle" fill="currentColor">${n}</text>`;});
+  s+='<line x1="40" y1="220" x2="450" y2="220" stroke="currentColor" stroke-width="2"/><text x="10" y="14" font-size="13" fill="currentColor">Vots</text>';
+  return s+'</svg>';
+}
+function tempFig(){
+  const pts=[[8,10],[12,18],[16,20],[20,14]],X=h=>60+(h-8)*30,Y=t=>220-t*8;
+  let s='<svg viewBox="0 0 460 270" class="fig" style="max-width:460px" role="img" aria-label="Gràfica de la temperatura: a les 8 hores 10 graus, a les 12 hores 18, a les 16 hores 20 i a les 20 hores 14.">';
+  for(let t=0;t<=25;t+=5){s+=`<line x1="50" y1="${Y(t)}" x2="440" y2="${Y(t)}" stroke="currentColor" stroke-opacity=".15"/><text x="44" y="${Y(t)+5}" font-size="13" text-anchor="end" fill="currentColor">${t}°</text>`;}
+  s+=`<polyline points="${pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}" fill="none" stroke="var(--orange)" stroke-width="3"/>`;
+  pts.forEach(p=>{s+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="6" style="fill:var(--orange)"/><text x="${X(p[0])}" y="245" font-size="14" text-anchor="middle" fill="currentColor">${p[0]} h</text>`;});
+  s+='<line x1="50" y1="220" x2="440" y2="220" stroke="currentColor" stroke-width="2"/><text x="250" y="266" font-size="13" text-anchor="middle" fill="currentColor">Hora del dia</text><text x="6" y="16" font-size="13" fill="currentColor">Temperatura</text>';
+  return s+'</svg>';
+}
+function funcFigs(){
+  const box=(path,lab,cap)=>`<figure><svg viewBox="0 0 160 130" class="fig" style="max-width:180px;margin:.2rem auto" role="img" aria-label="${cap}">
+    <line x1="20" y1="110" x2="155" y2="110" stroke="currentColor" stroke-width="2"/><line x1="20" y1="110" x2="20" y2="5" stroke="currentColor" stroke-width="2"/>
+    <path d="${path}" fill="none" stroke="var(--accent)" stroke-width="3.5"/></svg><figcaption><b>${lab}</b><br>${cap}</figcaption></figure>`;
+  return '<div class="figrow">'+
+    box('M20,110 L150,15','Directa','Una puja, l’altra també puja.')+
+    box('M30,10 Q45,95 150,104','Inversa','Una puja, l’altra baixa.')+
+    box('M20,106 Q110,104 140,10','Exponencial','Creix cada cop més de pressa.')+'</div>';
+}
+function scatterFig(){
+  const p=[[1,4],[2,5],[2,4.5],[3,6],[4,6.5],[4,7.5],[5,8],[6,8.5],[6,9.5]];
+  let s='<svg viewBox="0 0 320 230" class="fig" style="max-width:340px" role="img" aria-label="Núvol de punts: com més hores d’estudi, més nota. Els punts pugen.">';
+  s+='<line x1="40" y1="190" x2="310" y2="190" stroke="currentColor" stroke-width="2"/><line x1="40" y1="190" x2="40" y2="10" stroke="currentColor" stroke-width="2"/>';
+  s+='<line x1="60" y1="150" x2="300" y2="20" stroke="var(--orange)" stroke-width="2" stroke-dasharray="6 4"/>';
+  p.forEach(([h,n])=>{s+=`<circle cx="${40+h*42}" cy="${190-n*18}" r="6" style="fill:var(--accent)"/>`;});
+  s+='<text x="175" y="220" font-size="13" text-anchor="middle" fill="currentColor">Hores d’estudi</text><text x="6" y="14" font-size="13" fill="currentColor">Nota</text>';
+  return s+'</svg>';
+}
+const pascal=`<div class="pascal" aria-label="Triangle aritmètic">
+<div><span>1</span></div><div><span>1</span><span>1</span></div><div><span>1</span><span>2</span><span>1</span></div>
+<div><span>1</span><span>3</span><span>3</span><span>1</span></div><div><span>1</span><span>4</span><span>6</span><span>4</span><span>1</span></div></div>`;
+
+/* =========================================================
+   CONTINGUTS — Matemàtiques A, 4t ESO (Decret 175/2022)
+   ========================================================= */
+const UNITS=[
+{id:'nombres',icon:'🔢',tri:1,title:'Els nombres',sub:'Enters, decimals i fraccions',
+ goal:'Aprendré a <b>llegir</b>, <b>comparar</b> i <b>ordenar</b> nombres de la vida real.',
+ why:'Els nombres surten als preus, a la temperatura i als resultats dels partits.',
+ words:[['Nombre enter','Un nombre sense coma. Pot ser negatiu.','−3, 0, 5'],['Nombre decimal','Un nombre amb coma.','2,50 €'],['Fracció','Una part d’una cosa sencera.','1/2 = la meitat'],['Recta numèrica','Una línia amb els nombres en ordre.','−2 … 0 … 3']],
+ how:['Els nombres <b>negatius</b> porten el signe <b>−</b>. Són més petits que 0.','A la recta numèrica, el nombre <b>més a la dreta</b> és el <b>més gran</b>.','Per comparar decimals, mira primer la part <b>abans de la coma</b>.','Si és igual, mira la xifra <b>després de la coma</b>.'],
+ visual:numberLine(),
+ example:{t:'Quina temperatura és més freda?',b:'A Vic fa <b>−2 °C</b>. A Barcelona fa <b>3 °C</b>.<br>A la recta, −2 està més a l’esquerra.<br>✔ <b>−2 °C</b> és més fred.'},
+ ex:[
+  {t:'mc',q:'Quin nombre és més gran?',o:['2,05','2,5','2,45'],a:1,h:'Mira la primera xifra després de la coma: 0, 5 i 4.',s:'2,5 és el més gran perquè 5 és més gran que 4 i que 0.'},
+  {t:'mc',q:'A Puigcerdà fa −4 °C. A Vic fa −1 °C. On fa més fred?',o:['A Puigcerdà','A Vic'],a:0,h:'Més a l’esquerra de la recta = més petit = més fred.',s:'A Puigcerdà: −4 és més petit que −1.'},
+  {t:'mc',q:'1/2 és el mateix que…',o:['0,2','0,5','1,2'],a:1,h:'1/2 és la meitat. La meitat d’1 euro són 50 cèntims.',s:'1/2 = 0,5'},
+  {t:'num',q:'La meitat de 10 € són…',a:5,u:'€',h:'Divideix 10 entre 2.',s:'10 : 2 = 5 €'},
+  {t:'num',q:'Al matí fa −2 °C. A la tarda fa 3 °C. Quants graus ha pujat?',a:5,u:'graus',h:'Compta els salts a la recta: de −2 a 0, i de 0 a 3.',s:'2 + 3 = 5 graus.'}],
+ remember:['Més a la dreta = més gran.','Negatiu = més petit que 0.','1/2 = 0,5 = la meitat.'],
+ fact:'Els nombres negatius es fan servir als ascensors: −1 és el primer soterrani.',
+ saber:'Sentit numèric · Quantitat i Relacions: nombres enters, racionals i reals; representació a la recta; comparació i ordenació.'},
+
+{id:'estimar',icon:'🎯',tri:1,title:'Arrodonir i estimar',sub:'Càlcul aproximat i el nombre π',
+ goal:'Aprendré a fer <b>càlculs aproximats</b> i a saber quant m’he <b>equivocat</b>.',
+ why:'Al supermercat vull saber si tinc prou diners abans de pagar.',
+ words:[['Arrodonir','Canviar un nombre per un altre més fàcil i proper.','7,8 → 8'],['Estimar','Calcular més o menys, sense ser exacte.','≈ vol dir «més o menys»'],['Error','La diferència entre el valor real i el que he estimat.','9,04 − 9 = 0,04'],['Pi (π)','Un nombre especial dels cercles. Té infinits decimals.','π ≈ 3,14']],
+ how:['Per arrodonir a la unitat, mira la xifra <b>després de la coma</b>.','Si és <b>5 o més</b>, el nombre <b>puja</b>. 7,6 → 8','Si és <b>menys de 5</b>, el nombre <b>es queda</b>. 3,2 → 3','La volta d’un cercle: <span class="formula">π × diàmetre</span>'],
+ example:{t:'Al supermercat',b:'Compro: 2,95 € + 4,10 € + 1,99 €<br>Estimo: 3 + 4 + 2 = <b>9 €</b><br>Preu real: 9,04 €<br>Error: 9,04 − 9 = <b>0,04 €</b>. És molt petit! ✔'},
+ ex:[
+  {t:'num',q:'Arrodoneix 7,6 a la unitat.',a:8,h:'La xifra després de la coma és 6. És 5 o més?',s:'6 és més gran que 5, el nombre puja: 8.'},
+  {t:'num',q:'Arrodoneix 3,2 a la unitat.',a:3,h:'La xifra després de la coma és 2. És menys de 5?',s:'2 és menys de 5, es queda: 3.'},
+  {t:'num',q:'Estima: 4,90 € + 5,10 €',a:10,u:'€',h:'Arrodoneix: 4,90 ≈ 5 i 5,10 ≈ 5.',s:'5 + 5 = 10 €'},
+  {t:'mc',q:'El nombre π val més o menys…',o:['31,4','3,14','0,314'],a:1,h:'És una mica més de 3.',s:'π ≈ 3,14'},
+  {t:'num',q:'Una roda fa 50 cm de diàmetre. Quants cm avança en una volta? (Fes servir la calculadora: π × 50)',a:157,tol:1.5,u:'cm',h:'Calcula 3,14 × 50.',s:'3,14 × 50 ≈ 157 cm'}],
+ remember:['5 o més → puja.','Menys de 5 → es queda.','π ≈ 3,14'],
+ fact:'Fa més de 2.000 anys, Arquimedes va calcular π dibuixant polígons dins i fora d’un cercle.',
+ saber:'Sentit numèric · Quantitat: estimacions i error comès. Sentit de les operacions: nombres irracionals de la vida quotidiana; evolució històrica de π.'},
+
+{id:'operacions',icon:'🧮',tri:1,title:'Operacions i calculadora',sub:'Triar l’operació correcta',
+ goal:'Aprendré a <b>triar l’operació</b> correcta i a fer servir la <b>calculadora</b>.',
+ why:'Per saber quant pago o quant em sobra.',
+ words:[['Sumar (+)','Ajuntar. «En total», «entre tots».','3 + 5'],['Restar (−)','Treure. «Queden», «sobren», «diferència».','10 − 4'],['Multiplicar (×)','Sumar moltes vegades el mateix. «Cada un», «vegades».','3 × 8'],['Dividir (:)','Repartir en parts iguals.','24 : 4'],['Potència','Multiplicar un nombre per ell mateix.','10² = 10 × 10 = 100']],
+ how:['Llegeixo el problema. Busco les <b>paraules clau</b>.','Trio l’operació.','Ordre: primer els <b>parèntesis ( )</b>.','Després <b>× i :</b>.','Al final <b>+ i −</b>.'],
+ example:{t:'Anem al cinema',b:'3 entrades a 8 € cada una + unes crispetes de 5 €.<br>3 × 8 + 5 = 24 + 5 = <b>29 €</b>'},
+ ex:[
+  {t:'num',q:'Calcula: 3 + 4 × 2',a:11,h:'Primer la multiplicació: 4 × 2.',s:'4 × 2 = 8. Després 3 + 8 = 11.'},
+  {t:'num',q:'Calcula: 2 × (3 + 5)',a:16,h:'Primer el parèntesi: 3 + 5.',s:'3 + 5 = 8. Després 2 × 8 = 16.'},
+  {t:'mc',q:'Repartim 24 galetes entre 4 amics. Quina operació faig?',o:['Sumar','Multiplicar','Dividir'],a:2,h:'«Repartir» en parts iguals…',s:'Dividir: 24 : 4 = 6 galetes.'},
+  {t:'num',q:'Tinc 5 bitllets de 10 €. Gasto 18 €. Quants euros em queden?',a:32,u:'€',h:'Primer: 5 × 10. Després resta 18.',s:'5 × 10 = 50. 50 − 18 = 32 €'},
+  {t:'num',q:'Quant fa 10²?',a:100,h:'10² = 10 × 10',s:'10 × 10 = 100'}],
+ remember:['Primer ( ), després × :, al final + −.','«Repartir» = dividir.','«Queden» = restar.'],
+ fact:'La calculadora també segueix aquest ordre. Prova 3 + 4 × 2 i mira què surt!',
+ saber:'Sentit de les operacions: elecció de les operacions adequades; propietats i càlcul eficient amb calculadora i manualment.'},
+
+{id:'comptar',icon:'🌳',tri:1,title:'Comptar possibilitats',sub:'Diagrames d’arbre',
+ goal:'Aprendré a <b>comptar totes les maneres</b> de combinar coses.',
+ why:'Per saber quantes maneres tinc de vestir-me o de triar un menú.',
+ words:[['Combinació','Una manera de posar coses juntes.','samarreta blava + texans'],['Diagrama d’arbre','Un dibuix amb branques per veure totes les opcions.','🌳'],['Recompte','Comptar amb ordre, sense oblidar-ne cap.','1, 2, 3…']],
+ how:['Faig una <b>branca</b> per cada opció del primer grup.','De cada branca, surten branques del <b>segon grup</b>.','Compto les puntes del final.','Truc ràpid: <b>multiplico</b> les opcions. <span class="formula">2 × 3 = 6</span>'],
+ visual:treeFig(),
+ example:{t:'Com em vesteixo?',b:'Tinc <b>2 samarretes</b> i <b>3 pantalons</b>.<br>Diagrama d’arbre: hi ha 6 puntes.<br>Truc: 2 × 3 = <b>6 maneres</b> ✔'},
+ ex:[
+  {t:'num',q:'Tinc 2 samarretes i 3 pantalons. Quantes maneres tinc de vestir-me?',a:6,h:'Multiplica 2 × 3.',s:'2 × 3 = 6'},
+  {t:'num',q:'Un menú té 3 primers plats i 2 segons plats. Quants menús diferents puc fer?',a:6,h:'Multiplica els primers pels segons.',s:'3 × 2 = 6 menús'},
+  {t:'num',q:'Una gelateria té 4 gustos i 2 mides (petit i gran). Quantes opcions hi ha?',a:8,h:'4 × 2',s:'4 × 2 = 8 opcions'},
+  {t:'num',q:'Llanço una moneda 2 vegades. Quants resultats possibles hi ha? (cara-cara, cara-creu…)',a:4,h:'Cada vegada hi ha 2 opcions: 2 × 2.',s:'CC, CX, XC, XX → 4 resultats'},
+  {t:'mc',q:'Per comptar combinacions de forma ràpida, puc…',o:['Sumar les opcions','Multiplicar les opcions','Restar les opcions'],a:1,h:'Mira el truc ràpid del pas 3.',s:'Multiplicar les opcions.'}],
+ remember:['Diagrama d’arbre = veure totes les opcions.','Truc: multiplicar les opcions.'],
+ fact:'El <b>triangle aritmètic</b> (de Pascal) també serveix per comptar. Cada nombre és la suma dels dos de sobre:'+pascal,
+ saber:'Sentit numèric · Comptatge: recomptes sistemàtics amb diagrames d’arbre i tècniques de combinatòria. Relacions: triangle aritmètic.'},
+
+{id:'percentatges',icon:'💶',tri:1,title:'Percentatges i diners',sub:'Descomptes, IVA i interessos',
+ goal:'Aprendré a calcular <b>descomptes</b>, <b>augments</b> i <b>interessos</b>.',
+ why:'Per saber si una oferta és bona i per entendre el banc.',
+ words:[['Percentatge (%)','Una part de cada 100.','20 % = 20 de cada 100'],['Descompte','El preu baixa.','rebaixes −30 %'],['IVA','Un impost. El preu puja.','IVA 21 %'],['Interès','Diners que et dona el banc (o que pagues) per uns diners.','2 % a l’any']],
+ how:['<b>50 %</b> = la meitat. <b>25 %</b> = la quarta part. <b>10 %</b> = dividir entre 10.','Amb calculadora: <span class="formula">preu × % : 100</span>','Si és un <b>descompte</b>: preu − resultat.','Si és un <b>augment</b> (IVA): preu + resultat.'],
+ example:{t:'Unes bambes rebaixades',b:'Bambes de <b>60 €</b> amb un <b>20 %</b> de descompte.<br>60 × 20 : 100 = <b>12 €</b> de descompte.<br>60 − 12 = <b>48 €</b> ✔'},
+ ex:[
+  {t:'num',q:'Quant és el 10 % de 50 €?',a:5,u:'€',h:'10 % = dividir entre 10.',s:'50 : 10 = 5 €'},
+  {t:'num',q:'Quant és el 50 % de 30 €?',a:15,u:'€',h:'50 % = la meitat.',s:'30 : 2 = 15 €'},
+  {t:'num',q:'Una jaqueta val 80 €. Té un 25 % de descompte. Quant pago?',a:60,u:'€',h:'25 % de 80 = 80 : 4. Després resta.',s:'80 : 4 = 20. 80 − 20 = 60 €'},
+  {t:'num',q:'Un producte val 100 € sense IVA. L’IVA és del 21 %. Quant pago?',a:121,u:'€',h:'21 % de 100 = 21. Després suma.',s:'100 + 21 = 121 €'},
+  {t:'num',q:'Poso 200 € al banc. Em donen un 2 % d’interès a l’any. Quants euros guanyo en un any?',a:4,u:'€',h:'200 × 2 : 100',s:'200 × 2 : 100 = 4 €'},
+  {t:'mc',q:'Una tele val 100 €. Quina oferta és millor?',o:['30 % de descompte','25 € de descompte'],a:0,h:'Calcula el 30 % de 100.',s:'El 30 % de 100 són 30 €. És més que 25 €.'}],
+ remember:['50 % = meitat · 10 % = entre 10.','Descompte → restar.','IVA → sumar.'],
+ fact:'Abans de comprar a terminis, compara sempre el preu final total. Les matemàtiques protegeixen els teus diners!',
+ saber:'Sentit numèric · Educació financera: augments i disminucions percentuals, interessos i taxes en contextos financers.'},
+
+{id:'pitagores',icon:'📐',tri:2,title:'Triangles rectangles',sub:'El teorema de Pitàgores',
+ goal:'Aprendré a trobar un <b>costat</b> d’un <b>triangle rectangle</b>.',
+ why:'Per saber l’alçada d’una escala o la mida d’una pantalla.',
+ words:[['Angle recte','Un angle de 90°. Té forma de «L».','⌞'],['Catets','Els dos costats que fan l’angle recte.','3 i 4'],['Hipotenusa','El costat més llarg. Està davant de l’angle recte.','5'],['Arrel quadrada (√)','L’operació contrària d’elevar al quadrat.','√16 = 4']],
+ how:['Trobo l’angle recte. Marco els <b>catets</b> i la <b>hipotenusa</b>.','Fórmula: <span class="formula">catet² + catet² = hipotenusa²</span>','Si busco la <b>hipotenusa</b>: sumo els quadrats i faig √.','Si busco un <b>catet</b>: resto els quadrats i faig √.'],
+ visual:triangleFig(),
+ example:{t:'Una escala a la paret',b:'L’escala fa <b>5 m</b> (hipotenusa). La base és a <b>3 m</b> de la paret.<br>Alçada = √(5² − 3²) = √(25 − 9) = √16 = <b>4 m</b> ✔'},
+ ex:[
+  {t:'num',q:'Els catets fan 3 i 4. Quant fa la hipotenusa?',a:5,h:'3² + 4² = 9 + 16 = 25. Fes √25.',s:'√25 = 5'},
+  {t:'num',q:'Els catets fan 6 i 8. Quant fa la hipotenusa?',a:10,h:'6² + 8² = 36 + 64',s:'√100 = 10'},
+  {t:'num',q:'La hipotenusa fa 13 i un catet fa 5. Quant fa l’altre catet?',a:12,h:'Resta: 13² − 5² = 169 − 25',s:'√144 = 12'},
+  {t:'mc',q:'Quin costat és la hipotenusa?',o:['El més curt','El més llarg','Qualsevol'],a:1,h:'Està davant de l’angle recte.',s:'El més llarg.'},
+  {t:'num',q:'Una pantalla fa 40 cm d’ample i 30 cm d’alt. Quant fa la diagonal?',a:50,u:'cm',h:'40² + 30² = 1600 + 900',s:'√2500 = 50 cm'}],
+ remember:['catet² + catet² = hipotenusa²','Hipotenusa = el costat més llarg.','Tecla √ de la calculadora.'],
+ fact:'Fa més de 2.000 anys, Aristarc de Samos va fer servir triangles per estimar les distàncies de la Terra a la Lluna i al Sol.',
+ saber:'Sentit de la mesura: deducció de les mesures dels elements d’un triangle en situacions modelitzables amb triangles rectangles; origen i ús històric.'},
+
+{id:'figures',icon:'🧊',tri:2,title:'Àrees i volums',sub:'Figures planes i cossos',
+ goal:'Aprendré a calcular l’<b>àrea</b> (superfície) i el <b>volum</b> (espai de dins) d’objectes reals.',
+ why:'Per saber quanta pintura cal o quanta aigua hi cap en una caixa.',
+ words:[['Àrea','La superfície d’una figura plana. Unitat: m², cm².','el terra d’una habitació'],['Volum','L’espai que ocupa un cos. Unitat: m³, cm³.','una caixa'],['Radi (r)','La distància del centre del cercle a la vora.','r = 10 cm']],
+ how:['Rectangle: <span class="formula">base × alçada</span>','Triangle: <span class="formula">base × alçada : 2</span>','Cercle: <span class="formula">π × r × r</span>','Caixa (ortoedre): <span class="formula">llarg × ample × alt</span>','Cilindre (llauna): <span class="formula">π × r × r × alçada</span>'],
+ example:{t:'El terra de la meva habitació',b:'Fa <b>4 m</b> de llarg i <b>3 m</b> d’ample.<br>Àrea = 4 × 3 = <b>12 m²</b> ✔<br>Necessito 12 m² de terra.'},
+ ex:[
+  {t:'num',q:'Un rectangle fa 5 cm de base i 2 cm d’alçada. Quina àrea té?',a:10,u:'cm²',h:'base × alçada',s:'5 × 2 = 10 cm²'},
+  {t:'num',q:'Un triangle fa 6 cm de base i 4 cm d’alçada. Quina àrea té?',a:12,u:'cm²',h:'6 × 4 : 2',s:'24 : 2 = 12 cm²'},
+  {t:'num',q:'Una caixa fa 10 cm × 5 cm × 2 cm. Quin volum té?',a:100,u:'cm³',h:'Multiplica les tres mesures.',s:'10 × 5 × 2 = 100 cm³'},
+  {t:'num',q:'Un cercle té radi 10 cm. Quina àrea té? (π ≈ 3,14)',a:314,tol:1,u:'cm²',h:'3,14 × 10 × 10',s:'3,14 × 100 = 314 cm²'},
+  {t:'mc',q:'Quina unitat fem servir per al volum?',o:['cm','cm²','cm³'],a:2,h:'El volum té 3 dimensions.',s:'cm³ (centímetres cúbics)'}],
+ remember:['Àrea → unitats².','Volum → unitats³.','Rectangle = base × alçada.'],
+ fact:'Amb el programa <b>GeoGebra</b> pots dibuixar figures i moure-les per veure com canvia l’àrea.',
+ saber:'Sentit espacial: propietats de figures planes i tridimensionals que modelitzen situacions quotidianes; conjectures amb programes de geometria dinàmica.'},
+
+{id:'coordenades',icon:'📍',tri:2,title:'Coordenades i plànols',sub:'Situar punts i fer ampliacions',
+ goal:'Aprendré a <b>situar punts</b> en un pla i a entendre les <b>escales</b> i les <b>ampliacions</b>.',
+ why:'Els mapes, els plànols i els videojocs fan servir coordenades.',
+ words:[['Coordenades (x, y)','Dos nombres que diuen on és un punt.','A (3, 2)'],['Eix x','La línia horitzontal (↔).','primer nombre'],['Eix y','La línia vertical (↕).','segon nombre'],['Escala','Quantes vegades és més gran la realitat que el plànol.','1:100'],['Ampliació (homotècia)','Fer una figura més gran o més petita sense canviar la forma.','foto × 2']],
+ how:['Surto de l’<b>origen (0, 0)</b>.','Primer em moc en <b>horitzontal</b> (x): dreta +, esquerra −.','Després em moc en <b>vertical</b> (y): amunt +, avall −.','Escala 1:100 → 1 cm al plànol = 100 cm (1 m) de veritat.'],
+ visual:gridFig(),
+ example:{t:'On és el punt A?',b:'Surto de (0, 0). Vaig <b>3 a la dreta</b> i <b>2 amunt</b>.<br>✔ A = (3, 2)'},
+ ex:[
+  {t:'mc',q:'Mira el dibuix. Quines coordenades té el punt A?',o:['(2, 3)','(3, 2)','(3, 3)'],a:1,h:'Primer horitzontal, després vertical.',s:'(3, 2): 3 a la dreta i 2 amunt.'},
+  {t:'mc',q:'Mira el dibuix. Quines coordenades té el punt B?',o:['(−3, −2)','(2, 3)','(−2, −3)'],a:2,h:'Va cap a l’esquerra (−) i cap avall (−).',s:'(−2, −3): 2 a l’esquerra i 3 avall.'},
+  {t:'mc',q:'Com es diu el punt (0, 0)?',o:['Origen','Final','Centre del món'],a:0,h:'És el punt d’on surto.',s:'Origen.'},
+  {t:'num',q:'Un plànol té escala 1:100. Una paret fa 5 cm al plànol. Quants metres fa de veritat?',a:5,u:'m',h:'5 × 100 = 500 cm. Quants metres són?',s:'500 cm = 5 m'},
+  {t:'num',q:'Amplio una foto de 10 cm al doble (× 2). Quant fa ara?',a:20,u:'cm',h:'10 × 2',s:'20 cm'},
+  {t:'mc',q:'Quan amplio una figura (homotècia), què canvia?',o:['La forma','La mida','Res'],a:1,h:'Un cercle continua sent un cercle.',s:'Canvia la mida, però no la forma.'}],
+ remember:['(x, y): primer horitzontal, després vertical.','Escala 1:100 → multiplico per 100.','Ampliar = mateixa forma, una altra mida.'],
+ fact:'El filòsof René Descartes va inventar les coordenades. Per això es diuen <b>cartesianes</b>.',
+ saber:'Sentit espacial: localització i sistemes de representació; geometria analítica bàsica; coordenades cartesianes (història); transformacions elementals i homotècies amb eines tecnològiques o manipulatives; models geomètrics.'},
+
+{id:'patrons',icon:'🔁',tri:2,title:'Patrons',sub:'Descobrir la regla',
+ goal:'Aprendré a descobrir la <b>regla</b> d’una sèrie de nombres o de dibuixos.',
+ why:'Trobar patrons ajuda a predir què passarà després.',
+ words:[['Patró','Una cosa que es repeteix seguint una regla.','2, 4, 6, 8…'],['Regla','El que faig per passar d’un nombre al següent.','+2'],['Terme','Cada nombre de la sèrie.','el 3r terme és 6']],
+ how:['Miro els dos primers nombres.','Em pregunto: <b>quant he sumat?</b> o <b>per quant he multiplicat?</b>','Comprovo la regla amb els altres nombres.','Faig servir la regla per trobar el següent.'],
+ example:{t:'Quadrats amb escuradents',b:'1 quadrat → 4 escuradents. 2 quadrats → 7. 3 quadrats → 10.<br>Regla: <b>+3</b> cada vegada.<br>4 quadrats → 10 + 3 = <b>13</b> ✔'},
+ ex:[
+  {t:'num',q:'2, 4, 6, 8, … Quin ve ara?',a:10,h:'Quant sumo cada vegada?',s:'Regla +2 → 10'},
+  {t:'num',q:'5, 10, 20, 40, … Quin ve ara?',a:80,h:'Aquí no sumo: multiplico.',s:'Regla ×2 → 80'},
+  {t:'num',q:'1, 4, 9, 16, … Quin ve ara? (Pista: 1×1, 2×2, 3×3…)',a:25,h:'5 × 5',s:'5 × 5 = 25'},
+  {t:'num',q:'Escuradents: 4, 7, 10, … Quants per a 4 quadrats?',a:13,h:'Regla +3.',s:'10 + 3 = 13'},
+  {t:'mc',q:'Quina és la regla de 3, 6, 9, 12?',o:['Sumar 3','Multiplicar per 2','Sumar 2'],a:0,h:'De 3 a 6, de 6 a 9…',s:'Sumar 3.'}],
+ remember:['Busco la regla: + o ×.','Comprovo amb tots els nombres.'],
+ fact:'Les abelles fan cel·les hexagonals: un patró que es repeteix i aprofita l’espai.',
+ saber:'Sentit algebraic · Patrons: regla de formació de col·leccions numèriques o gràfiques. Sentit numèric: patrons i regularitats numèriques.'},
+
+{id:'equacions',icon:'✖️',tri:2,title:'Lletres i equacions',sub:'Variables, equacions i inequacions',
+ goal:'Aprendré a fer servir una <b>lletra</b> per a un nombre que <b>no conec</b>.',
+ why:'Per resoldre problemes com «quants km he fet amb el taxi».',
+ words:[['Variable (x)','Una lletra que guarda un nombre desconegut.','x'],['Expressió','Nombres i lletres amb operacions.','2x + 3'],['Equació','Una igualtat amb una lletra. Té el signe =.','x + 5 = 12'],['Inequació','Una comparació amb una lletra. Té ≤ o ≥.','x ≤ 20 («com a molt 20»)']],
+ how:['Vull deixar la <b>x sola</b>.','El que <b>suma</b> passa a l’altre costat <b>restant</b>.','El que <b>multiplica</b> passa a l’altre costat <b>dividint</b>.','<b>Comprovo</b>: canvio la x pel resultat.'],
+ example:{t:'El taxi',b:'Pago 3 € en pujar + 1 € per cada km. En total pago 11 €.<br>Equació: 3 + x = 11<br>x = 11 − 3 = <b>8 km</b><br>Comprovo: 3 + 8 = 11 ✔'},
+ ex:[
+  {t:'num',q:'Resol: x + 5 = 12',a:7,h:'El 5 passa restant: x = 12 − 5.',s:'x = 7'},
+  {t:'num',q:'Resol: 3x = 15',a:5,h:'El 3 multiplica, passa dividint: x = 15 : 3.',s:'x = 5'},
+  {t:'num',q:'Resol: 2x + 1 = 9',a:4,h:'Primer el +1 passa restant: 2x = 8.',s:'2x = 8 → x = 4'},
+  {t:'num',q:'Si x = 4, quant val 3x + 2?',a:14,h:'3 × 4 + 2',s:'12 + 2 = 14'},
+  {t:'mc',q:'«Puc gastar com a molt 20 €». Com ho escric?',o:['x = 20','x ≤ 20','x ≥ 20'],a:1,h:'«Com a molt» vol dir 20 o menys.',s:'x ≤ 20'},
+  {t:'num',q:'Una entrada val 5 €. Tinc 23 €. Quantes entrades puc comprar com a màxim?',a:4,h:'5x ≤ 23. Prova: 4 entrades = 20 €, 5 entrades = 25 €.',s:'4 entrades (20 €). 5 entrades ja costen 25 €.'}],
+ remember:['Suma ↔ resta.','Multiplica ↔ divideix.','Sempre comprovo!'],
+ fact:'La paraula <b>àlgebra</b> ve d’un llibre del matemàtic Al-Khwarizmi. Del seu nom ve la paraula <b>algorisme</b>.',
+ saber:'Sentit algebraic · Variable: usos de les variables; evolució històrica de l’àlgebra. Igualtat i desigualtat: formes equivalents i inequacions lineals. Model matemàtic: modelització de problemes.'},
+
+{id:'funcions',icon:'📈',tri:3,title:'Funcions i gràfiques',sub:'Directa, inversa i exponencial',
+ goal:'Aprendré a llegir <b>taules</b> i <b>gràfiques</b> que relacionen dues quantitats.',
+ why:'Les gràfiques surten a les notícies, a la factura de la llum i a les apps de salut.',
+ words:[['Funció','Una relació: per cada valor d’una cosa, hi ha un valor de l’altra.','kg de pomes → preu'],['Proporcionalitat directa','Si una es fa el doble, l’altra també.','2 kg → 4 €'],['Proporcionalitat inversa','Si una es fa el doble, l’altra es fa la meitat.','més amics → menys paga cadascú'],['Exponencial','Cada pas es multiplica pel mateix nombre.','1, 2, 4, 8, 16…']],
+ how:['Miro què hi ha a cada <b>eix</b> de la gràfica.','Busco el valor a l’eix <b>horitzontal</b>.','Pujo fins a la línia i miro el valor a l’eix <b>vertical</b>.','Decideixo el tipus: directa, inversa o exponencial.'],
+ visual:funcFigs()+'<h3>Una gràfica real: la temperatura d’un dia</h3>'+tempFig(),
+ example:{t:'Comprar pomes (directa)',b:'1 kg → 2 €. 2 kg → 4 €. 3 kg → <b>6 €</b>.<br>Si compro el doble, pago el doble ✔'},
+ ex:[
+  {t:'num',q:'Les pomes valen 2 € el kg. Quant valen 3 kg?',a:6,u:'€',h:'3 × 2',s:'6 €'},
+  {t:'num',q:'Un regal costa 60 €. Paguem entre 4 amics a parts iguals. Quant paga cadascú?',a:15,u:'€',h:'60 : 4',s:'15 €'},
+  {t:'num',q:'I si paguem entre 6 amics?',a:10,u:'€',h:'60 : 6',s:'10 € (més amics → menys paga cadascú: inversa)'},
+  {t:'num',q:'Un vídeo el veuen 2 persones el dia 1. Cada dia es multiplica per 2: 2, 4, 8… Quantes el veuen el dia 5?',a:32,h:'Dia 4: 16. Dia 5: 16 × 2.',s:'2, 4, 8, 16, 32'},
+  {t:'mc',q:'Mira la gràfica de la temperatura. A quina hora fa més calor?',o:['8 h','12 h','16 h','20 h'],a:2,h:'Busca el punt més alt.',s:'A les 16 h (20 °C).'},
+  {t:'mc',q:'Hores de feina i sou que cobro. Quin tipus de relació és?',o:['Directa','Inversa'],a:0,h:'Si treballo el doble d’hores…',s:'Directa: el doble d’hores, el doble de sou.'}],
+ remember:['Directa: les dues pugen.','Inversa: una puja, l’altra baixa.','Exponencial: es multiplica cada vegada.'],
+ fact:'Els epidemiòlegs fan servir funcions exponencials per entendre com s’escampa un virus.',
+ saber:'Sentit algebraic · Relacions i funcions: representació de funcions elementals; proporcionalitat inversa i exponencial; característiques del canvi. Model matemàtic: conclusions d’una situació modelitzada.'},
+
+{id:'programacio',icon:'🤖',tri:3,title:'Pensament computacional',sub:'Algorismes, bucles i condicions',
+ goal:'Aprendré a donar <b>instruccions pas a pas</b> per resoldre un problema.',
+ why:'Els ordinadors, els robots i els mòbils funcionen amb algorismes.',
+ words:[['Algorisme','Una llista d’instruccions en ordre.','una recepta de cuina'],['Bucle','Repetir instruccions.','repetir 4 vegades'],['Condicional','Fer una cosa només <b>si</b> passa alguna cosa.','si plou → paraigua'],['Variable','Una capsa amb un nom que guarda un valor.','punts = 0']],
+ how:['Divideixo el problema en <b>parts petites</b>.','Escric els passos <b>en ordre</b>.','Si una cosa es repeteix, faig servir un <b>bucle</b>.','Si depèn d’alguna cosa, faig servir un <b>condicional</b>.','Ho <b>provo</b> i ho corregeixo.'],
+ visual:`<div class="figrow"><div class="blocks"><div class="blk loop">🔁 repetir 4 vegades<div class="blk">➡️ avança 10 passos</div><div class="blk">↪️ gira 90°</div></div><p class="small">Resultat: un <b>quadrat</b> ⬜</p></div>
+ <div class="blocks"><div class="blk cond">❓ si plou<div class="blk">☂️ agafo el paraigua</div></div><div class="blk cond">❓ si no<div class="blk">🧢 agafo la gorra</div></div></div></div>`,
+ example:{t:'Comptar punts',b:'<div class="blocks"><div class="blk">punts = 0</div><div class="blk loop">🔁 repetir 3 vegades<div class="blk">punts = punts + 5</div></div></div><br>Volta 1: 5 · Volta 2: 10 · Volta 3: <b>15</b> ✔'},
+ ex:[
+  {t:'mc',q:'Què dibuixa? 🔁 repetir 3 vegades [ avança 10 · gira 120° ]',o:['Un quadrat','Un triangle','Un cercle'],a:1,h:'Quants costats té? Compta les repeticions.',s:'3 costats → un triangle.'},
+  {t:'num',q:'punts = 0. 🔁 repetir 5 vegades [ punts = punts + 2 ]. Quant val punts al final?',a:10,h:'Suma 2 cinc vegades.',s:'2 + 2 + 2 + 2 + 2 = 10'},
+  {t:'mc',q:'Si plou → paraigua. Si no → gorra. Avui plou. Què agafo?',o:['Paraigua','Gorra'],a:0,h:'Mira la condició.',s:'Paraigua.'},
+  {t:'num',q:'x = 3. ❓ si x > 5 → escriu «gran». Si no → escriu x × 2. Què s’escriu?',a:6,h:'3 és més gran que 5?',s:'No. Per tant: 3 × 2 = 6.'},
+  {t:'mc',q:'Quin és l’ordre correcte per fer un entrepà?',o:['Menjar → obrir el pa → posar el formatge','Obrir el pa → posar el formatge → menjar','Posar el formatge → menjar → obrir el pa'],a:1,h:'Què faig primer de tot?',s:'Obrir el pa → posar el formatge → menjar.'}],
+ remember:['Algorisme = passos en ordre.','Bucle = repetir.','Condicional = «si… llavors…».'],
+ fact:'Pots practicar amb <b>Scratch</b> (programació per blocs) o amb un robot educatiu.',
+ saber:'Sentit algebraic · Pensament computacional: seqüències, bucles, condicionals, instruccions niades, variables; programació per blocs i robòtica; formulació de problemes amb eines adequades.'},
+
+{id:'estadistica',icon:'📊',tri:3,title:'Estadística',sub:'Dades, gràfics, mitjana i moda',
+ goal:'Aprendré a <b>organitzar dades</b> i a entendre-les amb <b>gràfics</b> i <b>nombres</b>.',
+ why:'Per entendre enquestes, notes, esports i notícies.',
+ words:[['Dades','La informació que recullo.','les notes de la classe'],['Freqüència','Quantes vegades surt una dada.','el 7 surt 2 vegades'],['Mitjana','Sumo totes les dades i divideixo pel nombre de dades.','(5+7+9) : 3'],['Mediana','La dada del mig, quan estan ordenades.','1, 3, 9 → 3'],['Moda','La dada que surt més vegades.','2, 3, 3, 5 → 3'],['Rang','La més gran menys la més petita.','20 − 12 = 8']],
+ how:['Recullo les dades (enquesta, taula).','Les <b>ordeno</b> de petita a gran.','Faig un <b>gràfic</b> (barres, punts…).','Calculo <b>mitjana</b>, <b>mediana</b>, <b>moda</b> i <b>rang</b>.','Trec una <b>conclusió</b>.'],
+ visual:'<h3>Esport preferit de la classe</h3>'+barFig()+'<h3>Dues variables: hores d’estudi i nota</h3>'+scatterFig()+'<p class="small">Els punts pugen: com més estudi, més nota. La línia taronja és la <b>recta de regressió</b>.</p>',
+ example:{t:'Les meves notes',b:'Notes: 5, 7, 7, 8, 9<br>Mitjana: (5+7+7+8+9) : 5 = 36 : 5 = <b>7,2</b><br>Mediana: la del mig → <b>7</b><br>Moda: la que més es repeteix → <b>7</b><br>Rang: 9 − 5 = <b>4</b>'},
+ ex:[
+  {t:'num',q:'Calcula la mitjana de 4, 6 i 8.',a:6,h:'(4 + 6 + 8) : 3',s:'18 : 3 = 6'},
+  {t:'num',q:'Quina és la moda de 2, 3, 3, 5?',a:3,h:'Quin nombre surt més vegades?',s:'El 3 (surt 2 vegades).'},
+  {t:'num',q:'Quina és la mediana de 7, 1, 9? (Primer ordena!)',a:7,h:'Ordenats: 1, 7, 9. Quin és al mig?',s:'1, 7, 9 → la del mig és 7.'},
+  {t:'num',q:'Quin és el rang de 12, 20, 15?',a:8,h:'La més gran menys la més petita.',s:'20 − 12 = 8'},
+  {t:'mc',q:'Mira el gràfic de barres. Quin esport té més vots?',o:['Ball','Futbol','Natació'],a:1,h:'Busca la barra més alta.',s:'Futbol (8 vots).'},
+  {t:'mc',q:'Mira el núvol de punts. Què passa quan hi ha més hores d’estudi?',o:['La nota puja','La nota baixa','No canvia'],a:0,h:'Els punts van cap amunt o cap avall?',s:'La nota puja.'}],
+ remember:['Mitjana: sumo i divideixo.','Mediana: la del mig (ordenades).','Moda: la que més es repeteix.'],
+ fact:'Florence Nightingale, infermera, va fer servir gràfics estadístics per demostrar que la higiene salvava vides.',
+ saber:'Sentit estocàstic · Distribució i Inferència: taules i gràfics de dues variables; recollida i organització de dades; gràfics amb eines tecnològiques; mesures de posició i dispersió; estudis estadístics; regressió lineal; història de l’estadística.'},
+
+{id:'probabilitat',icon:'🎲',tri:3,title:'Probabilitat',sub:'Com de possible és?',
+ goal:'Aprendré a dir <b>com de possible</b> és que passi una cosa.',
+ why:'Per prendre bones decisions en jocs, sortejos i el temps que farà.',
+ words:[['Experiment aleatori','Una acció on no sé el resultat abans.','llançar un dau'],['Casos possibles','Tots els resultats que poden sortir.','dau: 6'],['Casos favorables','Els resultats que vull.','treure un 6: 1'],['Probabilitat','Un nombre entre 0 (impossible) i 1 (segur).','1/2 = 0,5']],
+ how:['Compto els <b>casos possibles</b>.','Compto els <b>casos favorables</b>.','Regla de Laplace: <span class="formula">favorables : possibles</span>','0 = impossible · 0,5 = igual · 1 = segur.'],
+ visual:`<div class="tablewrap"><table style="font-size:.85rem"><tr><th>0</th><th>Poc probable</th><th>0,5</th><th>Molt probable</th><th>1</th></tr><tr><td>Impossible<br>🚫 Treure un 7 amb un dau</td><td>🎟️ Guanyar la loteria</td><td>Igual<br>🪙 Cara o creu</td><td>☀️ Que faci sol a l’agost</td><td>Segur<br>🌅 Que demà surti el sol</td></tr></table></div>`,
+ example:{t:'Una bossa de boles',b:'Hi ha <b>3 boles vermelles</b> i <b>7 blaves</b>. Total: 10.<br>Probabilitat de vermella = 3 : 10 = <b>0,3</b> (3/10) ✔'},
+ ex:[
+  {t:'mc',q:'Llanço un dau. Quina és la probabilitat de treure un 6?',o:['1/6','1/2','6'],a:0,h:'Favorables: 1. Possibles: 6.',s:'1/6'},
+  {t:'mc',q:'Llanço una moneda. Probabilitat de cara?',o:['1/2','1/3','1'],a:0,h:'Hi ha 2 resultats possibles.',s:'1/2'},
+  {t:'num',q:'Bossa: 3 boles vermelles i 7 blaves. Probabilitat de treure vermella? (Pots escriure 0,3 o 3/10)',a:0.3,h:'3 : 10',s:'3/10 = 0,3'},
+  {t:'mc',q:'Treure un 7 amb un dau normal és…',o:['Segur','Impossible','Molt probable'],a:1,h:'Quins nombres té un dau?',s:'Impossible: el dau va de 1 a 6.'},
+  {t:'num',q:'Llanço 2 monedes. Probabilitat de treure 2 cares? (Pots escriure 0,25 o 1/4)',a:0.25,h:'Possibles: CC, CX, XC, XX. Favorables: CC.',s:'1/4 = 0,25'}],
+ remember:['Probabilitat = favorables : possibles.','0 impossible · 1 segur.'],
+ fact:'Pots fer experiments: llança una moneda 20 vegades i compta les cares. Surt prop de la meitat?',
+ saber:'Sentit estocàstic · Predictibilitat i incertesa: experiments simples i compostos; regla de Laplace i tècniques de recompte per prendre decisions.'}
+];
+
+/* =========================================================
+   ESTAT
+   ========================================================= */
+const KEY='mates4A_v1';
+let S={fs:20,spaced:false,contrast:false,done:{},seen:{},feel:null};
+try{const raw=localStorage.getItem(KEY);if(raw)S=Object.assign(S,JSON.parse(raw));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function applyPrefs(){
+  document.documentElement.style.setProperty('--fs',S.fs+'px');
+  document.body.classList.toggle('spaced',S.spaced);
+  document.body.classList.toggle('contrast',S.contrast);
+  document.getElementById('bSpaced').setAttribute('aria-pressed',S.spaced);
+  document.getElementById('bContrast').setAttribute('aria-pressed',S.contrast);
+}
+const STEPS=[['goal','🎯','Què aprendré'],['words','📖','Paraules clau'],['how','🪜','Com es fa'],['example','💡','Exemple'],['practice','✏️','Practico'],['remember','⭐','Recordo']];
+const app=document.getElementById('app');
+const doneCount=u=>{const d=S.done[u.id]||{};return u.ex.filter((_,i)=>d[i]).length;};
+
+/* =========================================================
+   VISTES
+   ========================================================= */
+function home(){
+  const tri={1:'1r trimestre',2:'2n trimestre',3:'3r trimestre'};
+  let h=`<section class="hello speak-zone"><h2>Hola! 👋</h2><p>Aquí aprendràs les matemàtiques de <b>4t d’ESO</b> pas a pas.</p>
+  <p>Cada tema té sempre els mateixos <b>6 passos</b>:<br>🎯 Què aprendré · 📖 Paraules · 🪜 Com es fa · 💡 Exemple · ✏️ Practico · ⭐ Recordo</p>
+  <p class="muted">Pots fer servir la calculadora. Pots anar al teu ritme. Equivocar-se és normal. 💚</p></section>`;
+  h+=`<div class="tri"><h3>🧰 Les meves eines</h3><div class="grid"><a class="ucard" href="#eines"><span class="ic">💚</span><span><b>Com em sento i com treballo</b><small>Emocions i passos per fer problemes</small></span></a></div></div>`;
+  [1,2,3].forEach(t=>{
+    h+=`<div class="tri"><h3>📅 ${tri[t]}</h3><div class="grid">`;
+    UNITS.filter(u=>u.tri===t).forEach(u=>{const n=doneCount(u),tot=u.ex.length;
+      h+=`<a class="ucard" href="#u/${u.id}/0"><span class="ic">${u.icon}</span><span><b>${u.title}</b><small>${u.sub}</small><span class="prog">${n===tot?'⭐ Fet!':(n?'✔ '+n+' de '+tot:'')}</span></span></a>`;});
+    h+='</div></div>';
+  });
+  h+=`<div class="tri"><h3>👩‍🏫 Per al docent</h3><div class="grid"><a class="ucard" href="#guia"><span class="ic">📋</span><span><b>Guia docent</b><small>Currículum, adaptacions i progrés</small></span></a></div></div>`;
+  app.innerHTML=h;
+}
+
+function unit(id,step){
+  const u=UNITS.find(x=>x.id===id); if(!u){location.hash='';return;}
+  step=Math.max(0,Math.min(5,step|0));
+  S.seen[u.id]=S.seen[u.id]||{};S.seen[u.id][step]=1;save();
+  const idx=UNITS.indexOf(u);
+  let h=`<div class="uhead"><span class="ic" aria-hidden="true">${u.icon}</span><div><span class="muted small">Tema ${idx+1} de ${UNITS.length}</span><h2 style="margin:0">${u.title}</h2></div></div>`;
+  h+='<ol class="steps" aria-label="Passos del tema">'+STEPS.map((s,i)=>`<li><button data-go="${i}" class="${i===step?'cur':''} ${S.seen[u.id][i]?'seen':''}" ${i===step?'aria-current="step"':''}>${s[1]} ${s[2]}</button></li>`).join('')+'</ol>';
+  h+=`<section class="panel speak-zone"><span class="stepnum">Pas ${step+1} de 6</span><h3 style="margin-top:0">${STEPS[step][1]} ${STEPS[step][2]}</h3>`;
+  const k=STEPS[step][0];
+  if(k==='goal') h+=`<p class="big">${u.goal}</p><p>🤔 <b>Per a què serveix?</b> ${u.why}</p>`;
+  if(k==='words') h+='<div class="words">'+u.words.map(w=>`<div class="word"><b>${w[0]}</b>${w[1]}<br><span class="eg">Exemple: ${w[2]}</span></div>`).join('')+'</div>';
+  if(k==='how') h+='<ol class="how">'+u.how.map(x=>`<li>${x}</li>`).join('')+'</ol>'+(u.visual||'');
+  if(k==='example') h+=`<div class="example"><h3>💡 ${u.example.t}</h3><p>${u.example.b}</p></div>`+((u.id==='coordenades'||u.id==='comptar'||u.id==='pitagores')?u.visual:'');
+  if(k==='practice'){
+    h+=`<p>Fes els exercicis. Pots demanar una <b>pista</b> 💡. <span class="score" id="score">${doneCount(u)} de ${u.ex.length} ✔</span></p>`;
+    if(['coordenades','funcions','estadistica'].includes(u.id)) h+=`<details><summary>👀 Veure el dibuix</summary>${u.visual}</details>`;
+    h+='<div class="exs">'+u.ex.map((e,i)=>exHTML(u,e,i)).join('')+'</div>';
+  }
+  if(k==='remember') h+='<ul class="remember">'+u.remember.map(x=>`<li>✔ ${x}</li>`).join('')+`</ul><div class="fact"><b>🔎 Sabies que…?</b>${u.fact}</div>`+
+    `<p style="margin-top:1rem">${doneCount(u)===u.ex.length?'⭐ <b>Has fet tots els exercicis. Molt bona feina!</b>':'Pots tornar a <b>✏️ Practico</b> quan vulguis.'}</p>`;
+  h+='</section>';
+  const prev=step>0?`#u/${u.id}/${step-1}`:'', next=step<5?`#u/${u.id}/${step+1}`:'';
+  h+=`<div class="nav"><button class="btn sec" ${prev?'':'disabled'} data-href="${prev}">◀ Enrere</button>`+
+     (next?`<button class="btn" data-href="${next}">Següent ▶</button>`:`<button class="btn" data-href="#">🏠 Tornar a l’inici</button>`)+'</div>';
+  app.innerHTML=h;
+  app.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>location.hash=`#u/${u.id}/${b.dataset.go}`);
+  app.querySelectorAll('[data-href]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.href||'#';});
+  if(k==='practice') bindEx(u);
+}
+
+function exHTML(u,e,i){
+  const done=(S.done[u.id]||{})[i];
+  let h=`<div class="ex ${done?'done':''}" id="ex${i}"><div class="q"><span class="n">${i+1}</span>${e.q}</div>`;
+  if(e.t==='mc') h+='<div class="opts">'+e.o.map((o,j)=>`<button class="opt ${done&&j===e.a?'right':''}" data-i="${i}" data-j="${j}">${o}</button>`).join('')+'</div>';
+  else h+=`<div class="numrow"><input type="text" inputmode="decimal" aria-label="Resposta ${i+1}" id="in${i}" ${done?'value="'+String(e.a).replace('.',',')+'"':''}>${e.u?'<span>'+e.u+'</span>':''}<button class="btn" data-check="${i}">Comprova</button></div>`;
+  h+=`<div class="fb ${done?'ok':''}" id="fb${i}" aria-live="polite">${done?'✔ Correcte!':''}</div>`;
+  h+=`<div class="hint" id="hi${i}">💡 ${e.h}</div><div class="hint" id="so${i}">📝 <b>Solució:</b> ${e.s}</div>`;
+  h+=`<div class="links"><button class="linkbtn" data-hint="${i}">💡 Pista</button><button class="linkbtn" data-sol="${i}" ${done?'':'hidden'}>📝 Veure la solució</button></div></div>`;
+  return h;
+}
+function parseNum(str){
+  let s=String(str).trim().replace(/\s+/g,'').replace(/[€a-zA-Zº°²³%]+$/g,'').replace(/−/g,'-').replace(/,/g,'.');
+  if(/^-?\d+(\.\d+)?\/\d+(\.\d+)?$/.test(s)){const [a,b]=s.split('/').map(Number);return b?a/b:NaN;}
+  return s===''?NaN:Number(s);
+}
+const OK=['Molt bé! ✔','Correcte! ✔','Ho has fet bé! ✔','Fantàstic! ✔'];
+function bindEx(u){
+  const tries={};
+  const mark=(i,ok)=>{
+    const fb=document.getElementById('fb'+i),box=document.getElementById('ex'+i);
+    if(ok){fb.className='fb ok';fb.textContent=OK[i%OK.length];box.classList.add('done');
+      S.done[u.id]=S.done[u.id]||{};S.done[u.id][i]=1;save();
+      document.getElementById('score').textContent=doneCount(u)+' de '+u.ex.length+' ✔';
+      box.querySelector('[data-sol]').hidden=false;
+      if(doneCount(u)===u.ex.length) toast('⭐ Has acabat tots els exercicis!');
+    }else{tries[i]=(tries[i]||0)+1;fb.className='fb no';
+      fb.textContent=tries[i]===1?'Encara no. Torna-ho a provar. Pots mirar la pista 💡':'Encara no. Mira la solució i aprèn com es fa. 💚';
+      if(tries[i]>=1) document.getElementById('hi'+i).classList.add('show');
+      if(tries[i]>=2) box.querySelector('[data-sol]').hidden=false;}
+  };
+  app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,j=+b.dataset.j,e=u.ex[i];
+    b.parentNode.querySelectorAll('.opt').forEach(x=>x.classList.remove('wrong'));
+    if(j===e.a){b.classList.add('right');mark(i,true);}else{b.classList.add('wrong');mark(i,false);}
+  });
+  app.querySelectorAll('[data-check]').forEach(b=>{
+    const i=+b.dataset.check,inp=document.getElementById('in'+i);
+    const go=()=>{const e=u.ex[i],v=parseNum(inp.value);
+      if(isNaN(v)){const fb=document.getElementById('fb'+i);fb.className='fb no';fb.textContent='Escriu un nombre, si us plau.';return;}
+      mark(i,Math.abs(v-e.a)<=(e.tol||0.001));};
+    b.onclick=go; inp.onkeydown=ev=>{if(ev.key==='Enter')go();};
+  });
+  app.querySelectorAll('[data-hint]').forEach(b=>b.onclick=()=>document.getElementById('hi'+b.dataset.hint).classList.add('show'));
+  app.querySelectorAll('[data-sol]').forEach(b=>b.onclick=()=>document.getElementById('so'+b.dataset.sol).classList.add('show'));
+}
+
+function eines(){
+  const F={be:['😊','Estic bé','Genial! Comencem un tema. Recorda: un pas cada vegada.'],
+    normal:['😐','Normal','D’acord. Comença per un exercici que ja saps fer, per escalfar.'],
+    nervios:['😟','Nerviós / nerviosa','Fes 3 respiracions lentes amb el botó 🌿 Pausa. Després, només un exercici.'],
+    bloquejat:['😣','Bloquejat / bloquejada','És normal. Para un moment. Demana ajuda al teu professor o professora amb la targeta 🆘. Mira la pista 💡.'],
+    cansat:['🥱','Cansat / cansada','Fes una pausa curta. Després, repassa el pas ⭐ Recordo d’un tema.']};
+  let h=`<section class="panel speak-zone"><h2>💚 Com em sento?</h2><p>Toca la cara que s’assembla més a com estàs ara.</p><div class="feel">`+
+    Object.entries(F).map(([k,v])=>`<button data-feel="${k}" class="${S.feel===k?'sel':''}"><span style="font-size:1.6rem">${v[0]}</span><br>${v[1]}</button>`).join('')+
+    `</div><p class="feelmsg" id="feelmsg" aria-live="polite">${S.feel?F[S.feel][2]:''}</p>
+  <h2>🪜 Com faig un problema</h2><ol class="how"><li><b>Llegeixo</b> el problema a poc a poc. Dues vegades.</li><li><b>Subratllo</b> les dades (els nombres).</li><li>Em pregunto: <b>què em pregunten?</b></li><li><b>Trio</b> l’operació.</li><li><b>Calculo</b>. Puc fer servir la calculadora.</li><li><b>Comprovo</b>: el resultat té sentit?</li></ol>
+  <h2>🧠 Recordo que…</h2><ul class="remember"><li>✔ Equivocar-me m’ajuda a aprendre.</li><li>✔ Puc demanar ajuda. 🆘</li><li>✔ Puc fer una pausa. 🌿</li><li>✔ Faig un pas cada vegada.</li><li>✔ Si una estratègia no funciona, en provo una altra.</li></ul>
+  <h2>🤝 Treballar en equip</h2><ul><li>Escolto quan parla un company o companya.</li><li>Faig la meva part de la feina.</li><li>Puc dir «no ho entenc» o «ho pots repetir?».</li></ul></section>
+  <div class="nav"><span></span><button class="btn" data-href="#">🏠 Tornar a l’inici</button></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('[data-feel]').forEach(b=>b.onclick=()=>{S.feel=b.dataset.feel;save();
+    app.querySelectorAll('[data-feel]').forEach(x=>x.classList.toggle('sel',x===b));
+    document.getElementById('feelmsg').textContent=F[S.feel][2];});
+  app.querySelector('[data-href]').onclick=()=>location.hash='#';
+}
+
+function guia(){
+  let rows=UNITS.map((u,i)=>`<tr><td>${i+1}. ${u.icon} ${u.title}</td><td>${u.tri}r</td><td>${u.saber}</td><td>${doneCount(u)}/${u.ex.length}</td></tr>`).join('');
+  app.innerHTML=`<section class="panel guide"><h2>📋 Guia docent</h2>
+  <p>Material de <b>Matemàtiques A de 4t d’ESO</b> (Catalunya) adaptat per a un alumne amb <b>discapacitat intel·lectual lleu (DIL)</b> i <b>TEA</b> que rep suport a l’aula <b>SIEI</b>. Cal ajustar-lo al seu <b>Pla de suport individualitzat (PI)</b>.</p>
+
+  <details open><summary>📚 Marc curricular</summary>
+  <ul><li>Referent: <b>Decret 175/2022</b> d’ordenació dels ensenyaments de l’educació bàsica.</li>
+  <li>A partir del <b>curs 2026-2027</b>, per la sentència 2859/2025 del TSJC, els centres han d’oferir a 4t <b>Matemàtiques A</b> o <b>Matemàtiques B</b>. Les dues tenen les mateixes competències específiques i criteris d’avaluació.</li>
+  <li>Matemàtiques A (l’antiga opció d’«aplicades») prioritza la resolució de problemes i les situacions de la vida quotidiana.</li>
+  <li>Matemàtiques B afegeix 3 sabers (marcats amb * al decret) que <b>no</b> s’inclouen aquí: raons trigonomètriques, expressions algebraiques de la recta i transformacions amb geometria analítica.</li>
+  <li>El sentit socioemocional es treballa a «🧰 Les meves eines» i de forma transversal (feedback, pauses, error com a aprenentatge).</li></ul></details>
+
+  <details><summary>🧩 Adaptacions aplicades a la pàgina</summary>
+  <ul>
+  <li><b>Estructura fixa i previsible</b> (6 passos idèntics a cada tema) i barra de progrés visible: anticipació i reducció de l’ansietat (principis TEACCH).</li>
+  <li><b>Un pas per pantalla</b>: menys càrrega cognitiva i atencional.</li>
+  <li><b>Lectura fàcil</b>: frases curtes, present, vocabulari explicat i exemples concrets.</li>
+  <li><b>Vocabulari explícit</b> (📖 Paraules clau) abans del procediment.</li>
+  <li><b>Suport visual coherent</b>: icones fixes, figures senzilles, fórmules ressaltades. Sense animacions ni imatges decoratives (evitar sobreestimulació).</li>
+  <li><b>Contextos funcionals</b> de la vida diària (diners, compres, roba, plànols, transport) per afavorir la generalització.</li>
+  <li><b>Retroacció immediata, positiva i no punitiva</b>; pista després del 1r error i solució guiada després del 2n. Sense temps límit.</li>
+  <li><b>Calculadora permesa</b> en tots els temes.</li>
+  <li><b>Accessibilitat</b>: mida de lletra, espaiat, alt contrast, lectura en veu alta (🔊) i botons grans.</li>
+  <li><b>Autoregulació</b>: botó 🌿 Pausa (respiració) sempre visible i autoregistre emocional.</li>
+  <li><b>Nivell de concreció</b>: els sabers de 4t es presenten en un nivell funcional, coherent amb una adaptació curricular significativa.</li></ul></details>
+
+  <details><summary>🏫 Suggeriments per a l’aula SIEI</summary>
+  <ul><li>Anticipar a l’inici de la sessió quin tema i quin pas es farà (agenda visual).</li>
+  <li>Combinar amb material manipulable: monedes, cinta mètrica, daus, escuradents, geoplà.</li>
+  <li>Aprofitar els interessos de l’alumne per canviar els contextos dels problemes.</li>
+  <li>Fer servir el mateix vocabulari i els mateixos passos a l’aula ordinària i a l’aula SIEI.</li>
+  <li>Avaluar segons els criteris prioritzats al PI; el comptador d’exercicis és orientatiu.</li>
+  <li>Imprimir qualsevol pas amb Ctrl+P per fer fitxes en paper.</li></ul></details>
+
+  <details open><summary>🗺️ Temes i sabers del currículum</summary>
+  <div class="tablewrap"><table><tr><th>Tema</th><th>Trim.</th><th>Sabers (Decret 175/2022)</th><th>Fets</th></tr>${rows}
+  <tr><td>🧰 Les meves eines</td><td>tots</td><td>Sentit socioemocional: creences, actituds i emocions; treball en equip i presa de decisions.</td><td>—</td></tr></table></div></details>
+
+  <details><summary>🔗 Fonts consultades</summary>
+  <ul class="small"><li>Departament d’Educació: <i>Canvis en el 4t curs de l’ESO per al curs 2026-2027</i> (abril 2026).</li>
+  <li>Decret 175/2022, de 27 de setembre (DOGC 8762), sabers i criteris de 4t d’ESO.</li>
+  <li>Protocols TEACCH i orientacions per a alumnat TEA (estructuració, informació visual, anticipació).</li>
+  <li>Projectes SIEI de centres (bastides, comunicació visual i explícita, suport entre iguals).</li></ul></details>
+
+  <p><button class="btn sec" id="bReset">🗑️ Esborrar el progrés d’aquest navegador</button></p></section>
+  <div class="nav"><span></span><button class="btn" data-href="#">🏠 Tornar a l’inici</button></div>`;
+  app.querySelector('[data-href]').onclick=()=>location.hash='#';
+  document.getElementById('bReset').onclick=()=>{if(confirm('Segur que vols esborrar el progrés?')){S.done={};S.seen={};save();toast('Progrés esborrat.');guia();}};
+}
+
+/* =========================================================
+   ENCAMINAMENT, EINES, VEU I CALMA
+   ========================================================= */
+function route(){
+  stopSpeak();
+  const h=location.hash.slice(1);
+  if(h.startsWith('u/')){const [,id,st]=h.split('/');unit(id,+st||0);}
+  else if(h==='guia') guia();
+  else if(h==='eines') eines();
+  else home();
+  window.scrollTo(0,0); app.focus({preventScroll:true});
+}
+function toast(t){const d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600);}
+
+const synth=window.speechSynthesis;
+function stopSpeak(){try{synth&&synth.cancel();}catch(e){}}
+function speak(){
+  if(!synth){toast('Aquest navegador no pot llegir en veu alta.');return;}
+  if(synth.speaking){stopSpeak();return;}
+  const z=document.querySelector('.speak-zone'); if(!z) return;
+  const txt=z.innerText.replace(/−/g,' menys ').replace(/×/g,' per ').replace(/ : /g,' dividit entre ').replace(/≈/g,' aproximadament ').replace(/√/g,' arrel de ').replace(/²/g,' al quadrat').replace(/³/g,' al cub').replace(/π/g,' pi ').replace(/≤/g,' menor o igual que ').replace(/≥/g,' major o igual que ');
+  const ut=new SpeechSynthesisUtterance(txt); ut.lang='ca-ES'; ut.rate=.9;
+  const v=synth.getVoices().find(x=>/^ca/i.test(x.lang)); if(v) ut.voice=v;
+  synth.speak(ut);
+}
+
+let calmTimer=null;
+function calm(on){
+  const c=document.getElementById('calm'),t=document.getElementById('calmTxt');
+  c.hidden=!on; clearInterval(calmTimer);
+  if(on){stopSpeak();let inh=true;t.textContent='Inspira…';calmTimer=setInterval(()=>{inh=!inh;t.textContent=inh?'Inspira…':'Expira…';},4000);document.getElementById('bCalmOff').focus();}
+}
+
+document.getElementById('bHome').onclick=()=>location.hash='#';
+document.getElementById('bBigger').onclick=()=>{S.fs=Math.min(30,S.fs+2);applyPrefs();save();};
+document.getElementById('bSmaller').onclick=()=>{S.fs=Math.max(16,S.fs-2);applyPrefs();save();};
+document.getElementById('bSpaced').onclick=()=>{S.spaced=!S.spaced;applyPrefs();save();};
+document.getElementById('bContrast').onclick=()=>{S.contrast=!S.contrast;applyPrefs();save();};
+document.getElementById('bSpeak').onclick=speak;
+document.getElementById('bCalm').onclick=()=>calm(true);
+document.getElementById('bCalmOff').onclick=()=>calm(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElementById('calm').hidden)calm(false);});
+window.addEventListener('hashchange',route);
+applyPrefs(); route();
+</script>
+</body>
+</html>

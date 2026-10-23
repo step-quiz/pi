@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matemàtiques Aplicades 4t ESO</title>
+  <style>
+    :root {
+      --fons: #fdfdf7;
+      --text: #1a1a1a;
+      --primari: #1f4e79;
+      --verd: #2e7d32;
+      --groc: #fff3c4;
+      --blau: #e3f0fb;
+      --vermell: #b71c1c;
+      --borde: #555;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 20px; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fons);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primari);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 1.6rem; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1rem;
+      background: #fff;
+      border-bottom: 2px solid #ccc;
+    }
+    nav button {
+      font-size: 1rem;
+      padding: 0.6rem 0.9rem;
+      border: 2px solid var(--primari);
+      background: #fff;
+      color: var(--primari);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    nav button[aria-current="true"] {
+      background: var(--primari);
+      color: #fff;
+    }
+    nav button:focus, .practica button:focus, .practica input:focus {
+      outline: 4px solid #ffb300;
+      outline-offset: 2px;
+    }
+    main {
+      max-width: 820px;
+      margin: 1.5rem auto;
+      padding: 0 1rem 3rem;
+    }
+    h2 { font-size: 1.6rem; color: var(--primari); margin-top: 0; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .targeta {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .idea { background: var(--blau); border-left: 8px solid var(--primari); }
+    .pas { background: var(--groc); border-left: 8px solid #f9a825; }
+    .exemple { background: #e8f5e9; border-left: 8px solid var(--verd); }
+    .practica-box { background: #f3e5f5; border-left: 8px solid #6a1b9a; }
+    .pas ol { padding-left: 1.4rem; }
+    .pas li { margin-bottom: 0.5rem; }
+    .formula {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      background: #fff;
+      border: 1px dashed #888;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin: 0.6rem 0;
+    }
+    .practica input {
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      width: 9rem;
+      border: 2px solid var(--borde);
+      border-radius: 6px;
+    }
+    .practica button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      background: #6a1b9a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .resultat { font-size: 1.1rem; font-weight: bold; min-height: 1.6em; margin-top: 0.6rem; }
+    .ok { color: var(--verd); }
+    .error { color: var(--vermell); }
+    .pista { font-style: italic; color: #444; }
+    .navegacio { border: none; background: none; padding: 0; }
+    footer { text-align: center; color: #555; padding: 1rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📘 Matemàtiques Aplicades · 4t ESO</h1>
+</header>
+
+<nav id="menu" aria-label="Seccions"></nav>
+
+<main id="contingut" aria-live="polite"></main>
+
+<footer>Tria una secció del menú. Pots tornar enrere quan vulguis. 🌿</footer>
+
+<script>
+  // Dades de les seccions: cada una té idea clau, pas a pas, exemple i exercici.
+  const seccions = [
+    {
+      nom: "🔢 Nombres i potències",
+      titol: "Nombres i potències",
+      idea: "Una potència és una multiplicació repetida. Per exemple, 2 elevat a 3 vol dir 2 × 2 × 2.",
+      formula: "aⁿ = a × a × … × a  (n vegades)",
+      pas: [
+        "Mira la base (el nombre de dalt) i l'exponent (el petit de dalt a la dreta).",
+        "Escriu la base tantes vegades com indiqui l'exponent.",
+        "Fes les multiplicacions una a una."
+      ],
+      exempleText: "Calcula 3³",
+      exempleSolucio: "3 × 3 × 3 = 9 × 3 = 27",
+      exercici: {
+        enunciat: "Quant és 2⁴?",
+        resposta: "16",
+        pista: "Fes 2 × 2 × 2 × 2. Recorda que són 4 vegades el 2."
+      }
+    },
+    {
+      nom: "📊 Proporcionalitat i percentatges",
+      titol: "Proporcionalitat i percentatges",
+      idea: "Un percentatge és una part de cada 100. Per calcular el 20 % d'una quantitat, multipliquem per 0,20.",
+      formula: "X % de N = N × X / 100",
+      pas: [
+        "Passa el percentatge a decimal (divideix per 100).",
+        "Multiplica la quantitat per aquest decimal.",
+        "Escriu la resposta amb la unitat correcta (€, kg, etc.)."
+      ],
+      exempleText: "Quant és el 20 % de 150 €?",
+      exempleSolucio: "150 × 0,20 = 30 €",
+      exercici: {
+        enunciat: "Quant és el 15 % de 200?",
+        resposta: "30",
+        pista: "200 × 0,15. Pots pensar: el 10 % és 20 i el 5 % és la meitat, 10."
+      }
+    },
+    {
+      nom: "🔤 Àlgebra i equacions",
+      titol: "Equacions de primer grau",
+      idea: "Una equació és com una balança: el que fas a un costat també ho has de fer a l'altre. Volem deixar la x sola.",
+      formula: "ax + b = c  →  x = (c − b) / a",
+      pas: [
+        "Treu els nombres que acompanyen la x passant-los a l'altre costat (amb signe contrari).",
+        "Divideix tot pel nombre que multiplica la x.",
+        "Comprova la solució substituint-la a l'equació."
+      ],
+      exempleText: "Resol 2x + 3 = 11",
+      exempleSolucio: "2x = 11 − 3 = 8  →  x = 8 / 2 = 4",
+      exercici: {
+        enunciat: "Resol 3x + 5 = 20. Quant val x?",
+        resposta: "5",
+        pista: "Primer resta 5 als dos costats. Després divideix per 3."
+      }
+    },
+    {
+      nom: "📈 Funcions",
+      titol: "Funció lineal",
+      idea: "Una funció lineal és una recta. La fórmula és y = m·x + n. La m és la pendent (quant puja o baixa) i la n és on talla l'eix vertical.",
+      formula: "y = m·x + n",
+      pas: [
+        "Mira el número que multiplica la x: és la pendent m.",
+        "Mira el número solitari: és el punt de tall n amb l'eix Y.",
+        "Per dibuixar-la, marca el punt (0, n) i després avança segons la pendent."
+      ],
+      exempleText: "Si y = 2x + 1, quant val y quan x = 3?",
+      exempleSolucio: "y = 2 × 3 + 1 = 6 + 1 = 7",
+      exercici: {
+        enunciat: "Si y = 4x − 2, quant val y quan x = 2?",
+        resposta: "6",
+        pista: "4 × 2 = 8. Després resta 2."
+      }
+    },
+    {
+      nom: "📐 Geometria",
+      titol: "Teorema de Pitàgores",
+      idea: "En un triangle rectangle, el costat més llarg (la hipotenusa) al quadrat és igual a la suma dels quadrats dels altres dos costats.",
+      formula: "c² = a² + b²",
+      pas: [
+        "Identifica la hipotenusa c (el costat més llarg, oposat a l'angle recte).",
+        "Eleva al quadrat els dos catets i suma-ho.",
+        "Fes l'arrel quadrada per trobar c."
+      ],
+      exempleText: "Catets de 3 cm i 4 cm. Quant mesura la hipotenusa?",
+      exempleSolucio: "c² = 3² + 4² = 9 + 16 = 25  →  c = √25 = 5 cm",
+      exercici: {
+        enunciat: "Un triangle rectangle té catets de 6 cm i 8 cm. Quant mesura la hipotenusa?",
+        resposta: "10",
+        pista: "6² = 36 i 8² = 64. Suma 36 + 64 i busca l'arrel quadrada."
+      }
+    },
+    {
+      nom: "📊 Estadística",
+      titol: "Mitjana aritmètica",
+      idea: "La mitjana és el valor 'típic' d'un conjunt de dades. Es calcula sumant tots els valors i dividint pel nombre de valors.",
+      formula: "Mitjana = suma de dades / nombre de dades",
+      pas: [
+        "Suma totes les dades.",
+        "Compta quantes dades hi ha.",
+        "Divideix la suma entre el nombre de dades."
+      ],
+      exempleText: "Notes: 4, 6, 8. Quina és la mitjana?",
+      exempleSolucio: "(4 + 6 + 8) / 3 = 18 / 3 = 6",
+      exercici: {
+        enunciat: "Notes: 5, 7, 9, 3. Quina és la mitjana?",
+        resposta: "6",
+        pista: "Suma 5 + 7 + 9 + 3 i divideix entre 4."
+      }
+    },
+    {
+      nom: "🎲 Probabilitat",
+      titol: "Regla de Laplace",
+      idea: "La probabilitat d'un succés és el nombre de casos favorables dividit pel nombre de casos possibles. Es pot escriure com a fracció.",
+      formula: "P = casos favorables / casos possibles",
+      pas: [
+        "Escriu tots els resultats possibles (per exemple, les 6 cares d'un dau).",
+        "Compta quants són favorables al succés que volem.",
+        "Fes la fracció i simplifica si pots."
+      ],
+      exempleText: "Quina és la probabilitat de treure un 2 en un dau?",
+      exempleSolucio: "Casos favorables: 1 (el 2). Casos possibles: 6. P = 1/6",
+      exercici: {
+        enunciat: "Quina és la probabilitat de treure un nombre parell en un dau? (Escriu la fracció, per exemple 1/2)",
+        resposta: "1/2",
+        pista: "Els parells del dau són 2, 4 i 6. Són 3 de 6 casos possibles."
+      }
+    }
+  ];
+
+  // Comprova la resposta de l'exercici (accepta "." o "," i espais)
+  function comprova(indexSeccio) {
+    const input = document.getElementById("resposta-" + indexSeccio);
+    const resultat = document.getElementById("resultat-" + indexSeccio);
+    const correcta = seccions[indexSeccio].exercici.resposta;
+    const usuari = input.value.trim().replace(",", ".").replace(/\s/g, "");
+
+    if (usuari === "") {
+      resultat.textContent = "Escriu una resposta primer.";
+      resultat.className = "resultat error";
+      return;
+    }
+    if (usuari === correcta) {
+      resultat.textContent = "✅ Molt bé! Ho has fet correctament.";
+      resultat.className = "resultat ok";
+    } else {
+      resultat.textContent = "❌ Encara no. Prova de nou. Mira la pista si la necessites.";
+      resultat.className = "resultat error";
+    }
+  }
+
+  function mostraPista(indexSeccio) {
+    const pistaEl = document.getElementById("pista-" + indexSeccio);
+    pistaEl.textContent = "💡 Pista: " + seccions[indexSeccio].exercici.pista;
+    pistaEl.hidden = false;
+  }
+
+  function mostraSeccio(i) {
+    const s = seccions[i];
+
+    // Actualitza només els botons del menú superior
+    document.querySelectorAll("#menu button").forEach((b, j) => {
+      b.setAttribute("aria-current", j === i ? "true" : "false");
+    });
+
+    const main = document.getElementById("contingut");
+    main.innerHTML = `
+      <section class="targeta">
+        <h2>${s.titol}</h2>
+      </section>
+
+      <section class="targeta idea">
+        <h3>1. 💡 Idea clau</h3>
+        <p>${s.idea}</p>
+        <div class="formula">${s.formula}</div>
+      </section>
+
+      <section class="targeta pas">
+        <h3>2. 👣 Pas a pas</h3>
+        <ol>${s.pas.map(p => `<li>${p}</li>`).join("")}</ol>
+      </section>
+
+      <section class="targeta exemple">
+        <h3>3. 🔍 Exemple resolt</h3>
+        <p><strong>${s.exempleText}</strong></p>
+        <p>${s.exempleSolucio}</p>
+      </section>
+
+      <section class="targeta practica-box practica">
+        <h3>4. ✏️ Ara tu</h3>
+        <p>${s.exercici.enunciat}</p>
+        <label for="resposta-${i}">La teva resposta:</label><br>
+        <input type="text" id="resposta-${i}" autocomplete="off">
+        <br>
+        <button type="button" onclick="comprova(${i})">Comprova</button>
+        <button type="button" onclick="mostraPista(${i})" style="background:#8e24aa;">Vull una pista</button>
+        <p id="resultat-${i}" class="resultat" aria-live="polite"></p>
+        <p id="pista-${i}" class="pista" hidden></p>
+      </section>
+
+      <nav class="navegacio" aria-label="Navegació entre seccions">
+        ${i > 0 ? `<button type="button" onclick="mostraSeccio(${i - 1})">⬅️ Anterior</button>` : ""}
+        ${i < seccions.length - 1 ? `<button type="button" onclick="mostraSeccio(${i + 1})">Següent ➡️</button>` : ""}
+      </nav>
+    `;
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  // Construeix el menú
+  const menu = document.getElementById("menu");
+  seccions.forEach((s, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = s.nom;
+    b.setAttribute("aria-current", "false");
+    b.addEventListener("click", () => mostraSeccio(i));
+    menu.appendChild(b);
+  });
+
+  // Obre la primera secció en carregar
+  mostraSeccio(0);
+</script>
+
+</body>
+</html>
