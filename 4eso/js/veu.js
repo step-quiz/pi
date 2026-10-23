@@ -29,12 +29,15 @@
        l'«Inici» i el «Final» del rètol de progrés: només «Pas 2 de 5».
 
    COM MARCA EL QUE LLEGEIX
-     · El bloc que sona té, darrere de les lletres, un fons blau molt suau,
-       com un retolador fluix. Es fa amb CSS.highlights (::highlight a
-       css/app.css), que no toca el text ni mou res de la pàgina. Els
-       navegadors que no en tenen pinten tot el bloc (.veu-bloc).
-     · Si la veu diu per on va (Edge, Safari i algunes veus de Chrome ho fan),
-       la paraula que sona té, a més, un fons una mica més marcat.
+     · El bloc que sona té un fons groc clar, com de retolador: la classe
+       .veu-bloc (al final de css/app.css). És una classe normal i funciona a
+       tots els navegadors. Abans es feia amb CSS.highlights i un blau molt
+       suau, i a la pràctica no es veia res, ni a Windows ni a Android
+       (23/10/2026).
+     · Si la veu diu per on va (Edge i Safari ho fan; la veu de Google
+       d'Android i moltes de Chrome, no), la paraula que sona té, a més, un
+       groc més fort. Aquesta sí que es fa amb CSS.highlights, que no toca el
+       text: on no n'hi ha, es queda la marca del bloc, que ja n'hi ha prou.
    ========================================================================== */
 
 (function () {
@@ -145,27 +148,12 @@
 
   /* --------------------------------------------------------- la marca ---- */
   const potMarcar = !!(window.CSS && CSS.highlights && window.Highlight);
-  function marca(nom, rang, prioritat) {
-    if (!rang) { CSS.highlights.delete(nom); return; }
-    const h = new Highlight(rang);
-    h.priority = prioritat;
-    CSS.highlights.set(nom, h);
-  }
   function marcaParaula(rang) {
-    if (potMarcar) marca("veu-paraula", rang, 1);
+    if (!potMarcar) return;
+    if (rang) CSS.highlights.set("veu-paraula", new Highlight(rang));
+    else CSS.highlights.delete("veu-paraula");
   }
-  /** Del primer tros al darrer: el que es diu del bloc, i prou. */
   function marcaBloc(bloc) {
-    if (potMarcar) {
-      let r = null;
-      if (bloc) {
-        const p = bloc.trossos[0].rang, d = bloc.trossos[bloc.trossos.length - 1].rang;
-        r = document.createRange();
-        r.setStart(p.startContainer, p.startOffset); r.setEnd(d.endContainer, d.endOffset);
-      }
-      marca("veu-bloc", r, 0);
-      return;
-    }
     $$(".veu-bloc").forEach(x => x.classList.remove("veu-bloc"));
     if (bloc) bloc.el.classList.add("veu-bloc");
   }

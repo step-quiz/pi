@@ -385,9 +385,17 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .veu-boto:hover{background:var(--camp)}
 .veu-boto[aria-pressed="true"]{background:var(--blau-suau);color:var(--blau-text)}
 .veu-boto svg{width:24px;height:24px;flex:none}
-/* El que s'està llegint: un fons blau molt suau darrere de les lletres. La
-   paraula que sona hi posa un segon fons a sobre, i queda una mica més marcada. */
-::highlight(veu-bloc),::highlight(veu-paraula){background-color:var(--blau-suau);color:inherit}
-/* Els navegadors sense ::highlight pinten tot el bloc (per sobre del fons dels
-   avisos, que és un color i no una imatge). */
-.veu-bloc{background-image:linear-gradient(var(--blau-suau),var(--blau-suau));border-radius:var(--r-p)}
+/* El que s'està llegint: un fons groc clar, com de retolador. És una classe
+   normal (.veu-bloc) perquè es vegi a tots els navegadors; el blau suau d'abans
+   amb ::highlight no es veia ni a Windows ni a Android (23/10/2026). Va amb
+   background-image perquè quedi per sobre del fons dels avisos. La paraula que
+   sona, si la veu diu per on va, un groc més fort. Els colors van escrits aquí, i
+   no amb var(): dins de ::highlight, algun navegador no les resol. */
+.veu-bloc{background-image:linear-gradient(rgba(255,204,0,.38),rgba(255,204,0,.38));
+  border-radius:var(--r-p);box-shadow:0 0 0 .3rem rgba(255,204,0,.38)}
+::highlight(veu-paraula){background-color:rgba(255,170,0,.6)}
+@media (prefers-color-scheme: dark){
+  .veu-bloc{background-image:linear-gradient(rgba(255,214,10,.28),rgba(255,214,10,.28));
+    box-shadow:0 0 0 .3rem rgba(255,214,10,.28)}
+  ::highlight(veu-paraula){background-color:rgba(255,190,40,.5)}
+}

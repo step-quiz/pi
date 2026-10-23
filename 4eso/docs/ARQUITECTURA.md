@@ -484,10 +484,14 @@ navegador no en té, el botó no surt.
 - **No es llegeix** el que no és text per llegir: els botons, els dibuixos (`svg`), l'etiqueta
   «Exemple» (`.marca`) ni l'«Inici» i el «Final» del rètol de progrés (`.fita`).
 
-**Com marca el que llegeix.** El bloc que sona té, darrere de les lletres, un fons blau molt
-suau, com un retolador fluix. Si la veu diu per on va (Edge, Safari i algunes veus de Chrome ho
-fan), la paraula que sona en té un de més marcat. Es fa amb `CSS.highlights`, que no toca el
-text ni mou res. Els estils són al final de `css/app.css`.
+**Com marca el que llegeix.** El bloc que sona té un fons groc clar, com de retolador: la
+classe `.veu-bloc`, que funciona a tots els navegadors. Si la veu diu per on va (Edge i Safari
+ho fan; la veu de Google d'Android i moltes de Chrome, no), la paraula que sona té, a més, un
+groc més fort, fet amb `CSS.highlights`. Els estils són al final de `css/app.css`.
+
+La primera versió marcava el bloc amb `CSS.highlights` i un blau molt suau, i a la pràctica no
+es veia res, ni en un portàtil amb Windows ni en un mòbil amb Android (23/10/2026). Per això el
+bloc va amb una classe i amb un color que es veu.
 
 **Les frases del botó** són `comu.veu_escolta` («Escolta la targeta») i `comu.veu_para` («Para
 la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `js/veu.js`.
