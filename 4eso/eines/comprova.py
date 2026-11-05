@@ -508,6 +508,9 @@ PROHIBITS = CURS + [r"\bSIEI\b", r"\bDIL\b", r"discapacitat intel",
 # material. Ho va decidir el docent el 26/9/2026: allà no cal amagar-lo. Els altres
 # termes (el diagnòstic, «l'alumne») hi continuen prohibits, i el curs, a tot arreu més.
 PORTADA = os.path.join(REPO, 'index.html')
+# I el docent va decidir el 5/11/2026 que l'etiqueta del curs («4t ESO · Aplicades») surti també a
+# la pàgina del curs, a la de cada unitat i a la caixa d'eines. Només en aquestes tres pàgines.
+PAGINES_AMB_CURS = {os.path.abspath(ruta(x)) for x in ('index.html', 'unitat.html', 'caixa-eines.html')}
 # I other-versions/ no es mira: són les dues versions que va fer una IA, per comparar-les
 # amb aquest projecte (index.html?other-versions=1). El docent va decidir el 23/10/2026
 # deixar-les tal com les va fer la IA, amb el curs i el diagnòstic que hi surten.
@@ -522,6 +525,8 @@ for f in (glob.glob(os.path.join(REPO, '**', '*.md'), recursive=True)
     text = open(f, encoding='utf-8').read()
     for patro in PROHIBITS:
         if os.path.abspath(f) == os.path.abspath(PORTADA) and patro in CURS:
+            continue
+        if os.path.abspath(f) in PAGINES_AMB_CURS and patro == r"4t ESO":
             continue
         for m in re.finditer(patro, text, re.I):
             trobats.append((os.path.relpath(f, REPO), m.group(0)))

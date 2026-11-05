@@ -1,406 +1,406 @@
 {
   "targeta-decimals.pdf": {
-    "empremta": "c058039f07362666b11ccb918d803b67d8c6588f83aef772b3cfd683a0d9f05f",
+    "empremta": "fe1ed39e21deae83604b29eff8950d6aebb02fce794f636fa9c76b4223f7364e",
     "font": "targetes/decimals.html",
     "pagines": 2
   },
   "targeta-formes.pdf": {
-    "empremta": "ff85f856c48bf8c18460c8d2a417db4f1efa17555bf1e47bf8b5125d35e0b937",
+    "empremta": "3268f836cb609cb5cece5a056d0b24676fb950c4f56ad0595c71149534105ea9",
     "font": "targetes/formes.html",
     "pagines": 2
   },
   "targeta-fraccions.pdf": {
-    "empremta": "bfa3419a2174966649f624b05178667bdacbc54646c0cc0fae404ab0ac456bd0",
+    "empremta": "91c3130ca007636f2b49405691ae8eb10737282e5224f594dcce9576dbc6f962",
     "font": "targetes/fraccions.html",
     "pagines": 2
   },
   "targeta-patrons.pdf": {
-    "empremta": "95d4b8c8fa2d01b258e6e43a7f08b55bd0d2b352cfddad06d984cced0084c6bd",
+    "empremta": "95862dbba9e35b540ad6d557687130f7eeb97f40c2a23cd757c8d7978560bc87",
     "font": "targetes/patrons.html",
     "pagines": 2
   },
   "targeta-taules.pdf": {
-    "empremta": "e2babc722fa705675fbbfebe061f3c19404a00e49db8c156cf97b4f64d428e65",
+    "empremta": "50a3d0f62286b86103924b89bb75fd24a927fd93bc212078dfb12c065f8715ce",
     "font": "targetes/taules.html",
     "pagines": 2
   },
   "ud1-alumnat.pdf": {
-    "empremta": "830f6de5c76150f3606f76fa4e057cc7a05754a1b4ceac1d88482ad2ad6a3233",
+    "empremta": "b07e1566a34960209f37933d11722cac0bdf1f15340fddd0480d04d2a5bcaf53",
     "font": "fitxes/ud1.html",
     "pagines": 9
   },
   "ud1-nombres-alumnat.pdf": {
-    "empremta": "d4a7d2bc0f27791a299d283e955059405f38901270bf18975d35e7352517d1d2",
+    "empremta": "e72be1f487fe78020e2194ba46b61f2bba06a5bb452a00ae5dec78aa344bebe9",
     "font": "fitxes/ud1-nombres.html",
     "pagines": 6
   },
   "ud1-nombres-solucionari.pdf": {
-    "empremta": "d4a7d2bc0f27791a299d283e955059405f38901270bf18975d35e7352517d1d2",
+    "empremta": "e72be1f487fe78020e2194ba46b61f2bba06a5bb452a00ae5dec78aa344bebe9",
     "font": "fitxes/ud1-nombres.html",
     "pagines": 2
   },
   "ud1-ordre-alumnat.pdf": {
-    "empremta": "961ffddabcfdf0a5a71ad5aa8abe735c176804296d21a22814511843b0949669",
+    "empremta": "790a6a5566b3532e21934d82978dc536812bad2ff5bac03d682108854661f3e3",
     "font": "fitxes/ud1-ordre.html",
     "pagines": 6
   },
   "ud1-ordre-solucionari.pdf": {
-    "empremta": "961ffddabcfdf0a5a71ad5aa8abe735c176804296d21a22814511843b0949669",
+    "empremta": "790a6a5566b3532e21934d82978dc536812bad2ff5bac03d682108854661f3e3",
     "font": "fitxes/ud1-ordre.html",
     "pagines": 2
   },
   "ud1-repas-alumnat.pdf": {
-    "empremta": "476b047b852da9373edf1365ec267e0440fa6509763262cebd75d897bc3147b0",
+    "empremta": "e3631bddb517a434615b895089dbf803d66fa95309d2a3f53077f7663a96b2e8",
     "font": "fitxes/ud1-repas.html",
     "pagines": 6
   },
   "ud1-repas-solucionari.pdf": {
-    "empremta": "476b047b852da9373edf1365ec267e0440fa6509763262cebd75d897bc3147b0",
+    "empremta": "e3631bddb517a434615b895089dbf803d66fa95309d2a3f53077f7663a96b2e8",
     "font": "fitxes/ud1-repas.html",
     "pagines": 2
   },
   "ud1-solucionari.pdf": {
-    "empremta": "830f6de5c76150f3606f76fa4e057cc7a05754a1b4ceac1d88482ad2ad6a3233",
+    "empremta": "b07e1566a34960209f37933d11722cac0bdf1f15340fddd0480d04d2a5bcaf53",
     "font": "fitxes/ud1.html",
     "pagines": 3
   },
   "ud2-alumnat.pdf": {
-    "empremta": "dac65839c723511d14a970628660594dd64b2e62b832c3e601ab2541edb1f62a",
+    "empremta": "280b2cba6bb0cf9e32b9ca5fb1d13923581e94a74d67500a02248ca615818875",
     "font": "fitxes/ud2.html",
     "pagines": 7
   },
   "ud2-divisors-alumnat.pdf": {
-    "empremta": "7d3d39b33ae03fe1c8dd83532a18562f42a6d76ec82374968dade2388d8cc81f",
+    "empremta": "97424bace506295d24d3e2d9fd38c607dcda886b5e76316e225ad783a70a896c",
     "font": "fitxes/ud2-divisors.html",
     "pagines": 6
   },
   "ud2-divisors-solucionari.pdf": {
-    "empremta": "7d3d39b33ae03fe1c8dd83532a18562f42a6d76ec82374968dade2388d8cc81f",
+    "empremta": "97424bace506295d24d3e2d9fd38c607dcda886b5e76316e225ad783a70a896c",
     "font": "fitxes/ud2-divisors.html",
     "pagines": 2
   },
   "ud2-factors-alumnat.pdf": {
-    "empremta": "00babc81b8d18f7d9be1a899202b48a4b55210c5a4ff776ab9a110a12b0ce489",
+    "empremta": "087f31b590d2adbda409ff558020d09b231e6ae721277aff390793834d1a9d01",
     "font": "fitxes/ud2-factors.html",
     "pagines": 5
   },
   "ud2-factors-solucionari.pdf": {
-    "empremta": "00babc81b8d18f7d9be1a899202b48a4b55210c5a4ff776ab9a110a12b0ce489",
+    "empremta": "087f31b590d2adbda409ff558020d09b231e6ae721277aff390793834d1a9d01",
     "font": "fitxes/ud2-factors.html",
     "pagines": 2
   },
   "ud2-repartir-alumnat.pdf": {
-    "empremta": "abf2f0de278d60222d07b10c66414c7e1571a555b8602e53c5dd3112ba026904",
+    "empremta": "d72a37c3b8632b6f5a5921133171c278df3cca5ba7ccebece9efe51965c7060c",
     "font": "fitxes/ud2-repartir.html",
     "pagines": 6
   },
   "ud2-repartir-solucionari.pdf": {
-    "empremta": "abf2f0de278d60222d07b10c66414c7e1571a555b8602e53c5dd3112ba026904",
+    "empremta": "d72a37c3b8632b6f5a5921133171c278df3cca5ba7ccebece9efe51965c7060c",
     "font": "fitxes/ud2-repartir.html",
     "pagines": 2
   },
   "ud2-repas-alumnat.pdf": {
-    "empremta": "87926b6edda70168f8e153a761ca5050a12a8f6a6b3f1dfb870544cf8d78b274",
+    "empremta": "81e33861b009eb08f1ffc61e88f3f0ea8fd824524bb72d6462cb3e581f0445da",
     "font": "fitxes/ud2-repas.html",
     "pagines": 6
   },
   "ud2-repas-solucionari.pdf": {
-    "empremta": "87926b6edda70168f8e153a761ca5050a12a8f6a6b3f1dfb870544cf8d78b274",
+    "empremta": "81e33861b009eb08f1ffc61e88f3f0ea8fd824524bb72d6462cb3e581f0445da",
     "font": "fitxes/ud2-repas.html",
     "pagines": 2
   },
   "ud2-solucionari.pdf": {
-    "empremta": "dac65839c723511d14a970628660594dd64b2e62b832c3e601ab2541edb1f62a",
+    "empremta": "280b2cba6bb0cf9e32b9ca5fb1d13923581e94a74d67500a02248ca615818875",
     "font": "fitxes/ud2.html",
     "pagines": 3
   },
   "ud3-alumnat.pdf": {
-    "empremta": "0a8695164b8abf1a17d7f508dfb745b0e1722e2b4e6bbd4bbde9f7bf0947b350",
+    "empremta": "20beaf8a4254c3cf6751d262f5ac15a3d76526880d94fda1c7ff1355fc60b3a0",
     "font": "fitxes/ud3.html",
     "pagines": 6
   },
   "ud3-area-alumnat.pdf": {
-    "empremta": "1b437c535accafd3ddf2f0be349698f98412cb0fa0a653d5b9ccedb073162d4e",
+    "empremta": "8747cf8001543342601e15fe5dd506a8c25050f4f508e69b19f4f032ef4f0419",
     "font": "fitxes/ud3-area.html",
     "pagines": 5
   },
   "ud3-area-solucionari.pdf": {
-    "empremta": "1b437c535accafd3ddf2f0be349698f98412cb0fa0a653d5b9ccedb073162d4e",
+    "empremta": "8747cf8001543342601e15fe5dd506a8c25050f4f508e69b19f4f032ef4f0419",
     "font": "fitxes/ud3-area.html",
     "pagines": 2
   },
   "ud3-compara-alumnat.pdf": {
-    "empremta": "67ebf0b40e17f04a9c5a5e3b386f308b3bae3f72660da38842a12648caa9c5c5",
+    "empremta": "7b9a03a7cc4db864146664f1eecd58301e077c9730690c834d7dda8713f25525",
     "font": "fitxes/ud3-compara.html",
     "pagines": 6
   },
   "ud3-compara-solucionari.pdf": {
-    "empremta": "67ebf0b40e17f04a9c5a5e3b386f308b3bae3f72660da38842a12648caa9c5c5",
+    "empremta": "7b9a03a7cc4db864146664f1eecd58301e077c9730690c834d7dda8713f25525",
     "font": "fitxes/ud3-compara.html",
     "pagines": 2
   },
   "ud3-equivalents-alumnat.pdf": {
-    "empremta": "4ae44e58d171b41d2ebb8108416fc52461964fcf37b2dc30366fbb62a48d0808",
+    "empremta": "19864f93b78180bad332ac7f3269b1411934743df6802b8633df753cd9c9fc90",
     "font": "fitxes/ud3-equivalents.html",
     "pagines": 6
   },
   "ud3-equivalents-solucionari.pdf": {
-    "empremta": "4ae44e58d171b41d2ebb8108416fc52461964fcf37b2dc30366fbb62a48d0808",
+    "empremta": "19864f93b78180bad332ac7f3269b1411934743df6802b8633df753cd9c9fc90",
     "font": "fitxes/ud3-equivalents.html",
     "pagines": 2
   },
   "ud3-mapes-alumnat.pdf": {
-    "empremta": "1b5c2ee1e3216bac7a67b2030d6bac0ec1324a3e8b7f7da60d8a7a0d48d06e37",
+    "empremta": "4a417ce8b4f099ed379bffcde9a0e2f89002c4440f9be149dcff8950cea2c37b",
     "font": "fitxes/ud3-mapes.html",
     "pagines": 3
   },
   "ud3-mapes-solucionari.pdf": {
-    "empremta": "1b5c2ee1e3216bac7a67b2030d6bac0ec1324a3e8b7f7da60d8a7a0d48d06e37",
+    "empremta": "4a417ce8b4f099ed379bffcde9a0e2f89002c4440f9be149dcff8950cea2c37b",
     "font": "fitxes/ud3-mapes.html",
     "pagines": 1
   },
   "ud3-repas-alumnat.pdf": {
-    "empremta": "0439da29c3b3a7d0aea01db388ab44c9c3a519c5d6a3d9439284c43cd09b34d3",
+    "empremta": "a58b73583f3f383619b1c16dad400e701217f2a914366381bb07e6cc598cf1ca",
     "font": "fitxes/ud3-repas.html",
     "pagines": 5
   },
   "ud3-repas-solucionari.pdf": {
-    "empremta": "0439da29c3b3a7d0aea01db388ab44c9c3a519c5d6a3d9439284c43cd09b34d3",
+    "empremta": "a58b73583f3f383619b1c16dad400e701217f2a914366381bb07e6cc598cf1ca",
     "font": "fitxes/ud3-repas.html",
     "pagines": 2
   },
   "ud3-solucionari.pdf": {
-    "empremta": "0a8695164b8abf1a17d7f508dfb745b0e1722e2b4e6bbd4bbde9f7bf0947b350",
+    "empremta": "20beaf8a4254c3cf6751d262f5ac15a3d76526880d94fda1c7ff1355fc60b3a0",
     "font": "fitxes/ud3.html",
     "pagines": 2
   },
   "ud3-sumes-alumnat.pdf": {
-    "empremta": "2f50390a28691d3526f0b68fdc43e83519d82eccec1f03a25672fb78efd968a8",
+    "empremta": "bfbf66e755a86d94e114209d369eae35b446e5337867f1b3d5b9bdacf57f21ee",
     "font": "fitxes/ud3-sumes.html",
     "pagines": 6
   },
   "ud3-sumes-solucionari.pdf": {
-    "empremta": "2f50390a28691d3526f0b68fdc43e83519d82eccec1f03a25672fb78efd968a8",
+    "empremta": "bfbf66e755a86d94e114209d369eae35b446e5337867f1b3d5b9bdacf57f21ee",
     "font": "fitxes/ud3-sumes.html",
     "pagines": 2
   },
   "ud4-alumnat.pdf": {
-    "empremta": "7b959b7d9f9a0109fc600673127ed36d525d9b03e12efb41fc1b61468daafa4c",
+    "empremta": "10b17df45b5966c52b061765847eec3cbb573505d39ffc3a899e25aee1aeba97",
     "font": "fitxes/ud4.html",
     "pagines": 5
   },
   "ud4-dobletriple-alumnat.pdf": {
-    "empremta": "c2f81ce01e0b71c202b135b2d0dd359e6a716c23bc08ce4eb2d27a5508d9ccd3",
+    "empremta": "f694a1ab10a9740f3a7f197c3da923fc25201545a53dd4a06b6100eb0744a840",
     "font": "fitxes/ud4-dobletriple.html",
     "pagines": 5
   },
   "ud4-dobletriple-solucionari.pdf": {
-    "empremta": "c2f81ce01e0b71c202b135b2d0dd359e6a716c23bc08ce4eb2d27a5508d9ccd3",
+    "empremta": "f694a1ab10a9740f3a7f197c3da923fc25201545a53dd4a06b6100eb0744a840",
     "font": "fitxes/ud4-dobletriple.html",
     "pagines": 2
   },
   "ud4-multfrac-alumnat.pdf": {
-    "empremta": "7e794e7b00f0552e5bba1a4cb40497ed05815d396b40c72e1ea0a29cb8b69a8b",
+    "empremta": "b974e4aa935ec544eb264b35a317d3bcadbdf3053545074828d65a8370dceabf",
     "font": "fitxes/ud4-multfrac.html",
     "pagines": 5
   },
   "ud4-multfrac-solucionari.pdf": {
-    "empremta": "7e794e7b00f0552e5bba1a4cb40497ed05815d396b40c72e1ea0a29cb8b69a8b",
+    "empremta": "b974e4aa935ec544eb264b35a317d3bcadbdf3053545074828d65a8370dceabf",
     "font": "fitxes/ud4-multfrac.html",
     "pagines": 2
   },
   "ud4-percentatges-alumnat.pdf": {
-    "empremta": "211068ef41b7035dbc319fa295b5ffd4e6da48bd879e2b24285ed83de3138220",
+    "empremta": "74398816baf9b93f69a6939cf62fe57458233507113d9e3311620bb4eadcd509",
     "font": "fitxes/ud4-percentatges.html",
     "pagines": 5
   },
   "ud4-percentatges-solucionari.pdf": {
-    "empremta": "211068ef41b7035dbc319fa295b5ffd4e6da48bd879e2b24285ed83de3138220",
+    "empremta": "74398816baf9b93f69a6939cf62fe57458233507113d9e3311620bb4eadcd509",
     "font": "fitxes/ud4-percentatges.html",
     "pagines": 2
   },
   "ud4-repas-alumnat.pdf": {
-    "empremta": "2480720abc7409960c056a79d6c598829d4b7e8dc6d904b2821292730705e6aa",
+    "empremta": "4ec65def904c2c60998bf78c47898da6d3aff7f27e46e9eb0b5f8784efd17694",
     "font": "fitxes/ud4-repas.html",
     "pagines": 4
   },
   "ud4-repas-solucionari.pdf": {
-    "empremta": "2480720abc7409960c056a79d6c598829d4b7e8dc6d904b2821292730705e6aa",
+    "empremta": "4ec65def904c2c60998bf78c47898da6d3aff7f27e46e9eb0b5f8784efd17694",
     "font": "fitxes/ud4-repas.html",
     "pagines": 2
   },
   "ud4-solucionari.pdf": {
-    "empremta": "7b959b7d9f9a0109fc600673127ed36d525d9b03e12efb41fc1b61468daafa4c",
+    "empremta": "10b17df45b5966c52b061765847eec3cbb573505d39ffc3a899e25aee1aeba97",
     "font": "fitxes/ud4.html",
     "pagines": 2
   },
   "ud5-alumnat.pdf": {
-    "empremta": "8fa6cda3fff1c2f3413293b44b007769cb0bc4d28325a403b5ba577253d4b812",
+    "empremta": "8e4a7566e3c7ebc296f866aa49ad9f2320ee55d5022505f2cb163338a93e28fb",
     "font": "fitxes/ud5.html",
     "pagines": 7
   },
   "ud5-arrel-alumnat.pdf": {
-    "empremta": "ab6b99c5641adb20c63dc79f58ec299ee6704638660985eb99b975fd5ef413b7",
+    "empremta": "077f1b58a6d18d69f5452858a8c7bc2833d867514c7182352bd082f3a209af80",
     "font": "fitxes/ud5-arrel.html",
     "pagines": 6
   },
   "ud5-arrel-solucionari.pdf": {
-    "empremta": "ab6b99c5641adb20c63dc79f58ec299ee6704638660985eb99b975fd5ef413b7",
+    "empremta": "077f1b58a6d18d69f5452858a8c7bc2833d867514c7182352bd082f3a209af80",
     "font": "fitxes/ud5-arrel.html",
     "pagines": 2
   },
   "ud5-arrodonir-alumnat.pdf": {
-    "empremta": "c6e5178054b0da86e6f3f4065517866a01d87c3dff5225bf43542251b1e12379",
+    "empremta": "e14f35e8164ba964c588fb10f6f0be2f6e098964a706ebfbd70f170362995776",
     "font": "fitxes/ud5-arrodonir.html",
     "pagines": 5
   },
   "ud5-arrodonir-solucionari.pdf": {
-    "empremta": "c6e5178054b0da86e6f3f4065517866a01d87c3dff5225bf43542251b1e12379",
+    "empremta": "e14f35e8164ba964c588fb10f6f0be2f6e098964a706ebfbd70f170362995776",
     "font": "fitxes/ud5-arrodonir.html",
     "pagines": 2
   },
   "ud5-fraccions-alumnat.pdf": {
-    "empremta": "0b56031a884c2157b445561464bb94c5237ca46408fbe09b9ea6c106b7d43b89",
+    "empremta": "64a644f203a2c45137ce308469222df80e5f5ec495023c20ce78529ef42ccc41",
     "font": "fitxes/ud5-fraccions.html",
     "pagines": 5
   },
   "ud5-fraccions-solucionari.pdf": {
-    "empremta": "0b56031a884c2157b445561464bb94c5237ca46408fbe09b9ea6c106b7d43b89",
+    "empremta": "64a644f203a2c45137ce308469222df80e5f5ec495023c20ce78529ef42ccc41",
     "font": "fitxes/ud5-fraccions.html",
     "pagines": 2
   },
   "ud5-repas-alumnat.pdf": {
-    "empremta": "fe4bce9c9de503e6c0b223bf12a66794c1ac5bc8b17b33fa547b3e34f7c17ff9",
+    "empremta": "f366907586fa368fe68a946622233a0efd9cec4ecc5606757c854bb6edc917d5",
     "font": "fitxes/ud5-repas.html",
     "pagines": 5
   },
   "ud5-repas-solucionari.pdf": {
-    "empremta": "fe4bce9c9de503e6c0b223bf12a66794c1ac5bc8b17b33fa547b3e34f7c17ff9",
+    "empremta": "f366907586fa368fe68a946622233a0efd9cec4ecc5606757c854bb6edc917d5",
     "font": "fitxes/ud5-repas.html",
     "pagines": 2
   },
   "ud5-solucionari.pdf": {
-    "empremta": "8fa6cda3fff1c2f3413293b44b007769cb0bc4d28325a403b5ba577253d4b812",
+    "empremta": "8e4a7566e3c7ebc296f866aa49ad9f2320ee55d5022505f2cb163338a93e28fb",
     "font": "fitxes/ud5.html",
     "pagines": 2
   },
   "ud5-sumes-alumnat.pdf": {
-    "empremta": "bfb88fd41070060a9398c090fb7c17fd386380dbc9af2fdceeb27e2cedc9ac59",
+    "empremta": "6a0de8ef72870bb94d6c047ad33492e1a6834e90c6ee30422ae83e4c5458682a",
     "font": "fitxes/ud5-sumes.html",
     "pagines": 5
   },
   "ud5-sumes-solucionari.pdf": {
-    "empremta": "bfb88fd41070060a9398c090fb7c17fd386380dbc9af2fdceeb27e2cedc9ac59",
+    "empremta": "6a0de8ef72870bb94d6c047ad33492e1a6834e90c6ee30422ae83e4c5458682a",
     "font": "fitxes/ud5-sumes.html",
     "pagines": 2
   },
   "ud6-alumnat.pdf": {
-    "empremta": "1e60b7ff005cb530502170f27ef7b6f98b8398c8bc6fc18b0e540a821e7fc5b6",
+    "empremta": "85759106e74cb63b456d3dd62618bf5dce94c4ea19ce248d8b2be151a01dc984",
     "font": "fitxes/ud6.html",
     "pagines": 6
   },
   "ud6-cercle-alumnat.pdf": {
-    "empremta": "30919d9747cb4e04115b1ed3732623c984d391a917d0c9979da9d2011d226c0c",
+    "empremta": "7691e14de96b379d503f700b8f3e343765c0d578c4edca57f92e998f6abc86cd",
     "font": "fitxes/ud6-cercle.html",
     "pagines": 5
   },
   "ud6-cercle-solucionari.pdf": {
-    "empremta": "30919d9747cb4e04115b1ed3732623c984d391a917d0c9979da9d2011d226c0c",
+    "empremta": "7691e14de96b379d503f700b8f3e343765c0d578c4edca57f92e998f6abc86cd",
     "font": "fitxes/ud6-cercle.html",
     "pagines": 2
   },
   "ud6-perimetre-alumnat.pdf": {
-    "empremta": "2c690c918fbabcac486dd6572f15ee1e20bf7217c5001125e67b2cbc80568a60",
+    "empremta": "24be8b8e34e708449856f3477dfc99546d1554dfbc30595a4adce758e139d0f4",
     "font": "fitxes/ud6-perimetre.html",
     "pagines": 5
   },
   "ud6-perimetre-solucionari.pdf": {
-    "empremta": "2c690c918fbabcac486dd6572f15ee1e20bf7217c5001125e67b2cbc80568a60",
+    "empremta": "24be8b8e34e708449856f3477dfc99546d1554dfbc30595a4adce758e139d0f4",
     "font": "fitxes/ud6-perimetre.html",
     "pagines": 2
   },
   "ud6-poligons-alumnat.pdf": {
-    "empremta": "034eb7a4bda3269c636e93ab5934372b224a2fbfd7f090e32fdfc95d759fd5a3",
+    "empremta": "b5461d837bdf2272d68be5636c0a8f25ad93706bd5d1900674392ad62913e507",
     "font": "fitxes/ud6-poligons.html",
     "pagines": 5
   },
   "ud6-poligons-solucionari.pdf": {
-    "empremta": "034eb7a4bda3269c636e93ab5934372b224a2fbfd7f090e32fdfc95d759fd5a3",
+    "empremta": "b5461d837bdf2272d68be5636c0a8f25ad93706bd5d1900674392ad62913e507",
     "font": "fitxes/ud6-poligons.html",
     "pagines": 2
   },
   "ud6-repas-alumnat.pdf": {
-    "empremta": "6547ef2c548416f507590c1258af85f4e400eabf2b547b555e6392ccb5995bc4",
+    "empremta": "fce3380c185d31d1956fb7849df334c706387047f09b585f93144e982a39026f",
     "font": "fitxes/ud6-repas.html",
     "pagines": 4
   },
   "ud6-repas-solucionari.pdf": {
-    "empremta": "6547ef2c548416f507590c1258af85f4e400eabf2b547b555e6392ccb5995bc4",
+    "empremta": "fce3380c185d31d1956fb7849df334c706387047f09b585f93144e982a39026f",
     "font": "fitxes/ud6-repas.html",
     "pagines": 2
   },
   "ud6-solucionari.pdf": {
-    "empremta": "1e60b7ff005cb530502170f27ef7b6f98b8398c8bc6fc18b0e540a821e7fc5b6",
+    "empremta": "85759106e74cb63b456d3dd62618bf5dce94c4ea19ce248d8b2be151a01dc984",
     "font": "fitxes/ud6.html",
     "pagines": 2
   },
   "ud6-triangles-alumnat.pdf": {
-    "empremta": "720c49147fd5fce9555e3402fc72bed725e9fcae53a25ef94dce4b692bc3fa14",
+    "empremta": "6661d1d568aeadbe7c4266b362d73b3734732e23843ed325c54cdf52c0cd9110",
     "font": "fitxes/ud6-triangles.html",
     "pagines": 5
   },
   "ud6-triangles-solucionari.pdf": {
-    "empremta": "720c49147fd5fce9555e3402fc72bed725e9fcae53a25ef94dce4b692bc3fa14",
+    "empremta": "6661d1d568aeadbe7c4266b362d73b3734732e23843ed325c54cdf52c0cd9110",
     "font": "fitxes/ud6-triangles.html",
     "pagines": 2
   },
   "ud7-alumnat.pdf": {
-    "empremta": "0be1bb3af8710a80f246e034de1707da779a891d072054bfb1ff1c1776b470d8",
+    "empremta": "3e06fed2d0389640ad923e05a7ee1bb09f5a6962b6707a028de5cb957ae73931",
     "font": "fitxes/ud7.html",
     "pagines": 5
   },
   "ud7-grafics-alumnat.pdf": {
-    "empremta": "dca52ff22754e02b2bc45e9d2a533e9655c767dcf5fa0f1d18bd98ad7336b3da",
+    "empremta": "ccfe5b9bee7cd3eaf4dd85c6683db9e1b48d6c7f7a2f67f9e21eaac99884d623",
     "font": "fitxes/ud7-grafics.html",
     "pagines": 5
   },
   "ud7-grafics-solucionari.pdf": {
-    "empremta": "dca52ff22754e02b2bc45e9d2a533e9655c767dcf5fa0f1d18bd98ad7336b3da",
+    "empremta": "ccfe5b9bee7cd3eaf4dd85c6683db9e1b48d6c7f7a2f67f9e21eaac99884d623",
     "font": "fitxes/ud7-grafics.html",
     "pagines": 2
   },
   "ud7-regla-alumnat.pdf": {
-    "empremta": "409404d7795b2b7c16124d5933c8386333353181483680e8c34dbe003204dcf6",
+    "empremta": "ba64e751636ec0407155e659b44c32154c73c86da73665b295f5cdd9cebc058f",
     "font": "fitxes/ud7-regla.html",
     "pagines": 5
   },
   "ud7-regla-solucionari.pdf": {
-    "empremta": "409404d7795b2b7c16124d5933c8386333353181483680e8c34dbe003204dcf6",
+    "empremta": "ba64e751636ec0407155e659b44c32154c73c86da73665b295f5cdd9cebc058f",
     "font": "fitxes/ud7-regla.html",
     "pagines": 2
   },
   "ud7-repas-alumnat.pdf": {
-    "empremta": "93a0675c3e365b0c111a6c58ffcee136c8158fe1c125f3cc65083584736d176e",
+    "empremta": "bc935aabbfbbf9685c8b7faec38a426941fc299c8b75a0e977245017b7bded48",
     "font": "fitxes/ud7-repas.html",
     "pagines": 5
   },
   "ud7-repas-solucionari.pdf": {
-    "empremta": "93a0675c3e365b0c111a6c58ffcee136c8158fe1c125f3cc65083584736d176e",
+    "empremta": "bc935aabbfbbf9685c8b7faec38a426941fc299c8b75a0e977245017b7bded48",
     "font": "fitxes/ud7-repas.html",
     "pagines": 2
   },
   "ud7-simbols-alumnat.pdf": {
-    "empremta": "4c632b77608f7037c805a3e914b5da406971b94cf8ade59fc06e8d2b0865b190",
+    "empremta": "00322fc1c20356a063f1fd0a7e6adb600dffbacaf536eb15376a811bd97c5756",
     "font": "fitxes/ud7-simbols.html",
     "pagines": 5
   },
   "ud7-simbols-solucionari.pdf": {
-    "empremta": "4c632b77608f7037c805a3e914b5da406971b94cf8ade59fc06e8d2b0865b190",
+    "empremta": "00322fc1c20356a063f1fd0a7e6adb600dffbacaf536eb15376a811bd97c5756",
     "font": "fitxes/ud7-simbols.html",
     "pagines": 2
   },
   "ud7-solucionari.pdf": {
-    "empremta": "0be1bb3af8710a80f246e034de1707da779a891d072054bfb1ff1c1776b470d8",
+    "empremta": "3e06fed2d0389640ad923e05a7ee1bb09f5a6962b6707a028de5cb957ae73931",
     "font": "fitxes/ud7.html",
     "pagines": 2
   }

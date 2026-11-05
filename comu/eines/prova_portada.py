@@ -91,8 +91,8 @@ def main():
                   return { n, tasques: u.tasques || [], quadern: u.quadern || '',
                     titol: document.querySelector('h1').textContent,
                     enllacos: [...document.querySelectorAll('#opcions a')].map(a => a.href),
-                    caixa: (document.querySelector('a.tria-opcio[href*=caixa]') || {}).href || '',
-                    quadernVist: (document.querySelector('a.tria-opcio[href*=quadern]') || {}).href || '' };
+                    caixa: (document.querySelector('a.caixa') || {}).href || '',
+                    quadernVist: (document.querySelector('a.quadern') || {}).href || '' };
                 }""")
                 on = f"{curs['dir']}/unitat.html?ud={u['n']}"
                 comprova(u["titol"].startswith(f"Unitat {u['n']} · "), f"{on}: el títol és «{u['titol']}»")

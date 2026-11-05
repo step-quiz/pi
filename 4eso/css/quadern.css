@@ -126,9 +126,8 @@ svg.planol, svg.real-cm { max-width: 100%; margin: .3rem auto .4rem }
 .recompte { margin: 0 0 .4rem; font-weight: 700 }
 .recompte:empty { display: none }
 
-/* Tot el que es clica: vora negra gruixuda i fons gris clar en passar-hi el ratolí o en
-   arribar-hi amb el teclat, sense que canviï de mida (la vora de 2 px no canvia: el gruix
-   de més el fa l'ombra). */
+/* Tot el que es clica: fons gris clar en passar-hi el ratolí o en arribar-hi amb el teclat; la
+   vora negra gruixuda la posa css/tokens.css. */
 .filtres button, .navega a.boto {
   font: inherit; font-weight: 600; color: var(--tinta);
   min-height: 44px; padding: .45rem .95rem;
@@ -141,11 +140,8 @@ svg.planol, svg.real-cm { max-width: 100%; margin: .3rem auto .4rem }
 .filtres button[aria-pressed="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta) }
 .filtres button[aria-pressed="true"] .estrella { filter: invert(1) }
 .filtres button:hover, .filtres button:focus-visible,
-.navega a:hover, .navega a:focus-visible {
-  border-color: #000; box-shadow: 0 0 0 1.5px #000; background: var(--fons-2); color: #000; outline: none;
-}
+.navega a.boto:hover, .navega a.boto:focus-visible { background: var(--fons-2); color: #000 }
 .filtres button:hover .estrella, .filtres button:focus-visible .estrella { filter: none }
-.navega a { border-radius: 8px; padding: .2rem .4rem; border: 2px solid transparent }
 .navega a.boto { min-height: 0; padding: .2rem .8rem; border-radius: 999px; border-color: var(--gris-2) }
 
 /* ---------------------------------------------------------- impressió -- */

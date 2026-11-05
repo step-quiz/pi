@@ -40,10 +40,14 @@ pàgina (`1eso/unitat.html?ud=N`, `4eso/unitat.html?ud=N`), amb tres opcions:
 - **Caixa d'eines**: només les eines d'aquella unitat i d'aquell curs
   (`caixa-eines.html?ud=N&tasques=…`; les tasques són al camp `tasques` de `dades/unitats.js`).
 
-- **Targetes de consulta**: dins de «Fitxes d'activitats», a la unitat on neixen (camp `unitat`
-  o `unitats` de `TARGETES` a `dades/unitats.js`).
-- **Per al professorat**: sota les tres opcions, plegat, el detall de la unitat (camí mínim,
-  fita, regla trencada, rol a l'aula ordinària…).
+- **Targetes de consulta** i **fitxa de repàs**: al desplegable «Més eines», sempre plegat. Les
+  targetes surten a la unitat on neixen (camp `unitat` o `unitats` de `TARGETES` a
+  `dades/unitats.js`).
+- **Per al professorat**: un altre desplegable, sempre plegat, amb el detall de la unitat (camí
+  mínim, fita, regla trencada, rol a l'aula ordinària…).
+
+La disposició (5/11/2026): una sola bombolla amb les fitxes d'activitats a l'esquerra i el quadern
+a la dreta; a sota, la caixa d'eines; i després els dos desplegables.
 
 ### L'esquema de navegació
 

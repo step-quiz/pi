@@ -3,10 +3,13 @@
    ----------------------------------------------------------------------------
    unitat.html?ud=N ensenya tres opcions per a la unitat N del curs:
 
-     Fitxes d'activitats   les fitxes de la unitat i la de repàs, amb els seus PDF
+     Fitxes d'activitats   les fitxes de la unitat (menys la de repàs), amb els seus PDF
      Quadern d'activitats  el quadern de la unitat (camp quadern), o apagat si no n'hi ha
+                           (aquestes dues, en una sola bombolla: fitxes a l'esquerra, quadern a la dreta)
      Caixa d'eines         la caixa amb només les eines de la unitat (camp tasques):
-                           caixa-eines.html?ud=N&tasques=0,2,4
+                           caixa-eines.html?ud=N&tasques=0,2,4 (a sota de la bombolla)
+     Més eines             desplegable, sempre plegat: la fitxa de repàs i les targetes de consulta
+     Per al professorat    desplegable, sempre plegat: el detall de la unitat
 
    Les dades són les de dades/unitats.js del curs. Els dos cursos no les escriuen
    igual: a 1eso/ cada unitat té una llista de fitxes (camp fitxes); a 4eso/, una
@@ -49,12 +52,13 @@
       (Array.isArray(t.unitats) ? t.unitats : [t.unitat]).includes(u.num)).map(t => ({
         fitxa: (t.fitxer || "targetes/" + t.nom + ".html") + "?ud=" + u.num,
         pdf: t.pdf || "pdf/targeta-" + t.nom + ".pdf",
-        titol: t.titol
+        titol: t.titol,
+        text: t.descripcio || t.per || ""
       }));
   }
 
   function targeta(t) {
-    return '<li><a href="' + t.fitxa + '">' + t.titol + "</a>" +
+    return '<li><a href="' + t.fitxa + '" title="' + t.text.replace(/"/g, "&quot;") + '">' + t.titol + "</a>" +
       '<span class="botons-pdf"><a class="pdf" href="' + t.pdf + '" download>PDF</a></span></li>';
   }
 
@@ -109,11 +113,24 @@
   const icona = nom => '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" ' +
     'stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' + ICONA[nom] + "</svg>";
 
-  /** Una opció que porta a una pàgina, o apagada si encara no n'hi ha. */
-  function opcio(nom, titol, href, text) {
-    if (!href) return '<div class="tria-opcio apagada">' + icona(nom) + "<h2>" + titol + "</h2><p>Encara no n'hi ha.</p></div>";
-    return '<a class="tria-opcio" href="' + href + '">' + icona(nom) + "<h2>" + titol + "</h2><p>" + text + "</p></a>";
+  /** El quadern, a la dreta de la bombolla: un enllaç, o apagat si encara no n'hi ha. */
+  function quadern(href) {
+    const cos = icona("quadern") + "<h2>Quadern d'activitats</h2>";
+    return href
+      ? '<a class="quadern" href="' + href + '">' + cos + "<p>Per practicar després de la fitxa.</p></a>"
+      : '<div class="quadern apagat">' + cos + "<p>Encara no n'hi ha.</p></div>";
   }
+
+  /** La caixa d'eines, a sota de la bombolla: un enllaç, o apagada si la unitat no té tasques. */
+  function caixa(href) {
+    const cos = icona("caixa") + "<div><h2>Caixa d'eines</h2><p>" +
+      (href ? "Només les eines d'aquesta unitat." : "Encara no n'hi ha.") + "</p></div>";
+    return href ? '<a class="caixa" href="' + href + '">' + cos + "</a>"
+                : '<div class="caixa apagada">' + cos + "</div>";
+  }
+
+  const esRepas = f => /-repas\.html$/.test(f.fitxa);
+  const llistaFitxes = fs => '<ul class="fitxes">' + fs.map(fitxa).join("") + "</ul>";
 
   function arrenca() {
     const n = Number(new URLSearchParams(location.search).get("ud"));
@@ -122,26 +139,34 @@
     const opcions = document.getElementById("opcions");
     if (!u) {
       titol.textContent = "Aquesta unitat no existeix";
-      opcions.innerHTML = '<p><a href="../index.html">Torna a l\'inici</a> i tria una unitat.</p>';
+      opcions.innerHTML = '<p><a class="torna-boto" href="../index.html">← inici</a> Tria una unitat.</p>';
       return;
     }
     titol.textContent = "Unitat " + u.num + " · " + u.titol;
     document.title = "Unitat " + u.num + " · " + u.titol + " · " + document.body.dataset.materia;
 
     const fitxes = fitxesDe(u);
+    const principals = fitxes.filter(f => !esRepas(f));
+    const repassos = fitxes.filter(esRepas);
     const targetes = targetesDe(u);
     const tasques = Array.isArray(u.tasques) ? u.tasques : [];
-    opcions.innerHTML =
-      '<div class="tria-opcio llista"><h2>' + icona("fitxes") + "Fitxes d'activitats</h2>" +
-        (fitxes.length ? '<ul class="fitxes">' + fitxes.map(fitxa).join("") + "</ul>" : "<p>Encara no n'hi ha.</p>") +
-        (targetes.length ? "<h3>Targetes de consulta</h3>" +
-          '<ul class="fitxes">' + targetes.map(targeta).join("") + "</ul>" : "") +
-      "</div>" +
-      opcio("quadern", "Quadern d'activitats", u.quadern, "Per practicar després de la fitxa.") +
-      opcio("caixa", "Caixa d'eines", tasques.length ? "caixa-eines.html?ud=" + u.num + "&tasques=" + tasques.join(",") : "",
-            "Només les eines d'aquesta unitat.");
 
-    // El detall per al docent: plegat, sota les tres opcions. El text general és a unitat.html.
+    // 1. Una sola bombolla: les fitxes d'activitats a l'esquerra, el quadern a la dreta.
+    // 2. La caixa d'eines, a sota.
+    // 3. «Més eines», plegat: la fitxa de repàs i les targetes de consulta.
+    const mes = (repassos.length ? "<h3>Fitxa de repàs</h3>" + llistaFitxes(repassos) : "") +
+                (targetes.length ? "<h3>Targetes de consulta</h3>" +
+                  '<ul class="fitxes">' + targetes.map(targeta).join("") + "</ul>" : "");
+    opcions.innerHTML =
+      '<div class="bombolla">' +
+        '<section><h2>' + icona("fitxes") + "Fitxes d'activitats</h2>" +
+          (principals.length ? llistaFitxes(principals) : "<p>Encara no n'hi ha.</p>") + "</section>" +
+        quadern(u.quadern) +
+      "</div>" +
+      caixa(tasques.length ? "caixa-eines.html?ud=" + u.num + "&tasques=" + tasques.join(",") : "") +
+      (mes ? '<details class="desplegable mes-eines"><summary>Més eines</summary>' + mes + "</details>" : "");
+
+    // El detall per al docent: un altre desplegable, sempre plegat. El text general és a unitat.html.
     const docent = document.getElementById("docent");
     const detall = document.getElementById("detall-unitat");
     if (docent && detall) {

@@ -113,3 +113,45 @@
     --taronja-suau: rgba(255, 159, 10, .22);
   }
 }
+
+
+/* ============================================================================
+   COMPONENTS COMUNS DE PANTALLA (5/11/2026, per encàrrec del docent)
+   Valen per a totes les pàgines que enllacen tokens.css: la portada, la unitat, la caixa
+   d'eines, les fitxes i els quaderns (a les fitxes, només la barra de dalt, que no
+   s'imprimeix). Els colors són de pantalla: no entren mai al paper.
+   ========================================================================== */
+:root {
+  --tecla-cara: #FAF8F4;   /* la cara del botó 3D */
+  --tecla-vora: #1E293B;   /* la vora i el text */
+  --tecla-base: #94A3B8;   /* el cantell de sota, que fa el relleu */
+}
+
+/* 1 · Tot el que es clica: vora negra pura i gruixuda en passar-hi el ratolí (o en arribar-hi
+   amb el teclat). Una sola regla per a tot el lloc; no es pinta cap altra vora de «hover». */
+:is(a[href], button, summary, select, label[for], [role="button"], [role="tab"],
+    input[type="checkbox"], input[type="radio"], input[type="range"]):is(:hover, :focus-visible):not(:disabled):not([aria-disabled="true"]) {
+  outline: 3px solid #000 !important;
+  outline-offset: 0;
+}
+
+/* 2 · Els enllaços de tornada («← inici», «← unitat 3»…): botons petits, discrets i 3D, com una
+   tecla. Es premen: en clicar-hi baixen 2 px i el cantell s'aplana. */
+.tornar a, .navega a:first-child, a.torna-boto {
+  display: inline-flex; align-items: center; gap: .4em;
+  font: 600 .86rem/1.1 ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  color: var(--tecla-vora); background: var(--tecla-cara);
+  border: 1.5px solid var(--tecla-vora); border-radius: 8px;
+  padding: .4rem .75rem .55rem; min-height: 34px;
+  box-shadow: inset 0 -4px 0 var(--tecla-base);
+  text-decoration: none;
+  transition: transform .06s ease, box-shadow .06s ease;
+}
+.tornar a:hover, .navega a:first-child:hover, a.torna-boto:hover { text-decoration: none }
+.tornar a:active, .navega a:first-child:active, a.torna-boto:active {
+  transform: translateY(2px); box-shadow: inset 0 -1px 0 var(--tecla-base);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tornar a, .navega a:first-child, a.torna-boto { transition: none }
+}
+@media print { .tornar, .navega { display: none } }

@@ -1010,12 +1010,17 @@ PROHIBITS = [
     r"\bl'alumna\b", r"\buna alumna\b", r"\baquesta alumna\b",
     r"\bdos alumnes\b", r"\bdues alumnes\b",
 ]
+# El docent va decidir el 5/11/2026 que l'etiqueta del curs («1r ESO») surti a la pàgina del curs,
+# a la de cada unitat i a la caixa d'eines. Només en aquestes tres pàgines, i només aquesta forma.
+PAGINES_AMB_CURS = {os.path.abspath(ruta(x)) for x in ('index.html', 'unitat.html', 'caixa-eines.html')}
 trobats = []
 for f in sorted(glob.glob(ruta('**', '*.*'), recursive=True)):
     if os.path.splitext(f)[1] not in ('.md', '.html', '.js', '.css', '.json', '.txt') or f.endswith('OFL.txt'):
         continue
     text = llegeix(f)
     for patro in PROHIBITS:
+        if os.path.abspath(f) in PAGINES_AMB_CURS and patro == r"\b1r\s+ESO\b":
+            continue
         for m in re.finditer(patro, text, re.I):
             trobats.append((rel(f), m.group(0)))
 comprova(not trobats, f"termes que trenquen l'anonimat: {trobats[:6]}")

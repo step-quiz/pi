@@ -24,8 +24,7 @@ h2{font-size:1.32rem;font-weight:700;letter-spacing:-.012em;margin:0 0 .1rem;lin
 h3{font-size:1.1rem;font-weight:700;margin:0 0 .5rem}
 .ajuda{color:var(--etiqueta-2);font-size:.98rem;margin:0 0 .9rem;line-height:1.4}
 .tornar{margin:0 0 .8rem;font-size:.95rem}
-.tornar a{color:var(--blau-text);text-decoration:none;display:inline-block;min-height:24px}
-.tornar a:hover{text-decoration:underline}
+/* «← inici»: botó 3D de css/tokens.css */
 
 /* ---- control segmentat ---- */
 .segments{display:flex;gap:.2rem;background:var(--segment);border-radius:999px;

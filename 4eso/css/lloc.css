@@ -42,7 +42,7 @@ a:hover { text-decoration: underline }
   display: block;
   color: inherit;
 }
-a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .09) }
+a.targeta:hover { text-decoration: none }
 
 .targeta h3 { margin: 0; font-size: 1.08rem; font-weight: 700; letter-spacing: -.01em }
 .targeta p  { margin: .35rem 0 0; color: var(--etiqueta-2); font-size: .95rem }
@@ -67,13 +67,8 @@ a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .0
   background: var(--superficie); border-radius: var(--r-g);
   padding: 1.7rem 1.4rem; display: block; color: inherit; text-align: center;
 }
-a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0, .1) }
-/* Les targetes de portada que porten a una pàgina: vora negra
-   gruixuda i fons gris clar en passar-hi el ratolí o arribar-hi amb el teclat, sense canviar
-   de mida (la vora la fa l'ombra). */
-a.tria-opcio:hover, a.tria-opcio:focus-visible {
-  box-shadow: 0 0 0 2.5px #000; background: var(--camp); outline: none; text-decoration: none;
-}
+a.tria-opcio:hover { text-decoration: none }
+a.tria-opcio:hover { background: var(--camp) }
 .tria-opcio svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); margin-bottom: .8rem }
 .tria-opcio h2 { margin: 0; font-size: 1.25rem }
 .tria-opcio p  { margin: .4rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
@@ -112,7 +107,7 @@ a.tria-opcio:hover, a.tria-opcio:focus-visible {
   border-radius: 999px; padding: .32rem .85rem;
   font-size: .88rem; font-weight: 600;
 }
-.pdf:hover { text-decoration: none; filter: brightness(1.1) }
+.pdf:hover { text-decoration: none }
 /* El del professorat es distingeix del de l'alumnat sense cridar l'atenció. */
 .pdf.sol { background: var(--camp); color: var(--etiqueta-2) }
 
@@ -130,68 +125,77 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 
 
 /* ------------------------------------------- portada i pàgina de la unitat --
-   La portada de l'arrel (una columna per curs amb les seves unitats) i unitat.html
-   (fitxes, quadern i caixa d'eines d'una unitat). Tot el que es clica: vora negra
-   gruixuda i fons gris clar en passar-hi el ratolí o arribar-hi amb el teclat, sense
-   canviar de mida (la vora la fa l'ombra). */
+   La portada de l'arrel (una columna per curs amb les seves unitats) i unitat.html. El «hover»
+   de tot el que es clica (vora negra gruixuda) és a css/tokens.css. */
 .cursos { display: grid; gap: 1.2rem 2rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-          margin: 1.4rem 0 2rem }
+          margin: 1rem 0 1.2rem }
 .cursos[hidden] { display: none }
 .curs h2 { margin: 0 0 .6rem; font-size: 1.35rem }
-.unitats { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem }
-a.unitat { display: flex; align-items: center; gap: .7rem; padding: .7rem .9rem; min-height: 44px;
+.unitats { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem }
+a.unitat { display: flex; align-items: center; gap: .7rem; padding: .45rem .8rem; min-height: 44px;
            background: var(--superficie); border-radius: var(--r-g); color: inherit; font-weight: 600 }
 a.unitat .num { margin: 0; flex: 0 0 auto }
+a.unitat:hover { background: var(--camp); text-decoration: none }
 .professorat { color: var(--etiqueta-2); font-size: .95rem }
 .materia { color: var(--etiqueta-2); margin: 0 0 .2rem }
 
-.tria-opcio.apagada { opacity: .5 }
-/* Les fitxes: la primera opció, a tota l'amplada, amb una fila per fitxa i els PDF a la dreta. */
-.tria-opcio.llista { grid-column: 1 / -1; text-align: left; padding: 1.1rem 1.3rem }
-.tria-opcio.llista h2 { display: flex; align-items: center; gap: .6rem }
-.tria-opcio.llista h2 svg { margin: 0; width: 2rem; height: 2rem }
+/* La pàgina d'una unitat (5/11/2026, per encàrrec del docent): una sola bombolla amb les fitxes a
+   l'esquerra i el quadern a la dreta; a sota, la caixa d'eines; i dos desplegables que sempre
+   surten plegats: «Més eines» (la fitxa de repàs i les targetes de consulta) i el detall per al
+   professorat. */
+.bombolla { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+            background: var(--superficie); border-radius: var(--r-g); margin: 1.4rem 0 1rem }
+.bombolla > section { padding: 1.2rem 1.3rem }
+.bombolla h2 { display: flex; align-items: center; gap: .6rem; margin: 0; font-size: 1.25rem }
+.bombolla h2 svg { width: 2rem; height: 2rem; color: var(--blau-text); flex: 0 0 auto }
+.bombolla .quadern { display: flex; flex-direction: column; align-items: center; justify-content: center;
+                     gap: .4rem; text-align: center; padding: 1.2rem 1rem; color: inherit;
+                     border-left: 1px solid var(--separador); border-radius: 0 var(--r-g) var(--r-g) 0 }
+.bombolla .quadern svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text) }
+.bombolla .quadern h2 { font-size: 1.25rem }
+.bombolla .quadern p { margin: 0; color: var(--etiqueta-2); font-size: .93rem }
+.bombolla .quadern.apagat { opacity: .5 }
+a.caixa { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; margin: 0 0 1rem;
+          background: var(--superficie); border-radius: var(--r-g); color: inherit }
+a.caixa:hover { background: var(--camp); text-decoration: none }
+.caixa svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); flex: 0 0 auto }
+.caixa h2 { margin: 0; font-size: 1.25rem }
+.caixa p { margin: .15rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
+div.caixa.apagada { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; margin: 0 0 1rem;
+                    background: var(--superficie); border-radius: var(--r-g); opacity: .5 }
+
+details.desplegable { background: var(--superficie); border-radius: var(--r-g); margin: 0 0 1rem; padding: 0 1.3rem }
+details.desplegable > summary { list-style: none; cursor: pointer; display: flex; align-items: center;
+                                justify-content: space-between; gap: 1rem; min-height: 52px;
+                                font-weight: 700; font-size: 1.05rem; border-radius: var(--r-g) }
+details.desplegable > summary::-webkit-details-marker { display: none }
+details.desplegable > summary::after { content: ""; width: .55rem; height: .55rem; flex: 0 0 auto;
+                                       border-right: 2.5px solid currentColor; border-bottom: 2.5px solid currentColor;
+                                       transform: rotate(45deg) translate(-2px, -2px); transition: transform .15s }
+details.desplegable[open] > summary::after { transform: rotate(-135deg) translate(-2px, -2px) }
+details.desplegable[open] { padding-bottom: 1.2rem }
+.desplegable h3 { margin: 1.1rem 0 0; font-size: 1rem; color: var(--etiqueta-2) }
+.desplegable .detall { background: transparent; padding: 0; margin: .9rem 0 0 }
+.desplegable .nota { margin: .9rem 0 0 }
+
+/* Les fitxes d'una unitat: una fila per fitxa, amb els dos PDF a la dreta, sempre al mateix lloc
+   i de la mateixa mida. El botó PDF, en gris mitjà (abans fosc: 5/11/2026); el solucionari, en
+   gris molt clar. */
 .fitxes { list-style: none; margin: .7rem 0 0; padding: 0; font-size: .98rem }
-.fitxes li { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .5rem;
+.fitxes li { display: flex; flex-wrap: nowrap; align-items: center; gap: .3rem .5rem;
              padding: .45rem 0; border-top: 1px solid var(--separador, rgba(0, 0, 0, .08)) }
-.fitxes li > a:first-child { flex: 1 1 14rem }
-/* Els dos botons de cada fitxa, sempre al mateix lloc i de la mateixa mida: el PDF de
-   l'alumnat en gris fosc i el solucionari en gris clar. En passar-hi el ratolí (o amb el
-   teclat): vora negra gruixuda i el fons un 10 % més fosc, sense canviar de mida. */
-.fitxes li { flex-wrap: nowrap }
 .fitxes li > a:first-child { flex: 1 1 auto; min-width: 0 }
 .fitxes .botons-pdf { display: flex; gap: .5rem; flex: 0 0 auto }
 .fitxes .pdf { display: inline-flex; align-items: center; justify-content: center; width: 7.2rem;
                min-height: 2.25rem; padding: 0 .6rem; border-radius: 999px; font-size: .85rem;
-               font-weight: 700; text-decoration: none; border: 0; background: #4A4A4A; color: #fff }
-.fitxes .pdf.sol { background: #E0E0E0; color: #1C1C1E }
-.fitxes .pdf:hover, .fitxes .pdf:focus-visible { box-shadow: 0 0 0 2.5px #000; outline: none;
-               text-decoration: none; background: #434343 }
-.fitxes .pdf.sol:hover, .fitxes .pdf.sol:focus-visible { background: #CACACA }
-@media (max-width: 30rem) { .fitxes li { flex-wrap: wrap } }
-
-/* La portada, compacta: les dues columnes caben en una pantalla sense desplaçar-se. */
-.cursos { margin: 1rem 0 1.2rem }
-.unitats { gap: .4rem }
-a.unitat { padding: .45rem .8rem; min-height: 44px }
-
-a.unitat:hover, a.unitat:focus-visible, a.tria-opcio:hover, a.tria-opcio:focus-visible {
-  box-shadow: 0 0 0 2.5px #000; background: var(--camp); outline: none; text-decoration: none;
-}
-/* unitat.html, en dues columnes perquè no calgui desplaçar-se: a l'esquerra les fitxes, i a
-   la dreta el quadern i la caixa, l'un sobre l'altre. Al mòbil, tot en una columna. */
-@media (min-width: 46rem) {
-  .pagina:has(#opcions) { max-width: 64rem }
-  #opcions { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: start }
-  #opcions .tria-opcio.llista { grid-column: 1; grid-row: 1 / span 2 }
-  #opcions .tria-opcio:not(.llista) { grid-column: 2; padding: 1.2rem 1rem }
-  #opcions .tria-opcio:not(.llista) svg { margin-bottom: .4rem }
+               font-weight: 700; text-decoration: none; border: 0; background: #7A7A7A; color: #fff }
+.fitxes .pdf.sol { background: #EBEBEB; color: #1C1C1E }
+@media (max-width: 40rem) {
+  .bombolla { grid-template-columns: 1fr }
+  .bombolla .quadern { border-left: 0; border-top: 1px solid var(--separador);
+                       border-radius: 0 0 var(--r-g) var(--r-g) }
+  .fitxes li { flex-wrap: wrap }
 }
 
-/* unitat.html: el detall per al docent, plegat sota les tres opcions, i les targetes de consulta
-   dins de la caixa de les fitxes (esquema curs → unitat → fitxa/quadern/caixa, 5/11/2026). */
-.tria-opcio.llista h3 { margin: 1.2rem 0 0; font-size: 1rem; color: var(--etiqueta-2) }
-details.docent { margin: 1.6rem 0 0 }
-details.docent > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; min-height: 44px;
-                           display: flex; align-items: center }
-details.docent > summary:focus-visible { outline: 2.5px solid #000; outline-offset: 2px }
-details.docent .detall { margin-top: .9rem }
+.pagina:has(#opcions) { max-width: 58rem }
+details.desplegable > summary { margin: 0 -1.3rem; padding: 0 1.3rem }

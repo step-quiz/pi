@@ -233,6 +233,27 @@ dir-l'hi: aquesta sí que la va voler aprovar.
 
 ---
 
+## 10f. 5/11/2026: la interfície de la unitat i els botons
+
+Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `css/lloc.css`,
+`comu/js/unitat.js`):
+
+- **Etiqueta del curs.** Al lloc de la matèria, les pàgines de la unitat, la del curs i la caixa
+  d'eines diuen el curs (a 4eso/ amb «Aplicades»; a 1eso/, només el curs). L'excepció a l'anonimat
+  és només per a aquestes tres pàgines de cada curs (`comprova.py`, apartat ANONIMAT).
+- **Unitat.** Una bombolla (fitxes d'activitats a l'esquerra, quadern a la dreta), la caixa
+  d'eines a sota, i dos desplegables sempre plegats: «Més eines» (fitxa de repàs i targetes de
+  consulta) i el detall per al professorat.
+- **Botó PDF** en gris mitjà (`#7A7A7A`), i el solucionari en un gris més clar (`#EBEBEB`).
+- **Hover.** Una sola regla a `tokens.css`: vora negra pura de 3 px a tot el que es clica (enllaços,
+  botons, pestanyes, `summary`, selectors). Les ombres de hover velles s'han tret.
+- **Botons de tornada** («← inici», «← unitat N»): botó 3D petit, amb lletra monoespaiada, cara
+  crema, vora blau fosc i cantell blau grisós; es prem 2 px en clicar-hi. Classe `.torna-boto` per
+  a un enllaç solt; `.tornar a` i `.navega a:first-child` ja el porten.
+- **PDF.** `tokens.css` és una dependència de l'empremta, i només hi he afegit regles que no
+  s'apliquen a cap bloc del PDF; per això `empremtes.json` s'ha tornat a calcular i els PDF no
+  s'han refet.
+
 ## 10e. 5/11/2026: l'esquema de navegació curs → unitat → fitxa, quadern o caixa
 
 - **El problema.** La navegació «endavant, enrera, endins, a fora» es trencava: des de la unitat
