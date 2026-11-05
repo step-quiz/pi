@@ -1,11 +1,14 @@
 /* ============================================================================
    quadern.js · el filtre del quadern d'activitats (quadern/udN.html)
    ----------------------------------------------------------------------------
-   Cada activitat (.act) i cada entrada del solucionari (.sol-act) porta:
-     data-n="1|2|3"  a partir de quina quantitat surt (1 petit, 2 mitjà, 3 elevat)
-     data-repte      si és de repte
-   El filtre amaga les que no toquen. Els números no els posa aquest fitxer: són
-   comptadors CSS (css/quadern.css), que se salten el que està amagat.
+   Dues marques, a les activitats i al solucionari:
+     data-n="1|2|3"  a cada apartat (i a cada secció amb un dibuix): a partir de quina
+                     quantitat surt. Petit deixa l'a) i 3 apartats per fer, mitjà 6 i
+                     elevat 12. El nombre d'activitats no canvia.
+     data-repte      a les activitats de repte (.act i .sol-act): només amb «Amb repte».
+   Els apartats que s'amaguen sempre són els últims, i les lletres queden seguides. Els
+   números de les activitats són comptadors CSS (css/quadern.css), que se salten les
+   activitats amagades.
 
    L'estat es llegeix i s'escriu a l'adreça (?n=2&repte=1), perquè el docent pugui
    enviar l'enllaç amb el filtre posat. Sense JavaScript surt tot.
@@ -34,15 +37,12 @@
 
   function aplica() {
     const n = Number(estat.n), ambRepte = estat.repte === "1";
-    let vistes = 0, reptes = 0;
-    document.querySelectorAll(".act, .sol-act").forEach(el => {
-      const surt = Number(el.dataset.n) <= n && (ambRepte || !el.hasAttribute("data-repte"));
-      el.hidden = !surt;
-      if (surt && el.classList.contains("act")) {
-        vistes++;
-        if (el.hasAttribute("data-repte")) reptes++;
-      }
-    });
+    document.querySelectorAll("[data-n]").forEach(el => { el.hidden = Number(el.dataset.n) > n; });
+    document.querySelectorAll(".act[data-repte], .sol-act[data-repte]").forEach(el => { el.hidden = !ambRepte; });
+    const vistes = document.querySelectorAll(".act:not([hidden])").length;
+    const reptes = document.querySelectorAll(".act[data-repte]:not([hidden])").length;
+    const primera = document.querySelector(".act");
+    const perFer = primera ? primera.querySelectorAll(".ap:not([hidden])").length - 1 : 0;
     document.body.classList.toggle("amb-repte", ambRepte);
     document.querySelectorAll(".filtres [data-filtre]").forEach(grup => {
       grup.querySelectorAll("button").forEach(b => {
@@ -50,8 +50,8 @@
       });
     });
     const r = document.getElementById("recompte");
-    if (r) r.textContent = "Surten " + vistes + " activitats" +
-      (reptes ? ", " + reptes + " de repte." : ".");
+    if (r) r.textContent = "Surten " + vistes + " activitats" + (reptes ? " (" + reptes + " de repte)" : "") +
+      ", cada una amb l'apartat a) resolt i " + perFer + " per fer.";
   }
 
   function imprimeix(nomesSol) {

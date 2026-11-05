@@ -28,13 +28,14 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 | | |
 |---|---|
-| `index.html` | portada: tria entre les fitxes i la caixa d'eines |
+| `index.html` | portada: tria entre les fitxes, el quadern d'activitats i la caixa d'eines |
+| `quadern.html` | índex dels quaderns d'activitats: una targeta per unitat (es fa amb `dades/unitats.js`) |
 | `fitxes.html` | índex de les set unitats: tria ràpida i, per a cada una, material previ, regla trencada, fita, recursos, fitxa de repàs; al final, les targetes de consulta |
 | `caixa-eines.html` | l'aplicació, amb deu mòduls |
 | `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
 | `fitxes/udN-repas.html` | la fitxa de repàs de cada unitat: el dibuix de la unitat, «Una de cada» i «Què he après?». No s'editen a mà: les fa `generadors/gen_repas.py` |
-| `quadern/udN.html` | el quadern d'activitats d'una unitat, per practicar després de la fitxa, amb un filtre de quantitat i de repte. No s'edita a mà: el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py`. De moment, només el de la UD3 |
+| `quadern/udN.html` | el quadern d'activitats d'una unitat, per practicar després de la fitxa, amb un filtre d'apartats i de repte. No s'edita a mà: el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py`. De moment, només el de la UD3 |
 | `targetes/` | tres targetes de consulta per tenir a la taula (calculadora, percentatges i escales, paràboles, dades i atzar), a doble cara |
 | `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |
 | `textos.html` | pàgina per canviar-les sense tocar codi |
@@ -165,37 +166,49 @@ on cada un va entre dos marcadors (`<!--grafic:NOM-->…<!--/grafic-->`). Despr�
 
 ## El quadern d'activitats
 
-Per practicar **després** de la fitxa. Està fet de blocs, un per cada exercici de la fitxa i
-en el mateix ordre, i el subtítol de cada bloc diu quin exercici és i a quina pàgina («Com
-l'exercici 2 de la fitxa, a la pàgina 5»). Té els mateixos criteris que la fitxa: blanc i
-negre, cap paràgraf, 14 pt cap amunt i el primer apartat de cada activitat resolt en lletra
-manuscrita.
+Per practicar **després** de la fitxa. S'hi arriba des de la portada (`index.html` →
+«Quadern d'activitats» → `quadern.html`, que llista les unitats) o des del detall de cada
+unitat a `fitxes.html`.
 
-A dalt de la pàgina, només a la pantalla, hi ha el filtre:
+Hi ha un bloc per cada exercici de la fitxa, en el mateix ordre, i el subtítol de cada bloc
+diu quin exercici és i a quina pàgina («Com l'exercici 2 de la fitxa, a la pàgina 5»). Cada
+bloc té **una activitat germana** (el mateix exercici amb altres números i contextos) i
+**una de repte** (el camí al revés, un pas més o una decisió nova), marcada amb una
+estrella. Té els mateixos criteris que la fitxa: blanc i negre, cap paràgraf, 14 pt cap
+amunt i l'apartat a) de cada activitat resolt en lletra manuscrita.
+
+A dalt de la pàgina, només a la pantalla, hi ha el filtre. **El nombre d'activitats no
+canvia amb la quantitat: el que canvia és quants apartats té cada una** (decisió del
+docent, 5/11/2026):
 
 | | |
 |---|---|
-| **Nombre d'activitats** | **Petit**: una activitat per exercici de la fitxa. **Mitjà**: dues. **Elevat**: quatre. Cada quantitat conté l'anterior |
-| **Tipus** | **Com les de la fitxa**: només germanes (el mateix exercici amb altres números i contextos). **Amb repte**: s'hi afegeixen activitats una mica diferents (el camí al revés, un pas més, una decisió nova), marcades amb una estrella. A petit n'hi ha una per cada dos blocs; a mitjà, una per bloc; a elevat, dues |
+| **Apartats de cada activitat** | **Petit**: a) resolt i 3 per fer (b, c, d). **Mitjà**: a) i 6 (b a g). **Elevat**: a) i 12 (b a m) |
+| **Activitats** | **Com les de la fitxa**: una per bloc. **Amb repte**: s'hi afegeix la de repte de cada bloc, que també té 3, 6 o 12 apartats |
 
 | UD3 | Petit | Mitjà | Elevat |
 |---|---|---|---|
-| Com les de la fitxa | 8 activitats · 5 pàgines | 16 · 10 pàgines | 32 · 19 pàgines |
-| Amb repte | 12 · 8 pàgines | 24 · 15 pàgines | 48 · 29 pàgines |
+| Com les de la fitxa (8 activitats) | 6 pàgines | 10 pàgines | 15 pàgines |
+| Amb repte (16 activitats) | 10 pàgines | 17 pàgines | 31 pàgines |
+
+Els apartats van de menys a més dins de cada activitat (per exemple, els de 1 : 100 abans
+que els de 1 : 50), perquè els que s'amaguen són sempre els últims.
 
 Hi ha tres botons: **Imprimeix el quadern** (les activitats, sense el solucionari; Ctrl+P fa
-el mateix), **Imprimeix el solucionari** (només el solucionari, amb les mateixes activitats
-del filtre i els mateixos números) i **Mostra el solucionari** (a la pantalla està amagat). Les
-activitats no es parteixen mai entre dues pàgines, i el número de pàgina surt al peu.
+el mateix), **Imprimeix el solucionari** (només el solucionari, amb els mateixos apartats
+del filtre) i **Mostra el solucionari** (a la pantalla està amagat). Una taula, o un dibuix
+amb la seva taula, no es parteix entre dues pàgines si hi cap en una. El número de pàgina
+surt al peu.
 
 El filtre queda a l'adreça, i es pot enviar un enllaç amb el filtre posat:
-`quadern/ud3.html?n=1&repte=1` (`n`: 1 petit, 2 mitjà, 3 elevat; `repte`: 0 o 1). Des de
-`fitxes.html`, al detall de la unitat, hi ha els tres enllaços.
+`quadern/ud3.html?n=1&repte=1` (`n`: 1 petit, 2 mitjà, 3 elevat; `repte`: 0 o 1).
 
 **Com es canvia o s'amplia.** El contingut és a `generadors/quadern/udN.py`: cada activitat
-diu a partir de quina quantitat surt (`act(1, …)`, `act(2, …)`, `act(3, …)`) i si és de
-repte (`repte=True`). Els números de les respostes es calculen al mateix fitxer, i el
-solucionari surt de les mateixes dades. Després:
+té 13 apartats (l'a i 12 per fer, en ordre de menys a més): el motor hi posa sol la marca
+de la quantitat (els 3 primers per fer, petit; els 3 següents, mitjà; els 6 últims, elevat).
+Si una activitat no en té 13, el generador s'atura. Les de repte porten `repte=True`. Els
+números de les respostes es calculen al mateix fitxer, i el solucionari surt de les
+mateixes dades. Després:
 
 ```
 python3 generadors/gen_quadern.py
@@ -255,11 +268,12 @@ python3 eines/prova_caixa.py
 python3 eines/prova_quadern.py
 ```
 
-`prova_quadern.py` prova el filtre de cada quadern en Chromium: les sis combinacions, que el
-solucionari amagui les mateixes activitats, l'adreça amb el filtre i què s'imprimeix.
-`comprova.py` també mira els quaderns: B/N, que cada bloc comenci amb una activitat que surt
-sempre, que les consignes siguin curtes i que el fitxer de `quadern/` sigui el que surt del
-generador.
+`prova_quadern.py` prova el filtre de cada quadern en Chromium: les sis combinacions, que
+cada activitat tingui els apartats que toquen amb les lletres seguides, que el solucionari
+amagui els mateixos, l'adreça amb el filtre i què s'imprimeix. `comprova.py` també mira els
+quaderns: B/N, que cada activitat tingui l'a) i 12 apartats marcats de menys a més (també
+al solucionari), que les consignes siguin curtes i que el fitxer de `quadern/` sigui el que
+surt del generador.
 
 Prova la caixa de punta a punta en Chromium: obre totes les pestanyes i els enllaços `?task=n`,
 mou els mòduls i acaba una tasca tancada (x² = 36), fins a llegir-ne el codi a `verifica.html`.

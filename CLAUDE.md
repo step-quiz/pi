@@ -45,4 +45,4 @@ Si alguna comprovació falla, el workflow dels ZIP no desa res.
 
 **Pull request.** Quan acabis una feina i n'hagis fet el push a la branca de treball, obre
 sempre la pull request cap a `main`, sense preguntar-ho (ho va demanar l'usuari el 5/11/2026).
-L'usuari la revisa i la fusiona.
+L'usuari la revisa i la fusiona. No la vigilis: no t'hi subscriguis ni ho ofereixis.

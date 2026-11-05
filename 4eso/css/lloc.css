@@ -68,6 +68,12 @@ a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .0
   padding: 1.7rem 1.4rem; display: block; color: inherit; text-align: center;
 }
 a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0, .1) }
+/* Les targetes de portada que porten a una pàgina, i les unitats de quadern.html: vora negra
+   gruixuda i fons gris clar en passar-hi el ratolí o arribar-hi amb el teclat, sense canviar
+   de mida (la vora la fa l'ombra). */
+a.tria-opcio:hover, a.tria-opcio:focus-visible, a.unitat-q:hover, a.unitat-q:focus-visible {
+  box-shadow: 0 0 0 2.5px #000; background: var(--camp); outline: none; text-decoration: none;
+}
 .tria-opcio svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); margin-bottom: .8rem }
 .tria-opcio h2 { margin: 0; font-size: 1.25rem }
 .tria-opcio p  { margin: .4rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
@@ -121,3 +127,6 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 .tria-enllac:hover h2 { text-decoration: underline }
 /* .tria és una graella, i sense això «hidden» no l'amagaria. */
 [hidden] { display: none !important }
+
+/* quadern.html: les unitats que encara no tenen quadern es veuen, però apagades. */
+.targeta.sense-q { opacity: .55 }

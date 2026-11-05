@@ -5,21 +5,30 @@
     python3 generadors/gen_quadern.py 3        (només la UD3)
 
 El quadern és per practicar DESPRÉS de la fitxa. Està fet de blocs, un per cada
-exercici de la fitxa, i cada bloc té activitats «germanes» (el mateix tipus
-d'exercici amb altres números i altres contextos) i activitats de repte (una mica
-diferents: el camí al revés, un pas més, una decisió nova).
+exercici de la fitxa. Cada bloc té una activitat «germana» (el mateix tipus
+d'exercici amb altres números i altres contextos) i una de repte (una mica
+diferent: el camí al revés, un pas més, una decisió nova).
 
-Cada activitat porta dues marques, i el filtre de la pàgina (js/quadern.js) les llegeix:
+EL FILTRE (decisió del docent, 5/11/2026)
+El nombre d'activitats no canvia: el que canvia és quants apartats té cada una.
+Cada activitat té el seu apartat a) resolt i 12 apartats per fer:
 
-    data-n="1|2|3"   a partir de quina quantitat surt: 1 petit, 2 mitjà, 3 elevat.
-                     Les germanes de cada bloc van 1, 2, 3, 3: petit en dona una per
-                     exercici de la fitxa, mitjà dues i elevat quatre.
-    data-repte       només si és de repte. Surt si el docent tria «Amb repte», i
-                     també segons la quantitat (data-n).
+    petit    a) resolt + b, c, d              (3 per fer)
+    mitjà    a) resolt + b … g                (6 per fer)
+    elevat   a) resolt + b … m                (12 per fer)
+
+Cada apartat porta data-n="1|2|3" (a partir de quina quantitat surt), i el filtre
+(js/quadern.js) amaga els que no toquen. Com que els que s'amaguen sempre són els
+últims, les lletres que queden van seguides sense haver-les de tornar a posar.
+Un dibuix que només serveix per a uns quants apartats (un plànol, un mapa) va amb
+ells dins d'una .seccio, que porta la mateixa marca i s'amaga amb ells.
+
+Les activitats de repte porten data-repte: surten si el docent tria «Amb repte», i
+els seus apartats creixen igual (3, 6 o 12).
 
 El solucionari porta les mateixes marques en el mateix ordre: el filtre amaga les
-mateixes entrades, i els números (comptadors CSS, que se salten el que està amagat)
-coincideixen sempre amb els de les pàgines de l'alumnat.
+mateixes entrades. Els números de les activitats són comptadors CSS, que se salten
+el que està amagat, i coincideixen sempre amb els de les pàgines de l'alumnat.
 
 El contingut de cada unitat és a generadors/quadern/udN.py. Aquest fitxer és el motor:
 les peces (taula, tria, ofertes, dibuixos) i la pàgina. Les peces fan servir les
@@ -36,8 +45,18 @@ ARREL = os.path.dirname(AQUI)
 DADES = os.path.join(AQUI, "quadern")
 SORTIDA = os.path.join(ARREL, "quadern")
 
-NEG, GRIS, MANUS, CLAR, FONS, FONS2, VORA = "#000", "#5E5E5E", "#3A3A3A", "#BFBFBF", "#F2F2F2", "#E4E4E4", "#8A8A8A"
+NEG, GRIS, MANUS, CLAR, FONS, FONS2 = "#000", "#5E5E5E", "#3A3A3A", "#BFBFBF", "#F2F2F2", "#E4E4E4"
 TIP = 'font-family="system-ui"'
+
+# Quants apartats per fer hi ha a cada quantitat, i quants n'hi ha en total (amb l'a).
+PER_FER = {1: 3, 2: 6, 3: 12}
+APARTATS = 1 + PER_FER[3]
+LLETRES = "abcdefghijklmnopqrstuvwxyz"
+
+
+def nivell(k):
+    """A partir de quina quantitat surt l'apartat k (0 és l'a, el resolt)."""
+    return 1 if k <= PER_FER[1] else 2 if k <= PER_FER[2] else 3
 
 
 # ------------------------------------------------------------------ números --
@@ -46,11 +65,9 @@ def num(x):
     """Un nombre en català: coma decimal i espai als milers (1 400, 25 000)."""
     x = round(x, 6)
     if x == int(x):
-        s = f"{int(x):,}".replace(",", " ")
-    else:
-        enter, dec = f"{x:.6f}".rstrip("0").split(".")
-        s = f"{int(enter):,}".replace(",", " ") + "," + dec
-    return s
+        return f"{int(x):,}".replace(",", " ")
+    enter, dec = f"{x:.6f}".rstrip("0").split(".")
+    return f"{int(enter):,}".replace(",", " ") + "," + dec
 
 
 def eur(x):
@@ -66,7 +83,6 @@ def ms(t):
     return f'<span class="ms">{t}</span>'
 
 
-LLETRES = "abcdefgh"
 BUIT = '<span class="buit"></span>'
 MARCA = ('<svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px">'
          f'<path d="M4 13l5 6L21 3" fill="none" stroke="{MANUS}" stroke-width="3.5" '
@@ -74,132 +90,159 @@ MARCA = ('<svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;w
 ICONES = {"calc": "#i-calc", "regle": "#i-regle", "llapis": "#i-llapis"}
 
 
-# ------------------------------------------------------------------- peces --
-# Cada peça torna (html de l'alumnat, html del solucionari).
+def opcio(text, marcada):
+    if marcada:
+        return (f'<label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">'
+                f'{MARCA}</span>{text}</label>')
+    return f'<label><span class="quadret"></span>{text}</label>'
 
-def tasca(q, ico=None):
-    icona = f'\n        <svg class="ico" style="margin-left:.4rem"><use href="{ICONES[ico]}"/></svg>' if ico else ""
-    return (f'    <div class="tasca"><div class="n"></div>ESTRELLA\n'
-            f'      <div class="q">{q}{icona}</div></div>\n')
+
+def ap(k, cos, etiqueta="div", classe=""):
+    """Un apartat: porta la marca de la quantitat a partir de la qual surt."""
+    c = ("ap " + classe).strip()
+    return f'<{etiqueta} class="{c}" data-n="{nivell(k)}">{cos}</{etiqueta}>'
+
+
+def seccio(k0, cos):
+    return f'    <div class="seccio" data-n="{nivell(k0)}">\n{cos}    </div>\n'
 
 
 def nota(t):
-    return f'    <p class="nota-act">{t}</p>\n' if t else ""
+    return f'    <p class="nota-act">{t}</p>\n'
 
 
-def taula(q, cap, files, omplir, ico=None, abans="", despres="", amples=None, esq=(), sol_nota=""):
-    """Una taula com les de la fitxa. La primera fila va resolta en lletra manuscrita;
-    a les altres, les columnes d'`omplir` surten buides i la resta, com a dada.
-    `esq`: columnes alineades a l'esquerra (les que porten una frase)."""
-    n = len(cap)
-    amples = amples or [round(88 / n)] * n
-    th = '<th style="width:10%"></th>' + "".join(
-        f'<th style="width:{a}%">{c}</th>' for a, c in zip(amples, cap))
-    o = [tasca(q, ico), abans, f'    <table>\n      <tr>{th}</tr>\n']
-    for i, fila in enumerate(files):
-        assert len(fila) == n, (q, fila)
-        lletra = LLETRES[i]
-        if i == 0:
-            cel = "".join(f'<td class="ms{" esq" if j in esq else ""}">{v}</td>' for j, v in enumerate(fila))
-            o.append(f'      <tr class="resolt"><td class="ms">{lletra})</td>{cel}</tr>\n')
-        else:
-            cel = "".join('<td class="omplir"></td>' if j in omplir
-                          else f'<td class="dada{" esq" if j in esq else ""}">{v}</td>'
-                          for j, v in enumerate(fila))
-            o.append(f'      <tr><td><b>{lletra})</b></td>{cel}</tr>\n')
-    o.append("    </table>\n")
-    o.append(despres)
-    sol = ["<table><tr><th></th>" + "".join(f"<th>{c}</th>" for c in cap) + "</tr>"]
-    for i, fila in enumerate(files):
-        sol.append(f"<tr><td>{LLETRES[i]})</td>" + "".join(
-            f"<td><b>{v}</b></td>" if j in omplir else f"<td>{v}</td>" for j, v in enumerate(fila)) + "</tr>")
-    sol.append("</table>")
-    if sol_nota:
-        sol.append(f"<p>{sol_nota}</p>")
-    return "".join(o), "".join(sol)
+# ------------------------------------------------------------------- peces --
+# Una activitat és una llista de seccions. Cada secció és una funció que rep la
+# posició del seu primer apartat (k0) i torna (alumnat, solucionari, quants apartats).
 
-
-def tria(q, apartats, ico=None, abans="", compacta=False, sol_nota=""):
-    """Apartats de marcar una opció. `apartats`: (text o html, [opcions], la bona).
-    El primer ja va marcat."""
-    o = [tasca(q, ico), abans]
-    sol = []
-    for i, (text, opcions, bona) in enumerate(apartats):
-        marge = ".6rem" if i == 0 else "1.1rem"
-        o.append(f'    <div style="margin-top:{marge}"><span class="apartat">{LLETRES[i]})</span> {text}</div>\n')
-        o.append(f'    <div class="tria{" compacta" if compacta else ""}">\n')
-        for k, op in enumerate(opcions):
-            if i == 0 and k == bona:
-                o.append(f'      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">'
-                         f'{MARCA}</span>{op}</label>\n')
+def taula(cap, files, omplir, abans="", amples=None, esq=(), sol_nota=""):
+    """Una taula com les de la fitxa. Si és la primera fila de l'activitat, va resolta
+    en lletra manuscrita; a les altres, les columnes d'`omplir` surten buides."""
+    def fes(k0):
+        n = len(cap)
+        am = amples or [round(88 / n)] * n
+        th = '<th style="width:10%"></th>' + "".join(f'<th style="width:{a}%">{c}</th>' for a, c in zip(am, cap))
+        o = [abans, f'    <table>\n      <thead><tr>{th}</tr></thead>\n      <tbody>\n']
+        s = ["<table><tr><th></th>" + "".join(f"<th>{c}</th>" for c in cap) + "</tr>"]
+        for i, fila in enumerate(files):
+            assert len(fila) == n, fila
+            k = k0 + i
+            if k == 0:
+                cel = f'<td class="ms">a)</td>' + "".join(
+                    f'<td class="ms{" esq" if j in esq else ""}">{v}</td>' for j, v in enumerate(fila))
+                o.append("        " + ap(k, cel, "tr", "resolt") + "\n")
             else:
-                o.append(f'      <label><span class="quadret"></span>{op}</label>\n')
-        o.append("    </div>\n")
-        sol.append(f"{LLETRES[i]}) <b>{opcions[bona]}</b>")
-    s = "<p>" + " &nbsp;·&nbsp; ".join(sol) + "</p>"
-    if sol_nota:
-        s += f"<p>{sol_nota}</p>"
-    return "".join(o), s
+                cel = f"<td><b>{LLETRES[k]})</b></td>" + "".join(
+                    '<td class="omplir"></td>' if j in omplir
+                    else f'<td class="dada{" esq" if j in esq else ""}">{v}</td>' for j, v in enumerate(fila))
+                o.append("        " + ap(k, cel, "tr") + "\n")
+            s.append(ap(k, f"<td>{LLETRES[k]})</td>" + "".join(
+                f"<td><b>{v}</b></td>" if j in omplir else f"<td>{v}</td>" for j, v in enumerate(fila)), "tr"))
+        o.append("      </tbody>\n    </table>\n")
+        s.append("</table>" + (f"<p>{sol_nota}</p>" if sol_nota else ""))
+        return seccio(k0, "".join(o)), seccio(k0, "".join(s)), len(files)
+    return fes
 
 
-def ofertes(q, apartats, ico="calc", abans="", sol_nota=""):
+def tria(apartats, abans="", en_linia=False):
+    """Apartats de marcar una opció: (text o html, [opcions], la bona). El primer de
+    l'activitat ja va marcat. `en_linia`: el text i les opcions a la mateixa fila."""
+    def fes(k0):
+        o, s = [abans], []
+        for i, (text, opcions, bona) in enumerate(apartats):
+            k = k0 + i
+            lletra = f'<span class="apartat">{LLETRES[k]})</span>'
+            ops = "".join(opcio(op, k == 0 and j == bona) for j, op in enumerate(opcions))
+            if en_linia:
+                o.append("    " + ap(k, f'<div class="text">{lletra} {text}</div><div class="tria">{ops}</div>',
+                                    classe="tria-linia") + "\n")
+            else:
+                o.append("    " + ap(k, f'<div>{lletra} {text}</div><div class="tria">{ops}</div>',
+                                    classe="tria-bloc") + "\n")
+            s.append(ap(k, f'{" · " if i else ""}{LLETRES[k]}) <b>{opcions[bona]}</b>', "span"))
+        return seccio(k0, "".join(o)), seccio(k0, "    <p>" + "".join(s) + "</p>\n"), len(apartats)
+    return fes
+
+
+def taula_tria(apartats, opcions):
+    """Una taula petita de dues files i, al costat, les opcions per marcar.
+    `apartats`: (nom, [magnitud 1, magnitud 2], [[valors 1], [valors 2]], la bona)."""
+    def fes(k0):
+        o, s = [], []
+        for i, (nom, mags, valors, bona) in enumerate(apartats):
+            k = k0 + i
+            files = "".join(f"<tr><th>{m}</th>" + "".join(f"<td>{v}</td>" for v in fila) + "</tr>"
+                            for m, fila in zip(mags, valors))
+            ops = "".join(opcio(op, k == 0 and j == bona) for j, op in enumerate(opcions))
+            o.append("    " + ap(k, f'<div><span class="apartat">{LLETRES[k]})</span> {nom}</div>'
+                                   f'<div class="costat"><table class="mini fila">{files}</table>'
+                                   f'<div class="tria columna">{ops}</div></div>', classe="taula-tria") + "\n")
+            s.append(ap(k, f'{" · " if i else ""}{LLETRES[k]}) <b>{opcions[bona]}</b>', "span"))
+        return seccio(k0, "".join(o)), seccio(k0, "    <p>" + "".join(s) + "</p>\n"), len(apartats)
+    return fes
+
+
+def ofertes(apartats):
     """Comparar ofertes amb el preu d'1, com l'exercici 6 de la U3.
     `apartats`: (producte, [opció…], la bona). Cada opció és un dict:
         nom    el que es marca («El pack»)
         diu    l'oferta tal com es llegeix
         compte el compte que porta al preu d'1 («5,10 ÷ 6»), sense el resultat
         val    el preu d'1 («0,85 € el litre»)
-        buit   (opcional) el que surt a sota quan no està resolt; per defecte, «compte =»
-    El primer apartat ja va resolt."""
-    o = [tasca(q, ico), abans]
-    files = []
-    for i, (producte, ops, bona) in enumerate(apartats):
-        marge = ".7rem" if i == 0 else "1rem"
-        tres = " tres" if len(ops) > 2 else ""
-        o.append(f'    <div style="margin-top:{marge}"><span class="apartat">{LLETRES[i]})</span> {producte}</div>\n')
-        o.append(f'    <div class="parella-op{tres}">\n')
-        for op in ops:
-            if i == 0:
-                peu = ms((op["compte"] + " = " if op["compte"] else "") + f'<b>{op["val"]}</b>')
-                o.append(f'      <div class="oferta resolt">{op["diu"]}<br>\n        {peu}</div>\n')
-            else:
-                peu = op.get("buit", f'<b>{op["compte"]} =</b>' if op["compte"] else "")
-                o.append(f'      <div class="oferta">{op["diu"]}' + (f"<br>{peu}" if peu else "") + "</div>\n")
-        o.append("    </div>\n")
-        o.append(f'    <div class="tria{" compacta" if tres else ""}">\n')
-        for k, op in enumerate(ops):
-            if i == 0 and k == bona:
-                o.append(f'      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret">'
-                         f'{MARCA}</span>{op["nom"]}</label>\n')
-            else:
-                o.append(f'      <label><span class="quadret"></span>{op["nom"]}</label>\n')
-        o.append("    </div>\n")
-        comptes = " · ".join((f'{op["compte"]} = ' if op["compte"] else "") + op["val"] for op in ops)
-        files.append(f"<tr><td>{LLETRES[i]})</td><td>{producte.rstrip('.')}</td><td>{comptes}</td>"
-                     f"<td><b>{ops[bona]['nom']}</b></td></tr>")
-    sol = ("<table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr>"
-           + "".join(files) + "</table>")
-    if sol_nota:
-        sol += f"<p>{sol_nota}</p>"
-    return "".join(o), sol
+    El primer apartat de l'activitat ja va resolt."""
+    def fes(k0):
+        o, files = [], []
+        for i, (producte, ops, bona) in enumerate(apartats):
+            k = k0 + i
+            tres = " tres" if len(ops) > 2 else ""
+            targetes = []
+            for op in ops:
+                if k == 0:
+                    targetes.append(f'<div class="oferta resolt">{op["diu"]}<br>'
+                                    + ms(f'{op["compte"]} = <b>{op["val"]}</b>') + "</div>")
+                else:
+                    targetes.append(f'<div class="oferta">{op["diu"]}<br><b>{op["compte"]} =</b></div>')
+            marques = "".join(opcio(op["nom"], k == 0 and j == bona) for j, op in enumerate(ops))
+            o.append("    " + ap(k, f'<div><span class="apartat">{LLETRES[k]})</span> {producte}</div>'
+                                   f'<div class="parella-op{tres}">{"".join(targetes)}</div>'
+                                   f'<div class="tria{" compacta" if tres else ""}">{marques}</div>',
+                                classe="oferta-ap") + "\n")
+            comptes = " · ".join(f'{op["compte"]} = {op["val"]}' for op in ops)
+            files.append(ap(k, f"<td>{LLETRES[k]})</td><td>{producte.rstrip('.')}</td><td>{comptes}</td>"
+                               f"<td><b>{ops[bona]['nom']}</b></td>", "tr"))
+        sol = ("    <table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr>"
+               + "".join(files) + "</table>\n")
+        return seccio(k0, "".join(o)), seccio(k0, sol), len(apartats)
+    return fes
 
 
-def taula_fila(cap, valors, buits=(), resolts=()):
-    """Una taula horitzontal de dues files (magnitud i valors), per a directa i inversa.
-    `buits`: posicions que s'han d'omplir; `resolts`: posicions escrites a mà."""
-    o = ['    <table class="mini fila">\n']
-    for r, (nom, fila) in enumerate(zip(cap, valors)):
-        cel = []
-        for k, v in enumerate(fila):
-            if r == 1 and k in buits:
-                cel.append('<td class="omplir"></td>')
-            elif r == 1 and k in resolts:
-                cel.append(f'<td class="ms">{v}</td>')
-            else:
-                cel.append(f"<td>{v}</td>")
-        o.append(f'      <tr><th>{nom}</th>{"".join(cel)}</tr>\n')
-    o.append("    </table>\n")
-    return "".join(o)
+def quadricula(llargades, quadrets=12, abans=""):
+    """Parets per dibuixar sobre una quadrícula d'1 cm de mida real. Cada apartat és una
+    fila: el rètol a l'esquerra (la mida de veritat en metres, escala 1 : 100) i els
+    quadrets. El primer de l'activitat ja va dibuixat."""
+    def fes(k0):
+        o, s = [abans], []
+        et = 30
+        W, H = et + quadrets * 10 + 2, 13
+        for i, L in enumerate(llargades):
+            k = k0 + i
+            g = [f'<text x="1" y="8.6" font-size="5" fill="{NEG}" {TIP}><tspan font-weight="700">'
+                 f'{LLETRES[k]})</tspan> {num(L)} m</text>']
+            for q in range(quadrets + 1):
+                g.append(f'<line x1="{et + q * 10}" y1="1.5" x2="{et + q * 10}" y2="11.5" stroke="{CLAR}" stroke-width=".35"/>')
+            for yy in (1.5, 11.5):
+                g.append(f'<line x1="{et}" y1="{yy}" x2="{et + quadrets * 10}" y2="{yy}" stroke="{CLAR}" stroke-width=".35"/>')
+            if k == 0:
+                g.append(f'<line x1="{et}" y1="6.5" x2="{et + L * 10:g}" y2="6.5" stroke="{MANUS}" '
+                         f'stroke-width="1.6" stroke-linecap="round"/>'
+                         f'<text x="{et + L * 10 + 3:g}" y="8.6" font-size="6.5" fill="{MANUS}" '
+                         f'font-family="Caveat, cursive">{num(L)} cm</text>')
+            o.append("    " + ap(k, f'<svg class="real-cm" style="width:{W / 10:g}cm" viewBox="0 0 {W} {H}" '
+                                   f'role="img" aria-label="Quadrícula per dibuixar una paret de {num(L)} m">'
+                                   f'{"".join(g)}</svg>', classe="fila-quad") + "\n")
+            s.append(ap(k, f'{" · " if i else ""}{LLETRES[k]}) <b>{num(L)} cm</b>', "span"))
+        return seccio(k0, "".join(o)), seccio(k0, "    <p>" + "".join(s) + "</p>\n"), len(llargades)
+    return fes
 
 
 # ----------------------------------------------------------------- dibuixos --
@@ -217,10 +260,8 @@ def planol(espais, zoom=1, mides=True, aria="Plànol"):
         nom, x, y, w, h = e[:5]
         moble = len(e) > 5
         X, Y, Wr, Hr = m + x * 10 * zoom, m + y * 10 * zoom, w * 10 * zoom, h * 10 * zoom
-        fons = FONS2 if moble else FONS
-        gruix = 0.8 if moble else 1
-        rects.append(f'<rect x="{X:g}" y="{Y:g}" width="{Wr:g}" height="{Hr:g}" fill="{fons}" '
-                     f'stroke="{NEG}" stroke-width="{gruix}"/>')
+        rects.append(f'<rect x="{X:g}" y="{Y:g}" width="{Wr:g}" height="{Hr:g}" fill="{FONS2 if moble else FONS}" '
+                     f'stroke="{NEG}" stroke-width="{0.8 if moble else 1}"/>')
         cx, cy = X + Wr / 2, Y + Hr / 2
         if mides and not moble:
             textos.append(f'<text x="{cx:g}" y="{cy - 0.6:g}">{nom}</text>'
@@ -234,10 +275,10 @@ def planol(espais, zoom=1, mides=True, aria="Plànol"):
             f'    </svg>\n')
 
 
-def doble_recta(cm, per_cm, unitat="m", dalt="al mapa (cm)", baix=None, w=560, h=124):
+def doble_recta(cm, per_cm, unitat="m", dalt="al mapa (cm)", w=560, h=124):
     """La doble recta de la fitxa (gen_grafics5.doble_mapa), amb l'escala que calgui:
     a dalt els cm del mapa, a baix el que valen de veritat. El primer tram, ombrejat."""
-    baix = baix or f"de veritat ({unitat})"
+    baix = f"de veritat ({unitat})"
     x0, x1, yd, yb = 178, 542, 46, 96
     def px(k): return x0 + k / cm * (x1 - x0)
     o = [f'<rect x="{px(0):.1f}" y="{yd}" width="{px(1) - px(0):.1f}" height="{yb - yd}" fill="{FONS}"/>',
@@ -256,53 +297,29 @@ def doble_recta(cm, per_cm, unitat="m", dalt="al mapa (cm)", baix=None, w=560, h
             f'{"".join(o)}</svg></div>\n')
 
 
-def linies(llargades, resolta=0):
-    """Línies de mida real per mesurar amb el regle. 1 unitat = 1 mm."""
+def linies(llargades, primera=0):
+    """Línies de mida real per mesurar amb el regle. 1 unitat = 1 mm. Cada línia porta
+    la lletra (en majúscula) de l'apartat de la taula que la mesura."""
     fila, x0 = 13, 12
-    W = x0 + max(llargades) * 10 + 8
+    W = x0 + 100 + 8
     H = fila * len(llargades) + 4
     o = []
     for i, L in enumerate(llargades):
         y = 8 + i * fila
         x1 = x0 + L * 10
-        o.append(f'<text x="2" y="{y + 1.8:g}" font-size="5" font-weight="700" fill="{NEG}" {TIP}>{"ABCDEFGH"[i]}</text>'
+        o.append(f'<text x="2" y="{y + 1.8:g}" font-size="5" font-weight="700" fill="{NEG}" {TIP}>'
+                 f'{LLETRES[primera + i].upper()}</text>'
                  f'<line x1="{x0}" y1="{y}" x2="{x1:g}" y2="{y}" stroke="{NEG}" stroke-width="1.2"/>'
                  f'<path d="M{x0} {y - 2.5}v5M{x1:g} {y - 2.5}v5" stroke="{NEG}" stroke-width="1.2"/>')
     return (f'    <svg class="real-cm" style="width:{W / 10:g}cm" viewBox="0 0 {W:g} {H:g}" role="img" '
             f'aria-label="Línies per mesurar">{"".join(o)}</svg>\n')
 
 
-def quadricula(apartats, quadrets=12):
-    """Una quadrícula d'1 cm de mida real per dibuixar-hi parets. `apartats`:
-    (rètol, llargada en cm o None si l'ha de dibuixar l'alumnat). El primer ve dibuixat."""
-    et, fila = 30, 16
-    W = et + quadrets * 10 + 2
-    H = len(apartats) * fila + 2
-    o = []
-    for i, (rotul, L) in enumerate(apartats):
-        y0 = 1 + i * fila
-        o.append(f'<text x="1" y="{y0 + 9.6:g}" font-size="5" fill="{NEG}" {TIP}>'
-                 f'<tspan font-weight="700">{LLETRES[i]})</tspan> {rotul}</text>')
-        for k in range(quadrets + 1):
-            o.append(f'<line x1="{et + k * 10}" y1="{y0 + 3}" x2="{et + k * 10}" y2="{y0 + 13}" stroke="{CLAR}" stroke-width=".35"/>')
-        for yy in (y0 + 3, y0 + 13):
-            o.append(f'<line x1="{et}" y1="{yy}" x2="{et + quadrets * 10}" y2="{yy}" stroke="{CLAR}" stroke-width=".35"/>')
-        if i == 0 and L:
-            o.append(f'<line x1="{et}" y1="{y0 + 8}" x2="{et + L * 10:g}" y2="{y0 + 8}" stroke="{MANUS}" '
-                     f'stroke-width="1.6" stroke-linecap="round"/>'
-                     f'<text x="{et + L * 10 + 3:g}" y="{y0 + 10:g}" font-size="6.5" fill="{MANUS}" '
-                     f'font-family="Caveat, cursive">{num(L)} cm</text>')
-    return (f'    <svg class="real-cm" style="width:{W / 10:g}cm" viewBox="0 0 {W:g} {H:g}" role="img" '
-            f'aria-label="Quadrícula per dibuixar">{"".join(o)}</svg>\n')
-
-
 # --------------------------------------------------------------- la pàgina --
 
-def act(n, peca, repte=False, nota_sol=""):
-    """Una activitat: a partir de quina quantitat surt (1, 2 o 3) i si és de repte."""
-    assert n in (1, 2, 3)
-    alumnat, sol = peca
-    return dict(n=n, repte=repte, alumnat=alumnat, sol=sol, nota_sol=nota_sol)
+def act(q, seccions, ico=None, repte=False, nota_sol=""):
+    """Una activitat: la consigna, la icona, les seccions i si és de repte."""
+    return dict(q=q, ico=ico, seccions=seccions, repte=repte, nota_sol=nota_sol)
 
 
 SIMBOLS = f'''<svg style="display:none" aria-hidden="true">
@@ -329,53 +346,53 @@ SIMBOLS = f'''<svg style="display:none" aria-hidden="true">
 ESTRELLA = '<svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>'
 
 
-def recompte(blocs):
-    """Quantes activitats surten a cada combinació del filtre."""
-    totes = [a for b in blocs for a in b["acts"]]
-    return {(n, r): sum(1 for a in totes if a["n"] <= n and (r or not a["repte"]))
-            for n in (1, 2, 3) for r in (False, True)}
+def munta(a):
+    """L'html d'una activitat (alumnat i solucionari) a partir de les seves seccions."""
+    k, alumnat, sol = 0, [], []
+    for s in a["seccions"]:
+        h, so, quants = s(k)
+        alumnat.append(h)
+        sol.append(so)
+        k += quants
+    assert k == APARTATS, f"«{a['q']}»: té {k} apartats i n'ha de tenir {APARTATS} (l'a i {PER_FER[3]} per fer)"
+    icona = (f'\n        <svg class="ico" style="margin-left:.4rem"><use href="{ICONES[a["ico"]]}"/></svg>'
+             if a["ico"] else "")
+    cap = (f'    <div class="tasca"><div class="n"></div>{ESTRELLA if a["repte"] else ""}\n'
+           f'      <div class="q">{a["q"]}{icona}</div></div>\n')
+    return cap + "".join(alumnat), "".join(sol)
 
 
 def comprova_unitat(u):
     """Les regles del quadern que no es poden trencar."""
     for b in u.BLOCS:
-        germanes = [a["n"] for a in b["acts"] if not a["repte"]]
-        assert germanes and germanes[0] == 1, f"{b['titol']}: la primera activitat ha de sortir sempre (n=1, sense repte)"
-        assert germanes == sorted(germanes), f"{b['titol']}: les germanes van de menys a més (1, 2, 3)"
+        germanes = [a for a in b["acts"] if not a["repte"]]
         reptes = [a for a in b["acts"] if a["repte"]]
-        assert b["acts"][:len(germanes)] == [a for a in b["acts"] if not a["repte"]], \
-            f"{b['titol']}: les de repte van al final del bloc"
-        assert reptes, f"{b['titol']}: cada bloc té alguna activitat de repte"
+        assert germanes and reptes, f"{b['titol']}: cada bloc té una germana i una de repte"
+        assert b["acts"] == germanes + reptes, f"{b['titol']}: la de repte va després de la germana"
 
 
 def genera(num_u):
     u = carrega(num_u)
     comprova_unitat(u)
-    blocs = u.BLOCS
-    r = recompte(blocs)
     alumnat, sol = [], []
-    for b in blocs:
+    for b in u.BLOCS:
         exercici, pagina = b["mira"]
-        cap = (f'  <h2>{b["titol"]}</h2>\n'
-               f'  <p class="mira">Com l\'exercici {exercici} de la fitxa, a la pàgina {pagina}.</p>\n')
-        cos = []
-        entrades = []
-        for i, a in enumerate(b["acts"]):
-            marca = f' data-n="{a["n"]}"' + (" data-repte" if a["repte"] else "")
-            html = a["alumnat"].replace("ESTRELLA", ESTRELLA if a["repte"] else "")
+        cos, entrades = [], []
+        for a in b["acts"]:
+            html, s = munta(a)
+            marca = " data-repte" if a["repte"] else ""
             cos.append(f'  <div class="exercici act"{marca}>\n{html}  </div>\n')
             nota_a = f'<p class="per-que">{a["nota_sol"]}</p>' if a["nota_sol"] else ""
             repte = '<p class="repte-sol">Repte</p>' if a["repte"] else ""
-            entrades.append(f'  <div class="sol-act"{marca}>{repte}{a["sol"]}{nota_a}</div>\n')
-        # El títol del bloc no es queda sol a baix d'una pàgina: va amb la primera activitat,
-        # que surt sempre.
-        alumnat.append(f'<section class="bloc">\n<div class="inici">\n{cap}{cos[0]}</div>\n{"".join(cos[1:])}</section>\n')
+            entrades.append(f'  <div class="sol-act"{marca}>{repte}\n{s}  {nota_a}</div>\n')
+        alumnat.append(f'<section class="bloc">\n  <h2>{b["titol"]}</h2>\n'
+                       f'  <p class="mira">Com l\'exercici {exercici} de la fitxa, a la pàgina {pagina}.</p>\n'
+                       f'{"".join(cos)}</section>\n')
         sol.append(f'  <h3>{b["titol"]} · com l\'exercici {exercici} de la fitxa</h3>\n'
                    + (f'  <p>{b["nota_sol"]}</p>\n' if b.get("nota_sol") else "") + "".join(entrades))
-
-    taula_r = ("<table><tr><th></th><th>Petit</th><th>Mitjà</th><th>Elevat</th></tr>"
-               f"<tr><td>Com les de la fitxa</td><td>{r[1, False]}</td><td>{r[2, False]}</td><td>{r[3, False]}</td></tr>"
-               f"<tr><td>Amb repte</td><td>{r[1, True]}</td><td>{r[2, True]}</td><td>{r[3, True]}</td></tr></table>")
+    nb = len(u.BLOCS)
+    ng = sum(1 for b in u.BLOCS for a in b["acts"] if not a["repte"])
+    nr = sum(1 for b in u.BLOCS for a in b["acts"] if a["repte"])
 
     return f'''<!DOCTYPE html>
 <html lang="ca">
@@ -391,9 +408,9 @@ def genera(num_u):
   (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
   primer apartat de cada activitat resolt en lletra manuscrita.
 
-  El filtre de dalt (només a la pantalla) tria quantes activitats surten i si n'hi ha
-  de repte. Imprimir: el botó «Imprimeix el quadern», o Ctrl+P, A4, amb «Gràfics de
-  fons» activat. El solucionari s'imprimeix a part, amb el seu botó.
+  El filtre de dalt (només a la pantalla) tria quants apartats té cada activitat i si
+  hi ha activitats de repte. Imprimir: el botó «Imprimeix el quadern», o Ctrl+P, A4,
+  amb «Gràfics de fons» activat. El solucionari s'imprimeix a part, amb el seu botó.
 -->
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/fitxa.css">
@@ -402,22 +419,22 @@ def genera(num_u):
 </head>
 <body class="amb-repte">
 
-<nav class="navega no-imprimir" aria-label="Navegació"><a href="../fitxes.html">← totes les fitxes</a><a class="boto" href="../fitxes/ud{u.NUM}.html">la fitxa de la unitat</a></nav>
+<nav class="navega no-imprimir" aria-label="Navegació"><a href="../quadern.html">← tots els quaderns</a><a class="boto" href="../fitxes/ud{u.NUM}.html">la fitxa de la unitat</a></nav>
 
 <div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
   <div class="grup">
-    <span class="et" id="et-n">Nombre d'activitats</span>
+    <span class="et" id="et-n">Apartats de cada activitat</span>
     <div class="botons" data-filtre="n" role="group" aria-labelledby="et-n">
-      <button type="button" data-valor="1" aria-pressed="false">Petit <small>{r[1, False]}</small></button>
-      <button type="button" data-valor="2" aria-pressed="true">Mitjà <small>{r[2, False]}</small></button>
-      <button type="button" data-valor="3" aria-pressed="false">Elevat <small>{r[3, False]}</small></button>
+      <button type="button" data-valor="1" aria-pressed="false">Petit <small>{PER_FER[1]}</small></button>
+      <button type="button" data-valor="2" aria-pressed="true">Mitjà <small>{PER_FER[2]}</small></button>
+      <button type="button" data-valor="3" aria-pressed="false">Elevat <small>{PER_FER[3]}</small></button>
     </div>
   </div>
   <div class="grup">
-    <span class="et" id="et-repte">Tipus</span>
+    <span class="et" id="et-repte">Activitats</span>
     <div class="botons" data-filtre="repte" role="group" aria-labelledby="et-repte">
-      <button type="button" data-valor="0" aria-pressed="true">Com les de la fitxa</button>
-      <button type="button" data-valor="1" aria-pressed="false">Amb repte {ESTRELLA}</button>
+      <button type="button" data-valor="0" aria-pressed="true">Com les de la fitxa <small>{ng}</small></button>
+      <button type="button" data-valor="1" aria-pressed="false">Amb repte {ESTRELLA} <small>{ng + nr}</small></button>
     </div>
   </div>
   <div class="grup accions">
@@ -444,17 +461,18 @@ def genera(num_u):
   <h1 style="font-size:19pt">Solucionari</h1>
   <p style="color:var(--gris-2);margin-top:.15rem">Unitat {u.NUM} · Quadern d'activitats · full per al professorat</p>
   <div class="abans">
-    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: cada bloc
-    torna a un exercici de la fitxa, i la frase de sota del títol diu quin. A dalt de la pàgina es
-    tria quantes activitats surten i si n'hi ha de repte (amb estrella). Els números de les
-    activitats i els d'aquest solucionari es tornen a comptar sols, i sempre coincideixen si
-    s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el filtre posat:
-    <code>quadern/ud{u.NUM}.html?n=1&amp;repte=1</code> (n: 1 petit, 2 mitjà, 3 elevat).</p>
+    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
+    per cada exercici de la fitxa ({nb} blocs), i la frase de sota del títol diu quin. Cada bloc té
+    una activitat com la de la fitxa i, si es tria «Amb repte», una altra una mica diferent, amb
+    estrella. A dalt de la pàgina es tria quants apartats té cada activitat: a) resolt i
+    {PER_FER[1]} per fer (petit), {PER_FER[2]} (mitjà) o {PER_FER[3]} (elevat). El nombre
+    d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre
+    amb els del quadern si s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el
+    filtre posat: <code>quadern/ud{u.NUM}.html?n=1&amp;repte=1</code> (n: 1 petit, 2 mitjà,
+    3 elevat).</p>
   </div>
-  <p><b>Quantes activitats surten:</b></p>
-  {taula_r}
-  <p>Les de repte no són més llargues ni tenen més text: fan el mateix camí al revés, hi afegeixen
-  un pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
+  <p>Les de repte no tenen més text que les altres: fan el mateix camí al revés, hi afegeixen un
+  pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
 {"".join(sol)}
   <h3>Què mirar per avaluar</h3>
   <p>{u.AVALUAR}</p>
@@ -486,12 +504,12 @@ def main():
     quines = [int(a) for a in sys.argv[1:]] or unitats()
     os.makedirs(SORTIDA, exist_ok=True)
     for n in quines:
-        html = genera(n)
         with open(os.path.join(SORTIDA, f"ud{n}.html"), "w", encoding="utf-8") as f:
-            f.write(html)
-        r = recompte(carrega(n).BLOCS)
-        print(f"  quadern/ud{n}.html  ·  petit {r[1, False]} ({r[1, True]} amb repte)"
-              f"  ·  mitjà {r[2, False]} ({r[2, True]})  ·  elevat {r[3, False]} ({r[3, True]})")
+            f.write(genera(n))
+        u = carrega(n)
+        ng = sum(1 for b in u.BLOCS for a in b["acts"] if not a["repte"])
+        print(f"  quadern/ud{n}.html  ·  {ng} activitats ({2 * ng} amb repte)  ·  "
+              f"a) resolt i {PER_FER[1]}, {PER_FER[2]} o {PER_FER[3]} apartats per fer")
 
 
 if __name__ == "__main__":

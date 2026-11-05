@@ -35,8 +35,16 @@ body:not(.amb-repte) .llegenda { display: none }
 .bloc { margin-top: 1.7rem }
 .bloc h2 { margin: 0 }
 .mira { font-size: 14pt; color: var(--gris-2); margin: .1rem 0 .8rem }
-/* El títol del bloc va amb la primera activitat: no es queda sol a baix d'una pàgina. */
-.inici { break-inside: avoid; page-break-inside: avoid }
+/* El títol del bloc i la consigna no es queden sols a baix d'una pàgina. Una activitat
+   llarga (elevat en té 13 apartats) sí que es pot partir, però mai per dins d'un apartat
+   ni entre un dibuix i la seva taula. */
+.bloc h2, .mira, .tasca, .nota-act { break-after: avoid; page-break-after: avoid }
+.act { break-inside: auto; page-break-inside: auto }
+.ap, .seccio > svg, .seccio > .figura { break-inside: avoid; page-break-inside: avoid }
+/* Una secció (una taula, o un dibuix amb la seva taula) es queda sencera si hi cap en una
+   pàgina; si és més llarga, es parteix entre dos apartats. */
+.seccio { break-inside: avoid; page-break-inside: avoid }
+.seccio { margin-bottom: .5rem }
 
 /* El número de cada activitat el posa un comptador: les amagades no compten, i
    el solucionari, amb el mateix filtre, compta igual. */
@@ -52,11 +60,33 @@ body:not(.amb-repte) .llegenda { display: none }
 .buit { display: inline-block; min-width: 2.4cm; border-bottom: 2.5px solid var(--tinta); height: 1.15em;
         vertical-align: -.15em }
 
+/* Opcions al costat de la frase (directa o inversa): un apartat, una fila. */
+.tria-linia { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .8rem;
+              padding: .35rem 0; border-bottom: 1px solid var(--vora-suau) }
+.tria-linia .text { flex: 1 1 8cm }
+.tria-linia .tria { flex: 0 0 auto; margin: 0 }
+.tria-linia .tria label { min-width: 3.5cm; font-size: 15pt; padding: .3rem .5rem }
+.tria-bloc { margin-top: .9rem }
+
+/* Una taula petita i, al costat, les dues opcions una sota l'altra. */
+.taula-tria { margin-top: .8rem }
+.taula-tria .costat { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center }
+.taula-tria table { flex: 1 1 9cm; margin: .2rem 0 }
+.tria.columna { flex: 0 0 4.2cm; flex-direction: column; gap: .4rem; margin: 0 }
+.tria.columna label { min-width: 0; font-size: 15pt; padding: .3rem .5rem }
+
+/* Cada oferta és un apartat. */
+.oferta-ap { margin-top: .9rem }
+.oferta-ap .parella-op, .oferta-ap .tria { margin: .3rem 0 }
+
+/* La quadrícula: una fila per apartat. */
+.fila-quad svg { margin: .15rem 0 }
+
 /* Tres ofertes per apartat: més estretes perquè hi càpiguen en una fila. */
 .parella-op.tres > * { min-width: 4.6cm }
 
 /* La taula horitzontal de directa i inversa (magnitud a l'esquerra). */
-table.fila th { width: 30% }
+table.fila th { width: 34%; text-align: left }
 table.fila td.omplir { height: 1.35cm }
 table.fila td.ms { font-size: 19.5pt }
 

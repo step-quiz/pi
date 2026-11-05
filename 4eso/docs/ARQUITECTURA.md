@@ -36,6 +36,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 ```
 ├── index.html              portada: tria fitxes o caixa d'eines
 ├── fitxes.html             índex de fitxes: tria ràpida i detall de cada unitat
+├── quadern.html            índex dels quaderns d'activitats
 ├── caixa-eines.html        l'aplicació: només marcatge
 │
 ├── css/
@@ -54,7 +55,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── veu.js              la lectura en veu alta de cada targeta (apartat 6c)
 │   ├── app.js              navegació de la caixa d'eines
 │   ├── lloc.js             construeix els índexs a partir de les dades
-│   ├── quadern.js          el filtre del quadern d'activitats (quantitat i repte)
+│   ├── quadern.js          el filtre del quadern d'activitats (apartats i repte)
 │   └── moduls/             un fitxer per mòdul, deu en total
 │
 ├── dades/
