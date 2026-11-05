@@ -419,7 +419,7 @@ def genera(num_u):
 </head>
 <body class="amb-repte">
 
-<nav class="navega no-imprimir" aria-label="Navegació"><a href="../quadern.html">← tots els quaderns</a><a class="boto" href="../fitxes/ud{u.NUM}.html">la fitxa de la unitat</a></nav>
+<nav class="navega no-imprimir" aria-label="Navegació"><a href="../unitat.html?ud={u.NUM}">← la unitat</a><a class="boto" href="../fitxes/ud{u.NUM}.html">la fitxa de la unitat</a></nav>
 
 <div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
   <div class="grup">

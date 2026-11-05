@@ -34,7 +34,8 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 `comu/examens/nucli.js`.
 
 ```
-├── index.html              portada: tria fitxes o caixa d'eines
+├── index.html              pàgina del professorat: fitxes, quadern, caixa sencera
+├── unitat.html             la pàgina d'una unitat (?ud=N), la fa ../comu/js/unitat.js
 ├── fitxes.html             índex de fitxes: tria ràpida i detall de cada unitat
 ├── quadern.html            índex dels quaderns d'activitats
 ├── caixa-eines.html        l'aplicació: només marcatge

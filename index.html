@@ -17,39 +17,26 @@
 <div class="pagina">
 
   <h1>Material adaptat de matemàtiques</h1>
-  <p class="subtitol">Material per a alumnat amb dificultats de tipus cognitiu</p>
-  <p class="entradeta">Tria el material per continuar.</p>
-
-  <!-- Dues targetes, sense res més: la porta d'entrada no ha de fer triar
-       res més que això. Els títols diuen el curs de cada material. Ho va decidir el docent el
-    26/9/2026: aquí no cal amagar-lo. És l'única pàgina on surt, i el test de
-    4eso/ en té l'excepció (vegeu-ne l'apartat ANONIMAT). -->
-  <div class="tria">
-    <a class="tria-opcio" href="1eso/index.html">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linejoin="round" aria-hidden="true">
-        <rect x="4" y="4" width="24" height="24" rx="2"/>
-        <path d="M4 12h24M4 20h24M12 4v24M20 4v24"/>
-      </svg>
+  <p class="subtitol">Tria la unitat.</p>
+  <!-- La portada: una columna per curs, amb les seves unitats (5/11/2026, per encàrrec del
+       docent). Cada unitat porta a la pàgina de la unitat del seu curs, amb les fitxes, el
+       quadern i la caixa d'eines. La fa comu/js/portada.js amb les dades de cada curs.
+       Els noms del curs surten aquí i enlloc més: ho va decidir el docent el 26/9/2026, i
+       el test de 4eso/ en té l'excepció (vegeu-ne l'apartat ANONIMAT). -->
+  <div class="cursos" id="cursos">
+    <section class="curs" data-unitats="U_1ESO" data-dir="1eso">
       <h2>1ESO</h2>
-      <p>Matemàtiques. Targetes de consulta, fitxes i caixa d'eines, amb un sol dibuix: la quadrícula de quadrets.</p>
-    </a>
-    <a class="tria-opcio" href="4eso/index.html">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.1"
-        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-        <rect x="6" y="3" width="20" height="26" rx="3"/>
-        <rect x="9" y="7" width="14" height="6" rx="1"/>
-        <circle cx="10.5" cy="19" r="1.3" fill="currentColor" stroke="none"/>
-        <circle cx="16"   cy="19" r="1.3" fill="currentColor" stroke="none"/>
-        <circle cx="21.5" cy="19" r="1.3" fill="currentColor" stroke="none"/>
-        <circle cx="10.5" cy="24" r="1.3" fill="currentColor" stroke="none"/>
-        <circle cx="16"   cy="24" r="1.3" fill="currentColor" stroke="none"/>
-        <circle cx="21.5" cy="24" r="1.3" fill="currentColor" stroke="none"/>
-      </svg>
+    </section>
+    <section class="curs" data-unitats="U_4ESO" data-dir="4eso">
       <h2>4ESO-Aplicades</h2>
-      <p>Matemàtiques Aplicades. Fitxes i caixa d'eines: la decisió es basteix descarregant el càlcul a la calculadora.</p>
-    </a>
+    </section>
   </div>
+  <noscript><p><a href="1eso/index.html">1ESO</a> · <a href="4eso/index.html">4ESO-Aplicades</a></p></noscript>
+
+  <!-- El que no és de cap unitat (targetes de consulta, canviar frases, codis de
+       verificació, documentació) és a la pàgina de cada curs per al professorat. -->
+  <p class="professorat" id="professorat">Per al professorat:
+    <a href="1eso/index.html">1ESO</a> · <a href="4eso/index.html">4ESO-Aplicades</a></p>
 
   <!-- Les altres versions: només es veuen amb index.html?other-versions=1.
        Són dues versions de molta menys qualitat que el docent va fer amb una IA,
@@ -96,13 +83,19 @@
     S'obre amb doble clic o es publica tal qual.</p>
 
 </div>
+<script src="1eso/dades/unitats.js"></script>
+<script>window.U_1ESO = window.UNITATS;</script>
+<script src="4eso/dades/unitats.js"></script>
+<script>window.U_4ESO = window.UNITATS;</script>
+<script src="comu/js/portada.js"></script>
 <script>
   // index.html?other-versions=1 mostra el menú de les altres versions en lloc de
   // la tria de material.
   if (new URLSearchParams(location.search).get('other-versions') === '1') {
     document.getElementById('altres-versions').hidden = false;
-    document.querySelector('.tria').hidden = true;
-    document.querySelector('.entradeta').hidden = true;
+    document.getElementById('cursos').hidden = true;
+    document.getElementById('professorat').hidden = true;
+    document.querySelector('.subtitol').hidden = true;
   }
 </script>
 </body>

@@ -100,7 +100,8 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 
 | | |
 |---|---|
-| `index.html` | La portada: tria entre les fitxes i la caixa d'eines, i a sota, «Per al professorat» |
+| `index.html` | La pàgina del professorat del curs (s'hi arriba des del peu de la portada de l'arrel): les fitxes, la caixa sencera, els enllaços `?task=n` i les eines per al docent |
+| `unitat.html` | La pàgina d'una unitat (`unitat.html?ud=N`): les fitxes, el quadern i la caixa d'eines amb només les tasques de la unitat (camp `tasques`). La fa `../comu/js/unitat.js` |
 | `fitxes.html` | Índex de les targetes de consulta i de les set unitats, amb els dos PDF de cada fitxa (alumnat i solucionari). Al final, el detall de cada unitat per al docent: el nucli, el graó físic, el rol a l'aula ordinària, la fita, el camí mínim i les regles trencades |
 | `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
