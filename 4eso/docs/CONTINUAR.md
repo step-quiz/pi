@@ -233,6 +233,22 @@ dir-l'hi: aquesta sí que la va voler aprovar.
 
 ---
 
+## 10d. 5/11/2026: el quadern d'activitats de la UD3
+
+- **Què és.** `quadern/ud3.html`: activitats per practicar després de la fitxa, un bloc per
+  exercici de la fitxa. Cada bloc té quatre germanes i dues de repte. El filtre de la pàgina
+  tria la quantitat (petit 8, mitjà 16, elevat 32) i si hi ha repte (12, 24, 48). Es descriu
+  al `README.md`, apartat «El quadern d'activitats».
+- **Com està fet.** `generadors/gen_quadern.py` és el motor (les peces i la pàgina) i
+  `generadors/quadern/ud3.py`, el contingut, amb els números calculats. `eines/comprova.py`
+  torna a generar el quadern i avisa si el fitxer de `quadern/` és diferent;
+  `eines/prova_quadern.py` prova el filtre al navegador.
+- **Decisions del docent (5/11/2026):** un web amb botons, sense PDF fixos; 1, 2 i 4
+  activitats per exercici; les de repte, marcades amb una estrella discreta; començar per la
+  UD3, que és la que fa ara.
+- **Pendent:** que el docent el revisi i el provi a l'aula; després, els quaderns de les
+  altres sis unitats, amb el de la UD3 com a model.
+
 ## 10c. 6/10/2026: «enters», els rètols de precisió i els pendents al dia
 
 - **«Nombres enters», no «sencers».** La fitxa i el repàs de la UD1 i la caixa d'eines deien

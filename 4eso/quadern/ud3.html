@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 3 · Quadern d'activitats</title>
+<!--
+  Quadern d'activitats · Unitat 3 (Escales i proporcionalitat)
+  NO S'EDITA A MÀ. El fa generadors/gen_quadern.py a partir de generadors/quadern/ud3.py.
+
+  Activitats per practicar després de la fitxa, amb els mateixos criteris que la fitxa
+  (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
+  primer apartat de cada activitat resolt en lletra manuscrita.
+
+  El filtre de dalt (només a la pantalla) tria quantes activitats surten i si n'hi ha
+  de repte. Imprimir: el botó «Imprimeix el quadern», o Ctrl+P, A4, amb «Gràfics de
+  fons» activat. El solucionari s'imprimeix a part, amb el seu botó.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+<link rel="stylesheet" href="../css/quadern.css">
+<style>@page { @bottom-left { content: "Quadern d'activitats · Unitat 3" } }</style>
+</head>
+<body class="amb-repte">
+
+<nav class="navega no-imprimir" aria-label="Navegació"><a href="../fitxes.html">← totes les fitxes</a><a class="boto" href="../fitxes/ud3.html">la fitxa de la unitat</a></nav>
+
+<div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
+  <div class="grup">
+    <span class="et" id="et-n">Nombre d'activitats</span>
+    <div class="botons" data-filtre="n" role="group" aria-labelledby="et-n">
+      <button type="button" data-valor="1" aria-pressed="false">Petit <small>8</small></button>
+      <button type="button" data-valor="2" aria-pressed="true">Mitjà <small>16</small></button>
+      <button type="button" data-valor="3" aria-pressed="false">Elevat <small>32</small></button>
+    </div>
+  </div>
+  <div class="grup">
+    <span class="et" id="et-repte">Tipus</span>
+    <div class="botons" data-filtre="repte" role="group" aria-labelledby="et-repte">
+      <button type="button" data-valor="0" aria-pressed="true">Com les de la fitxa</button>
+      <button type="button" data-valor="1" aria-pressed="false">Amb repte <svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg></button>
+    </div>
+  </div>
+  <div class="grup accions">
+    <p class="recompte" id="recompte" aria-live="polite"></p>
+    <div class="botons">
+      <button type="button" id="imprimeix">Imprimeix el quadern</button>
+      <button type="button" id="imprimeix-sol">Imprimeix el solucionari</button>
+      <button type="button" id="mostra-sol" aria-expanded="false" aria-controls="solucionari">Mostra el solucionari</button>
+    </div>
+  </div>
+</div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5"><path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/></g>
+  </symbol>
+  <symbol id="i-llapis" viewBox="0 0 48 48">
+    <path d="M8 40l3-11L33 7l8 8-22 22z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 12l8 8M11 29l8 8" stroke="#000" stroke-width="3"/>
+  </symbol>
+  <symbol id="i-repte" viewBox="0 0 48 48">
+    <path d="M24 4l5.9 12.6 13.8 1.7-10.2 9.5 2.7 13.7L24 34.8l-12.2 6.7 2.7-13.7L4.3 18.3l13.8-1.7z"
+      fill="#fff" stroke="#000" stroke-width="3.2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main class="quadern alumnat">
+  <h1>Quadern d'activitats</h1>
+  <p class="subtitol-q">Unitat 3 · Escales i proporcionalitat</p>
+  <p class="nom">Nom: <span></span></p>
+  <p class="llegenda"><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg> Un pas més.</p>
+
+<section class="bloc">
+<div class="inici">
+  <h2>Quant val 1 cm del plànol</h2>
+  <p class="mira">Com l'exercici 1 de la fitxa, a la pàgina 5.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu quant val un centímetre del plànol a cada escala.</div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Escala</th><th style="width:30%">1 cm són… (cm)</th><th style="width:30%">és a dir (m)</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 100</td><td class="ms">100 cm</td><td class="ms">1 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 300</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 400</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 1 000</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu quant val un centímetre del plànol a cada escala.</div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Escala</th><th style="width:30%">1 cm són… (cm)</th><th style="width:30%">és a dir (m)</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 200</td><td class="ms">200 cm</td><td class="ms">2 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 600</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 20</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 5 000</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu quant val un centímetre del plànol a cada escala.</div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Escala</th><th style="width:30%">1 cm són… (cm)</th><th style="width:30%">és a dir (m)</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 50</td><td class="ms">50 cm</td><td class="ms">0,5 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 150</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 800</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 10 000</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu quant val un centímetre del plànol a cada escala.</div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Escala</th><th style="width:30%">1 cm són… (cm)</th><th style="width:30%">és a dir (m)</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 500</td><td class="ms">500 cm</td><td class="ms">5 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 250</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 2 000</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 25</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="2" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Escriu l'escala de cada plànol.</div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">1 cm són… (m)</th><th style="width:30%">és a dir (cm)</th><th style="width:30%">Escala</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">3 m</td><td class="ms">300 cm</td><td class="ms">1 : 300</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">0,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Marca el plànol on la casa surt més gran.</div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> 1 : 100 o 1 : 50?</div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 : 100</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 : 50</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> 1 : 200 o 1 : 500?</div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 : 200</label>
+      <label><span class="quadret"></span>1 : 500</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> 1 : 1 000 o 1 : 100?</div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 : 1 000</label>
+      <label><span class="quadret"></span>1 : 100</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">d)</span> 1 : 25 o 1 : 250?</div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 : 25</label>
+      <label><span class="quadret"></span>1 : 250</label>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>Del plànol a la realitat</h2>
+  <p class="mira">Com l'exercici 2 de la fitxa, a la pàgina 5.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant fa de veritat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">Al plànol</th><th style="width:24%">× escala</th><th style="width:24%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 100</td><td class="ms">4 cm</td><td class="ms">400 cm</td><td class="ms">4 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 100</td><td class="dada">7 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 100</td><td class="dada">3,5 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 50</td><td class="dada">6 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant fa de veritat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">Al plànol</th><th style="width:24%">× escala</th><th style="width:24%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 200</td><td class="ms">3 cm</td><td class="ms">600 cm</td><td class="ms">6 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 200</td><td class="dada">5 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 50</td><td class="dada">10 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 100</td><td class="dada">12 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant fa de veritat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">Al plànol</th><th style="width:24%">× escala</th><th style="width:24%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 50</td><td class="ms">4 cm</td><td class="ms">200 cm</td><td class="ms">2 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 500</td><td class="dada">3 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 100</td><td class="dada">8,5 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 200</td><td class="dada">4,5 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant fa de veritat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">Al plànol</th><th style="width:24%">× escala</th><th style="width:24%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 300</td><td class="ms">2 cm</td><td class="ms">600 cm</td><td class="ms">6 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 300</td><td class="dada">5 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 50</td><td class="dada">9 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 1 000</td><td class="dada">4 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="1" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Mesura cada línia amb el regle i calcula quant fa de veritat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Plànol a escala 1 : 100.</p>
+    <svg class="real-cm" style="width:10cm" viewBox="0 0 100 56" role="img" aria-label="Línies per mesurar"><text x="2" y="9.8" font-size="5" font-weight="700" fill="#000" font-family="system-ui">A</text><line x1="12" y1="8" x2="52" y2="8" stroke="#000" stroke-width="1.2"/><path d="M12 5.5v5M52 5.5v5" stroke="#000" stroke-width="1.2"/><text x="2" y="22.8" font-size="5" font-weight="700" fill="#000" font-family="system-ui">B</text><line x1="12" y1="21" x2="72" y2="21" stroke="#000" stroke-width="1.2"/><path d="M12 18.5v5M72 18.5v5" stroke="#000" stroke-width="1.2"/><text x="2" y="35.8" font-size="5" font-weight="700" fill="#000" font-family="system-ui">C</text><line x1="12" y1="34" x2="37" y2="34" stroke="#000" stroke-width="1.2"/><path d="M12 31.5v5M37 31.5v5" stroke="#000" stroke-width="1.2"/><text x="2" y="48.8" font-size="5" font-weight="700" fill="#000" font-family="system-ui">D</text><line x1="12" y1="47" x2="92" y2="47" stroke="#000" stroke-width="1.2"/><path d="M12 44.5v5M92 44.5v5" stroke="#000" stroke-width="1.2"/></svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:26%">Línia</th><th style="width:32%">Mesura</th><th style="width:32%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">A</td><td class="ms">4 cm</td><td class="ms">4 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">B</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">C</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">D</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quant fa de veritat en aquest mapa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Mapa a escala 1 : 25 000.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:26%">Al mapa</th><th style="width:32%">× 25 000</th><th style="width:32%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">2 cm</td><td class="ms">50 000 cm</td><td class="ms">500 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">4 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">6 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">3 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>De la realitat al plànol</h2>
+  <p class="mira">Com l'exercici 3 de la fitxa, a la pàgina 6.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant ha de fer al plànol.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">De veritat</th><th style="width:24%">× 100</th><th style="width:24%">Al plànol</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 100</td><td class="ms">4 m</td><td class="ms">400 cm</td><td class="ms">4 cm</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 100</td><td class="dada">7 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 100</td><td class="dada">2,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 200</td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant ha de fer al plànol.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">De veritat</th><th style="width:24%">× 100</th><th style="width:24%">Al plànol</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 200</td><td class="ms">10 m</td><td class="ms">1 000 cm</td><td class="ms">5 cm</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 200</td><td class="dada">8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 50</td><td class="dada">2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 500</td><td class="dada">30 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant ha de fer al plànol.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">De veritat</th><th style="width:24%">× 100</th><th style="width:24%">Al plànol</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 50</td><td class="ms">3 m</td><td class="ms">300 cm</td><td class="ms">6 cm</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 50</td><td class="dada">1,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 500</td><td class="dada">20 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 100</td><td class="dada">9,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quant ha de fer al plànol.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:20%">De veritat</th><th style="width:24%">× 100</th><th style="width:24%">Al plànol</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 200</td><td class="ms">12 m</td><td class="ms">1 200 cm</td><td class="ms">6 cm</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 1 000</td><td class="dada">50 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 50</td><td class="dada">4,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 200</td><td class="dada">5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="1" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Dibuixa cada paret a escala 1 : 100.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-llapis"/></svg></div></div>
+    <p class="nota-act">Cada quadret fa 1 cm.</p>
+    <svg class="real-cm" style="width:15.2cm" viewBox="0 0 152 66" role="img" aria-label="Quadrícula per dibuixar"><text x="1" y="10.6" font-size="5" fill="#000" font-family="system-ui"><tspan font-weight="700">a)</tspan> 5 m</text><line x1="30" y1="4" x2="30" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="40" y1="4" x2="40" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="50" y1="4" x2="50" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="60" y1="4" x2="60" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="70" y1="4" x2="70" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="80" y1="4" x2="80" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="90" y1="4" x2="90" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="100" y1="4" x2="100" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="110" y1="4" x2="110" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="120" y1="4" x2="120" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="130" y1="4" x2="130" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="140" y1="4" x2="140" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="150" y1="4" x2="150" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="4" x2="150" y2="4" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="14" x2="150" y2="14" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="9" x2="80" y2="9" stroke="#3A3A3A" stroke-width="1.6" stroke-linecap="round"/><text x="83" y="11" font-size="6.5" fill="#3A3A3A" font-family="Caveat, cursive">5 cm</text><text x="1" y="26.6" font-size="5" fill="#000" font-family="system-ui"><tspan font-weight="700">b)</tspan> 3 m</text><line x1="30" y1="20" x2="30" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="40" y1="20" x2="40" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="50" y1="20" x2="50" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="60" y1="20" x2="60" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="70" y1="20" x2="70" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="80" y1="20" x2="80" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="90" y1="20" x2="90" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="100" y1="20" x2="100" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="110" y1="20" x2="110" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="120" y1="20" x2="120" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="130" y1="20" x2="130" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="140" y1="20" x2="140" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="150" y1="20" x2="150" y2="30" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="20" x2="150" y2="20" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="30" x2="150" y2="30" stroke="#BFBFBF" stroke-width=".35"/><text x="1" y="42.6" font-size="5" fill="#000" font-family="system-ui"><tspan font-weight="700">c)</tspan> 8 m</text><line x1="30" y1="36" x2="30" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="40" y1="36" x2="40" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="50" y1="36" x2="50" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="60" y1="36" x2="60" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="70" y1="36" x2="70" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="80" y1="36" x2="80" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="90" y1="36" x2="90" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="100" y1="36" x2="100" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="110" y1="36" x2="110" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="120" y1="36" x2="120" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="130" y1="36" x2="130" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="140" y1="36" x2="140" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="150" y1="36" x2="150" y2="46" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="36" x2="150" y2="36" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="46" x2="150" y2="46" stroke="#BFBFBF" stroke-width=".35"/><text x="1" y="58.6" font-size="5" fill="#000" font-family="system-ui"><tspan font-weight="700">d)</tspan> 6,5 m</text><line x1="30" y1="52" x2="30" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="40" y1="52" x2="40" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="50" y1="52" x2="50" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="60" y1="52" x2="60" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="70" y1="52" x2="70" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="80" y1="52" x2="80" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="90" y1="52" x2="90" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="100" y1="52" x2="100" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="110" y1="52" x2="110" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="120" y1="52" x2="120" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="130" y1="52" x2="130" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="140" y1="52" x2="140" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="150" y1="52" x2="150" y2="62" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="52" x2="150" y2="52" stroke="#BFBFBF" stroke-width=".35"/><line x1="30" y1="62" x2="150" y2="62" stroke="#BFBFBF" stroke-width=".35"/></svg>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quant fa al plànol i escriu si hi cap.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">El full fa 20 cm de llarg.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Escala</th><th style="width:22%">De veritat</th><th style="width:22%">Al plànol</th><th style="width:22%">Hi cap?</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 : 100</td><td class="ms">15 m</td><td class="ms">15 cm</td><td class="ms">Sí</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">1 : 100</td><td class="dada">30 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">1 : 200</td><td class="dada">30 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">1 : 500</td><td class="dada">120 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>Directa o inversa?</h2>
+  <p class="mira">Com l'exercici 4 de la fitxa, a la pàgina 6.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca si és proporcionalitat directa o inversa.</div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Més litres de gasolina, més diners.</div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> Més velocitat, menys temps per arribar.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> Més entrades de cinema, més diners.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca si és proporcionalitat directa o inversa.</div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Més aixetes obertes, menys temps per omplir la banyera.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> Més pàgines, més temps per llegir el llibre.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> Més amics per pagar un regal, menys diners cadascú.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca si és proporcionalitat directa o inversa.</div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Més quilos de taronges, més diners.</div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> Més paletes, menys dies per fer el mur.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> Més quilòmetres en cotxe, més gasolina.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca si és proporcionalitat directa o inversa.</div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Més persones a la festa, més pizzes.</div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> Més autobusos, menys persones a cada autobús.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> Més minuts de trucada, més diners.</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="2" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Mira la taula i marca si és directa o inversa.</div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Les pomes.<br>    <table class="mini fila">
+      <tr><th>Quilos</th><td>1</td><td>2</td><td>3</td></tr>
+      <tr><th>Preu</th><td>3 €</td><td>6 €</td><td>9 €</td></tr>
+    </table>
+</div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">b)</span> Un pastís.<br>    <table class="mini fila">
+      <tr><th>Amics</th><td>2</td><td>4</td><td>8</td></tr>
+      <tr><th>Trossos</th><td>8</td><td>4</td><td>2</td></tr>
+    </table>
+</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+    <div style="margin-top:1.1rem"><span class="apartat">c)</span> La bicicleta.<br>    <table class="mini fila">
+      <tr><th>Hores</th><td>1</td><td>2</td><td>4</td></tr>
+      <tr><th>Quilòmetres</th><td>5</td><td>10</td><td>20</td></tr>
+    </table>
+</div>
+    <div class="tria">
+      <label><span class="quadret"></span>Directa</label>
+      <label><span class="quadret"></span>Inversa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Completa cada taula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.6rem"><span class="apartat">a)</span> Les pomes. Directa.</div>
+    <table class="mini fila">
+      <tr><th>Quilos</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+      <tr><th>Preu</th><td>2 €</td><td>4 €</td><td class="ms">6 €</td><td class="ms">8 €</td></tr>
+    </table>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Les entrades. Directa.</div>
+    <table class="mini fila">
+      <tr><th>Entrades</th><td>1</td><td>2</td><td>3</td><td>5</td></tr>
+      <tr><th>Preu</th><td>8 €</td><td>16 €</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Els pintors. Inversa.</div>
+    <table class="mini fila">
+      <tr><th>Pintors</th><td>1</td><td>2</td><td>3</td><td>6</td></tr>
+      <tr><th>Dies</th><td>12</td><td>6</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+    <div class="avis puntejat" style="margin-top:.8rem">A la inversa es divideix: 12 dies ÷ els pintors.</div>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>El plànol</h2>
+  <p class="mira">Com l'exercici 5 de la fitxa, a la pàgina 7.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les mides de veritat de cada espai.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Plànol d'un pis a escala 1 : 100.</p>
+    <svg class="planol" style="width:9.8cm" viewBox="0 0 98 68" role="img" aria-label="Plànol d'un pis amb quatre espais">
+      <g><rect x="4" y="4" width="60" height="40" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="64" y="4" width="30" height="30" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="64" y="34" width="30" height="15" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="4" y="44" width="40" height="20" fill="#F2F2F2" stroke="#000" stroke-width="1"/></g>
+      <g font-family="system-ui" font-size="4.6" fill="#000" text-anchor="middle"><text x="34" y="23.4">Sala</text><text x="34" y="29.4" font-size="4.3" fill="#5E5E5E">6 × 4 cm</text><text x="79" y="18.4">Habitació</text><text x="79" y="24.4" font-size="4.3" fill="#5E5E5E">3 × 3 cm</text><text x="79" y="40.9">Bany</text><text x="79" y="46.9" font-size="4.3" fill="#5E5E5E">3 × 1,5 cm</text><text x="24" y="53.4">Cuina</text><text x="24" y="59.4" font-size="4.3" fill="#5E5E5E">4 × 2 cm</text></g>
+    </svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Espai</th><th style="width:30%">Al plànol</th><th style="width:30%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Sala</td><td class="ms">6 × 4 cm</td><td class="ms">6 × 4 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Habitació</td><td class="dada">3 × 3 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Bany</td><td class="dada">3 × 1,5 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">Cuina</td><td class="dada">4 × 2 cm</td><td class="omplir"></td></tr>
+    </table>
+    <div class="avis puntejat"><span class="apartat">e)</span> Quin espai és el més gran? Encercla'l al plànol.</div>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les mides de veritat de cada espai.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Plànol d'una botiga a escala 1 : 100.</p>
+    <svg class="planol" style="width:10.8cm" viewBox="0 0 108 58" role="img" aria-label="Plànol d'una botiga amb tres espais">
+      <g><rect x="4" y="4" width="70" height="50" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="74" y="4" width="30" height="30" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="74" y="34" width="30" height="20" fill="#F2F2F2" stroke="#000" stroke-width="1"/></g>
+      <g font-family="system-ui" font-size="4.6" fill="#000" text-anchor="middle"><text x="39" y="28.4">Botiga</text><text x="39" y="34.4" font-size="4.3" fill="#5E5E5E">7 × 5 cm</text><text x="89" y="18.4">Magatzem</text><text x="89" y="24.4" font-size="4.3" fill="#5E5E5E">3 × 3 cm</text><text x="89" y="43.4">Lavabo</text><text x="89" y="49.4" font-size="4.3" fill="#5E5E5E">3 × 2 cm</text></g>
+    </svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Espai</th><th style="width:30%">Al plànol</th><th style="width:30%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Botiga</td><td class="ms">7 × 5 cm</td><td class="ms">7 × 5 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Magatzem</td><td class="dada">3 × 3 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Lavabo</td><td class="dada">3 × 2 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les mides de veritat de cada espai.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Plànol d'un apartament a escala 1 : 200.</p>
+    <svg class="planol" style="width:10.8cm" viewBox="0 0 108 78" role="img" aria-label="Plànol d'un apartament amb quatre espais">
+      <g><rect x="4" y="4" width="60" height="40" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="64" y="4" width="40" height="40" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="4" y="44" width="40" height="30" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="44" y="44" width="30" height="30" fill="#F2F2F2" stroke="#000" stroke-width="1"/></g>
+      <g font-family="system-ui" font-size="4.6" fill="#000" text-anchor="middle"><text x="34" y="23.4">Menjador</text><text x="34" y="29.4" font-size="4.3" fill="#5E5E5E">3 × 2 cm</text><text x="84" y="23.4">Habitació</text><text x="84" y="29.4" font-size="4.3" fill="#5E5E5E">2 × 2 cm</text><text x="24" y="58.4">Cuina</text><text x="24" y="64.4" font-size="4.3" fill="#5E5E5E">2 × 1,5 cm</text><text x="59" y="58.4">Bany</text><text x="59" y="64.4" font-size="4.3" fill="#5E5E5E">1,5 × 1,5 cm</text></g>
+    </svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Espai</th><th style="width:30%">Al plànol</th><th style="width:30%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Menjador</td><td class="ms">3 × 2 cm</td><td class="ms">6 × 4 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Habitació</td><td class="dada">2 × 2 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Cuina</td><td class="dada">2 × 1,5 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">Bany</td><td class="dada">1,5 × 1,5 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les mides de veritat de cada cosa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Plànol d'una habitació a escala 1 : 50.</p>
+    <svg class="planol" style="width:8.8cm" viewBox="0 0 88 68" role="img" aria-label="Plànol d'una habitació amb un llit, un armari i una taula">
+      <g><rect x="4" y="4" width="80" height="60" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="8" y="8" width="40" height="20" fill="#E4E4E4" stroke="#000" stroke-width="0.8"/><rect x="52" y="8" width="30" height="10" fill="#E4E4E4" stroke="#000" stroke-width="0.8"/><rect x="56" y="48" width="24" height="12" fill="#E4E4E4" stroke="#000" stroke-width="0.8"/></g>
+      <g font-family="system-ui" font-size="4.6" fill="#000" text-anchor="middle"><text x="44" y="35.6">Habitació</text><text x="28" y="19.6">Llit</text><text x="67" y="14.6">Armari</text><text x="68" y="55.6">Taula</text></g>
+    </svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">Què és</th><th style="width:30%">Al plànol</th><th style="width:30%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Llit</td><td class="ms">4 × 2 cm</td><td class="ms">2 × 1 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Armari</td><td class="dada">3 × 1 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Taula</td><td class="dada">2,4 × 1,2 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">Habitació</td><td class="dada">8 × 6 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="2" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula la superfície de veritat de cada espai.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Plànol d'una casa a escala 1 : 100.</p>
+    <svg class="planol" style="width:9.8cm" viewBox="0 0 98 68" role="img" aria-label="Plànol d'una casa amb quatre espais">
+      <g><rect x="4" y="4" width="50" height="40" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="54" y="4" width="40" height="30" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="54" y="34" width="20" height="20" fill="#F2F2F2" stroke="#000" stroke-width="1"/><rect x="4" y="44" width="30" height="20" fill="#F2F2F2" stroke="#000" stroke-width="1"/></g>
+      <g font-family="system-ui" font-size="4.6" fill="#000" text-anchor="middle"><text x="29" y="23.4">Sala</text><text x="29" y="29.4" font-size="4.3" fill="#5E5E5E">5 × 4 cm</text><text x="74" y="18.4">Habitació</text><text x="74" y="24.4" font-size="4.3" fill="#5E5E5E">4 × 3 cm</text><text x="64" y="43.4">Bany</text><text x="64" y="49.4" font-size="4.3" fill="#5E5E5E">2 × 2 cm</text><text x="19" y="53.4">Cuina</text><text x="19" y="59.4" font-size="4.3" fill="#5E5E5E">3 × 2 cm</text></g>
+    </svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Espai</th><th style="width:22%">Al plànol</th><th style="width:22%">De veritat</th><th style="width:22%">Superfície</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Sala</td><td class="ms">5 × 4 cm</td><td class="ms">5 × 4 m</td><td class="ms">20 m²</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Habitació</td><td class="dada">4 × 3 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Bany</td><td class="dada">2 × 2 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">Cuina</td><td class="dada">3 × 2 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quant fa la paret de veritat i escriu si hi cap el moble.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Plànol a escala 1 : 50.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Paret al plànol</th><th style="width:22%">De veritat</th><th style="width:22%">El moble</th><th style="width:22%">Hi cap?</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">5 cm</td><td class="ms">2,5 m</td><td class="ms esq">Sofà de 2 m</td><td class="ms">Sí</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">3 cm</td><td class="omplir"></td><td class="dada esq">Llit de 2 m</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">4 cm</td><td class="omplir"></td><td class="dada esq">Armari de 1,8 m</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">6 cm</td><td class="omplir"></td><td class="dada esq">Taula de 3,2 m</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>Quina oferta surt més a compte</h2>
+  <p class="mira">Com l'exercici 6 de la fitxa, a la pàgina 8.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca quina oferta surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Suc.</div>
+    <div class="parella-op">
+      <div class="oferta resolt">Brik d'1 L per 1,20 €<br>
+        <span class="ms">1,20 ÷ 1 = <b>1,20 € el litre</b></span></div>
+      <div class="oferta resolt">Pack de 3 L per 3,30 €<br>
+        <span class="ms">3,30 ÷ 3 = <b>1,10 € el litre</b></span></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>El brik</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>El pack</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Iogurts.</div>
+    <div class="parella-op">
+      <div class="oferta">1 iogurt per 0,50 €<br><b>0,50 ÷ 1 =</b></div>
+      <div class="oferta">Pack de 4 per 1,80 €<br><b>1,80 ÷ 4 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'1</label>
+      <label><span class="quadret"></span>El pack</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Oli.</div>
+    <div class="parella-op">
+      <div class="oferta">Ampolla d'1 L per 4 €<br><b>4,00 ÷ 1 =</b></div>
+      <div class="oferta">Garrafa de 5 L per 21 €<br><b>21,00 ÷ 5 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'ampolla</label>
+      <label><span class="quadret"></span>La garrafa</label>
+    </div>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca quina oferta surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Patates.</div>
+    <div class="parella-op">
+      <div class="oferta resolt">Bossa d'1 kg per 1,50 €<br>
+        <span class="ms">1,50 ÷ 1 = <b>1,50 € el quilo</b></span></div>
+      <div class="oferta resolt">Sac de 3 kg per 3,90 €<br>
+        <span class="ms">3,90 ÷ 3 = <b>1,30 € el quilo</b></span></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>La bossa</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>El sac</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Llapis.</div>
+    <div class="parella-op">
+      <div class="oferta">1 llapis per 0,60 €<br><b>0,60 ÷ 1 =</b></div>
+      <div class="oferta">Capsa de 10 per 5 €<br><b>5,00 ÷ 10 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'1</label>
+      <label><span class="quadret"></span>La capsa</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Sabó.</div>
+    <div class="parella-op">
+      <div class="oferta">Ampolla de 2 L per 6 €<br><b>6,00 ÷ 2 =</b></div>
+      <div class="oferta">Garrafa de 5 L per 16 €<br><b>16,00 ÷ 5 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'ampolla</label>
+      <label><span class="quadret"></span>La garrafa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca quina oferta surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Tomàquets.</div>
+    <div class="parella-op">
+      <div class="oferta resolt">1 kg per 2,40 €<br>
+        <span class="ms">2,40 ÷ 1 = <b>2,40 € el quilo</b></span></div>
+      <div class="oferta resolt">2 kg per 4,60 €<br>
+        <span class="ms">4,60 ÷ 2 = <b>2,30 € el quilo</b></span></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 kg</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 kg</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Aigua amb gas.</div>
+    <div class="parella-op">
+      <div class="oferta">Ampolla d'1 L per 0,80 €<br><b>0,80 ÷ 1 =</b></div>
+      <div class="oferta">Pack de 6 L per 5,40 €<br><b>5,40 ÷ 6 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'ampolla</label>
+      <label><span class="quadret"></span>El pack</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Pomes.</div>
+    <div class="parella-op">
+      <div class="oferta">1 kg per 1,90 €<br><b>1,90 ÷ 1 =</b></div>
+      <div class="oferta">Caixa de 5 kg per 8 €<br><b>8,00 ÷ 5 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 kg</label>
+      <label><span class="quadret"></span>La caixa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca quina oferta surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Farina.</div>
+    <div class="parella-op">
+      <div class="oferta resolt">1 kg per 1 €<br>
+        <span class="ms">1,00 ÷ 1 = <b>1,00 € el quilo</b></span></div>
+      <div class="oferta resolt">5 kg per 4,50 €<br>
+        <span class="ms">4,50 ÷ 5 = <b>0,90 € el quilo</b></span></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 kg</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>5 kg</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Llet de civada.</div>
+    <div class="parella-op">
+      <div class="oferta">1 L per 1,60 €<br><b>1,60 ÷ 1 =</b></div>
+      <div class="oferta">Pack de 6 L per 10,20 €<br><b>10,20 ÷ 6 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>1 L</label>
+      <label><span class="quadret"></span>El pack</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Retoladors.</div>
+    <div class="parella-op">
+      <div class="oferta">1 retolador per 1,20 €<br><b>1,20 ÷ 1 =</b></div>
+      <div class="oferta">Capsa de 12 per 12 €<br><b>12,00 ÷ 12 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>L'1</label>
+      <label><span class="quadret"></span>La capsa</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="1" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Marca quina de les tres ofertes surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Aigua.</div>
+    <div class="parella-op tres">
+      <div class="oferta resolt">1 L per 0,50 €<br>
+        <span class="ms">0,50 ÷ 1 = <b>0,50 € el litre</b></span></div>
+      <div class="oferta resolt">2 L per 0,80 €<br>
+        <span class="ms">0,80 ÷ 2 = <b>0,40 € el litre</b></span></div>
+      <div class="oferta resolt">5 L per 2,75 €<br>
+        <span class="ms">2,75 ÷ 5 = <b>0,55 € el litre</b></span></div>
+    </div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>1 L</label>
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 L</label>
+      <label><span class="quadret"></span>5 L</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Llet.</div>
+    <div class="parella-op tres">
+      <div class="oferta">1 L per 1 €<br><b>1,00 ÷ 1 =</b></div>
+      <div class="oferta">4 L per 3,60 €<br><b>3,60 ÷ 4 =</b></div>
+      <div class="oferta">6 L per 5,70 €<br><b>5,70 ÷ 6 =</b></div>
+    </div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>1 L</label>
+      <label><span class="quadret"></span>4 L</label>
+      <label><span class="quadret"></span>6 L</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Sabó de rentar.</div>
+    <div class="parella-op tres">
+      <div class="oferta">1 L per 2 €<br><b>2,00 ÷ 1 =</b></div>
+      <div class="oferta">3 L per 5,10 €<br><b>5,10 ÷ 3 =</b></div>
+      <div class="oferta">5 L per 9 €<br><b>9,00 ÷ 5 =</b></div>
+    </div>
+    <div class="tria compacta">
+      <label><span class="quadret"></span>1 L</label>
+      <label><span class="quadret"></span>3 L</label>
+      <label><span class="quadret"></span>5 L</label>
+    </div>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula el preu d'1 i marca quina botiga surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div style="margin-top:.7rem"><span class="apartat">a)</span> Iogurts.</div>
+    <div class="parella-op">
+      <div class="oferta resolt">3 × 2: te n'emportes 3 i en pagues 2. Cada un val 0,60 €.<br>
+        <span class="ms">0,60 × 2 = 1,20 € · 1,20 ÷ 3 = <b>0,40 € cada un</b></span></div>
+      <div class="oferta resolt">Una altra botiga: 0,45 € cada un.<br>
+        <span class="ms"><b>0,45 € cada un</b></span></div>
+    </div>
+    <div class="tria">
+      <label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>El 3 × 2</label>
+      <label><span class="quadret"></span>L'altra botiga</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">b)</span> Croissants.</div>
+    <div class="parella-op">
+      <div class="oferta">3 × 2: te n'emportes 3 i en pagues 2. Cada un val 0,90 €.<br>Pagues <span class="buit"></span> · 1 val <span class="buit"></span></div>
+      <div class="oferta">Una altra botiga: caixa de 6 per 3,30 €.<br><b>3,30 ÷ 6 =</b></div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>El 3 × 2</label>
+      <label><span class="quadret"></span>La caixa</label>
+    </div>
+    <div style="margin-top:1rem"><span class="apartat">c)</span> Sucs.</div>
+    <div class="parella-op">
+      <div class="oferta">El segon, a meitat de preu. Cada un val 2 €.<br>Pagues <span class="buit"></span> · 1 val <span class="buit"></span></div>
+      <div class="oferta">Una altra botiga: 1,40 € cada un.</div>
+    </div>
+    <div class="tria">
+      <label><span class="quadret"></span>La segona a meitat</label>
+      <label><span class="quadret"></span>L'altra botiga</label>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>A la vida de cada dia · el mapa</h2>
+  <p class="mira">Com l'exercici 7 de la fitxa, a la pàgina 9.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les distàncies de veritat al mapa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Al mapa del barri, 1 cm són 100 m de veritat.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: centímetres del mapa i m de veritat"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">al mapa (cm)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">de veritat (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><text x="396.4" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><text x="469.2" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">100</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">200</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><text x="396.4" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">300</text><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><text x="469.2" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">400</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">500</text></svg></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:52%">Recorregut</th><th style="width:18%">Al mapa</th><th style="width:18%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">De casa a l'escola</td><td class="ms">4 cm</td><td class="ms">400 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">De casa a la piscina</td><td class="dada">7 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">De casa a la biblioteca</td><td class="dada">2,5 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les distàncies de veritat al mapa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Al mapa del parc, 1 cm són 20 m de veritat.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: centímetres del mapa i m de veritat"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="60.7" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">al mapa (cm)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">de veritat (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="238.7" y1="46" x2="238.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="299.3" y1="46" x2="299.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="360.0" y1="46" x2="360.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="420.7" y1="46" x2="420.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="481.3" y1="46" x2="481.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="39" x2="238.7" y2="53" stroke="#000" stroke-width="2"/><text x="238.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="299.3" y1="39" x2="299.3" y2="53" stroke="#000" stroke-width="2"/><text x="299.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="360.0" y1="39" x2="360.0" y2="53" stroke="#000" stroke-width="2"/><text x="360.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="420.7" y1="39" x2="420.7" y2="53" stroke="#000" stroke-width="2"/><text x="420.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="481.3" y1="39" x2="481.3" y2="53" stroke="#000" stroke-width="2"/><text x="481.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="89" x2="238.7" y2="103" stroke="#000" stroke-width="2"/><text x="238.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">20</text><line x1="299.3" y1="89" x2="299.3" y2="103" stroke="#000" stroke-width="2"/><text x="299.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">40</text><line x1="360.0" y1="89" x2="360.0" y2="103" stroke="#000" stroke-width="2"/><text x="360.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">60</text><line x1="420.7" y1="89" x2="420.7" y2="103" stroke="#000" stroke-width="2"/><text x="420.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">80</text><line x1="481.3" y1="89" x2="481.3" y2="103" stroke="#000" stroke-width="2"/><text x="481.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">100</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">120</text></svg></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:52%">Recorregut</th><th style="width:18%">Al mapa</th><th style="width:18%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Fins a la font</td><td class="ms">3 cm</td><td class="ms">60 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">Fins als gronxadors</td><td class="dada">5 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Fins al bar</td><td class="dada">8 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les distàncies de veritat al mapa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Al mapa del barri, 1 cm són 50 m de veritat.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: centímetres del mapa i m de veritat"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="60.7" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">al mapa (cm)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">de veritat (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="238.7" y1="46" x2="238.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="299.3" y1="46" x2="299.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="360.0" y1="46" x2="360.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="420.7" y1="46" x2="420.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="481.3" y1="46" x2="481.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="39" x2="238.7" y2="53" stroke="#000" stroke-width="2"/><text x="238.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="299.3" y1="39" x2="299.3" y2="53" stroke="#000" stroke-width="2"/><text x="299.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="360.0" y1="39" x2="360.0" y2="53" stroke="#000" stroke-width="2"/><text x="360.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="420.7" y1="39" x2="420.7" y2="53" stroke="#000" stroke-width="2"/><text x="420.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="481.3" y1="39" x2="481.3" y2="53" stroke="#000" stroke-width="2"/><text x="481.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="89" x2="238.7" y2="103" stroke="#000" stroke-width="2"/><text x="238.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">50</text><line x1="299.3" y1="89" x2="299.3" y2="103" stroke="#000" stroke-width="2"/><text x="299.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">100</text><line x1="360.0" y1="89" x2="360.0" y2="103" stroke="#000" stroke-width="2"/><text x="360.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">150</text><line x1="420.7" y1="89" x2="420.7" y2="103" stroke="#000" stroke-width="2"/><text x="420.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">200</text><line x1="481.3" y1="89" x2="481.3" y2="103" stroke="#000" stroke-width="2"/><text x="481.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">250</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">300</text></svg></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:52%">Recorregut</th><th style="width:18%">Al mapa</th><th style="width:18%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">De casa al mercat</td><td class="ms">4 cm</td><td class="ms">200 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">De casa a la farmàcia</td><td class="dada">2 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">De casa a l'estació</td><td class="dada">10 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">De casa al camp de futbol</td><td class="dada">5,5 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula les distàncies de veritat al mapa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p class="nota-act">Al mapa de la comarca, 1 cm són 200 m de veritat.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: centímetres del mapa i m de veritat"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">al mapa (cm)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">de veritat (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><text x="396.4" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><text x="469.2" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">200</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">400</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><text x="396.4" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">600</text><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><text x="469.2" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">800</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1 000</text></svg></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:52%">Recorregut</th><th style="width:18%">Al mapa</th><th style="width:18%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Del poble al riu</td><td class="ms">3 cm</td><td class="ms">600 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">Del poble a l'ermita</td><td class="dada">5 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Del poble al càmping</td><td class="dada">1,5 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="2" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quants centímetres fa cada distància al mapa.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Al mapa, 1 cm són 50 m de veritat.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: centímetres del mapa i m de veritat"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="60.7" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">al mapa (cm)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">de veritat (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="238.7" y1="46" x2="238.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="299.3" y1="46" x2="299.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="360.0" y1="46" x2="360.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="420.7" y1="46" x2="420.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="481.3" y1="46" x2="481.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="39" x2="238.7" y2="53" stroke="#000" stroke-width="2"/><text x="238.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="299.3" y1="39" x2="299.3" y2="53" stroke="#000" stroke-width="2"/><text x="299.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="360.0" y1="39" x2="360.0" y2="53" stroke="#000" stroke-width="2"/><text x="360.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="420.7" y1="39" x2="420.7" y2="53" stroke="#000" stroke-width="2"/><text x="420.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="481.3" y1="39" x2="481.3" y2="53" stroke="#000" stroke-width="2"/><text x="481.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="89" x2="238.7" y2="103" stroke="#000" stroke-width="2"/><text x="238.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">50</text><line x1="299.3" y1="89" x2="299.3" y2="103" stroke="#000" stroke-width="2"/><text x="299.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">100</text><line x1="360.0" y1="89" x2="360.0" y2="103" stroke="#000" stroke-width="2"/><text x="360.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">150</text><line x1="420.7" y1="89" x2="420.7" y2="103" stroke="#000" stroke-width="2"/><text x="420.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">200</text><line x1="481.3" y1="89" x2="481.3" y2="103" stroke="#000" stroke-width="2"/><text x="481.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">250</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">300</text></svg></div>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:30%">De veritat</th><th style="width:30%">÷ 50</th><th style="width:30%">Al mapa</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">150 m</td><td class="ms">150 ÷ 50</td><td class="ms">3 cm</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">250 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">400 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">75 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Troba quant val 1 cm i després calcula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Al mapa, 2 cm són 100 m de veritat.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:44%">Al mapa</th><th style="width:44%">De veritat</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">1 cm</td><td class="ms">100 ÷ 2 = 50 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">6 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">3 cm</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">9 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</section>
+<section class="bloc">
+<div class="inici">
+  <h2>A la vida de cada dia · baixar a un</h2>
+  <p class="mira">Com l'exercici 8 de la fitxa, a la pàgina 9.</p>
+  <div class="exercici act" data-n="1">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Baixa a una persona i després calcula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Una truita per a 4 persones porta 8 ous.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:62%">Pregunta</th><th style="width:26%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Quants ous calen per a 1 persona?</td><td class="ms">8 ÷ 4 = 2 ous</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">I per a 6 persones?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Amb 10 ous, per a quantes persones n'hi ha prou?</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">Més persones, més ous. És directa o inversa?</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</div>
+  <div class="exercici act" data-n="2">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Baixa a una persona i després calcula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Uns macarrons per a 4 persones porten 400 g de pasta.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:62%">Pregunta</th><th style="width:26%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Quants macarrons calen per a 1 persona?</td><td class="ms">400 ÷ 4 = 100 g</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">I per a 3 persones?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Amb 700 g, per a quantes persones n'hi ha prou?</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Baixa a una persona i després calcula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">Un batut per a 2 persones porta 300 mL de llet.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:62%">Pregunta</th><th style="width:26%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Quanta llet cal per a 1 persona?</td><td class="ms">300 ÷ 2 = 150 mL</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">I per a 5 persones?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Amb 900 mL, per a quantes persones n'hi ha prou?</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Baixa a una entrada i després calcula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">5 entrades de cinema costen 35 €.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:62%">Pregunta</th><th style="width:26%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Quant val 1 entrada?</td><td class="ms">35 ÷ 5 = 7 €</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">I 8 entrades?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Amb 49 €, quantes entrades pots comprar?</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">Més entrades, més diners. És directa o inversa?</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="1" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Baixa a un pintor i després calcula.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">2 pintors pinten una casa en 6 dies.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:62%">Pregunta</th><th style="width:26%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Quants dies tardaria 1 pintor sol?</td><td class="ms">6 × 2 = 12 dies</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">I 3 pintors?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">I 4 pintors?</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada esq">Més pintors, menys dies. És directa o inversa?</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+  <div class="exercici act" data-n="3" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Baixa a una persona i calcula la recepta per a 6.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p class="nota-act">La recepta de les creps és per a 4 persones.</p>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:22%">Ingredient</th><th style="width:22%">Per a 4</th><th style="width:22%">Per a 1</th><th style="width:22%">Per a 6</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Farina</td><td class="ms">200 g</td><td class="ms">50 g</td><td class="ms">300 g</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">Llet</td><td class="dada">400 mL</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">Sucre</td><td class="dada">80 g</td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">Mantega</td><td class="dada">40 g</td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+</section>
+</main>
+
+<div class="quadern sol" id="solucionari">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 3 · Quadern d'activitats · full per al professorat</p>
+  <div class="abans">
+    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: cada bloc
+    torna a un exercici de la fitxa, i la frase de sota del títol diu quin. A dalt de la pàgina es
+    tria quantes activitats surten i si n'hi ha de repte (amb estrella). Els números de les
+    activitats i els d'aquest solucionari es tornen a comptar sols, i sempre coincideixen si
+    s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el filtre posat:
+    <code>quadern/ud3.html?n=1&amp;repte=1</code> (n: 1 petit, 2 mitjà, 3 elevat).</p>
+  </div>
+  <p><b>Quantes activitats surten:</b></p>
+  <table><tr><th></th><th>Petit</th><th>Mitjà</th><th>Elevat</th></tr><tr><td>Com les de la fitxa</td><td>8</td><td>16</td><td>32</td></tr><tr><td>Amb repte</td><td>12</td><td>24</td><td>48</td></tr></table>
+  <p>Les de repte no són més llargues ni tenen més text: fan el mateix camí al revés, hi afegeixen
+  un pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
+  <h3>Quant val 1 cm del plànol · com l'exercici 1 de la fitxa</h3>
+  <p><b>Error típic:</b> amb escales com 1 : 50 o 1 : 20, dir que 50 cm són 5 m. Si passa, torneu a la taula de la pàgina 1 de la fitxa: 100 cm = 1 m.</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Escala</th><th>1 cm són… (cm)</th><th>és a dir (m)</th></tr><tr><td>a)</td><td>1 : 100</td><td><b>100 cm</b></td><td><b>1 m</b></td></tr><tr><td>b)</td><td>1 : 300</td><td><b>300 cm</b></td><td><b>3 m</b></td></tr><tr><td>c)</td><td>1 : 400</td><td><b>400 cm</b></td><td><b>4 m</b></td></tr><tr><td>d)</td><td>1 : 1 000</td><td><b>1 000 cm</b></td><td><b>10 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Escala</th><th>1 cm són… (cm)</th><th>és a dir (m)</th></tr><tr><td>a)</td><td>1 : 200</td><td><b>200 cm</b></td><td><b>2 m</b></td></tr><tr><td>b)</td><td>1 : 600</td><td><b>600 cm</b></td><td><b>6 m</b></td></tr><tr><td>c)</td><td>1 : 20</td><td><b>20 cm</b></td><td><b>0,2 m</b></td></tr><tr><td>d)</td><td>1 : 5 000</td><td><b>5 000 cm</b></td><td><b>50 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Escala</th><th>1 cm són… (cm)</th><th>és a dir (m)</th></tr><tr><td>a)</td><td>1 : 50</td><td><b>50 cm</b></td><td><b>0,5 m</b></td></tr><tr><td>b)</td><td>1 : 150</td><td><b>150 cm</b></td><td><b>1,5 m</b></td></tr><tr><td>c)</td><td>1 : 800</td><td><b>800 cm</b></td><td><b>8 m</b></td></tr><tr><td>d)</td><td>1 : 10 000</td><td><b>10 000 cm</b></td><td><b>100 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Escala</th><th>1 cm són… (cm)</th><th>és a dir (m)</th></tr><tr><td>a)</td><td>1 : 500</td><td><b>500 cm</b></td><td><b>5 m</b></td></tr><tr><td>b)</td><td>1 : 250</td><td><b>250 cm</b></td><td><b>2,5 m</b></td></tr><tr><td>c)</td><td>1 : 2 000</td><td><b>2 000 cm</b></td><td><b>20 m</b></td></tr><tr><td>d)</td><td>1 : 25</td><td><b>25 cm</b></td><td><b>0,25 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="2" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>1 cm són… (m)</th><th>és a dir (cm)</th><th>Escala</th></tr><tr><td>a)</td><td>3 m</td><td><b>300 cm</b></td><td><b>1 : 300</b></td></tr><tr><td>b)</td><td>2 m</td><td><b>200 cm</b></td><td><b>1 : 200</b></td></tr><tr><td>c)</td><td>0,5 m</td><td><b>50 cm</b></td><td><b>1 : 50</b></td></tr><tr><td>d)</td><td>10 m</td><td><b>1 000 cm</b></td><td><b>1 : 1 000</b></td></tr></table><p class="per-que">El camí al revés: de «1 cm són 3 m» a l'escala. Primer cal passar els metres a centímetres (× 100), i aquest número és l'escala.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><p>a) <b>1 : 50</b> &nbsp;·&nbsp; b) <b>1 : 200</b> &nbsp;·&nbsp; c) <b>1 : 100</b> &nbsp;·&nbsp; d) <b>1 : 25</b></p><p class="per-que">No hi ha cap compte: és la frase de la pàgina 1 de la fitxa, «com més gran és el número, més petit surt el dibuix». Si dubta, que digui quant val 1 cm a cada escala: on 1 cm val menys, el dibuix ha de ser més gran.</p></div>
+  <h3>Del plànol a la realitat · com l'exercici 2 de la fitxa</h3>
+  <p>Sempre la mateixa cadena: <i>× l'escala</i> i després <i>÷ 100</i>. <b>Error típic:</b> oblidar el segon pas i deixar el resultat en centímetres (600 m en lloc de 6 m).</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Escala</th><th>Al plànol</th><th>× escala</th><th>De veritat</th></tr><tr><td>a)</td><td>1 : 100</td><td>4 cm</td><td><b>400 cm</b></td><td><b>4 m</b></td></tr><tr><td>b)</td><td>1 : 100</td><td>7 cm</td><td><b>700 cm</b></td><td><b>7 m</b></td></tr><tr><td>c)</td><td>1 : 100</td><td>3,5 cm</td><td><b>350 cm</b></td><td><b>3,5 m</b></td></tr><tr><td>d)</td><td>1 : 50</td><td>6 cm</td><td><b>300 cm</b></td><td><b>3 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Escala</th><th>Al plànol</th><th>× escala</th><th>De veritat</th></tr><tr><td>a)</td><td>1 : 200</td><td>3 cm</td><td><b>600 cm</b></td><td><b>6 m</b></td></tr><tr><td>b)</td><td>1 : 200</td><td>5 cm</td><td><b>1 000 cm</b></td><td><b>10 m</b></td></tr><tr><td>c)</td><td>1 : 50</td><td>10 cm</td><td><b>500 cm</b></td><td><b>5 m</b></td></tr><tr><td>d)</td><td>1 : 100</td><td>12 cm</td><td><b>1 200 cm</b></td><td><b>12 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Escala</th><th>Al plànol</th><th>× escala</th><th>De veritat</th></tr><tr><td>a)</td><td>1 : 50</td><td>4 cm</td><td><b>200 cm</b></td><td><b>2 m</b></td></tr><tr><td>b)</td><td>1 : 500</td><td>3 cm</td><td><b>1 500 cm</b></td><td><b>15 m</b></td></tr><tr><td>c)</td><td>1 : 100</td><td>8,5 cm</td><td><b>850 cm</b></td><td><b>8,5 m</b></td></tr><tr><td>d)</td><td>1 : 200</td><td>4,5 cm</td><td><b>900 cm</b></td><td><b>9 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Escala</th><th>Al plànol</th><th>× escala</th><th>De veritat</th></tr><tr><td>a)</td><td>1 : 300</td><td>2 cm</td><td><b>600 cm</b></td><td><b>6 m</b></td></tr><tr><td>b)</td><td>1 : 300</td><td>5 cm</td><td><b>1 500 cm</b></td><td><b>15 m</b></td></tr><tr><td>c)</td><td>1 : 50</td><td>9 cm</td><td><b>450 cm</b></td><td><b>4,5 m</b></td></tr><tr><td>d)</td><td>1 : 1 000</td><td>4 cm</td><td><b>4 000 cm</b></td><td><b>40 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="1" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Línia</th><th>Mesura</th><th>De veritat</th></tr><tr><td>a)</td><td>A</td><td><b>4 cm</b></td><td><b>4 m</b></td></tr><tr><td>b)</td><td>B</td><td><b>6 cm</b></td><td><b>6 m</b></td></tr><tr><td>c)</td><td>C</td><td><b>2,5 cm</b></td><td><b>2,5 m</b></td></tr><tr><td>d)</td><td>D</td><td><b>8 cm</b></td><td><b>8 m</b></td></tr></table><p>Les línies són de mida real si s'imprimeix al 100 %, sense «ajustar a la pàgina». Si la impressora escala el full, accepteu la mesura que surti i mireu només la conversió.</p><p class="per-que">La dada no la dona el paper: l'ha de mesurar. És el graó físic de la unitat (la cinta mètrica) portat al quadern.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Al mapa</th><th>× 25 000</th><th>De veritat</th></tr><tr><td>a)</td><td>2 cm</td><td><b>50 000 cm</b></td><td><b>500 m</b></td></tr><tr><td>b)</td><td>4 cm</td><td><b>100 000 cm</b></td><td><b>1 000 m</b></td></tr><tr><td>c)</td><td>6 cm</td><td><b>150 000 cm</b></td><td><b>1 500 m</b></td></tr><tr><td>d)</td><td>3 cm</td><td><b>75 000 cm</b></td><td><b>750 m</b></td></tr></table><p class="per-que">La mateixa cadena amb números molt grans: és l'apartat e de l'exercici 1 de la fitxa. La calculadora fa el compte; el que costa és no perdre's amb els zeros.</p></div>
+  <h3>De la realitat al plànol · com l'exercici 3 de la fitxa</h3>
+  <p>Ara la cadena va al revés: <i>× 100</i> per passar a centímetres i <i>÷ l'escala</i>. <b>Atenció a les escales 1 : 50:</b> el dibuix surt més gran que a 1 : 100 (3 m fan 6 cm, no 3 cm), com l'apartat c de la fitxa.</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Escala</th><th>De veritat</th><th>× 100</th><th>Al plànol</th></tr><tr><td>a)</td><td>1 : 100</td><td>4 m</td><td><b>400 cm</b></td><td><b>4 cm</b></td></tr><tr><td>b)</td><td>1 : 100</td><td>7 m</td><td><b>700 cm</b></td><td><b>7 cm</b></td></tr><tr><td>c)</td><td>1 : 100</td><td>2,5 m</td><td><b>250 cm</b></td><td><b>2,5 cm</b></td></tr><tr><td>d)</td><td>1 : 200</td><td>6 m</td><td><b>600 cm</b></td><td><b>3 cm</b></td></tr></table></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Escala</th><th>De veritat</th><th>× 100</th><th>Al plànol</th></tr><tr><td>a)</td><td>1 : 200</td><td>10 m</td><td><b>1 000 cm</b></td><td><b>5 cm</b></td></tr><tr><td>b)</td><td>1 : 200</td><td>8 m</td><td><b>800 cm</b></td><td><b>4 cm</b></td></tr><tr><td>c)</td><td>1 : 50</td><td>2 m</td><td><b>200 cm</b></td><td><b>4 cm</b></td></tr><tr><td>d)</td><td>1 : 500</td><td>30 m</td><td><b>3 000 cm</b></td><td><b>6 cm</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Escala</th><th>De veritat</th><th>× 100</th><th>Al plànol</th></tr><tr><td>a)</td><td>1 : 50</td><td>3 m</td><td><b>300 cm</b></td><td><b>6 cm</b></td></tr><tr><td>b)</td><td>1 : 50</td><td>1,5 m</td><td><b>150 cm</b></td><td><b>3 cm</b></td></tr><tr><td>c)</td><td>1 : 500</td><td>20 m</td><td><b>2 000 cm</b></td><td><b>4 cm</b></td></tr><tr><td>d)</td><td>1 : 100</td><td>9,5 m</td><td><b>950 cm</b></td><td><b>9,5 cm</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Escala</th><th>De veritat</th><th>× 100</th><th>Al plànol</th></tr><tr><td>a)</td><td>1 : 200</td><td>12 m</td><td><b>1 200 cm</b></td><td><b>6 cm</b></td></tr><tr><td>b)</td><td>1 : 1 000</td><td>50 m</td><td><b>5 000 cm</b></td><td><b>5 cm</b></td></tr><tr><td>c)</td><td>1 : 50</td><td>4,5 m</td><td><b>450 cm</b></td><td><b>9 cm</b></td></tr><tr><td>d)</td><td>1 : 200</td><td>5 m</td><td><b>500 cm</b></td><td><b>2,5 cm</b></td></tr></table></div>
+  <div class="sol-act" data-n="1" data-repte><p class="repte-sol">Repte</p><p>a) <b>5 cm</b> (5 quadrets) &nbsp;·&nbsp; b) <b>3 cm</b> &nbsp;·&nbsp; c) <b>8 cm</b> &nbsp;·&nbsp; d) <b>6,5 cm</b> (sis quadrets i mig)</p><p class="per-que">El resultat no s'escriu: es dibuixa. A 1 : 100, 1 m de veritat és 1 cm, o sigui un quadret. Si s'imprimeix escalat, els quadrets continuen sent la unitat: compteu quadrets, no centímetres.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Escala</th><th>De veritat</th><th>Al plànol</th><th>Hi cap?</th></tr><tr><td>a)</td><td>1 : 100</td><td>15 m</td><td><b>15 cm</b></td><td><b>Sí</b></td></tr><tr><td>b)</td><td>1 : 100</td><td>30 m</td><td><b>30 cm</b></td><td><b>No</b></td></tr><tr><td>c)</td><td>1 : 200</td><td>30 m</td><td><b>15 cm</b></td><td><b>Sí</b></td></tr><tr><td>d)</td><td>1 : 500</td><td>120 m</td><td><b>24 cm</b></td><td><b>No</b></td></tr></table><p class="per-que">Després del compte hi ha una decisió. Els apartats b i c tenen la mateixa paret de 30 m: a 1 : 100 no hi cap i a 1 : 200 sí. És per això que els plànols grans es fan amb escales de número gran.</p></div>
+  <h3>Directa o inversa? · com l'exercici 4 de la fitxa</h3>
+  <p>Com a la fitxa: si dubta, que digui en veu alta les dues meitats, «més… i més…» o «més… i menys…». La paraula «menys» ja li dona la resposta.</p>
+  <div class="sol-act" data-n="1"><p>a) <b>Directa</b> &nbsp;·&nbsp; b) <b>Inversa</b> &nbsp;·&nbsp; c) <b>Directa</b></p></div>
+  <div class="sol-act" data-n="2"><p>a) <b>Inversa</b> &nbsp;·&nbsp; b) <b>Directa</b> &nbsp;·&nbsp; c) <b>Inversa</b></p></div>
+  <div class="sol-act" data-n="3"><p>a) <b>Directa</b> &nbsp;·&nbsp; b) <b>Inversa</b> &nbsp;·&nbsp; c) <b>Directa</b></p></div>
+  <div class="sol-act" data-n="3"><p>a) <b>Directa</b> &nbsp;·&nbsp; b) <b>Inversa</b> &nbsp;·&nbsp; c) <b>Directa</b></p></div>
+  <div class="sol-act" data-n="2" data-repte><p class="repte-sol">Repte</p><p>a) <b>Directa</b> &nbsp;·&nbsp; b) <b>Inversa</b> &nbsp;·&nbsp; c) <b>Directa</b></p><p class="per-que">No hi ha frase: la relació s'ha de llegir als números. És el pas de la pàgina 4 de la fitxa, on les fletxes ↑ ↓ de sota de cada taula ho deien. Si costa, que hi dibuixi les fletxes.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><p>a) 6 € i 8 € (resolt) &nbsp;·&nbsp; b) <b>24 €</b> i <b>40 €</b> &nbsp;·&nbsp; c) <b>4 dies</b> i <b>2 dies</b></p><p class="per-que">Ara no només es reconeix la relació: s'ha de fer servir. A la inversa el truc és el producte fix: 1 pintor tarda 12 dies, i la feina es reparteix entre els pintors.</p></div>
+  <h3>El plànol · com l'exercici 5 de la fitxa</h3>
+  <p>A 1 : 100, els centímetres del plànol són els metres de veritat: el número no canvia. A les escales 1 : 200 i 1 : 50 sí que canvia, i és on es veu si ha entès la cadena. Els plànols a 1 : 100 són de mida real si s'imprimeix al 100 %; el de 1 : 200 està dibuixat el doble de gran perquè hi càpiguen els noms.</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Espai</th><th>Al plànol</th><th>De veritat</th></tr><tr><td>a)</td><td>Sala</td><td>6 × 4 cm</td><td><b>6 × 4 m</b></td></tr><tr><td>b)</td><td>Habitació</td><td>3 × 3 cm</td><td><b>3 × 3 m</b></td></tr><tr><td>c)</td><td>Bany</td><td>3 × 1,5 cm</td><td><b>3 × 1,5 m</b></td></tr><tr><td>d)</td><td>Cuina</td><td>4 × 2 cm</td><td><b>4 × 2 m</b></td></tr></table><p>e) La <b>sala</b>. Es pot decidir mirant el plànol, sense calcular.</p></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Espai</th><th>Al plànol</th><th>De veritat</th></tr><tr><td>a)</td><td>Botiga</td><td>7 × 5 cm</td><td><b>7 × 5 m</b></td></tr><tr><td>b)</td><td>Magatzem</td><td>3 × 3 cm</td><td><b>3 × 3 m</b></td></tr><tr><td>c)</td><td>Lavabo</td><td>3 × 2 cm</td><td><b>3 × 2 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Espai</th><th>Al plànol</th><th>De veritat</th></tr><tr><td>a)</td><td>Menjador</td><td>3 × 2 cm</td><td><b>6 × 4 m</b></td></tr><tr><td>b)</td><td>Habitació</td><td>2 × 2 cm</td><td><b>4 × 4 m</b></td></tr><tr><td>c)</td><td>Cuina</td><td>2 × 1,5 cm</td><td><b>4 × 3 m</b></td></tr><tr><td>d)</td><td>Bany</td><td>1,5 × 1,5 cm</td><td><b>3 × 3 m</b></td></tr></table><p>A 1 : 200, cada centímetre són 2 m: es multiplica per 2. <b>Error típic:</b> copiar els números del plànol com si fos 1 : 100.</p></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Què és</th><th>Al plànol</th><th>De veritat</th></tr><tr><td>a)</td><td>Llit</td><td>4 × 2 cm</td><td><b>2 × 1 m</b></td></tr><tr><td>b)</td><td>Armari</td><td>3 × 1 cm</td><td><b>1,5 × 0,5 m</b></td></tr><tr><td>c)</td><td>Taula</td><td>2,4 × 1,2 cm</td><td><b>1,2 × 0,6 m</b></td></tr><tr><td>d)</td><td>Habitació</td><td>8 × 6 cm</td><td><b>4 × 3 m</b></td></tr></table><p>A 1 : 50, cada centímetre són 0,5 m: el que és de veritat fa la meitat del número del plànol.</p></div>
+  <div class="sol-act" data-n="2" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Espai</th><th>Al plànol</th><th>De veritat</th><th>Superfície</th></tr><tr><td>a)</td><td>Sala</td><td>5 × 4 cm</td><td><b>5 × 4 m</b></td><td><b>20 m²</b></td></tr><tr><td>b)</td><td>Habitació</td><td>4 × 3 cm</td><td><b>4 × 3 m</b></td><td><b>12 m²</b></td></tr><tr><td>c)</td><td>Bany</td><td>2 × 2 cm</td><td><b>2 × 2 m</b></td><td><b>4 m²</b></td></tr><tr><td>d)</td><td>Cuina</td><td>3 × 2 cm</td><td><b>3 × 2 m</b></td><td><b>6 m²</b></td></tr></table><p>Tota la casa: 20 + 12 + 4 + 6 = <b>42 m²</b>, per si voleu allargar-ho.</p><p class="per-que">Un pas més que la fitxa: després de les mides, la superfície (llarg × ample). És la columna que el solucionari de la fitxa deixava com a ampliació.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Paret al plànol</th><th>De veritat</th><th>El moble</th><th>Hi cap?</th></tr><tr><td>a)</td><td>5 cm</td><td><b>2,5 m</b></td><td>Sofà de 2 m</td><td><b>Sí</b></td></tr><tr><td>b)</td><td>3 cm</td><td><b>1,5 m</b></td><td>Llit de 2 m</td><td><b>No</b></td></tr><tr><td>c)</td><td>4 cm</td><td><b>2 m</b></td><td>Armari de 1,8 m</td><td><b>Sí</b></td></tr><tr><td>d)</td><td>6 cm</td><td><b>3 m</b></td><td>Taula de 3,2 m</td><td><b>No</b></td></tr></table><p class="per-que">La conversió serveix per decidir. A 1 : 50 cada centímetre són 0,5 m. Els apartats b i d no hi caben: és el «no» que delata qui ha respost sense calcular.</p></div>
+  <h3>Quina oferta surt més a compte · com l'exercici 6 de la fitxa</h3>
+  <p><b>La regla trencada de la unitat:</b> el format gran no sempre guanya. A cada activitat hi ha algun apartat on guanya el petit (al solucionari, és on guanya l'ampolla, el brik o l'1). Si tria el gran sense dividir, és aquí on cal aturar-se: el preu d'1 és el que decideix.</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr><tr><td>a)</td><td>Suc</td><td>1,20 ÷ 1 = 1,20 € el litre · 3,30 ÷ 3 = 1,10 € el litre</td><td><b>El pack</b></td></tr><tr><td>b)</td><td>Iogurts</td><td>0,50 ÷ 1 = 0,50 € cada un · 1,80 ÷ 4 = 0,45 € cada un</td><td><b>El pack</b></td></tr><tr><td>c)</td><td>Oli</td><td>4,00 ÷ 1 = 4,00 € el litre · 21,00 ÷ 5 = 4,20 € el litre</td><td><b>L'ampolla</b></td></tr></table></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr><tr><td>a)</td><td>Patates</td><td>1,50 ÷ 1 = 1,50 € el quilo · 3,90 ÷ 3 = 1,30 € el quilo</td><td><b>El sac</b></td></tr><tr><td>b)</td><td>Llapis</td><td>0,60 ÷ 1 = 0,60 € cada un · 5,00 ÷ 10 = 0,50 € cada un</td><td><b>La capsa</b></td></tr><tr><td>c)</td><td>Sabó</td><td>6,00 ÷ 2 = 3,00 € el litre · 16,00 ÷ 5 = 3,20 € el litre</td><td><b>L'ampolla</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr><tr><td>a)</td><td>Tomàquets</td><td>2,40 ÷ 1 = 2,40 € el quilo · 4,60 ÷ 2 = 2,30 € el quilo</td><td><b>2 kg</b></td></tr><tr><td>b)</td><td>Aigua amb gas</td><td>0,80 ÷ 1 = 0,80 € el litre · 5,40 ÷ 6 = 0,90 € el litre</td><td><b>L'ampolla</b></td></tr><tr><td>c)</td><td>Pomes</td><td>1,90 ÷ 1 = 1,90 € el quilo · 8,00 ÷ 5 = 1,60 € el quilo</td><td><b>La caixa</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr><tr><td>a)</td><td>Farina</td><td>1,00 ÷ 1 = 1,00 € el quilo · 4,50 ÷ 5 = 0,90 € el quilo</td><td><b>5 kg</b></td></tr><tr><td>b)</td><td>Llet de civada</td><td>1,60 ÷ 1 = 1,60 € el litre · 10,20 ÷ 6 = 1,70 € el litre</td><td><b>1 L</b></td></tr><tr><td>c)</td><td>Retoladors</td><td>1,20 ÷ 1 = 1,20 € cada un · 12,00 ÷ 12 = 1,00 € cada un</td><td><b>La capsa</b></td></tr></table></div>
+  <div class="sol-act" data-n="1" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr><tr><td>a)</td><td>Aigua</td><td>0,50 ÷ 1 = 0,50 € el litre · 0,80 ÷ 2 = 0,40 € el litre · 2,75 ÷ 5 = 0,55 € el litre</td><td><b>2 L</b></td></tr><tr><td>b)</td><td>Llet</td><td>1,00 ÷ 1 = 1,00 € el litre · 3,60 ÷ 4 = 0,90 € el litre · 5,70 ÷ 6 = 0,95 € el litre</td><td><b>4 L</b></td></tr><tr><td>c)</td><td>Sabó de rentar</td><td>2,00 ÷ 1 = 2,00 € el litre · 5,10 ÷ 3 = 1,70 € el litre · 9,00 ÷ 5 = 1,80 € el litre</td><td><b>3 L</b></td></tr></table><p class="per-que">Tres opcions en lloc de dues, i a tots tres apartats guanya la del mig: ni la més petita ni la més gran. Qui aplica una regla («el gran» o «el petit») s'equivoca sempre.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Producte</th><th>El preu d'1</th><th>Guanya</th></tr><tr><td>a)</td><td>Iogurts</td><td>0,60 × 2 = 1,20 € · 1,20 ÷ 3 = 0,40 € cada un · 0,45 € cada un</td><td><b>El 3 × 2</b></td></tr><tr><td>b)</td><td>Croissants</td><td>0,90 × 2 = 1,80 € · 1,80 ÷ 3 = 0,60 € cada un · 3,30 ÷ 6 = 0,55 € cada un</td><td><b>La caixa</b></td></tr><tr><td>c)</td><td>Sucs</td><td>2 + 1 = 3 € · 3 ÷ 2 = 1,50 € cada un · 1,40 € cada un</td><td><b>L'altra botiga</b></td></tr></table><p class="per-que">Les ofertes del súper: abans de dividir, cal saber quant es paga de veritat. Al 3 × 2 es paguen 2 i te n'emportes 3. Als apartats b i c, l'oferta que sembla bona no guanya.</p></div>
+  <h3>A la vida de cada dia · el mapa · com l'exercici 7 de la fitxa</h3>
+  <p>La doble recta només arriba fins a uns quants centímetres: els apartats que en surten s'han de continuar fora del dibuix, multiplicant. Si la vol allargar amb el regle, deixeu-l'hi fer.</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Recorregut</th><th>Al mapa</th><th>De veritat</th></tr><tr><td>a)</td><td>De casa a l'escola</td><td>4 cm</td><td><b>400 m</b></td></tr><tr><td>b)</td><td>De casa a la piscina</td><td>7 cm</td><td><b>700 m</b></td></tr><tr><td>c)</td><td>De casa a la biblioteca</td><td>2,5 cm</td><td><b>250 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Recorregut</th><th>Al mapa</th><th>De veritat</th></tr><tr><td>a)</td><td>Fins a la font</td><td>3 cm</td><td><b>60 m</b></td></tr><tr><td>b)</td><td>Fins als gronxadors</td><td>5 cm</td><td><b>100 m</b></td></tr><tr><td>c)</td><td>Fins al bar</td><td>8 cm</td><td><b>160 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Recorregut</th><th>Al mapa</th><th>De veritat</th></tr><tr><td>a)</td><td>De casa al mercat</td><td>4 cm</td><td><b>200 m</b></td></tr><tr><td>b)</td><td>De casa a la farmàcia</td><td>2 cm</td><td><b>100 m</b></td></tr><tr><td>c)</td><td>De casa a l'estació</td><td>10 cm</td><td><b>500 m</b></td></tr><tr><td>d)</td><td>De casa al camp de futbol</td><td>5,5 cm</td><td><b>275 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Recorregut</th><th>Al mapa</th><th>De veritat</th></tr><tr><td>a)</td><td>Del poble al riu</td><td>3 cm</td><td><b>600 m</b></td></tr><tr><td>b)</td><td>Del poble a l'ermita</td><td>5 cm</td><td><b>1 000 m</b></td></tr><tr><td>c)</td><td>Del poble al càmping</td><td>1,5 cm</td><td><b>300 m</b></td></tr></table></div>
+  <div class="sol-act" data-n="2" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>De veritat</th><th>÷ 50</th><th>Al mapa</th></tr><tr><td>a)</td><td>150 m</td><td><b>150 ÷ 50</b></td><td><b>3 cm</b></td></tr><tr><td>b)</td><td>250 m</td><td><b>250 ÷ 50</b></td><td><b>5 cm</b></td></tr><tr><td>c)</td><td>400 m</td><td><b>400 ÷ 50</b></td><td><b>8 cm</b></td></tr><tr><td>d)</td><td>75 m</td><td><b>75 ÷ 50</b></td><td><b>1,5 cm</b></td></tr></table><p class="per-que">El camí al revés: dels metres al mapa es divideix. A la doble recta, és llegir de baix a dalt. L'apartat d (75 m → 1,5 cm) cau entre dues marques.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Al mapa</th><th>De veritat</th></tr><tr><td>a)</td><td>1 cm</td><td><b>100 ÷ 2 = 50 m</b></td></tr><tr><td>b)</td><td>6 cm</td><td><b>300 m</b></td></tr><tr><td>c)</td><td>3 cm</td><td><b>150 m</b></td></tr><tr><td>d)</td><td>9 cm</td><td><b>450 m</b></td></tr></table><p class="per-que">L'escala no diu quant val 1 cm: primer cal baixar a 1 cm (100 ÷ 2 = 50 m), que és el pas de la recepta de l'exercici 8 de la fitxa. Després, com sempre: × 50.</p></div>
+  <h3>A la vida de cada dia · baixar a un · com l'exercici 8 de la fitxa</h3>
+  <p>Sempre el mateix pas: baixar a una persona (o a una entrada) dividint, i després multiplicar. <b>L'apartat c de cada activitat va al revés</b> (de la quantitat a les persones), com el 350 g de la fitxa: és el que mostra si ho ha entès.</p>
+  <div class="sol-act" data-n="1"><table><tr><th></th><th>Pregunta</th><th>Resposta</th></tr><tr><td>a)</td><td>Quants ous calen per a 1 persona?</td><td><b>8 ÷ 4 = 2 ous</b></td></tr><tr><td>b)</td><td>I per a 6 persones?</td><td><b>2 × 6 = 12 ous</b></td></tr><tr><td>c)</td><td>Amb 10 ous, per a quantes persones n'hi ha prou?</td><td><b>10 ÷ 2 = 5 persones</b></td></tr><tr><td>d)</td><td>Més persones, més ous. És directa o inversa?</td><td><b>Directa</b></td></tr></table></div>
+  <div class="sol-act" data-n="2"><table><tr><th></th><th>Pregunta</th><th>Resposta</th></tr><tr><td>a)</td><td>Quants macarrons calen per a 1 persona?</td><td><b>400 ÷ 4 = 100 g</b></td></tr><tr><td>b)</td><td>I per a 3 persones?</td><td><b>100 × 3 = 300 g</b></td></tr><tr><td>c)</td><td>Amb 700 g, per a quantes persones n'hi ha prou?</td><td><b>700 ÷ 100 = 7 persones</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Pregunta</th><th>Resposta</th></tr><tr><td>a)</td><td>Quanta llet cal per a 1 persona?</td><td><b>300 ÷ 2 = 150 mL</b></td></tr><tr><td>b)</td><td>I per a 5 persones?</td><td><b>150 × 5 = 750 mL</b></td></tr><tr><td>c)</td><td>Amb 900 mL, per a quantes persones n'hi ha prou?</td><td><b>900 ÷ 150 = 6 persones</b></td></tr></table></div>
+  <div class="sol-act" data-n="3"><table><tr><th></th><th>Pregunta</th><th>Resposta</th></tr><tr><td>a)</td><td>Quant val 1 entrada?</td><td><b>35 ÷ 5 = 7 €</b></td></tr><tr><td>b)</td><td>I 8 entrades?</td><td><b>7 × 8 = 56 €</b></td></tr><tr><td>c)</td><td>Amb 49 €, quantes entrades pots comprar?</td><td><b>49 ÷ 7 = 7 entrades</b></td></tr><tr><td>d)</td><td>Més entrades, més diners. És directa o inversa?</td><td><b>Directa</b></td></tr></table></div>
+  <div class="sol-act" data-n="1" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Pregunta</th><th>Resposta</th></tr><tr><td>a)</td><td>Quants dies tardaria 1 pintor sol?</td><td><b>6 × 2 = 12 dies</b></td></tr><tr><td>b)</td><td>I 3 pintors?</td><td><b>12 ÷ 3 = 4 dies</b></td></tr><tr><td>c)</td><td>I 4 pintors?</td><td><b>12 ÷ 4 = 3 dies</b></td></tr><tr><td>d)</td><td>Més pintors, menys dies. És directa o inversa?</td><td><b>Inversa</b></td></tr></table><p class="per-que">La mateixa idea de baixar a un, en una inversa: 1 pintor sol tarda <b>més</b>, i per això aquí es multiplica (6 × 2) i després es divideix. <b>Error típic:</b> 6 ÷ 2 = 3 dies per a 1 pintor. Si passa, que digui en veu alta si un pintor sol ha de tardar més o menys.</p></div>
+  <div class="sol-act" data-n="3" data-repte><p class="repte-sol">Repte</p><table><tr><th></th><th>Ingredient</th><th>Per a 4</th><th>Per a 1</th><th>Per a 6</th></tr><tr><td>a)</td><td>Farina</td><td>200 g</td><td><b>50 g</b></td><td><b>300 g</b></td></tr><tr><td>b)</td><td>Llet</td><td>400 mL</td><td><b>100 mL</b></td><td><b>600 mL</b></td></tr><tr><td>c)</td><td>Sucre</td><td>80 g</td><td><b>20 g</b></td><td><b>120 g</b></td></tr><tr><td>d)</td><td>Mantega</td><td>40 g</td><td><b>10 g</b></td><td><b>60 g</b></td></tr></table><p class="per-que">Quatre ingredients amb el mateix camí: ÷ 4 i després × 6. És la recepta de la fitxa completa, i fa veure que el pas de baixar a un serveix per a tot.</p></div>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Com a la fitxa, l'objectiu no és calcular bé: és saber en quin sentit va la conversió (del plànol a la realitat es multiplica, de la realitat al plànol es divideix) i decidir. Un error de divisió no hauria de fer baixar la valoració si la cadena és correcta. Les activitats de repte compten per als nivells alts (AN, AE), no per al mínim.</p>
+</div>
+
+<script src="../js/quadern.js"></script>
+</body>
+</html>

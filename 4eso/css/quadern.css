@@ -1,0 +1,139 @@
+/* ============================================================================
+   quadern.css · el quadern d'activitats de cada unitat (quadern/udN.html)
+   ----------------------------------------------------------------------------
+   S'enllaça DESPRÉS de fitxa.css: el quadern fa servir les mateixes peces que la
+   fitxa (taules, cadena, ofertes, opcions per marcar, lletra manuscrita) i aquí
+   només hi ha el que és seu.
+
+   Dues diferències amb la fitxa:
+     · No té pàgines fixes. Les activitats que surten depenen del filtre, i el
+       navegador les reparteix en fulls A4 sense partir-ne cap (break-inside).
+       El número de pàgina el posa @page, al peu.
+     · Té una barra de filtre, només a la pantalla, que fa servir js/quadern.js.
+
+   Blanc i negre estricte, com fitxa.css: eines/comprova.py ho comprova.
+   ========================================================================== */
+
+[hidden] { display: none !important }
+
+/* ------------------------------------------------------- el document -- */
+
+.quadern {
+  background: #fff;
+  max-width: 21cm;
+  margin: 0 auto 1rem;
+  padding: 1.6cm 1.6cm 1.8cm;
+  counter-reset: act;
+}
+.subtitol-q { font-size: 17pt; font-weight: 700; color: var(--gris-2); margin: .3rem 0 0 }
+
+/* La llegenda de l'estrella: només quan hi ha activitats de repte. */
+.llegenda { display: flex; align-items: center; gap: .5rem; font-size: 14pt; margin: .7rem 0 0 }
+.llegenda .estrella { margin: 0 }
+body:not(.amb-repte) .llegenda { display: none }
+
+.bloc { margin-top: 1.7rem }
+.bloc h2 { margin: 0 }
+.mira { font-size: 14pt; color: var(--gris-2); margin: .1rem 0 .8rem }
+/* El títol del bloc va amb la primera activitat: no es queda sol a baix d'una pàgina. */
+.inici { break-inside: avoid; page-break-inside: avoid }
+
+/* El número de cada activitat el posa un comptador: les amagades no compten, i
+   el solucionari, amb el mateix filtre, compta igual. */
+.act { counter-increment: act }
+.act .tasca .n::before { content: counter(act) }
+.estrella { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; margin-top: .3rem; display: inline-block }
+
+/* La icona de la calculadora o del regle, al costat de la consigna i no a sota: estalvia
+   una línia a cada activitat. */
+.act .q .ico { display: inline-block }
+
+.nota-act { font-size: 14pt; color: var(--gris-2); margin: 0 0 .35rem }
+.buit { display: inline-block; min-width: 2.4cm; border-bottom: 2.5px solid var(--tinta); height: 1.15em;
+        vertical-align: -.15em }
+
+/* Tres ofertes per apartat: més estretes perquè hi càpiguen en una fila. */
+.parella-op.tres > * { min-width: 4.6cm }
+
+/* La taula horitzontal de directa i inversa (magnitud a l'esquerra). */
+table.fila th { width: 30% }
+table.fila td.omplir { height: 1.35cm }
+table.fila td.ms { font-size: 19.5pt }
+
+/* Els dibuixos de mida real (plànols, línies per mesurar, quadrícula): l'amplada en
+   cm la posa el generador, i no es pot encongir si es vol mesurar amb el regle. */
+svg.planol, svg.real-cm { max-width: 100%; margin: .3rem auto .4rem }
+
+/* ---------------------------------------------------- el solucionari -- */
+
+.quadern.sol { counter-reset: solact; break-before: page; page-break-before: always }
+.sol-act { counter-increment: solact; margin: .5rem 0 .9rem; padding-left: 2.1rem; position: relative;
+           break-inside: avoid }
+.sol-act::before { content: counter(solact) "."; position: absolute; left: 0; top: 0;
+                   font-weight: 800; font-size: 13pt }
+.sol-act table { margin: .2rem 0 }
+.sol-act p { margin: .25rem 0 }
+.repte-sol { display: inline-block; border: 1.5px solid var(--tinta); border-radius: 999px;
+             padding: 0 .55rem; font-size: 10pt; font-weight: 700; margin: 0 0 .2rem !important }
+.per-que { color: var(--gris-1) }
+
+/* A la pantalla, el solucionari no es veu fins que el docent el demana. */
+@media screen { body:not(.veu-sol) .quadern.sol { display: none } }
+
+/* ------------------------------------------- la barra del filtre (pantalla) -- */
+
+.filtres {
+  position: sticky; top: 0; z-index: 5;
+  max-width: 21cm; margin: .6rem auto 1rem;
+  background: #fff; border: 2px solid var(--tinta); border-radius: 12px;
+  padding: .7rem 1rem .8rem;
+  display: flex; flex-wrap: wrap; gap: .7rem 1.6rem; align-items: flex-end;
+  font: 15px/1.35 var(--paper-cos);
+}
+.filtres .et { display: block; font-weight: 700; margin-bottom: .3rem }
+.filtres .botons { display: flex; flex-wrap: wrap; gap: .4rem }
+.filtres .accions { flex-basis: 100% }
+.recompte { margin: 0 0 .4rem; font-weight: 700 }
+.recompte:empty { display: none }
+
+/* Tot el que es clica: vora negra gruixuda i fons gris clar en passar-hi el ratolí o en
+   arribar-hi amb el teclat, sense que canviï de mida (la vora de 2 px no canvia: el gruix
+   de més el fa l'ombra). */
+.filtres button, .navega a.boto {
+  font: inherit; font-weight: 600; color: var(--tinta);
+  min-height: 44px; padding: .45rem .95rem;
+  background: #fff; border: 2px solid var(--gris-2); border-radius: 10px;
+  cursor: pointer; display: inline-flex; align-items: center; gap: .4rem;
+  text-decoration: none;
+}
+.filtres button small { font-weight: 400; font-size: 13px }
+.filtres button .estrella { width: 1.2rem; height: 1.2rem; margin: 0 }
+.filtres button[aria-pressed="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta) }
+.filtres button[aria-pressed="true"] .estrella { filter: invert(1) }
+.filtres button:hover, .filtres button:focus-visible,
+.navega a:hover, .navega a:focus-visible {
+  border-color: #000; box-shadow: 0 0 0 1.5px #000; background: var(--fons-2); color: #000; outline: none;
+}
+.filtres button:hover .estrella, .filtres button:focus-visible .estrella { filter: none }
+.navega a { border-radius: 8px; padding: .2rem .4rem; border: 2px solid transparent }
+.navega a.boto { min-height: 0; padding: .2rem .8rem; border-radius: 999px; border-color: var(--gris-2) }
+
+/* ---------------------------------------------------------- impressió -- */
+
+@page {
+  size: A4;
+  margin: 1.3cm 1.4cm 1.6cm;
+  @bottom-left  { font: 10.5pt system-ui, sans-serif; color: #8A8A8A }
+  @bottom-right { content: "pàgina " counter(page); font: 10.5pt system-ui, sans-serif; color: #8A8A8A }
+}
+
+@media print {
+  .filtres, .navega { display: none }
+  .quadern { margin: 0; max-width: none; padding: 0 }
+  .bloc { margin-top: 1.1rem }
+  /* Ctrl+P o «Imprimeix el quadern»: les activitats, sense el solucionari.
+     «Imprimeix el solucionari»: només el solucionari. */
+  .quadern.sol { display: none }
+  body.nomes-sol .alumnat { display: none }
+  body.nomes-sol .quadern.sol { display: block; break-before: auto; page-break-before: auto }
+}

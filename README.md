@@ -13,7 +13,7 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 
 | Carpeta o fitxer | Què hi ha |
 |---|---|
-| `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes i les seves fitxes de repàs, tres targetes de consulta, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
+| `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes i les seves fitxes de repàs, el quadern d'activitats de la UD3, tres targetes de consulta, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
 | `1eso/` | Tot el material de Matemàtiques: les targetes de consulta, les fitxes, la caixa d'eines i el test. Vegeu [`1eso/README.md`](1eso/README.md) |
 | `comu/` | El que comparteixen els dos materials: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
 | `index.html` | La porta d'entrada: deixa triar entre `4eso/` i `1eso/` |
@@ -23,7 +23,7 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
 | `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub, i les comprovacions automàtiques. Si es pugen dos zip seguits, el segon espera el primer; i si les comprovacions fallen, no es desa res i el zip es queda a `_uploads/` |
 
-Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `css/`, `js/`, `dades/`, `pdf/`,
+Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `quadern/`, `css/`, `js/`, `dades/`, `pdf/`,
 `docs/`, `eines/` i `generadors/`. Les ordres de la seva documentació s'executen des de
 dins: `cd 4eso/`.
 
@@ -151,6 +151,7 @@ Les proves que obren un navegador (Playwright) es passen a mà, abans de lliurar
 ```bash
 python3 1eso/eines/prova_caixa.py      # la caixa de 1eso/, de punta a punta
 python3 4eso/eines/prova_caixa.py      # la caixa de 4eso/
+python3 4eso/eines/prova_quadern.py    # el filtre dels quaderns d'activitats de 4eso/
 python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
 python3 4eso/eines/auditoria.py
 ```

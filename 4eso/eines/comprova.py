@@ -112,6 +112,56 @@ for f in sorted(glob.glob(ruta('targetes', '*.html'))):
     print(f"  {nom:18} {len(cares)} cares · html {'ok' if estructura else 'ERROR'}"
           f" · color {'cap' if not color else color}")
 
+SENCER_Q = re.compile(r'\b(nombres?|quantitats?|coses?|xifres?|dos)\s+sencer(s|a|es)?\b', re.I)
+
+print("\nQUADERNS")
+# El quadern d'activitats de cada unitat (quadern/udN.html): B/N com les fitxes, i el
+# filtre ha de poder treure activitats sense deixar el solucionari descompassat. No
+# s'edita a mà: el fa generadors/gen_quadern.py a partir de generadors/quadern/udN.py,
+# i aquí es torna a fer per veure que el fitxer publicat és el que surt del generador.
+css_quadern = open(ruta('css', 'quadern.css'), encoding='utf-8').read()
+comprova(not cromatics(css_quadern), "css/quadern.css conté color")
+sys.path.insert(0, ruta('generadors'))
+import gen_quadern   # noqa: E402  (només biblioteca estàndard)
+fonts_q = gen_quadern.unitats()
+fitxers_q = sorted(int(re.search(r'ud(\d+)\.html$', f)[1]) for f in glob.glob(ruta('quadern', 'ud*.html')))
+comprova(fonts_q == fitxers_q, f"quaderns: generadors/quadern/ té {fonts_q} i quadern/ té {fitxers_q}")
+for f in sorted(glob.glob(ruta('quadern', '*.html'))):
+    nom = os.path.basename(f)
+    s = open(f, encoding='utf-8').read()
+    e = Estructura(); e.feed(s)
+    estructura = not e.err and not e.pila
+    color = cromatics(s)
+    acts = re.findall(r'<div class="exercici act" data-n="(\d)"( data-repte)?>', s)
+    sols = re.findall(r'<div class="sol-act" data-n="(\d)"( data-repte)?>', s)
+    comprova(re.fullmatch(r'ud\d+\.html', nom), f"quadern/{nom}: nom de quadern desconegut")
+    comprova(estructura, f"quadern/{nom}: HTML mal tancat")
+    comprova(not color, f"quadern/{nom}: hi ha color ({color})")
+    comprova('../css/fitxa.css' in s and '../css/quadern.css' in s and '../js/quadern.js' in s,
+             f"quadern/{nom}: ha d'enllaçar css/fitxa.css, css/quadern.css i js/quadern.js")
+    comprova(acts and acts == sols, f"quadern/{nom}: les activitats i el solucionari no porten les mateixes marques")
+    # Cada bloc comença amb una activitat que surt sempre (petit, sense repte): cap
+    # filtre no deixa un títol de bloc sense activitats.
+    primeres = re.findall(r'<div class="inici">.*?<div class="exercici act" data-n="(\d)"( data-repte)?>', s, re.S)
+    comprova(primeres and all(p == ('1', '') for p in primeres),
+             f"quadern/{nom}: algun bloc no comença amb una activitat de petit sense repte")
+    # Consignes d'una sola frase i curtes, com a la fitxa (regla 3 i Lectura Fàcil).
+    for q in re.findall(r'<div class="q">(.*?)(?:\n|</div>)', s):
+        q = re.sub(r'<[^>]+>', '', q)
+        comprova(len(re.findall(r"[\w·'’]+", q)) <= 20, f"quadern/{nom}: consigna de més de 20 paraules: «{q}»")
+    alumnat = re.sub(r'<!--.*?-->', '', s[:s.index('<div class="quadern sol"')], flags=re.S)
+    comprova(not re.search(r'adapta(t|da|ts|des|ció|cions)\b', alumnat, re.I),
+             f"quadern/{nom}: l'alumnat no ha de llegir «adaptat»")
+    comprova(not SENCER_Q.search(alumnat), f"quadern/{nom}: «sencer» parlant de nombres (el terme és «enter»)")
+    n = int(re.search(r'ud(\d+)', nom)[1])
+    if n in fonts_q:
+        comprova(gen_quadern.genera(n) == s,
+                 f"quadern/{nom} no és el que surt de generadors/quadern/ud{n}.py "
+                 "(no s'edita a mà: passa python3 generadors/gen_quadern.py)")
+    quants = [sum(1 for a, b in acts if int(a) <= k and (rep or not b)) for rep in (False, True) for k in (1, 2, 3)]
+    print(f"  {nom:12} html {'ok' if estructura else 'ERROR'} · color {'cap' if not color else color}"
+          f" · activitats {quants[0]}/{quants[1]}/{quants[2]}, amb repte {quants[3]}/{quants[4]}/{quants[5]}")
+
 print("\nCAIXA D'EINES")
 app = open(ruta('caixa-eines.html'), encoding='utf-8').read()
 e = Estructura(); e.feed(app)
@@ -519,6 +569,11 @@ repassos = re.findall(r'tancament: "(fitxes/[\w-]+\.html)"', dades)
 targetes = re.findall(r'\{ nom: "([\w-]+)"', dades)
 for u in unitats + repassos:
     comprova(os.path.exists(ruta(u)), f"dades/unitats.js apunta a {u}, que no existeix")
+quaderns = re.findall(r'quadern: "(quadern/[\w-]+\.html)"', dades)
+for q in quaderns:
+    comprova(os.path.exists(ruta(q)), f"dades/unitats.js apunta a {q}, que no existeix")
+comprova(sorted(quaderns) == sorted(os.path.relpath(f, ARREL) for f in glob.glob(ruta('quadern', '*.html'))),
+         "els quaderns declarats a dades/unitats.js no coincideixen amb els de quadern/")
 for n in targetes:
     comprova(os.path.exists(ruta('targetes', n + '.html')), f"dades/unitats.js apunta a la targeta {n}, que no existeix")
 al_disc = glob.glob(ruta('fitxes', '*.html'))
@@ -527,7 +582,7 @@ comprova(len(unitats) + len(repassos) == len(al_disc),
 comprova(sorted(targetes) == sorted(os.path.basename(f)[:-5] for f in glob.glob(ruta('targetes', '*.html'))),
          "les targetes declarades no coincideixen amb les de targetes/")
 print(f"  unitats: {len(unitats)} · fitxes de repàs: {len(repassos)} · fitxes al disc: {len(al_disc)}"
-      f" · targetes: {len(targetes)}")
+      f" · quaderns: {len(quaderns)} · targetes: {len(targetes)}")
 
 print()
 if falles:

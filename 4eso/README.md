@@ -7,8 +7,9 @@ Material de matemàtiques per a **alumnat amb dificultats de tipus cognitiu** qu
 part de les hores a l'**aula de suport** i l'altra a l'aula ordinària, en l'itinerari
 d'**Aplicades**.
 
-Set fitxes imprimibles, amb una fitxa de repàs per unitat, tres targetes de consulta, una
-caixa d'eines digital i la documentació que explica per què tot és com és.
+Set fitxes imprimibles, amb una fitxa de repàs per unitat, un quadern d'activitats per
+practicar (de moment, el de la UD3), tres targetes de consulta, una caixa d'eines digital i
+la documentació que explica per què tot és com és.
 
 ---
 
@@ -33,6 +34,7 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
 | `fitxes/udN-repas.html` | la fitxa de repàs de cada unitat: el dibuix de la unitat, «Una de cada» i «Què he après?». No s'editen a mà: les fa `generadors/gen_repas.py` |
+| `quadern/udN.html` | el quadern d'activitats d'una unitat, per practicar després de la fitxa, amb un filtre de quantitat i de repte. No s'edita a mà: el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py`. De moment, només el de la UD3 |
 | `targetes/` | tres targetes de consulta per tenir a la taula (calculadora, percentatges i escales, paràboles, dades i atzar), a doble cara |
 | `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |
 | `textos.html` | pàgina per canviar-les sense tocar codi |
@@ -152,10 +154,59 @@ porta la lletra Caveat a dins.
 tornen a fer amb `python3 generadors/gen_repas.py`. El dibuix de la seva pàgina 1 surt de la
 pàgina 1 de la fitxa de la unitat: si aquesta canvia, cal tornar a passar `gen_repas.py`.
 
+**Els quaderns d'activitats tampoc.** Vegeu l'apartat següent.
+
 **Si canvies un gràfic**, canvia el seu generador (`generadors/gen_grafics*.py`) i passa
 `python3 generadors/posa_grafics.py`: torna a fer tots els gràfics i els posa a les fitxes,
 on cada un va entre dos marcadors (`<!--grafic:NOM-->…<!--/grafic-->`). Després,
 `mesura.py` i `gen_pdf.py`.
+
+---
+
+## El quadern d'activitats
+
+Per practicar **després** de la fitxa. Està fet de blocs, un per cada exercici de la fitxa i
+en el mateix ordre, i el subtítol de cada bloc diu quin exercici és i a quina pàgina («Com
+l'exercici 2 de la fitxa, a la pàgina 5»). Té els mateixos criteris que la fitxa: blanc i
+negre, cap paràgraf, 14 pt cap amunt i el primer apartat de cada activitat resolt en lletra
+manuscrita.
+
+A dalt de la pàgina, només a la pantalla, hi ha el filtre:
+
+| | |
+|---|---|
+| **Nombre d'activitats** | **Petit**: una activitat per exercici de la fitxa. **Mitjà**: dues. **Elevat**: quatre. Cada quantitat conté l'anterior |
+| **Tipus** | **Com les de la fitxa**: només germanes (el mateix exercici amb altres números i contextos). **Amb repte**: s'hi afegeixen activitats una mica diferents (el camí al revés, un pas més, una decisió nova), marcades amb una estrella. A petit n'hi ha una per cada dos blocs; a mitjà, una per bloc; a elevat, dues |
+
+| UD3 | Petit | Mitjà | Elevat |
+|---|---|---|---|
+| Com les de la fitxa | 8 activitats · 5 pàgines | 16 · 10 pàgines | 32 · 19 pàgines |
+| Amb repte | 12 · 8 pàgines | 24 · 15 pàgines | 48 · 29 pàgines |
+
+Hi ha tres botons: **Imprimeix el quadern** (les activitats, sense el solucionari; Ctrl+P fa
+el mateix), **Imprimeix el solucionari** (només el solucionari, amb les mateixes activitats
+del filtre i els mateixos números) i **Mostra el solucionari** (a la pantalla està amagat). Les
+activitats no es parteixen mai entre dues pàgines, i el número de pàgina surt al peu.
+
+El filtre queda a l'adreça, i es pot enviar un enllaç amb el filtre posat:
+`quadern/ud3.html?n=1&repte=1` (`n`: 1 petit, 2 mitjà, 3 elevat; `repte`: 0 o 1). Des de
+`fitxes.html`, al detall de la unitat, hi ha els tres enllaços.
+
+**Com es canvia o s'amplia.** El contingut és a `generadors/quadern/udN.py`: cada activitat
+diu a partir de quina quantitat surt (`act(1, …)`, `act(2, …)`, `act(3, …)`) i si és de
+repte (`repte=True`). Els números de les respostes es calculen al mateix fitxer, i el
+solucionari surt de les mateixes dades. Després:
+
+```
+python3 generadors/gen_quadern.py
+python3 eines/comprova.py
+python3 eines/prova_quadern.py
+```
+
+Per fer el quadern d'una altra unitat, es copia `generadors/quadern/ud3.py` a `udN.py`, es
+canvia el contingut i s'afegeix `quadern: "quadern/udN.html"` a la unitat de
+`dades/unitats.js`. Les peces que hi ha (taules, opcions per marcar, ofertes, plànols, doble
+recta, línies per mesurar, quadrícula) són a `generadors/gen_quadern.py`.
 
 ---
 
@@ -201,7 +252,14 @@ per sota de 12 pt. Ara mateix: **0 problemes en 68 estats i 17 fitxes o targetes
 
 ```
 python3 eines/prova_caixa.py
+python3 eines/prova_quadern.py
 ```
+
+`prova_quadern.py` prova el filtre de cada quadern en Chromium: les sis combinacions, que el
+solucionari amagui les mateixes activitats, l'adreça amb el filtre i què s'imprimeix.
+`comprova.py` també mira els quaderns: B/N, que cada bloc comenci amb una activitat que surt
+sempre, que les consignes siguin curtes i que el fitxer de `quadern/` sigui el que surt del
+generador.
 
 Prova la caixa de punta a punta en Chromium: obre totes les pestanyes i els enllaços `?task=n`,
 mou els mòduls i acaba una tasca tancada (x² = 36), fins a llegir-ne el codi a `verifica.html`.
@@ -227,7 +285,9 @@ llegeix a `verifica.html`.
 
 **Pendent**, documentat a `docs/CONTINUAR.md`:
 
-- contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real.
+- contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real;
+- el quadern d'activitats de les unitats 1, 2, 4, 5, 6 i 7, quan el de la UD3 s'hagi
+  provat a l'aula.
 
 ---
 

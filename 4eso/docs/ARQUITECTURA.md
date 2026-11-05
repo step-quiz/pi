@@ -41,6 +41,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 ├── css/
 │   ├── tokens.css          variables: paleta de paper, paleta de pantalla, mode fosc
 │   ├── fitxa.css           les fitxes imprimibles          (importa tokens)
+│   ├── quadern.css         el quadern d'activitats: filtre i impressió (després de fitxa.css)
 │   ├── app.css             la caixa d'eines                (importa tokens)
 │   └── lloc.css            index.html i fitxes.html        (importa tokens)
 │
@@ -53,12 +54,15 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── veu.js              la lectura en veu alta de cada targeta (apartat 6c)
 │   ├── app.js              navegació de la caixa d'eines
 │   ├── lloc.js             construeix els índexs a partir de les dades
+│   ├── quadern.js          el filtre del quadern d'activitats (quantitat i repte)
 │   └── moduls/             un fitxer per mòdul, deu en total
 │
 ├── dades/
 │   └── unitats.js          font única: les set unitats amb tota la metadada, i les targetes
 │
 ├── fitxes/                 ud1.html … ud7.html, i udN-repas.html (les fa generadors/gen_repas.py)
+├── quadern/                udN.html, el quadern d'activitats amb filtre (el fa generadors/gen_quadern.py
+│                           a partir de generadors/quadern/udN.py; de moment, només la UD3)
 ├── targetes/               les tres targetes de consulta, a doble cara
 ├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF,
 │                           i examens/udN.js, el contingut de cada examen DOCX
@@ -66,6 +70,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── comprova.py         el test del projecte, sense dependències
 │   ├── mesura.py           si cada pàgina cap en un A4          (WeasyPrint)
 │   ├── prova_caixa.py      la caixa, de punta a punta           (Playwright)
+│   ├── prova_quadern.py    el filtre dels quaderns              (Playwright)
 │   ├── empremta.py         l'empremta de cada PDF, per saber si és vell
 │   └── auditoria.py        dianes i contrast dins del navegador (Playwright)
 └── docs/                   la documentació
