@@ -69,7 +69,7 @@ cada curs, enllaçada al peu de la portada: `1eso/index.html` i `4eso/index.html
 que ja s'han enviat continuen funcionant.
 
 **Si canvies el CSS o el JS de la portada o de les unitats**, puja el número `?v=` dels seus
-enllaços a `index.html`, `1eso/unitat.html` i `4eso/unitat.html` (ara és `?v=3`). `_headers`
+enllaços a `index.html`, `1eso/unitat.html` i `4eso/unitat.html` (ara és `?v=4`). `_headers`
 deixa els fulls d'estil una hora a la memòria del navegador, i sense això la pàgina nova
 surt amb l'estil vell: va passar el 5/11/2026.
 

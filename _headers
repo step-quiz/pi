@@ -7,19 +7,22 @@
   # Treu aquesta línia i robots.txt si algun dia es vol públic.
   X-Robots-Tag: noindex, nofollow
 
-# Els fitxers canvien poc però s'han de poder actualitzar el mateix dia.
+# Els fitxers canvien poc però s'han de poder actualitzar el mateix dia. Els fulls d'estil i els
+# scripts es tornen a validar a cada visita (una resposta 304, gairebé gratis): així un canvi
+# de disseny es veu en recarregar, sense esperar l'hora de memòria (5/11/2026: no es veia).
+# Les fitxes i les targetes canvien menys i es queden una hora.
 /4eso/css/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: no-cache
 /4eso/js/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: no-cache
 /4eso/fitxes/*
   Cache-Control: public, max-age=3600
 /4eso/targetes/*
   Cache-Control: public, max-age=3600
 /1eso/css/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: no-cache
 /1eso/js/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: no-cache
 /1eso/fitxes/*
   Cache-Control: public, max-age=3600
 /1eso/targetes/*
