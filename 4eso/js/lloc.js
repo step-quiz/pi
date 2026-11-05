@@ -1,8 +1,8 @@
 /* ============================================================================
    lloc.js · construeix els índexs a partir de dades/unitats.js
    ----------------------------------------------------------------------------
-   Dues funcions, cadascuna busca el seu contenidor i no fa res si no hi és.
-   Així el mateix fitxer serveix per a index.html i per a fitxes.html.
+   Cada funció busca el seu contenidor i no fa res si no hi és. Així el mateix
+   fitxer serveix per a index.html, fitxes.html i quadern.html.
    ========================================================================== */
 
 (function () {
@@ -99,6 +99,22 @@
     });
   }
 
+  /* ---- quadern.html: una targeta per cada unitat que té quadern ---- */
+  function quaderns(cont) {
+    const amb = UNITATS.filter(u => u.quadern);
+    UNITATS.forEach(u => {
+      const d = fes(u.quadern ? "a" : "div", u.quadern ? "targeta unitat-q" : "targeta sense-q");
+      if (u.quadern) d.href = u.quadern;
+      d.innerHTML =
+        '<span class="num">' + u.num + "</span>" +
+        "<h3>" + u.titol + "</h3>" +
+        "<p>" + (u.quadern ? "Obre el quadern. A dalt de la pàgina es tria quants apartats i si hi ha repte."
+                           : "Encara no en té.") + "</p>";
+      cont.appendChild(d);
+    });
+    if (!amb.length) cont.insertAdjacentHTML("beforebegin", "<p>Encara no hi ha cap quadern.</p>");
+  }
+
   function arrenca() {
     if (typeof UNITATS === "undefined") {
       console.error("lloc.js: falta dades/unitats.js");
@@ -107,6 +123,7 @@
     const g = $("#graella-unitats");   if (g) graellaUnitats(g);
     const d = $("#detall-unitats");    if (d) detallUnitats(d);
     const t = $("#targetes");          if (t) targetes(t);
+    const q = $("#quaderns");          if (q) quaderns(q);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrenca);

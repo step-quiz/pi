@@ -12,9 +12,9 @@ Necessita Playwright amb Chromium:
 
 QUÈ COMPROVA
   · Cap error de JavaScript.
-  · Les sis combinacions del filtre (petit, mitjà, elevat; amb repte i sense): quantes
-    activitats surten, que n'hi ha més com més gran és la quantitat, que «Amb repte»
-    n'afegeix, i que el recompte de la barra diu el mateix.
+  · Les sis combinacions del filtre (petit, mitjà, elevat; amb repte i sense): el nombre
+    d'activitats no canvia amb la quantitat, «Amb repte» n'afegeix una per bloc, i cada
+    activitat té l'a) i 3, 6 o 12 apartats per fer, amb les lletres seguides.
   · Que el solucionari amaga exactament les mateixes entrades, perquè els números
     coincideixin, i que el comptador dels números se salta les activitats amagades.
   · Que l'adreça (?n=1&repte=1) obre el filtre posat, i que els botons l'hi escriuen.
@@ -43,13 +43,18 @@ def comprova(cond, msg):
     return cond
 
 
-ESTAT = """() => {
+ESTAT = r"""() => {
   const vis = s => [...document.querySelectorAll(s)].filter(e => !e.hidden);
-  const marca = e => e.dataset.n + (e.hasAttribute('data-repte') ? 'R' : '');
+  // De cada activitat visible: si és de repte i les lletres dels apartats que es veuen.
+  const lletres = e => [...e.querySelectorAll('.ap')].filter(a => !a.hidden && !a.closest('[hidden]'))
+    .map(a => ((a.querySelector('.apartat, td') || a).textContent.match(/([a-z])\)/) || ['', '?'])[1]).join('');
+  const marca = e => (e.hasAttribute('data-repte') ? 'R' : 'G');
   const acts = vis('.act');
   return {
     acts: acts.map(marca),
     sols: vis('.sol-act').map(marca),
+    lletres: acts.map(lletres),
+    lletresSol: vis('.sol-act').map(lletres),
     // Els números són comptadors CSS i el seu valor no es pot llegir des de la pàgina: es
     // comprova el mecanisme. El comptador es reinicia al quadern, cada activitat visible
     // suma 1 i les amagades no es pinten (display: none no compta).
@@ -83,13 +88,16 @@ def main():
                     comprova(e["acts"] == e["sols"], f"{nom} n={n} repte={r}: el solucionari no amaga les mateixes")
                     comprova(e["comptador"] in ("act 0 · act 1 · none", "act 0 · act 1 · "),
                              f"{nom} n={n} repte={r}: el comptador dels números no va bé ({e['comptador']})")
-                    comprova(all(int(m[0]) <= n and (r or not m.endswith("R")) for m in e["acts"]),
-                             f"{nom} n={n} repte={r}: surt una activitat que no tocava")
+                    comprova(r or "R" not in e["acts"], f"{nom} n={n} repte={r}: surt una activitat de repte")
+                    bones = "abcdefghijklm"[:1 + {1: 3, 2: 6, 3: 12}[n]]
+                    dolentes = [l for l in e["lletres"] if l != bones]
+                    comprova(not dolentes, f"{nom} n={n} repte={r}: apartats {dolentes[:2]} (han de ser {bones})")
+                    comprova(e["lletresSol"] == e["lletres"], f"{nom} n={n} repte={r}: el solucionari no té els mateixos apartats")
                     comprova(f"Surten {len(e['acts'])} activitats" in e["text"], f"{nom}: el recompte diu «{e['text']}»")
                     comprova(sorted(e["premuts"]) == sorted([f"n={n}", f"repte={r}"]),
                              f"{nom}: l'adreça ?n={n}&repte={r} no marca els botons ({e['premuts']})")
-            comprova(quants[1, 0] < quants[2, 0] < quants[3, 0], f"{nom}: petit, mitjà i elevat no creixen ({quants})")
-            comprova(all(quants[n, 1] > quants[n, 0] for n in (1, 2, 3)), f"{nom}: «Amb repte» no n'afegeix ({quants})")
+            comprova(quants[1, 0] == quants[2, 0] == quants[3, 0], f"{nom}: el nombre d'activitats canvia amb la quantitat ({quants})")
+            comprova(all(quants[n, 1] == 2 * quants[n, 0] for n in (1, 2, 3)), f"{nom}: «Amb repte» n'ha d'afegir una per bloc ({quants})")
 
             # Els botons: canvien el filtre i l'escriuen a l'adreça.
             pag.goto(url)
@@ -114,8 +122,8 @@ def main():
             comprova(not vist(".alumnat") and vist("#solucionari"),
                      f"{nom}: «Imprimeix el solucionari» ha de portar només el solucionari")
             pag.emulate_media(media="screen")
-            print(f"  {nom}: petit {quants[1, 0]} ({quants[1, 1]}) · mitjà {quants[2, 0]} ({quants[2, 1]})"
-                  f" · elevat {quants[3, 0]} ({quants[3, 1]}) · filtre, solucionari i impressió provats")
+            print(f"  {nom}: {quants[1, 0]} activitats ({quants[1, 1]} amb repte), de 3, 6 o 12 apartats"
+                  f" · filtre, solucionari i impressió provats")
         comprova(not errors, f"errors de JavaScript: {errors}")
         nav.close()
     if falles:
