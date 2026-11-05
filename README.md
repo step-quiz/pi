@@ -45,6 +45,11 @@ verificació, la caixa sencera, els enllaços `?task=n`) és a la pàgina «Per 
 cada curs, enllaçada al peu de la portada: `1eso/index.html` i `4eso/index.html`. Els enllaços
 que ja s'han enviat continuen funcionant.
 
+**Si canvies el CSS o el JS de la portada o de les unitats**, puja el número `?v=` dels seus
+enllaços a `index.html`, `1eso/unitat.html` i `4eso/unitat.html` (ara és `?v=2`). `_headers`
+deixa els fulls d'estil una hora a la memòria del navegador, i sense això la pàgina nova
+surt amb l'estil vell: va passar el 5/11/2026.
+
 Les dues caixes d'eines poden llegir cada targeta en veu alta: el botó petit de l'altaveu,
 a dalt a la dreta de la targeta. Quina veu sona millor a cada ordinador, als mateixos `README.md`.
 

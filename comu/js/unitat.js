@@ -27,9 +27,9 @@
 
   function fitxa(f) {
     const nom = f.fitxa.replace(/^.*\//, "").replace(/\.html$/, "");
-    return "<li><a href=\"" + f.fitxa + "\">" + f.titol + "</a> " +
-      '<a class="pdf" href="pdf/' + nom + '-alumnat.pdf" download>PDF</a> ' +
-      '<a class="pdf sol" href="pdf/' + nom + '-solucionari.pdf" download>solucionari</a></li>';
+    return "<li><a href=\"" + f.fitxa + "\">" + f.titol + "</a>" +
+      '<span class="botons-pdf"><a class="pdf" href="pdf/' + nom + '-alumnat.pdf" download>PDF</a>' +
+      '<a class="pdf sol" href="pdf/' + nom + '-solucionari.pdf" download>solucionari</a></span></li>';
   }
 
   const ICONA = {
