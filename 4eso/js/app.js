@@ -15,6 +15,10 @@
      - No es llegeix ni s'escriu el mòdul desat: en un ordinador compartit,
        cada persona entraria on ho va deixar l'anterior.
      - S'amaga l'enllaç a l'inici, que és una pàgina per al docent.
+
+   LES EINES D'UNA UNITAT · caixa-eines?ud=N&tasques=0,2,4
+   Ho fa servir la pàgina de cada unitat (unitat.html): només es veuen les tasques
+   de la llista, i l'enllaç de dalt torna a la unitat. Vegeu aplicaTasques().
    ========================================================================== */
 
 (function () {
@@ -67,11 +71,32 @@
     return (triada || base).dataset.mod;
   }
 
+  /** ?tasques=0,2,4 (des de la pàgina de cada unitat, unitat.html): només es veuen
+      aquestes pestanyes, i s'obre la primera que no és la 0. Amb ?ud=N, l'enllaç de
+      dalt torna a la pàgina de la unitat. Com amb ?task, no es desa res. */
+  function aplicaTasques(botons) {
+    const p = new URLSearchParams(location.search);
+    const valor = p.get("tasques");
+    if (valor === null) return null;
+    const nums = valor.split(",").map(x => x.trim()).filter(x => /^\d+$/.test(x)).map(x => String(Number(x)));
+    const visibles = botons.filter(b => nums.includes(b.dataset.tasca));
+    if (!visibles.length) return null;
+    permesos = visibles.map(b => b.dataset.mod);
+    botons.forEach(b => { b.hidden = !permesos.includes(b.dataset.mod); });
+    const ud = p.get("ud") || "";
+    const tornar = $(".tornar a");
+    if (tornar && /^\d+$/.test(ud)) {
+      tornar.href = "unitat.html?ud=" + ud;
+      tornar.textContent = "← unitat " + ud;
+    }
+    return (visibles.find(b => b.dataset.tasca !== "0") || visibles[0]).dataset.mod;
+  }
+
   function arrenca() {
     const botons = $$(".segment[data-mod]");
     botons.forEach(p => { p.onclick = () => obre(p.dataset.mod); });
 
-    let inicial = aplicaFiltre(botons);
+    let inicial = aplicaFiltre(botons) || aplicaTasques(botons);
     if (!inicial) {
       const desat = memoria.get(CLAU);
       inicial = (desat && moduls[desat]) ? desat : (botons[0] && botons[0].dataset.mod);

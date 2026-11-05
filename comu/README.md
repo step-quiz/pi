@@ -6,6 +6,9 @@ no es toca.
 
 | Fitxer | Què és |
 |---|---|
+| `js/portada.js` | La portada de l'arrel (`index.html`): una columna per curs amb les seves unitats |
+| `js/unitat.js` | La pàgina de cada unitat (`1eso/unitat.html` i `4eso/unitat.html`): fitxes, quadern i caixa d'eines de la unitat |
+| `eines/prova_portada.py` | Prova la portada i les 14 pàgines d'unitat en un navegador |
 | `examens/nucli.js` | El motor dels exàmens DOCX. Cada curs hi posa el contingut a `generadors/examens/udN.js` |
 | `docs/EXAMENS-DOCX.md` | Les regles i el procediment dels exàmens |
 | `docs/DESPLEGAMENT.md` | Com es publica el repositori a Cloudflare Pages |

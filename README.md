@@ -15,8 +15,8 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 |---|---|
 | `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes i les seves fitxes de repàs, el quadern d'activitats de la UD3, tres targetes de consulta, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
 | `1eso/` | Tot el material de Matemàtiques: les targetes de consulta, les fitxes, la caixa d'eines i el test. Vegeu [`1eso/README.md`](1eso/README.md) |
-| `comu/` | El que comparteixen els dos materials: el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
-| `index.html` | La porta d'entrada: deixa triar entre `4eso/` i `1eso/` |
+| `comu/` | El que comparteixen els dos materials: la portada i la pàgina de cada unitat (`comu/js/`), el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
+| `index.html` | La porta d'entrada: una columna per curs amb les seves unitats, i al peu l'enllaç a la pàgina del professorat de cada curs. La fa `comu/js/portada.js` |
 | `other-versions/` | Dues versions de molta menys qualitat fetes amb una IA, per comparar-les amb aquest projecte: `gratis-2min.html` (IA gratuïta, 2 minuts, una instrucció) i `pagament-10min.html` (IA de pagament, 10 minuts, dues instruccions), amb el seu dossier i solucionari en PDF. Només s'hi arriba des de `index.html?other-versions=1`. Es deixen tal com les va fer la IA, i per això la comprovació de l'anonimat no hi mira |
 | `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
@@ -31,9 +31,19 @@ dins: `cd 4eso/`.
 
 ## Com s'obre
 
-Doble clic a `index.html`: deixa triar el material (Matemàtiques o Matemàtiques Aplicades) i
-porta a la seva portada. No cal servidor ni instal·lar res. Cada portada, al seu torn, deixa
-triar entre les fitxes i la caixa d'eines: vegeu els `README.md` de `4eso/` i `1eso/`.
+Doble clic a `index.html`. No cal servidor ni instal·lar res. La portada té dues columnes,
+una per curs, amb les seves unitats (5/11/2026). Cada unitat porta a la seva
+pàgina (`1eso/unitat.html?ud=N`, `4eso/unitat.html?ud=N`), amb tres opcions:
+
+- **Fitxes d'activitats**: les fitxes de la unitat i la de repàs, amb el PDF de l'alumnat i el del solucionari.
+- **Quadern d'activitats**: el de la unitat, o apagat si encara no n'hi ha.
+- **Caixa d'eines**: només les eines d'aquella unitat i d'aquell curs
+  (`caixa-eines.html?ud=N&tasques=…`; les tasques són al camp `tasques` de `dades/unitats.js`).
+
+El que no és de cap unitat (les targetes de consulta, canviar les frases, llegir els codis de
+verificació, la caixa sencera, els enllaços `?task=n`) és a la pàgina «Per al professorat» de
+cada curs, enllaçada al peu de la portada: `1eso/index.html` i `4eso/index.html`. Els enllaços
+que ja s'han enviat continuen funcionant.
 
 Les dues caixes d'eines poden llegir cada targeta en veu alta: el botó petit de l'altaveu,
 a dalt a la dreta de la targeta. Quina veu sona millor a cada ordinador, als mateixos `README.md`.
@@ -152,6 +162,7 @@ Les proves que obren un navegador (Playwright) es passen a mà, abans de lliurar
 python3 1eso/eines/prova_caixa.py      # la caixa de 1eso/, de punta a punta
 python3 4eso/eines/prova_caixa.py      # la caixa de 4eso/
 python3 4eso/eines/prova_quadern.py    # el filtre dels quaderns d'activitats de 4eso/
+python3 comu/eines/prova_portada.py    # la portada i la pàgina de cada unitat dels dos cursos
 python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
 python3 4eso/eines/auditoria.py
 ```

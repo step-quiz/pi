@@ -18,6 +18,9 @@
      trencada   l'exercici que trenca la regla que s'haurà fabricat
      fita       nivell d'assoliment realista
      moduls     identificadors dels mòduls de la caixa d'eines relacionats
+     tasques    les pestanyes de la caixa d'eines de la unitat (el data-tasca de cada
+                una): les dels mòduls, la Calculadora (0) i Com ho dic (7). Les fa
+                servir unitat.html per obrir la caixa amb només aquestes eines.
      llibre     unitat corresponent del llibre digital
      repas      blocs de repas-main que se li poden obrir
      evitar     el que NO se li ha d'obrir (buit si no hi ha res)
@@ -36,7 +39,7 @@ window.UNITATS = [
     objectiu: "Situar nombres a la recta i decidir quants decimals calen a cada situació.",
     material: "una cinta mètrica i un objecte llarg per mesurar",
     trencada: "Ex. 3 · arrodonir no és tallar: 2,64 es converteix en 2,65",
-    fita: "AS", moduls: ["recta"], llibre: "llibre · unitat 1",
+    fita: "AS", moduls: ["recta"], tasques: [0, 1, 7], llibre: "llibre · unitat 1",
     repas: "full 1 · decimals, fraccions", evitar: ""
   },
   {
@@ -45,7 +48,7 @@ window.UNITATS = [
     objectiu: "Comparar dues maneres de pagar amb el factor multiplicador i decidir.",
     material: "monedes i bitllets de joguina",
     trencada: "Ex. 5c · el portàtil surt més barat a terminis, no al comptat",
-    fita: "AS", moduls: ["doble", "factor", "calc"], llibre: "llibre · unitat 2",
+    fita: "AS", moduls: ["doble", "factor", "calc"], tasques: [0, 2, 3, 7], llibre: "llibre · unitat 2",
     repas: "full 6 · percentatges, factor_multiplicador", evitar: ""
   },
   {
@@ -55,7 +58,7 @@ window.UNITATS = [
     objectiu: "Llegir una escala, passar de plànol a realitat i distingir directa d'inversa.",
     material: "una cinta mètrica i un full quadriculat",
     trencada: "Ex. 6c · guanya l'ampolla petita, no la garrafa",
-    fita: "AS, AN a escales", moduls: ["doble", "escala"], llibre: "llibre · unitat 3",
+    fita: "AS, AN a escales", moduls: ["doble", "escala"], tasques: [0, 2, 4, 7], llibre: "llibre · unitat 3",
     repas: "full 8 · escales, escales_calcul · full 6 · directa_inversa", evitar: ""
   },
   {
@@ -64,7 +67,7 @@ window.UNITATS = [
     objectiu: "Comprovar solucions i decidir quina té sentit. No s'aïlla la incògnita.",
     material: "una bossa opaca i fitxes iguals",
     trencada: "Ex. 5d · al congelador la solució bona és −3, no 3",
-    fita: "NA o AS", moduls: ["equacio"], llibre: "llibre · unitat 5",
+    fita: "NA o AS", moduls: ["equacio"], tasques: [0, 6, 7], llibre: "llibre · unitat 5",
     repas: "full 5 · primer_grau", evitar: "formula_general, factoritzacio"
   },
   {
@@ -73,7 +76,7 @@ window.UNITATS = [
     objectiu: "Llegir vèrtex, talls i eix, i dir què volen dir en el fenomen.",
     material: "una pilota i espai per llançar-la",
     trencada: "Ex. 2 · el vèrtex és un mínim i no hi ha cap punt de tall",
-    fita: "AN, AE possible", moduls: ["parabola"], llibre: "llibre · unitat 6",
+    fita: "AN, AE possible", moduls: ["parabola"], tasques: [0, 5, 7], llibre: "llibre · unitat 6",
     repas: "full 10 · funcions_quadratiques, només lectura de gràfica", evitar: ""
   },
   {
@@ -82,7 +85,7 @@ window.UNITATS = [
     objectiu: "Fer taula i gràfic amb el full de càlcul i dir si les dades estan escampades.",
     material: "fitxes o taps per fer munts",
     trencada: "Ex. 6 · el gràfic que comença a 90 i no a 0",
-    fita: "AS, AN a representació", moduls: ["mitjana"], llibre: "llibre · unitat 8",
+    fita: "AS, AN a representació", moduls: ["mitjana"], tasques: [0, 7, 8], llibre: "llibre · unitat 8",
     repas: "full 11 · frequencies, grafics, centralitzacio", evitar: "dispersio"
   },
   {
@@ -91,7 +94,7 @@ window.UNITATS = [
     objectiu: "Comptar amb arbre, calcular amb Laplace i entendre per què la casa guanya.",
     material: "un dau i una moneda",
     trencada: "Ex. 4c · una cara i una creu val el doble que dues cares",
-    fita: "AS, AN al recompte", moduls: ["doble", "atzar"], llibre: "llibre · unitat 9",
+    fita: "AS, AN al recompte", moduls: ["doble", "atzar"], tasques: [0, 2, 7, 9], llibre: "llibre · unitat 9",
     repas: "full 12 · espais_mostrals, laplace", evitar: "probabilitat_composta, condicionada"
   }
 ];

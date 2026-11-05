@@ -134,3 +134,36 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 /* Els enllaços per a l'alumnat, agrupats per unitat (a «Per al professorat») */
 .enllacos-unitat { margin: .8rem 0 .15rem; font-weight: 700; font-size: .95rem; color: var(--etiqueta) }
 
+
+/* ------------------------------------------- portada i pàgina de la unitat --
+   La portada de l'arrel (una columna per curs amb les seves unitats) i unitat.html
+   (fitxes, quadern i caixa d'eines d'una unitat). Tot el que es clica: vora negra
+   gruixuda i fons gris clar en passar-hi el ratolí o arribar-hi amb el teclat, sense
+   canviar de mida (la vora la fa l'ombra). */
+.cursos { display: grid; gap: 1.2rem 2rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+          margin: 1.4rem 0 2rem }
+.cursos[hidden] { display: none }
+.curs h2 { margin: 0 0 .6rem; font-size: 1.35rem }
+.unitats { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem }
+a.unitat { display: flex; align-items: center; gap: .7rem; padding: .7rem .9rem; min-height: 44px;
+           background: var(--superficie); border-radius: var(--r-g); color: inherit; font-weight: 600 }
+a.unitat .num { margin: 0; flex: 0 0 auto }
+.professorat { color: var(--etiqueta-2); font-size: .95rem }
+.materia { color: var(--etiqueta-2); margin: 0 0 .2rem }
+
+.tria-opcio.apagada { opacity: .5 }
+/* Les fitxes: la primera opció, a tota l'amplada, amb una fila per fitxa i els PDF a la dreta. */
+.tria-opcio.llista { grid-column: 1 / -1; text-align: left; padding: 1.3rem 1.4rem }
+.tria-opcio.llista h2 { display: flex; align-items: center; gap: .6rem }
+.tria-opcio.llista h2 svg { margin: 0; width: 2rem; height: 2rem }
+.fitxes { list-style: none; margin: .7rem 0 0; padding: 0; font-size: .98rem }
+.fitxes li { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .5rem;
+             padding: .45rem 0; border-top: 1px solid var(--separador, rgba(0, 0, 0, .08)) }
+.fitxes li > a:first-child { flex: 1 1 14rem }
+.fitxes .pdf { font-size: .8rem }
+
+a.unitat:hover, a.unitat:focus-visible, a.tria-opcio:hover, a.tria-opcio:focus-visible {
+  box-shadow: 0 0 0 2.5px #000; background: var(--camp); outline: none; text-decoration: none;
+}
+/* unitat.html: el quadern i la caixa, de dos en dos sota les fitxes. */
+@media (min-width: 40rem) { #opcions { grid-template-columns: 1fr 1fr } }

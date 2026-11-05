@@ -574,6 +574,17 @@ repassos = re.findall(r'tancament: "(fitxes/[\w-]+\.html)"', dades)
 targetes = re.findall(r'\{ nom: "([\w-]+)"', dades)
 for u in unitats + repassos:
     comprova(os.path.exists(ruta(u)), f"dades/unitats.js apunta a {u}, que no existeix")
+# Les tasques de cada unitat: unitat.html obre la caixa amb només aquestes pestanyes
+# (caixa-eines.html?ud=N&tasques=…). Han d'existir, i han d'incloure les dels mòduls.
+caixa_tasques = dict(re.findall(r'data-tasca="(\d+)" data-mod="(\w+)"', app))
+mod_tasca = {m: t for t, m in caixa_tasques.items()}
+for num_u, mods, tasq in re.findall(r'num: (\d+),.*?moduls: \[([^\]]*)\], tasques: \[([^\]]*)\]', dades, re.S):
+    tasq = {t.strip() for t in tasq.split(',') if t.strip()}
+    comprova(tasq <= set(caixa_tasques), f"dades/unitats.js: la unitat {num_u} té tasques que no són a la caixa: {sorted(tasq - set(caixa_tasques))}")
+    falten = {mod_tasca.get(m) for m in re.findall(r'"(\w+)"', mods)} - tasq
+    comprova(not falten, f"dades/unitats.js: a les tasques de la unitat {num_u} hi falten les dels seus mòduls: {sorted(falten)}")
+comprova(len(re.findall(r'tasques: \[', dades)) == len(unitats), "dades/unitats.js: cada unitat ha de tenir el camp tasques")
+comprova(os.path.exists(ruta('unitat.html')), "falta unitat.html, la pàgina de cada unitat")
 quaderns = re.findall(r'quadern: "(quadern/[\w-]+\.html)"', dades)
 for q in quaderns:
     comprova(os.path.exists(ruta(q)), f"dades/unitats.js apunta a {q}, que no existeix")

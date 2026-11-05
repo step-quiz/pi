@@ -28,7 +28,8 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 | | |
 |---|---|
-| `index.html` | portada: tria entre les fitxes, el quadern d'activitats i la caixa d'eines |
+| `index.html` | la pàgina del professorat del curs (s'hi arriba des del peu de la portada de l'arrel): les fitxes, el quadern, la caixa sencera i les eines per al docent |
+| `unitat.html` | la pàgina d'una unitat (`unitat.html?ud=N`): les fitxes, el quadern i la caixa d'eines amb només les tasques de la unitat (camp `tasques` de `dades/unitats.js`). La fa `../comu/js/unitat.js` |
 | `quadern.html` | índex dels quaderns d'activitats: una targeta per unitat (es fa amb `dades/unitats.js`) |
 | `fitxes.html` | índex de les set unitats: tria ràpida i, per a cada una, material previ, regla trencada, fita, recursos, fitxa de repàs; al final, les targetes de consulta |
 | `caixa-eines.html` | l'aplicació, amb deu mòduls |
