@@ -60,15 +60,13 @@ a.targeta:hover { text-decoration: none }
    que es veuen. */
 
 .tria {
-  display: grid; gap: 1rem; margin: 1.4rem 0 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.4rem 0 2rem;
 }
 .tria-opcio {
   background: var(--superficie); border-radius: var(--r-g);
-  padding: 1.7rem 1.4rem; display: block; color: inherit; text-align: center;
+  padding: 1.2rem 1.6rem; display: block; width: 16rem; color: inherit; text-align: center;
 }
 a.tria-opcio:hover { text-decoration: none }
-a.tria-opcio:hover { background: var(--camp) }
 .tria-opcio svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); margin-bottom: .8rem }
 .tria-opcio h2 { margin: 0; font-size: 1.25rem }
 .tria-opcio p  { margin: .4rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
@@ -131,43 +129,58 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
           margin: 1rem 0 1.2rem }
 .cursos[hidden] { display: none }
 .curs h2 { margin: 0 0 .6rem; font-size: 1.35rem }
-.unitats { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem }
-a.unitat { display: flex; align-items: center; gap: .7rem; padding: .45rem .8rem; min-height: 44px;
-           background: var(--superficie); border-radius: var(--r-g); color: inherit; font-weight: 600 }
+.unitats { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; justify-items: start }
+a.unitat { display: flex; align-items: center; gap: .7rem; padding: .45rem 1rem .45rem .8rem; min-height: 44px; font-weight: 600 }
 a.unitat .num { margin: 0; flex: 0 0 auto }
-a.unitat:hover { background: var(--camp); text-decoration: none }
 .professorat { color: var(--etiqueta-2); font-size: .95rem }
 .materia { color: var(--etiqueta-2); margin: 0 0 .2rem }
 
-/* La pàgina d'una unitat (5/11/2026, per encàrrec del docent): una sola bombolla amb les fitxes a
-   l'esquerra i el quadern a la dreta; a sota, la caixa d'eines; i dos desplegables que sempre
-   surten plegats: «Més eines» (la fitxa de repàs i les targetes de consulta) i el detall per al
-   professorat. */
+/* ============================================================================
+   BOTONS (6/11/2026, per encàrrec del docent). Tots els botons de navegació tenen la mateixa
+   aparença: fons gris (--camp), cantons arrodonits i mida ajustada al text. En passar-hi el ratolí
+   (o arribar-hi amb el teclat) surt la vora negra pura de 3 px que posa css/tokens.css; el fons no
+   canvia. Els «← inici» són els botons 3D de tokens.css.
+   ========================================================================== */
+.boto-gris, a.enllac, a.caixa, a.quadern, a.unitat, a.tria-opcio, .professorat a, .enllacos-tasca a {
+  background: var(--camp); color: var(--etiqueta); border-radius: 16px; text-decoration: none;
+  width: fit-content; max-width: 100%;
+}
+a.enllac:hover, a.caixa:hover, a.quadern:hover, a.unitat:hover, a.tria-opcio:hover,
+.professorat a:hover, .enllacos-tasca a:hover { background: var(--camp); text-decoration: none }
+
+/* Un enllaç d'una llista: fitxes, repàs i targetes. */
+.fitxes { list-style: none; margin: .8rem 0 0; padding: 0; display: flex; flex-direction: column;
+          align-items: flex-start; gap: .5rem }
+a.enllac { display: inline-flex; align-items: center; gap: .8rem; min-height: 46px; padding: .5rem 1.1rem; font-weight: 600 }
+a.enllac::after { content: "›"; font-size: 1.4rem; line-height: 1; color: var(--blau-text); flex: 0 0 auto }
+/* Els de la portada i de les tasques, més petits. */
+.professorat a, .enllacos-tasca a { display: inline-flex; align-items: center; min-height: 34px;
+                                    padding: .25rem .9rem; border-radius: 12px; font-size: .92rem; margin: 0 .15rem }
+
+/* La pàgina d'una unitat: una sola bombolla amb les fitxes a l'esquerra i el quadern a la dreta; a
+   sota, la caixa d'eines; i dos desplegables que sempre surten plegats: «Més eines» (la fitxa de
+   repàs i les targetes de consulta) i el detall per al professorat. */
 .bombolla { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
             background: var(--superficie); border-radius: var(--r-g); margin: 1.4rem 0 1rem }
 .bombolla > section { padding: 1.2rem 1.3rem }
 .bombolla h2 { display: flex; align-items: center; gap: .6rem; margin: 0; font-size: 1.25rem }
 .bombolla h2 svg { width: 2rem; height: 2rem; color: var(--blau-text); flex: 0 0 auto }
-.bombolla .quadern { display: flex; flex-direction: column; align-items: center; justify-content: center;
-                     gap: .4rem; text-align: center; padding: 1.2rem 1rem; color: inherit;
-                     border-left: 1px solid var(--separador); border-radius: 0 var(--r-g) var(--r-g) 0 }
-.bombolla .quadern svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text) }
-.bombolla .quadern h2 { font-size: 1.25rem }
-.bombolla .quadern p { margin: 0; color: var(--etiqueta-2); font-size: .93rem }
-.bombolla .quadern.apagat { opacity: .5 }
-a.caixa { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; margin: 0 0 1rem;
-          background: var(--superficie); border-radius: var(--r-g); color: inherit }
-a.caixa:hover { background: var(--camp); text-decoration: none }
-.caixa svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); flex: 0 0 auto }
-.caixa h2 { margin: 0; font-size: 1.25rem }
-.caixa p { margin: .15rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
-div.caixa.apagada { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; margin: 0 0 1rem;
-                    background: var(--superficie); border-radius: var(--r-g); opacity: .5 }
+.bombolla .meitat-quadern { display: flex; align-items: center; justify-content: center;
+                            border-left: 1px solid var(--separador) }
+/* El quadern i la caixa: un botó amb la icona i el text. */
+a.quadern, a.caixa, div.quadern, div.caixa { display: inline-flex; align-items: center; gap: 1rem; padding: 1rem 1.4rem }
+a.quadern, div.quadern { flex-direction: column; text-align: center; gap: .3rem }
+.quadern svg, .caixa svg { width: 2.4rem; height: 2.4rem; color: var(--blau-text); flex: 0 0 auto }
+.quadern h2, .caixa h2 { margin: 0; font-size: 1.2rem }
+.quadern p, .caixa p { margin: .1rem 0 0; color: var(--etiqueta-2); font-size: .93rem }
+.quadern.apagat, .caixa.apagada { background: var(--camp); border-radius: 16px; opacity: .5 }
+.caixa-fila { margin: 0 0 1rem }
 
 details.desplegable { background: var(--superficie); border-radius: var(--r-g); margin: 0 0 1rem; padding: 0 1.3rem }
 details.desplegable > summary { list-style: none; cursor: pointer; display: flex; align-items: center;
                                 justify-content: space-between; gap: 1rem; min-height: 52px;
-                                font-weight: 700; font-size: 1.05rem; border-radius: var(--r-g) }
+                                font-weight: 700; font-size: 1.05rem; border-radius: var(--r-g);
+                                margin: 0 -1.3rem; padding: 0 1.3rem }
 details.desplegable > summary::-webkit-details-marker { display: none }
 details.desplegable > summary::after { content: ""; width: .55rem; height: .55rem; flex: 0 0 auto;
                                        border-right: 2.5px solid currentColor; border-bottom: 2.5px solid currentColor;
@@ -177,26 +190,11 @@ details.desplegable[open] { padding-bottom: 1.2rem }
 .desplegable h3 { margin: 1.1rem 0 0; font-size: 1rem; color: var(--etiqueta-2) }
 .desplegable .detall { background: transparent; padding: 0; margin: .9rem 0 0 }
 .desplegable .nota { margin: .9rem 0 0 }
-
-/* Els enllaços de la unitat (fitxes, repàs, targetes): un botó per enllaç, a tota l'amplada. Els PDF
-   no es ressenyen aquí: es baixen des de la barra de dalt de cada fitxa (6/11/2026). */
-.fitxes { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; gap: .5rem }
-a.enllac, .professorat a, .enllacos-tasca a {
-  display: flex; align-items: center; justify-content: space-between; gap: .8rem;
-  min-height: 48px; padding: .55rem 1rem; border-radius: 12px;
-  background: var(--camp); color: var(--etiqueta); font-weight: 600; text-decoration: none;
-}
-a.enllac::after { content: "›"; font-size: 1.4rem; line-height: 1; color: var(--blau-text); flex: 0 0 auto }
-a.enllac:hover, .professorat a:hover, .enllacos-tasca a:hover { background: var(--fons); text-decoration: none }
-/* Els enllaços de la portada i de les tasques, més petits: botons en línia. */
-.professorat a, .enllacos-tasca a { display: inline-flex; min-height: 34px; padding: .25rem .8rem;
-                                    border-radius: 8px; font-size: .92rem; margin: 0 .15rem }
-.enllacos-tasca a { min-width: 5.2rem }
+.pagina:has(#opcions) { max-width: 58rem }
 @media (max-width: 40rem) {
   .bombolla { grid-template-columns: 1fr }
-  .bombolla .quadern { border-left: 0; border-top: 1px solid var(--separador);
-                       border-radius: 0 0 var(--r-g) var(--r-g) }
+  .bombolla .meitat-quadern { border-left: 0; border-top: 1px solid var(--separador); padding: 1rem 0 }
 }
 
-.pagina:has(#opcions) { max-width: 58rem }
-details.desplegable > summary { margin: 0 -1.3rem; padding: 0 1.3rem }
+/* Els botons grans de la pàgina del curs: una amplada fixa i raonable. */
+a.tria-opcio, div.tria-opcio { width: 16rem; max-width: 100% }

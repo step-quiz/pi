@@ -248,9 +248,9 @@ svg { display: block; width: 100% ; height: auto }
 /* La barra de dalt, només a la pantalla: tornar a l'índex i baixar el PDF (30/9/2026). */
 .navega { max-width: 21cm; margin: 1rem auto 0; padding: 0 .2rem; display: flex; flex-wrap: wrap;
           gap: .5rem 1rem; align-items: center; font: 15px/1.4 var(--tipus) }
-.navega .pdf { display: inline-block; border: 1.5px solid currentColor; border-radius: 999px;
-               padding: .2rem .8rem; text-decoration: none; font-weight: 600 }
-.navega .pdf:hover { text-decoration: underline }
+.navega .pdf { display: inline-block; background: #D4D4D4; color: #000; border-radius: 12px;
+               padding: .35rem .9rem; text-decoration: none; font-weight: 600 }
+.navega .pdf:hover { text-decoration: none }
 @media print { .navega { display: none } }
 
 @media print {

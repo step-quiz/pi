@@ -115,17 +115,17 @@
   /** El quadern, a la dreta de la bombolla: un enllaç, o apagat si encara no n'hi ha. */
   function quadern(href) {
     const cos = icona("quadern") + "<h2>Quadern d'activitats</h2>";
-    return href
+    return '<section class="meitat-quadern">' + (href
       ? '<a class="quadern" href="' + href + '">' + cos + "<p>Per practicar després de la fitxa.</p></a>"
-      : '<div class="quadern apagat">' + cos + "<p>Encara no n'hi ha.</p></div>";
+      : '<div class="quadern apagat">' + cos + "<p>Encara no n'hi ha.</p></div>") + "</section>";
   }
 
   /** La caixa d'eines, a sota de la bombolla: un enllaç, o apagada si la unitat no té tasques. */
   function caixa(href) {
     const cos = icona("caixa") + "<div><h2>Caixa d'eines</h2><p>" +
       (href ? "Només les eines d'aquesta unitat." : "Encara no n'hi ha.") + "</p></div>";
-    return href ? '<a class="caixa" href="' + href + '">' + cos + "</a>"
-                : '<div class="caixa apagada">' + cos + "</div>";
+    return '<div class="caixa-fila">' + (href ? '<a class="caixa" href="' + href + '">' + cos + "</a>"
+                : '<div class="caixa apagada">' + cos + "</div>") + "</div>";
   }
 
   const esRepas = f => /-repas\.html$/.test(f.fitxa);
