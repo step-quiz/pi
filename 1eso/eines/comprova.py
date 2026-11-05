@@ -1057,11 +1057,11 @@ print(f"  HTML amb el seu generador: {len(FITXES) + len(TARGETES) - len(FETS_A_M
 
 # --------------------------------------------------------------------------
 print("\nDADES")
-# dades/unitats.js és el que llegeix fitxes.html. Ha de quadrar amb el disc.
+# dades/unitats.js és el que llegeixen la portada i unitat.html. Ha de quadrar amb el disc.
 # --------------------------------------------------------------------------
 dades = llegeix(ruta('dades', 'unitats.js'))
 # Una clau repetida dins d'un objecte no dona cap error al navegador: es queda amb l'última.
-# A la unitat 4 hi havia «fitxes: [...]» i, més avall, «fitxes: []», i fitxes.html no en
+# A la unitat 4 hi havia «fitxes: [...]» i, més avall, «fitxes: []», i la pàgina de la unitat no en
 # veia cap (28/9/2026). Cada objecte comença amb «  {» i els seus camps van a quatre espais.
 for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
     camps = re.findall(r'^    (\w+):', bloc, re.M)
@@ -1092,6 +1092,63 @@ if tasques_dades:
                                           f"{sorted(tasques_dades - a_la_caixa)}")
 print(f"  unitats: {len(nums)} · amb fitxa: {len(fitxes_dades)} · targetes: {len(fitxers_t)} · "
       f"tasques de la caixa citades: {len(tasques_dades)}")
+
+def UNITATS_DE_LA_TARGETA(nom):
+    m = re.search(r'id:\s*"%s",.*?\bunitat:\s*(\d+)' % re.escape(nom), dades, re.S)
+    return [int(m[1])] if m else []
+
+
+# --------------------------------------------------------------------------
+print("\nNAVEGACIÓ")
+# L'esquema és sempre curs → unitat → fitxa, quadern o caixa d'eines (5/11/2026, per encàrrec
+# del docent). Tot el que és del tercer nivell torna a la pàgina de la seva unitat
+# (unitat.html?ud=N), mai a una llista plana, i la unitat torna a la portada. Per això:
+#   · cada fitxa (i cada quadern) té com a primer enllaç «← unitat N» (o «← la unitat», al
+#     quadern), i la N és la unitat que la declara a dades/unitats.js;
+#   · cada targeta de consulta torna a la unitat on neix i carrega comu/js/torna.js, que la fa
+#     tornar a la unitat d'on ve (?ud=N);
+#   · cap pàgina ni cap JS no enllaça fitxes.html ni quadern.html, que ja no existeixen.
+# --------------------------------------------------------------------------
+def _primer_enllac(text):
+    m = re.search(r'<nav class="navega[^>]*>\s*<a ([^>]*)>([^<]*)</a>', text)
+    return (m[1], m[2]) if m else ("", "")
+
+_unitat_de = {}
+for _bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
+    _n = re.search(r'^    num:\s*(\d+)', _bloc, re.M)
+    if not _n:
+        continue
+    for _f in re.findall(r'(?:fitxa|tancament|quadern):\s*"([^"]+)"', _bloc):
+        _unitat_de[_f] = int(_n[1])
+n_nav = 0
+for _f, _n in sorted(_unitat_de.items()):
+    if not os.path.exists(ruta(_f)):
+        continue
+    _attrs, _text = _primer_enllac(open(ruta(_f), encoding='utf-8').read())
+    _text_bo = _text in (f"← unitat {_n}", "← la unitat")
+    n_nav += 1
+    comprova(f'href="../unitat.html?ud={_n}"' in _attrs and _text_bo,
+             f"{_f}: el primer enllaç de dalt ha de tornar a la unitat {_n} (../unitat.html?ud={_n}), "
+             f"i és «{_text}» ({_attrs})")
+for _f in sorted(glob.glob(ruta('targetes', '*.html'))):
+    _nom = os.path.basename(_f)[:-5]
+    _t = open(_f, encoding='utf-8').read()
+    _attrs, _text = _primer_enllac(_t)
+    _units = UNITATS_DE_LA_TARGETA(_nom)
+    n_nav += 1
+    comprova(bool(_units) and 'data-unitat' in _attrs and f'href="../unitat.html?ud={_units[0]}"' in _attrs
+             and _text == f"← unitat {_units[0]}",
+             f"targetes/{_nom}.html: ha de tornar a la unitat {_units[:1]} (data-unitat, ../unitat.html?ud=N): "
+             f"«{_text}» ({_attrs})")
+    comprova('<script src="../../comu/js/torna.js"></script>' in _t,
+             f"targetes/{_nom}.html: falta comu/js/torna.js, que la fa tornar a la unitat d'on ve")
+_enllacos_morts = []
+for _f in glob.glob(os.path.join(ARREL, '**', '*.html'), recursive=True) + glob.glob(ruta('js', '*.js')):
+    if re.search(r"""(?:href\s*=|\.href\s*=)\s*["'](?:\.\./)?(?:fitxes|quadern)\.html""",
+                 open(_f, encoding='utf-8').read()):
+        _enllacos_morts.append(os.path.relpath(_f, REPO))
+comprova(not _enllacos_morts, f"enllaços a fitxes.html o quadern.html, que ja no hi són: {_enllacos_morts}")
+print(f"  pàgines que tornen a la seva unitat: {n_nav} · enllaços a pàgines planes: {len(_enllacos_morts)}")
 
 # El camí mínim, l'estat, la regla trencada, la fita i el rol (grup 3, 30/9/2026).
 # El camí mínim són les pàgines de l'alumnat que són el nucli de cada fitxa: han

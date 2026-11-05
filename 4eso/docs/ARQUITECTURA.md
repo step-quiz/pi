@@ -34,10 +34,8 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 `comu/examens/nucli.js`.
 
 ```
-├── index.html              pàgina del professorat: fitxes, quadern, caixa sencera
-├── unitat.html             la pàgina d'una unitat (?ud=N), la fa ../comu/js/unitat.js
-├── fitxes.html             índex de fitxes: tria ràpida i detall de cada unitat
-├── quadern.html            índex dels quaderns d'activitats
+├── index.html              pàgina del professorat: caixa sencera, frases, codis
+├── unitat.html             la pàgina d'una unitat (?ud=N): fitxes, targetes, quadern, caixa i detall; la fa ../comu/js/unitat.js
 ├── caixa-eines.html        l'aplicació: només marcatge
 │
 ├── css/
@@ -45,7 +43,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── fitxa.css           les fitxes imprimibles          (importa tokens)
 │   ├── quadern.css         el quadern d'activitats: filtre i impressió (després de fitxa.css)
 │   ├── app.css             la caixa d'eines                (importa tokens)
-│   └── lloc.css            index.html i fitxes.html        (importa tokens)
+│   └── lloc.css            index.html i unitat.html        (importa tokens)
 │
 ├── verifica.html           pàgina del professorat: llegir els codis de verificació
 │
@@ -55,7 +53,6 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── tasca.js            el motor de les tasques tancades: passos, represa, resum
 │   ├── veu.js              la lectura en veu alta de cada targeta (apartat 6c)
 │   ├── app.js              navegació de la caixa d'eines
-│   ├── lloc.js             construeix els índexs a partir de les dades
 │   ├── quadern.js          el filtre del quadern d'activitats (apartats i repte)
 │   └── moduls/             un fitxer per mòdul, deu en total
 │
@@ -84,12 +81,12 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 tokens.css ← s'enllaça des de l'HTML, ABANS de fitxa.css / app.css / lloc.css
 nucli.js   ← codi.js, tasca.js, veu.js ← js/moduls/*.js ← app.js
 textos.js  ← tasca.js, js/moduls/*.js
-unitats.js ← lloc.js
+unitats.js ← ../comu/js/portada.js, ../comu/js/unitat.js
 ```
 
 `app.js` no sap res del contingut dels mòduls: només els identificadors, que llegeix de
-l'atribut `data-mod` del marcatge. `lloc.js` no sap res de les unitats: les llegeix de
-`dades/unitats.js`.
+l'atribut `data-mod` del marcatge. `unitat.js` (a `comu/js/`) no sap res de cada unitat: les
+llegeix de `dades/unitats.js`.
 
 ---
 

@@ -18,7 +18,7 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 | `comu/` | El que comparteixen els dos materials: la portada i la pàgina de cada unitat (`comu/js/`), el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
 | `index.html` | La porta d'entrada: una columna per curs amb les seves unitats, i al peu l'enllaç a la pàgina del professorat de cada curs. La fa `comu/js/portada.js` |
 | `other-versions/` | Dues versions de molta menys qualitat fetes amb una IA, per comparar-les amb aquest projecte: `gratis-2min.html` (IA gratuïta, 2 minuts, una instrucció) i `pagament-10min.html` (IA de pagament, 10 minuts, dues instruccions), amb el seu dossier i solucionari en PDF. Només s'hi arriba des de `index.html?other-versions=1`. Es deixen tal com les va fer la IA, i per això la comprovació de l'anonimat no hi mira |
-| `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien |
+| `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien, i les de les llistes planes `fitxes`/`quadern`, a la portada |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
 | `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub, i les comprovacions automàtiques. Si es pugen dos zip seguits, el segon espera el primer; i si les comprovacions fallen, no es desa res i el zip es queda a `_uploads/` |
@@ -40,13 +40,32 @@ pàgina (`1eso/unitat.html?ud=N`, `4eso/unitat.html?ud=N`), amb tres opcions:
 - **Caixa d'eines**: només les eines d'aquella unitat i d'aquell curs
   (`caixa-eines.html?ud=N&tasques=…`; les tasques són al camp `tasques` de `dades/unitats.js`).
 
+- **Targetes de consulta**: dins de «Fitxes d'activitats», a la unitat on neixen (camp `unitat`
+  o `unitats` de `TARGETES` a `dades/unitats.js`).
+- **Per al professorat**: sota les tres opcions, plegat, el detall de la unitat (camí mínim,
+  fita, regla trencada, rol a l'aula ordinària…).
+
+### L'esquema de navegació
+
+Sempre **tres nivells**: 1. curs (la portada), 2. unitat (`unitat.html?ud=N`), 3. fitxa, quadern
+o caixa d'eines. Cada pàgina del tercer nivell porta un enllaç de dalt «← unitat N» que torna a
+la pàgina de **la seva** unitat, i la unitat torna a la portada. No hi ha llistes planes que se
+saltin la unitat: `fitxes.html` i `quadern.html` ja no existeixen (les adreces velles porten a la
+portada, des de `404.html`). Les targetes de consulta s'obren amb `?ud=N`, i `comu/js/torna.js`
+fa que tornin a la unitat d'on vénen. `comprova.py` (apartat NAVEGACIÓ) i
+`comu/eines/prova_portada.py` vigilen que cap pàgina nova trenqui l'esquema.
+
+La branca del professorat és a part: portada → «Per al professorat» → pàgina del curs
+(`index.html`) → caixa d'eines sencera, enllaços `?task=n`, frases i codis. Torna sempre a la
+pàgina del curs i d'allà a la portada.
+
 El que no és de cap unitat (les targetes de consulta, canviar les frases, llegir els codis de
 verificació, la caixa sencera, els enllaços `?task=n`) és a la pàgina «Per al professorat» de
 cada curs, enllaçada al peu de la portada: `1eso/index.html` i `4eso/index.html`. Els enllaços
 que ja s'han enviat continuen funcionant.
 
 **Si canvies el CSS o el JS de la portada o de les unitats**, puja el número `?v=` dels seus
-enllaços a `index.html`, `1eso/unitat.html` i `4eso/unitat.html` (ara és `?v=2`). `_headers`
+enllaços a `index.html`, `1eso/unitat.html` i `4eso/unitat.html` (ara és `?v=3`). `_headers`
 deixa els fulls d'estil una hora a la memòria del navegador, i sense això la pàgina nova
 surt amb l'estil vell: va passar el 5/11/2026.
 

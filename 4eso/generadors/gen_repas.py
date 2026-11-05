@@ -236,7 +236,7 @@ def fitxa(n, u):
 </head>
 <body>
 
-<nav class="navega no-imprimir" aria-label="Navegació"><a href="../fitxes.html">← totes les fitxes</a><a class="pdf" href="../pdf/ud{n}-repas-alumnat.pdf" download>PDF de l'alumnat</a><a class="pdf" href="../pdf/ud{n}-repas-solucionari.pdf" download>PDF del solucionari</a></nav>
+<nav class="navega no-imprimir" aria-label="Navegació"><a href="../unitat.html?ud={n}">← unitat {n}</a><a class="pdf" href="../pdf/ud{n}-repas-alumnat.pdf" download>PDF de l'alumnat</a><a class="pdf" href="../pdf/ud{n}-repas-solucionari.pdf" download>PDF del solucionari</a></nav>
 
 <!-- ==================== FULL 1 ==================== -->
 <div class="full">

@@ -34,6 +34,14 @@ FULL_ALT = FULL_PDF.replace("size: A4;", "size: 21cm 200cm;")
 DEPENDENCIES = ["css/tokens.css", "css/fitxa.css", "fonts/Caveat.ttf", "eines/paper.py"]
 
 
+# Les parts d'una pàgina que només es veuen a la pantalla i que no arriben mai al PDF (blocs() només
+# agafa la capçalera i els .full): la barra de dalt («← unitat N», els enllaços als PDF) i l'script
+# que corregeix l'enllaç de les targetes. Canviar la navegació no fa vell cap PDF, i per això
+# l'empremta no les compta (5/11/2026, en canviar «← totes les fitxes» per «← unitat N»).
+SENSE_PDF = re.compile(rb'<nav class="navega no-imprimir".*?</nav>\n?'
+                       rb'|<script src="\.\./\.\./comu/js/torna\.js"></script>\n?', re.S)
+
+
 def blocs(html):
     """Separa la capçalera i els blocs .full d'una pàgina HTML.
 
@@ -60,6 +68,8 @@ def empremta(font_rel):
             dades = f.read()
         if not rel.endswith(".ttf"):
             dades = dades.replace(b"\r\n", b"\n")
+        if rel == font_rel:
+            dades = SENSE_PDF.sub(b"", dades)
         h.update(rel.encode() + b"\0" + dades + b"\0")
     return h.hexdigest()
 

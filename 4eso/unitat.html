@@ -8,9 +8,10 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <title>Unitat · Matemàtiques Aplicades</title>
 <!-- La pàgina d'una unitat: unitat.html?ud=N. La fa ../comu/js/unitat.js amb les dades
-     de dades/unitats.js. S'hi arriba des de la portada de l'arrel (../index.html). -->
-<link rel="stylesheet" href="css/tokens.css?v=2">
-<link rel="stylesheet" href="css/lloc.css?v=2">
+     de dades/unitats.js. S'hi arriba des de la portada de l'arrel (../index.html); les fitxes, el quadern i la caixa
+     tornen aquí (esquema curs → unitat → fitxa/quadern/caixa). -->
+<link rel="stylesheet" href="css/tokens.css?v=3">
+<link rel="stylesheet" href="css/lloc.css?v=3">
 </head>
 <body data-materia="Matemàtiques Aplicades">
 <div class="pagina">
@@ -21,8 +22,33 @@
 
   <div class="tria" id="opcions"></div>
 
+  <!-- El detall per al docent, plegat. El que abans era a fitxes.html (esquema curs → unitat →
+       fitxa, quadern o caixa, 5/11/2026). Ho omple comu/js/unitat.js. -->
+  <details class="docent" id="docent" hidden>
+    <summary>Per al professorat: el detall de la unitat</summary>
+    <div class="nota">
+      <b>La regla trencada.</b> A cada unitat hi ha un exercici que trenca la regla que
+      l'alumnat s'haurà fabricat als apartats anteriors. No és un adorn: és el que
+      distingeix calcular de recordar, i sol ser l'evidència d'avaluació més valuosa de
+      la fitxa. Si mai cal escurçar-ne una, aquest exercici és l'últim que s'ha de treure.
+    </div>
+    <div class="nota">
+      <b>El model que torna: la doble recta.</b> Dues magnituds alineades i una vertical que les
+      lliga. Surt a la U2 (euros i per cent), a la U3 (plànol i realitat), a la U7 (casos i
+      probabilitat) i, si la balança no agafa, a la U4 (x i x + 3). Quan l'alumnat dubti, val la
+      pena tornar-hi.
+    </div>
+    <div class="detall" id="detall-unitat"></div>
+    <div class="nota">
+      <b>Per repartir</b>, fes servir el <b>PDF de l'alumnat</b>: no porta el solucionari,
+      que és a part, al <b>PDF del solucionari</b>. Si imprimeixes la fitxa des del navegador,
+      el solucionari hi surt al final i ocupa més d'una pàgina. Les targetes de consulta
+      s'imprimeixen a doble cara i es poden plastificar.
+    </div>
+  </details>
+
 </div>
-<script src="dades/unitats.js?v=2"></script>
-<script src="../comu/js/unitat.js?v=2"></script>
+<script src="dades/unitats.js?v=3"></script>
+<script src="../comu/js/unitat.js?v=3"></script>
 </body>
 </html>

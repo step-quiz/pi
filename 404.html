@@ -9,6 +9,12 @@
    que ja té l'alumnat no es trenquen. */
 (function () {
   var p = location.pathname;
+  /* Les llistes planes d'abans (1eso/fitxes, 4eso/fitxes, 4eso/quadern) ja no hi són: l'esquema és
+     curs → unitat → fitxa, quadern o caixa (5/11/2026). Les adreces velles porten a la portada. */
+  if (/^\/[14]eso\/(fitxes|quadern)(\.html)?\/?$/.test(p)) {
+    location.replace("/");
+    return;
+  }
   if (p.indexOf("/4eso/") !== 0 && p.indexOf("/1eso/") !== 0 && p.indexOf("/comu/") !== 0) {
     location.replace("/4eso" + p + location.search + location.hash);
   }

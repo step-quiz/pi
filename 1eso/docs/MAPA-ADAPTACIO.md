@@ -89,7 +89,7 @@ decimals periòdics). De cada una només s'agafa el nucli. La resta no es rebaix
 ### 4 bis. El camí mínim, la fita, el rol i l'estat (30/9/2026)
 
 Quatre idees que venen de `4eso/`. Són a [`../dades/unitats.js`](../dades/unitats.js) i surten a
-`fitxes.html`, a «El detall de cada unitat». Es van proposar i fixar el 30/9/2026: el docent va
+la pàgina de cada unitat, al «detall per al docent» plegat. Es van proposar i fixar el 30/9/2026: el docent va
 encarregar tancar-les i fer una revisió de totes les fitxes dels dos cursos (vegeu el final
 d'aquest apartat).
 

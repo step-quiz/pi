@@ -133,7 +133,6 @@ ESTATS = [
     ("28.2 Quantes persones? · tocada",    "caixa-eines.html", "?task=28.2", "boto_gs"),
     ("Tota la caixa",                    "caixa-eines.html", "",          None),
     ("La portada",                       "index.html",       "",          None),
-    ("Fitxes",                           "fitxes.html",      "",          None),
     ("Llegir codis",                     "verifica.html",    "",          None),
     ("Canviar les frases",               "textos.html",      "",          None),
 ]

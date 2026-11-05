@@ -7,6 +7,7 @@ movia, deixaven de funcionar, i un canvi en una peça no es veia d'on venia. Ara
 mòdul: `from peces_comunes import *`.
 """
 import os
+import re
 import sys
 
 CM = 37.795            # píxels CSS per centímetre
@@ -135,6 +136,11 @@ def buit_curt():
     return '<u style="padding:0 1.1rem"></u>'
 
 
+# La unitat on neix cada targeta de consulta: ha de quadrar amb el camp unitat de
+# dades/unitats.js (eines/comprova.py ho mira).
+UNITAT_TARGETA = {"taules": 1, "fraccions": 3, "decimals": 5, "formes": 6, "patrons": 7}
+
+
 def desa(html, sortida):
     """Escriu l'HTML amb una capçalera que diu de quin generador surt: si algú l'edités a
     mà, el canvi es perdria la pròxima vegada que es generés. eines/comprova.py la mira."""
@@ -145,15 +151,24 @@ def desa(html, sortida):
         html = "<!DOCTYPE html>\n" + avis + html[len("<!DOCTYPE html>\n"):]
     else:
         html = avis + html
-    # La barra de dalt, només a la pantalla: tornar a l'índex i baixar el PDF (30/9/2026).
+    # La barra de dalt, només a la pantalla: tornar a la unitat i baixar el PDF (30/9/2026).
+    # L'esquema és curs → unitat → fitxa, quadern o caixa (5/11/2026): una fitxa o una targeta
+    # torna sempre a la pàgina de la seva unitat, mai a una llista plana.
     nom = os.path.basename(sortida)[:-5]
     if nom.startswith("ud"):
+        unitat = int(re.match(r"ud(\d+)", nom).group(1))
         pdfs = (f'<a class="pdf" href="../pdf/{nom}-alumnat.pdf" download>PDF de l\'alumnat</a>'
                 f'<a class="pdf" href="../pdf/{nom}-solucionari.pdf" download>PDF del solucionari</a>')
+        tornar = f'<a href="../unitat.html?ud={unitat}">← unitat {unitat}</a>'
     else:
+        # Una targeta torna a la unitat on neix (dades/unitats.js, camp unitat). Si s'hi arriba
+        # des d'una altra unitat (?ud=N), comu/js/torna.js corregeix l'enllaç.
+        unitat = UNITAT_TARGETA[nom]
         pdfs = f'<a class="pdf" href="../pdf/targeta-{nom}.pdf" download>PDF per imprimir</a>'
+        tornar = f'<a data-unitat href="../unitat.html?ud={unitat}">← unitat {unitat}</a>'
+        html = html.replace("</body>", '<script src="../../comu/js/torna.js"></script>\n</body>', 1)
     barra = (f'<nav class="navega no-imprimir" aria-label="Navegació">'
-             f'<a href="../fitxes.html">← totes les fitxes</a>{pdfs}</nav>\n')
+             f'{tornar}{pdfs}</nav>\n')
     html = html.replace("<body>\n", "<body>\n" + barra, 1)
     with open(sortida, "w", encoding="utf-8") as f:
         f.write(html)

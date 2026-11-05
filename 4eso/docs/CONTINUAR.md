@@ -233,13 +233,37 @@ dir-l'hi: aquesta sí que la va voler aprovar.
 
 ---
 
+## 10e. 5/11/2026: l'esquema de navegació curs → unitat → fitxa, quadern o caixa
+
+- **El problema.** La navegació «endavant, enrera, endins, a fora» es trencava: des de la unitat
+  s'obria una fitxa, però el «← totes les fitxes» de la fitxa portava a `fitxes.html`, una llista
+  plana del curs que se saltava la unitat (i d'allà, «← inici» portava a la pàgina del professorat,
+  no a la portada).
+- **Què es va fer (decisions del docent).** Cada fitxa, fitxa de repàs, targeta i quadern torna a
+  **la seva unitat** («← unitat N»). Les targetes de consulta viuen dins de la unitat on neixen
+  (camp `unitats` de `TARGETES`; 1eso/ té el camp `unitat`), i s'obren amb `?ud=N` perquè
+  `comu/js/torna.js` les faci tornar a la unitat d'on venen. `fitxes.html` i `quadern.html` (i
+  `js/lloc.js`) s'han eliminat: el detall per al docent (camí mínim, fita, regla trencada…) és ara
+  plegat a la pàgina de cada unitat (`comu/js/unitat.js`), i les mosaiques «Fitxes» i «Quadern» de
+  la pàgina del curs han desaparegut. `404.html` porta les adreces velles a la portada.
+- **Generadors.** `gen_repas.py` (aquí) i `generadors/fitxes/peces_comunes.py` (a 1eso/) fan la
+  barra de dalt nova; les 60 pàgines ja fetes són idèntiques al que surt dels generadors.
+- **Empremtes dels PDF.** La barra de dalt i l'script de les targetes només es veuen a la pantalla
+  i no arriben mai al PDF; per això `eines/empremta.py` (i `paper.py` a 1eso/) ja no els compten a
+  l'empremta, i els PDF no s'han hagut de tornar a fer. `pdf/empremtes.json` es va tornar a
+  calcular una sola vegada.
+- **Proves.** `eines/comprova.py`, apartat NAVEGACIÓ (el primer enllaç de cada fitxa, targeta i
+  quadern torna a la unitat que toca, i cap pàgina no enllaça les llistes planes), i
+  `comu/eines/prova_portada.py` (en un navegador: clica «← unitat» de cada pàgina de cada unitat,
+  l'«enrere» i l'«endavant» del navegador, i la branca del professorat).
+
 ## 10d. 5/11/2026: el quadern d'activitats de la UD3
 
 - **Què és.** `quadern/ud3.html`: activitats per practicar després de la fitxa, un bloc per
   exercici de la fitxa. Cada bloc té una activitat germana i una de repte. El filtre tria
   quants apartats té cada activitat (a) resolt i 3, 6 o 12 per fer) i si hi ha les de repte.
   Es descriu al `README.md`, apartat «El quadern d'activitats». Des de la portada:
-  `index.html` → `quadern.html`.
+  unitat 3 → «Quadern d'activitats» (abans, `index.html` → `quadern.html`, que ja no hi és).
 - **Com està fet.** `generadors/gen_quadern.py` és el motor (les peces i la pàgina) i
   `generadors/quadern/ud3.py`, el contingut, amb els números calculats. `eines/comprova.py`
   torna a generar el quadern i avisa si el fitxer de `quadern/` és diferent;

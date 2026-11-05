@@ -600,6 +600,63 @@ comprova(sorted(targetes) == sorted(os.path.basename(f)[:-5] for f in glob.glob(
 print(f"  unitats: {len(unitats)} · fitxes de repàs: {len(repassos)} · fitxes al disc: {len(al_disc)}"
       f" · quaderns: {len(quaderns)} · targetes: {len(targetes)}")
 
+def UNITATS_DE_LA_TARGETA(nom):
+    m = re.search(r'nom:\s*"%s".*?unitats:\s*\[([^\]]*)\]' % re.escape(nom), dades)
+    return [int(x) for x in re.findall(r'\d+', m[1])] if m else []
+
+
+# --------------------------------------------------------------------------
+print("\nNAVEGACIÓ")
+# L'esquema és sempre curs → unitat → fitxa, quadern o caixa d'eines (5/11/2026, per encàrrec
+# del docent). Tot el que és del tercer nivell torna a la pàgina de la seva unitat
+# (unitat.html?ud=N), mai a una llista plana, i la unitat torna a la portada. Per això:
+#   · cada fitxa (i cada quadern) té com a primer enllaç «← unitat N» (o «← la unitat», al
+#     quadern), i la N és la unitat que la declara a dades/unitats.js;
+#   · cada targeta de consulta torna a la unitat on neix i carrega comu/js/torna.js, que la fa
+#     tornar a la unitat d'on ve (?ud=N);
+#   · cap pàgina ni cap JS no enllaça fitxes.html ni quadern.html, que ja no existeixen.
+# --------------------------------------------------------------------------
+def _primer_enllac(text):
+    m = re.search(r'<nav class="navega[^>]*>\s*<a ([^>]*)>([^<]*)</a>', text)
+    return (m[1], m[2]) if m else ("", "")
+
+_unitat_de = {}
+for _bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
+    _n = re.search(r'^    num:\s*(\d+)', _bloc, re.M)
+    if not _n:
+        continue
+    for _f in re.findall(r'(?:fitxa|tancament|quadern):\s*"([^"]+)"', _bloc):
+        _unitat_de[_f] = int(_n[1])
+n_nav = 0
+for _f, _n in sorted(_unitat_de.items()):
+    if not os.path.exists(ruta(_f)):
+        continue
+    _attrs, _text = _primer_enllac(open(ruta(_f), encoding='utf-8').read())
+    _text_bo = _text in (f"← unitat {_n}", "← la unitat")
+    n_nav += 1
+    comprova(f'href="../unitat.html?ud={_n}"' in _attrs and _text_bo,
+             f"{_f}: el primer enllaç de dalt ha de tornar a la unitat {_n} (../unitat.html?ud={_n}), "
+             f"i és «{_text}» ({_attrs})")
+for _f in sorted(glob.glob(ruta('targetes', '*.html'))):
+    _nom = os.path.basename(_f)[:-5]
+    _t = open(_f, encoding='utf-8').read()
+    _attrs, _text = _primer_enllac(_t)
+    _units = UNITATS_DE_LA_TARGETA(_nom)
+    n_nav += 1
+    comprova(bool(_units) and 'data-unitat' in _attrs and f'href="../unitat.html?ud={_units[0]}"' in _attrs
+             and _text == f"← unitat {_units[0]}",
+             f"targetes/{_nom}.html: ha de tornar a la unitat {_units[:1]} (data-unitat, ../unitat.html?ud=N): "
+             f"«{_text}» ({_attrs})")
+    comprova('<script src="../../comu/js/torna.js"></script>' in _t,
+             f"targetes/{_nom}.html: falta comu/js/torna.js, que la fa tornar a la unitat d'on ve")
+_enllacos_morts = []
+for _f in glob.glob(os.path.join(ARREL, '**', '*.html'), recursive=True) + glob.glob(ruta('js', '*.js')):
+    if re.search(r"""(?:href\s*=|\.href\s*=)\s*["'](?:\.\./)?(?:fitxes|quadern)\.html""",
+                 open(_f, encoding='utf-8').read()):
+        _enllacos_morts.append(os.path.relpath(_f, REPO))
+comprova(not _enllacos_morts, f"enllaços a fitxes.html o quadern.html, que ja no hi són: {_enllacos_morts}")
+print(f"  pàgines que tornen a la seva unitat: {n_nav} · enllaços a pàgines planes: {len(_enllacos_morts)}")
+
 print()
 if falles:
     print(f"{len(falles)} PROBLEMES:")

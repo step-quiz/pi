@@ -28,10 +28,8 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 | | |
 |---|---|
-| `index.html` | la pàgina del professorat del curs (s'hi arriba des del peu de la portada de l'arrel): les fitxes, el quadern, la caixa sencera i les eines per al docent |
-| `unitat.html` | la pàgina d'una unitat (`unitat.html?ud=N`): les fitxes, el quadern i la caixa d'eines amb només les tasques de la unitat (camp `tasques` de `dades/unitats.js`). La fa `../comu/js/unitat.js` |
-| `quadern.html` | índex dels quaderns d'activitats: una targeta per unitat (es fa amb `dades/unitats.js`) |
-| `fitxes.html` | índex de les set unitats: tria ràpida i, per a cada una, material previ, regla trencada, fita, recursos, fitxa de repàs; al final, les targetes de consulta |
+| `index.html` | la pàgina del professorat del curs (s'hi arriba des del peu de la portada de l'arrel): la caixa sencera i les eines per al docent |
+| `unitat.html` | la pàgina d'una unitat (`unitat.html?ud=N`): les fitxes amb els seus dos PDF, les targetes de consulta de la unitat (camp `unitats` de `TARGETES`), el quadern i la caixa d'eines amb només les tasques de la unitat (camp `tasques` de `dades/unitats.js`), i plegat el detall per al docent. La fa `../comu/js/unitat.js`. Les fitxes, el quadern, les targetes i la caixa tornen aquí («← unitat N») |
 | `caixa-eines.html` | l'aplicació, amb deu mòduls |
 | `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
 | `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
@@ -126,7 +124,7 @@ seves. Les dues que més fàcilment es trenquen sense adonar-se'n:
 
 ## Els PDF
 
-Cada fitxa té dos PDF a `pdf/`, enllaçats des de `fitxes.html`:
+Cada fitxa té dos PDF a `pdf/`, enllaçats des de la pàgina de la unitat (`unitat.html?ud=N`):
 
 | | |
 |---|---|
@@ -167,9 +165,8 @@ on cada un va entre dos marcadors (`<!--grafic:NOM-->…<!--/grafic-->`). Despr�
 
 ## El quadern d'activitats
 
-Per practicar **després** de la fitxa. S'hi arriba des de la portada (`index.html` →
-«Quadern d'activitats» → `quadern.html`, que llista les unitats) o des del detall de cada
-unitat a `fitxes.html`.
+Per practicar **després** de la fitxa. S'hi arriba des de la pàgina de la unitat
+(portada → unitat → «Quadern d'activitats»), i el quadern torna a la unitat («← la unitat»).
 
 Hi ha un bloc per cada exercici de la fitxa, en el mateix ordre, i el subtítol de cada bloc
 diu quin exercici és i a quina pàgina («Com l'exercici 2 de la fitxa, a la pàgina 5»). Cada

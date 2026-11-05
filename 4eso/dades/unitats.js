@@ -1,7 +1,7 @@
 /* ============================================================================
    dades/unitats.js · la font única de veritat del curs
    ----------------------------------------------------------------------------
-   index.html i fitxes.html es construeixen a partir d'aquí. Si canvia una data,
+   La portada i la pàgina de cada unitat (unitat.html) es construeixen a partir d'aquí. Si canvia una data,
    una fita o el material d'una unitat, es canvia AQUÍ i enlloc més.
 
    Per afegir una unitat: una entrada nova + la fitxa a fitxes/. Res més.
@@ -100,13 +100,15 @@ window.UNITATS = [
 ];
 
 /* Les targetes de consulta: una cartolina per tenir a la taula mentre es treballa.
-   Cada targeta és un fitxer de targetes/ i un sol PDF amb les dues cares. */
+   Cada targeta és un fitxer de targetes/ i un sol PDF amb les dues cares.
+   unitats: a quines pàgines d'unitat surt (unitat.html?ud=N). La primera és la unitat a la
+   qual torna la targeta si s'obre sense ?ud (esquema curs → unitat → fitxa, 5/11/2026). */
 window.TARGETES = [
-  { nom: "calculadora",  titol: "La calculadora",
+  { nom: "calculadora",  titol: "La calculadora", unitats: [1, 2, 3, 4, 5, 6, 7],
     per: "Les cinc seqüències de tecles del curs, què vol dir el que surt i quan s'arrodoneix." },
-  { nom: "percentatges", titol: "Percentatges i escales",
+  { nom: "percentatges", titol: "Percentatges i escales", unitats: [2, 3],
     per: "La taula del factor, dos canvis seguits, la cadena de l'escala i el preu d'1." },
-  { nom: "grafiques",    titol: "Paràboles, dades i atzar",
+  { nom: "grafiques",    titol: "Paràboles, dades i atzar", unitats: [5, 6, 7],
     per: "Les parts de la paràbola, mitjana, mediana i moda, i la probabilitat en dos passos." }
 ];
 

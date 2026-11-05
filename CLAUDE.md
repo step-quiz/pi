@@ -34,11 +34,18 @@ repositori, si n'hi ha més avall, manen sobre aquestes quan diuen una altra cos
 
 - [`README.md`](README.md)
 
+**Navegació (no es trenca).** Sempre tres nivells: curs (portada `index.html`) → unitat
+(`unitat.html?ud=N`) → fitxa, quadern o caixa d'eines. Tot el del tercer nivell torna a la seva
+unitat («← unitat N»), i la unitat torna a la portada; no hi ha llistes planes que se saltin la
+unitat. Una pàgina nova de fitxa, targeta o quadern ha de portar aquest enllaç (els generadors ja
+el fan) i sortir a `dades/unitats.js`. Vegeu el README de l'arrel, «L'esquema de navegació».
+
 Proves (des de l'arrel del repositori):
 
 ```
 python3 1eso/eines/comprova.py
 python3 4eso/eines/comprova.py
+python3 comu/eines/prova_portada.py   # la navegació, en un navegador (Playwright)
 ```
 
 Si alguna comprovació falla, el workflow dels ZIP no desa res.

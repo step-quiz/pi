@@ -3,6 +3,12 @@
 > **Per a una conversa nova:** comença per [`TRASPAS.md`](TRASPAS.md), que explica com continuar
 > les unitats 4 a 7 amb el mateix mètode.
 
+> **5/11/2026 · l'esquema de navegació.** `fitxes.html` i `js/lloc.js` ja no existeixen: l'esquema és
+> sempre curs → unitat → fitxa, quadern o caixa. Les fitxes i les targetes tornen a la seva unitat
+> («← unitat N»), les targetes surten a la pàgina de la unitat on neixen, i el detall per al docent
+> és plegat a `unitat.html`. Vegeu `../../4eso/docs/CONTINUAR.md`, apartat 10e. Les referències a
+> `fitxes.html` més avall són història.
+
 On és la feina de `1eso/` i què ve després. S'actualitza al final de cada sessió de treball.
 
 ---

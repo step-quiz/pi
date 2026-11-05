@@ -1,5 +1,5 @@
 /* ============================================================================
-   lloc.css · les pàgines de navegació (index.html, fitxes.html)
+   lloc.css · les pàgines de navegació (index.html, unitat.html)
    ----------------------------------------------------------------------------
    Aquestes pàgines són per al DOCENT, no per a l'alumnat: aquí sí que hi pot
    haver text seguit i densitat normal. La restricció de «cap paràgraf» val
@@ -68,10 +68,10 @@ a.targeta:hover { text-decoration: none; box-shadow: 0 2px 12px rgba(0, 0, 0, .0
   padding: 1.7rem 1.4rem; display: block; color: inherit; text-align: center;
 }
 a.tria-opcio:hover { text-decoration: none; box-shadow: 0 2px 16px rgba(0, 0, 0, .1) }
-/* Les targetes de portada que porten a una pàgina, i les unitats de quadern.html: vora negra
+/* Les targetes de portada que porten a una pàgina: vora negra
    gruixuda i fons gris clar en passar-hi el ratolí o arribar-hi amb el teclat, sense canviar
    de mida (la vora la fa l'ombra). */
-a.tria-opcio:hover, a.tria-opcio:focus-visible, a.unitat-q:hover, a.unitat-q:focus-visible {
+a.tria-opcio:hover, a.tria-opcio:focus-visible {
   box-shadow: 0 0 0 2.5px #000; background: var(--camp); outline: none; text-decoration: none;
 }
 .tria-opcio svg { width: 2.5rem; height: 2.5rem; color: var(--blau-text); margin-bottom: .8rem }
@@ -128,8 +128,6 @@ hr.divisor { border: 0; border-top: 1px solid var(--separador); margin: 2rem 0 }
 /* .tria és una graella, i sense això «hidden» no l'amagaria. */
 [hidden] { display: none !important }
 
-/* quadern.html: les unitats que encara no tenen quadern es veuen, però apagades. */
-.targeta.sense-q { opacity: .55 }
 
 /* ------------------------------------------- portada i pàgina de la unitat --
    La portada de l'arrel (una columna per curs amb les seves unitats) i unitat.html
@@ -188,3 +186,12 @@ a.unitat:hover, a.unitat:focus-visible, a.tria-opcio:hover, a.tria-opcio:focus-v
   #opcions .tria-opcio:not(.llista) { grid-column: 2; padding: 1.2rem 1rem }
   #opcions .tria-opcio:not(.llista) svg { margin-bottom: .4rem }
 }
+
+/* unitat.html: el detall per al docent, plegat sota les tres opcions, i les targetes de consulta
+   dins de la caixa de les fitxes (esquema curs → unitat → fitxa/quadern/caixa, 5/11/2026). */
+.tria-opcio.llista h3 { margin: 1.2rem 0 0; font-size: 1rem; color: var(--etiqueta-2) }
+details.docent { margin: 1.6rem 0 0 }
+details.docent > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; min-height: 44px;
+                           display: flex; align-items: center }
+details.docent > summary:focus-visible { outline: 2.5px solid #000; outline-offset: 2px }
+details.docent .detall { margin-top: .9rem }

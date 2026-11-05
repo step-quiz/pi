@@ -16,6 +16,14 @@ ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEPENDENCIES = ["css/tokens.css", "css/fitxa.css", "fonts/Caveat.ttf"]
 
 
+# Les parts d'una pàgina que només es veuen a la pantalla i que no arriben mai al PDF (blocs() de
+# gen_pdf.py només agafa la capçalera i els .full): la barra de dalt («← unitat N», els enllaços als
+# PDF) i l'script que corregeix l'enllaç de les targetes. Canviar la navegació no fa vell cap PDF
+# (5/11/2026, en canviar «← totes les fitxes» per «← unitat N»).
+SENSE_PDF = re.compile(rb'<nav class="navega no-imprimir".*?</nav>\n?'
+                       rb'|<script src="\.\./\.\./comu/js/torna\.js"></script>\n?', re.S)
+
+
 def full_pdf():
     """El full d'estil dels PDF, llegit de gen_pdf.py sense importar-lo."""
     font = open(os.path.join(ARREL, "generadors", "gen_pdf.py"), encoding="utf-8").read()
@@ -31,6 +39,8 @@ def empremta(font_rel):
             dades = f.read()
         if not rel.endswith(".ttf"):
             dades = dades.replace(b"\r\n", b"\n")
+        if rel == font_rel:
+            dades = SENSE_PDF.sub(b"", dades)
         h.update(rel.encode() + b"\0" + dades + b"\0")
     h.update(b"FULL_PDF\0" + full_pdf().replace("\r\n", "\n").encode())
     return h.hexdigest()

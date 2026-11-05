@@ -192,3 +192,12 @@ a.unitat:hover, a.unitat:focus-visible, a.tria-opcio:hover, a.tria-opcio:focus-v
   #opcions .tria-opcio:not(.llista) { grid-column: 2; padding: 1.2rem 1rem }
   #opcions .tria-opcio:not(.llista) svg { margin-bottom: .4rem }
 }
+
+/* unitat.html: el detall per al docent, plegat sota les tres opcions, i les targetes de consulta
+   dins de la caixa de les fitxes (esquema curs → unitat → fitxa/quadern/caixa, 5/11/2026). */
+.tria-opcio.llista h3 { margin: 1.2rem 0 0; font-size: 1rem; color: var(--etiqueta-2) }
+details.docent { margin: 1.6rem 0 0 }
+details.docent > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; min-height: 44px;
+                           display: flex; align-items: center }
+details.docent > summary:focus-visible { outline: 2.5px solid #000; outline-offset: 2px }
+details.docent .detall { margin-top: .9rem }
