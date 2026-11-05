@@ -3,7 +3,7 @@
    ----------------------------------------------------------------------------
    unitat.html?ud=N ensenya tres opcions per a la unitat N del curs:
 
-     Fitxes d'activitats   les fitxes de la unitat (menys la de repàs), amb els seus PDF
+     Fitxes d'activitats   les fitxes de la unitat (menys la de repàs)
      Quadern d'activitats  el quadern de la unitat (camp quadern), o apagat si no n'hi ha
                            (aquestes dues, en una sola bombolla: fitxes a l'esquerra, quadern a la dreta)
      Caixa d'eines         la caixa amb només les eines de la unitat (camp tasques):
@@ -11,10 +11,11 @@
      Més eines             desplegable, sempre plegat: la fitxa de repàs i les targetes de consulta
      Per al professorat    desplegable, sempre plegat: el detall de la unitat
 
+   Cada fitxa, targeta i quadern és un botó que porta a la seva pàgina; els PDF no es ressenyen
+   aquí, es baixen des de la fitxa.
    Les dades són les de dades/unitats.js del curs. Els dos cursos no les escriuen
    igual: a 1eso/ cada unitat té una llista de fitxes (camp fitxes); a 4eso/, una
    fitxa (fitxa) i la de repàs (tancament). Aquí es llegeixen totes dues formes.
-   El PDF de cada fitxa es diu com la fitxa: fitxes/ud3.html → pdf/ud3-alumnat.pdf.
 
    L'ESQUEMA DE NAVEGACIÓ (5/11/2026, per encàrrec del docent). Sempre tres nivells:
      1. curs         la portada de l'arrel (index.html)
@@ -38,11 +39,10 @@
     return l;
   }
 
+  /** Un enllaç de la unitat, com un botó. El PDF de l'alumnat i el del solucionari es baixen des
+      de la barra de dalt de la mateixa fitxa: aquí no hi són (6/11/2026, per encàrrec del docent). */
   function fitxa(f) {
-    const nom = f.fitxa.replace(/^.*\//, "").replace(/\.html$/, "");
-    return "<li><a href=\"" + f.fitxa + "\">" + f.titol + "</a>" +
-      '<span class="botons-pdf"><a class="pdf" href="pdf/' + nom + '-alumnat.pdf" download>PDF</a>' +
-      '<a class="pdf sol" href="pdf/' + nom + '-solucionari.pdf" download>solucionari</a></span></li>';
+    return '<li><a class="enllac" href="' + f.fitxa + '">' + f.titol + "</a></li>";
   }
 
   /** Les targetes de consulta de la unitat. A 1eso/ cada targeta té una unitat (unitat);
@@ -51,15 +51,14 @@
     return (window.TARGETES || []).filter(t =>
       (Array.isArray(t.unitats) ? t.unitats : [t.unitat]).includes(u.num)).map(t => ({
         fitxa: (t.fitxer || "targetes/" + t.nom + ".html") + "?ud=" + u.num,
-        pdf: t.pdf || "pdf/targeta-" + t.nom + ".pdf",
         titol: t.titol,
         text: t.descripcio || t.per || ""
       }));
   }
 
   function targeta(t) {
-    return '<li><a href="' + t.fitxa + '" title="' + t.text.replace(/"/g, "&quot;") + '">' + t.titol + "</a>" +
-      '<span class="botons-pdf"><a class="pdf" href="' + t.pdf + '" download>PDF</a></span></li>';
+    return '<li><a class="enllac" href="' + t.fitxa + '" title="' + t.text.replace(/"/g, "&quot;") + '">' +
+      t.titol + "</a></li>";
   }
 
   /** «1, 2 i 9» */

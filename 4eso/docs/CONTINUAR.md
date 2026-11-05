@@ -244,7 +244,9 @@ Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `cs
 - **Unitat.** Una bombolla (fitxes d'activitats a l'esquerra, quadern a la dreta), la caixa
   d'eines a sota, i dos desplegables sempre plegats: «Més eines» (fitxa de repàs i targetes de
   consulta) i el detall per al professorat.
-- **Botó PDF** en gris mitjà (`#7A7A7A`), i el solucionari en un gris més clar (`#EBEBEB`).
+- **Sense botons PDF a la unitat** (6/11/2026): cada fitxa, repàs i targeta és un únic botó que porta
+  a la pàgina HTML, i els PDF es baixen des de la barra de dalt de la fitxa. També són botons els
+  enllaços «Per al professorat» de la portada i els `?task=n` de la pàgina del curs.
 - **Hover.** Una sola regla a `tokens.css`: vora negra pura de 3 px a tot el que es clica (enllaços,
   botons, pestanyes, `summary`, selectors). Les ombres de hover velles s'han tret.
 - **Botons de tornada** («← inici», «← unitat N»): botó 3D petit, amb lletra monoespaiada, cara
