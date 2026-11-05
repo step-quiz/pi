@@ -48,6 +48,14 @@
       '<a class="pdf sol" href="pdf/' + nomf + '-solucionari.pdf" download>solucionari</a>';
   };
 
+  /** El quadern d'activitats d'una unitat: tres enllaços, un per quantitat. El filtre de
+      repte i la impressió es trien a la mateixa pàgina. */
+  const quadern = u =>
+    '<a href="' + u.quadern + '?n=1">petit</a> · ' +
+    '<a href="' + u.quadern + '?n=2">mitjà</a> · ' +
+    '<a href="' + u.quadern + '?n=3">elevat</a>' +
+    ' <span class="et">per després de la fitxa, amb activitats de repte opcionals</span>';
+
   /* ---- fitxes.html: les targetes de consulta ---- */
   function targetes(cont) {
     (window.TARGETES || []).forEach(t => {
@@ -76,6 +84,7 @@
             u.dates + " · " + u.sessions + " sessions</dd>" +
           "<dt>Descarrega</dt><dd>" + pdfs(u) + "</dd>" +
           (u.tancament ? "<dt>Fitxa de repàs</dt><dd>" + tancament(u) + "</dd>" : "") +
+          (u.quadern ? "<dt>Quadern d'activitats</dt><dd>" + quadern(u) + "</dd>" : "") +
           "<dt>Objectiu nuclear</dt><dd>" + u.objectiu + "</dd>" +
           "<dt>Cinc minuts abans</dt><dd>" + u.material + "</dd>" +
           "<dt>La regla trencada</dt><dd>" + u.trencada + "</dd>" +

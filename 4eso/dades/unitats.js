@@ -24,6 +24,9 @@
      tancament  la fitxa de repàs de la unitat («Una de cada» i «Què he après?»),
                 per al final de la unitat o per abans de l'examen. No és el camp
                 repas, que parla dels blocs de repas-main.
+     quadern    el quadern d'activitats per practicar després de la fitxa, amb el
+                filtre de quantitat i de repte (opcional: només les unitats que en
+                tenen). El fa generadors/gen_quadern.py.
    ========================================================================== */
 
 window.UNITATS = [
@@ -47,6 +50,7 @@ window.UNITATS = [
   },
   {
     num: 3, titol: "Proporcionalitat i escales", fitxa: "fitxes/ud3.html", tancament: "fitxes/ud3-repas.html",
+    quadern: "quadern/ud3.html",
     dates: "12–27 de gener", sessions: 7,
     objectiu: "Llegir una escala, passar de plànol a realitat i distingir directa d'inversa.",
     material: "una cinta mètrica i un full quadriculat",
