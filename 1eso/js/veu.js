@@ -27,6 +27,12 @@
        forat ja porten la seva lectura (aria-label), i es diu aquesta.
      · No es llegeixen els botons, els dibuixos, les etiquetes «Exemple» ni
        l'«Inici» i el «Final» del rètol de progrés: només «Pas 2 de 5».
+     · Les caselles i els desplegables (6/11/2026). Si hi ha alguna cosa escrita o
+       triada, es diu seguit, com si fos text: «El nombre √7 és entre 2 i 3» es diu
+       «El nombre l'arrel quadrada de 7 és entre 2 i 3». Si són buits (o el
+       desplegable encara diu «…»), es fa una pausa curta, amb una coma, i prou:
+       «El nombre, és entre, i.» Abans se saltaven, i la frase sortia enganxada
+       («El nombre és entre i»). Les altres menes de camp se salten, com abans.
 
    COM MARCA EL QUE LLEGEIX («focus i retolador que omple», 6/11/2026)
      · FOCUS. Mentre llegeix, la resta de la targeta s'apaga (classe .veu-apagat,
@@ -95,6 +101,8 @@
      Els blocs de la targeta, en l'ordre de la pàgina. Un bloc és l'element de
      bloc més proper que conté el text. */
   const NO_ES_LLEGEIX = "button, svg, input, select, textarea, script, style, [aria-hidden='true'], .marca, .fita, .veu-boto";
+  // Els camps que es diuen (el que hi ha escrit, o una pausa si són buits). Els altres, com abans.
+  const CAMP = "input[type='text'], input[type='number'], input:not([type]), select";
   const BLOC = "h1, h2, h3, h4, p, li, tr, dt, dd, figcaption, div";
 
   const visible = n => n.checkVisibility ? n.checkVisibility({ visibilityProperty: true })
@@ -112,6 +120,10 @@
         if (f.nodeType === 3) {
           if (f.data.trim()) afegeix(f.parentElement.closest(BLOC) || targeta, { node: f });
         } else if (f.nodeType === 1) {
+          if (f.matches(CAMP) && !f.matches("[aria-hidden='true']") && visible(f)) {
+            afegeix(f.parentElement.closest(BLOC) || targeta, { camp: f });
+            continue;
+          }
           if (f.matches(NO_ES_LLEGEIX) || !visible(f)) continue;
           // una fracció o una expressió amb forat: es diu la seva lectura
           if (f.getAttribute("role") === "img") {
@@ -125,17 +137,34 @@
     return llista.map(fes).filter(b => b.trossos.length);   // un punt tot sol no es diu
   }
 
+  /** El que es diu d'un camp: el que hi ha escrit o triat, amb paraules; buit si no n'hi ha. */
+  function diuCamp(c) {
+    if (c.tagName === "SELECT") return c.value === "" ? "" : diu((c.selectedOptions[0] || {}).text || "");
+    let v = c.value.trim();
+    if (c.type === "number") v = v.replace(/(\d)\.(\d)/g, "$1,$2");   // 8.5 → 8,5, com s'escriu aquí
+    return diu(v);
+  }
+
   /** Converteix un bloc en el text que es diu, i recorda d'on surt cada tros. */
   function fes(b) {
     let text = "";
+    let pausa = false;      // hi ha hagut un camp buit: la paraula següent va després d'una coma
     const trossos = [];
-    const posa = (dit, rang) => {
+    const posa = (dit, rang, camp) => {
       if (!dit) return;
-      if (text) text += " ";
-      trossos.push({ ini: text.length, fi: text.length + dit.length, rang });
+      if (text) text += (pausa && !/[.,;:!?]$/.test(text)) ? ", " : " ";
+      pausa = false;
+      trossos.push({ ini: text.length, fi: text.length + dit.length, rang, camp });
       text += dit;
     };
     b.peces.forEach(p => {
+      if (p.camp) {
+        const dit = diuCamp(p.camp);
+        if (!dit) { if (text) pausa = true; return; }
+        const r = document.createRange(); r.selectNode(p.camp);
+        posa(dit, r, p.camp);
+        return;
+      }
       if (p.el) {
         const r = document.createRange(); r.selectNodeContents(p.el);
         posa(diu(p.el.getAttribute("aria-label")), r);
@@ -143,7 +172,7 @@
       }
       for (const m of p.node.data.matchAll(/\S+/g)) {
         // un punt o uns dos punts enganxats a la negreta d'abans: «<b>3</b>.»
-        if (/^[.,;:!?]+$/.test(m[0]) && !/\s/.test(p.node.data[m.index - 1] || "")) { text += m[0]; continue; }
+        if (/^[.,;:!?]+$/.test(m[0]) && !/\s/.test(p.node.data[m.index - 1] || "")) { text += m[0]; pausa = false; continue; }
         const r = document.createRange();
         r.setStart(p.node, m.index); r.setEnd(p.node, m.index + m[0].length);
         posa(diu(m[0]), r);
@@ -178,13 +207,18 @@
   capa.setAttribute("aria-hidden", "true");
   let franges = [];
 
-  function rectes(rangs) {
+  function rectes(trossos) {
     // Les caixes de les paraules, agrupades per línia: [{l, t, r, b}] en coordenades de la pàgina.
+    // Una casella és més alta que la lletra: compta l'amplada sencera, però només l'alçada d'una
+    // línia de text al mig, perquè la franja no s'engreixi de cop quan hi arriba.
     const linies = [];
-    rangs.forEach(r => {
-      for (const c of r.getClientRects()) {
+    trossos.forEach(({ rang, camp }) => {
+      const mig = camp ? parseFloat(getComputedStyle(camp.parentElement).fontSize) * 0.62 : 0;
+      for (const c of rang.getClientRects()) {
         if (!c.width) continue;
-        const caixa = { l: c.left + scrollX, t: c.top + scrollY, r: c.right + scrollX, b: c.bottom + scrollY };
+        const y = (c.top + c.bottom) / 2;
+        const caixa = { l: c.left + scrollX, r: c.right + scrollX,
+                        t: (camp ? y - mig : c.top) + scrollY, b: (camp ? y + mig : c.bottom) + scrollY };
         const l = linies.find(x => Math.abs((x.t + x.b) / 2 - (caixa.t + caixa.b) / 2) < (caixa.b - caixa.t) / 2);
         if (l) { l.l = Math.min(l.l, caixa.l); l.r = Math.max(l.r, caixa.r); l.t = Math.min(l.t, caixa.t); l.b = Math.max(l.b, caixa.b); }
         else linies.push(caixa);
@@ -195,7 +229,7 @@
 
   function omple(bloc, fins, durada) {
     if (!capa.isConnected) document.body.appendChild(capa);
-    const linies = rectes(bloc.trossos.slice(0, fins + 1).map(t => t.rang).filter(Boolean));
+    const linies = rectes(bloc.trossos.slice(0, fins + 1).filter(t => t.rang));
     while (franges.length < linies.length) {
       const f = document.createElement("div");
       f.className = "veu-retolador";
@@ -328,5 +362,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrenca);
   else arrenca();
 
-  CE.veu = { para, diu };   // per provar-ho des de la consola i des dels tests
+  CE.veu = { para, diu, blocs };   // per provar-ho des de la consola i des dels tests
 })();

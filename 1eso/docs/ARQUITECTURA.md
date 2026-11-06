@@ -283,6 +283,13 @@ navegador no en té, el botó no surt.
   `aria-label` (`role="img"`), i es diu aquesta: «tres vuitens».
 - **No es llegeix** el que no és text per llegir: els botons, els dibuixos (`svg`), l'etiqueta
   «Exemple» (`.marca`) ni l'«Inici» i el «Final» del rètol de progrés (`.fita`).
+- **Les caselles i els desplegables** (6/11/2026). Si hi ha alguna cosa escrita o triada, es diu
+  seguit, dins de la frase: «El nombre √7 és entre 2 i 3» es diu «El nombre l'arrel quadrada de 7
+  és entre 2 i 3». Si són buits, o el desplegable encara diu «…», es fa una pausa curta (una coma
+  al text que es diu): «El nombre, és entre, i.». Abans se saltaven i la frase sortia enganxada.
+  Només `input` de text o de número i `select`; els altres camps se salten com sempre. A 1eso/ ara
+  no n'hi ha cap; a 4eso/, a «Com ho dic», «Escales» i «Percentatges». El retolador
+  travessa la casella amb l'alçada d'una línia de text, sense engreixar-se.
 
 **Com marca el que llegeix** («focus i retolador que omple», 6/11/2026). Dues coses, i prou:
 
