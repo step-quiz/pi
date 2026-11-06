@@ -619,6 +619,17 @@ if os.path.exists(fitxer_lletra):
     print(f"  {rel(fitxer_lletra)}: {len(te)} caràcters · {n_ms} caràcters manuscrits comprovats")
 
 # --------------------------------------------------------------------------
+print("\nQUADERNS")
+# Els quaderns d'activitats (uN/quadern.html), des del 6/11/2026. Les regles són les mateixes a
+# tots els cursos i la prova és comuna: comu/eines/quaderns.py (B/N, filtre, solucionari, botons
+# dels PDF i que el fitxer sigui el que surt de comu/generadors/quadern.py).
+sys.path.insert(0, os.path.join(REPO, 'comu', 'eines'))
+import quaderns as _quadern   # noqa: E402  (només biblioteca estàndard)
+_qf, _qr = _quadern.comprova_curs(os.path.basename(ARREL))
+for _f in _quadern.comprova_comu() + _qf:
+    comprova(False, _f)
+print("\n".join(_qr) if _qr else "  cap quadern")
+
 print("\nCAIXA D'EINES")
 # La mateixa arquitectura que la caixa de 4eso/ (docs/ARQUITECTURA.md). Els
 # números de tasca surten als enllaços que el docent envia (caixa-eines?task=n):

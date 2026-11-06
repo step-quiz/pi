@@ -1,0 +1,158 @@
+/* ============================================================================
+   comu/css/quadern.css · el quadern d'activitats de cada unitat (CURS/uN/quadern.html)
+   ----------------------------------------------------------------------------
+   Comú a tots els cursos des del 6/11/2026 (abans era 4eso/css/quadern.css).
+   S'enllaça DESPRÉS del fitxa.css del curs: el quadern fa servir les mateixes peces que la
+   fitxa (taules, cadena, ofertes, opcions per marcar, lletra manuscrita) i aquí
+   només hi ha el que és seu.
+
+   Dues diferències amb la fitxa:
+     · No té pàgines fixes. Les activitats que surten depenen del filtre, i el
+       navegador les reparteix en fulls A4 sense partir-ne cap (break-inside).
+       El número de pàgina el posa @page, al peu.
+     · Té una barra de filtre, només a la pantalla, que fa servir comu/js/quadern.js.
+
+   Blanc i negre estricte, com fitxa.css: comu/eines/quaderns.py ho comprova.
+   ========================================================================== */
+
+[hidden] { display: none !important }
+
+/* ------------------------------------------------------- el document -- */
+
+.quadern {
+  background: #fff;
+  max-width: 21cm;
+  margin: 0 auto 1rem;
+  padding: 1.6cm 1.6cm 1.8cm;
+  counter-reset: act;
+}
+.subtitol-q { font-size: 17pt; font-weight: 700; color: var(--gris-2); margin: .3rem 0 0 }
+
+/* La llegenda de l'estrella: només quan hi ha activitats de repte. */
+.llegenda { display: flex; align-items: center; gap: .5rem; font-size: 14pt; margin: .7rem 0 0 }
+.llegenda .estrella { margin: 0 }
+body:not(.amb-repte) .llegenda { display: none }
+
+.bloc { margin-top: 1.7rem }
+.bloc h2 { margin: 0 }
+.mira { font-size: 14pt; color: var(--gris-2); margin: .1rem 0 .8rem }
+/* El títol del bloc i la consigna no es queden sols a baix d'una pàgina. Una activitat
+   llarga (elevat en té 13 apartats) sí que es pot partir, però mai per dins d'un apartat
+   ni entre un dibuix i la seva taula. */
+.bloc h2, .mira, .tasca, .nota-act { break-after: avoid; page-break-after: avoid }
+.act { break-inside: auto; page-break-inside: auto }
+.ap, .seccio > svg, .seccio > .figura { break-inside: avoid; page-break-inside: avoid }
+/* Una secció (una taula, o un dibuix amb la seva taula) es queda sencera si hi cap en una
+   pàgina; si és més llarga, es parteix entre dos apartats. */
+.seccio { break-inside: avoid; page-break-inside: avoid }
+.seccio { margin-bottom: .5rem }
+
+/* El número de cada activitat el posa un comptador: les amagades no compten, i
+   el solucionari, amb el mateix filtre, compta igual. */
+.act { counter-increment: act }
+.act .tasca .n::before { content: counter(act) }
+.estrella { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; margin-top: .3rem; display: inline-block }
+
+/* La icona de la calculadora o del regle, al costat de la consigna i no a sota: estalvia
+   una línia a cada activitat. */
+.act .q .ico { display: inline-block }
+
+.nota-act { font-size: 14pt; color: var(--gris-2); margin: 0 0 .35rem }
+.buit { display: inline-block; min-width: 2.4cm; border-bottom: 2.5px solid var(--tinta); height: 1.15em;
+        vertical-align: -.15em }
+
+/* Opcions al costat de la frase (directa o inversa): un apartat, una fila. */
+.tria-linia { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .8rem;
+              padding: .35rem 0; border-bottom: 1px solid var(--vora-suau) }
+.tria-linia .text { flex: 1 1 8cm }
+.tria-linia .tria { flex: 0 0 auto; margin: 0 }
+.tria-linia .tria label { flex: 0 0 auto; min-width: 3.5cm; font-size: 15pt; padding: .3rem .6rem; white-space: nowrap }
+.tria-bloc { margin-top: .9rem }
+
+/* Una taula petita i, al costat, les dues opcions una sota l'altra. */
+.taula-tria { margin-top: .8rem }
+.taula-tria .costat { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center }
+.taula-tria table { flex: 1 1 9cm; margin: .2rem 0 }
+.tria.columna { flex: 0 0 4.2cm; flex-direction: column; gap: .4rem; margin: 0 }
+.tria.columna label { min-width: 0; font-size: 15pt; padding: .3rem .5rem }
+
+/* Cada oferta és un apartat. */
+.oferta-ap { margin-top: .9rem }
+.oferta-ap .parella-op, .oferta-ap .tria { margin: .3rem 0 }
+
+/* Apartats lliures (la peça llista del motor): un dibuix i la resposta al costat, si hi
+   caben; si no, la resposta va a sota. */
+.ap-llista { margin-top: .7rem; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 1rem }
+.ap-llista > .apartat { flex: 0 0 auto; align-self: flex-start; margin-top: .3rem }
+.ap-llista > svg { flex: 0 1 auto; margin: 0 }
+.ap-llista > .resposta { flex: 1 1 6cm; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem }
+.ap-llista .cadena { margin: 0; flex-wrap: nowrap }
+.ap-llista .baula.buida { min-width: 3cm }
+
+/* La quadrícula: una fila per apartat. */
+.fila-quad svg { margin: .15rem 0 }
+
+/* Tres ofertes per apartat: més estretes perquè hi càpiguen en una fila. */
+.parella-op.tres > * { min-width: 4.6cm }
+
+/* La taula horitzontal de directa i inversa (magnitud a l'esquerra). */
+table.fila th { width: 34%; text-align: left }
+table.fila td.omplir { height: 1.35cm }
+table.fila td.ms { font-size: 19.5pt }
+
+/* Els dibuixos de mida real (plànols, línies per mesurar, quadrícula): l'amplada en
+   cm la posa el generador, i no es pot encongir si es vol mesurar amb el regle. */
+svg.planol, svg.real-cm { max-width: 100%; margin: .3rem auto .4rem }
+
+/* ---------------------------------------------------- el solucionari -- */
+
+.quadern.sol { counter-reset: solact; break-before: page; page-break-before: always }
+.sol-act { counter-increment: solact; margin: .5rem 0 .9rem; padding-left: 2.1rem; position: relative;
+           break-inside: avoid }
+.sol-act::before { content: counter(solact) "."; position: absolute; left: 0; top: 0;
+                   font-weight: 800; font-size: 13pt }
+.sol-act table { margin: .2rem 0 }
+.sol-act p { margin: .25rem 0 }
+.repte-sol { display: inline-block; border: 1.5px solid var(--tinta); border-radius: 999px;
+             padding: 0 .55rem; font-size: 10pt; font-weight: 700; margin: 0 0 .2rem !important }
+.per-que { color: var(--gris-1) }
+
+/* A la pantalla, el solucionari no es veu fins que el docent el demana. */
+@media screen { .quadern.sol { display: none } }   /* el solucionari només s'imprimeix (decisió S4) */
+
+/* ------------------------------------------- la barra del filtre (pantalla) -- */
+
+.filtres {
+  position: sticky; top: 0; z-index: 5;
+  max-width: 21cm; margin: .6rem auto 1rem;
+  background: #fff; border: 1px solid var(--vora-suau); border-radius: 12px;
+  padding: .9rem 1rem 1rem;
+  display: grid; gap: 1.08rem;
+  font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+/* Els botons són els comuns del lloc (w-b, a comu/css/web.css): la vora negra en passar-hi el
+   ratolí i el tick del que està triat. Aquí només hi ha la disposició (6/11/2026). */
+.filtres .et { display: block; font-weight: 600; margin-bottom: .45rem }
+.filtres .botons { display: flex; flex-wrap: wrap; gap: .54rem }
+.recompte { margin: 0; color: var(--gris-2); font-variant-numeric: tabular-nums }
+.recompte:empty { display: none }
+
+/* ---------------------------------------------------------- impressió -- */
+
+@page {
+  size: A4;
+  margin: 1.3cm 1.4cm 1.6cm;
+  @bottom-left  { font: 10.5pt system-ui, sans-serif; color: #8A8A8A }
+  @bottom-right { content: "pàgina " counter(page); font: 10.5pt system-ui, sans-serif; color: #8A8A8A }
+}
+
+@media print {
+  .filtres, .navega { display: none }
+  .quadern { margin: 0; max-width: none; padding: 0 }
+  .bloc { margin-top: 1.1rem }
+  /* Ctrl+P o «PDF alumnat»: les activitats, sense el solucionari.
+     «PDF solucionari»: només el solucionari. */
+  .quadern.sol { display: none }
+  body.nomes-sol .alumnat { display: none }
+  body.nomes-sol .quadern.sol { display: block; break-before: auto; page-break-before: auto }
+}

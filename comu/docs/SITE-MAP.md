@@ -53,7 +53,7 @@ so that the double click works. Every link is relative; the only absolute paths 
 /CURS/uN/fitxa             CURS/uN/fitxa.html       main sheet of the unit (paper)
 /CURS/uN/NOM               CURS/uN/NOM.html         other sheets of the unit (1eso/ has up to six per unit)
 /CURS/uN/repas             CURS/uN/repas.html       review sheet (paper)
-/CURS/uN/quadern           CURS/uN/quadern.html     workbook with filters (optional; printed from the browser)
+/CURS/uN/quadern           CURS/uN/quadern.html     workbook with filters (optional; «PDF alumnat»/«PDF solucionari» print from the browser)
 /CURS/targetes/NOM?u=N     CURS/targetes/NOM.html   reference card (may serve several units; ?u says which)
 /CURS/eines?u=N            CURS/eines.html          STUDENT tools of unit N — closed space
 /CURS/professorat          CURS/professorat.html    Teacher page: «Canviar les frases», «Llegir codis», notes
@@ -198,8 +198,16 @@ right after `<body>`:
 (`4eso/eines/empremta.py` and `1eso/eines/paper.py`, regex `SENSE_PDF`) strips exactly that
 element. Changing the header therefore never makes a PDF old. `paper.js` replaces the fallback
 link with the violet header and the buttons («PDF alumnat» · «PDF solucionari», or «PDF a doble
-cara» for a card; nothing for the workbook, which has its own print buttons), and sets the tab
-title from the data.
+cara» for a card; nothing for the workbook, which has its own buttons in its filter bar), and sets
+the tab title from the data.
+
+- **The workbook (`uN/quadern.html`) has no prebuilt PDF**, because it depends on the filter. Its
+  two buttons carry the same text, icons and style as everywhere else, «PDF alumnat» and «PDF
+  solucionari» (decision of 6/11/2026), and open the browser print dialog with the filter applied
+  («Save as PDF»); the tab title gets « · alumnat» / « · solucionari» meanwhile, which becomes the
+  file name. Its stylesheet and script are shared, `comu/css/quadern.css` and `comu/js/quadern.js`,
+  linked outside the bar: `comu/eines/mapa.py` allows exactly those two for `quadern.html`, since
+  no PDF fingerprint is involved.
 
 - **PDF names never changed**: `uN/fitxa.html → pdf/udN-alumnat.pdf / udN-solucionari.pdf`,
   `uN/NOM.html → pdf/udN-NOM-…`, `targetes/NOM.html → pdf/targeta-NOM.pdf` (`PI.pdfBase`,
@@ -210,7 +218,9 @@ title from the data.
   `python3 CURS/generadors/gen_pdf.py`), which is possible in a Codespace.
 - Generated pages are never edited by hand: `1eso/generadors/fitxes/*.py` (each writes its own
   destination, see `desa()` in `peces_comunes.py`), `4eso/generadors/gen_repas.py`,
-  `gen_quadern.py`. The 4eso/ main sheets and the cards are hand-made.
+  `CURS/generadors/gen_quadern.py` (the workbooks; the engine is shared since 6/11/2026:
+  `comu/generadors/quadern.py`, content in `CURS/generadors/quadern/udN.py`, course-only pieces in
+  `CURS/generadors/quadern/peces.py`). The 4eso/ main sheets and the cards are hand-made.
 
 ## 7. Student tools — `CURS/eines.html?u=N`
 
@@ -269,7 +279,8 @@ python3 comu/eines/mapa.py              # the map of every course (also run insi
 python3 comu/eines/prova_portada.py     # clicks the whole map in Chromium (Playwright)
 python3 1eso/eines/prova_caixa.py       # the tools, end to end
 python3 4eso/eines/prova_caixa.py
-python3 4eso/eines/prova_quadern.py     # the workbook filters
+python3 comu/eines/prova_quadern.py     # the workbook filters, every course
+python3 comu/eines/quaderns.py          # the workbook rules (also run inside each comprova.py)
 python3 1eso/eines/auditoria.py         # contrast, targets, paper font size
 python3 4eso/eines/auditoria.py
 ```

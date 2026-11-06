@@ -73,6 +73,7 @@ window.UNITATS = [
   {
     num: 4, titol: "Equacions de 2n grau", fitxes: [{ fitxa: "u4/fitxa.html", titol: "Quin número ho fa funcionar?" }],
     repas: { fitxa: "u4/repas.html", titol: "Repàs · Equacions" },
+    quadern: "u4/quadern.html",
     dates: "2 de febrer – 3 de març", sessions: 12,
     objectiu: "Comprovar solucions i decidir quina té sentit. No s'aïlla la incògnita.",
     material: "una bossa opaca i fitxes iguals",

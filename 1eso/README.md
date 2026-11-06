@@ -121,6 +121,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `fonts/` | La lletra manuscrita, Caveat, i la seva llicència |
 | `eines/` | El test, la mesura de l'A4, `paper.py` (que comparteixen amb el generador) i els dos tests de la caixa |
 | `generadors/gen_pdf.py` | Fa els PDF |
+| `generadors/gen_quadern.py`, `generadors/quadern/` | Els quaderns d'activitats (`u2/quadern.html` i `u3/quadern.html`, des del 6/11/2026): el contingut és a `quadern/udN.py`, les peces del curs (les fraccions dibuixades, les mateixes de les fitxes) a `quadern/peces.py`, i el motor, el full d'estil i el filtre són comuns: `../comu/generadors/quadern.py`, `../comu/css/quadern.css` i `../comu/js/quadern.js`. Un o dos blocs per fitxa, cada un amb una activitat germana i una de repte, de 3, 6 o 12 apartats segons el filtre. «PDF alumnat» i «PDF solucionari» obren el diàleg d'imprimir amb el filtre posat (no hi ha PDF fets d'abans). Es fan amb `python3 1eso/generadors/gen_quadern.py` i es proven amb `python3 comu/eines/prova_quadern.py`; `eines/comprova.py` hi passa les regles comunes (`../comu/eines/quaderns.py`) |
 | `docs/` | Els criteris de disseny, el mapa d'adaptació, l'arquitectura de la caixa i l'estat de la feina |
 
 Els fulls d'estil són una còpia dels de `4eso/`, no un enllaç: si aquells canvien, aquests no

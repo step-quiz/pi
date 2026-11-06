@@ -252,6 +252,23 @@ Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `cs
   s'apliquen a cap bloc del PDF; per això `empremtes.json` s'ha tornat a calcular i els PDF no
   s'han refet.
 
+## 10f. 6/11/2026: els botons «PDF alumnat» i «PDF solucionari», el quadern de la UD4 i el motor comú
+
+- **Els botons del quadern.** «Imprimeix» i «Imprimeix el solucionari» ara són «PDF alumnat» i
+  «PDF solucionari», amb el text, la icona i l'estil de la resta del lloc (decisió del docent).
+  Com que el quadern depèn del filtre, no hi ha PDF fets d'abans: cada botó obre el diàleg
+  d'imprimir amb el filtre posat («Desa com a PDF»), i el títol de la pestanya, que serà el nom del
+  fitxer, acaba en «· alumnat» o «· solucionari».
+- **El quadern de la UD4** (`u4/quadern.html`, `generadors/quadern/ud4.py`): 7 blocs, un per
+  exercici de la fitxa. La regla trencada (el negatiu que té sentit: el congelador, el pàrquing)
+  surt ja entre els tres primers apartats dels blocs 5 i 7. La balança és a `generadors/quadern/peces.py`.
+- **El motor és comú.** `generadors/gen_quadern.py` ara només diu el curs; el motor és
+  `../comu/generadors/quadern.py`, i el full d'estil, el filtre i les proves també són comuns
+  (`../comu/css/quadern.css`, `../comu/js/quadern.js`, `../comu/eines/quaderns.py`,
+  `../comu/eines/prova_quadern.py`). Així `1eso/` fa els seus (UD2 i UD3) amb la mateixa màquina.
+  `4eso/css/quadern.css`, `4eso/js/quadern.js` i `4eso/eines/prova_quadern.py` ja no existeixen.
+- **Pendent:** que el docent revisi i provi a l'aula els quaderns de la UD3 i la UD4.
+
 ## 10e. 5/11/2026: l'esquema de navegació curs → unitat → fitxa, quadern o caixa
 
 - **El problema.** La navegació «endavant, enrera, endins, a fora» es trencava: des de la unitat

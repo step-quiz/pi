@@ -17,7 +17,7 @@ s'arregla el document en el mateix commit.
 
 | Carpeta o fitxer | Què hi ha |
 |---|---|
-| `4eso/` | El material de Matemàtiques Aplicades: una carpeta per unitat (`u1/` … `u7/`) amb la pàgina de la unitat, la fitxa, el repàs i, a la `u3/`, el quadern d'activitats; les targetes, les eines de l'alumnat, la pàgina del professorat, els PDF, els exàmens, la documentació, els generadors i les proves. Vegeu [`4eso/README.md`](4eso/README.md) |
+| `4eso/` | El material de Matemàtiques Aplicades: una carpeta per unitat (`u1/` … `u7/`) amb la pàgina de la unitat, la fitxa, el repàs i, a la `u3/` i la `u4/`, el quadern d'activitats; les targetes, les eines de l'alumnat, la pàgina del professorat, els PDF, els exàmens, la documentació, els generadors i les proves. Vegeu [`4eso/README.md`](4eso/README.md) |
 | `1eso/` | El material de Matemàtiques, amb la mateixa estructura: a cada carpeta d'unitat, totes les seves fitxes i el repàs. Vegeu [`1eso/README.md`](1eso/README.md) |
 | `comu/` | El que comparteixen els cursos: la closca de pantalla (`comu/css/web.css` i `comu/js/`), el registre de cursos (`comu/js/cursos.js`), la prova del mapa (`comu/eines/mapa.py`), el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
 | `index.html` | La portada: «Curs 2026-27», el títol i una columna per curs amb les seves unitats (i el botó «Professorat», ara amagat). La fa `comu/js/portada.js` |
@@ -182,7 +182,7 @@ Les proves que obren un navegador (Playwright) es passen a mà, abans de lliurar
 ```bash
 python3 1eso/eines/prova_caixa.py      # les eines de 1eso/, de punta a punta
 python3 4eso/eines/prova_caixa.py      # les eines de 4eso/
-python3 4eso/eines/prova_quadern.py    # el filtre dels quaderns d'activitats de 4eso/
+python3 comu/eines/prova_quadern.py    # el filtre dels quaderns d'activitats de tots els cursos
 python3 comu/eines/prova_portada.py    # tot el mapa, clicat en un navegador: portada, cursos, unitats, paper i eines
 python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
 python3 4eso/eines/auditoria.py

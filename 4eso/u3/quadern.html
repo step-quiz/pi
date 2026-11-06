@@ -6,19 +6,20 @@
 <title>Unitat 3 · Quadern d'activitats</title>
 <!--
   Quadern d'activitats · Unitat 3 (Proporcionalitat i escales)
-  NO S'EDITA A MÀ. El fa generadors/gen_quadern.py a partir de generadors/quadern/ud3.py.
+  NO S'EDITA A MÀ. El fa comu/generadors/quadern.py a partir de 4eso/generadors/quadern/ud3.py.
 
   Activitats per practicar després de la fitxa, amb els mateixos criteris que la fitxa
   (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
   primer apartat de cada activitat resolt en lletra manuscrita.
 
   El filtre de dalt (només a la pantalla) tria quants apartats té cada activitat i si
-  hi ha activitats de repte. Imprimir: el botó «Imprimeix el quadern», o Ctrl+P, A4,
-  amb «Gràfics de fons» activat. El solucionari s'imprimeix a part, amb el seu botó.
+  hi ha activitats de repte. «PDF alumnat» i «PDF solucionari» obren el diàleg d'imprimir
+  amb el filtre posat (A4, «Desa com a PDF», amb «Gràfics de fons» activat). Ctrl+P
+  imprimeix les activitats, mai el solucionari.
 -->
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/fitxa.css">
-<link rel="stylesheet" href="../css/quadern.css">
+<link rel="stylesheet" href="../../comu/css/quadern.css">
 <style>@page { @bottom-left { content: "Quadern d'activitats · Unitat 3" } }</style>
 </head>
 <body class="amb-repte">
@@ -43,8 +44,8 @@
   </div>
   <p class="recompte" id="recompte" aria-live="polite"></p>
   <div class="botons">
-    <button type="button" class="w-b w-pdf w-principal" id="imprimeix"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>Imprimeix</button>
-    <button type="button" class="w-b w-pdf" id="imprimeix-sol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>Imprimeix el solucionari</button>
+    <button type="button" class="w-b w-pdf w-principal" id="pdf-alumnat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PDF alumnat</button>
+    <button type="button" class="w-b w-pdf" id="pdf-solucionari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>PDF solucionari</button>
   </div>
 </div>
 
@@ -832,6 +833,6 @@
   <p>Com a la fitxa, l'objectiu no és calcular bé: és saber en quin sentit va la conversió (del plànol a la realitat es multiplica, de la realitat al plànol es divideix) i decidir. Un error de divisió no hauria de fer baixar la valoració si la cadena és correcta. Les activitats de repte compten per als nivells alts (AN, AE), no per al mínim.</p>
 </div>
 
-<script src="../js/quadern.js"></script>
+<script src="../../comu/js/quadern.js"></script>
 </body>
 </html>

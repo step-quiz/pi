@@ -125,59 +125,16 @@ for f in sorted(glob.glob(ruta('targetes', '*.html'))):
     print(f"  {nom:18} {len(cares)} cares · html {'ok' if estructura else 'ERROR'}"
           f" · color {'cap' if not color else color}")
 
-SENCER_Q = re.compile(r'\b(nombres?|quantitats?|coses?|xifres?|dos)\s+sencer(s|a|es)?\b', re.I)
-
 print("\nQUADERNS")
-# El quadern d'activitats de cada unitat (uN/quadern.html): B/N com les fitxes, i el
-# filtre ha de poder treure apartats i activitats sense deixar el solucionari descompassat. No
-# s'edita a mà: el fa generadors/gen_quadern.py a partir de generadors/quadern/udN.py,
-# i aquí es torna a fer per veure que el fitxer publicat és el que surt del generador.
-css_quadern = open(ruta('css', 'quadern.css'), encoding='utf-8').read()
-comprova(not cromatics(css_quadern), "css/quadern.css conté color")
-sys.path.insert(0, ruta('generadors'))
-import gen_quadern   # noqa: E402  (només biblioteca estàndard)
-fonts_q = gen_quadern.unitats()
-fitxers_q = sorted(int(re.search(r'u(\d+)', os.path.relpath(f, ARREL))[1]) for f in glob.glob(ruta('u[0-9]*', 'quadern.html')))
-comprova(fonts_q == fitxers_q, f"quaderns: generadors/quadern/ té {fonts_q} i les carpetes uN/ en tenen {fitxers_q}")
-for f in sorted(glob.glob(ruta('u[0-9]*', 'quadern.html'))):
-    nom = os.path.relpath(f, ARREL).replace(os.sep, '/')
-    s = open(f, encoding='utf-8').read()
-    e = Estructura(); e.feed(s)
-    estructura = not e.err and not e.pila
-    color = cromatics(s)
-    acts = re.findall(r'<div class="exercici act"( data-repte)?>', s)
-    sols = re.findall(r'<div class="sol-act"( data-repte)?>', s)
-    comprova(estructura, f"{nom}: HTML mal tancat")
-    comprova(not color, f"{nom}: hi ha color ({color})")
-    comprova('../css/fitxa.css' in s and '../css/quadern.css' in s and '../js/quadern.js' in s,
-             f"{nom}: ha d'enllaçar css/fitxa.css, css/quadern.css i js/quadern.js")
-    comprova(acts and acts == sols, f"{nom}: les activitats i el solucionari no porten les mateixes marques")
-    # Cada activitat: l'a) i 12 apartats per fer, amb la marca de la quantitat a partir de la
-    # qual surten (3 a petit, 3 més a mitjà, 6 més a elevat), sempre de menys a més perquè
-    # les lletres que queden vagin seguides. Al solucionari, el mateix.
-    esperat = ['1'] * 4 + ['2'] * 3 + ['3'] * 6
-    tall = s.index('<div class="quadern sol"')
-    for part, marca, on in ((s[:tall], '<div class="exercici act"', "l'activitat"),
-                            (s[tall:], '<div class="sol-act"', "el solucionari de l'activitat")):
-        for i, tros in enumerate(part.split(marca)[1:], 1):
-            marques = re.findall(r'class="ap[^"]*" data-n="(\d)"', tros)
-            comprova(marques == esperat, f"{nom}: {on} {i} té els apartats {''.join(marques)}"
-                                         f" (han de ser {''.join(esperat)})")
-    # Consignes d'una sola frase i curtes, com a la fitxa (regla 3 i Lectura Fàcil).
-    for q in re.findall(r'<div class="q">(.*?)(?:\n|</div>)', s):
-        q = re.sub(r'<[^>]+>', '', q)
-        comprova(len(re.findall(r"[\w·'’]+", q)) <= 20, f"{nom}: consigna de més de 20 paraules: «{q}»")
-    alumnat = re.sub(r'<!--.*?-->', '', s[:s.index('<div class="quadern sol"')], flags=re.S)
-    comprova(not re.search(r'adapta(t|da|ts|des|ció|cions)\b', alumnat, re.I),
-             f"{nom}: l'alumnat no ha de llegir «adaptat»")
-    comprova(not SENCER_Q.search(alumnat), f"{nom}: «sencer» parlant de nombres (el terme és «enter»)")
-    n = int(re.search(r'u(\d+)', nom)[1])
-    if n in fonts_q:
-        comprova(gen_quadern.genera(n) == s,
-                 f"{nom} no és el que surt de generadors/quadern/ud{n}.py "
-                 "(no s'edita a mà: passa python3 generadors/gen_quadern.py)")
-    print(f"  {nom:12} html {'ok' if estructura else 'ERROR'} · color {'cap' if not color else color}"
-          f" · {sum(1 for r in acts if not r)} activitats i {sum(1 for r in acts if r)} de repte, de 3, 6 o 12 apartats")
+# Els quaderns d'activitats (uN/quadern.html). Les regles són les mateixes a tots els cursos i
+# la prova és comuna des del 6/11/2026: comu/eines/quaderns.py (B/N, filtre, solucionari, botons
+# dels PDF i que el fitxer sigui el que surt de comu/generadors/quadern.py).
+sys.path.insert(0, os.path.join(REPO, 'comu', 'eines'))
+import quaderns as _quadern   # noqa: E402  (només biblioteca estàndard)
+_qf, _qr = _quadern.comprova_curs(os.path.basename(ARREL))
+for _f in _quadern.comprova_comu() + _qf:
+    comprova(False, _f)
+print("\n".join(_qr) if _qr else "  cap quadern")
 
 print("\nCAIXA D'EINES")
 app = open(ruta('eines.html'), encoding='utf-8').read()

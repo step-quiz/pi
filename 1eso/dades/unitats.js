@@ -83,6 +83,7 @@ window.UNITATS = [
         trencada: "Ex. 2 · 12 = 3 · 4 encara no està acabada" }
     ],
     repas: { fitxa: "u2/repas.html", titol: "Repàs de la unitat i «Què he après?»", estat: "revisada", minim: [4, 5] },
+    quadern: "u2/quadern.html",
     tasques: [5, 6, 7, 8]
   },
   {
@@ -109,6 +110,7 @@ window.UNITATS = [
         trencada: "Ex. 2 · una franja estreta no vol dir petita" }
     ],
     repas: { fitxa: "u3/repas.html", titol: "Repàs de la unitat i «Què he après?»", estat: "revisada", minim: [3, 4] },
+    quadern: "u3/quadern.html",
     tasques: [9, 10, 11, 12, 13]
   },
   {

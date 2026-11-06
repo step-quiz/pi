@@ -43,7 +43,6 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 ├── css/
 │   ├── tokens.css          variables: paleta de paper, paleta de pantalla, mode fosc
 │   ├── fitxa.css           les fitxes imprimibles          (importa tokens)
-│   ├── quadern.css         el quadern d'activitats: filtre i impressió (després de fitxa.css)
 │   ├── app.css             la caixa d'eines                (importa tokens)
 │   └── lloc.css            index.html i uN/index.html        (importa tokens)
 │
@@ -53,7 +52,6 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── nucli.js            l'objecte global CE i el registre de mòduls
 │   ├── codi.js             el codi de verificació: fer-lo i llegir-lo
 │   ├── app.js              navegació de la caixa d'eines
-│   ├── quadern.js          el filtre del quadern d'activitats (apartats i repte)
 │   └── moduls/             un fitxer per mòdul, deu en total
 │   (el motor de les tasques tancades i la veu són a ../comu/js/tasca.js i veu.js, comuns a
 │    tots els cursos des del 6/11/2026; el prefix de la memòria, CE.prefix = «pi-», el posa nucli.js)
@@ -62,8 +60,10 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   └── unitats.js          font única: les set unitats amb tota la metadada, i les targetes
 │
 ├── fitxes/                 ud1.html … ud7.html, i udN-repas.html (les fa generadors/gen_repas.py)
-├── quadern/                udN.html, el quadern d'activitats amb filtre (el fa generadors/gen_quadern.py
-│                           a partir de generadors/quadern/udN.py; de moment, només la UD3)
+├── uN/quadern.html          el quadern d'activitats amb filtre (el fa generadors/gen_quadern.py amb el
+│                           motor comú ../comu/generadors/quadern.py, a partir de generadors/quadern/udN.py;
+│                           de moment, la UD3 i la UD4). El full d'estil i el filtre són comuns des del
+│                           6/11/2026: ../comu/css/quadern.css i ../comu/js/quadern.js
 ├── targetes/               les tres targetes de consulta, a doble cara
 ├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF,
 │                           i examens/udN.js, el contingut de cada examen DOCX
@@ -71,7 +71,6 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 │   ├── comprova.py         el test del projecte, sense dependències
 │   ├── mesura.py           si cada pàgina cap en un A4          (WeasyPrint)
 │   ├── prova_caixa.py      la caixa, de punta a punta           (Playwright)
-│   ├── prova_quadern.py    el filtre dels quaderns              (Playwright)
 │   ├── empremta.py         l'empremta de cada PDF, per saber si és vell
 │   └── auditoria.py        dianes i contrast dins del navegador (Playwright)
 └── docs/                   la documentació

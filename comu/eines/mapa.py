@@ -128,6 +128,10 @@ def comprova_curs(curs):
                 or '<script src="../../comu/js/paper.js"></script>' not in dins:
             falles.append(f"{curs}/{rel}: la barra ha de portar a dins ../../comu/css/web.css i ../../comu/js/paper.js")
         fora = t.replace(m[1], "")
+        # El quadern no fa PDF (s'imprimeix des del navegador): el seu full d'estil i el seu filtre
+        # són comuns a tots els cursos des del 6/11/2026, comu/css/quadern.css i comu/js/quadern.js.
+        if os.path.basename(f) == "quadern.html":
+            fora = fora.replace("../../comu/css/quadern.css", "").replace("../../comu/js/quadern.js", "")
         if "comu/js/" in fora or "comu/css/" in fora:
             falles.append(f"{curs}/{rel}: hi ha peces de pantalla fora de la barra (farien vell el PDF)")
 

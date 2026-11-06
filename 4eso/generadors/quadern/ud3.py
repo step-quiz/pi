@@ -1,6 +1,6 @@
 """Quadern d'activitats de la Unitat 3 · Proporcionalitat i escales.
 
-    python3 generadors/gen_quadern.py 3        (des de 4eso/)
+    python3 4eso/generadors/gen_quadern.py 3        (des de l'arrel)
 
 Un bloc per cada exercici de la fitxa (u3/fitxa.html), en el mateix ordre. A cada bloc,
 una activitat germana i una de repte. Cada activitat té 13 apartats: l'a), resolt, i
@@ -14,8 +14,8 @@ Com a la fitxa: la conversió va sempre amb la mateixa cadena (× l'escala, ÷ 1
 guanya el format petit (la regla trencada de la unitat). Ja entre els tres primers,
 perquè també surti a petit.
 """
-from gen_quadern import act, taula, tria, taula_tria, ofertes, quadricula, planol, doble_recta, linies
-from gen_quadern import num, eur, esc, nota
+from quadern import act, taula, tria, taula_tria, ofertes, quadricula, planol, doble_recta, linies
+from quadern import num, eur, esc, nota
 
 NUM = 3
 TITOL = "Proporcionalitat i escales"   # el de dades/unitats.js (decisió V2)

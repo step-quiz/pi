@@ -8,7 +8,7 @@ part de les hores a l'**aula de suport** i l'altra a l'aula ordinària, en l'iti
 d'**Aplicades**.
 
 Set fitxes imprimibles, amb una fitxa de repàs per unitat, un quadern d'activitats per
-practicar (de moment, el de la UD3), tres targetes de consulta, una caixa d'eines digital i
+practicar (de moment, els de la UD3 i la UD4), tres targetes de consulta, una caixa d'eines digital i
 la documentació que explica per què tot és com és.
 
 ---
@@ -29,7 +29,7 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | | |
 |---|---|
 | `index.html` | la pàgina del curs: les seves unitats. La fa `../comu/js/curs.js` |
-| `u1/` … `u7/` | una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF · 4 Eines · 5 Targetes; i «Abans de la classe», plegat. `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. A la `u3/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py` |
+| `u1/` … `u7/` | una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF · 4 Eines · 5 Targetes; i «Abans de la classe», plegat. `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. A la `u3/` i la `u4/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` (el motor és comú: `../comu/generadors/quadern.py`) a partir de `generadors/quadern/udN.py` |
 | `eines.html` | les eines de l'alumnat, amb deu mòduls. S'obre amb `eines.html?u=N`: només les eines de la unitat N, i cap enllaç cap a la resta del web |
 | `professorat.html` | **tancada des del 6/11/2026** (s'obre amb `?obert`; vegeu `../comu/docs/SITE-MAP.md`). La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
 | `verifica.html` | pàgina per llegir els codis de verificació que donen les eines |
@@ -195,11 +195,18 @@ docent, 5/11/2026):
 Els apartats van de menys a més dins de cada activitat (per exemple, els de 1 : 100 abans
 que els de 1 : 50), perquè els que s'amaguen són sempre els últims.
 
-Hi ha tres botons: **Imprimeix el quadern** (les activitats, sense el solucionari; Ctrl+P fa
-el mateix), **Imprimeix el solucionari** (només el solucionari, amb els mateixos apartats
-del filtre) i **Mostra el solucionari** (a la pantalla està amagat). Una taula, o un dibuix
-amb la seva taula, no es parteix entre dues pàgines si hi cap en una. El número de pàgina
-surt al peu.
+Hi ha dos botons, els mateixos que a les altres pàgines de paper (6/11/2026): **PDF alumnat**
+(les activitats, sense el solucionari; Ctrl+P fa el mateix) i **PDF solucionari** (només el
+solucionari, amb els mateixos apartats del filtre). Com que el quadern depèn del filtre, no hi
+ha PDF fets d'abans: cada botó obre el diàleg d'imprimir del navegador amb el filtre posat, i
+allà es tria **«Desa com a PDF»** (A4, amb «Gràfics de fons»). El nom que proposa el navegador
+acaba en «· alumnat» o «· solucionari». A la pantalla, el solucionari està amagat. Una taula, o
+un dibuix amb la seva taula, no es parteix entre dues pàgines si hi cap en una. El número de
+pàgina surt al peu.
+
+Hi ha quadern a la **UD3** (8 blocs) i a la **UD4** (7 blocs: la balança, comprovar, l'arrel
+quadrada, el costat d'un quadrat, quina solució té sentit, comprovar una equació de 2n grau i
+a la vida de cada dia).
 
 El filtre queda a l'adreça, i es pot enviar un enllaç amb el filtre posat:
 `u3/quadern.html?n=1&repte=1` (`n`: 1 quantitat petita, 2 mitjana, 3 alta; `repte`: 0 o 1).
@@ -212,15 +219,18 @@ números de les respostes es calculen al mateix fitxer, i el solucionari surt de
 mateixes dades. Després:
 
 ```
-python3 generadors/gen_quadern.py
-python3 eines/comprova.py
-python3 eines/prova_quadern.py
+python3 4eso/generadors/gen_quadern.py        (des de l'arrel)
+python3 4eso/eines/comprova.py
+python3 comu/eines/prova_quadern.py
 ```
 
-Per fer el quadern d'una altra unitat, es copia `generadors/quadern/ud3.py` a `udN.py`, es
-canvia el contingut i s'afegeix `quadern: "uN/quadern.html"` a la unitat de
-`dades/unitats.js`. Les peces que hi ha (taules, opcions per marcar, ofertes, plànols, doble
-recta, línies per mesurar, quadrícula) són a `generadors/gen_quadern.py`.
+Per fer el quadern d'una altra unitat, es copia `generadors/quadern/ud3.py` (o `ud4.py`) a
+`udN.py`, es canvia el contingut i s'afegeix `quadern: "uN/quadern.html"` a la unitat de
+`dades/unitats.js`. Des del 6/11/2026 el motor és comú a tots els cursos,
+`../comu/generadors/quadern.py`, amb les peces (taules, opcions per marcar, apartats lliures,
+ofertes, plànols, doble recta, línies per mesurar, quadrícula); el full d'estil i el filtre són
+`../comu/css/quadern.css` i `../comu/js/quadern.js`. Les peces només d'aquest curs (la balança
+de la UD4) són a `generadors/quadern/peces.py`.
 
 ---
 
@@ -266,15 +276,16 @@ per sota de 12 pt. Ara mateix: **0 problemes en 68 estats i 17 fitxes o targetes
 
 ```
 python3 eines/prova_caixa.py
-python3 eines/prova_quadern.py
+python3 ../comu/eines/prova_quadern.py
 ```
 
-`prova_quadern.py` prova el filtre de cada quadern en Chromium: les sis combinacions, que
+`comu/eines/prova_quadern.py` (comú a tots els cursos des del 6/11/2026) prova el filtre de cada quadern en Chromium: les sis combinacions, que
 cada activitat tingui els apartats que toquen amb les lletres seguides, que el solucionari
-amagui els mateixos, l'adreça amb el filtre i què s'imprimeix. `comprova.py` també mira els
-quaderns: B/N, que cada activitat tingui l'a) i 12 apartats marcats de menys a més (també
-al solucionari), que les consignes siguin curtes i que el fitxer de `quadern/` sigui el que
-surt del generador.
+amagui els mateixos, l'adreça amb el filtre, els botons «PDF alumnat» i «PDF solucionari» i què s'imprimeix.
+`comprova.py` també mira els quaderns, amb la prova comuna `../comu/eines/quaderns.py`: B/N,
+que cada activitat tingui l'a) i 12 apartats marcats de menys a més (també al solucionari),
+els botons dels PDF, que les consignes siguin curtes i que el fitxer sigui el que surt del
+generador.
 
 Prova les eines de punta a punta en Chromium: obre totes les pestanyes i els enllaços `?task=n`,
 mou els mòduls i acaba una tasca tancada (x² = 36), fins a llegir-ne el codi a `verifica.html`.
@@ -301,7 +312,7 @@ llegeix a `verifica.html`.
 **Pendent**, documentat a `docs/CONTINUAR.md`:
 
 - contrastar el teclat del mòdul Calculadora amb una Casio fx-82SP CW real;
-- el quadern d'activitats de les unitats 1, 2, 4, 5, 6 i 7, quan el de la UD3 s'hagi
+- el quadern d'activitats de les unitats 1, 2, 5, 6 i 7, quan els de la UD3 i la UD4 s'hagin
   provat a l'aula.
 
 ---
