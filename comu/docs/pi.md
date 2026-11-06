@@ -1,16 +1,3 @@
-# pi · dades privades de l'alumnat
-
-Aquest fitxer **no es puja al repositori**. Guarda'l en un lloc privat (per exemple, una carpeta
-del Drive del centre que només vegis tu).
-
-El 6/11/2026 es van treure del repositori i del web (que són públics) la fita de cada unitat, el
-rol a l'aula ordinària i el punt de partida o perfil de l'alumnat. Aquí hi ha el text exacte que hi
-havia, per si el vols consultar o tornar a fer servir al PI.
-
-Compte: el que ja s'havia publicat continua a l'historial de GitHub mentre el repositori sigui públic.
-Per això el pas 1 (fer privat el repositori) és important.
-
-
 ## 1eso/dades/unitats.js · fita i rol per unitat
 
 ```text
