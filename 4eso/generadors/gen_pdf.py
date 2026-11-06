@@ -80,8 +80,10 @@ def lletres_del_pdf(cami):
     return sorted(noms)
 
 
-def escriu(cap, fulls, desti):
-    doc = HTML(string=cap + "\n".join(fulls) + "</body></html>", base_url=FITXES + "/")
+def escriu(cap, fulls, desti, carpeta):
+    # carpeta: on és la pàgina (uN/ o targetes/), perquè ../css/ i ../fonts/ es trobin.
+    # Abans deia FITXES, la carpeta fitxes/ que el mapa nou (6/11/2026) va treure.
+    doc = HTML(string=cap + "\n".join(fulls) + "</body></html>", base_url=carpeta + "/")
     pagines = doc.render(stylesheets=[CSS(string=FULL_PDF)])
     pagines.write_pdf(desti)
     return len(pagines.pages)
@@ -117,14 +119,14 @@ def main():
         if targeta:
             # Una targeta és un sol PDF amb totes les cares, per imprimir a doble cara.
             desti = f"{nom}.pdf"
-            n1 = escriu(cap, alumnat, os.path.join(SORTIDA, desti))
+            n1 = escriu(cap, alumnat, os.path.join(SORTIDA, desti), os.path.dirname(origen))
             if n1 != len(alumnat):
                 problemes.append(f"{nom}: {len(alumnat)} cares però {n1} pàgines al PDF")
             print(f"  {nom:22}  {n1} cares")
             empremtes[desti] = e
             continue
-        n1 = escriu(cap, alumnat, os.path.join(SORTIDA, f"{nom}-alumnat.pdf"))
-        n2 = escriu(cap, sol, os.path.join(SORTIDA, f"{nom}-solucionari.pdf"))
+        n1 = escriu(cap, alumnat, os.path.join(SORTIDA, f"{nom}-alumnat.pdf"), os.path.dirname(origen))
+        n2 = escriu(cap, sol, os.path.join(SORTIDA, f"{nom}-solucionari.pdf"), os.path.dirname(origen))
 
         # Cada .full de l'alumnat ha de ser exactament una pàgina.
         if n1 != len(alumnat):
