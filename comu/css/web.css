@@ -154,6 +154,37 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
 .w-fitxes-llista .w-fn span { color: var(--w-gris); font-weight: 600; margin-right: .35rem }
 .w-carta .w-fitxes-llista .w-accions { display: flex; width: 75% }
 .w-carta .w-fitxes-llista .w-accions .w-b { flex: 1 1 0; width: auto }
+/* The unit page (decision of 6/11/2026): a narrower column (15 % more margin each side on a
+   laptop), one grid of three equal cards, a visible border, no icon in the card heading, the
+   same pale blue on every hover in the cards («Copia l'enllaç», grey), «Abans de la classe» folded. */
+.w-web.w-u { max-width: 60rem }
+.w-cartes { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) }
+.w-cartes .w-tota { grid-column: 1 / -1 }
+/* Several fitxes take a whole row: their buttons are as wide as a button of a column card. */
+.w-cartes { container-type: inline-size }
+@container (min-width: 46.8rem) {
+  .w-carta.w-tota .w-fitxes-llista .w-accions { width: auto }
+  .w-carta.w-tota .w-fitxes-llista .w-accions .w-b { flex: 0 0 calc(((100cqw - 1.8rem) / 3 - 2rem - 3px) * .75) }
+}
+.w-u .w-carta { border: 1.5px solid #8E929C }
+.w-u .w-carta.w-apagada { border-style: dashed }
+.w-u .w-carta .w-b { --w-h: var(--w-eina-h); overflow-wrap: anywhere }
+.w-u .w-carta .w-b[data-w-copia] { --w-h: var(--w-nav-h) }
+.w-u .w-carta-cap { min-height: 28px }
+.w-u .w-carta-cap .w-pas { font-size: 1rem }
+details.w-abans { padding: 0 }
+details.w-abans > summary { list-style: none; display: flex; align-items: center; gap: .6rem; min-height: 52px;
+  padding: .6rem 1.1rem; border-radius: var(--w-r); border: 1px solid transparent; cursor: pointer }
+details.w-abans > summary::-webkit-details-marker { display: none }
+details.w-abans > summary::before { content: ""; width: .5rem; height: .5rem; flex: none; margin: 0 .15rem;
+  border-right: 2px solid var(--w-gris); border-bottom: 2px solid var(--w-gris); transform: rotate(-45deg);
+  transition: transform .2s ease }
+details.w-abans[open] > summary::before { transform: rotate(45deg) }
+details.w-abans > summary:hover, details.w-abans > summary:focus-visible { border-color: #000;
+  box-shadow: 0 0 0 1px #000; background: var(--w-nav-h); outline: none }
+details.w-abans > summary h2 { margin: 0 }
+details.w-abans > dl { padding: .2rem 1.1rem 1rem }
+
 .w-abans { margin-top: 1.4rem; background: var(--w-superficie); border: 1px solid var(--w-linia);
   border-radius: var(--w-r); padding: 1rem 1.1rem }
 .w-abans h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: .6rem }

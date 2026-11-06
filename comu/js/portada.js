@@ -16,7 +16,7 @@
   function columna(c, unitats) {
     return '<section class="w-curs" aria-labelledby="h-' + c.id + '"><div class="w-curs-cap"><h2 id="h-' + c.id + '">' +
       PI.esc(c.nom) + "</h2>" +
-      PI.boto({ rol: "nav", href: c.id + "/professorat.html", text: "Professorat", icona: "docent", classe: "w-prof" }) +
+      (PI.professorat ? PI.boto({ rol: "nav", href: c.id + "/professorat.html", text: "Professorat", icona: "docent", classe: "w-prof" }) : "") +
       '</div><ol class="w-unitats">' + unitats.map(u => '<li><a class="w-b w-nav" href="' + c.id + "/u" + u.num +
         '/index.html"><span class="w-num">' + u.num + "</span>" + PI.esc(u.titol) + "</a></li>").join("") +
       "</ol></section>";

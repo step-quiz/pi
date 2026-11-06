@@ -20,7 +20,7 @@ s'arregla el document en el mateix commit.
 | `4eso/` | El material de Matemàtiques Aplicades: una carpeta per unitat (`u1/` … `u7/`) amb la pàgina de la unitat, la fitxa, el repàs i, a la `u3/`, el quadern d'activitats; les targetes, les eines de l'alumnat, la pàgina del professorat, els PDF, els exàmens, la documentació, els generadors i les proves. Vegeu [`4eso/README.md`](4eso/README.md) |
 | `1eso/` | El material de Matemàtiques, amb la mateixa estructura: a cada carpeta d'unitat, totes les seves fitxes i el repàs. Vegeu [`1eso/README.md`](1eso/README.md) |
 | `comu/` | El que comparteixen els cursos: la closca de pantalla (`comu/css/web.css` i `comu/js/`), el registre de cursos (`comu/js/cursos.js`), la prova del mapa (`comu/eines/mapa.py`), el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
-| `index.html` | La portada: «Curs 2026-27», el títol i una columna per curs amb les seves unitats i el botó «Professorat». La fa `comu/js/portada.js` |
+| `index.html` | La portada: «Curs 2026-27», el títol i una columna per curs amb les seves unitats (i el botó «Professorat», ara amagat). La fa `comu/js/portada.js` |
 | `other-versions/` | Dues versions de molta menys qualitat fetes amb una IA, per comparar-les amb aquest projecte. Només s'hi arriba des de `index.html?other-versions=1`. Es deixen tal com les va fer la IA, i per això la comprovació de l'anonimat no hi mira |
 | `404.html` | La pàgina d'adreça equivocada. No redirigeix res: el mapa va començar de zero el 6/11/2026 |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
@@ -42,17 +42,24 @@ Inici (index.html)
        ├ 1 Fitxa (uN/fitxa.html, i a 1eso/ les altres fitxes de la unitat)
        ├ 2 Quadern d'activitats (uN/quadern.html), o «Quadern d'activitats no disponible»
        ├ 3 Repàs (uN/repas.html)
-       ├ Eines → 4eso/eines.html?u=N ── per a l'alumnat: un espai tancat, sense cap enllaç
-       ├ Targetes (targetes/NOM.html?u=N)
-       └ Abans de la classe: el material, l'objectiu i la regla trencada
+       ├ 4 Eines → 4eso/eines.html?u=N ── per a l'alumnat: un espai tancat, sense cap enllaç
+       ├ 5 Targetes (targetes/NOM.html?u=N)
+       └ Abans de la classe (plegat): el material, l'objectiu i la regla trencada
  Professorat (4eso/professorat.html): canviar les frases, llegir codis, les notes generals
+   ── TANCAT des del 6/11/2026: vegeu més avall
 ```
 
+- **La secció del professorat és tancada** (6/11/2026), però no s'ha esborrat: potser tornarà.
+  No hi ha cap botó «Professorat», i `professorat.html`, `textos.html` i `verifica.html` porten a
+  la pàgina del curs (amb `?obert` al final de l'adreça s'obren igualment). Per tornar-la a obrir,
+  només cal canviar `PI.professorat = false;` per `true` a `comu/js/web.js`. Detalls a
+  [`comu/docs/SITE-MAP.md`](comu/docs/SITE-MAP.md), «The teacher section is CLOSED».
+
 - **Tota pàgina del docent** porta la mateixa capçalera violeta, `Inici › curs › Unitat N › pàgina`,
-  i el botó «Professorat». Cada fitxa, repàs, quadern i targeta hi té, a sobre del full, els
+  i el botó «Professorat» (amagat mentre la secció és tancada). Cada fitxa, repàs, quadern i targeta hi té, a sobre del full, els
   botons «PDF alumnat» i «PDF solucionari» (o «PDF a doble cara»).
 - **L'alumnat només obre les eines**, amb l'enllaç que el docent copia a la pàgina de la unitat
-  («Copia l'enllaç per a l'alumnat»): `https://pi.step-quiz.net/4eso/eines?u=3`. Hi surten només les
+  («Copia l'enllaç»): `https://pi.step-quiz.net/4eso/eines?u=3`. Hi surten només les
   eines d'aquella unitat, i la capçalera no porta enlloc: així l'alumnat no pot arribar als
   solucionaris.
 - **El nom de cada curs** només és a `comu/js/cursos.js`. Les pàgines el llegeixen d'allà.

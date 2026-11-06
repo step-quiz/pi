@@ -104,7 +104,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `index.html` | La pàgina del curs: les seves unitats. La fa `../comu/js/curs.js` |
 | `u1/` … `u7/` | Una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): les fitxes numerades, el quadern d'activitats (o «no disponible») i el repàs, amb els PDF; les eines i la targeta de la unitat; i «Abans de la classe». A dins, les fitxes: `fitxa.html` la principal, `NOM.html` les altres, i `repas.html` |
 | `eines.html` | Les eines de l'alumnat (`eines.html?u=N`). `verifica.html` llegeix els codis i `textos.html` canvia les frases |
-| `professorat.html` | La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
+| `professorat.html` | **Tancada des del 6/11/2026** (s'obre amb `?obert`; vegeu `../comu/docs/SITE-MAP.md`). La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les 29 eines a `moduls/`, una per fitxer |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1), la dels noms de les fraccions (unitat 3), la dels decimals i les arrels (unitat 5), la de les formes (unitat 6) i la dels patrons i els símbols (unitat 7) |

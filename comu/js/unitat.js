@@ -6,12 +6,16 @@
 
      header        Inici › course › Unitat N, and the «Professorat» button
      title         «Unitat N · title» (no date: decision 4 of the mockup review)
-     the path      1 Fitxa (or 1 Fitxes, numbered, when there are several) ·
+     the cards     one grid of three equal columns (decision of 6/11/2026: the eye follows one
+                   rhythm). Numbered in order, with no icon in the heading:
+                   1 Fitxa (or 1 Fitxes, numbered, when there are several: then it takes a whole row) ·
                    2 Quadern d'activitats (greyed out, «no disponible», when missing) ·
-                   3 Repàs. Each one: Obre, PDF alumnat, PDF solucionari.
-     Eines         «Obre les eines» and «Copia l'enllaç per a l'alumnat» (CURS/eines.html?u=N)
-     Targetes      the reference cards of the unit, with their PDF
-     Abans de la classe   material, objective or core idea, broken rule
+                   3 Repàs, each one with Obre, PDF alumnat, PDF solucionari ·
+                   4 Eines: «Obre les eines» and «Copia l'enllaç» (CURS/eines.html?u=N) ·
+                   5 Targetes: the reference cards of the unit, with their PDF.
+                   A missing card (no Repàs, no tools, no card) is skipped and the numbers close up.
+     Abans de la classe   a <details>, always folded when the page opens: material,
+                   objective or core idea, broken rule
 
    The data are the course's dades/unitats.js, loaded before this script, with the
    same fields in every course (comu/docs/SITE-MAP.md, «Data model»).
@@ -30,8 +34,11 @@
            PI.boto({ rol: "pdf", href: "../pdf/" + base + "-solucionari.pdf", descarrega: true, text: "PDF solucionari", icona: "sol" });
   }
 
-  const cap = (icona, pas, titol) => '<div class="w-carta-cap">' + PI.ic(icona) +
-    (pas ? '<span class="w-pas">' + pas + "</span>" : "") + "<h2>" + PI.esc(titol) + "</h2></div>";
+  /* The heading of a card: its number in the path and the title, no icon (decision of 6/11/2026).
+     The numbers are given in order as the cards are written: see arrenca(). */
+  let pas = 0;
+  const cap = (icona, _, titol) => '<div class="w-carta-cap"><span class="w-pas">' + (++pas) + "</span><h2>" +
+    PI.esc(titol) + "</h2></div>";
 
   function cartaFitxes(u) {
     const fs = u.fitxes || [];
@@ -40,7 +47,7 @@
         PI.boto({ rol: "mat", href: aqui(fs[0].fitxa), text: "Obre la fitxa", icona: "fitxa", principal: true }) +
         pdfs(fs[0].fitxa) + "</div></section>";
     }
-    return '<section class="w-carta w-mat">' + cap("fitxa", 1, "Fitxes") + '<ol class="w-fitxes-llista">' +
+    return '<section class="w-carta w-mat w-tota">' + cap("fitxa", 1, "Fitxes") + '<ol class="w-fitxes-llista">' +
       fs.map((f, i) => '<li><div class="w-fn"><span>' + (i + 1) + "</span>" + PI.esc(f.titol) + '</div><div class="w-accions">' +
         PI.boto({ rol: "mat", href: aqui(f.fitxa), text: "Obre", icona: "fitxa", principal: true }) + pdfs(f.fitxa) +
         "</div></li>").join("") + "</ol></section>";
@@ -73,7 +80,8 @@
     if (!(u.tasques || []).length) return "";
     return '<section class="w-carta w-eina">' + cap("eines", 0, "Eines") + '<div class="w-accions">' +
       PI.boto({ rol: "eina", href: "../eines.html?u=" + u.num, text: "Obre les eines", icona: "eines", principal: true }) +
-      PI.boto({ rol: "eina", text: "Copia l'enllaç per a l'alumnat", icona: "enllac", atributs: ' data-w-copia="' + PI.esc(enllacAlumnat(u)) + '"' }) +
+      PI.boto({ rol: "eina", text: "Copia l'enllaç", icona: "enllac",
+        atributs: ' title="L\'enllaç per a l\'alumnat" data-w-copia="' + PI.esc(enllacAlumnat(u)) + '"' }) +
       "</div></section>";
   }
 
@@ -95,8 +103,9 @@
     const files = [["Material", u.material], ["Objectiu", u.objectiu], ["La idea", u.nucli], ["La regla trencada", u.trencada]]
       .filter(f => f[1]);
     if (!files.length) return "";
-    return '<section class="w-abans"><h2>Abans de la classe</h2><dl>' +
-      files.map(f => "<dt>" + f[0] + "</dt><dd>" + PI.frases(frase(f[1])) + "</dd>").join("") + "</dl></section>";
+    // Folded when the page opens, always (decision of 6/11/2026): no «open» attribute, and nothing remembered.
+    return '<details class="w-abans"><summary><h2>Abans de la classe</h2></summary><dl>' +
+      files.map(f => "<dt>" + f[0] + "</dt><dd>" + PI.frases(frase(f[1])) + "</dd>").join("") + "</dl></details>";
   }
 
   function arrenca() {
@@ -110,13 +119,12 @@
       return;
     }
     document.title = "Unitat " + u.num + " · " + u.titol;
-    const cami = (u.fitxes || []).length > 1
-      ? '<div class="w-cami3">' + cartaFitxes(u) + '</div><div class="w-dues">' + cartaQuadern(u) + cartaRepas(u) + "</div>"
-      : '<div class="w-cami3">' + cartaFitxes(u) + cartaQuadern(u) + cartaRepas(u) + "</div>";
+    web.classList.add("w-u");   // the narrower column and the unit look, in web.css
+    pas = 0;
+    const cartes = cartaFitxes(u) + cartaQuadern(u) + cartaRepas(u) + cartaEines(u) + cartaTargetes(u);
     web.innerHTML =
       PI.capcalera([["Inici", "../../index.html"], [curs.nom, "../index.html"], ["Unitat " + u.num, ""]], { professorat: "../professorat.html" }) +
-      '<h1 class="w-titol">Unitat ' + u.num + " · " + PI.esc(u.titol) + "</h1>" + cami +
-      '<div class="w-dues">' + cartaEines(u) + cartaTargetes(u) + "</div>" + abans(u);
+      '<h1 class="w-titol">Unitat ' + u.num + " · " + PI.esc(u.titol) + '</h1><div class="w-cartes">' + cartes + "</div>" + abans(u);
 
     web.addEventListener("click", ev => {
       const b = ev.target.closest("[data-w-copia]");

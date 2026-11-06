@@ -23,6 +23,14 @@
   "use strict";
   const PI = window.PI = window.PI || {};
 
+  /* THE TEACHER SECTION IS CLOSED (decision of 6/11/2026; kept for later, not deleted).
+     false: no «Professorat» button anywhere (home page, course, unit, paper pages), and
+     CURS/professorat.html, textos.html and verifica.html send the visitor to the course page
+     (comu/js/professorat.js). The pages stay in the repo, untouched. Add ?obert to the address
+     to open one anyway (the tests do it). To bring the section back: set this to true. That is
+     all: comu/eines/prova_portada.py reads this line and checks the buttons accordingly. */
+  PI.professorat = false;
+
   PI.esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
   /* One sentence per line (decision of 6/11/2026). The break goes after a full stop,
@@ -64,14 +72,14 @@
 
   /* The header of every teacher page. passos: [[text, href], …]; the last one is the
      current page and is never a link. op.professorat: the href of the «Professorat»
-     button (none on the teacher page itself). */
+     button (none on the teacher page itself; none at all while PI.professorat is false). */
   PI.capcalera = function (passos, op) {
     const cami = passos.map((p, i) => {
       const sep = i ? '<span class="w-sep" aria-hidden="true">›</span>' : "";
       if (i === passos.length - 1) return sep + '<span class="w-aqui" aria-current="page">' + PI.esc(p[0]) + "</span>";
       return sep + '<a href="' + PI.esc(p[1]) + '">' + PI.esc(p[0]) + "</a>";
     }).join("");
-    const prof = op && op.professorat
+    const prof = op && op.professorat && PI.professorat
       ? PI.boto({ rol: "nav", href: op.professorat, text: "Professorat", icona: "docent", classe: "w-prof" }) : "";
     return '<header class="w-cap"><div class="w-cap-esq"><span class="w-segell" aria-hidden="true">' + PI.ic("docent") +
       '</span><nav class="w-cami" aria-label="Camí">' + cami + "</nav></div>" + prof + "</header>";

@@ -133,8 +133,8 @@ ESTATS = [
     ("28.2 Quantes persones? · tocada",    "eines.html", "?task=28.2", "boto_gs"),
     ("Tota la caixa",                    "eines.html", "",          None),
     ("La portada",                       "index.html",       "",          None),
-    ("Llegir codis",                     "verifica.html",    "",          None),
-    ("Canviar les frases",               "textos.html",      "",          None),
+    ("Llegir codis",                     "verifica.html",    "?obert",    None),
+    ("Canviar les frases",               "textos.html",      "?obert",    None),
 ]
 
 JS_MESURA = r"""

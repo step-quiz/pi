@@ -45,7 +45,7 @@ except ImportError:
 
 ARREL = pathlib.Path(__file__).resolve().parent.parent
 CAIXA = (ARREL / "eines.html").as_uri()
-VERIFICA = (ARREL / "verifica.html").as_uri()
+VERIFICA = (ARREL / "verifica.html").as_uri() + "?obert"   # la secció del professorat és tancada
 
 errors = []
 

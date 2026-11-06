@@ -15,6 +15,13 @@
   "use strict";
   const PI = window.PI;
 
+  /* The section is closed while PI.professorat is false (comu/js/web.js): to the course page. */
+  if (!PI.professorat && !/[?&]obert(=|&|$)/.test(location.search)) {
+    document.documentElement.style.visibility = "hidden";
+    location.replace("index.html");
+    return;
+  }
+
   function arrenca() {
     const curs = PI.curs(PI.lloc().curs);
     const cap = document.getElementById("w-cap");

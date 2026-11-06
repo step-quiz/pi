@@ -29,9 +29,9 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | | |
 |---|---|
 | `index.html` | la pàgina del curs: les seves unitats. La fa `../comu/js/curs.js` |
-| `u1/` … `u7/` | una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF; les eines i les targetes de la unitat; i «Abans de la classe». `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. A la `u3/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py` |
+| `u1/` … `u7/` | una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF · 4 Eines · 5 Targetes; i «Abans de la classe», plegat. `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. A la `u3/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py` |
 | `eines.html` | les eines de l'alumnat, amb deu mòduls. S'obre amb `eines.html?u=N`: només les eines de la unitat N, i cap enllaç cap a la resta del web |
-| `professorat.html` | la pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
+| `professorat.html` | **tancada des del 6/11/2026** (s'obre amb `?obert`; vegeu `../comu/docs/SITE-MAP.md`). La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
 | `verifica.html` | pàgina per llegir els codis de verificació que donen les eines |
 | `targetes/` | dues targetes de consulta per tenir a la taula (percentatges i escales; paràboles, dades i atzar), a doble cara. La de la calculadora es va treure el 6/11/2026 |
 | `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |

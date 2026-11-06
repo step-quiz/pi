@@ -35,6 +35,8 @@ except ImportError:
     sys.exit("Cal Playwright: pip install playwright && python3 -m playwright install chromium")
 
 REPO = pathlib.Path(__file__).resolve().parent.parent.parent
+# La secció del professorat, oberta o tancada: la línia «PI.professorat = …» de comu/js/web.js.
+PROF = re.search(r"PI\.professorat = (true|false);", (REPO / "comu/js/web.js").read_text(encoding="utf-8"))[1] == "true"
 falles = []
 
 
@@ -77,7 +79,7 @@ def main():
             hrefs = [a.get_attribute("href") for a in col.query_selector_all(".w-unitats a")]
             unitats_de[cid] = [int(re.search(r"/u(\d+)/", h)[1]) for h in hrefs]
             comprova(hrefs and all(re.fullmatch(cid + r"/u\d+/index\.html", h) for h in hrefs), f"portada: enllaços d'unitat de {cid}: {hrefs}")
-            comprova(col.query_selector(f'a.w-prof[href="{cid}/professorat.html"]') is not None, f"portada: falta «Professorat» de {cid}")
+            comprova((col.query_selector(f'a.w-prof[href="{cid}/professorat.html"]') is not None) == PROF, f"portada: «Professorat» de {cid} (obert: {PROF})")
             print(f"  {nom}: {len(hrefs)} unitats")
 
         for cid, nom in cursos:
@@ -98,7 +100,7 @@ def main():
                 comprova([t for t, _ in c] == ["Inici", nom, f"Unitat {n}"], f"{on}: el camí és {[t for t, _ in c]}")
                 comprova(c and fitxer(c[0][1]) == fitxer(index), f"{on}: «Inici» no porta a la portada")
                 comprova(len(c) > 1 and fitxer(c[1][1]) == (arrel / "index.html").resolve(), f"{on}: el curs no porta a {cid}/index.html")
-                comprova(pag.query_selector('.w-cap a.w-prof') is not None, f"{on}: falta «Professorat»")
+                comprova((pag.query_selector('.w-cap a.w-prof') is not None) == PROF, f"{on}: «Professorat» (obert: {PROF})")
                 comprova(pag.inner_text("h1").startswith(f"Unitat {n} · "), f"{on}: el títol és «{pag.inner_text('h1')}»")
                 for a in pag.query_selector_all("a[download]"):
                     comprova(fitxer(a.evaluate("e => e.href")).exists(), f"{on}: el PDF {a.get_attribute('href')} no hi és")
@@ -109,7 +111,7 @@ def main():
                 eines = [h for h in obre if "/eines.html" in h]
                 obre = [h for h in obre if "/eines.html" not in h]
                 comprova(len(eines) == 1 and eines[0].endswith(f"eines.html?u={n}"), f"{on}: «Obre les eines» porta a {eines}")
-                comprova(pag.query_selector("[data-w-copia]") is not None, f"{on}: falta «Copia l'enllaç per a l'alumnat»")
+                comprova(pag.query_selector("[data-w-copia]") is not None, f"{on}: falta «Copia l'enllaç»")
 
                 # Cada pàgina de paper: la capçalera torna a aquesta unitat, al curs i a l'inici.
                 for h in obre:
@@ -149,7 +151,12 @@ def main():
                              f"{on}: la targeta {h.rsplit('/', 1)[-1]} no torna a la unitat {n}")
             print(f"  {len(unitats_de.get(cid, []))} unitats: fitxes, repassos, quaderns, targetes, PDF i eines provats")
 
-            pag.goto((arrel / "professorat.html").as_uri())
+            if not PROF:
+                pag.goto((arrel / "professorat.html").as_uri())
+                pag.wait_for_selector(".w-unitats")
+                comprova(fitxer(pag.url) == (arrel / "index.html").resolve(), f"{cid}/professorat.html no torna al curs: {pag.url}")
+                print("  professorat: tancat, torna a la pàgina del curs")
+            pag.goto((arrel / "professorat.html").as_uri() + "?obert")
             pag.wait_for_selector(".w-cap")
             c = cami(pag)
             comprova([t for t, _ in c] == ["Inici", nom, "Professorat"], f"{cid}/professorat.html: el camí és {c}")

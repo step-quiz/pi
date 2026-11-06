@@ -39,8 +39,14 @@ so that the double click works. Every link is relative; the only absolute paths 
 /                          index.html               Home («Inici»): «Curs 2026-27», title, one column per course
                                                     (its units and a «Professorat» button). No header bar.
 /CURS/                     CURS/index.html          Course: header + its units
-/CURS/uN/                  CURS/uN/index.html       Unit (teacher): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs,
-                                                    then Eines and Targetes, then «Abans de la classe»
+/CURS/uN/                  CURS/uN/index.html       Unit (teacher): one grid of three equal cards, numbered,
+                                                    no heading icon: 1 Fitxa · 2 Quadern d'activitats ·
+                                                    3 Repàs · 4 Eines · 5 Targetes (missing cards are
+                                                    skipped, numbers close up); then «Abans de la
+                                                    classe», a <details> folded on every load.
+                                                    Column 60rem; card border 1.5px #8E929C; every card
+                                                    button hovers pale blue (--w-eina-h), «Copia
+                                                    l'enllaç» grey (--w-nav-h). Decision of 6/11/2026.
 /CURS/uN/fitxa             CURS/uN/fitxa.html       main sheet of the unit (paper)
 /CURS/uN/NOM               CURS/uN/NOM.html         other sheets of the unit (1eso/ has up to six per unit)
 /CURS/uN/repas             CURS/uN/repas.html       review sheet (paper)
@@ -56,8 +62,26 @@ There are **no redirects and no old addresses** (decision P4: the site started f
 6/11/2026). `404.html` is a plain page. `index.html?other-versions=1` shows the two AI-made
 versions kept for comparison (`other-versions/`); they are outside the map and never checked.
 
+### The teacher section is CLOSED (6/11/2026)
+
+Decided by the owner on 6/11/2026: for now, the teacher section is not reachable. It is **kept,
+not deleted**, because it may come back.
+
+- One switch: `PI.professorat = false;` at the top of `comu/js/web.js`.
+- While false: no «Professorat» button anywhere (home page, course page, unit page, paper pages:
+  `PI.capcalera` and `comu/js/portada.js` both read the switch).
+- `CURS/professorat.html`, `CURS/textos.html` and `CURS/verifica.html` are untouched, but
+  `comu/js/professorat.js` (loaded by all three) sends the visitor to `CURS/index.html` with
+  `location.replace`. Adding `?obert` to the address opens the page anyway; the tests use it
+  (`prova_caixa.py` for `verifica.html`, `auditoria.py`).
+- `comu/eines/prova_portada.py` reads the switch: closed, it checks there is no button and that
+  `professorat.html` lands on the course page; open, it checks the button is on every page.
+- **To reopen:** set `PI.professorat = true;`, run `comu/eines/prova_portada.py`. Nothing else.
+  Everything below that mentions the «Professorat» button describes the section when open.
+
 Every page that is not the home page or the student tools has the **same header** (N1): a violet
-bar `Inici › course › Unitat N › page`, with the **«Professorat»** button on the right (F2). The
+bar `Inici › course › Unitat N › page`, with the **«Professorat»** button on the right (F2; hidden
+while the section is closed, see above). The
 course in the path is a link to the course page. The last step is never a link and never bold.
 
 ## 3. Vocabulary (V1, V2, V3)
@@ -144,7 +168,7 @@ paths of a unit live in its own folder `uN/`; a card is `targetes/NOM.html` + `p
 - **Selected** (`aria-selected` / `aria-checked`, and `.pastilla[aria-pressed]` in the tools):
   background unchanged, thick black border and a **black round tick** in the top-left corner.
   Never a black or dark background.
-- «Professorat» button: background 15 % darker (`#D9DADE`). «Copia l'enllaç per a l'alumnat»
+- «Professorat» button: background 15 % darker (`#D9DADE`). «Copia l'enllaç» (unit page)
   becomes olive grey-green (`#C6C9AE`) and says «Enllaç copiat».
 - **Header of every teacher page**: pale violet `#F3EEFC`, 2 px border `#6A3FC4`, a thicker violet
   stripe on the left, a round violet seal with the teacher icon.
@@ -188,7 +212,7 @@ title from the data.
   `PI.einesUnitat`. `js/app.js` (`aplicaUnitat`) shows only the tabs listed in `tasques`: first the
   unit's own tools in data order, then a thin separator, then the always-there tools
   (`data-comuna`: Calculadora and Com ho dic in `4eso/`, Taules in `1eso/`).
-- The teacher gets the link from the unit page («Copia l'enllaç per a l'alumnat»), published
+- The teacher gets the link from the unit page («Copia l'enllaç»), published
   without `.html`: `https://pi.step-quiz.net/4eso/eines?u=3`.
 - Inside a tool, examples belong to units too: the double number line (`js/moduls/doble.js`) has
   `unitats` per example and shows only those of the unit; with one example, no chooser (E1).
