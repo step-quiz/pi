@@ -432,3 +432,7 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
   .segment[aria-selected="true"]:hover,.pastilla[aria-pressed="true"]:hover{background:var(--camp)}
   .segment{border-color:var(--separador)}
 }
+
+/* Lloc reservat per a la barra de desplaçament (6/11/2026): sense això, en passar d'una
+   pestanya llarga a una de curta la barra desapareix i tota la pàgina es mou uns 12 px. */
+html{scrollbar-gutter:stable}

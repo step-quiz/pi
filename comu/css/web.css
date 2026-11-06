@@ -200,3 +200,7 @@ nav.navega a.w-b.w-prof:hover, nav.navega a.w-b.w-prof:focus-visible { backgroun
 .w-separa { width: 1px; align-self: stretch; background: var(--w-linia); margin: 0 .4rem }
 
 @media (prefers-reduced-motion: reduce) { .w-pagina * { transition: none !important } }
+
+/* Lloc reservat per a la barra de desplaçament (6/11/2026): sense això, en passar d'una
+   pestanya llarga a una de curta la barra desapareix i tota la pàgina es mou uns 12 px. */
+html{scrollbar-gutter:stable}
