@@ -19,8 +19,9 @@
        ../comu/js/alumne.js amb ?u=N. Mapa del lloc: ../comu/docs/SITE-MAP.md. -->
   <h1 class="w-cap-alumne" id="w-cap-alumne">Eines</h1>
   <!-- data-tasca: el número de cada eina. El camp «tasques» de dades/unitats.js diu quines
-       surten a cada unitat (eines.html?u=N): primer les de la unitat i, després d'una ratlla,
-       les de sempre (data-comuna). El número no es canvia mai: un mòdul nou pren el següent
+       surten a cada unitat (eines.html?u=N), i en quin ordre; amb una sola, no hi ha pestanyes.
+       data-comuna marca les que abans sortien sempre: des del 6/11/2026 (menys llocs on clicar)
+       només surten on les posa «tasques». El número no es canvia mai: un mòdul nou pren el següent
        número lliure. ?task=n (una sola eina, i ?task=n.m, un sol exercici) ja no s'enllaça
        enlloc: només el fan servir les proves (eines/prova_caixa.py). Vegeu js/app.js. -->
   <!-- Sense ?u (només per a les proves), surten les 29 pestanyes i, a sobre, una fila per veure
@@ -63,9 +64,7 @@
 <!-- ================================================= 0 · TAULES ======== -->
 <section id="mod-taules" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 0.1 · la multiplicació, amb el seu rectangle; la taula sencera, plegada -->
@@ -137,9 +136,7 @@
 <!-- ============================================== 1 · RECTANGLES ======== -->
 <section id="mod-rect" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 1.1 · fes un rectangle: tocar, comptadors o fletxes -->
@@ -206,9 +203,7 @@
 <!-- ================================================ 2 · QUADRATS ======== -->
 <section id="mod-quadrat" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 2.1 · el quadrat d'un nombre: 3² és un quadrat de 3 per 3 -->
@@ -276,9 +271,7 @@
 <!-- ================================================= 3 · NOMBRES ======== -->
 <section id="mod-cdu" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 3.1 · centenes, desenes i unitats amb blocs de quadrets -->
@@ -324,9 +317,7 @@
 <!-- =================================================== 4 · ORDRE ======== -->
 <section id="mod-ordre" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 4.1 · mira l'ordre: primer i després, amb el dibuix -->
@@ -365,9 +356,7 @@
 <!-- ============ 5 · MÚLTIPLES (unitat 2) ============ -->
 <section id="mod-multiples" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -430,9 +419,7 @@
 <!-- ============ 6 · REPARTIR (unitat 2) ============ -->
 <section id="mod-repartir" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -468,9 +455,7 @@
 <!-- ============ 7 · DIVISORS (unitat 2) ============ -->
 <section id="mod-divisors" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -507,9 +492,7 @@
 <!-- ============ 8 · PRIMERS (unitat 2) ============ -->
 <section id="mod-primers" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -549,9 +532,7 @@
 <!-- ============ 9 · LA FRACCIÓ (unitat 3) ============ -->
 <section id="mod-fraccio" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -587,9 +568,7 @@
 <!-- ============ 10 · EQUIVALENTS (unitat 3) ============ -->
 <section id="mod-equivalents" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -625,9 +604,7 @@
 <!-- ============ 11 · COMPARA (unitat 3) ============ -->
 <section id="mod-compara" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -663,9 +640,7 @@
 <!-- ============ 12 · SUMA I RESTA (unitat 3) ============ -->
 <section id="mod-sumes" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -702,9 +677,7 @@
 <!-- ============ 13 · L'ÀREA (unitat 3) ============ -->
 <section id="mod-area" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -740,9 +713,7 @@
 <!-- ============================================== 14 · FRACCIÓ D'UN NOMBRE ==== -->
 <section id="mod-fraccnombre" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -780,9 +751,7 @@
 <!-- ================================================ 15 · MULTIPLICAR FRACCIONS ==== -->
 <section id="mod-multfrac" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -818,9 +787,7 @@
 <!-- ===================================================== 16 · PERCENTATGES ==== -->
 <section id="mod-percentatges" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -855,9 +822,7 @@
 <!-- =================================================== 17 · DOBLES I TRIPLES ==== -->
 <section id="mod-dobletriple" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <div class="subtasca" data-sub="1">
@@ -893,9 +858,7 @@
 <!-- ===================================================== 18 · DECIMALS ==== -->
 <section id="mod-decimals" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 18.1 · el quadrat de 100 és 1: la columna és 0,1 i el quadret, 0,01 -->
@@ -960,9 +923,7 @@
 <!-- ==================================================== 19 · ARRODONIR ==== -->
 <section id="mod-arrodonir" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 19.1 · el decimal a la recta: de quina dècima és més a prop? -->
@@ -1000,9 +961,7 @@
 <!-- =============================================== 20 · SUMAR DECIMALS ==== -->
 <section id="mod-sumadec" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 20.1 · suma i resta: la coma sota la coma -->
@@ -1041,9 +1000,7 @@
 <!-- ============================================ 21 · FRACCIÓ I DECIMAL ==== -->
 <section id="mod-fracdec" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
 
   <!-- 21.1 · la fracció al quadrat de 100: 1/4 són 25 quadrets, 0,25 -->
@@ -1081,9 +1038,7 @@
 <!-- ======================================================= 22 · ANGLES ==== -->
 <section id="mod-angles" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1116,9 +1071,7 @@
 <!-- ===================================================== 23 · POLÍGONS ==== -->
 <section id="mod-poligons" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1151,9 +1104,7 @@
 <!-- ==================================================== 24 · TRIANGLES ==== -->
 <section id="mod-triangles" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1187,9 +1138,7 @@
 <!-- ==================================================== 25 · PERÍMETRE ==== -->
 <section id="mod-perimetre" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1222,9 +1171,7 @@
 <!-- ====================================================== 26 · PATRONS ==== -->
 <section id="mod-patrons" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1263,9 +1210,7 @@
 <!-- ====================================================== 27 · SÍMBOLS ==== -->
 <section id="mod-simbols" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1299,9 +1244,7 @@
 <!-- ====================================================== 28 · GRÀFICS ==== -->
 <section id="mod-grafics" class="modul" hidden>
   <div class="subbarra">
-    <button class="btn tenyit mini sub-enrere" aria-label="Exercici anterior">‹</button>
     <span class="sub-rotul"></span>
-    <button class="btn mini sub-avant" aria-label="Exercici següent">›</button>
   </div>
   <div class="subtasca" data-sub="1">
     <div class="targeta">
@@ -1344,9 +1287,9 @@
 <script src="dades/textos.js"></script>
 <script src="js/nucli.js"></script>
 <script src="js/codi.js"></script>
-<script src="js/tasca.js"></script>
+<script src="../comu/js/tasca.js"></script>
 <script src="js/quadricula.js"></script>
-<script src="js/veu.js"></script>
+<script src="../comu/js/veu.js"></script>
 <script src="dades/unitats.js"></script>
 <script src="../comu/js/alumne.js"></script>
 <script src="js/app.js"></script>

@@ -50,15 +50,21 @@ compartirien la memòria del navegador, i un codi de l'una es llegiria com a và
 | `css/app.css` | Els estils de la pantalla. Fa servir els colors de `css/tokens.css` |
 | `js/nucli.js` | L'objecte `CE`: el poc que comparteixen tots els mòduls |
 | `js/codi.js` | El codi de verificació (`K7Q-M2X-9RT`) |
-| `js/tasca.js` | El motor de les tasques tancades |
+| `../comu/js/tasca.js` | El motor de les tasques tancades i el camí guiat entre exercicis. Comú a tots els cursos des del 6/11/2026; les claus del navegador porten `CE.prefix` (`pi1-`), que posa `js/nucli.js` |
 | `js/quadricula.js` | El dibuix de tot el curs: quadrets, rectangles, la taula de quadrets, els blocs |
-| `js/veu.js` | La lectura en veu alta de cada targeta (apartat 8) |
+| `../comu/js/veu.js` | La lectura en veu alta de cada targeta (apartat 8). Comú a tots els cursos |
 | `js/moduls/*.js` | Les 29 eines, una per fitxer. Es carreguen quan s'obren (`CE.carrega`) |
 | `js/app.js` | Les pestanyes i els enllaços `?task=n`. Va l'últim |
 
 L'ordre de càrrega és aquest i no un altre, i el test el comprova:
-`dades/textos.js` → `js/nucli.js` → `js/codi.js` → `js/tasca.js` → `js/quadricula.js` →
-`js/veu.js` → `js/app.js`.
+`dades/textos.js` → `js/nucli.js` → `js/codi.js` → `../comu/js/tasca.js` → `js/quadricula.js` →
+`../comu/js/veu.js` → `js/app.js`.
+
+**El camí guiat (6/11/2026).** Dins d'una eina no hi ha fletxes: la barra de dalt només diu
+l'exercici, i un sol botó a baix, «Exercici següent», porta al següent; en una tasca tancada surt
+quan s'acaba. El fa `CE.cami` (`../comu/js/tasca.js`), cridat per `CE.subtasques`. Les proves hi
+van amb `CE.subs[id].mostra(n)`. Un títol de targeta igual que el nom de la barra no es veu (la veu
+el llegeix), i si la pregunta també el repeteix, la barra només diu el número.
 
 **Les eines es carreguen quan s'obren** (30/9/2026). Abans la pàgina carregava les 29 d'entrada.
 Ara cada pestanya diu el fitxer del seu mòdul a `data-src`, i `CE.carrega(id)` (a `js/nucli.js`)
@@ -178,7 +184,7 @@ final.
 
 | Peça | Per a què |
 |---|---|
-| `CE.subDemanada(tasca)` | La subtasca que demana l'enllaç (`?task=1.3`), només si és d'aquesta tasca. La pestanya Taules, que també surt, s'obre per la 0.1. Amb un enllaç així, la barra de subtasques no té fletxes (`.subbarra.fixa`): l'enllaç porta a aquell exercici i prou |
+| `CE.subDemanada(tasca)` | La subtasca que demana l'enllaç (`?task=1.3`), només si és d'aquesta tasca. La pestanya Taules, que també surt, s'obre per la 0.1. Amb un enllaç així no hi ha el botó «Exercici següent» (`.subbarra.fixa`): l'enllaç porta a aquell exercici i prou |
 | `quants`, `rect`, `deN`, `delNombre`, `elNombre` | La gramàtica: «1 quadret» i «12 quadrets», «3 files de 4 quadrets» i «5 files d'11 quadrets», «la taula de l'1» i «la taula del 7», «l'11» |
 | `lectura(paraules, símbols)` | El bloc de sota de cada dibuix: primer les paraules i al final el símbol |
 | `comptador(cont, …)` | El control [−] 3 [+], amb els extrems desactivats |
@@ -193,7 +199,7 @@ necessitaria una versió per a cada cas.
 
 ## 6. Les tasques tancades
 
-El motor és el de l'altra caixa (`js/tasca.js`): `Inici ● ○ ○ ○ ○ Final` i «Pas 2 de 5», un
+El motor és comú a tots els cursos (`../comu/js/tasca.js`): `Inici ● ○ ○ ○ ○ Final` i «Pas 2 de 5», un
 sol pas a la vista, la retroacció sempre amb la mateixa forma i un final amb resum i codi.
 
 | | Què es contesta | Primer error | Segon error |
@@ -258,13 +264,13 @@ funciona.
 
 ---
 
-## 8. La veu: `js/veu.js`
+## 8. La veu: `../comu/js/veu.js`
 
 Cada targeta amb títol porta, a dalt a la dreta, un botó petit i gris amb un altaveu. En
 tocar-lo, el navegador llegeix la targeta en veu alta i marca el que llegeix; tornar-lo a tocar
-la para, i tocar qualsevol altre botó també. És el mateix fitxer a `1eso/` i a `4eso/`. Fa
-servir la síntesi de veu del navegador (Web Speech API): no cal xarxa ni servidor. Si el
-navegador no en té, el botó no surt.
+la para, i tocar qualsevol altre botó també. És un sol fitxer per a tots els cursos, a `comu/js/`.
+Fa servir la síntesi de veu del navegador (Web Speech API): no cal xarxa ni servidor. Si el
+navegador no en té, o si no té cap veu catalana (6/11/2026), el botó no surt.
 
 **Com llegeix, i per què.**
 
@@ -315,7 +321,7 @@ saltava de paraula en paraula: era massa brusc i feia que la mirada esperés el 
 llegir (6/11/2026).
 
 **Les frases del botó** són `comu.veu_escolta` («Escolta la targeta») i `comu.veu_para` («Para
-la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `js/veu.js`.
+la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `../comu/js/veu.js`.
 
 **Una eina nova no ha de fer res**: el botó surt sol a cada `.targeta` que tingui un `<h2>`.
 Si un text de l'eina es llegeix malament, el remei és un `aria-label` amb la lectura en paraules

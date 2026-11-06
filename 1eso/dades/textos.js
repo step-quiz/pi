@@ -56,6 +56,7 @@ window.TEXTOS = {
     exemple:      'Exemple',
     veu_escolta:  'Escolta la targeta',
     veu_para:     'Para la veu',
+    exercici_seguent: 'Exercici següent',
     buida:        'Buida-ho',
     comprova:     'Comprova',
     treu:         'treu-ne un',
@@ -465,11 +466,11 @@ window.TEXTOS = {
     ajuda:         'Mira el dibuix. Toca la fracció bona.',
     pregunta:      'Quina fracció és?',
     comenca:       'Compta els trossos del rectangle.',
-    encert:        '{f}: {n} trossos pintats de {d}. Es llegeix {nom}.',
+    encert:        '{f}: {pintats} de {d}. Es llegeix {nom}.',
     error_girada:  'Has girat els nombres.',
     error_blancs:  'Has comptat els trossos blancs.',
     pista:         'Compta tots els trossos: és el nombre de baix. Compta els pintats: és el de dalt.',
-    mostra:        'Mira: {f}. Hi ha {n} trossos pintats de {d}.',
+    mostra:        'Mira: {f}. Hi ha {pintats} de {d}.',
     aria:          'Un rectangle de {d} trossos, amb {n} de pintats'
   },
   "10.1": {
@@ -530,7 +531,10 @@ window.TEXTOS = {
     et_a:         'La primera',
     et_b:         'La segona',
     suma_frase:   'Se sumen els trossos pintats: {a} + {b} = {s}.',
-    resta_frase:  'Es treuen {b} trossos dels {a}: {a} − {b} = {s}.',
+    resta_frase:  'Es treuen {b} trossos {dels}: {a} − {b} = {s}.',
+    resta_un:     'Es treu 1 tros {dels}: {a} − 1 = {s}.',
+    dels:         'dels {a}',
+    dels_un:      'de l\'1',
     mateix:       'El denominador no canvia: els trossos són els mateixos.',
     no_es_pot:    'No en pots treure més dels que hi ha pintats.'
   },
@@ -908,7 +912,7 @@ window.TEXTOS = {
     vora:         'La vora: {calcul}.',
     perimetre:    'El *perímetre* és {p} costats de quadret.',
     dins:         'A dins: {calcul}.',
-    area:         'L\'*àrea* és {a} quadrets.',
+    area:         'L\'*àrea* és {quadrets}.',
     aria:         'Un rectangle de {f} files de {c} quadrets, amb la vora marcada'
   },
   "25.2": {
@@ -1028,6 +1032,7 @@ window.TEXTOS_GUIA = {
     exemple:      ["Etiqueta del cas que ve resolt", []],
     veu_escolta:  ["El botó de l'altaveu, a dalt de cada targeta: la llegeix en veu alta", []],
     veu_para:     ["El mateix botó mentre llegeix: para la veu", []],
+    exercici_seguent: ["El botó de baix que porta a l'exercici següent de l'eina (en una tasca tancada, surt en acabar-la)", []],
     buida:        ["Botó que deixa la quadrícula buida", []],
     comprova:     ["Botó per comprovar el nombre fet amb blocs", []],
     treu:         ["Lector de pantalla: el botó − d'un comptador", []],
@@ -1427,11 +1432,11 @@ window.TEXTOS_GUIA = {
     ajuda:         ["Consigna sota el títol", []],
     pregunta:      ["La pregunta de cada pas", []],
     comenca:       ["Avís abans de contestar", []],
-    encert:        ["Resposta correcta", ["f", "n", "d", "nom"]],
+    encert:        ["Resposta correcta. {pintats}: «1 tros pintat», «4 trossos pintats»", ["f", "pintats", "d", "nom"]],
     error_girada:  ["Error: el de dalt i el de baix, girats", []],
     error_blancs:  ["Error: ha comptat els que no estan pintats", []],
     pista:         ["Pista del primer error", []],
-    mostra:        ["Segon error", ["f", "n", "d"]],
+    mostra:        ["Segon error", ["f", "pintats", "d"]],
     aria:          ["Per al lector de pantalla", ["d", "n"]]
   },
   "10.1": {
@@ -1492,7 +1497,10 @@ window.TEXTOS_GUIA = {
     et_a:         ["Rètol", []],
     et_b:         ["Rètol", []],
     suma_frase:   ["La suma", ["a", "b", "s"]],
-    resta_frase:  ["La resta", ["b", "a", "s"]],
+    resta_frase:  ["La resta, quan es treu més d'un tros. {dels}: «dels 3» o «de l'1»", ["b", "dels", "a", "s"]],
+    resta_un:     ["La resta, quan es treu un sol tros", ["dels", "a", "s"]],
+    dels:         ["D'on es treuen, quan hi ha més d'un tros pintat", ["a"]],
+    dels_un:      ["D'on es treuen, quan només n'hi ha un de pintat", []],
     mateix:       ["Per què no canvia", []],
     no_es_pot:    ["Quan la segona és més gran", []]
   },
@@ -1866,7 +1874,7 @@ window.TEXTOS_GUIA = {
     vora: ["La suma de la vora", ["calcul"]],
     perimetre: ["El perímetre", ["p"]],
     dins: ["La multiplicació de dins", ["calcul"]],
-    area: ["L'àrea", ["a"]],
+    area: ["L'àrea. {quadrets}: «1 quadret», «12 quadrets»", ["quadrets"]],
     aria: ["Per al lector de pantalla", ["f", "c"]]
   },
   "25.2": {

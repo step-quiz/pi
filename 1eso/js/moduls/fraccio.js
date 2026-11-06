@@ -73,7 +73,8 @@
     const e = t2.estat();
     if (!e || e.acabada || t2.resolt()) return;
     const [n, d] = c2, o = opcions2[k], avis = $("#fb-avis");
-    const encert = txt("9.2.encert", { f: Q.htmlFraccio(n, d), n, d, nom: Q.nomFraccio(n, d) });
+    const pintats = quants(n, "9.1.tros_pintat", "9.1.trossos_pintats");   // «1 tros pintat»
+    const encert = txt("9.2.encert", { f: Q.htmlFraccio(n, d), pintats, d, nom: Q.nomFraccio(n, d) });
     if (o[0] === "bona") {
       t2.anota(i2 === 0 ? "be" : "pista");
       retroaccio(avis, "encert", encert);
@@ -83,7 +84,7 @@
       retroaccio(avis, "error", txt(o[0] === "girada" ? "9.2.error_girada" : "9.2.error_blancs"), txt("9.2.pista"));
     } else {
       t2.anota("mostrat");
-      retroaccio(avis, "mostra", txt("9.2.mostra", { f: Q.htmlFraccio(n, d), n, d }));
+      retroaccio(avis, "mostra", txt("9.2.mostra", { f: Q.htmlFraccio(n, d), pintats, d }));
     }
     if (t2.resolt()) $$(".opcio-frac", $("#fb-opcions")).forEach(b => { b.disabled = true; b.classList.toggle("bona", opcions2[b.dataset.k][0] === "bona"); });
     $("#fb-seguent").disabled = !t2.resolt();

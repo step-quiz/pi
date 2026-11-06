@@ -2,7 +2,7 @@
 
 > **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
 
-**Alumne amb dificultats de tipus cognitiu · 50 % a l'aula de suport i 50 % a l'aula ordinària · curs 2026-27**
+**Material per a alumnat amb dificultats de tipus cognitiu, que fa la meitat de les hores a l'aula de suport**
 **Quarta versió.** La segona es va refer un cop preparades les set unitats i incorporant
 el principi de fer emergir el símbol del dibuix. Aquesta hi afegeix el graó físic previ,
 l'obertura per pregunta i tres precisions per unitat, un cop contrastat l'enfocament amb
@@ -25,14 +25,9 @@ entre `<!--grafic:NOM-->` i `<!--/grafic-->` i el posa `generadors/posa_grafics.
 
 ## 1. El perfil, llegit en clau matemàtica
 
-No és un perfil «dos cursos per sota». És un perfil **desigual**, i això ho canvia tot.
-
-| Canal | Nivell | Què vol dir a classe de mates |
-|---|---|---|
-| Visió gràfica, esquemes, geometria | **2n ESO** | Via d'entrada principal. Tot concepte nou arriba primer com a dibuix, recta, barra, gràfica, balança o arbre. |
-| Manipulació aritmètica i algebraica | **5è primària** | Coll d'ampolla. Es descarrega amb calculadora, full de càlcul i nombres amables. |
-| Expressar idees matemàtiques amb frases | **3r primària** | Coll d'ampolla més sever. Una justificació escrita oberta li tanca la porta encara que tingui la idea correcta. |
-| Informàtica i anglès | **el del grup** | Palanca. GeoGebra, Desmos, full de càlcul i qualsevol eina digital, al nivell del grup. |
+El perfil de l'alumnat (el nivell de cada canal) és al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics). Aquí només hi ha el
+que en surt per al disseny: és un perfil **desigual**. La visió gràfica és la via d'entrada; el càlcul
+i, encara més, l'expressió escrita són els colls d'ampolla; la informàtica és una palanca.
 
 > **Aquest alumnat pot arribar a la DECISIÓ del nivell del grup. No pot arribar al CÀLCUL ni a la REDACCIÓ del nivell del grup.**
 
@@ -41,12 +36,8 @@ productes finals són decisions: quina opció em surt més a compte, quina soluc
 sentit, em convé jugar. Amb el càlcul descarregat i l'expressió bastida, la
 competència nuclear li és accessible de veritat.
 
-**Fortaleses i colls d'ampolla per competència.** CE4 (pensament computacional) i
-CE5 (connectar representacions) es poden treballar gairebé al nivell del grup: aquí
-no cal baixar el llistó. CE1, CE3, CE6, CE8 i CE9 són accessibles amb suport visual
-i temps. CE2 (argumentar) i CE7 (comunicar) són el coll d'ampolla real, i s'adapten
-canviant **el format de l'evidència**, no l'exigència cognitiva.
-
+CE2 (argumentar) i CE7 (comunicar) s'adapten canviant **el format de l'evidència**, no l'exigència
+cognitiva.
 ---
 
 ## 2. El principi: separar l'objectiu del vehicle
@@ -122,7 +113,7 @@ sessió d'anticipació, amb el mateix cas que després sortirà a la pàgina 1.
 | 6 | Fitxes en piles desiguals | Aplanar-les fins que totes siguin iguals |
 | 7 | Un dau i 60 tirades reals | Que sortir un 6 no és cada sis tirades |
 
-**Per què val la pena.** Té la visió gràfica a 2n d'ESO, però el gest físic no passa per
+**Per què val la pena.** La visió gràfica és el canal fort, però el gest físic no passa per
 cap dels dos colls d'ampolla: ni pel càlcul ni per la frase. És l'única entrada que no li
 demana res del que li costa.
 
@@ -141,9 +132,7 @@ Cinc mesures que es compleixin sempre valen més que vint que es diluiran al nov
    càrrega. Dues novetats el mateix dia fan que se'n perdin les dues.
 4. **Mai una justificació escrita en blanc.** Sempre una de tres sortides: frases model
    per completar, tria entre opcions, o explicació oral que registres tu.
-5. **El seu rol al grup surt del seu punt fort.** És qui dibuixa, qui mesura, qui fa el
-   gràfic i qui porta l'ordinador. Amb la informàtica al nivell del grup, el full de càlcul i el
-   GeoGebra del producte final els pot fer de debò.
+5. **El rol al grup surt del punt fort.** Quin és a cada unitat, al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics).
 
 ---
 
@@ -203,7 +192,7 @@ de traç discontinu amb un ull dibuixat, abans que aparegui cap consigna:
 
 > **Què hi veus?** · Digues-ho o assenyala-ho.
 
-Sembla poca cosa i no ho és. Amb expressió escrita a 3r de primària, qualsevol pregunta
+Sembla poca cosa i no ho és. Amb l'expressió escrita com a coll d'ampolla, qualsevol pregunta
 d'obertura que demani una frase li tanca la porta a la primera línia de la fitxa. Una
 pregunta de mirar es respon **assenyalant o en veu alta**, no té resposta dolenta, i el
 docent hi guanya trenta segons de diagnòstic gratuït sobre què ha vist abans de començar.
@@ -308,7 +297,6 @@ quants decimals calen a cada situació.
 **A la fitxa:** el mapa dels nombres, √2 que no s'acaba contra √9 que sí, i els tres
 usos amb pictograma (ho dic / ho compro / ho tallo) que després reapareixen a l'app.
 
-**Fita:** AS al criteri 5.1, amb AN possible al 8.3.
 
 ---
 
@@ -320,7 +308,7 @@ comparar dues maneres de pagar una compra i dir quina surt més a compte.
 
 **Encaix:** millor del que sembla. **El factor multiplicador és la millor adaptació del
 curs i ja la tenies dissenyada per a tothom**: converteix tot el treball de percentatges
-en una sola multiplicació i elimina el pas on alumnat amb aritmètica de 5è es perd.
+en una sola multiplicació i elimina el pas on es perd qui té el càlcul com a coll d'ampolla.
 
 **Base prèvia (aula de suport):** `1eso-ud4-7`, `2eso-ud2-3`, `2eso-ud2-5`.
 **`repas-main`:** full 6, blocs `percentatges` i `factor_multiplicador`; `encadenats`
@@ -334,10 +322,7 @@ que és el producte final de la unitat.
 **No expliquis la regla del factor abans de la barra.** Si es dona primer, la seqüència
 de les dues primeres pàgines perd tot el sentit.
 
-**Producte «Informe de decisió de compra»:** **és qui munta el full de càlcul i el diagrama
-de sectors del grup.** És la representació que demana el producte, feta al nivell que toca.
-
-**Fita:** AS al 1.1 i al 5.1. Per durada, és on més evidència pots recollir.
+Per durada, és on més evidència pots recollir.
 
 ---
 
@@ -368,9 +353,6 @@ de tres baules a sobre: *preu ÷ quantitat → preu d'1 → compara*. Baixar a l
 moviment que fa comparables dues coses que no ho eren; si va enganxat a la comparació, el
 que se li queda és una recepta, i si va separat, se li queda l'eina.
 
-**Producte «A escala real»:** és qui fa el mesurament i el dibuix del plànol.
-
-**Fita:** AS al 1.1, amb AN a la part d'escales si es valora el plànol produït.
 
 ---
 
@@ -378,8 +360,8 @@ que se li queda és una recepta, i si va separat, se li queda l'eina.
 **2 febrer – 3 març · 12 sessions · llibre `llibre · unitat 5`**
 
 **Aquesta és la unitat difícil, i la fitxa ho assumeix explícitament.** No li demana en
-cap moment aïllar la incògnita ni aplicar la fórmula general: amb manipulació algebraica
-de 5è, aquesta distància no es tanca amb suports.
+cap moment aïllar la incògnita ni aplicar la fórmula general: amb la manipulació algebraica
+com a coll d'ampolla, aquesta distància no es tanca amb suports.
 
 **Objectiu nuclear (retallat, però real):** entendre l'equació amb la balança; comprovar
 si un número és solució; resoldre x² = k amb l'arrel; i **decidir quina de les dues
@@ -405,8 +387,8 @@ ni `factoritzacio`.
 l'exercici 6 que toca una equació de 2n grau completa **entrant-hi per la comprovació**,
 amb la taula trossejada perquè cada casella sigui una sola tecla.
 
-**Fita: NA o AS.** El PI ho ha de recollir des d'ara perquè al febrer no es llegeixi com
-un fracàs sobrevingut. Ve just abans de la seva millor unitat.
+La fita d'aquesta unitat és baixa, i el PI ho ha de recollir des d'ara perquè al febrer no es
+llegeixi com un fracàs sobrevingut.
 
 ---
 
@@ -415,7 +397,7 @@ un fracàs sobrevingut. Ve just abans de la seva millor unitat.
 
 **La seva millor unitat del curs, i la fitxa no està rebaixada.** La programació ja
 prioritza «la lectura i la interpretació gràfica per sobre de l'estudi analític», i això
-és exactament el canal on té nivell de 2n ESO, treballat amb GeoGebra, on va al nivell del grup.
+és exactament el canal fort, treballat amb GeoGebra.
 
 **Objectiu nuclear:** llegir orientació, vèrtex, talls i eix de simetria, i dir què
 significa cada element en el fenomen.
@@ -428,10 +410,7 @@ lectures amb els dos errors més freqüents de la unitat: el vèrtex amb les coo
 canviades i confondre l'eix vertical amb l'horitzontal. L'exercici 7a és la mateixa
 equació que va comprovar a la U4: val la pena posar les dues fitxes juntes damunt la taula.
 
-**Producte «El fenomen parabòlic»: el pot fer sencer i sol, amb GeoGebra.** És el moment
-del curs per dir-li-ho i perquè el grup ho vegi.
-
-**Fita: AN**, i AE no és impensable al criteri 5.1.
+**Producte «El fenomen parabòlic»:** amb GeoGebra, és el que més s'acosta al del grup.
 
 ---
 
@@ -472,9 +451,6 @@ fragmentis.
 l'exercici del gràfic enganyós amb l'eix truncat, que és **el més valuós de la fitxa fora
 de l'aula**: li servirà cada vegada que vegi un gràfic en una notícia.
 
-**Producte «Estudi estadístic propi»:** és el responsable de dades i gràfics del grup.
-
-**Fita:** AS sòlid, amb AN a la part de representació.
 
 ---
 
@@ -511,7 +487,6 @@ així s'hi perd: és exactament la sensació que exploten les apostes reals.
 d'apostes i sortejos. Els exercicis 5 i 6 (els paranys i la fal·làcia del jugador)
 convé que els faci sencers encara que la resta hagi anat més just.
 
-**Fita:** AS, amb AN possible al recompte amb arbre.
 
 ---
 
@@ -538,15 +513,7 @@ d'aquestes.**
 1. **El nivell d'assoliment esperat**, unitat per unitat. El PI l'ha de recollir perquè
    es pugui avaluar amb referència a aquest nivell i no al del grup.
 
-   | Unitat | Fita | Criteri on més pot lluir |
-   |---|---|---|
-   | 1 Nombres reals | AS | 5.1, i 8.3 possible |
-   | 2 Financera | AS | 1.1 i 5.1 |
-   | 3 Escales | AS, AN a escales | 1.1 |
-   | 4 Equacions | **NA o AS** | 1.1 (interpretar solucions) |
-   | 5 Paràbola | **AN, AE possible** | 5.1 |
-   | 6 Estadística | AS sòlid, AN a representació | 5.1 i 2.1 |
-   | 7 Atzar | AS, AN al recompte | 1.1 i 2.1 |
+   La taula de fites, unitat per unitat, és al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics).
 
 2. **El format de l'evidència.** Valen exactament igual que un examen escrit: explicació
    oral registrada en el moment, assenyalar sobre una gràfica o un plànol, ordenar
@@ -555,8 +522,8 @@ d'aquestes.**
 
 **Dues valoracions separades al cap.** En qualsevol tasca, mira per separat si la
 **decisió** és correcta i si el **càlcul** és correcte. Quan l'objectiu és decidir, només
-la primera compta. Sense aquesta separació explícita, els errors aritmètics de nivell de
-5è s'ho empassaran tot i la nota no dirà res del que sap.
+la primera compta. Sense aquesta separació explícita, els errors aritmètics s'ho empassaran
+tot i la nota no dirà res del que sap.
 
 **Les proves.** Meitat d'ítems, calculadora, exemple resolt visible, enunciats d'una sola
 frase i cap pregunta de justificació oberta. Els solucionaris de les fitxes ja porten la
@@ -577,11 +544,9 @@ traça als criteris, i serveixen directament per construir-les.
   queda sobre la taula i el «convenç-me» es tradueix a frase model o tria entre tres.
 - **La calculadora no ha de ser una crossa opaca.** La pregunta «què has demanat a la
   calculadora, i per què?» és la que manté viva la comprensió.
-- **El febrer.** La U4 coincideix amb el moment de més acumulació de frustració. La fita
-  baixa ja hi és prevista, i la paràbola ve just després.
-- **Revisió del PI al desembre.** Les tres primeres unitats et diran si el nivell de 5è
-  en aritmètica és estable o si amb calculadora funciona per sobre del que sembla. És el
-  moment de recalibrar les fites de la taula de l'apartat 8.
+- **El febrer.** La U4 és la més difícil del curs, i la paràbola ve just després.
+- **Revisió del PI al desembre.** Les tres primeres unitats diran com funciona el càlcul amb
+  calculadora. És el moment de recalibrar les fites (al fitxer privat).
 - **La lletra manuscrita de les fitxes.** Ja no depèn de les fonts de cada ordinador:
   des del 29/9/2026 és Caveat, dins del repositori (`fonts/`), la mateixa de `1eso/` i dels
   exàmens, i surt igual a la pantalla i al PDF.

@@ -57,6 +57,14 @@ def comprova(condicio, missatge):
 def ruta(*p):
     return os.path.join(ARREL, *p)
 
+# Els scripts de la caixa: els del curs (js/) i els dos comuns a tots els cursos, que són a
+# ../comu/js/ des del 6/11/2026 (tasca.js, amb el camí guiat, i veu.js). Les frases que
+# demanen i les variables CSS que fan servir compten igual que les del curs.
+COMUNS_CAIXA = [os.path.join(REPO, 'comu', 'js', 'tasca.js'), os.path.join(REPO, 'comu', 'js', 'veu.js')]
+def scripts_caixa():
+    return sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)) + COMUNS_CAIXA
+
+
 print("FITXES")
 css_fitxa = open(ruta('css', 'fitxa.css'), encoding='utf-8').read()
 comprova(not cromatics(css_fitxa), "css/fitxa.css conté color")
@@ -231,7 +239,7 @@ grups = sorted({c.rsplit(".", 1)[0] for c in definides}, key=len, reverse=True)
 g = "(?:" + "|".join(re.escape(x) for x in grups) + ")"
 usades = set(re.findall(r'data-text="(' + g + r'\.\w+)"', app))
 prefixos = set()
-for f in sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)):
+for f in scripts_caixa():
     codi = open(f, encoding='utf-8').read()
     # Una clau entre cometes que no va seguida d'un «+» (si hi va, és un prefix).
     # El nom comença per una lletra: així "0.01", que és un número, no compta
@@ -309,14 +317,22 @@ for m in re.findall(r'<section id="mod-(\w+)"[^>]*>(.*?)</section>', app, re.S):
     comprova(subs == list(range(1, len(subs) + 1)),
              f"mod-{nom}: les subtasques van {subs}, han d'anar 1, 2, 3…")
     comprova(len(set(subs)) == len(subs), f"mod-{nom}: hi ha subtasques repetides")
-    for peca in ("sub-enrere", "sub-avant", "sub-rotul"):
-        comprova(peca in cos, f"mod-{nom} té subtasques però li falta .{peca}")
+    # El camí guiat (6/11/2026): la barra només porta el nom. El botó «Exercici següent» el
+    # posa CE.cami (../comu/js/tasca.js); les fletxes de saltar d'exercici ja no hi són.
+    comprova("sub-rotul" in cos, f"mod-{nom} té subtasques però li falta .sub-rotul")
+    comprova("sub-enrere" not in cos and "sub-avant" not in cos,
+             f"mod-{nom}: les fletxes de saltar d'exercici ja no hi van (camí guiat)")
     pestanya = re.search(r'data-tasca="(\d+)" data-mod="' + nom + '"', app)
     if pestanya:
         for n in subs:
             clau = pestanya.group(1) + "." + str(n) + ".nom"
             comprova(clau in definides, f"falta la frase {clau} a dades/textos.js")
     print(f"  mod-{nom}: {len(subs)} subtasques, numerades bé i amb nom a textos.js")
+# La fita no es publica (6/11/2026): el repositori i el web són públics. És al fitxer privat del docent.
+_dades_u = open(os.path.join(ARREL, 'dades', 'unitats.js'), encoding='utf-8').read()
+comprova(not re.search(r'\bfita\s*:', _dades_u),
+         "dades/unitats.js porta la fita d'alguna unitat: va al fitxer privat del docent")
+
 if not re.search(r'class="subtasca"', app):
     print("  cap mòdul en té")
 
@@ -406,7 +422,7 @@ for c in fulls:
 # Una variable que no existeix tampoc avisa: la propietat es queda sense efecte.
 # Així la barra de pestanyes s'havia quedat sense fons (--segment-fons). Les que
 # porten valor de reserva, var(--x, …), no compten.
-fonts = (fulls + glob.glob(ruta('js', '**', '*.js'), recursive=True)
+fonts = (fulls + scripts_caixa()
          + glob.glob(ruta('*.html')) + FITXES)
 textos = {f: open(f, encoding='utf-8').read() for f in fonts}
 definides = {v for t in textos.values() for v in re.findall(r'(--[\w-]+)\s*:', t)}

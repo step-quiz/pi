@@ -132,10 +132,12 @@ def main():
                 volgudes = [t.strip() for t in bloc[1].split(",") if t.strip()] if bloc else []
                 pag.goto(eines[0] if eines else unitat)
                 pag.wait_for_selector(".segment", state="attached"); pag.wait_for_timeout(150)
+                # Menys llocs on clicar (6/11/2026): les eines del camp tasques, en aquest ordre, i cap més;
+                # amb una sola, cap pestanya.
                 visibles = pag.evaluate("() => [...document.querySelectorAll('.segment')].filter(b => !b.hidden).map(b => b.dataset.tasca)")
-                comprova(sorted(visibles, key=int) == sorted(volgudes, key=int), f"{on}: les eines són {visibles} i han de ser {volgudes}")
-                comuna = pag.evaluate("() => [...document.querySelectorAll('.segment')].filter(b => !b.hidden).map(b => 'comuna' in b.dataset)")
-                comprova(comuna == sorted(comuna), f"{on}: les eines de sempre han d'anar al final ({visibles})")
+                comprova(visibles == volgudes, f"{on}: les eines són {visibles} i han de ser {volgudes}, en aquest ordre")
+                barra = pag.evaluate("() => { const s = document.querySelector('.segments'); return !!s && !s.hidden && !s.closest('[hidden]'); }")
+                comprova(barra == (len(volgudes) > 1), f"{on}: amb {len(volgudes)} eines, la fila de pestanyes {'no ' if not barra else ''}hi és")
                 comprova(pag.inner_text("#w-cap-alumne").startswith(f"Unitat {n} · "), f"{on}: la capçalera de l'alumnat diu «{pag.inner_text('#w-cap-alumne')}»")
                 enllacos = pag.evaluate("() => [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href'))")
                 comprova(not enllacos, f"{on}: les eines de l'alumnat porten enllaços: {enllacos[:3]}")

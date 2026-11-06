@@ -110,8 +110,9 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 0. ~~**Validar el grup 3.**~~ **FET · 30/9/2026, per encàrrec del docent.** La fita i el rol de
    cada unitat queden fixats, el camí mínim revisat (a la unitat 1 hi entra la pàgina del quadrat d'un nombre) i
    les fitxes de les unitats 5 a 7 passen a «revisada», després d'una revisió de totes les fitxes
-   dels dos cursos (els errors trobats: `MAPA-ADAPTACIO.md`, apartat 4 bis). Tot és a
-   `dades/unitats.js`, i es canvia allà a mà. La fita es torna a mirar al desembre, amb el PI, i
+   dels dos cursos (els errors trobats: `MAPA-ADAPTACIO.md`, apartat 4 bis). L'estat i el camí
+   mínim són a `dades/unitats.js`, i es canvien allà a mà; la fita i el rol són al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics).
+   La fita es torna a mirar al desembre, amb el PI, i
    «provada a l'aula» la posa el docent quan una fitxa s'hagi fet servir.
 1. ~~**Treure del repositori els vuit DOCX dels exàmens de les unitats 1 a 4**~~ **FET:** ja no hi
    són, i `comprova.py` ho vigila. (Alumnat i

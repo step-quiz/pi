@@ -3,7 +3,7 @@
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  # El lloc parla d'un alumne concret. Fora dels cercadors.
+  # Material de treball de l'aula: fora dels cercadors.
   # Treu aquesta línia i robots.txt si algun dia es vol públic.
   X-Robots-Tag: noindex, nofollow
 

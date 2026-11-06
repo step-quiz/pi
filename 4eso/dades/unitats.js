@@ -3,7 +3,7 @@
    ----------------------------------------------------------------------------
    La pàgina de cada unitat (uN/index.html), la del curs, la portada, la capçalera de les
    fitxes i les eines de l'alumnat (eines.html?u=N) es construeixen a partir d'aquí. Si
-   canvia una data, una fita o el material d'una unitat, es canvia AQUÍ i enlloc més.
+   canvia una data o el material d'una unitat, es canvia AQUÍ i enlloc més.
    Els camps comuns a tots els cursos són a comu/docs/SITE-MAP.md («Data model»).
 
    Per afegir una unitat: una entrada nova, la carpeta uN/ amb el seu index.html i la fitxa.
@@ -26,11 +26,13 @@
      objectiu   què s'espera d'AQUEST alumnat, no del grup
      material   el graó físic dels cinc minuts previs a l'aula de suport
      trencada   l'exercici que trenca la regla que s'haurà fabricat
-     fita       nivell d'assoliment realista
+     (la fita, el nivell d'assoliment realista, ja no és aquí des del 6/11/2026: el repositori i
+      el web són públics. És al fitxer privat del docent.)
      moduls     identificadors dels mòduls de la caixa d'eines relacionats
-     tasques    les pestanyes de les eines de la unitat (el data-tasca de cada una): les
-                dels mòduls, la Calculadora (0) i Com ho dic (7). eines.html?u=N només
-                ensenya aquestes
+     tasques    les pestanyes de les eines de la unitat (el data-tasca de cada una), en
+                l'ordre en què surten: eines.html?u=N només ensenya aquestes, i amb una sola
+                no hi ha pestanyes. Des del 6/11/2026 (menys llocs on clicar), la Calculadora (0)
+                només hi és a les unitats on la fitxa la fa servir, i Com ho dic (7), enlloc
      llibre     unitat corresponent del llibre digital
      repas_main blocs de repas-main que se li poden obrir
      evitar     el que NO se li ha d'obrir (buit si no hi ha res)
@@ -44,7 +46,7 @@ window.UNITATS = [
     objectiu: "Situar nombres a la recta i decidir quants decimals calen a cada situació.",
     material: "una cinta mètrica i un objecte llarg per mesurar",
     trencada: "Ex. 3 · arrodonir no és tallar: 2,64 es converteix en 2,65",
-    fita: "AS", moduls: ["recta"], tasques: [0, 1, 7], llibre: "llibre · unitat 1",
+    moduls: ["recta"], tasques: [1, 0], llibre: "llibre · unitat 1",
     repas_main: "full 1 · decimals, fraccions", evitar: ""
   },
   {
@@ -54,7 +56,7 @@ window.UNITATS = [
     objectiu: "Comparar dues maneres de pagar amb el factor multiplicador i decidir.",
     material: "monedes i bitllets de joguina",
     trencada: "Ex. 5c · el portàtil surt més barat a terminis, no al comptat",
-    fita: "AS", moduls: ["doble", "factor", "calc"], tasques: [0, 2, 3, 7], llibre: "llibre · unitat 2",
+    moduls: ["doble", "factor", "calc"], tasques: [2, 3, 0], llibre: "llibre · unitat 2",
     repas_main: "full 6 · percentatges, factor_multiplicador", evitar: ""
   },
   {
@@ -65,7 +67,7 @@ window.UNITATS = [
     objectiu: "Llegir una escala, passar de plànol a realitat i distingir directa d'inversa.",
     material: "una cinta mètrica i un full quadriculat",
     trencada: "Ex. 6c · guanya l'ampolla petita, no la garrafa",
-    fita: "AS, AN a escales", moduls: ["doble", "escala"], tasques: [0, 2, 4, 7], llibre: "llibre · unitat 3",
+    moduls: ["doble", "escala"], tasques: [2, 4, 0], llibre: "llibre · unitat 3",
     repas_main: "full 8 · escales, escales_calcul · full 6 · directa_inversa", evitar: ""
   },
   {
@@ -75,7 +77,7 @@ window.UNITATS = [
     objectiu: "Comprovar solucions i decidir quina té sentit. No s'aïlla la incògnita.",
     material: "una bossa opaca i fitxes iguals",
     trencada: "Ex. 5d · al congelador la solució bona és −3, no 3",
-    fita: "NA o AS", moduls: ["equacio"], tasques: [0, 6, 7], llibre: "llibre · unitat 5",
+    moduls: ["equacio"], tasques: [6, 0], llibre: "llibre · unitat 5",
     repas_main: "full 5 · primer_grau", evitar: "formula_general, factoritzacio"
   },
   {
@@ -85,7 +87,7 @@ window.UNITATS = [
     objectiu: "Llegir vèrtex, talls i eix, i dir què volen dir en el fenomen.",
     material: "una pilota i espai per llançar-la",
     trencada: "Ex. 2 · el vèrtex és un mínim i no hi ha cap punt de tall",
-    fita: "AN, AE possible", moduls: ["parabola"], tasques: [0, 5, 7], llibre: "llibre · unitat 6",
+    moduls: ["parabola"], tasques: [5], llibre: "llibre · unitat 6",
     repas_main: "full 10 · funcions_quadratiques, només lectura de gràfica", evitar: ""
   },
   {
@@ -95,7 +97,7 @@ window.UNITATS = [
     objectiu: "Fer taula i gràfic amb el full de càlcul i dir si les dades estan escampades.",
     material: "fitxes o taps per fer munts",
     trencada: "Ex. 6 · el gràfic que comença a 90 i no a 0",
-    fita: "AS, AN a representació", moduls: ["mitjana"], tasques: [0, 7, 8], llibre: "llibre · unitat 8",
+    moduls: ["mitjana"], tasques: [8, 0], llibre: "llibre · unitat 8",
     repas_main: "full 11 · frequencies, grafics, centralitzacio", evitar: "dispersio"
   },
   {
@@ -105,7 +107,7 @@ window.UNITATS = [
     objectiu: "Comptar amb arbre, calcular amb Laplace i entendre per què la casa guanya.",
     material: "un dau i una moneda",
     trencada: "Ex. 4c · una cara i una creu val el doble que dues cares",
-    fita: "AS, AN al recompte", moduls: ["doble", "atzar"], tasques: [0, 2, 7, 9], llibre: "llibre · unitat 9",
+    moduls: ["doble", "atzar"], tasques: [2, 9, 0], llibre: "llibre · unitat 9",
     repas_main: "full 12 · espais_mostrals, laplace", evitar: "probabilitat_composta, condicionada"
   }
 ];

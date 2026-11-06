@@ -176,18 +176,20 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .mes{color:var(--etiqueta-2);font-size:1.1rem;font-weight:600}
 
 /* ---- subtasques: una tasca partida en 1.1, 1.2, 1.3… ----
-   La barra va enganxada a dalt perquè les fletxes siguin sempre a mà sense
-   haver de tornar a pujar, que és el problema que ja vam tenir amb el mòdul
-   de la calculadora. */
-.subbarra{display:flex;align-items:center;gap:.7rem;background:var(--superficie);
-  border-radius:999px;padding:.4rem .5rem;margin-bottom:1rem;
-  position:sticky;top:.6rem;z-index:5;box-shadow:0 1px 6px rgba(0,0,0,.06)}
-.sub-rotul{flex:1;text-align:center;font-size:1rem;line-height:1.25}
+   La barra només diu on s'és: el número i el nom. Ja no porta fletxes (camí guiat, 6/11/2026)
+   ni s'enganxa a dalt: l'alçada de la pantalla fa falta per a l'exercici. */
+.subbarra{display:flex;align-items:center;justify-content:center;background:var(--superficie);
+  border-radius:999px;padding:.55rem 1rem;margin-bottom:1rem;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.sub-rotul{text-align:center;font-size:1rem;line-height:1.25}
 .sub-rotul b{color:var(--blau-text);margin-right:.35rem}
-.subbarra .btn{min-width:3rem;font-size:1.4rem;line-height:1;padding:.4rem .9rem}
-.subbarra .btn:disabled{opacity:.35}
-/* Amb un enllaç a un exercici concret (?task=1.2) no hi ha fletxes: vegeu CE.subtasques. */
-.subbarra.fixa .sub-enrere,.subbarra.fixa .sub-avant{visibility:hidden}
+/* El camí guiat (6/11/2026): la barra només diu on s'és; per passar a l'exercici següent hi ha
+   un sol botó a baix (.sub-peu, el posa ../comu/js/tasca.js), i en una tasca tancada surt en acabar. */
+.sub-peu{display:flex;justify-content:flex-end;margin:.2rem 0 1rem}
+.sub-peu .btn{min-height:48px}
+/* Un títol de targeta igual que el nom de la barra no es veu, però la veu el llegeix (està
+   retallat, no amagat). */
+.targeta h2.repetit{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 
 /* La pantalla de calculadora, en versió reduïda per als exercicis on només
    fa de suport i no és el protagonista. */
@@ -260,9 +262,15 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .zona-et{font-size:.8rem;color:var(--etiqueta-2);margin:.7rem 0 .3rem}
 .teclat{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem}
 .teclat.dalt{grid-template-columns:repeat(2,1fr);max-width:15rem}
-.tecla{background:var(--camp);color:var(--etiqueta);border:0;border-radius:10px;
-  min-height:40px;font:inherit;font-size:1rem;font-weight:600;display:flex;
-  align-items:center;justify-content:center;
+/* Les tecles són un dibuix de l'aparell, no botons (6/11/2026: «massa llocs on clicar»). El teclat
+   es dibuixa com una taula, amb línies fines i sense relleu, perquè no sembli una fila de botons
+   com les pastilles que es toquen; només la tecla del pas (.ara) té color i es pot tocar. */
+.teclat{gap:1px;background:var(--separador);border:1px solid var(--separador);border-radius:10px;overflow:hidden}
+/* A dalt hi ha poques tecles: la taula fa l'amplada de les que hi ha, sense caselles buides. */
+.teclat.dalt{display:inline-grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:7.5rem;max-width:none}
+.tecla{background:var(--superficie);color:var(--etiqueta-2);border:0;border-radius:0;
+  min-height:40px;font:inherit;font-size:1rem;font-weight:500;display:flex;
+  align-items:center;justify-content:center;cursor:default;user-select:none;
   transition:background .15s,color .15s,transform .15s,box-shadow .15s}
 /* Les tecles d'operació i Ans, un 30 % més grans que la resta. */
 .tecla.op{color:var(--blau-text)}
@@ -270,7 +278,7 @@ svg.llenc{display:block;width:100%;height:auto;margin:.4rem 0;touch-action:manip
 .tecla.petita{font-size:.78rem}
 
 /* La tecla del pas batega i es pot tocar: tocar-la avança, igual que el botó. */
-.tecla.ara{background:var(--blau);color:#fff;cursor:pointer;
+.tecla.ara{background:var(--blau);color:#fff;cursor:pointer;font-weight:700;border-radius:8px;position:relative;z-index:1;
   animation:bategar 1.8s ease-in-out infinite}
 @keyframes bategar{
   0%,100%{transform:scale(1.04);box-shadow:0 0 0 0 rgba(0,122,255,.5)}

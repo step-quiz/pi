@@ -72,16 +72,15 @@ def obre(pg, url=CAIXA):
 
 
 def modul(pg, mod, sub=1):
-    """Obre la pestanya i hi va a la subtasca `sub` amb les fletxes."""
+    """Obre la pestanya i hi va a la subtasca `sub`. Des del camí guiat (6/11/2026) no hi ha
+    fletxes: la prova hi va amb el control del mòdul, CE.subs[mod]."""
     pg.click(f'.segment[data-mod="{mod}"]')
     pg.wait_for_timeout(80)
-    for _ in range(12):
-        ara = pg.inner_text(f"#mod-{mod} .sub-rotul")
-        n = int(re.match(r"\s*\d+\.(\d+)", ara).group(1))
-        if n == sub:
-            return
-        pg.click(f"#mod-{mod} .sub-" + ("avant" if n < sub else "enrere"))
+    if sub != pg.evaluate(f"CE.subs['{mod}'].actual()"):
+        pg.evaluate(f"CE.subs['{mod}'].mostra({sub})")
         pg.wait_for_timeout(80)
+    ara = pg.inner_text(f"#mod-{mod} .sub-rotul")
+    assert int(re.match(r"\s*\d+\.(\d+)", ara).group(1)) == sub, f"{mod}: no s'arriba a la subtasca {sub}"
 
 
 def text(pg, sel):
@@ -90,7 +89,12 @@ def text(pg, sel):
 
 def toca_cella(pg, sel, f, c):
     """Toca el quadret de la fila f i la columna c de la taula de quadrets
-    (viewBox 340, marge 36, quadret de 30: js/quadricula.js)."""
+    (viewBox 340, marge 36, quadret de 30: js/quadricula.js).
+    Abans de mirar on és, la quadrícula es porta al mig de la finestra: clica per coordenades, i
+    sense això les files de baix podien quedar fora (6/11/2026: la prova fallava una de cada dues
+    vegades, quan la pregunta a l'atzar demanava 5 files o més)."""
+    pg.locator(sel).evaluate("e => e.scrollIntoView({ block: 'center' })")
+    pg.wait_for_timeout(40)
     caixa = pg.locator(sel).bounding_box()
     x = caixa["x"] + (36 + (c - 0.5) * 30) / 340 * caixa["width"]
     y = caixa["y"] + (36 + (f - 0.5) * 30) / 340 * caixa["height"]
@@ -1244,19 +1248,61 @@ def main():
         comprova(text(pg, "#mod-rect .sub-rotul").startswith("1.3"), "?task=1.3 no obre la 1.3")
         pg.click('.segment[data-mod="taules"]')
         comprova(text(pg, "#mod-taules .sub-rotul").startswith("0.1"), "?task=1.3: les Taules no s'obren per la 0.1")
-        comprova(not pg.is_visible("#mod-taules .sub-avant"), "?task=1.3: a les Taules es veuen les fletxes")
+        comprova(not pg.is_visible("#mod-taules .sub-seguent"), "?task=1.3: a les Taules surt «Exercici següent»")
         pg.click('.segment[data-mod="rect"]')
-        comprova(not pg.is_visible("#mod-rect .sub-avant") and not pg.is_visible("#mod-rect .sub-enrere"),
-                 "?task=1.3: es veuen les fletxes per passar a un altre exercici")
+        comprova(not pg.is_visible("#mod-rect .sub-seguent"), "?task=1.3: surt «Exercici següent» per passar a un altre exercici")
         obre(pg, CAIXA + "?task=3")
         comprova(text(pg, "#mod-cdu .sub-rotul").startswith("3.1"), "?task=3 no obre la 3.1")
-        comprova(pg.is_visible("#mod-cdu .sub-avant"), "?task=3: amb l'enllaç a tota l'eina, les fletxes hi han de ser")
+        comprova(pg.is_visible("#mod-cdu .sub-seguent"), "?task=3: amb l'enllaç a tota l'eina, «Exercici següent» hi ha de ser")
         obre(pg, CAIXA + "?task=0.2")
         comprova(text(pg, "#mod-taules .sub-rotul").startswith("0.2"), "?task=0.2 no obre la 0.2")
         obre(pg, CAIXA + "?task=18.3")
-        comprova(text(pg, "#mod-decimals .sub-rotul").startswith("18.3") and not pg.is_visible("#mod-decimals .sub-avant"),
-                 "?task=18.3 no obre la 18.3, o s'hi veuen les fletxes")
-        print("  represa al pas 2; claus pi1-; ?task=1.3 sense fletxes, ?task=3 amb fletxes, ?task=0.2")
+        comprova(text(pg, "#mod-decimals .sub-rotul").startswith("18.3") and not pg.is_visible("#mod-decimals .sub-seguent"),
+                 "?task=18.3 no obre la 18.3, o s'hi veu «Exercici següent»")
+        print("  represa al pas 2; claus pi1-; ?task=1.3 sense «Exercici següent», ?task=3 amb el botó, ?task=0.2")
+
+        # ------------------------------------------------------------------
+        titol("CAMÍ GUIAT, TÍTOLS REPETITS I PLURALS (6/11/2026)")
+        pg.evaluate("localStorage.clear()")
+        obre(pg, CAIXA + "?task=1")
+        comprova(not pg.locator("#mod-rect .sub-enrere, #mod-rect .sub-avant").count(), "1: encara hi ha fletxes a la barra")
+        comprova(pg.is_visible("#mod-rect .sub-seguent") and text(pg, "#mod-rect .sub-seguent") == "Exercici següent",
+                 "1.1 (per explorar): «Exercici següent» hi ha de ser")
+        pg.click("#mod-rect .sub-seguent"); pg.wait_for_timeout(200)
+        comprova(text(pg, "#mod-rect .sub-rotul").startswith("1.2"), "«Exercici següent» no porta a la 1.2")
+        comprova(not pg.is_visible("#mod-rect .sub-seguent"), "1.2 (tasca tancada): «Exercici següent» surt abans d'acabar")
+        comprova(pg.locator("#mod-rect .subtasca:not([hidden]) h2.repetit").count() == 1,
+                 "1.2: el títol igual que el de la barra s'havia d'amagar")
+        pg.evaluate("CE.subs['rect'].mostra(2)")
+        for _ in range(5):
+            a, b = map(int, re.findall(r"\d+", text(pg, "#r2-pregunta")))
+            toca_cella(pg, "#r2-svg", a, b)
+            pg.click("#r2-seguent"); pg.wait_for_timeout(80)
+        pg.wait_for_timeout(200)
+        comprova(pg.is_visible("#r2-final") and pg.is_visible("#mod-rect .sub-seguent"),
+                 "1.2: en acabar, «Exercici següent» hi ha de ser")
+        obre(pg, CAIXA + "?task=9.2")
+        comprova(text(pg, "#mod-fraccio .sub-rotul").strip() == "9.2",
+                 f"9.2: la barra i la pregunta diuen el mateix, i la barra només ha de dir el número: «{text(pg, '#mod-fraccio .sub-rotul')}»")
+        # «1 tros», «1 quadret»: el singular, també quan el número surt a l'atzar o es tria
+        obre(pg, CAIXA + "?task=12.1")
+        pg.locator("#sa-op .pastilla").nth(1).click()
+        for _ in range(14):
+            if pg.inner_text("#sa-b output").strip() == "1": break
+            pg.click('#sa-b [data-f="menys"]')
+        t = text(pg, "#mod-sumes .subtasca:not([hidden])")
+        comprova("Es treu 1 tros " in t and "1 trossos" not in t, "12.1: amb 1 tros, la frase ha d'anar en singular")
+        obre(pg, CAIXA + "?task=25.1")
+        for c in ("#pe-f", "#pe-c"):
+            for _ in range(12):
+                if pg.locator(c + " output").count() and pg.inner_text(c + " output").strip() == "1": break
+                if pg.locator(c + ' [data-f="menys"]').count() == 0 or pg.locator(c + ' [data-f="menys"]').is_disabled(): break
+                pg.click(c + ' [data-f="menys"]')
+        t = text(pg, "#mod-perimetre .subtasca:not([hidden])")
+        comprova("1 quadrets" not in t, "25.1: amb 1 quadret, l'àrea ha d'anar en singular")
+        frase = pg.evaluate("CE.txt('9.2.encert', { f: '1/4', pintats: CE.quants(1, '9.1.tros_pintat', '9.1.trossos_pintats'), d: 4, nom: 'un quart' })")
+        comprova("1 tros pintat de 4" in frase, f"9.2: «{frase}»")
+        print("  sense fletxes; el botó surt a les eines per explorar i en acabar una tasca; títol repetit amagat; 9.2 només amb el número; singulars")
 
         # ------------------------------------------------------------------
         titol("CONSOLA")

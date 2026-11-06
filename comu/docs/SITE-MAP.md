@@ -119,7 +119,10 @@ window.UNITATS = [{
   tasques: [0, 2, 4, 7],               // the tabs of eines.html shown for this unit (data-tasca)
   material: "…", objectiu: "…",        // «Abans de la classe»: material, objectiu or nucli, trencada
   nucli: "…", trencada: "…",
-  // course-specific fields are allowed (1eso/: estat, minim, criteris, fita, rol…; 4eso/: moduls, llibre…)
+  // course-specific fields are allowed (1eso/: estat, minim, criteris…; 4eso/: moduls, llibre…)
+  // NOT here (6/11/2026, the repo and the site are public): the realistic target (fita), the role in
+  // the ordinary classroom (rol) and the students' profile. They live in the teacher's private file;
+  // both comprova.py fail if «fita:» or «rol:» comes back into dades/unitats.js.
 }];
 window.TARGETES = [{ nom: "percentatges", titol: "…", unitats: [2, 3], descripcio: "…" }];
 ```
@@ -212,9 +215,24 @@ title from the data.
 ## 7. Student tools — `CURS/eines.html?u=N`
 
 - `comu/js/alumne.js` reads `?u=N`, writes «Unitat N · title» in `#w-cap-alumne` and sets
-  `PI.einesUnitat`. `js/app.js` (`aplicaUnitat`) shows only the tabs listed in `tasques`: first the
-  unit's own tools in data order, then a thin separator, then the always-there tools
-  (`data-comuna`: Calculadora and Com ho dic in `4eso/`, Taules in `1eso/`).
+  `PI.einesUnitat`. `js/app.js` (`aplicaUnitat`) shows only the tabs listed in `tasques`, in data
+  order, with no separator; with a single tool the tab row is hidden. **Fewer places to click**
+  (decision of 6/11/2026): the former always-there tools (`data-comuna`) appear only where `tasques`
+  lists them: Taules in unit 1 of `1eso/`, Calculadora in the `4eso/` units whose sheet uses it,
+  Com ho dic nowhere. `comu/eines/prova_portada.py` checks the order and the hidden row.
+- **The guided path** (decision of 6/11/2026): inside a tool there are no arrows to jump between
+  exercises. The bar on top only names the exercise («1.2 El rectangle d'una multiplicació»); one
+  button at the bottom, «Exercici següent», leads to the next one. In a tool to explore it is always
+  there; in a closed task it appears when the task is over; on the last exercise and with `?task=n.m`
+  there is none. It is `CE.cami` in `comu/js/tasca.js`, called by `CE.subtasques` (each course's
+  `js/nucli.js`). A card title equal to the bar's name is clipped from sight (the voice still reads
+  it), and when the question repeats the name too, the bar keeps only the number.
+- **One activity per screen** (decision of 6/11/2026): the second card of `4eso/` 1.1 is now
+  exercise 1.7 (at the end, because 1.2 and 1.3 are inside the verification codes), and the tools
+  whose one activity was split in two boxes are one card.
+- After an answer (`CE.retroaccio`), the feedback and the next-step button are scrolled into view;
+  a new step scrolls back to the progress rail. Only after the student's own gesture, never on load.
+- The read-aloud button (`comu/js/veu.js`) shows only when the computer has a Catalan voice.
 - The teacher gets the link from the unit page («Copia l'enllaç»), published
   without `.html`: `https://pi.step-quiz.net/4eso/eines?u=3`.
 - Inside a tool, examples belong to units too: the double number line (`js/moduls/doble.js`) has
@@ -264,8 +282,20 @@ GitHub runs both `comprova.py` on every push; the ZIP workflow refuses to save i
   the top (`class="previ"`). Removing it changes every PDF, so it needs a Codespace with
   WeasyPrint. The teacher postponed it.
 - Each course still has its own copies of `tokens.css`, `app.css`, `fitxa.css`, `nucli.js`,
-  `tasca.js`, `codi.js`, `veu.js` (`comu/eines/diferencies.py` lists what differs). Merging them
-  touches the PDF fingerprints (§6) and the tools; do it course by course, with the tests.
+  `codi.js` (`comu/eines/diferencies.py` lists what differs). `tasca.js` and `veu.js` were merged
+  into `comu/js/` on 6/11/2026 (they are not in any PDF fingerprint). Merging the rest touches the PDF
+  fingerprints (§6) and the tools; do it course by course, with the tests.
+- **C2, for the day the PDFs are rebuilt anyway** (with S1): `tokens.css` carries screen rules (the
+  hover ring, the old 3D key) although it is part of every PDF fingerprint, so screen changes pile up
+  as overrides in `app.css` and `web.css`. Example: in the tools the hover ring should be 1 px, but
+  `tokens.css` forces 3 px with `!important`. Move the screen rules out of `tokens.css` and delete
+  the dead shell classes (`.w-cami3`, `.w-dues`, `.w-apagat`, `.w-tick`) and the unused parameters of
+  `cap()` in `comu/js/unitat.js`.
+- **Two printed answer keys of `4eso/` named the realistic target and the level** (the «Abans de
+  començar» blocks of `u4/fitxa.html` and `u5/fitxa.html`). Printed text needs the PDFs rebuilt, so
+  on 6/11/2026 it was left for a Codespace session (WeasyPrint): remove those sentences, run
+  `python3 4eso/generadors/gen_pdf.py`, then `comprova.py`. If «La fita realista» or «nivell de 2n
+  ESO» are still in those files, it has not been done yet.
 - `textos.html` and `verifica.html` still use the course `css/lloc.css`, with the shell header on top.
 - The `<title>` written inside the paper pages is the old one (it is part of the PDF
   fingerprint); `paper.js` sets the right one on screen.

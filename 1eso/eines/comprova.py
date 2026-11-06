@@ -55,6 +55,14 @@ def avisa(condicio, missatge):
 def ruta(*p):
     return os.path.join(ARREL, *p)
 
+# Els scripts de la caixa: els del curs (js/) i els dos comuns a tots els cursos, que són a
+# ../comu/js/ des del 6/11/2026 (tasca.js, amb el camí guiat, i veu.js). Les frases que
+# demanen i les variables CSS que fan servir compten igual que les del curs.
+COMUNS_CAIXA = [os.path.join(REPO, 'comu', 'js', 'tasca.js'), os.path.join(REPO, 'comu', 'js', 'veu.js')]
+def scripts_caixa():
+    return sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)) + COMUNS_CAIXA
+
+
 
 def rel(f):
     return os.path.relpath(f, ARREL)
@@ -650,7 +658,7 @@ else:
              f"identificadors descompassats: pestanyes {pestanyes} · seccions {seccions} · registrats {registrats}")
     comprova(sorted(carregats) == sorted(os.path.basename(x)[:-3] for x in fitxers_mod),
              "hi ha mòduls a js/moduls que no es carreguen, o a l'inrevés")
-    ordre_bo = ['dades/textos.js', 'js/nucli.js', 'js/codi.js', 'js/tasca.js', 'js/quadricula.js']
+    ordre_bo = ['dades/textos.js', 'js/nucli.js', 'js/codi.js', '../comu/js/tasca.js', 'js/quadricula.js']
     posicions = [app.find(f'src="{x}"') for x in ordre_bo]
     comprova(all(x >= 0 for x in posicions) and posicions == sorted(posicions),
              "els scripts base van en aquest ordre: " + ", ".join(ordre_bo))
@@ -704,7 +712,7 @@ else:
     g = "(?:" + "|".join(re.escape(x) for x in grups) + ")"
     usades = set(re.findall(r'data-text="(' + g + r'\.\w+)"', app))
     prefixos = set()
-    for f in sorted(glob.glob(ruta('js', '**', '*.js'), recursive=True)):
+    for f in scripts_caixa():
         codi = llegeix(f)
         usades |= set(re.findall(r'"(' + g + r'\.[A-Za-z_]\w*)"(?!\s*\+)', codi))
         prefixos |= set(re.findall(r'"(' + g + r')\.\w*"\s*\+', codi))
@@ -758,8 +766,11 @@ else:
         if not subs:
             continue
         comprova(subs == list(range(1, len(subs) + 1)), f"mod-{nom}: les subtasques van {subs}, han d'anar 1, 2, 3…")
-        for peca in ("sub-enrere", "sub-avant", "sub-rotul"):
-            comprova(peca in cos, f"mod-{nom} té subtasques però li falta .{peca}")
+        # El camí guiat (6/11/2026): la barra només porta el nom. El botó «Exercici següent» el
+        # posa CE.cami (../comu/js/tasca.js); les fletxes de saltar d'exercici ja no hi són.
+        comprova("sub-rotul" in cos, f"mod-{nom} té subtasques però li falta .sub-rotul")
+        comprova("sub-enrere" not in cos and "sub-avant" not in cos,
+                 f"mod-{nom}: les fletxes de saltar d'exercici ja no hi van (camí guiat)")
         pestanya = re.search(r'data-tasca="(\d+)" data-mod="' + nom + '"', app)
         if pestanya:
             for n in subs:
@@ -786,11 +797,16 @@ else:
             avisa(not re.search(patro, t), f"{clau}: {per_que}")
     for f in [CAIXA, TEXTOS_JS]:
         comprova(not re.search(r"adapta", llegeix(f), re.I), f"{rel(f)}: l'alumnat no ha de llegir «adaptat»")
-    js_tot = {f: llegeix(f) for f in glob.glob(ruta('js', '**', '*.js'), recursive=True)}
+    js_tot = {f: llegeix(f) for f in scripts_caixa()}
     claus_mem = [(rel(f), k) for f, t in js_tot.items()
                  for k in re.findall(r'(?:CLAU\s*=|clau\s*=\s*cfg\s*=>)\s*"([^"]+)"', t)]
     comprova(claus_mem and all(k.startswith("pi1-") for _, k in claus_mem),
              f"les claus de la memòria del navegador han de començar per «pi1-»: {claus_mem}")
+    # Les tasques desen el progrés amb CE.prefix (../comu/js/tasca.js), que posa js/nucli.js.
+    comprova('prefix: "pi1-"' in js_tot.get(ruta('js', 'nucli.js'), ''),
+             "js/nucli.js ha de posar CE.prefix = «pi1-»: és el prefix de les tasques desades")
+    comprova('CE.prefix + "tasca:"' in js_tot.get(COMUNS_CAIXA[0], ''),
+             "../comu/js/tasca.js ha de fer les claus amb CE.prefix")
     sal = re.search(r'const SAL = "([^"]+)"', js_tot.get(ruta('js', 'codi.js'), ''))
     sal_altra = re.search(r'const SAL = "([^"]+)"', llegeix(os.path.join(REPO, '4eso', 'js', 'codi.js'))) \
         if os.path.exists(os.path.join(REPO, '4eso', 'js', 'codi.js')) else None
@@ -884,7 +900,7 @@ for c in fulls:
 # Una variable que no existeix tampoc avisa: la propietat es queda sense efecte.
 # Les que porten valor de reserva, var(--x, …), no compten.
 fonts_css = (fulls + glob.glob(ruta('**', '*.html'), recursive=True) +
-             glob.glob(ruta('js', '**', '*.js'), recursive=True))
+             scripts_caixa())
 textos = {f: llegeix(f) for f in fonts_css}
 definides = {v for t in textos.values() for v in re.findall(r'(--[\w-]+)\s*:', t)}
 sense_definir = {}
@@ -1120,7 +1136,8 @@ for _f in _mapa:
     comprova(False, "mapa del lloc · " + _f)
 print(f"  mapa del lloc (comu/eines/mapa.py): {'correcte' if not _mapa else str(len(_mapa)) + ' problemes'}")
 
-# El camí mínim, l'estat, la regla trencada, la fita i el rol (grup 3, 30/9/2026).
+# El camí mínim, l'estat i la regla trencada (grup 3, 30/9/2026). La fita i el rol ja no hi són: des
+# del 6/11/2026 són al fitxer privat del docent, perquè el repositori i el web són públics.
 # El camí mínim són les pàgines de l'alumnat que són el nucli de cada fitxa: han
 # d'existir, i la unitat sencera no pot passar de dues pàgines per sessió del grup,
 # perquè només la meitat de les hores són a l'aula de suport.
@@ -1131,8 +1148,8 @@ for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
     if not num:
         continue                                   # una targeta
     num = int(num[1])
-    comprova(re.search(r'^    fita:\s*"[^"]+"', bloc, re.M), f"dades/unitats.js: la unitat {num} no té fita")
-    comprova(re.search(r'^    rol:\s*"[^"]+"', bloc, re.M), f"dades/unitats.js: la unitat {num} no diu el rol a l'aula ordinària")
+    comprova(not re.search(r'^\s*(fita|rol):', bloc, re.M),
+             f"dades/unitats.js: la unitat {num} porta la fita o el rol, que van al fitxer privat del docent")
     sessions = int(re.search(r'^    sessions:\s*"(\d+)', bloc, re.M)[1])
     total = 0
     for f_obj in re.findall(r'\{ fitxa:.*?\}', bloc, re.S):

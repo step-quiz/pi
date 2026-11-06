@@ -23,7 +23,7 @@
    ========================================================================== */
 (function () {
   "use strict";
-  const { $, $$, txt, txtPla, omplirTextos, retroaccio, lectura } = CE;
+  const { $, $$, txt, txtPla, omplirTextos, retroaccio, lectura, quants } = CE;
   const Q = CE.q;
   const vora = (f, c) => c + " + " + f + " + " + c + " + " + f + " = " + 2 * (f + c);
   const dins = (f, c) => f + " · " + c + " = " + f * c;
@@ -39,7 +39,7 @@
   function pinta1(o) {
     dibuixa($("#pe-svg"), o.f, o.c);
     $("#pe-lectura").innerHTML = lectura([txt("25.1.vora", { calcul: vora(o.f, o.c) }), txt("25.1.perimetre", { p: 2 * (o.f + o.c) })]) +
-                                 lectura([txt("25.1.dins", { calcul: dins(o.f, o.c) }), txt("25.1.area", { a: o.f * o.c })]);
+                                 lectura([txt("25.1.dins", { calcul: dins(o.f, o.c) }), txt("25.1.area", { quadrets: quants(o.f * o.c, "comu.quadret", "comu.quadrets") })]);
     $("#pe-marca").hidden = !(o.f === EX251.f && o.c === EX251.c);
   }
   let fet1 = false;

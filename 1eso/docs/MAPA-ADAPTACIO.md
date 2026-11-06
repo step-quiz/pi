@@ -12,10 +12,12 @@ lògic. No hi consta res més, ni ha de constar-hi: el repositori es publica.
 
 ## 1. El punt de partida
 
-Es descriu com a regles del material, no com a retrat de ningú.
+El punt de partida de l'alumnat és al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics). Aquí només
+hi ha les regles del material que en surten: són a [`CRITERIS-DISSENY.md`](CRITERIS-DISSENY.md),
+regles A a I (els nombres fins al 999, les sumes sense portar-ne, res de memòria, una consigna per
+frase, la regla trencada desmuntada amb el dibuix i el punt per multiplicar).
 
-| Què | El material ho resol així |
-|---|---|
+---|---|
 | **Nombres** | Es llegeixen i s'escriuen bé fins al 999. Cap nombre de l'alumnat no en passa |
 | **Càlcul** | Sumes i restes sense portar-ne. Si un càlcul en necessita, es canvien les dades |
 | **Taules de multiplicar** | Sempre al davant, a la targeta. Una taula apresa es pot perdre en pocs dies |
@@ -116,16 +118,9 @@ rectangle) en lloc de la 2 (les unitats de mesura).
 | 6 | 30 | 13 | 16 |
 | 7 | 25 | 12 | 6 |
 
-**La fita.** El nivell d'assoliment realista de cada unitat (NA, AS, AN, AE), com a `4eso/`.
-Fixada: AS a les unitats 1 a 4 (amb AN possible als rectangles de la 1 i a l'àrea de la 3); NA o
-AS a la 5 (és on el material se separa més del grup, sense calculadora) i a la 7 (el símbol és el
-salt més gran del curs); AS a la 6, amb AN possible a les formes, que són el canal més visual. **Es revisa al desembre**, en acabar la unitat 3, amb la
-revisió del PI, i es torna a ajustar al final de cada trimestre.
-
-**El rol a l'aula ordinària.** S'hi adapta el rol dins del grup, no la tasca: qui fa els rectangles
-amb els miniblocs, qui compta els quadrets als mapes, qui construeix al geoplà. Un per unitat, i
-cada un lligat a una activitat concreta del grup (el GeoGebra de les caixes, els mapes de Gaza, el
-kiwi, les Fotomàtiques, el mapa del curs).
+**La fita i el rol.** El nivell d'assoliment realista de cada unitat (NA, AS, AN, AE) i el rol a
+l'aula ordinària (s'hi adapta el rol dins del grup, no la tasca) són al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics).
+La fita es revisa al desembre, amb el PI.
 
 **L'estat de cada fitxa.** «Per revisar» (feta, el docent encara no l'ha mirada), «revisada» o
 «provada a l'aula». Totes són «revisada»: les de les unitats 5, 6 i 7, fetes el 29/9/2026, es van

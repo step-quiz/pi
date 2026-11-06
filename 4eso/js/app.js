@@ -70,31 +70,25 @@
   }
 
   /** eines.html?u=N: l'enllaç que el docent envia a l'alumnat (6/11/2026). ../comu/js/alumne.js
-      ja ha llegit la unitat (PI.einesUnitat). Només es veuen les seves eines (el camp tasques de
-      dades/unitats.js): primer les de la unitat, en l'ordre de les dades, i després d'una ratlla,
-      les de sempre (data-comuna). S'obre la primera de la unitat. Com amb ?task, no es desa res. */
+      ja ha llegit la unitat (PI.einesUnitat). Només es veuen les eines del camp tasques de
+      dades/unitats.js, en aquest ordre, i s'obre la primera. Com amb ?task, no es desa res.
+      MENYS LLOCS ON CLICAR (6/11/2026): les eines «de sempre» (data-comuna: Calculadora i Com ho
+      dic) ja no surten totes soles; només on les posa tasques. I amb una sola eina no hi ha pestanyes. */
   function aplicaUnitat(botons) {
     const u = window.PI && window.PI.einesUnitat;
     if (!u) return null;
     const nums = (u.tasques || []).map(String);
-    const visibles = botons.filter(b => nums.includes(b.dataset.tasca));
+    const visibles = nums.map(n => botons.find(b => b.dataset.tasca === n)).filter(Boolean);
     if (!visibles.length) return null;
     permesos = visibles.map(b => b.dataset.mod);
     botons.forEach(b => { b.hidden = !permesos.includes(b.dataset.mod); });
-    const propies = nums.map(n => visibles.find(b => b.dataset.tasca === n))
-      .filter(b => b && !("comuna" in b.dataset));
-    const comunes = visibles.filter(b => "comuna" in b.dataset);
     const barra = visibles[0].parentElement;
-    propies.forEach(b => barra.appendChild(b));
-    if (propies.length && comunes.length) {
-      const ratlla = document.createElement("span");
-      ratlla.className = "w-separa";
-      ratlla.setAttribute("aria-hidden", "true");
-      barra.appendChild(ratlla);
-    }
-    comunes.forEach(b => barra.appendChild(b));
-    return (propies[0] || visibles[0]).dataset.mod;
+    visibles.forEach(b => barra.appendChild(b));
+    // Amb una sola eina, cap pestanya: no hi ha res a triar.
+    barra.hidden = visibles.length === 1;
+    return visibles[0].dataset.mod;
   }
+
 
   function arrenca() {
     const botons = $$(".segment[data-mod]");

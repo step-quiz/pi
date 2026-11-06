@@ -159,7 +159,7 @@ pantalla té les seves. Com està feta la caixa és a [`ARQUITECTURA.md`](ARQUIT
 | # | Regla | Per què |
 |---|---|---|
 | M | **Cada eina s'obre ja resolta**, amb la marca «Exemple». El cas és el del paper: 7 · 8 a les taules, 3 · 4 als rectangles, 3² als quadrats, 243 als nombres i 2 + 3 · 4 a l'ordre | És la regla 4 a la pantalla, i la regla 8: qui passa del paper a la pantalla troba el mateix cas |
-| N | **La tasca 0 és la targeta de les taules**, i surt sempre al costat de l'eina triada. Un enllaç a un exercici concret (`?task=1.2`) porta a aquell exercici i prou: sense fletxes per passar als altres | No hi ha calculadora (regla C): l'eina de tot el curs és la targeta (regla B). I qui rep un enllaç a un exercici no s'ha de perdre pels del costat |
+| N | **La tasca 0 és la targeta de les taules.** Des del 6/11/2026 (menys llocs on clicar) només surt a les eines de la unitat 1; a les altres, la targeta de paper és a la taula. Un enllaç a un exercici concret (`?task=1.2`) porta a aquell exercici i prou: sense el botó «Exercici següent» | No hi ha calculadora (regla C): l'eina de tot el curs és la targeta (regla B). I qui rep un enllaç a un exercici no s'ha de perdre pels del costat |
 | O | **La creu «×» no surt a la pantalla.** El pont amb la creu de primària es fa una sola vegada, a la clau de la targeta de paper | Un sol lloc per al pont. A la pantalla, el punt i prou |
 | P | **Tocar és contestar.** Només quan la resposta demana diversos tocs hi ha un botó «Comprova» (la 3.2) | Cap pas amagat entre fer i contestar |
 | Q | **La resposta no es veu mentre es fa.** La 3.2 no ensenya el nombre fins que es comprova; la 2.2 no ensenya els rètols fins que es toca | Si es veu, la tasca es resol provant fins que coincideix |
@@ -169,6 +169,7 @@ pantalla té les seves. Com està feta la caixa és a [`ARQUITECTURA.md`](ARQUIT
 | U | **Les frases són a `dades/textos.js`**, en Lectura Fàcil, i es poden canviar sense tocar el codi, des de `textos.html` | Qui coneix l'alumnat ha de poder canviar una paraula sense programar |
 | V | **Accessible**: WCAG 2.2 AA (contrast, botons de 24 × 24 px com a mínim, focus visible), amb el teclat, en clar i en fosc, i sense animacions si el sistema demana moviment reduït | S'ha de poder fer servir amb qualsevol aparell i de qualsevol manera |
 | W | **A la vista, el que l'exercici fa servir, i prou.** El que només cal de tant en tant es plega darrere d'un botó (tota la taula, a la 0.1), i el que ja diu una altra peça no es repeteix (els rètols del dibuix de la 3.1, que ja deien els comptadors) | Són les regles 2 i 3 (cap paràgraf, molt d'aire) portades a la pantalla. Decisió del docent el 24 de setembre de 2026, a partir d'una revisió externa |
+| X | **Menys llocs on clicar** (6/11/2026). Les eines de la unitat i prou, sense pestanyes si n'hi ha una de sola. Dins d'una eina, cap fletxa: un sol botó a baix, «Exercici següent», que en una tasca tancada surt en acabar-la. Un títol que repeteix el de la barra no es veu (la veu el llegeix) | Cada lloc on es pot clicar és una decisió més: la navegació no pot tenir més botons que l'exercici. Decisió del docent el 6/11/2026, en veure que en 61 de 81 pantalles la navegació en tenia tants o més |
 
 ---
 

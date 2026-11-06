@@ -29,8 +29,9 @@
 
    ELS ALTRES DOS FITXERS COMPARTITS
      js/codi.js   el codi de verificació (CE.codi), que també llegeix verifica.html;
-     js/tasca.js  les tasques amb passos: inici, «pas X de Y», final, progrés desat
-                  i retroacció literal (CE.tasca, CE.retroaccio).
+     ../comu/js/tasca.js  les tasques amb passos: inici, «pas X de Y», final, progrés
+                  desat, retroacció literal (CE.tasca, CE.retroaccio) i el camí guiat
+                  entre exercicis (CE.cami). És comú als dos cursos.
    ========================================================================== */
 
 window.CE = (function () {
@@ -139,44 +140,47 @@ window.CE = (function () {
   }
 
   /** Panells numerats dins d'un mòdul: la «tasca 1» passa a ser 1.1, 1.2, 1.3…
-      Cada panell és un <div class="subtasca" data-sub="n" data-nom="…">, i la
-      barra de fletxes és .sub-enrere / .sub-rotul / .sub-avant.
-      El mòdul només ha de dir què vol fer quan se n'ensenya un; la navegació,
-      el rètol i els botons desactivats van d'aquí.
-      Es pot cridar diverses vegades: torna a lligar els botons i prou. */
+      Cada panell és un <div class="subtasca" data-sub="n">, i la barra de dalt
+      (.subbarra) només porta el nom, .sub-rotul.
+      El mòdul només ha de dir què vol fer quan se n'ensenya un; el rètol i el
+      botó «Exercici següent» van d'aquí. Cada mòdul deixa el seu control a
+      CE.subs[id], per a les proves.
+      Es pot cridar diverses vegades: el camí guiat no es duplica. */
   function subtasques(arrel, aoMostrar) {
     const panells = $$(".subtasca", arrel);
     if (!panells.length) return null;
 
-    const enrere = $(".sub-enrere", arrel);
-    const avant = $(".sub-avant", arrel);
+    // EL CAMÍ GUIAT (6/11/2026): cap fletxa a la barra, que només porta el nom; un
+    // sol botó a baix, «Exercici següent» (CE.cami, a ../comu/js/tasca.js). Un enllaç
+    // a un exercici concret (?task=1.2) porta a aquell exercici i prou: sense botó.
+    // CE.subDemanada el posa app.js abans d'obrir el mòdul.
     const rotul = $(".sub-rotul", arrel);
-    // Un enllaç a un exercici concret (?task=1.2) porta a aquell exercici i prou:
-    // la barra diu on s'és, però les fletxes no hi són, i no es pot passar als
-    // altres exercicis. Amb l'enllaç a tota l'eina (?task=1) les fletxes hi són.
-    // És la regla N de 1eso/. CE.subDemanada el posa app.js abans d'obrir el mòdul.
     const barra = $(".subbarra", arrel);
-    if (barra && window.CE.subDemanada) barra.classList.add("fixa");
+    const fixa = window.CE.subDemanada != null;
+    if (barra && fixa) barra.classList.add("fixa");
+    const id = arrel.id.replace("mod-", "");
     // el número de tasca surt de la pestanya, per no repetir-lo al marcatge
-    const pestanya = $('.segment[data-mod="' + arrel.id.replace("mod-", "") + '"]');
+    const pestanya = $('.segment[data-mod="' + id + '"]');
     const tasca = pestanya ? pestanya.dataset.tasca : "";
-    let ara = 1;
+    let ara = 1, guia = null;
 
     function mostra(n) {
       ara = Math.max(1, Math.min(panells.length, Number(n) || 1));
       panells.forEach(p => { p.hidden = Number(p.dataset.sub) !== ara; });
-      if (enrere) enrere.disabled = ara === 1;
-      if (avant) avant.disabled = ara === panells.length;
       if (rotul) {
-        rotul.innerHTML = "<b>" + tasca + "." + ara + "</b> " +
-          txt(tasca + "." + ara + ".nom").replace(/^\[.*\]$/, "");
+        const nom = txt(tasca + "." + ara + ".nom").replace(/^\[.*\]$/, "");
+        rotul.dataset.nom = nom;
+        rotul.dataset.escrit = "0|" + nom;
+        rotul.innerHTML = "<b>" + tasca + "." + ara + "</b> " + nom;
       }
       if (aoMostrar) aoMostrar(ara);
+      if (guia) guia();
     }
 
-    if (enrere) enrere.onclick = () => mostra(ara - 1);
-    if (avant) avant.onclick = () => mostra(ara + 1);
-    return { mostra, quantes: panells.length, actual: () => ara };
+    const control = { mostra, quantes: panells.length, actual: () => ara };
+    guia = window.CE.cami ? window.CE.cami(arrel, control, fixa) : null;
+    (window.CE.subs = window.CE.subs || {})[id] = control;
+    return control;
   }
 
   const moduls = {};
@@ -189,5 +193,7 @@ window.CE = (function () {
 
   return { $, $$, num, fix, euros, memoria, el, icona, pastilles,
            txt, omplirTextos, subtasques, moduls, registra,
-           diaLlarg, cataleg, registraCataleg };
+           diaLlarg, cataleg, registraCataleg,
+           // les claus de la memòria del navegador: les llegeix ../comu/js/tasca.js
+           prefix: "pi-" };
 })();

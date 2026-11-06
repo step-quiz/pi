@@ -27,8 +27,10 @@ Doble clic a `index.html`. No cal servidor ni instal·lar res. Publicat, és a
 Les eines de pantalla, amb el mateix dibuix que el paper: la quadrícula. L'alumnat hi entra amb
 l'enllaç que el docent copia a la pàgina de cada unitat, per exemple
 `https://pi.step-quiz.net/1eso/eines?u=3`: només hi surten les eines de la unitat (camp `tasques`
-de `dades/unitats.js`) i, després d'una ratlla, les Taules, que són la targeta de les taules a la
-pantalla. La capçalera diu la unitat i no porta enlloc. Cada eina es carrega quan s'obre.
+de `dades/unitats.js`), en aquest ordre; les Taules, només a la unitat 1, i amb una sola eina no hi
+ha pestanyes (6/11/2026). La capçalera diu la unitat i no porta enlloc. Cada eina es carrega quan
+s'obre. Dins d'una eina no hi ha fletxes: un sol botó a baix, «Exercici següent», porta a l'exercici
+següent, i en una tasca tancada surt quan s'acaba (el camí guiat, `../comu/js/tasca.js`).
 
 Cada eina té un número fix. `?task=n` (una sola eina) i `?task=n.m` (un sol exercici) encara
 funcionen, però ja no s'enllacen enlloc: només els fan servir les proves.
@@ -66,8 +68,8 @@ funcionen, però ja no s'enllacen enlloc: només els fan servir les proves.
 | `28` | Gràfics (unitat 7): 28.1 Llegeix el gràfic · 28.2 Quantes persones? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
-exercici: `eines.html?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
-`eines.html?task=1`, l'eina sencera, amb les fletxes. Les tasques
+exercici: `eines.html?task=1.2` obre la 1.2 sense el botó «Exercici següent». Amb
+`eines.html?task=1`, l'eina sencera, amb el botó. Les tasques
 tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 3,
 9.2, 10.2, 11.2, 12.2 i 13.2; de la unitat 4, 14.2, 15.2, 16.2 i 17.2; i de la unitat 5,
 2.4, 18.2, 18.3, 19.2, 20.2 i 21.2; de la unitat 6, 22.2, 23.2, 24.2 i 25.2; i de la unitat 7, 26.2, 27.2 i 28.2) acaben amb
@@ -80,6 +82,11 @@ Cada targeta de la caixa té, a dalt a la dreta, un botó petit amb un altaveu. 
 targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i el bloc que s'està llegint
 queda ben clar mentre la resta de la targeta s'esvaeix. Si la veu de l'ordinador diu per on va,
 un retolador groc omple la línia a poc a poc, al ritme de la veu. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
+
+Des del 6/11/2026, **el botó només surt si l'ordinador té una veu catalana**: sense, el navegador
+llegia amb la veu que tingués, sovint amb accent castellà. Si al Chromebook no surt, cal instal·lar
+la veu catalana a la configuració de «Text a veu», i tornar-ho a mirar després de cada
+actualització de ChromeOS, que de vegades esborra els paquets de veus.
 
 La veu és la de l'ordinador, i n'hi ha de més bones que d'altres:
 
@@ -106,7 +113,7 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 | `eines.html` | Les eines de l'alumnat (`eines.html?u=N`). `verifica.html` llegeix els codis i `textos.html` canvia les frases |
 | `professorat.html` | **Tancada des del 6/11/2026** (s'obre amb `?obert`; vegeu `../comu/docs/SITE-MAP.md`). La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
-| `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les 29 eines a `moduls/`, una per fitxer |
+| `js/` | La caixa: `nucli.js`, `codi.js`, `quadricula.js`, `app.js` i les 29 eines a `moduls/`, una per fitxer. El motor de les tasques i la veu són comuns a tots els cursos: `../comu/js/tasca.js` i `../comu/js/veu.js` |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1), la dels noms de les fraccions (unitat 3), la dels decimals i les arrels (unitat 5), la de les formes (unitat 6) i la dels patrons i els símbols (unitat 7) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
 | `dades/unitats.js` | Les set unitats i les targetes: el que llegeixen totes les pàgines del curs |

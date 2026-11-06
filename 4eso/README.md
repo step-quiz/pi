@@ -48,16 +48,18 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 L'alumnat entra a les eines amb l'enllaç que el docent copia a la pàgina de la unitat («Copia
 l'enllaç per a l'alumnat»), per exemple `https://pi.step-quiz.net/4eso/eines?u=3`. Hi surten
-només les eines de la unitat (camp `tasques` de `dades/unitats.js`): primer les seves i, després
-d'una ratlla, la Calculadora i Com ho dic. La capçalera diu la unitat i no porta enlloc.
+només les eines de la unitat (camp `tasques` de `dades/unitats.js`), en aquest ordre: la
+Calculadora, només a les unitats on la fitxa la fa servir, i Com ho dic, enlloc; amb una sola eina
+no hi ha pestanyes (6/11/2026). La capçalera diu la unitat i no porta enlloc. Dins d'una eina no hi
+ha fletxes: un sol botó a baix, «Exercici següent», i en una tasca tancada surt quan s'acaba.
 
 Cada eina té un número fix (`data-tasca`). `?task=n` (una sola eina) i `?task=n.m` (un sol
 exercici) encara funcionen, però ja no s'enllacen enlloc: només els fan servir les proves.
 
 | n | tasca |
 |---|---|
-| 0 | Calculadora (surt sempre) |
-| 1 | Recta · té 6 exercicis: `?task=1.1` a `?task=1.6`. Amb el número de l'exercici s'obre aquell i prou, sense les fletxes per passar als altres |
+| 0 | Calculadora (a les unitats on la fitxa la fa servir) |
+| 1 | Recta · té 7 exercicis: `?task=1.1` a `?task=1.7` (la 1.7, «Quants decimals fem servir?», era la segona targeta de la 1.1: una activitat per pantalla, 6/11/2026). Amb el número de l'exercici s'obre aquell i prou, sense el botó «Exercici següent» |
 | 2 | Doble recta |
 | 3 | Percentatges |
 | 4 | Escales |
@@ -75,6 +77,11 @@ Cada targeta de la caixa té, a dalt a la dreta, un botó petit amb un altaveu. 
 targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i el bloc que s'està llegint
 queda ben clar mentre la resta de la targeta s'esvaeix. Si la veu de l'ordinador diu per on va,
 un retolador groc omple la línia a poc a poc, al ritme de la veu. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
+
+Des del 6/11/2026, **el botó només surt si l'ordinador té una veu catalana**: sense, el navegador
+llegia amb la veu que tingués, sovint amb accent castellà. Si al Chromebook no surt, cal instal·lar
+la veu catalana a la configuració de «Text a veu», i tornar-ho a mirar després de cada
+actualització de ChromeOS, que de vegades esborra els paquets de veus.
 
 La veu és la de l'ordinador, i n'hi ha de més bones que d'altres:
 
@@ -99,14 +106,8 @@ I Matemàtiques Aplicades és, precisament, la matèria de decidir amb dades. Am
 descarregat a la calculadora i l'expressió bastida amb frases model, la competència
 nuclear li és accessible de veritat.
 
-El perfil és desigual, i tot el material en surt:
-
-| Canal | Nivell |
-|---|---|
-| Visió gràfica, esquemes, geometria | 2n ESO |
-| Manipulació aritmètica i algebraica | 5è de primària |
-| Expressar idees matemàtiques amb frases | 3r de primària |
-| Informàtica i anglès | el del grup |
+El perfil és desigual, i tot el material en surt: la visió gràfica és la via d'entrada, i el càlcul i
+l'expressió escrita, els colls d'ampolla. El detall és al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics).
 
 ---
 

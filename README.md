@@ -68,7 +68,14 @@ Inici (index.html)
 validar a cada visita (5/11/2026: amb una hora de memòria, la pàgina nova sortia amb l'estil vell).
 
 Les eines poden llegir cada targeta en veu alta: el botó petit de l'altaveu, a dalt a la dreta de
-la targeta. Quina veu sona millor a cada ordinador, als `README.md` de cada curs.
+la targeta. Surt només si l'ordinador té una veu catalana (6/11/2026). Quina veu sona millor a cada
+ordinador, als `README.md` de cada curs.
+
+**Menys llocs on clicar (6/11/2026).** A les eines de l'alumnat, cada unitat ensenya només les eines
+del seu camp `tasques` (les Taules, a la unitat 1 de `1eso/`; la Calculadora, a les unitats de
+`4eso/` on la fitxa la fa servir; Com ho dic, enlloc), i amb una sola eina no hi ha pestanyes. Dins
+d'una eina no hi ha fletxes per saltar d'exercici: un sol botó a baix, «Exercici següent», i en una
+tasca tancada surt en acabar-la (el camí guiat, `comu/js/tasca.js`).
 
 ## On es publica
 
@@ -181,7 +188,9 @@ python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
 python3 4eso/eines/auditoria.py
 ```
 
-**Les còpies dels dos cursos.** La closca de pantalla és comuna (`comu/`), però cada curs encara té la seva còpia dels fitxers de les eines i del paper.
+**Les còpies dels dos cursos.** La closca de pantalla és comuna (`comu/`), i des del 6/11/2026 també
+el motor de les tasques i la veu (`comu/js/tasca.js` i `comu/js/veu.js`). La resta dels fitxers de les
+eines i del paper, cada curs encara en té la seva còpia.
 Per veure com s'han separat, i si un arreglament d'un curs també cal a l'altre:
 
 ```bash

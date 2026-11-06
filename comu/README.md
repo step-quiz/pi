@@ -14,6 +14,8 @@ closca de pantalla i les seves regles són a [`docs/SITE-MAP.md`](docs/SITE-MAP.
 | `js/professorat.js` | La pàgina del professorat i la capçalera de `textos.html` i `verifica.html` |
 | `js/paper.js` | La capçalera de les fitxes, els repassos, el quadern i les targetes, amb els botons dels PDF |
 | `js/alumne.js` | La capçalera tancada de les eines de l'alumnat (`CURS/eines.html?u=N`) |
+| `js/tasca.js` | El motor de les tasques tancades (passos, represa, resum i codi), la retroacció, el desplaçament fins a la resposta i el camí guiat entre exercicis («Exercici següent»). El fan servir les eines i `verifica.html` de tots els cursos; el prefix de la memòria del navegador el posa cada curs (`CE.prefix`, a `CURS/js/nucli.js`). Des del 6/11/2026 |
+| `js/veu.js` | La lectura en veu alta de cada targeta de les eines. El botó només surt amb una veu catalana. Des del 6/11/2026 |
 | `eines/unitat.html` | La pàgina d'unitat de referència: tots els `CURS/uN/index.html` en són una còpia exacta |
 | `eines/mapa.py` | La prova del mapa del lloc. La criden els `comprova.py` dels cursos |
 | `eines/prova_portada.py` | Clica tot el mapa en un navegador: portada, cursos, unitats, paper i eines |

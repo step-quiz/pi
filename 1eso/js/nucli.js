@@ -193,41 +193,44 @@ window.CE = (function () {
   }
 
   /** Panells numerats dins d'un mòdul: la «tasca 1» passa a ser 1.1, 1.2, 1.3…
-      Cada panell és un <div class="subtasca" data-sub="n">, i la barra de
-      fletxes és .sub-enrere / .sub-rotul / .sub-avant. El nom de cada panell
-      surt de la frase «tasca.sub.nom» de dades/textos.js. */
+      Cada panell és un <div class="subtasca" data-sub="n">, i la barra de dalt
+      (.subbarra) només porta el nom, .sub-rotul, que surt de la frase
+      «tasca.sub.nom» de dades/textos.js.
+      EL CAMÍ GUIAT (6/11/2026). Ja no hi ha fletxes per saltar d'exercici: un sol
+      botó a baix, «Exercici següent», porta al següent, i en una tasca tancada
+      surt quan s'acaba. El fa CE.cami, a ../comu/js/tasca.js. Un enllaç a un
+      exercici concret (?task=1.2) porta a aquell exercici i prou: sense botó.
+      Cada mòdul deixa el seu control a CE.subs[id], per a les proves. */
   function subtasques(arrel, aoMostrar) {
     const panells = $$(".subtasca", arrel);
     if (!panells.length) return null;
 
-    const enrere = $(".sub-enrere", arrel);
-    const avant = $(".sub-avant", arrel);
     const rotul = $(".sub-rotul", arrel);
-    // Un enllaç a un exercici concret (?task=1.2) porta a aquell exercici i prou:
-    // la barra diu on s'és, però les fletxes no hi són. Val per a totes les
-    // pestanyes, també per a Taules, que s'obre per la 0.1. Amb l'enllaç a tota
-    // l'eina (?task=1) les fletxes hi són.
     const barra = $(".subbarra", arrel);
-    if (barra && window.CE.demanada) barra.classList.add("fixa");
-    const pestanya = $('.segment[data-mod="' + arrel.id.replace("mod-", "") + '"]');
+    const fixa = !!window.CE.demanada;
+    if (barra && fixa) barra.classList.add("fixa");
+    const id = arrel.id.replace("mod-", "");
+    const pestanya = $('.segment[data-mod="' + id + '"]');
     const tasca = pestanya ? pestanya.dataset.tasca : "";
-    let ara = 1;
+    let ara = 1, guia = null;
 
     function mostra(n) {
       ara = Math.max(1, Math.min(panells.length, Number(n) || 1));
       panells.forEach(p => { p.hidden = Number(p.dataset.sub) !== ara; });
-      if (enrere) enrere.disabled = ara === 1;
-      if (avant) avant.disabled = ara === panells.length;
       if (rotul) {
-        rotul.innerHTML = "<b>" + tasca + "." + ara + "</b> " +
-          txt(tasca + "." + ara + ".nom").replace(/^\[.*\]$/, "");
+        const nom = txt(tasca + "." + ara + ".nom").replace(/^\[.*\]$/, "");
+        rotul.dataset.nom = nom;
+        rotul.dataset.escrit = "0|" + nom;
+        rotul.innerHTML = "<b>" + tasca + "." + ara + "</b> " + nom;
       }
       if (aoMostrar) aoMostrar(ara);
+      if (guia) guia();
     }
 
-    if (enrere) enrere.onclick = () => mostra(ara - 1);
-    if (avant) avant.onclick = () => mostra(ara + 1);
-    return { mostra, quantes: panells.length, actual: () => ara };
+    const control = { mostra, quantes: panells.length, actual: () => ara };
+    guia = window.CE.cami ? window.CE.cami(arrel, control, fixa) : null;
+    (window.CE.subs = window.CE.subs || {})[id] = control;
+    return control;
   }
 
   /** La subtasca que demana l'enllaç (?task=1.3), només si és d'aquesta tasca. */
@@ -276,5 +279,7 @@ window.CE = (function () {
 
   return { $, $$, memoria, el, pastilles, premPastilla, txt, txtPla, omplirTextos,
            subtasques, subDemanada, moduls, registra, carrega, carregaTots, diaLlarg, cataleg, registraCataleg,
-           quants, deN, delNombre, elNombre, rect, lectura, comptador, quiet, demanada: null };
+           quants, deN, delNombre, elNombre, rect, lectura, comptador, quiet, demanada: null,
+           // les claus de la memòria del navegador: les llegeix ../comu/js/tasca.js
+           prefix: "pi1-" };
 })();

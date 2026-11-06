@@ -44,6 +44,7 @@ window.TEXTOS = {
     exemple:      'Exemple',
     veu_escolta:  'Escolta la targeta',
     veu_para:     'Para la veu',
+    exercici_seguent: 'Exercici següent',
     represa:      'Aquesta tasca no està acabada. Es va aturar al *pas {n} de {total}*.',
     represa_dia:  'Es va desar el {dia}.',
     continua:     'Continua al pas {n}',
@@ -169,6 +170,9 @@ window.TEXTOS = {
     dreta1:    'La coma es mou *1* lloc a la *dreta*.',
     esquerra1: 'La coma es mou *1* lloc a l\'*esquerra*.'
   },
+  "1.7": {
+    nom:       'Quants decimals fem servir?'
+  },
 
   "5": {
     titol:     'Llegeix la paràbola',
@@ -260,6 +264,7 @@ window.TEXTOS_GUIA = {
     exemple:      ["Etiqueta del cas que ve resolt", []],
     veu_escolta:  ["El botó de l'altaveu, a dalt de cada targeta: la llegeix en veu alta", []],
     veu_para:     ["El mateix botó mentre llegeix: para la veu", []],
+    exercici_seguent: ["El botó de baix que porta a l'exercici següent de l'eina (en una tasca tancada, surt en acabar-la)", []],
     represa:      ["Pregunta quan hi ha una tasca a mitges", ["n", "total"]],
     represa_dia:  ["Dia en què es va desar la tasca a mitges", ["dia"]],
     continua:     ["Botó per continuar la tasca a mitges", ["n"]],
@@ -377,6 +382,9 @@ window.TEXTOS_GUIA = {
     esquerra:  ["Pujant dos graons o més", ["graons"]],
     dreta1:    ["Baixant un sol graó, en singular", []],
     esquerra1: ["Pujant un sol graó, en singular", []]
+  },
+  "1.7": {
+    nom:       ["Nom a la barra. La targeta fa servir les frases 1.1.titol2 i 1.1.ajuda2", []]
   },
   "5": {
     titol:     ["Títol de la targeta", []],

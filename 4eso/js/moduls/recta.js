@@ -585,8 +585,10 @@
   }
 
   /* ---- navegació entre les subtasques ---- */
+  // La 1.7 (Quants decimals fem servir?) era la segona targeta de la 1.1 i en fa servir el
+  // nombre: s'arrenca amb el mateix iniciaRecta, que no repeteix res si ja s'ha fet.
   const ARRENCA = { 1: iniciaRecta, 2: iniciaPosa, 3: iniciaAcaba, 4: iniciaCost,
-                    5: iniciaValor, 6: iniciaUnitat };
+                    5: iniciaValor, 6: iniciaUnitat, 7: iniciaRecta };
   const jaFetes = new Set();
   let subActual = null;
 

@@ -21,8 +21,9 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CURSOS = ("1eso", "4eso")
-# El motor de la caixa: el que no depèn del contingut de cap curs.
-MOTOR = {"js/nucli.js", "js/tasca.js", "js/codi.js", "js/app.js", "css/tokens.css"}
+# El motor de la caixa: el que no depèn del contingut de cap curs. tasca.js i veu.js ja no hi
+# són: des del 6/11/2026 són un sol fitxer per a tots els cursos, a comu/js/.
+MOTOR = {"js/nucli.js", "js/codi.js", "js/app.js", "css/tokens.css"}
 FORA = {"docs", "fitxes", "targetes", "pdf", "dades", "generadors", "fonts", "docx", "moduls"}
 
 

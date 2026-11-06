@@ -30,16 +30,10 @@ dificultats de tipus cognitiu.
 
 ## 1. Context
 
-**L'alumnat.** 15 anys, dificultats de tipus cognitiu, fa la meitat de les hores de matemàtiques a l'aula de suport i
-l'altra meitat a l'aula ordinària, en l'itinerari d'Aplicades. El seu perfil és molt desigual, i
-això condiciona tot el material:
-
-| Canal | Nivell |
-|---|---|
-| Visió gràfica, esquemes, geometria | 2n ESO |
-| Manipulació aritmètica i algebraica | 5è de primària |
-| Expressar idees matemàtiques amb frases | 3r de primària |
-| Informàtica i anglès | el del grup |
+**L'alumnat.** Dificultats de tipus cognitiu; fa la meitat de les hores de matemàtiques a l'aula de
+suport i l'altra meitat a l'aula ordinària. El perfil és molt desigual (la visió gràfica és la via
+d'entrada; el càlcul i l'expressió escrita, els colls d'ampolla), i això condiciona tot el material.
+El detall és al fitxer privat del docent, fora del repositori (6/11/2026: el repositori i el web són públics).
 
 **El principi de tot el material:** aquest alumnat pot arribar a la *decisió* del nivell del grup, però
 no al *càlcul* ni a la *redacció* del nivell del grup. Com que Matemàtiques Aplicades és la matèria de
@@ -161,8 +155,8 @@ Quan hi puguis accedir, no cal un resum del lloc. Cal respondre aquestes pregunt
 2. **En quin ordre presenten concret, visual i simbòlic?** Hi ha algun pas intermedi que
    nosaltres ens saltem?
 3. **Com formulen les preguntes d'obertura?** Si són del tipus «què hi notes», és
-   directament aprofitable: aquest alumnat té l'expressió escrita a nivell de 3r de
-   primària i qualsevol resposta que es pugui donar assenyalant o oralment li obre la porta.
+   directament aprofitable: l'expressió escrita és el coll d'ampolla, i qualsevol resposta que
+   es pugui donar assenyalant o oralment obre la porta.
 4. **Tracten percentatges, escales o probabilitat?** Són les nostres U2, U3 i U7, i les
    tres comparteixen ara el mòdul de la doble recta.
 5. **Quina és la llicència?** Determina si es pot fer res més que adoptar-ne l'enfocament.

@@ -29,7 +29,10 @@
     const bb = resta1 ? Math.min(b1, a1) : b1, r = resta1 ? a1 - bb : a1 + bb;
     dibuixa($("#sa-svg"), a1, bb, d1, resta1);
     $("#sa-svg").setAttribute("aria-label", Q.nomFraccio(a1, d1) + (resta1 ? " menys " : " més ") + Q.nomFraccio(bb, d1));
-    const par = [resta1 ? txt("12.1.resta_frase", { a: a1, b: bb, s: r }) : txt("12.1.suma_frase", { a: a1, b: bb, s: r }), txt("12.1.mateix")];
+    // «Es treu 1 tros», «Es treuen 2 trossos»; «dels 3», «de l'1» (6/11/2026: deia «1 trossos»).
+    const dels = a1 === 1 ? txt("12.1.dels_un") : txt("12.1.dels", { a: a1 });
+    const resta = bb === 1 ? txt("12.1.resta_un", { dels, a: a1, s: r }) : txt("12.1.resta_frase", { b: bb, dels, a: a1, s: r });
+    const par = [resta1 ? resta : txt("12.1.suma_frase", { a: a1, b: bb, s: r }), txt("12.1.mateix")];
     if (resta1 && b1 > a1) par.push(txt("12.1.no_es_pot"));
     $("#sa-lectura").innerHTML = lectura(par, op(a1, bb, d1, resta1) + " = " + Q.htmlFraccio(r, d1));
     $("#sa-marca").hidden = !(a1 === EX.a && b1 === EX.b && d1 === EX.d && resta1 === EX.resta);

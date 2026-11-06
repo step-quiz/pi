@@ -52,11 +52,11 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 ├── js/
 │   ├── nucli.js            l'objecte global CE i el registre de mòduls
 │   ├── codi.js             el codi de verificació: fer-lo i llegir-lo
-│   ├── tasca.js            el motor de les tasques tancades: passos, represa, resum
-│   ├── veu.js              la lectura en veu alta de cada targeta (apartat 6c)
 │   ├── app.js              navegació de la caixa d'eines
 │   ├── quadern.js          el filtre del quadern d'activitats (apartats i repte)
 │   └── moduls/             un fitxer per mòdul, deu en total
+│   (el motor de les tasques tancades i la veu són a ../comu/js/tasca.js i veu.js, comuns a
+│    tots els cursos des del 6/11/2026; el prefix de la memòria, CE.prefix = «pi-», el posa nucli.js)
 │
 ├── dades/
 │   └── unitats.js          font única: les set unitats amb tota la metadada, i les targetes
@@ -81,8 +81,8 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 
 ```
 tokens.css ← s'enllaça des de l'HTML, ABANS de fitxa.css / app.css / lloc.css
-nucli.js   ← codi.js, tasca.js, veu.js ← js/moduls/*.js ← app.js
-textos.js  ← tasca.js, js/moduls/*.js
+nucli.js   ← codi.js, ../comu/js/tasca.js, ../comu/js/veu.js ← js/moduls/*.js ← app.js
+textos.js  ← ../comu/js/tasca.js, js/moduls/*.js
 unitats.js ← ../comu/js/portada.js, ../comu/js/unitat.js
 ```
 
@@ -238,9 +238,11 @@ function inicia() {
 
 `subActual` fa que, en tornar a la pestanya, es reprengui on s'estava.
 
-**Enllaços.** `?task=1` obre la tasca 1 per l'exercici 1, amb les fletxes per
-passar als altres; **`?task=1.3` obre directament el tercer, i prou**: la barra
-diu on s'és, però les fletxes no hi són (`.subbarra.fixa`). És el que permet
+**El camí guiat (6/11/2026).** No hi ha fletxes: la barra només diu on s'és, i un sol botó a
+baix, «Exercici següent», porta a l'exercici següent; en una tasca tancada surt quan s'acaba (`CE.cami`,
+a `../comu/js/tasca.js`). **Enllaços.** `?task=1` obre la tasca 1 per l'exercici 1, amb el botó;
+**`?task=1.3` obre directament el tercer, i prou**: la barra diu on s'és, però el botó no hi és
+(`.subbarra.fixa`). És el que permet
 enviar un exercici concret i no la tasca sencera, sense que l'alumnat es perdi
 pels del costat. És la regla N de `1eso/` (29/9/2026). Si el número no existeix o
 el format no és `n` ni `n.m`, es cau a la tasca 0, com sempre.
@@ -332,7 +334,7 @@ columna del triador, on no competeix amb el pas.
 
 ---
 
-## 4d. Les tasques tancades: `js/tasca.js`
+## 4d. Les tasques tancades: `../comu/js/tasca.js`
 
 Cinc tasques (Calculadora, 1.2, 1.3, Paràboles i Equacions) comparteixen un motor.
 Abans, cada mòdul feia el seu comptador i el seu «Un altre» i la tasca no s'acabava
@@ -464,13 +466,13 @@ són. Els comentaris `<!--§obertura p.1§-->` que queden a les fitxes només s�
 
 ---
 
-## 6c. La veu: `js/veu.js`
+## 6c. La veu: `../comu/js/veu.js`
 
 Cada targeta amb títol porta, a dalt a la dreta, un botó petit i gris amb un altaveu. En
 tocar-lo, el navegador llegeix la targeta en veu alta i marca el que llegeix; tornar-lo a tocar
-la para, i tocar qualsevol altre botó també. És el mateix fitxer a `1eso/` i a `4eso/`. Fa
-servir la síntesi de veu del navegador (Web Speech API): no cal xarxa ni servidor. Si el
-navegador no en té, el botó no surt.
+la para, i tocar qualsevol altre botó també. És un sol fitxer per a tots els cursos, a `comu/js/`.
+Fa servir la síntesi de veu del navegador (Web Speech API): no cal xarxa ni servidor. Si el
+navegador no en té, o si no té cap veu catalana (6/11/2026), el botó no surt.
 
 **Com llegeix, i per què.**
 
@@ -521,7 +523,7 @@ saltava de paraula en paraula: era massa brusc i feia que la mirada esperés el 
 llegir (6/11/2026).
 
 **Les frases del botó** són `comu.veu_escolta` («Escolta la targeta») i `comu.veu_para` («Para
-la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `js/veu.js`.
+la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `../comu/js/veu.js`.
 
 **Una eina nova no ha de fer res**: el botó surt sol a cada `.targeta` que tingui un `<h2>`.
 Si un text de l'eina es llegeix malament, el remei és un `aria-label` amb la lectura en paraules
