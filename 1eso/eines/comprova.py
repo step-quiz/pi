@@ -1031,11 +1031,12 @@ print(f"  termes que trencarien l'anonimat: {len(trobats)}")
 # --------------------------------------------------------------------------
 print("\nDEPENDÈNCIES EXTERNES")
 # Ni CDN ni lletres de Google: el filtre del centre no ho pot trencar, i
-# funciona sense xarxa.
+# funciona sense xarxa. Un enllaç <a> que el docent clica (la documentació, a GitHub) no és un
+# recurs: no es carrega amb la pàgina, i no compta (6/11/2026).
 # --------------------------------------------------------------------------
 remots = []
 for f in glob.glob(ruta('**', '*.html'), recursive=True) + fulls:
-    text = llegeix(f)
+    text = re.sub(r'<a\s[^>]*>', '', llegeix(f))
     remots += [(rel(f), u) for u in re.findall(r'(?:src|href)="(https?://[^"]+)"', text)]
     remots += [(rel(f), u) for u in re.findall(r'url\(\s*["\']?(https?://[^"\')]+)', text)]
 comprova(not remots, f"recursos remots: {remots}")

@@ -573,9 +573,12 @@ comprova(not sencers, f"«sencer» parlant de nombres (el terme és «enter»): 
 print(f"  «sencer» parlant de nombres: {len(sencers)}")
 
 print("\nDEPENDÈNCIES EXTERNES")
+# Cap recurs de fora (scripts, fulls d'estil, lletres, imatges): el filtre del centre no ho pot
+# trencar, i funciona sense xarxa. Un enllaç <a> que el docent clica (la documentació, a GitHub) no
+# és un recurs: no es carrega amb la pàgina, i no compta (6/11/2026).
 remots = []
 for f in glob.glob(os.path.join(REPO, '**', '*.html'), recursive=True) + glob.glob(ruta('css', '*.css')):
-    for u in re.findall(r'(?:src|href)="(https?://[^"]+)"', open(f, encoding='utf-8').read()):
+    for u in re.findall(r'(?:src|href)="(https?://[^"]+)"', re.sub(r'<a\s[^>]*>', '', open(f, encoding='utf-8').read())):
         remots.append((os.path.relpath(f, REPO), u))
 comprova(not remots, f"recursos remots: {remots}")
 print(f"  recursos remots: {len(remots)}")

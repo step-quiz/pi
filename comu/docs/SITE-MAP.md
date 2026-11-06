@@ -9,7 +9,8 @@
 The site is **pi.step-quiz.net**: adapted maths material for students with cognitive
 difficulties. Static HTML, CSS and vanilla JavaScript; no build step, no server, no external
 resource. Published by Cloudflare Pages from `main`; it must also work when opened with a double
-click (`file://`). Everything the user reads is in Catalan; code comments in `comu/` are in English,
+click (`file://`). The repository is public: **github.com/step-quiz/pi** (the teacher page links to
+each course's `docs/` there). Everything the user reads is in Catalan; code comments in `comu/` are in English,
 the rest of the repository is in Catalan.
 
 ---
