@@ -457,20 +457,21 @@ svg.barres{max-width:26rem;width:100%;margin:.4rem auto;display:block}
 .veu-boto:hover{background:var(--camp)}
 .veu-boto[aria-pressed="true"]{background:var(--blau-suau);color:var(--blau-text)}
 .veu-boto svg{width:24px;height:24px;flex:none}
-/* El que s'està llegint: un fons groc clar, com de retolador. És una classe
-   normal (.veu-bloc) perquè es vegi a tots els navegadors; el blau suau d'abans
-   amb ::highlight no es veia ni a Windows ni a Android (23/10/2026). Va amb
-   background-image perquè quedi per sobre del fons dels avisos. La paraula que
-   sona, si la veu diu per on va, un groc més fort. Els colors van escrits aquí, i
-   no amb var(): dins de ::highlight, algun navegador no les resol. */
-.veu-bloc{background-image:linear-gradient(rgba(255,204,0,.38),rgba(255,204,0,.38));
-  border-radius:var(--r-p);box-shadow:0 0 0 .3rem rgba(255,204,0,.38)}
-::highlight(veu-paraula){background-color:rgba(255,170,0,.6)}
+/* El que s'està llegint (6/11/2026): «focus i retolador que omple».
+   FOCUS: la resta de la targeta s'apaga (.veu-apagat) i el bloc que sona (.veu-bloc) es queda
+   com és. RETOLADOR: una franja groga clara per línia (.veu-retolador), a sobre del text però
+   amb mix-blend-mode: multiply, que tenyeix el blanc i deixa el text negre. S'allarga a poc a poc
+   al ritme de la veu (la transició la posa js/veu.js); mai no salta d'una paraula a l'altra. */
+.veu-fos{transition:opacity .35s ease}
+.veu-apagat{opacity:.3}
+.veu-capa{position:absolute;top:0;left:0;width:0;height:0;pointer-events:none}   /* sense z-index: el multiply ha de barrejar-se amb la pàgina */
+.veu-retolador{position:absolute;border-radius:3px;background:rgba(255,212,59,.47);mix-blend-mode:multiply;
+  opacity:0;pointer-events:none}
 @media (prefers-color-scheme: dark){
-  .veu-bloc{background-image:linear-gradient(rgba(255,214,10,.28),rgba(255,214,10,.28));
-    box-shadow:0 0 0 .3rem rgba(255,214,10,.28)}
-  ::highlight(veu-paraula){background-color:rgba(255,190,40,.5)}
+  .veu-retolador{background:rgba(255,214,10,.3);mix-blend-mode:normal}
 }
+@media (prefers-reduced-motion: reduce){ .veu-fos{transition:none} }
+
 
 /* ---- en passar-hi el ratolí, amb el teclat i quan està triat (6/11/2026) ----
    El mateix que a tot el lloc (comu/css/web.css): vora negra gruixuda i fons gris clar, sense

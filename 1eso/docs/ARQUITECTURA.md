@@ -284,14 +284,28 @@ navegador no en té, el botó no surt.
 - **No es llegeix** el que no és text per llegir: els botons, els dibuixos (`svg`), l'etiqueta
   «Exemple» (`.marca`) ni l'«Inici» i el «Final» del rètol de progrés (`.fita`).
 
-**Com marca el que llegeix.** El bloc que sona té un fons groc clar, com de retolador: la
-classe `.veu-bloc`, que funciona a tots els navegadors. Si la veu diu per on va (Edge i Safari
-ho fan; la veu de Google d'Android i moltes de Chrome, no), la paraula que sona té, a més, un
-groc més fort, fet amb `CSS.highlights`. Els estils són al final de `css/app.css`.
+**Com marca el que llegeix** («focus i retolador que omple», 6/11/2026). Dues coses, i prou:
 
-La primera versió marcava el bloc amb `CSS.highlights` i un blau molt suau, i a la pràctica no
-es veia res, ni en un portàtil amb Windows ni en un mòbil amb Android (23/10/2026). Per això el
-bloc va amb una classe i amb un color que es veu.
+- **Focus.** El bloc que sona (`.veu-bloc`) queda com és, i tot el que l'envolta dins de la
+  targeta s'esvaeix fins a l'opacitat 0,3 (`.veu-apagat`, amb una transició suau de `.veu-fos`).
+  Funciona a tots els navegadors i amb totes les veus.
+- **Retolador que omple.** Si la veu diu per on va (Edge i Safari ho fan; la veu de Google
+  d'Android i moltes de Chrome, no), una franja groga omple la línia de l'esquerra a la dreta
+  fins al final de la paraula que sona, amb una transició lineal que dura el que es triga a dir
+  la paraula. No salta de paraula en paraula: avança. Quan la veu no diu per on va, no s'endevina
+  res: només hi ha el focus.
+
+La franja no és dins del text: és una capa a part (`.veu-capa`, posada al `body`) amb un `div`
+per línia (`.veu-retolador`), col·locat amb `Range.getClientRects()` i barrejat amb
+`mix-blend-mode: multiply` perquè la lletra quedi negra a sobre del groc. Es fa així perquè
+`::highlight` no es pot animar. Si es canvia la mida de la finestra, la franja s'esborra i torna a
+sortir a la paraula següent. Amb `prefers-reduced-motion`, la franja creix sense transició.
+Els estils són al final de `css/app.css`.
+
+Història: la primera versió marcava el bloc amb `CSS.highlights` i un blau molt suau, i no es
+veia res (23/10/2026). La segona marcava el bloc de groc i la paraula amb un groc més fort que
+saltava de paraula en paraula: era massa brusc i feia que la mirada esperés el salt en lloc de
+llegir (6/11/2026).
 
 **Les frases del botó** són `comu.veu_escolta` («Escolta la targeta») i `comu.veu_para` («Para
 la veu»), a `dades/textos.js`. Les velocitats i la pausa, a dalt de `js/veu.js`.

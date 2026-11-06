@@ -77,8 +77,9 @@ un codi de verificació, que es llegeix a
 ### La lectura en veu alta
 
 Cada targeta de la caixa té, a dalt a la dreta, un botó petit amb un altaveu. En tocar-lo, la
-targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i el que s'està llegint
-es marca amb un fons groc clar, com de retolador. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
+targeta es llegeix en veu alta, a poc a poc i un bloc cada vegada, i el bloc que s'està llegint
+queda ben clar mentre la resta de la targeta s'esvaeix. Si la veu de l'ordinador diu per on va,
+un retolador groc omple la línia a poc a poc, al ritme de la veu. Tornar-lo a tocar la para. Funciona sense xarxa i sense instal·lar res.
 
 La veu és la de l'ordinador, i n'hi ha de més bones que d'altres:
 

@@ -28,16 +28,22 @@
      · No es llegeixen els botons, els dibuixos, les etiquetes «Exemple» ni
        l'«Inici» i el «Final» del rètol de progrés: només «Pas 2 de 5».
 
-   COM MARCA EL QUE LLEGEIX
-     · El bloc que sona té un fons groc clar, com de retolador: la classe
-       .veu-bloc (al final de css/app.css). És una classe normal i funciona a
-       tots els navegadors. Abans es feia amb CSS.highlights i un blau molt
-       suau, i a la pràctica no es veia res, ni a Windows ni a Android
-       (23/10/2026).
-     · Si la veu diu per on va (Edge i Safari ho fan; la veu de Google
-       d'Android i moltes de Chrome, no), la paraula que sona té, a més, un
-       groc més fort. Aquesta sí que es fa amb CSS.highlights, que no toca el
-       text: on no n'hi ha, es queda la marca del bloc, que ja n'hi ha prou.
+   COM MARCA EL QUE LLEGEIX («focus i retolador que omple», 6/11/2026)
+     · FOCUS. Mentre llegeix, la resta de la targeta s'apaga (classe .veu-apagat,
+       opacitat 0,3) i el bloc que sona es queda tal com és (.veu-bloc). Funciona
+       a tots els navegadors i amb totes les veus: és el que diu on es llegeix.
+     · RETOLADOR QUE OMPLE. Si la veu diu per on va (Edge i Safari ho fan; la veu
+       de Google d'Android i moltes de Chrome, no), la línia es va pintant de groc
+       clar, contínua, al ritme de la veu: fins al final de la paraula que sona, i
+       la paraula s'omple a poc a poc mentre es diu. No hi ha cap rectangle que
+       salti d'una paraula a l'altra: el docent va demanar que el pas fos suau,
+       perquè un salt fa que l'alumnat estigui pendent d'on sortirà el següent, i
+       no llegeixi. Si la veu no diu per on va, no es calcula res: només el focus,
+       que no s'equivoca mai.
+     · El groc és una capa a part (.veu-retolador), a sobre del text i sense tocar-lo
+       (mix-blend-mode: multiply), amb la posició de cada paraula a la pàgina. Abans
+       es feia amb CSS.highlights, que no es pot animar (23/10/2026: un blau suau
+       que no es veia; després, un groc que saltava de paraula en paraula).
    ========================================================================== */
 
 (function () {
@@ -147,15 +153,83 @@
   }
 
   /* --------------------------------------------------------- la marca ---- */
-  const potMarcar = !!(window.CSS && CSS.highlights && window.Highlight);
-  function marcaParaula(rang) {
-    if (!potMarcar) return;
-    if (rang) CSS.highlights.set("veu-paraula", new Highlight(rang));
-    else CSS.highlights.delete("veu-paraula");
-  }
-  function marcaBloc(bloc) {
+  const quiet = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* EL FOCUS: s'apaga tot el que hi ha a la targeta menys el camí fins al bloc que sona
+     (els germans de cada avantpassat) i el botó de l'altaveu. */
+  let targetaActiva = null;
+  function focus(bloc) {
     $$(".veu-bloc").forEach(x => x.classList.remove("veu-bloc"));
-    if (bloc) bloc.el.classList.add("veu-bloc");
+    $$(".veu-apagat").forEach(x => x.classList.remove("veu-apagat"));
+    if (!bloc || !targetaActiva) return;
+    bloc.el.classList.add("veu-bloc");
+    for (let n = bloc.el; n && n !== targetaActiva; n = n.parentElement) {
+      for (const g of n.parentElement ? n.parentElement.children : []) {
+        if (g !== n && !g.classList.contains("veu-boto")) g.classList.add("veu-apagat", "veu-fos");
+      }
+    }
+  }
+
+  /* EL RETOLADOR QUE OMPLE: una franja groga per línia, del principi del bloc fins al
+     final de la paraula que sona. La de l'última línia s'allarga durant el temps que
+     es triga a dir la paraula (transició lineal), i la següent paraula la retroba on sigui. */
+  const capa = document.createElement("div");
+  capa.className = "veu-capa";
+  capa.setAttribute("aria-hidden", "true");
+  let franges = [];
+
+  function rectes(rangs) {
+    // Les caixes de les paraules, agrupades per línia: [{l, t, r, b}] en coordenades de la pàgina.
+    const linies = [];
+    rangs.forEach(r => {
+      for (const c of r.getClientRects()) {
+        if (!c.width) continue;
+        const caixa = { l: c.left + scrollX, t: c.top + scrollY, r: c.right + scrollX, b: c.bottom + scrollY };
+        const l = linies.find(x => Math.abs((x.t + x.b) / 2 - (caixa.t + caixa.b) / 2) < (caixa.b - caixa.t) / 2);
+        if (l) { l.l = Math.min(l.l, caixa.l); l.r = Math.max(l.r, caixa.r); l.t = Math.min(l.t, caixa.t); l.b = Math.max(l.b, caixa.b); }
+        else linies.push(caixa);
+      }
+    });
+    return linies;
+  }
+
+  function omple(bloc, fins, durada) {
+    if (!capa.isConnected) document.body.appendChild(capa);
+    const linies = rectes(bloc.trossos.slice(0, fins + 1).map(t => t.rang).filter(Boolean));
+    while (franges.length < linies.length) {
+      const f = document.createElement("div");
+      f.className = "veu-retolador";
+      f.style.width = "0px";
+      capa.appendChild(f);
+      franges.push(f);
+    }
+    linies.forEach((l, i) => {
+      const f = franges[i], ultima = i === linies.length - 1;
+      const amplada = (l.r - l.l + 4) + "px";
+      Object.assign(f.style, { left: (l.l - 2) + "px", top: l.t + "px", height: (l.b - l.t) + "px" });
+      f.style.transition = ultima && !quiet() ? "width " + durada + "ms linear, opacity .3s" : "none";
+      f.getBoundingClientRect();                   // perquè la transició comenci des d'on és ara
+      f.style.width = amplada;
+      f.style.opacity = "1";
+    });
+  }
+
+  function esborra() {
+    franges.forEach(f => { f.style.transition = "opacity .3s"; f.style.opacity = "0"; });
+    const velles = franges;
+    franges = [];
+    setTimeout(() => velles.forEach(f => f.remove()), 350);
+  }
+
+  /* El temps que es triga a dir una paraula: a 0,85 de velocitat, uns 75 ms per lletra.
+     Només serveix per allargar la franja mentre es diu; la paraula següent la torna a posar al lloc. */
+  const temps = dit => Math.max(180, Math.min(1400, (dit || "").length * 75));
+
+  function apaga() {
+    focus(null);
+    esborra();
+    targetaActiva = null;
+    setTimeout(() => { if (!targetaActiva) $$(".veu-fos").forEach(x => x.classList.remove("veu-fos")); }, 400);
   }
 
   /* ------------------------------------------------- llegir i parar ---- */
@@ -169,7 +243,7 @@
     clearTimeout(espera);
     if (veu.speaking || veu.pending) veu.cancel();
     frase = null;
-    marcaBloc(null); marcaParaula(null);
+    apaga();
     if (boto) posaEstat(boto, false);
     boto = null;
   }
@@ -181,6 +255,7 @@
     const cua = blocs(targeta);
     if (!cua.length) return;
     boto = b; posaEstat(b, true);
+    targetaActiva = targeta;
     const meva = sessio;
     const v = triaVeu();
     let i = 0;
@@ -188,19 +263,19 @@
       if (meva !== sessio) return;
       if (i >= cua.length) { para(); return; }
       const bloc = cua[i++];
-      marcaBloc(bloc); marcaParaula(null);
+      esborra();
+      focus(bloc);
       const u = new SpeechSynthesisUtterance(bloc.text);
       u.lang = v ? v.lang : "ca-ES";
       if (v) u.voice = v;
       u.rate = VELOCITAT; u.pitch = TO; u.volume = 1;
       u.onboundary = e => {
         if (meva !== sessio || (e.name && e.name !== "word")) return;
-        const t = bloc.trossos.find(x => e.charIndex < x.fi);
-        marcaParaula(t && t.rang);
+        const k = bloc.trossos.findIndex(x => e.charIndex < x.fi);
+        if (k >= 0) omple(bloc, k, temps(bloc.text.slice(bloc.trossos[k].ini, bloc.trossos[k].fi)));
       };
       const acaba = () => {
         if (meva !== sessio) return;
-        marcaParaula(null);
         espera = setTimeout(seguent, PAUSA);
       };
       u.onend = acaba;
@@ -246,6 +321,7 @@
     }, true);
     document.addEventListener("visibilitychange", () => { if (document.hidden) para(); });
     window.addEventListener("pagehide", para);
+    window.addEventListener("resize", esborra);
     if (veu.speaking) veu.cancel();          // una lectura que ha quedat d'abans de recarregar
   }
 
