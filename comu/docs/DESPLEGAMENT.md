@@ -25,14 +25,14 @@ I ja està. Els desplegaments següents surten sols amb cada push.
 
 ## Les adreces
 
-El lloc de `4eso/` és a `https://pi.step-quiz.net/4eso/`. L'`index.html` de l'arrel hi porta
-sol, i la `404.html` de l'arrel porta les adreces d'abans de les carpetes (per exemple
-`/caixa-eines?task=2`) a la mateixa pàgina dins de `4eso/`, amb el `?task` inclòs: els
-enllaços ja enviats a l'alumnat no es trenquen. Ho fa amb JavaScript i no amb un fitxer
-`_redirects`, perquè així és segur que el `?task` no es perd pel camí.
+El mapa sencer és a [`SITE-MAP.md`](SITE-MAP.md). La portada és `https://pi.step-quiz.net/`; cada
+curs, a la seva carpeta (`/4eso/`, `/1eso/`); cada unitat, a `/4eso/u3/`; i les eines de
+l'alumnat, a `/4eso/eines?u=3`. Cloudflare Pages treu el `.html` de les adreces sol («pretty
+URLs»): els enllaços de dins de les pàgines porten el nom sencer del fitxer perquè també funcionin
+amb doble clic.
 
-Quan hi hagi material de `1eso/`, l'`index.html` de l'arrel ha de passar a ser una portada
-que deixi triar el curs.
+Des del 6/11/2026 no hi ha cap redirecció: el mapa va començar de zero, i la `404.html` de l'arrel
+és una pàgina normal que porta a l'inici.
 
 ---
 
@@ -78,7 +78,7 @@ Tots són a l'arrel del repositori, fora de les carpetes dels cursos.
 | Fitxer | Per a què serveix |
 |---|---|
 | `index.html` | la porta d'entrada: porta a `4eso/` |
-| `404.html` | la pàgina que surt quan algú s'equivoca d'adreça; Cloudflare l'agafa sol. També porta les adreces d'abans a `4eso/` |
+| `404.html` | la pàgina que surt quan algú s'equivoca d'adreça; Cloudflare l'agafa sol. No redirigeix res |
 | `favicon.svg` | la icona de la pestanya del navegador |
 | `_headers` | capçaleres de seguretat i una hora de memòria cau |
 | `robots.txt` | manté el lloc fora dels cercadors, si el vols fora |

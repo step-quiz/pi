@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud7-repas.html: el repàs de la unitat 7 i «El meu curs» (fitxa 5).
+"""Genera 1eso/u7/repas.html: el repàs de la unitat 7 i «El meu curs» (fitxa 5).
 
 L'última fitxa del curs. Com els repassos de les unitats 4 a 6: «Una de cada» i «Què he après?». I
 «El meu curs», que fa el paper del mapa conceptual final del grup (activitat 6 de la SA7): un

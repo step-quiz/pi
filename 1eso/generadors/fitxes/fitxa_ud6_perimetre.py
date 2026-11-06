@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud6-perimetre.html: el perímetre (unitat 6, fitxa 4).
+"""Genera 1eso/u6/perimetre.html: el perímetre (unitat 6, fitxa 4).
 
 Adapta l'activitat de perímetres de la situació «Sentit espacial» (el llibre, UD7, activitat 5).
 El perímetre és comptar els costats de quadret de la vora; l'àrea (unitat 3) és comptar els quadrets

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud7-simbols.html: de la paraula al símbol (unitat 7, fitxa 3).
+"""Genera 1eso/u7/simbols.html: de la paraula al símbol (unitat 7, fitxa 3).
 
 Adapta l'activitat 3 de la situació «Llenguatge algebraic i patrons» (el llibre, UD8: «De la paraula
 al símbol: variable i expressió»). La lletra n és un nombre qualsevol; «el triple d'un nombre»

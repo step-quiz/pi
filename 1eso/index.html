@@ -3,134 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F2F2F7">
-<meta name="description" content="Material de matemàtiques adaptat per a alumnat amb dificultats de tipus cognitiu: targetes de consulta i fitxes imprimibles.">
+<meta name="theme-color" content="#F2F2F5">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<title>1r ESO · material adaptat</title>
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/lloc.css">
+<title>Curs</title>
+<!-- La pàgina del curs: la capçalera, el nom del curs i les seves unitats (uN/index.html).
+     La fa ../comu/js/curs.js amb dades/unitats.js. El nom del curs només és a
+     ../comu/js/cursos.js. Mapa del lloc: ../comu/docs/SITE-MAP.md. -->
+<link rel="stylesheet" href="../comu/css/web.css">
 </head>
-<body>
-<div class="pagina">
-
-  <p class="tornar"><a href="../index.html">← inici</a></p>
-
-  <h1>1r ESO</h1>
-  <p class="subtitol">Material adaptat · alumnat amb dificultats de tipus cognitiu · aula de suport i aula ordinària</p>
-
-  <p class="entradeta">
-    El mateix contingut que el grup, unitat per unitat, amb tres regles. Un sol dibuix
-    per a tot el curs: la quadrícula de quadrets. Res que s'hagi de recordar de memòria:
-    el que cal recordar és a les targetes de consulta. I cap exercici que necessiti la
-    calculadora.
-  </p>
-
-  <!-- Les fitxes, el quadern i la caixa d'eines de cada unitat són a la pàgina de la unitat
-       (portada de l'arrel → unitat.html?ud=N): l'esquema és curs → unitat → fitxa, quadern
-       o caixa (5/11/2026). Aquí, la caixa sencera i tot el que és per al professorat. -->
-  <div class="tria">
-    <a class="tria-opcio" href="caixa-eines.html">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2"
-        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 13h24v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
-        <path d="M11 13V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/>
-        <path d="M4 19h7M21 19h7"/>
-        <rect x="13" y="18.5" width="6" height="5" rx="1"/>
-      </svg>
-      <h2>Caixa d'eines</h2>
-      <p>Totes les eines de pantalla, amb el mateix dibuix que el paper.</p>
-    </a>
-  </div>
-
-  <h2>Per al professorat</h2>
-  <div class="graella">
-    <div class="targeta">
-      <h3>Enllaços per a l'alumnat</h3>
-      <p>Cada enllaç obre la pestanya Taules i l'eina triada, i prou. Afegint el número de la
-         subtasca s'hi va directament: <code>?task=1.2</code>.</p>
-      <p class="enllacos-unitat">Sempre</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=0"><code>?task=0</code></a> Taules</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 1 · Nombres naturals</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=1"><code>?task=1</code></a> Rectangles</li>
-        <li><a href="caixa-eines.html?task=2"><code>?task=2</code></a> Quadrats</li>
-        <li><a href="caixa-eines.html?task=3"><code>?task=3</code></a> Nombres</li>
-        <li><a href="caixa-eines.html?task=4"><code>?task=4</code></a> Ordre</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 2 · Divisibilitat</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=5"><code>?task=5</code></a> Múltiples</li>
-        <li><a href="caixa-eines.html?task=6"><code>?task=6</code></a> Repartir</li>
-        <li><a href="caixa-eines.html?task=7"><code>?task=7</code></a> Divisors</li>
-        <li><a href="caixa-eines.html?task=8"><code>?task=8</code></a> Primers</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 3 · Fraccions i àrea</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=9"><code>?task=9</code></a> Fraccions</li>
-        <li><a href="caixa-eines.html?task=10"><code>?task=10</code></a> Equivalents</li>
-        <li><a href="caixa-eines.html?task=11"><code>?task=11</code></a> Compara</li>
-        <li><a href="caixa-eines.html?task=12"><code>?task=12</code></a> Sumes</li>
-        <li><a href="caixa-eines.html?task=13"><code>?task=13</code></a> Àrea</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 4 · Fraccions i percentatges</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=14"><code>?task=14</code></a> Fracció d'un nombre</li>
-        <li><a href="caixa-eines.html?task=15"><code>?task=15</code></a> Multiplicar fraccions</li>
-        <li><a href="caixa-eines.html?task=16"><code>?task=16</code></a> Percentatges</li>
-        <li><a href="caixa-eines.html?task=17"><code>?task=17</code></a> Dobles i triples</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 5 · Decimals i arrel quadrada</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=18"><code>?task=18</code></a> Decimals</li>
-        <li><a href="caixa-eines.html?task=19"><code>?task=19</code></a> Arrodonir</li>
-        <li><a href="caixa-eines.html?task=20"><code>?task=20</code></a> Sumar decimals</li>
-        <li><a href="caixa-eines.html?task=21"><code>?task=21</code></a> Fracció i decimal</li>
-        <li><a href="caixa-eines.html?task=2.4"><code>?task=2.4</code></a> Quadrats: entre quins dos nombres?</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 6 · Sentit espacial</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=22"><code>?task=22</code></a> Angles</li>
-        <li><a href="caixa-eines.html?task=23"><code>?task=23</code></a> Polígons</li>
-        <li><a href="caixa-eines.html?task=24"><code>?task=24</code></a> Triangles</li>
-        <li><a href="caixa-eines.html?task=25"><code>?task=25</code></a> Perímetre</li>
-        <li><a href="caixa-eines.html?task=13"><code>?task=13</code></a> Àrea</li>
-      </ul>
-      <p class="enllacos-unitat">Unitat 7 · Patrons i llenguatge algebraic</p>
-      <ul class="enllacos-tasca">
-        <li><a href="caixa-eines.html?task=26"><code>?task=26</code></a> Patrons</li>
-        <li><a href="caixa-eines.html?task=27"><code>?task=27</code></a> Símbols</li>
-        <li><a href="caixa-eines.html?task=28"><code>?task=28</code></a> Gràfics</li>
-      </ul>
-    </div>
-    <a class="targeta" href="verifica.html">
-      <h3>Llegir codis</h3>
-      <p>Enganxa els codis que ensenya l'alumnat en acabar una tasca: diu de quina tasca és,
-         de quin dia i com ha anat.</p>
-    </a>
-    <a class="targeta" href="textos.html">
-      <h3>Canviar les frases</h3>
-      <p>Totes les frases de la caixa en una sola pàgina, amb el que fa cada una. Es baixa
-         el fitxer nou i es puja al repositori.</p>
-    </a>
-    <div class="targeta">
-      <h3>Documentació</h3>
-      <p>Els criteris de disseny, el mapa d'adaptació i l'estat de la feina són a la
-         carpeta <code>docs/</code>, en Markdown. Es llegeixen millor al repositori,
-         que els mostra ben formatats.</p>
-    </div>
-  </div>
-
-  <div class="nota">
-    <b>Abans d'imprimir:</b> tot és en blanc i negre a posta, en A4 i amb els gràfics de
-    fons activats. La targeta de les taules s'imprimeix a doble cara, girant per la vora
-    llarga, i es plastifica.
-  </div>
-
-  <p class="peu">Projecte estàtic, sense dependències ni pas de compilació. S'obre amb
-    doble clic o es publica tal qual.</p>
-
-</div>
+<body class="w-pagina">
+<main class="w-web" id="w-web"><noscript><p><a href="../index.html">Inici</a></p></noscript></main>
+<script src="../comu/js/cursos.js"></script>
+<script src="../comu/js/web.js"></script>
+<script src="dades/unitats.js"></script>
+<script src="../comu/js/curs.js"></script>
 </body>
 </html>

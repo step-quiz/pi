@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud5-sumes.html: sumar i restar decimals (unitat 5, fitxa 3).
+"""Genera 1eso/u5/sumes.html: sumar i restar decimals (unitat 5, fitxa 3).
 
 Adapta la primera part de l'activitat 3 de la situació «Decimals i arrel quadrada» (el llibre:
 «Sumar i restar: la coma sota la coma»). Sumar decimals és sumar quadrats amb quadrats, columnes

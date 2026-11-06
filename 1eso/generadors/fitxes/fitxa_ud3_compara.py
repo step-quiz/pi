@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3-compara.html: els tipus i comparar (unitat 3, fitxa 2).
+"""Genera 1eso/u3/compara.html: els tipus i comparar (unitat 3, fitxa 2).
 Adapta les activitats Fraccions 2, 4, 5 i 6 del grup."""
 import os
 import sys

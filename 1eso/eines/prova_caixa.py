@@ -3,7 +3,7 @@
 eines/prova_caixa.py · la caixa d'eines, provada de debò en un navegador
 =========================================================================
 
-Obre caixa-eines.html en Chromium i fa el que faria l'alumnat: toca, s'equivoca,
+Obre eines.html en Chromium i fa el que faria l'alumnat: toca, s'equivoca,
 llegeix la pista, s'hi torna i acaba les tasques tancades. Després llegeix
 els codis a verifica.html. Si alguna cosa no respon com diu la
 documentació, ho diu i acaba amb error.
@@ -44,7 +44,7 @@ except ImportError:
     sys.exit("Cal Playwright: pip install playwright && python3 -m playwright install chromium")
 
 ARREL = pathlib.Path(__file__).resolve().parent.parent
-CAIXA = (ARREL / "caixa-eines.html").as_uri()
+CAIXA = (ARREL / "eines.html").as_uri()
 VERIFICA = (ARREL / "verifica.html").as_uri()
 
 errors = []
@@ -1016,7 +1016,10 @@ def main():
         obre(pg); modul(pg, "decimals", 1)
         lec = text(pg, "#xa-lectura")
         comprova("2,43" in lec and "Es llegeix: dues unitats i quaranta-tres centèsimes." in lec, f"18.1: el 2,43: «{lec}»")
-        comprova(pg.is_visible("#xa-marca"), "18.1: s'obre sense la marca «Exemple»")
+        # La pastilla «Exemple» ja no es veu (decisió S5, 6/11/2026), però el mòdul encara sap quan
+        # és l'exemple: l'element no està amagat per ell, només pel full d'estil.
+        comprova(pg.evaluate("!document.querySelector('#xa-marca').hidden"), "18.1: el mòdul no marca l'exemple")
+        comprova(not pg.is_visible("#xa-marca"), "18.1: la pastilla «Exemple» es veu (s'ha tret el 6/11/2026)")
         mou(pg, "#xa-d", 0)
         lec = text(pg, "#xa-lectura")
         comprova("2,03" in lec and "dues unitats i tres centèsimes" in lec, f"18.1: el 2,03: «{lec}»")
@@ -1239,7 +1242,6 @@ def main():
         visibles = pg.evaluate("[...document.querySelectorAll('.segment')].filter(b => !b.hidden).map(b => b.dataset.mod)")
         comprova(visibles == ["taules", "rect"], f"?task=1.3: pestanyes {visibles}")
         comprova(text(pg, "#mod-rect .sub-rotul").startswith("1.3"), "?task=1.3 no obre la 1.3")
-        comprova(pg.is_hidden(".tornar"), "?task=1.3: l'enllaç a l'inici es veu")
         pg.click('.segment[data-mod="taules"]')
         comprova(text(pg, "#mod-taules .sub-rotul").startswith("0.1"), "?task=1.3: les Taules no s'obren per la 0.1")
         comprova(not pg.is_visible("#mod-taules .sub-avant"), "?task=1.3: a les Taules es veuen les fletxes")

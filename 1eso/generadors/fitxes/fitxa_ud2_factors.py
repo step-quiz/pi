@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud2-factors.html: la factorització (unitat 2, fitxa 4).
+"""Genera 1eso/u2/factors.html: la factorització (unitat 2, fitxa 4).
 Adapta les activitats 2_5 (factorització), 2_8 i «ADN dels nombres» del grup, amb la
 decisió del docent del 25/9/2026: tres factors primers com a molt, sense potències."""
 import os

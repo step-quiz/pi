@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud2.html: els múltiples (unitat 2, fitxa 1).
+"""Genera 1eso/u2/fitxa.html: els múltiples (unitat 2, fitxa 1).
 
 Adapta les activitats 2_1 (múltiples) i 2_3 (criteris de divisibilitat) del grup.
 Fa servir les peces de dibuix de la primera fitxa de la unitat 1 (genfitxa.py).

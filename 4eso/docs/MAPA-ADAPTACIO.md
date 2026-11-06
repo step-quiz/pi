@@ -1,5 +1,7 @@
 # Mapa d'adaptació — Matemàtiques Aplicades
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 **Alumne amb dificultats de tipus cognitiu · 50 % a l'aula de suport i 50 % a l'aula ordinària · curs 2026-27**
 **Quarta versió.** La segona es va refer un cop preparades les set unitats i incorporant
 el principi de fer emergir el símbol del dibuix. Aquesta hi afegeix el graó físic previ,
@@ -246,7 +248,7 @@ de concepte sense text seguit, sis o set exercicis amb el primer apartat resolt,
 **solucionari per al professorat** amb els errors típics anotats i la traça als
 criteris d'avaluació.
 
-**La caixa d'eines** (`caixa-eines.html`): fitxer únic, vainilla, sense CDN ni
+**La caixa d'eines** (`eines.html`): fitxer únic, vainilla, sense CDN ni
 dependències, amb deu mòduls. Cada eina **s'obre ja resolta** amb un exemple i un botó
 la buida per al cas de l'alumnat.
 
@@ -274,7 +276,7 @@ la fitxa, amb els mateixos gols (0 1 1 1 2 2 3 4 4). Per a la U7, el mòdul Prob
 la barra de la pàgina 3. Un arbre interactiu seria l'addició següent si es veu que li cal.
 
 **Material de repàs i de consulta (30/9/2026).** Cada unitat té una fitxa de repàs
-(`fitxes/udN-repas.html`) amb «Una de cada» i «Què he après?», i hi ha tres targetes de
+(`uN/repas.html`) amb «Una de cada» i «Què he après?», i hi ha tres targetes de
 consulta (`targetes/`) per tenir a la taula, com a `1eso/`.
 
 **Avís permanent sobre `repas-main`.** Està calibrat per a alumnat que entra a

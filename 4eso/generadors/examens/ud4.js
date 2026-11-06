@@ -9,7 +9,7 @@
                                                 4eso/docx/examen-ud4-solucionari.docx
 
   D'on surt cada cosa:
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud4.html i del seu solucionari.
+  · Els apartats a), b), c) i d), dels exercicis de u4/fitxa.html i del seu solucionari.
     On la fitxa no en tenia prou, n'hi ha un de nou, i al solucionari porta la marca «nou».
   · Com la fitxa, l'examen no demana mai aïllar la x ni la fórmula general: la balança,
     comprovar, x² = k amb l'arrel i decidir quina solució té sentit.
@@ -108,7 +108,7 @@ const solucionari = privat => [
   ...sol.titol(4),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *NA o AS*; el criteri on més pot lluir és l'1.1, interpretar les solucions. Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud4.html_) i del seu solucionari. No es demana mai aïllar la incògnita ni la fórmula general, com a la fitxa. Sense les preguntes obertes de la fitxa (6e i 7d). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_u4/fitxa.html_) i del seu solucionari. No es demana mai aïllar la incògnita ni la fórmula general, com a la fitxa. Sense les preguntes obertes de la fitxa (6e i 7d). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 

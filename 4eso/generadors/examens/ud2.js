@@ -9,7 +9,7 @@
                                                 4eso/docx/examen-ud2-solucionari.docx
 
   D'on surt cada cosa:
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud2.html i del seu solucionari.
+  · Els apartats a), b), c) i d), dels exercicis de u2/fitxa.html i del seu solucionari.
     On la fitxa no en tenia prou, n'hi ha un de nou, i al solucionari porta la marca «nou».
   · Sense les preguntes de justificació oberta de la fitxa (6e i 7c).
   · La regla trencada de la fitxa (5c, el portàtil que surt més barat a terminis) hi és,
@@ -122,7 +122,7 @@ const solucionari = privat => [
   ...sol.titol(2),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* als criteris 1.1 i 5.1. Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud2.html_) i del seu solucionari. Sense les dues preguntes de justificació oberta de la fitxa (6e i 7c). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_u2/fitxa.html_) i del seu solucionari. Sense les dues preguntes de justificació oberta de la fitxa (6e i 7c). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 

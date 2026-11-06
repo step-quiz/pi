@@ -9,7 +9,8 @@
    comença per «pi1-», i la subtasca demanada (?task=1.3) va lligada a la seva
    tasca, perquè aquí tots els mòduls en tenen.
 
-   ENLLAÇOS FILTRATS PER A L'ALUMNAT · caixa-eines?task=n
+   UNA SOLA EINA, PER A LES PROVES · eines.html?task=n
+   Ja no s'enllaça enlloc (6/11/2026): l'alumnat entra amb eines.html?u=N (més avall).
    Només es veuen dues pestanyes: la tasca 0 (les Taules), sempre la
    primera, i la tasca n. Els números són l'atribut data-tasca de cada botó.
      - Sense ?task es veu la caixa sencera, com sempre.
@@ -18,11 +19,10 @@
      - S'obre directament la tasca n.
      - No es llegeix ni s'escriu el mòdul desat: en un ordinador compartit,
        cada persona entraria on ho va deixar l'anterior.
-     - S'amaga l'enllaç a l'inici, que és una pàgina per al docent.
 
-   LES EINES D'UNA UNITAT · caixa-eines?ud=N&tasques=0,2,4
-   Ho fa servir la pàgina de cada unitat (unitat.html): només es veuen les tasques
-   de la llista, i l'enllaç de dalt torna a la unitat. Vegeu aplicaTasques().
+   LES EINES D'UNA UNITAT · eines.html?u=N
+   L'enllaç que el docent copia a la pàgina de la unitat i envia a l'alumnat. Només es
+   veuen les eines de la unitat N, i la capçalera no porta cap enllaç. Vegeu aplicaUnitat().
    ========================================================================== */
 
 (function () {
@@ -79,8 +79,6 @@
 
     permesos = visibles.map(b => b.dataset.mod);
     botons.forEach(b => { b.hidden = !permesos.includes(b.dataset.mod); });
-    const tornar = $(".tornar");
-    if (tornar) tornar.hidden = true;
     return (triada || base).dataset.mod;
   }
 
@@ -122,32 +120,38 @@
     triaUnitat(botons, desada && (desada === "totes" || nums.includes(desada)) ? desada : "totes", false);
   }
 
-  /** ?tasques=0,2,4 (des de la pàgina de cada unitat, unitat.html): només es veuen
-      aquestes pestanyes, i s'obre la primera que no és la 0. Amb ?ud=N, l'enllaç de
-      dalt torna a la pàgina de la unitat. Com amb ?task, no es desa res. */
-  function aplicaTasques(botons) {
-    const p = new URLSearchParams(location.search);
-    const valor = p.get("tasques");
-    if (valor === null) return null;
-    const nums = valor.split(",").map(x => x.trim()).filter(x => /^\d+$/.test(x)).map(x => String(Number(x)));
+  /** eines.html?u=N: l'enllaç que el docent envia a l'alumnat (6/11/2026). ../comu/js/alumne.js
+      ja ha llegit la unitat (PI.einesUnitat). Només es veuen les seves eines (el camp tasques de
+      dades/unitats.js): primer les de la unitat, en l'ordre de les dades, i després d'una ratlla,
+      les de sempre (data-comuna). S'obre la primera de la unitat. Com amb ?task, no es desa res. */
+  function aplicaUnitat(botons) {
+    const u = window.PI && window.PI.einesUnitat;
+    if (!u) return null;
+    const nums = (u.tasques || []).map(String);
     const visibles = botons.filter(b => nums.includes(b.dataset.tasca));
     if (!visibles.length) return null;
     permesos = visibles.map(b => b.dataset.mod);
     botons.forEach(b => { b.hidden = !permesos.includes(b.dataset.mod); });
-    const ud = p.get("ud") || "";
-    const tornar = $(".tornar a");
-    if (tornar && /^\d+$/.test(ud)) {
-      tornar.href = "unitat.html?ud=" + ud;
-      tornar.textContent = "← unitat " + ud;
+    const propies = nums.map(n => visibles.find(b => b.dataset.tasca === n))
+      .filter(b => b && !("comuna" in b.dataset));
+    const comunes = visibles.filter(b => "comuna" in b.dataset);
+    const barra = visibles[0].parentElement;
+    propies.forEach(b => barra.appendChild(b));
+    if (propies.length && comunes.length) {
+      const ratlla = document.createElement("span");
+      ratlla.className = "w-separa";
+      ratlla.setAttribute("aria-hidden", "true");
+      barra.appendChild(ratlla);
     }
-    return (visibles.find(b => b.dataset.tasca !== "0") || visibles[0]).dataset.mod;
+    comunes.forEach(b => barra.appendChild(b));
+    return (propies[0] || visibles[0]).dataset.mod;
   }
 
   function arrenca() {
     const botons = $$(".segment[data-mod]");
     botons.forEach(p => { p.onclick = () => obre(p.dataset.mod); });
 
-    let inicial = aplicaFiltre(botons) || aplicaTasques(botons);
+    let inicial = aplicaFiltre(botons) || aplicaUnitat(botons);
     filaUnitats(botons);
     if (!inicial) {
       const desat = memoria.get(CLAU);

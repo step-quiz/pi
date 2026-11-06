@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud4.html: la fracció d'un nombre (unitat 4, fitxa 1).
+"""Genera 1eso/u4/fitxa.html: la fracció d'un nombre (unitat 4, fitxa 1).
 Adapta l'activitat 3 (Fracció d'un nombre) de la situació «És gran l'ou del kiwi?»."""
 import os
 import sys

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fa el quadern d'activitats de cada unitat: quadern/udN.html.
+"""Fa el quadern d'activitats de cada unitat: uN/quadern.html.
 
     python3 generadors/gen_quadern.py          (des de 4eso/)
     python3 generadors/gen_quadern.py 3        (només la UD3)
@@ -43,7 +43,12 @@ import glob, importlib.util, os, re, sys
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ARREL = os.path.dirname(AQUI)
 DADES = os.path.join(AQUI, "quadern")
-SORTIDA = os.path.join(ARREL, "quadern")
+ICONA_IMPRIMEIX = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+                   'stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/>'
+                   '<path d="M7 14h10v7H7z"/></svg>')
+ICONA_SOL = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+             'stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>')
+SORTIDA = ARREL   # cada quadern va a la carpeta de la seva unitat: uN/quadern.html
 
 NEG, GRIS, MANUS, CLAR, FONS, FONS2 = "#000", "#5E5E5E", "#3A3A3A", "#BFBFBF", "#F2F2F2", "#E4E4E4"
 TIP = 'font-family="system-ui"'
@@ -419,31 +424,28 @@ def genera(num_u):
 </head>
 <body class="amb-repte">
 
-<nav class="navega no-imprimir" aria-label="Navegació"><a href="../unitat.html?ud={u.NUM}">← la unitat</a><a class="boto" href="../fitxes/ud{u.NUM}.html">la fitxa de la unitat</a></nav>
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat {u.NUM}</a><script src="../../comu/js/paper.js"></script></nav>
 
 <div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
   <div class="grup">
-    <span class="et" id="et-n">Apartats de cada activitat</span>
-    <div class="botons" data-filtre="n" role="group" aria-labelledby="et-n">
-      <button type="button" data-valor="1" aria-pressed="false">Petit <small>{PER_FER[1]}</small></button>
-      <button type="button" data-valor="2" aria-pressed="true">Mitjà <small>{PER_FER[2]}</small></button>
-      <button type="button" data-valor="3" aria-pressed="false">Elevat <small>{PER_FER[3]}</small></button>
+    <b class="et" id="et-n">Quantitat d'exercicis?</b>
+    <div class="botons" data-filtre="n" role="radiogroup" aria-labelledby="et-n">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Petita</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="2" aria-checked="true">Mitjana</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="3" aria-checked="false">Alta</button>
     </div>
   </div>
   <div class="grup">
-    <span class="et" id="et-repte">Activitats</span>
-    <div class="botons" data-filtre="repte" role="group" aria-labelledby="et-repte">
-      <button type="button" data-valor="0" aria-pressed="true">Com les de la fitxa <small>{ng}</small></button>
-      <button type="button" data-valor="1" aria-pressed="false">Amb repte {ESTRELLA} <small>{ng + nr}</small></button>
+    <b class="et" id="et-repte">Tipologia d'exercicis?</b>
+    <div class="botons" data-filtre="repte" role="radiogroup" aria-labelledby="et-repte">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Semblants als de la fitxa</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegint exercicis diferents que suposen un repte</button>
     </div>
   </div>
-  <div class="grup accions">
-    <p class="recompte" id="recompte" aria-live="polite"></p>
-    <div class="botons">
-      <button type="button" id="imprimeix">Imprimeix el quadern</button>
-      <button type="button" id="imprimeix-sol">Imprimeix el solucionari</button>
-      <button type="button" id="mostra-sol" aria-expanded="false" aria-controls="solucionari">Mostra el solucionari</button>
-    </div>
+  <p class="recompte" id="recompte" aria-live="polite"></p>
+  <div class="botons">
+    <button type="button" class="w-b w-pdf w-principal" id="imprimeix">{ICONA_IMPRIMEIX}Imprimeix</button>
+    <button type="button" class="w-b w-pdf" id="imprimeix-sol">{ICONA_SOL}Imprimeix el solucionari</button>
   </div>
 </div>
 
@@ -463,13 +465,13 @@ def genera(num_u):
   <div class="abans">
     <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
     per cada exercici de la fitxa ({nb} blocs), i la frase de sota del títol diu quin. Cada bloc té
-    una activitat com la de la fitxa i, si es tria «Amb repte», una altra una mica diferent, amb
-    estrella. A dalt de la pàgina es tria quants apartats té cada activitat: a) resolt i
-    {PER_FER[1]} per fer (petit), {PER_FER[2]} (mitjà) o {PER_FER[3]} (elevat). El nombre
+    una activitat com la de la fitxa i, si es tria «Afegint exercicis diferents que suposen un repte», una altra
+    una mica diferent, amb estrella. A dalt de la pàgina es tria la quantitat d'exercicis de cada activitat: a) resolt i
+    {PER_FER[1]} per fer (petita), {PER_FER[2]} (mitjana) o {PER_FER[3]} (alta). El nombre
     d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre
     amb els del quadern si s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el
-    filtre posat: <code>quadern/ud{u.NUM}.html?n=1&amp;repte=1</code> (n: 1 petit, 2 mitjà,
-    3 elevat).</p>
+    filtre posat: <code>u{u.NUM}/quadern.html?n=1&amp;repte=1</code> (n: 1 petita, 2 mitjana,
+    3 alta).</p>
   </div>
   <p>Les de repte no tenen més text que les altres: fan el mateix camí al revés, hi afegeixen un
   pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
@@ -504,11 +506,11 @@ def main():
     quines = [int(a) for a in sys.argv[1:]] or unitats()
     os.makedirs(SORTIDA, exist_ok=True)
     for n in quines:
-        with open(os.path.join(SORTIDA, f"ud{n}.html"), "w", encoding="utf-8") as f:
+        with open(os.path.join(SORTIDA, f"u{n}", "quadern.html"), "w", encoding="utf-8") as f:
             f.write(genera(n))
         u = carrega(n)
         ng = sum(1 for b in u.BLOCS for a in b["acts"] if not a["repte"])
-        print(f"  quadern/ud{n}.html  ·  {ng} activitats ({2 * ng} amb repte)  ·  "
+        print(f"  u{n}/quadern.html  ·  {ng} activitats ({2 * ng} amb repte)  ·  "
               f"a) resolt i {PER_FER[1]}, {PER_FER[2]} o {PER_FER[3]} apartats per fer")
 
 

@@ -36,7 +36,7 @@ def main():
             grafics.update(json.load(f))
 
     problemes, fets, usats = [], {}, set()
-    fitxes = sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html")))
+    fitxes = sorted(glob.glob(os.path.join(ARREL, "u[0-9]*", "fitxa.html")))
     textos = {f: open(f, encoding="utf-8").read() for f in fitxes}
     for f, text in textos.items():
         for nom in MARCADOR.findall(text):

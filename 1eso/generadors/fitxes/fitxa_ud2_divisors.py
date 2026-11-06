@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud2-divisors.html: divisors i primers (unitat 2, fitxa 3).
+"""Genera 1eso/u2/divisors.html: divisors i primers (unitat 2, fitxa 3).
 Adapta les activitats 2_4 (divisors) i 2_7 (Eratòstenes, primers i compostos) del grup."""
 import os
 import sys

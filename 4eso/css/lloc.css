@@ -1,6 +1,8 @@
 /* ============================================================================
-   lloc.css · les pàgines de navegació (index.html, unitat.html)
+   lloc.css · les dues pàgines d'ajuda del docent (textos.html i verifica.html)
    ----------------------------------------------------------------------------
+   Des del 6/11/2026, la resta de pàgines de pantalla fan servir la closca comuna,
+   ../../comu/css/web.css (comu/docs/SITE-MAP.md).
    Aquestes pàgines són per al DOCENT, no per a l'alumnat: aquí sí que hi pot
    haver text seguit i densitat normal. La restricció de «cap paràgraf» val
    només per a les fitxes.

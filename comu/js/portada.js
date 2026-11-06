@@ -1,33 +1,45 @@
 /* ============================================================================
-   comu/js/portada.js · la portada del lloc (index.html de l'arrel)
+   comu/js/portada.js · the home page (index.html at the repository root)
    ----------------------------------------------------------------------------
-   Una columna per curs, amb les seves unitats. Cada unitat porta a la pàgina de
-   la unitat del seu curs (1eso/unitat.html?ud=N, 4eso/unitat.html?ud=N).
+   «Curs 2026-27», the title, and one column per course of comu/js/cursos.js with
+   its units (CURS/uN/index.html) and its «Professorat» button (CURS/professorat.html).
+   No header bar here: this page is «Inici» (decision of 6/11/2026).
 
-   Les dades són les de cada curs (1eso/dades/unitats.js i 4eso/dades/unitats.js).
-   Totes dues es diuen window.UNITATS: index.html les carrega una darrere l'altra i
-   en desa una còpia a cada columna (data-unitats="U_1ESO"…). El nom del curs és
-   a index.html, l'única pàgina on pot sortir (vegeu ANONIMAT a 4eso/eines/comprova.py).
+   Each course keeps its data in CURS/dades/unitats.js, and every one of those files
+   is called window.UNITATS. They are loaded one after the other and copied.
    ========================================================================== */
 
 (function () {
   "use strict";
+  const PI = window.PI;
 
-  function columna(col) {
-    const unitats = window[col.dataset.unitats] || [];
-    const llista = document.createElement("ol");
-    llista.className = "unitats";
-    unitats.forEach(u => {
-      const li = document.createElement("li");
-      li.innerHTML = '<a class="unitat" href="' + col.dataset.dir + "/unitat.html?ud=" + u.num + '">' +
-        '<span class="num">' + u.num + "</span><span>" + u.titol + "</span></a>";
-      llista.appendChild(li);
-    });
-    col.appendChild(llista);
+  function columna(c, unitats) {
+    return '<section class="w-curs" aria-labelledby="h-' + c.id + '"><div class="w-curs-cap"><h2 id="h-' + c.id + '">' +
+      PI.esc(c.nom) + "</h2>" +
+      PI.boto({ rol: "nav", href: c.id + "/professorat.html", text: "Professorat", icona: "docent", classe: "w-prof" }) +
+      '</div><ol class="w-unitats">' + unitats.map(u => '<li><a class="w-b w-nav" href="' + c.id + "/u" + u.num +
+        '/index.html"><span class="w-num">' + u.num + "</span>" + PI.esc(u.titol) + "</a></li>").join("") +
+      "</ol></section>";
   }
 
   function arrenca() {
-    document.querySelectorAll(".curs[data-unitats]").forEach(columna);
+    const web = document.getElementById("w-web");
+    if (!web || new URLSearchParams(location.search).get("other-versions") === "1") return;
+    const dades = {};
+    const cursos = PI.CURSOS.slice();
+    (function seguent(i) {
+      if (i === cursos.length) {
+        web.innerHTML = '<p class="w-curs-escolar">' + PI.cursEscolar(new Date()) + "</p>" +
+          '<h1 class="w-titol">Material adaptat de matemàtiques</h1><div class="w-cursos">' +
+          cursos.map(c => columna(c, dades[c.id] || [])).join("") + "</div>";
+        return;
+      }
+      window.UNITATS = undefined;
+      PI.carrega([cursos[i].id + "/dades/unitats.js"], () => {
+        dades[cursos[i].id] = window.UNITATS || [];
+        seguent(i + 1);
+      });
+    })(0);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", arrenca);

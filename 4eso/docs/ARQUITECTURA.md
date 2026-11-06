@@ -1,5 +1,7 @@
 # Arquitectura
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 Com està muntat el projecte i com ampliar-lo sense trencar res.
 
 ---
@@ -35,15 +37,15 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 
 ```
 ├── index.html              pàgina del professorat: caixa sencera, frases, codis
-├── unitat.html             la pàgina d'una unitat (?ud=N): fitxes, targetes, quadern, caixa i detall; la fa ../comu/js/unitat.js
-├── caixa-eines.html        l'aplicació: només marcatge
+├── uN/index.html             la pàgina d'una unitat (?ud=N): fitxes, targetes, quadern, caixa i detall; la fa ../comu/js/unitat.js
+├── eines.html        l'aplicació: només marcatge
 │
 ├── css/
 │   ├── tokens.css          variables: paleta de paper, paleta de pantalla, mode fosc
 │   ├── fitxa.css           les fitxes imprimibles          (importa tokens)
 │   ├── quadern.css         el quadern d'activitats: filtre i impressió (després de fitxa.css)
 │   ├── app.css             la caixa d'eines                (importa tokens)
-│   └── lloc.css            index.html i unitat.html        (importa tokens)
+│   └── lloc.css            index.html i uN/index.html        (importa tokens)
 │
 ├── verifica.html           pàgina del professorat: llegir els codis de verificació
 │
@@ -135,7 +137,7 @@ Tres passos i no cal tocar `app.js`.
 })();
 ```
 
-**2.** A `caixa-eines.html`, el botó i la secció. El botó porta el següent número de
+**2.** A `eines.html`, el botó i la secció. El botó porta el següent número de
 tasca lliure:
 
 ```html
@@ -154,7 +156,7 @@ muntats.
 amb `<span class="marca">Exemple</span>`, i un botó el buida per al cas de l'alumnat.
 És el mateix criteri que «el primer apartat ja resolt» de les fitxes.
 
-**Enllaços filtrats per a l'alumnat.** `caixa-eines.html?task=n` mostra només la tasca 0
+**Enllaços filtrats per a l'alumnat.** `eines.html?task=n` mostra només la tasca 0
 (la Calculadora), sempre la primera, i la tasca `n`, que és la que s'obre. Sense `?task`
 es veu la caixa sencera; amb `?task=0` o un número que no existeix, només la Calculadora.
 En mode filtrat no es fa servir el mòdul desat a `localStorage` i s'amaga l'enllaç a
@@ -389,7 +391,7 @@ registren els mateixos mòduls (`CE.registraCataleg`).
 ## 5. Afegir una unitat
 
 **1.** Una entrada a `dades/unitats.js`. Els índexs es refan sols.
-**2.** La fitxa a `fitxes/udN.html`, amb `<link rel="stylesheet" href="../css/fitxa.css">`.
+**2.** La fitxa a `uN/fitxa.html`, amb `<link rel="stylesheet" href="../css/fitxa.css">`.
 **3.** Si porta dibuixos nous, un generador a `generadors/`.
 
 L'esquelet d'una fitxa:
@@ -425,7 +427,7 @@ toca. Cada script **imprimeix les seves pròpies comprovacions numèriques** en 
 | `gen_grafics4.py` | doble recta de la U2, repartiment de la U6, barra de la U7 |
 | `gen_grafics5.py` | doble recta del mapa (U3) i les dues paràboles de «A la vida de cada dia» (U5) |
 | `posa_grafics.py` | executa els cinc `gen_grafics*.py` i posa cada gràfic a la seva fitxa |
-| `gen_repas.py` | les set fitxes de repàs (`fitxes/udN-repas.html`): el dibuix de la pàgina 1 de la fitxa, «Una de cada» i «Què he après?» |
+| `gen_repas.py` | les set fitxes de repàs (`uN/repas.html`): el dibuix de la pàgina 1 de la fitxa, «Una de cada» i «Què he après?» |
 | `gen_pdf.py` | els PDF de totes les fitxes (alumnat i solucionari) i de les targetes (un per targeta, amb les dues cares) |
 
 **Com arriben a les fitxes.** A cada fitxa, cada gràfic va entre dos marcadors:

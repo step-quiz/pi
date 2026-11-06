@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud5-fraccions.html: de la fracció al decimal (unitat 5, fitxa 4).
+"""Genera 1eso/u5/fraccions.html: de la fracció al decimal (unitat 5, fitxa 4).
 
 Adapta l'activitat 4 de la situació «Decimals i arrel quadrada». Una fracció es passa a decimal al
 quadrat de 100: 1/4 de 100 quadrets són 25 quadrets (la fracció d'un nombre, unitat 4), i 25

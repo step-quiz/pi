@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud6-poligons.html: els polígons (unitat 6, fitxa 2).
+"""Genera 1eso/u6/poligons.html: els polígons (unitat 6, fitxa 2).
 
 Adapta l'activitat 4 de la situació «Sentit espacial» (el llibre, UD6: «Polígons»). Els polígons al
 geoplà: quants costats i quants vèrtexs tenen, com es diuen, si són regulars i si són còncaus. Els

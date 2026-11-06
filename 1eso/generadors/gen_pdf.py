@@ -6,7 +6,8 @@
 
 Què fa:
 
-    fitxes/udN.html      →  pdf/udN-alumnat.pdf  i  pdf/udN-solucionari.pdf
+    uN/fitxa.html        →  pdf/udN-alumnat.pdf  i  pdf/udN-solucionari.pdf
+    uN/NOM.html          →  pdf/udN-NOM-alumnat.pdf  i  pdf/udN-NOM-solucionari.pdf
     targetes/NOM.html    →  pdf/targeta-NOM.pdf  (totes les cares)
 
 Cada bloc .full ha de ser exactament una pàgina. Si en surt una de més, algun
@@ -52,8 +53,12 @@ def main():
     os.makedirs(SORTIDA, exist_ok=True)
     empremtes, problemes = {}, []
 
-    for origen in sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html"))):
-        nom = os.path.basename(origen)[:-5]
+    # Les pàgines de cada unitat (uN/*.html menys index.html i el quadern) amb el nom de PDF de
+    # sempre: uN/fitxa.html → udN, uN/NOM.html → udN-NOM (6/11/2026; comu/js/web.js, PI.pdfBase).
+    for origen in sorted(f for f in glob.glob(os.path.join(ARREL, "u[0-9]*", "*.html"))
+                         if os.path.basename(f) not in ("index.html", "quadern.html")):
+        m = re.search(r"u(\d+)[/\\]([\w-]+)\.html$", origen)
+        nom = f"ud{m[1]}" + ("" if m[2] == "fitxa" else f"-{m[2]}")
         rel = os.path.relpath(origen, ARREL)
         html = open(origen, encoding="utf-8").read()
         cap, alumnat, sol = paper.blocs(html)

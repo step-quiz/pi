@@ -1,5 +1,7 @@
 # Criteris de disseny
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 Les regles de tot el material de `1eso/`: el que s'imprimeix (les fitxes i les targetes de
 consulta) i la caixa d'eines de la pantalla. Cada regla porta el seu perquè. Si una regla s'ha de
 trencar, primer es canvia aquí.

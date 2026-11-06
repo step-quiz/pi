@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3.html: què és una fracció (unitat 3, fitxa 1).
+"""Genera 1eso/u3/fitxa.html: què és una fracció (unitat 3, fitxa 1).
 Adapta les activitats Fraccions 0 i 2 del grup."""
 import os
 import sys

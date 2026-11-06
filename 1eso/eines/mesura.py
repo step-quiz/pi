@@ -32,7 +32,8 @@ except ImportError:
 def main():
     print(f"Alçada útil d'un A4: {paper.UTIL_CM:.1f} cm\n")
     vessen, justes, totes, amples = [], [], [], []
-    fonts = ([(f, "pàgina") for f in sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html")))]
+    fonts = ([(f, "pàgina") for f in sorted(g for g in glob.glob(os.path.join(ARREL, "u[0-9]*", "*.html"))
+                                         if os.path.basename(g) not in ("index.html", "quadern.html"))]
              + [(f, "cara") for f in sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html")))])
     for origen, paraula in fonts:
         nom = os.path.relpath(origen, ARREL)

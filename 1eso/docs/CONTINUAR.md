@@ -1,12 +1,14 @@
 # Continuar
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 > **Per a una conversa nova:** comença per [`TRASPAS.md`](TRASPAS.md), que explica com continuar
 > les unitats 4 a 7 amb el mateix mètode.
 
 > **5/11/2026 · l'esquema de navegació.** `fitxes.html` i `js/lloc.js` ja no existeixen: l'esquema és
 > sempre curs → unitat → fitxa, quadern o caixa. Les fitxes i les targetes tornen a la seva unitat
 > («← unitat N»), les targetes surten a la pàgina de la unitat on neixen, i el detall per al docent
-> és plegat a `unitat.html`. Vegeu `../../4eso/docs/CONTINUAR.md`, apartat 10e. Les referències a
+> és plegat a `uN/index.html`. Vegeu `../../4eso/docs/CONTINUAR.md`, apartat 10e. Les referències a
 > `fitxes.html` més avall són història.
 
 On és la feina de `1eso/` i què ve després. S'actualitza al final de cada sessió de treball.
@@ -22,7 +24,7 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
   `fonts/OFL.txt`. És la mateixa dels exàmens DOCX.
 - **La primera targeta de consulta**: les taules de multiplicar, en dues cares
   (`targetes/taules.html` i `pdf/targeta-taules.pdf`).
-- **La caixa d'eines de la unitat 1** (`caixa-eines.html`): cinc eines (taules, rectangles,
+- **La caixa d'eines de la unitat 1** (`eines.html`): cinc eines (taules, rectangles,
   quadrats, nombres i ordre de les operacions), catorze subtasques i sis tasques tancades amb
   codi de verificació. Amb `verifica.html`, per llegir els codis, i `textos.html`, per canviar
   les frases. Com està feta: [`ARQUITECTURA.md`](ARQUITECTURA.md). Per què és així:
@@ -31,7 +33,7 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 - **La caixa d'eines de la unitat 2**, a la mateixa pàgina: quatre eines més (múltiples,
   repartir, divisors i primers), deu subtasques i cinc tasques tancades (5.2, 5.4, 6.2, 7.2 i
   8.2). Són les tasques 5 a 8. En total, la caixa té 24 subtasques i onze tasques tancades.
-- **Les cinc fitxes de la unitat 2**: els múltiples (`fitxes/ud2.html`), repartir en files
+- **Les cinc fitxes de la unitat 2**: els múltiples (`u2/fitxa.html`), repartir en files
   (`ud2-repartir.html`), divisors i primers (`ud2-divisors.html`), la factorització
   (`ud2-factors.html`) i el repàs amb «Què he après?» (`ud2-repas.html`). I l'**examen de la
   unitat 2** (`generadors/examens/ud2.js`): vuit exercicis en 4 pàgines, i el solucionari en 2.
@@ -45,12 +47,12 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
 - **La 0.1 i la 3.1, més lleugeres** (24 de setembre de 2026): a la 0.1 els dos números es trien
   amb pastilles i tota la taula és plegada darrere d'un botó; a la 3.1 el dibuix ja no repeteix
   els rètols dels comptadors.
-- **Quatre fitxes de la unitat 1.** La 1 (`fitxes/ud1.html`), rectangles i quadrats: 9 pàgines i 3
+- **Quatre fitxes de la unitat 1.** La 1 (`u1/fitxa.html`), rectangles i quadrats: 9 pàgines i 3
   de solucionari, validada pel docent el 24 de setembre de 2026, amb la lletra manuscrita dels
-  exemples resolts un 30% més gran. La 2 (`fitxes/ud1-nombres.html`), centenes, desenes i
+  exemples resolts un 30% més gran. La 2 (`u1/nombres.html`), centenes, desenes i
   unitats, per a l'activitat 1_7 del grup: 6 pàgines i 2 de solucionari. La 3
-  (`fitxes/ud1-ordre.html`), l'ordre de les operacions, per a l'activitat 1_14: 6 pàgines i 2 de
-  solucionari. La 4 (`fitxes/ud1-repas.html`), el repàs i «Què he après?», per a les activitats
+  (`u1/ordre.html`), l'ordre de les operacions, per a l'activitat 1_14: 6 pàgines i 2 de
+  solucionari. La 4 (`u1/repas.html`), el repàs i «Què he après?», per a les activitats
   1_1, 1_3, 1_5, 1_15 i 1_16: 6 pàgines i 2 de solucionari. **Encara no tenen els PDF**: vegeu
   l'apartat 4.
 - **L'examen de la unitat 1** (`generadors/examens/ud1.js`), en DOCX amb el motor comú: deu
@@ -150,10 +152,10 @@ On és la feina de `1eso/` i què ve després. S'actualitza al final de cada ses
    la caixa: tasques 18 a 21 i la 2.4, i la targeta «Decimals i arrels» (`targetes/decimals.html`)
    ([`MAPA-ADAPTACIO.md`](MAPA-ADAPTACIO.md), apartat 8 bis). Falten, per aquest ordre: el PDF de la
    targeta (al Codespace, amb `generadors/gen_pdf.py`), les sis fitxes, els seus PDF i l'examen.
-   Les fitxes 1, «Els decimals» (`fitxes/ud5.html`), 2, «Arrodonir i truncar»
-   (`fitxes/ud5-arrodonir.html`), i 3, «Sumar i restar decimals» (`fitxes/ud5-sumes.html`), fetes
-   el 29/9/2026, 4, «De la fracció al decimal» (`fitxes/ud5-fraccions.html`), i 5, «Quadrats i
-   arrels» (`fitxes/ud5-arrel.html`), i 6, el repàs (`fitxes/ud5-repas.html`). L'examen
+   Les fitxes 1, «Els decimals» (`u5/fitxa.html`), 2, «Arrodonir i truncar»
+   (`u5/arrodonir.html`), i 3, «Sumar i restar decimals» (`u5/sumes.html`), fetes
+   el 29/9/2026, 4, «De la fracció al decimal» (`u5/fraccions.html`), i 5, «Quadrats i
+   arrels» (`u5/arrel.html`), i 6, el repàs (`u5/repas.html`). L'examen
    (`generadors/examens/ud5.js`), fet: **la unitat 5 és acabada**. Falta revisar l'apartat 8 d) de
    l'examen, que és nou, i provar-la a l'aula.
    **La unitat 6, «Sentit espacial», del 5 d'abril al 10 de maig: en curs.** El pla, validat el 29

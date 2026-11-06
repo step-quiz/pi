@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3-mapes.html: quants km²? (unitat 3, l'última fitxa en ordre).
+"""Genera 1eso/u3/mapes.html: quants km²? (unitat 3, l'última fitxa en ordre).
 Adapta les activitats 8 i 9 de la situació «Com és de gran Gaza?»: els km² de Barcelona i de
 Gaza en un mapa amb quadrícula, amb el contorn esquemàtic (decisió del docent del 26/9/2026).
 Cada quadret és 1 km², i els quadrets es llegeixen en centenes, desenes i unitats (unitat 1)."""

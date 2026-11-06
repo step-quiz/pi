@@ -11,85 +11,63 @@ mateixos. El que serveix per a tots dos és a `comu/`.
 
 ## L'estructura
 
+**El mapa del lloc, l'aspecte i les regles són a [`comu/docs/SITE-MAP.md`](comu/docs/SITE-MAP.md)**
+(en anglès, per a qui hi arribi de nou, persona o IA). Si el codi i aquell document no coincideixen,
+s'arregla el document en el mateix commit.
+
 | Carpeta o fitxer | Què hi ha |
 |---|---|
-| `4eso/` | Tot el material de Matemàtiques Aplicades: les set fitxes i les seves fitxes de repàs, el quadern d'activitats de la UD3, tres targetes de consulta, la caixa d'eines, els PDF, els exàmens, la documentació, els generadors i el test. Vegeu [`4eso/README.md`](4eso/README.md) |
-| `1eso/` | Tot el material de Matemàtiques: les targetes de consulta, les fitxes, la caixa d'eines i el test. Vegeu [`1eso/README.md`](1eso/README.md) |
-| `comu/` | El que comparteixen els dos materials: la portada i la pàgina de cada unitat (`comu/js/`), el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
-| `index.html` | La porta d'entrada: una columna per curs amb les seves unitats, i al peu l'enllaç a la pàgina del professorat de cada curs. La fa `comu/js/portada.js` |
-| `other-versions/` | Dues versions de molta menys qualitat fetes amb una IA, per comparar-les amb aquest projecte: `gratis-2min.html` (IA gratuïta, 2 minuts, una instrucció) i `pagament-10min.html` (IA de pagament, 10 minuts, dues instruccions), amb el seu dossier i solucionari en PDF. Només s'hi arriba des de `index.html?other-versions=1`. Es deixen tal com les va fer la IA, i per això la comprovació de l'anonimat no hi mira |
-| `404.html` | La pàgina d'adreça equivocada. Les adreces d'abans de la reorganització porten a `4eso/`, perquè és on vivien, i les de les llistes planes `fitxes`/`quadern`, a la portada |
+| `4eso/` | El material de Matemàtiques Aplicades: una carpeta per unitat (`u1/` … `u7/`) amb la pàgina de la unitat, la fitxa, el repàs i, a la `u3/`, el quadern d'activitats; les targetes, les eines de l'alumnat, la pàgina del professorat, els PDF, els exàmens, la documentació, els generadors i les proves. Vegeu [`4eso/README.md`](4eso/README.md) |
+| `1eso/` | El material de Matemàtiques, amb la mateixa estructura: a cada carpeta d'unitat, totes les seves fitxes i el repàs. Vegeu [`1eso/README.md`](1eso/README.md) |
+| `comu/` | El que comparteixen els cursos: la closca de pantalla (`comu/css/web.css` i `comu/js/`), el registre de cursos (`comu/js/cursos.js`), la prova del mapa (`comu/eines/mapa.py`), el motor dels exàmens DOCX i la documentació general. Vegeu [`comu/README.md`](comu/README.md) |
+| `index.html` | La portada: «Curs 2026-27», el títol i una columna per curs amb les seves unitats i el botó «Professorat». La fa `comu/js/portada.js` |
+| `other-versions/` | Dues versions de molta menys qualitat fetes amb una IA, per comparar-les amb aquest projecte. Només s'hi arriba des de `index.html?other-versions=1`. Es deixen tal com les va fer la IA, i per això la comprovació de l'anonimat no hi mira |
+| `404.html` | La pàgina d'adreça equivocada. No redirigeix res: el mapa va començar de zero el 6/11/2026 |
 | `_headers`, `robots.txt`, `favicon.svg` | El desplegament a Cloudflare Pages: vegeu [`comu/docs/DESPLEGAMENT.md`](comu/docs/DESPLEGAMENT.md) |
 | `LICENSE`, `LLICENCIA.md` | Les llicències |
-| `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub, i les comprovacions automàtiques. Si es pugen dos zip seguits, el segon espera el primer; i si les comprovacions fallen, no es desa res i el zip es queda a `_uploads/` |
-
-Dins de `4eso/`, l'estructura és la de sempre: `fitxes/`, `quadern/`, `css/`, `js/`, `dades/`, `pdf/`,
-`docs/`, `eines/` i `generadors/`. Les ordres de la seva documentació s'executen des de
-dins: `cd 4eso/`.
+| `_uploads/`, `.github/` | La pujada de fitxers en zip des del web de GitHub, i les comprovacions automàtiques. Si es pugen dos zip seguits, el segon espera el primer; i si les comprovacions fallen, no es desa res i el zip es queda a `_uploads/`. Un zip no pot esborrar fitxers: per moure'n o esborrar-ne cal un commit des del Codespace |
 
 ---
 
 ## Com s'obre
 
-Doble clic a `index.html`. No cal servidor ni instal·lar res. La portada té dues columnes,
-una per curs, amb les seves unitats (5/11/2026). Cada unitat porta a la seva
-pàgina (`1eso/unitat.html?ud=N`, `4eso/unitat.html?ud=N`), amb tres opcions:
+Doble clic a `index.html`, o `https://pi.step-quiz.net/`. No cal servidor ni instal·lar res.
 
-- **Fitxes d'activitats**: les fitxes de la unitat i la de repàs, amb el PDF de l'alumnat i el del solucionari.
-- **Quadern d'activitats**: el de la unitat, o apagat si encara no n'hi ha.
-- **Caixa d'eines**: només les eines d'aquella unitat i d'aquell curs
-  (`caixa-eines.html?ud=N&tasques=…`; les tasques són al camp `tasques` de `dades/unitats.js`).
+### El mapa (6/11/2026)
 
-- **Targetes de consulta** i **fitxa de repàs**: al desplegable «Més eines», sempre plegat. Les
-  targetes surten a la unitat on neixen (camp `unitat` o `unitats` de `TARGETES` a
-  `dades/unitats.js`).
-- **Per al professorat**: un altre desplegable, sempre plegat, amb el detall de la unitat (camí
-  mínim, fita, regla trencada, rol a l'aula ordinària…).
+```
+Inici (index.html)
+ └ curs (4eso/index.html)
+    └ Unitat N (4eso/uN/index.html) ── per al docent
+       ├ 1 Fitxa (uN/fitxa.html, i a 1eso/ les altres fitxes de la unitat)
+       ├ 2 Quadern d'activitats (uN/quadern.html), o «Quadern d'activitats no disponible»
+       ├ 3 Repàs (uN/repas.html)
+       ├ Eines → 4eso/eines.html?u=N ── per a l'alumnat: un espai tancat, sense cap enllaç
+       ├ Targetes (targetes/NOM.html?u=N)
+       └ Abans de la classe: el material, l'objectiu i la regla trencada
+ Professorat (4eso/professorat.html): canviar les frases, llegir codis, les notes generals
+```
 
-La disposició (5/11/2026): una sola bombolla amb les fitxes d'activitats a l'esquerra i el quadern
-a la dreta; a sota, la caixa d'eines; i després els dos desplegables.
+- **Tota pàgina del docent** porta la mateixa capçalera violeta, `Inici › curs › Unitat N › pàgina`,
+  i el botó «Professorat». Cada fitxa, repàs, quadern i targeta hi té, a sobre del full, els
+  botons «PDF alumnat» i «PDF solucionari» (o «PDF a doble cara»).
+- **L'alumnat només obre les eines**, amb l'enllaç que el docent copia a la pàgina de la unitat
+  («Copia l'enllaç per a l'alumnat»): `https://pi.step-quiz.net/4eso/eines?u=3`. Hi surten només les
+  eines d'aquella unitat, i la capçalera no porta enlloc: així l'alumnat no pot arribar als
+  solucionaris.
+- **El nom de cada curs** només és a `comu/js/cursos.js`. Les pàgines el llegeixen d'allà.
 
-### L'esquema de navegació
+**Si canvies el CSS o el JS**, no cal fer res més: `_headers` fa que el navegador els torni a
+validar a cada visita (5/11/2026: amb una hora de memòria, la pàgina nova sortia amb l'estil vell).
 
-Sempre **tres nivells**: 1. curs (la portada), 2. unitat (`unitat.html?ud=N`), 3. fitxa, quadern
-o caixa d'eines. Cada pàgina del tercer nivell porta un enllaç de dalt «← unitat N» que torna a
-la pàgina de **la seva** unitat, i la unitat torna a la portada. No hi ha llistes planes que se
-saltin la unitat: `fitxes.html` i `quadern.html` ja no existeixen (les adreces velles porten a la
-portada, des de `404.html`). Les targetes de consulta s'obren amb `?ud=N`, i `comu/js/torna.js`
-fa que tornin a la unitat d'on vénen. `comprova.py` (apartat NAVEGACIÓ) i
-`comu/eines/prova_portada.py` vigilen que cap pàgina nova trenqui l'esquema.
-
-La branca del professorat és a part: portada → «Per al professorat» → pàgina del curs
-(`index.html`) → caixa d'eines sencera, enllaços `?task=n`, frases i codis. Torna sempre a la
-pàgina del curs i d'allà a la portada.
-
-El que no és de cap unitat (les targetes de consulta, canviar les frases, llegir els codis de
-verificació, la caixa sencera, els enllaços `?task=n`) és a la pàgina «Per al professorat» de
-cada curs, enllaçada al peu de la portada: `1eso/index.html` i `4eso/index.html`. Els enllaços
-que ja s'han enviat continuen funcionant.
-
-**Si canvies el CSS o el JS de la portada o de les unitats**, puja el número `?v=` dels seus
-enllaços a `index.html`, `1eso/unitat.html` i `4eso/unitat.html` (ara és `?v=4`). `_headers`
-deixa els fulls d'estil una hora a la memòria del navegador, i sense això la pàgina nova
-surt amb l'estil vell: va passar el 5/11/2026.
-
-Les dues caixes d'eines poden llegir cada targeta en veu alta: el botó petit de l'altaveu,
-a dalt a la dreta de la targeta. Quina veu sona millor a cada ordinador, als mateixos `README.md`.
-
-Amb `index.html?other-versions=1` (per exemple, `https://pi.step-quiz.net/?other-versions=1`),
-la portada no fa triar el material sinó la versió: la de la IA gratuïta, la de la IA de
-pagament (amb els seus PDF) o aquest projecte. Cada opció s'obre en una pestanya nova.
+Les eines poden llegir cada targeta en veu alta: el botó petit de l'altaveu, a dalt a la dreta de
+la targeta. Quina veu sona millor a cada ordinador, als `README.md` de cada curs.
 
 ## On es publica
 
-GitHub → Cloudflare Pages → `pi.step-quiz.net`, amb tots els camps del formulari buits: es
-publica tot el repositori. La caixa d'eines de `4eso/` és a
-`https://pi.step-quiz.net/4eso/caixa-eines`, i la de `1eso/` a
-`https://pi.step-quiz.net/1eso/caixa-eines`.
-
-**Els enllaços que ja s'han enviat a l'alumnat continuen funcionant.** Una adreça d'abans,
-com `https://pi.step-quiz.net/caixa-eines?task=2`, porta sola a la mateixa pàgina dins de
-`4eso/`, amb el `?task` inclòs. Ho fa la `404.html` de l'arrel.
+GitHub → Cloudflare Pages → `pi.step-quiz.net`, amb tots els camps del formulari buits: es publica
+tot el repositori. Cloudflare treu el `.html` de les adreces (`/4eso/u3/fitxa`), però els enllaços
+de dins porten sempre el nom del fitxer, perquè també funcioni amb doble clic.
 
 ---
 
@@ -174,10 +152,11 @@ python3 4eso/eines/comprova.py
 python3 1eso/eines/comprova.py
 ```
 
-Cada una ha de dir «Tot correcte.». Comproven les fitxes, la caixa d'eines i el
-desplegament, i que cap fitxer del repositori anomeni el curs, el tipus d'aula o un
-diagnòstic. Els noms de carpeta `4eso/` i `1eso/` en són l'única excepció: fan visible el
-curs a les adreces, i és una decisió presa.
+Cada una ha de dir «Tot correcte.». Comproven les fitxes, les eines, el desplegament i el mapa
+del lloc (`comu/eines/mapa.py`, que també es pot passar sol), i que cap fitxer del repositori
+anomeni el curs, el tipus d'aula o un diagnòstic. Les excepcions són els noms de carpeta `4eso/` i
+`1eso/`, que fan visible el curs a les adreces, i `comu/js/cursos.js`, l'únic lloc on és el nom
+de cada curs.
 
 **GitHub les passa soles** a cada pujada i a cada pull request (`.github/workflows/comprova.yml`).
 A la pàgina del repositori, al costat de cada commit, surt una marca verda (tot correcte) o una
@@ -187,15 +166,15 @@ creu vermella: clicant-hi es veu quina comprovació ha fallat i per què. Funcio
 Les proves que obren un navegador (Playwright) es passen a mà, abans de lliurar:
 
 ```bash
-python3 1eso/eines/prova_caixa.py      # la caixa de 1eso/, de punta a punta
-python3 4eso/eines/prova_caixa.py      # la caixa de 4eso/
+python3 1eso/eines/prova_caixa.py      # les eines de 1eso/, de punta a punta
+python3 4eso/eines/prova_caixa.py      # les eines de 4eso/
 python3 4eso/eines/prova_quadern.py    # el filtre dels quaderns d'activitats de 4eso/
-python3 comu/eines/prova_portada.py    # la portada i la pàgina de cada unitat dels dos cursos
+python3 comu/eines/prova_portada.py    # tot el mapa, clicat en un navegador: portada, cursos, unitats, paper i eines
 python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
 python3 4eso/eines/auditoria.py
 ```
 
-**Les còpies dels dos cursos.** Cada curs té la seva còpia dels fitxers de la caixa i del paper.
+**Les còpies dels dos cursos.** La closca de pantalla és comuna (`comu/`), però cada curs encara té la seva còpia dels fitxers de les eines i del paper.
 Per veure com s'han separat, i si un arreglament d'un curs també cal a l'altre:
 
 ```bash

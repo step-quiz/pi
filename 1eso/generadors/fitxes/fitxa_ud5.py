@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud5.html: els decimals (unitat 5, fitxa 1).
+"""Genera 1eso/u5/fitxa.html: els decimals (unitat 5, fitxa 1).
 
 Adapta les activitats 1 i 2 de la situació «Decimals i arrel quadrada» (el llibre: «Què en sabem?»
 i «Els decimals»). És la fitxa de centenes, desenes i unitats de la unitat 1 (fitxa_ud1_nombres.py),

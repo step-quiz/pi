@@ -13,7 +13,7 @@
     exercicis 7 i 8 (propietats de les potències i potències de 10) queden
     fora, com a docs/MAPA-ADAPTACIO.md.
   · Els apartats a), b), c) i d), de les quatre fitxes de la unitat
-    (fitxes/ud1.html, ud1-nombres.html, ud1-ordre.html i ud1-repas.html) i dels
+    (u1/fitxa.html, u1/nombres.html, u1/ordre.html i u1/repas.html) i dels
     seus solucionaris, que estan validats. Els dos que no hi són (exercici 7,
     c i d) porten la marca «nou» al solucionari.
   · Sense calculadora: l'avís és el de la targeta de les taules. Totes les

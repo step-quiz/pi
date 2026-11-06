@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3-repas.html: el repàs de la unitat 3 (fitxa 5), amb el carnet de
+"""Genera 1eso/u3/repas.html: el repàs de la unitat 3 (fitxa 5), amb el carnet de
 cada fracció i «Què he après?» fet a partir de la llista de comprovació del grup."""
 import os
 import sys

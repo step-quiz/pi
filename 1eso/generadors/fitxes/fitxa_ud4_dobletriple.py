@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud4-dobletriple.html: dobles i triples (unitat 4, fitxa 4).
+"""Genera 1eso/u4/dobletriple.html: dobles i triples (unitat 4, fitxa 4).
 Adapta les activitats 1 i 2 (És gran o petit?, De dobles o de triples) de la situació «És gran l'ou del kiwi?»: el nucli
 de comparar mides relativament (un ou petit pot ser el doble d'un altre ou
 petit, encara que tots dos siguin petits comparats amb l'ocell)."""

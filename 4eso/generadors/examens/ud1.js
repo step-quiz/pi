@@ -11,7 +11,7 @@
   D'on surt cada cosa:
   · El format i les frases, de la revisió que el docent va fer de l'examen a
     Google Docs el 23/9/2026.
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud1.html i del seu
+  · Els apartats a), b), c) i d), dels exercicis de u1/fitxa.html i del seu
     solucionari, que estan validats. On la fitxa no en tenia prou, n'hi ha un de
     nou, i al solucionari porta la marca «nou» perquè el docent el revisi.
 */
@@ -97,7 +97,7 @@ const solucionari = privat => [
   ...sol.titol(1),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* (Assolit Satisfactòriament). Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud1.html_) i del seu solucionari. Cap pregunta de justificació oberta. Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_u1/fitxa.html_) i del seu solucionari. Cap pregunta de justificació oberta. Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 

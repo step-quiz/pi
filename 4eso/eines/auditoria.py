@@ -39,7 +39,7 @@ except ImportError:
              "                   python3 -m playwright install chromium")
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-URL = "file://" + os.path.join(ARREL, "caixa-eines.html")
+URL = "file://" + os.path.join(ARREL, "eines.html")
 DIANA = 24
 
 # Els estats que s'auditen: (etiqueta, adreça, què fer abans de mesurar).
@@ -244,7 +244,8 @@ def lletra_al_paper(nav):
 
 def FITXERS_PAPER():
     import glob
-    return (sorted(glob.glob(os.path.join(ARREL, "fitxes", "ud*.html")))
+    return (sorted(f for f in glob.glob(os.path.join(ARREL, "u[0-9]*", "*.html"))
+                   if os.path.basename(f) not in ("index.html", "quadern.html"))
             + sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html"))))
 
 

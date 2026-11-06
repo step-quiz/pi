@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud2-repas.html: el repàs de la unitat 2 (fitxa 5).
+"""Genera 1eso/u2/repas.html: el repàs de la unitat 2 (fitxa 5).
 Adapta el Repàs U2 del grup (amb el carnet d'identitat de cada nombre) i hi afegeix
 «Què he après?», com a la unitat 1."""
 import os

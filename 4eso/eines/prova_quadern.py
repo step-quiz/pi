@@ -3,7 +3,7 @@
 eines/prova_quadern.py · els quaderns d'activitats, provats en un navegador
 ===========================================================================
 
-Obre cada quadern/udN.html en Chromium i prova el filtre com ho faria el docent.
+Obre cada uN/quadern.html en Chromium i prova el filtre com ho faria el docent.
 
     python3 4eso/eines/prova_quadern.py
 
@@ -62,22 +62,22 @@ ESTAT = r"""() => {
       ' · ' + [...new Set(acts.map(e => getComputedStyle(e).counterIncrement))].join() +
       ' · ' + [...new Set([...document.querySelectorAll('.act[hidden]')].map(e => getComputedStyle(e).display))].join(),
     text: document.getElementById('recompte').textContent,
-    premuts: [...document.querySelectorAll('.filtres [aria-pressed="true"]')].map(b => b.closest('[data-filtre]').dataset.filtre + '=' + b.dataset.valor),
+    premuts: [...document.querySelectorAll('.filtres [aria-checked="true"]')].map(b => b.closest('[data-filtre]').dataset.filtre + '=' + b.dataset.valor),
   };
 }"""
 
 
 def main():
-    quaderns = sorted(glob.glob(str(ARREL / "quadern" / "ud*.html")))
+    quaderns = sorted(glob.glob(str(ARREL / "u[0-9]*" / "quadern.html")))
     if not quaderns:
-        sys.exit("No hi ha cap quadern a quadern/.")
+        sys.exit("No hi ha cap quadern a les carpetes uN/.")
     with sync_playwright() as pw:
         nav = pw.chromium.launch()
         pag = nav.new_page(viewport={"width": 1000, "height": 900})
         errors = []
         pag.on("pageerror", lambda e: errors.append(str(e)))
         for q in quaderns:
-            nom = os.path.basename(q)
+            nom = os.path.relpath(q, ARREL)
             url = pathlib.Path(q).as_uri()
             quants = {}
             for n in (1, 2, 3):
@@ -93,7 +93,8 @@ def main():
                     dolentes = [l for l in e["lletres"] if l != bones]
                     comprova(not dolentes, f"{nom} n={n} repte={r}: apartats {dolentes[:2]} (han de ser {bones})")
                     comprova(e["lletresSol"] == e["lletres"], f"{nom} n={n} repte={r}: el solucionari no té els mateixos apartats")
-                    comprova(f"Surten {len(e['acts'])} activitats" in e["text"], f"{nom}: el recompte diu «{e['text']}»")
+                    comprova(e["text"].startswith(f"{len(e['acts'])} activitats") and f"· {bones and len(bones) - 1} apartats a cada una" in e["text"],
+                             f"{nom}: el recompte diu «{e['text']}»")
                     comprova(sorted(e["premuts"]) == sorted([f"n={n}", f"repte={r}"]),
                              f"{nom}: l'adreça ?n={n}&repte={r} no marca els botons ({e['premuts']})")
             comprova(quants[1, 0] == quants[2, 0] == quants[3, 0], f"{nom}: el nombre d'activitats canvia amb la quantitat ({quants})")
@@ -102,16 +103,15 @@ def main():
             # Els botons: canvien el filtre i l'escriuen a l'adreça.
             pag.goto(url)
             comprova(sorted(pag.evaluate(ESTAT)["premuts"]) == ["n=2", "repte=0"],
-                     f"{nom}: sense paràmetres s'ha d'obrir a mitjà i sense repte")
+                     f"{nom}: sense paràmetres s'ha d'obrir a «Mitjana» i «Semblants als de la fitxa»")
             pag.click('[data-filtre="n"] button[data-valor="3"]')
             pag.click('[data-filtre="repte"] button[data-valor="1"]')
             comprova(len(pag.evaluate(ESTAT)["acts"]) == quants[3, 1], f"{nom}: els botons no canvien el filtre")
             comprova("n=3" in pag.url and "repte=1" in pag.url, f"{nom}: els botons no escriuen l'adreça ({pag.url})")
 
-            # Pantalla: el solucionari amagat fins que es demana.
-            comprova(not pag.is_visible("#solucionari"), f"{nom}: el solucionari es veu a la pantalla sense demanar-lo")
-            pag.click("#mostra-sol")
-            comprova(pag.is_visible("#solucionari"), f"{nom}: «Mostra el solucionari» no el mostra")
+            # Pantalla: el solucionari no es veu mai; només s'imprimeix (decisió S4, 6/11/2026).
+            comprova(not pag.is_visible("#solucionari"), f"{nom}: el solucionari es veu a la pantalla")
+            comprova(pag.query_selector("#mostra-sol") is None, f"{nom}: «Mostra el solucionari» ja no hi ha de ser")
 
             # Impressió.
             pag.emulate_media(media="print")

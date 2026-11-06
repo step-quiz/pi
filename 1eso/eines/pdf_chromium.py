@@ -1,6 +1,6 @@
 """Fa un PDF d'un HTML de paper amb Chromium, amb la mateixa geometria que gen_pdf.py
 (el full d'estil FULL_PDF de eines/paper.py). Només per veure esborranys.
-Ús: python3 eines/pdf_chromium.py fitxes/ud3.html /tmp/ud3.pdf"""
+Ús: python3 eines/pdf_chromium.py u3/fitxa.html /tmp/ud3.pdf"""
 import os, sys
 if os.path.isdir("/opt/pw-browsers"):
     os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")

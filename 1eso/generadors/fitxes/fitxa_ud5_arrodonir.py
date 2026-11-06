@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud5-arrodonir.html: arrodonir i truncar (unitat 5, fitxa 2).
+"""Genera 1eso/u5/arrodonir.html: arrodonir i truncar (unitat 5, fitxa 2).
 
 Adapta la segona part de l'activitat 2 de la situació «Decimals i arrel quadrada» (el llibre:
 «Arrodonir i truncar»). Arrodonir a les dècimes és buscar la dècima més a prop; truncar és tallar

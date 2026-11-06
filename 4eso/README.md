@@ -28,14 +28,12 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 | | |
 |---|---|
-| `index.html` | la pàgina del professorat del curs (s'hi arriba des del peu de la portada de l'arrel): la caixa sencera i les eines per al docent |
-| `unitat.html` | la pàgina d'una unitat (`unitat.html?ud=N`): les fitxes amb els seus dos PDF, les targetes de consulta de la unitat (camp `unitats` de `TARGETES`), el quadern i la caixa d'eines amb només les tasques de la unitat (camp `tasques` de `dades/unitats.js`), i plegat el detall per al docent. La fa `../comu/js/unitat.js`. Les fitxes, el quadern, les targetes i la caixa tornen aquí («← unitat N») |
-| `caixa-eines.html` | l'aplicació, amb deu mòduls |
-| `verifica.html` | pàgina per llegir els codis de verificació que dona la caixa d'eines |
-| `fitxes/ud1…ud7.html` | les fitxes imprimibles, en blanc i negre |
-| `fitxes/udN-repas.html` | la fitxa de repàs de cada unitat: el dibuix de la unitat, «Una de cada» i «Què he après?». No s'editen a mà: les fa `generadors/gen_repas.py` |
-| `quadern/udN.html` | el quadern d'activitats d'una unitat, per practicar després de la fitxa, amb un filtre d'apartats i de repte. No s'edita a mà: el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py`. De moment, només el de la UD3 |
-| `targetes/` | tres targetes de consulta per tenir a la taula (calculadora, percentatges i escales, paràboles, dades i atzar), a doble cara |
+| `index.html` | la pàgina del curs: les seves unitats. La fa `../comu/js/curs.js` |
+| `u1/` … `u7/` | una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF; les eines i les targetes de la unitat; i «Abans de la classe». `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. A la `u3/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` a partir de `generadors/quadern/udN.py` |
+| `eines.html` | les eines de l'alumnat, amb deu mòduls. S'obre amb `eines.html?u=N`: només les eines de la unitat N, i cap enllaç cap a la resta del web |
+| `professorat.html` | la pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
+| `verifica.html` | pàgina per llegir els codis de verificació que donen les eines |
+| `targetes/` | dues targetes de consulta per tenir a la taula (percentatges i escales; paràboles, dades i atzar), a doble cara. La de la calculadora es va treure el 6/11/2026 |
 | `dades/textos.js` | **totes les frases** que llegeix l'alumnat; és l'únic lloc on s'editen |
 | `textos.html` | pàgina per canviar-les sense tocar codi |
 | `pdf/` | dos PDF per fitxa (alumnat i professorat) i un per targeta |
@@ -46,12 +44,15 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 
 ---
 
-## Enllaços per a l'alumnat
+## Les eines de cada unitat
 
-Per enviar una sola eina, afegeix `?task=n` a l'adreça de la caixa d'eines, per exemple
-`https://pi.step-quiz.net/4eso/caixa-eines?task=2`. Es veuen dues pestanyes: la Calculadora,
-sempre la primera, i la tasca triada, que és la que s'obre. Sense `?task` es veu tot. Els enllaços d'abans,
-sense `/4eso`, continuen funcionant: la `404.html` de l'arrel els porta aquí.
+L'alumnat entra a les eines amb l'enllaç que el docent copia a la pàgina de la unitat («Copia
+l'enllaç per a l'alumnat»), per exemple `https://pi.step-quiz.net/4eso/eines?u=3`. Hi surten
+només les eines de la unitat (camp `tasques` de `dades/unitats.js`): primer les seves i, després
+d'una ratlla, la Calculadora i Com ho dic. La capçalera diu la unitat i no porta enlloc.
+
+Cada eina té un número fix (`data-tasca`). `?task=n` (una sola eina) i `?task=n.m` (un sol
+exercici) encara funcionen, però ja no s'enllacen enlloc: només els fan servir les proves.
 
 | n | tasca |
 |---|---|
@@ -124,7 +125,7 @@ seves. Les dues que més fàcilment es trenquen sense adonar-se'n:
 
 ## Els PDF
 
-Cada fitxa té dos PDF a `pdf/`, enllaçats des de la pàgina de la unitat (`unitat.html?ud=N`):
+Cada fitxa té dos PDF a `pdf/`, enllaçats des de la pàgina de la unitat (`uN/index.html`) i des de la mateixa fitxa:
 
 | | |
 |---|---|
@@ -199,7 +200,7 @@ amb la seva taula, no es parteix entre dues pàgines si hi cap en una. El númer
 surt al peu.
 
 El filtre queda a l'adreça, i es pot enviar un enllaç amb el filtre posat:
-`quadern/ud3.html?n=1&repte=1` (`n`: 1 petit, 2 mitjà, 3 elevat; `repte`: 0 o 1).
+`u3/quadern.html?n=1&repte=1` (`n`: 1 quantitat petita, 2 mitjana, 3 alta; `repte`: 0 o 1).
 
 **Com es canvia o s'amplia.** El contingut és a `generadors/quadern/udN.py`: cada activitat
 té 13 apartats (l'a i 12 per fer, en ordre de menys a més): el motor hi posa sol la marca
@@ -215,7 +216,7 @@ python3 eines/prova_quadern.py
 ```
 
 Per fer el quadern d'una altra unitat, es copia `generadors/quadern/ud3.py` a `udN.py`, es
-canvia el contingut i s'afegeix `quadern: "quadern/udN.html"` a la unitat de
+canvia el contingut i s'afegeix `quadern: "uN/quadern.html"` a la unitat de
 `dades/unitats.js`. Les peces que hi ha (taules, opcions per marcar, ofertes, plànols, doble
 recta, línies per mesurar, quadrícula) són a `generadors/gen_quadern.py`.
 
@@ -246,7 +247,7 @@ python3 eines/comprova.py
 Verifica que les fitxes no tinguin cap valor cromàtic, que l'HTML tanqui bé, que la
 numeració de pàgines sigui seguida, que cada fitxa porti el rètol de material, l'obertura
 i la pàgina «A la vida de cada dia» (a les de repàs, «Una de cada» i «Què he après?»), que
-les targetes siguin en B/N amb les cares numerades, que hi hagi tots els PDF, i que els mòduls declarats a `caixa-eines.html`
+les targetes siguin en B/N amb les cares numerades, que hi hagi tots els PDF, i que els mòduls declarats a `eines.html`
 coincideixin amb els que es registren de debò. També revisa les frases de l'alumnat amb
 les regles de Lectura Fàcil que es poden comprovar soles i calcula el contrast de la
 paleta de pantalla (WCAG 2.2 AA).
@@ -273,7 +274,7 @@ quaderns: B/N, que cada activitat tingui l'a) i 12 apartats marcats de menys a m
 al solucionari), que les consignes siguin curtes i que el fitxer de `quadern/` sigui el que
 surt del generador.
 
-Prova la caixa de punta a punta en Chromium: obre totes les pestanyes i els enllaços `?task=n`,
+Prova les eines de punta a punta en Chromium: obre totes les pestanyes i els enllaços `?task=n`,
 mou els mòduls i acaba una tasca tancada (x² = 36), fins a llegir-ne el codi a `verifica.html`.
 
 `comprova.py` també mira que cap PDF sigui vell: `gen_pdf.py` desa a `pdf/empremtes.json`

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud5-repas.html: el repàs de la unitat 5 (fitxa 6).
+"""Genera 1eso/u5/repas.html: el repàs de la unitat 5 (fitxa 6).
 
 Adapta les activitats 6 (el mapa conceptual del bloc numèric) i 7 (el projecte de les rajoles) de
 la situació «Decimals i arrel quadrada». El mapa conceptual es fa amb el grup; aquí en fa el paper

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud6-repas.html: el repàs de la unitat 6 (fitxa 6).
+"""Genera 1eso/u6/repas.html: el repàs de la unitat 6 (fitxa 6).
 
 Com el repàs de les unitats 4 i 5: «Una de cada» (un apartat per fitxa de la unitat) i «Què he
 après?», amb la taula de «on es repassa» al solucionari. La pàgina de la vida és «La meva

@@ -1,0 +1,202 @@
+/* ============================================================================
+   comu/css/web.css · the screen shell of every course (one file for all courses)
+   ----------------------------------------------------------------------------
+   Used by: the home page (index.html), each course page (CURS/index.html), each
+   unit page (CURS/uN/index.html), the teacher page (CURS/professorat.html), the
+   header of the paper pages (sheets, review, workbook, cards) and the closed
+   header of the student tools (CURS/eines.html).
+
+   CONTRACT
+   · Every class here starts with «w-». The course stylesheets (tokens.css,
+     app.css, fitxa.css, quadern.css) never use that prefix, so nothing here can
+     collide with them, and nothing there can restyle the shell.
+   · The base rules (body font, background) apply only under body.w-pagina.
+     Paper pages and the student tools keep their own body styles.
+   · Colours live in the --w-* variables below. Never write a colour inside a
+     component rule: add a variable.
+   · This file is NEVER loaded by a PDF. On paper pages it is linked inside the
+     <nav class="navega no-imprimir"> bar, which the PDF fingerprint strips
+     (see comu/docs/SITE-MAP.md, «Paper pages»).
+
+   See comu/docs/SITE-MAP.md for the whole design system and its decisions.
+   ========================================================================== */
+
+:root {
+  --w-fons: #F2F2F5;
+  --w-superficie: #FFFFFF;
+  --w-tinta: #16181D;
+  --w-gris: #585D68;
+  --w-linia: #D5D8DE;
+  --w-tipus: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --w-r: 12px;
+
+  /* Four button functions (decision D4): a dark tone for the icon and a light
+     background for hover and keyboard focus. The border on hover is always #000. */
+  --w-nav: #4A4F5A;   --w-nav-h: #E8E9ED;    /* navigate */
+  --w-mat: #5B3E96;   --w-mat-h: #EBE3F7;    /* open a material */
+  --w-pdf: #7A4A1E;   --w-pdf-h: #F3E8DB;    /* download or print */
+  --w-eina: #1F3A68;  --w-eina-h: #DDE5F1;   /* student tools */
+
+  --w-prof: #D9DADE;  --w-prof-h: #C3C5CB;   /* the «Professorat» button: 15 % darker */
+  --w-copiat: #C6C9AE; --w-copiat-ic: #4F5436; /* «Enllaç copiat»: olive grey-green */
+
+  /* The header of every teacher page: pale violet, strong violet border, a seal. */
+  --w-violeta: #6A3FC4;
+  --w-violeta-fons: #F3EEFC;
+  --w-violeta-text: #4B3A73;
+  --w-violeta-fort: #2E1B5E;
+}
+
+/* ------------------------------------------------------------------ base -- */
+body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
+  font-family: var(--w-tipus); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased }
+/* :where() keeps these at zero specificity: any component rule below wins. */
+:where(.w-pagina) *, :where(.w-pagina) *::before, :where(.w-pagina) *::after { box-sizing: border-box }
+:where(.w-pagina) :where(h1, h2, h3) { text-wrap: balance; margin: 0; letter-spacing: -.012em }
+:where(.w-pagina) :where(p) { margin: 0 }
+:where(.w-pagina) :where(a) { color: inherit; text-decoration: none }
+.w-web { max-width: 64rem; margin: 0 auto; padding: 1rem 1rem 5rem }
+.w-titol { margin: 1.4rem .1rem 1.1rem; font-size: 2rem; font-weight: 400; line-height: 1.15 }
+.w-curs-escolar { margin: 1.4rem .1rem 0; color: var(--w-gris); font-size: 1.05rem }
+.w-curs-escolar + .w-titol { margin-top: .1rem }
+.w-sub { color: var(--w-gris); margin: 0 .1rem 1.1rem }
+
+/* ------------------------------------------------- buttons (D3, D4, F3) --
+   48 px high at least: Chromebooks with a finger or a mouse. */
+.w-b { position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 48px;
+  padding: .55rem 1rem; border-radius: 10px; border: 1px solid var(--w-linia);
+  background: var(--w-superficie); color: var(--w-tinta); font: inherit; font-size: .95rem;
+  font-weight: 500; line-height: 1.25; cursor: pointer; text-align: left; text-decoration: none }
+.w-b svg { width: 20px; height: 20px; flex: none; color: var(--w-to) }
+.w-b.w-principal { font-weight: 600 }
+.w-b:hover, .w-b:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000; background: var(--w-h); outline: none }
+.w-nav  { --w-to: var(--w-nav);  --w-h: var(--w-nav-h) }
+.w-mat  { --w-to: var(--w-mat);  --w-h: var(--w-mat-h) }
+.w-pdf  { --w-to: var(--w-pdf);  --w-h: var(--w-pdf-h) }
+.w-eina { --w-to: var(--w-eina); --w-h: var(--w-eina-h) }
+.w-b.w-prof { background: var(--w-prof) }
+.w-b.w-prof:hover, .w-b.w-prof:focus-visible { background: var(--w-prof-h) }
+.w-b.w-copiat, .w-b.w-copiat:hover, .w-b.w-copiat:focus-visible { background: var(--w-copiat); --w-to: var(--w-copiat-ic) }
+
+/* Selected: the background does not change; a thick black border and a tick in the
+   top-left corner (decision of 6/11/2026: never a black background). */
+.w-b[aria-selected="true"], .w-b[aria-checked="true"] { border-color: #000; box-shadow: 0 0 0 1px #000 }
+.w-b[aria-selected="true"]::before, .w-b[aria-checked="true"]::before,
+.w-tick::before {
+  content: ""; position: absolute; top: -8px; left: -8px; width: 18px; height: 18px; border-radius: 50%;
+  background: #000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat }
+
+/* A card that is not a button: same shape, no hover. */
+.w-apagat { color: var(--w-gris); background: #F4F4F6; border-style: dashed; cursor: default }
+
+/* ------------------------------------- header of the teacher pages (N1) -- */
+.w-cap { display: flex; justify-content: space-between; align-items: center; gap: .6rem; flex-wrap: wrap;
+  background: var(--w-violeta-fons); border: 2px solid var(--w-violeta); border-radius: var(--w-r);
+  box-shadow: inset 5px 0 0 var(--w-violeta); padding: .35rem .4rem .35rem .45rem }
+/* On the two helper pages that keep their own course stylesheet (textos.html, verifica.html). */
+.pagina > .w-cap { margin-bottom: 1.2rem }
+.w-cap-esq { display: flex; align-items: center; min-width: 0 }
+.w-segell { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px;
+  border-radius: 50%; background: var(--w-violeta); margin: 0 .35rem 0 .3rem; flex: none }
+.w-segell svg { width: 19px; height: 19px; color: #fff }
+.w-cami { display: flex; flex-wrap: wrap; align-items: center; gap: .1rem; font-size: .95rem }
+.w-cami .w-sep { color: var(--w-violeta-text); padding: 0 .15rem }
+.w-cami a { min-height: 40px; display: inline-flex; align-items: center; padding: 0 .55rem; border-radius: 8px;
+  border: 1px solid transparent; color: var(--w-violeta-text) }
+.w-cami a:hover, .w-cami a:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000; background: var(--w-nav-h);
+  color: var(--w-tinta); outline: none }
+.w-cami .w-aqui { padding: 0 .55rem; color: var(--w-violeta-fort) }
+
+/* The closed header of the student tools: no links at all (decision F1). */
+.w-cap-alumne { display: flex; align-items: center; gap: .6rem; padding: .7rem .9rem; margin: 0 0 .6rem;
+  background: var(--w-superficie); border: 1px solid var(--w-linia); border-radius: var(--w-r);
+  font-family: var(--w-tipus); font-size: 1.05rem; font-weight: 500; color: var(--w-tinta) }
+.w-cap-alumne svg { width: 26px; height: 26px; color: var(--w-eina); flex: none }
+/* The tools follow the device's dark mode (their own tokens.css); the header goes with them. */
+@media (prefers-color-scheme: dark) {
+  .w-cap-alumne { background: #1C1C1E; border-color: #3A3A3C; color: #F2F2F7 }
+  .w-cap-alumne svg { color: #8FB3F0 }
+  .w-separa { background: #3A3A3C }
+}
+
+/* ------------------------------------------------------------ home page -- */
+.w-cursos { display: grid; gap: 3.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 25rem));
+  justify-content: center; margin-top: 1.2rem }
+.w-curs { background: var(--w-superficie); border: 1px solid var(--w-linia); border-radius: var(--w-r);
+  padding: 1rem; display: grid; gap: .8rem; align-content: start }
+.w-curs-cap { display: flex; justify-content: space-between; align-items: center; gap: .6rem; flex-wrap: wrap }
+.w-curs-cap h2 { font-size: 1.35rem; font-weight: 600 }
+.w-unitats { list-style: none; margin: 0; padding: 0; display: grid; gap: .54rem }
+.w-unitats .w-b { width: 75% }
+.w-num { display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem;
+  border-radius: 50%; background: var(--w-fons); font-weight: 600; font-size: .9rem; flex: none }
+
+/* ------------------------------------------------------------ unit page -- */
+.w-cami3 { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)) }
+/* Always two columns: a lone card (a unit with tools and no reference card) stays half wide. */
+.w-dues { display: grid; gap: .9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: .9rem }
+@media (max-width: 44rem) { .w-dues { grid-template-columns: 1fr } }
+.w-carta { background: var(--w-superficie); border: 1px solid var(--w-linia); border-radius: var(--w-r);
+  padding: 1rem; display: grid; gap: .7rem; align-content: start }
+.w-carta.w-apagada { background: #F7F7F9; border-style: dashed }
+.w-carta-cap { display: flex; align-items: center; gap: .55rem }
+.w-carta-cap svg { width: 28px; height: 28px; flex: none; color: var(--w-to) }
+.w-carta-cap .w-pas { font-weight: 600; color: var(--w-gris); font-size: .9rem }
+.w-carta-cap h2 { font-size: 1.2rem; font-weight: 600 }
+.w-carta .w-nom { color: var(--w-gris) }
+.w-accions { display: flex; flex-wrap: wrap; gap: .54rem }
+.w-carta .w-accions { display: grid; justify-items: start }
+.w-carta .w-accions .w-b { width: 75% }
+.w-fitxes-llista { list-style: none; margin: 0; padding: 0; display: grid; gap: .72rem }
+.w-fitxes-llista li { display: grid; gap: .42rem; padding-bottom: .72rem; border-bottom: 1px solid #ECEDF0 }
+.w-fitxes-llista li:last-child { border-bottom: 0; padding-bottom: 0 }
+.w-fitxes-llista .w-fn { font-weight: 500 }
+.w-fitxes-llista .w-fn span { color: var(--w-gris); font-weight: 600; margin-right: .35rem }
+.w-carta .w-fitxes-llista .w-accions { display: flex; width: 75% }
+.w-carta .w-fitxes-llista .w-accions .w-b { flex: 1 1 0; width: auto }
+.w-abans { margin-top: 1.4rem; background: var(--w-superficie); border: 1px solid var(--w-linia);
+  border-radius: var(--w-r); padding: 1rem 1.1rem }
+.w-abans h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: .6rem }
+.w-abans dl { margin: 0; display: grid; grid-template-columns: 9.5rem 1fr; gap: .4rem 1rem }
+.w-abans dt { color: var(--w-gris) }
+.w-abans dd { margin: 0 }
+@media (max-width: 40rem) { .w-abans dl { grid-template-columns: 1fr } .w-abans dd { margin-bottom: .4rem } }
+
+/* --------------------------------------------------------- teacher page -- */
+.w-graella { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)) }
+.w-graella .w-b, .w-graella .w-info { display: grid; gap: .25rem; align-content: start; padding: 1rem; min-height: 6rem }
+.w-info { background: var(--w-superficie); border: 1px solid var(--w-linia); border-radius: 10px; font-size: .95rem }
+.w-graella .w-t { display: flex; align-items: center; gap: .45rem; font-size: 1.05rem; font-weight: 600 }
+.w-graella .w-t svg { width: 20px; height: 20px; color: var(--w-nav) }
+.w-graella .w-d { font-weight: 400; color: var(--w-gris); font-size: .93rem }
+.w-graella .w-d code { font-size: .88em; background: var(--w-fons); border-radius: 5px; padding: 0 .3rem }
+.w-seccio { font-size: 1.25rem; font-weight: 600; margin: 2rem .1rem .8rem }
+.w-notes { display: grid; gap: .8rem }
+.w-notes h2 { font-size: 1.05rem; font-weight: 600 }
+
+/* ------------------------------------------- paper pages (sheet, card…) --
+   The bar above the white sheet. fitxa.css styles «.navega» too; «nav.navega» wins. */
+nav.navega { display: block; max-width: 21cm; margin: 1rem auto; padding: 0;
+  font: 17px/1.5 var(--w-tipus); color: var(--w-tinta) }
+nav.navega .w-barra-paper { display: flex; flex-wrap: wrap; gap: .54rem; margin-top: .8rem }
+nav.navega *, nav.navega *::before, nav.navega *::after { box-sizing: border-box }
+/* The paper tokens.css styles «.navega a:first-child» as the old 3D «← inici» key, and it cannot be
+   edited without making every PDF old (it is part of their fingerprint). These rules undo it. */
+nav.navega a { text-decoration: none; transition: none; transform: none }
+nav.navega .w-cami a { font: inherit; color: var(--w-violeta-text); background: transparent;
+  border: 1px solid transparent; box-shadow: none; padding: 0 .55rem; min-height: 40px; border-radius: 8px }
+nav.navega .w-cami a:hover, nav.navega .w-cami a:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000;
+  background: var(--w-nav-h); color: var(--w-tinta) }
+nav.navega a.w-b { font: inherit; font-size: .95rem; font-weight: 500; color: var(--w-tinta);
+  background: var(--w-superficie); border: 1px solid var(--w-linia); box-shadow: none;
+  padding: .55rem 1rem; min-height: 48px; border-radius: 10px }
+nav.navega a.w-b.w-principal { font-weight: 600 }
+nav.navega a.w-b.w-prof { background: var(--w-prof) }
+nav.navega a.w-b:hover, nav.navega a.w-b:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000; background: var(--w-h) }
+nav.navega a.w-b.w-prof:hover, nav.navega a.w-b.w-prof:focus-visible { background: var(--w-prof-h) }
+@media print { nav.navega { display: none } }
+
+/* -------------------------------------------- the student tools (eines) -- */
+.w-separa { width: 1px; align-self: stretch; background: var(--w-linia); margin: 0 .4rem }
+
+@media (prefers-reduced-motion: reduce) { .w-pagina * { transition: none !important } }

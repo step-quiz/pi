@@ -1,27 +1,29 @@
 #!/usr/bin/env python3
 """
-comu/eines/prova_portada.py · la portada i les pàgines de cada unitat, en un navegador
-====================================================================================
+comu/eines/prova_portada.py · the whole site map, clicked in a browser
+=====================================================================
 
-    python3 comu/eines/prova_portada.py        (des de l'arrel del repositori)
+    python3 comu/eines/prova_portada.py        (from the repository root)
 
-Necessita Playwright amb Chromium:
+Needs Playwright with Chromium:
     pip install playwright && python3 -m playwright install chromium
 
-QUÈ COMPROVA
-  · La portada (index.html): una columna per curs, amb totes les unitats de cada un.
-  · Cada unitat (1eso/unitat.html?ud=N, 4eso/unitat.html?ud=N): el títol, que cada
-    fitxa i cada PDF enllaçats existeixen, que el quadern porta al seu fitxer o surt
-    apagat, i que la caixa d'eines s'obre amb exactament les pestanyes de la unitat i
-    l'enllaç de tornada a la unitat.
-  · L'ESQUEMA curs → unitat → fitxa, quadern o caixa (5/11/2026): des de la unitat s'obre
-    cada fitxa, targeta de consulta, quadern i la caixa d'eines, i l'enllaç de dalt de
-    cadascuna (el que clica l'usuari) torna a la pàgina d'aquella mateixa unitat; la unitat
-    torna a la portada; i el detall per al docent surt a la unitat.
-  · Cap error de JavaScript.
+WHAT IT CHECKS (comu/docs/SITE-MAP.md, 6/11/2026)
+  · Home page (index.html): «Curs AAAA-AA», one column per course of comu/js/cursos.js with
+    all its units, and a «Professorat» button per course. No header bar.
+  · Course page (CURS/index.html): the violet header Inici › course, and the units.
+  · Each unit page (CURS/uN/index.html): the header Inici › course › Unitat N with
+    «Professorat»; the title; every «Obre» opens a page whose header goes back to THIS unit,
+    to the course and to Inici; every PDF link points at a file that exists; the workbook card
+    is a link or says «Quadern d'activitats no disponible»; «Obre les eines» opens
+    CURS/eines.html?u=N with exactly the tools of the unit (own first, then the always-there
+    ones) and no link at all; every reference card opens with the header of this unit.
+  · The teacher page (CURS/professorat.html): header without the «Professorat» button.
+  · No JavaScript error anywhere.
 """
 import os
 import pathlib
+import re
 import sys
 from urllib.parse import urlparse, unquote
 
@@ -43,109 +45,121 @@ def comprova(cond, msg):
 
 
 def fitxer(url):
-    """El camí al disc d'un enllaç file://, sense la part de l'adreça que va després de ?."""
-    return pathlib.Path(unquote(urlparse(url).path))
+    """El fitxer d'una adreça file:// (sense ?consulta)."""
+    return pathlib.Path(unquote(urlparse(url).path)).resolve()
 
 
-def mateixa(a, b):
-    """Dues adreces són la mateixa pàgina: mateix fitxer i mateixa consulta (?ud=N)."""
-    pa, pb = urlparse(a), urlparse(b)
-    return (pa.path, pa.query) == (pb.path, pb.query)
-
-
-def puja(pag, desti, unitat_url, on):
-    """Obre una pàgina del tercer nivell, clica l'enllaç de dalt i comprova que arriba a la unitat."""
-    pag.goto(desti)
-    pag.wait_for_timeout(200)
-    enllac = pag.query_selector(".navega a:visible, .tornar a:visible")
-    if not comprova(enllac is not None, f"{on}: {desti.rsplit('/', 1)[-1]} no té cap enllaç per tornar"):
-        return
-    pag.evaluate("() => document.querySelector('.navega a, .tornar a').scrollIntoView()")
-    enllac.click()
-    pag.wait_for_load_state()
-    comprova(mateixa(pag.url, unitat_url),
-             f"{on}: des de {desti.split('/')[-1].split('?')[0]} l'enllaç de dalt porta a {pag.url.split('/')[-1]} "
-             f"i havia de portar a la unitat ({unitat_url.split('/')[-1]})")
+def cami(pag):
+    """Els textos i els enllaços de la capçalera violeta: [(text, href o None)]."""
+    return pag.evaluate("""() => [...document.querySelectorAll('.w-cap .w-cami > a, .w-cap .w-cami > .w-aqui')]
+        .map(e => [e.textContent.trim(), e.tagName === 'A' ? e.href : null])""")
 
 
 def main():
+    cursos = re.findall(r'\{\s*id:\s*"([\w-]+)",\s*nom:\s*"([^"]+)"', (REPO / "comu" / "js" / "cursos.js").read_text(encoding="utf-8"))
     with sync_playwright() as pw:
         nav = pw.chromium.launch()
-        pag = nav.new_page(viewport={"width": 1000, "height": 900})
+        pag = nav.new_page(viewport={"width": 1366, "height": 900})
         errors = []
-        pag.on("pageerror", lambda e: errors.append(str(e)))
-        pag.goto((REPO / "index.html").as_uri())
-        cursos = pag.evaluate("""() => [...document.querySelectorAll('.curs')].map(c => ({
-            dir: c.dataset.dir, unitats: [...c.querySelectorAll('a.unitat')].map(a => a.href),
-            esperades: (window[c.dataset.unitats] || []).length}))""")
-        comprova(len(cursos) == 2, f"la portada ha de tenir dues columnes i en té {len(cursos)}")
-        for curs in cursos:
-            esperades = curs["esperades"]
-            comprova(len(curs["unitats"]) == esperades and esperades,
-                     f"{curs['dir']}: la portada té {len(curs['unitats'])} unitats i n'hi ha {esperades}")
-            for href in curs["unitats"]:
-                pag.goto(href)
-                u = pag.evaluate("""() => {
-                  const n = Number(new URLSearchParams(location.search).get('ud'));
-                  const u = UNITATS.find(x => x.num === n);
-                  return { n, tasques: u.tasques || [], quadern: u.quadern || '',
-                    titol: document.querySelector('h1').textContent,
-                    enllacos: [...document.querySelectorAll('#opcions a')].map(a => a.href),
-                    caixa: (document.querySelector('a.caixa') || {}).href || '',
-                    quadernVist: (document.querySelector('a.quadern') || {}).href || '' };
-                }""")
-                on = f"{curs['dir']}/unitat.html?ud={u['n']}"
-                comprova(u["titol"].startswith(f"Unitat {u['n']} · "), f"{on}: el títol és «{u['titol']}»")
-                for e in u["enllacos"]:
-                    comprova(fitxer(e).exists(), f"{on}: l'enllaç {fitxer(e).relative_to(REPO)} no existeix")
-                comprova(bool(u["quadernVist"]) == bool(u["quadern"]), f"{on}: el quadern no surt com toca")
-                if u["tasques"]:
-                    pag.goto(u["caixa"])
-                    pag.wait_for_timeout(300)
-                    vistes = pag.evaluate("""() => [...document.querySelectorAll('.segment[data-mod]')]
-                        .filter(b => !b.hidden).map(b => Number(b.dataset.tasca))""")
-                    comprova(sorted(vistes) == sorted(u["tasques"]),
-                             f"{on}: la caixa ensenya les tasques {vistes} i havien de ser {u['tasques']}")
-                    tornar = pag.get_attribute(".tornar a", "href")
-                    comprova(tornar == f"unitat.html?ud={u['n']}", f"{on}: la caixa torna a «{tornar}»")
-                # El detall per al docent és a la unitat (abans era a fitxes.html).
-                pag.goto(href)
-                pag.wait_for_timeout(150)
-                files = pag.evaluate("() => document.querySelectorAll('#docent:not([hidden]) #detall-unitat dt').length")
-                comprova(files >= 4, f"{on}: el detall per al docent surt amb {files} files i en calen almenys 4")
-                # Cada pàgina del tercer nivell (fitxes, targetes, quadern i caixa) torna a ESTA unitat.
-                tercer = pag.evaluate("""() => [...document.querySelectorAll('#opcions a')]
-                    .map(a => a.href).filter(h => !/\\.pdf(\\?|$)/.test(h))""")
-                comprova(len(tercer) >= 2, f"{on}: la unitat només enllaça {len(tercer)} pàgines")
-                for desti in tercer:
-                    puja(pag, desti, href, on)
-                # Enrere i endavant del navegador: unitat → fitxa → enrere = unitat → endavant = fitxa.
-                pag.goto(href)
-                pag.goto(tercer[0])
-                pag.go_back()
-                comprova(mateixa(pag.url, href), f"{on}: «enrere» des de {tercer[0].split('/')[-1]} no torna a la unitat")
-                pag.go_forward()
-                comprova(mateixa(pag.url, tercer[0]), f"{on}: «endavant» no torna a {tercer[0].split('/')[-1]}")
-                # I la unitat torna a la portada.
-                pag.goto(href)
-                pag.click(".tornar a")
-                comprova(mateixa(pag.url, (REPO / "index.html").as_uri()), f"{on}: «← inici» no porta a la portada ({pag.url})")
-            print(f"  {curs['dir']}: {len(curs['unitats'])} unitats · fitxes, PDF, quadern i caixa d'eines provats")
-        # La branca del professorat: portada → pàgina del curs → caixa sencera, i cap pàgina plana.
-        for curs in cursos:
-            index = (REPO / curs["dir"] / "index.html").as_uri()
-            pag.goto(index)
-            tria = pag.evaluate("() => [...document.querySelectorAll('.tria a')].map(a => a.getAttribute('href'))")
-            comprova(not any(h in ("fitxes.html", "quadern.html") for h in tria),
-                     f"{curs['dir']}/index.html enllaça una llista plana: {tria}")
-            pag.click(".tornar a")
-            comprova(mateixa(pag.url, (REPO / "index.html").as_uri()), f"{curs['dir']}/index.html: «← inici» no porta a la portada")
-            pag.goto((REPO / curs["dir"] / "caixa-eines.html").as_uri())
-            pag.wait_for_timeout(300)
-            pag.click(".tornar a")
-            comprova(mateixa(pag.url, index), f"{curs['dir']}/caixa-eines.html sense unitat: «← inici» ha de portar a {curs['dir']}/index.html i porta a {pag.url}")
-        comprova(not errors, f"errors de JavaScript: {errors}")
+        pag.on("pageerror", lambda e: errors.append(f"{pag.url}: {e}"))
+        index = (REPO / "index.html").as_uri()
+
+        print("PORTADA")
+        pag.goto(index)
+        pag.wait_for_selector(".w-curs")
+        comprova(re.fullmatch(r"Curs \d{4}-\d{2}", pag.inner_text(".w-curs-escolar")), "portada: falta «Curs AAAA-AA»")
+        comprova(pag.query_selector(".w-cap") is None, "portada: no ha de tenir la barra de la capçalera")
+        unitats_de = {}
+        for cid, nom in cursos:
+            col = pag.query_selector(f'section.w-curs:has(h2:text-is("{nom}"))')
+            if not comprova(col is not None, f"portada: falta la columna de {nom}"):
+                continue
+            hrefs = [a.get_attribute("href") for a in col.query_selector_all(".w-unitats a")]
+            unitats_de[cid] = [int(re.search(r"/u(\d+)/", h)[1]) for h in hrefs]
+            comprova(hrefs and all(re.fullmatch(cid + r"/u\d+/index\.html", h) for h in hrefs), f"portada: enllaços d'unitat de {cid}: {hrefs}")
+            comprova(col.query_selector(f'a.w-prof[href="{cid}/professorat.html"]') is not None, f"portada: falta «Professorat» de {cid}")
+            print(f"  {nom}: {len(hrefs)} unitats")
+
+        for cid, nom in cursos:
+            arrel = REPO / cid
+            print(f"\n{cid}/")
+            pag.goto((arrel / "index.html").as_uri())
+            pag.wait_for_selector(".w-unitats")
+            c = cami(pag)
+            comprova([t for t, _ in c] == ["Inici", nom], f"{cid}/index.html: el camí és {c}")
+            comprova(len(pag.query_selector_all(".w-unitats a")) == len(unitats_de.get(cid, [])), f"{cid}/index.html: no hi són totes les unitats")
+
+            for n in unitats_de.get(cid, []):
+                on = f"{cid}/u{n}/"
+                unitat = (arrel / f"u{n}" / "index.html").as_uri()
+                pag.goto(unitat)
+                pag.wait_for_selector(".w-carta")
+                c = cami(pag)
+                comprova([t for t, _ in c] == ["Inici", nom, f"Unitat {n}"], f"{on}: el camí és {[t for t, _ in c]}")
+                comprova(c and fitxer(c[0][1]) == fitxer(index), f"{on}: «Inici» no porta a la portada")
+                comprova(len(c) > 1 and fitxer(c[1][1]) == (arrel / "index.html").resolve(), f"{on}: el curs no porta a {cid}/index.html")
+                comprova(pag.query_selector('.w-cap a.w-prof') is not None, f"{on}: falta «Professorat»")
+                comprova(pag.inner_text("h1").startswith(f"Unitat {n} · "), f"{on}: el títol és «{pag.inner_text('h1')}»")
+                for a in pag.query_selector_all("a[download]"):
+                    comprova(fitxer(a.evaluate("e => e.href")).exists(), f"{on}: el PDF {a.get_attribute('href')} no hi és")
+                quadern = pag.query_selector('.w-carta:has(h2:text-is("Quadern d\'activitats"))')
+                comprova(quadern is not None and (quadern.query_selector("a") is not None
+                         or "Quadern d'activitats no disponible" in quadern.inner_text()), f"{on}: la targeta del quadern no és bona")
+                obre = [a.evaluate("e => e.href") for a in pag.query_selector_all("a.w-principal")]
+                eines = [h for h in obre if "/eines.html" in h]
+                obre = [h for h in obre if "/eines.html" not in h]
+                comprova(len(eines) == 1 and eines[0].endswith(f"eines.html?u={n}"), f"{on}: «Obre les eines» porta a {eines}")
+                comprova(pag.query_selector("[data-w-copia]") is not None, f"{on}: falta «Copia l'enllaç per a l'alumnat»")
+
+                # Cada pàgina de paper: la capçalera torna a aquesta unitat, al curs i a l'inici.
+                for h in obre:
+                    pag.goto(h)
+                    pag.wait_for_selector("nav.navega .w-cap")
+                    c = cami(pag)
+                    desti = h.rsplit("/", 2)[-2] + "/" + h.rsplit("/", 1)[-1]
+                    comprova(len(c) == 4 and c[2][0] == f"Unitat {n}" and fitxer(c[2][1]) == fitxer(unitat),
+                             f"{on}: {desti} no torna a la unitat {n} ({[t for t, _ in c]})")
+                    comprova(len(c) == 4 and fitxer(c[1][1]) == (arrel / "index.html").resolve() and fitxer(c[0][1]) == fitxer(index),
+                             f"{on}: {desti}: el camí no porta al curs i a l'inici")
+                    for a in pag.query_selector_all("nav.navega a[download]"):
+                        comprova(fitxer(a.evaluate("e => e.href")).exists(), f"{on}: {desti}: el PDF {a.get_attribute('href')} no hi és")
+
+                # Les eines de l'alumnat: només les de la unitat, i cap enllaç.
+                dades = (arrel / "dades" / "unitats.js").read_text(encoding="utf-8")
+                bloc = re.search(r"\bnum:\s*%d\b.*?tasques:\s*\[([^\]]*)\]" % n, dades, re.S)
+                volgudes = [t.strip() for t in bloc[1].split(",") if t.strip()] if bloc else []
+                pag.goto(eines[0] if eines else unitat)
+                pag.wait_for_selector(".segment", state="attached"); pag.wait_for_timeout(150)
+                visibles = pag.evaluate("() => [...document.querySelectorAll('.segment')].filter(b => !b.hidden).map(b => b.dataset.tasca)")
+                comprova(sorted(visibles, key=int) == sorted(volgudes, key=int), f"{on}: les eines són {visibles} i han de ser {volgudes}")
+                comuna = pag.evaluate("() => [...document.querySelectorAll('.segment')].filter(b => !b.hidden).map(b => 'comuna' in b.dataset)")
+                comprova(comuna == sorted(comuna), f"{on}: les eines de sempre han d'anar al final ({visibles})")
+                comprova(pag.inner_text("#w-cap-alumne").startswith(f"Unitat {n} · "), f"{on}: la capçalera de l'alumnat diu «{pag.inner_text('#w-cap-alumne')}»")
+                enllacos = pag.evaluate("() => [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href'))")
+                comprova(not enllacos, f"{on}: les eines de l'alumnat porten enllaços: {enllacos[:3]}")
+
+                # Les targetes de la unitat: s'obren amb la capçalera d'aquesta unitat.
+                pag.goto(unitat)
+                pag.wait_for_selector(".w-carta")
+                for h in [a.evaluate("e => e.href") for a in pag.query_selector_all('a[href*="/targetes/"]')]:
+                    pag.goto(h)
+                    pag.wait_for_selector("nav.navega .w-cap")
+                    c = cami(pag)
+                    comprova(len(c) == 4 and c[2][0] == f"Unitat {n}" and fitxer(c[2][1]) == fitxer(unitat),
+                             f"{on}: la targeta {h.rsplit('/', 1)[-1]} no torna a la unitat {n}")
+            print(f"  {len(unitats_de.get(cid, []))} unitats: fitxes, repassos, quaderns, targetes, PDF i eines provats")
+
+            pag.goto((arrel / "professorat.html").as_uri())
+            pag.wait_for_selector(".w-cap")
+            c = cami(pag)
+            comprova([t for t, _ in c] == ["Inici", nom, "Professorat"], f"{cid}/professorat.html: el camí és {c}")
+            comprova(pag.query_selector(".w-cap a.w-prof") is None, f"{cid}/professorat.html: no ha de tenir el botó «Professorat»")
+            comprova(pag.inner_text("h1") == f"Professorat · {nom}", f"{cid}/professorat.html: el títol és «{pag.inner_text('h1')}»")
+            print("  professorat: camí i títol")
+
+        comprova(not errors, f"errors de JavaScript: {errors[:3]}")
         nav.close()
+    falles[:] = [f for f in falles if f]
     if falles:
         print(f"\n{len(falles)} PROBLEMES:")
         for f in falles:

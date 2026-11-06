@@ -471,3 +471,36 @@ svg.barres{max-width:26rem;width:100%;margin:.4rem auto;display:block}
     box-shadow:0 0 0 .3rem rgba(255,214,10,.28)}
   ::highlight(veu-paraula){background-color:rgba(255,190,40,.5)}
 }
+
+/* ---- en passar-hi el ratolí, amb el teclat i quan està triat (6/11/2026) ----
+   El mateix que a tot el lloc (comu/css/web.css): vora negra gruixuda i fons gris clar, sense
+   que res canviï de mida (la vora sempre hi és; el gruix de més és un outline). El que està
+   triat no es pinta de negre ni de blau: vora negra i un tick a la cantonada de dalt a
+   l'esquerra. Les pestanyes ja no són un control segmentat: botons separats, que salten de
+   línia (així el tick no queda tallat). */
+.segments{flex-wrap:wrap;gap:.54rem;background:transparent;border-radius:0;padding:.6rem 0 0;
+  overflow:visible;align-items:center}
+.segment{position:relative;border:1px solid #D5D8DE;background:var(--superficie);color:var(--etiqueta);
+  border-radius:10px;min-height:48px;font-weight:500;transition:none}
+.pastilla,.btn{position:relative;border:1px solid transparent}
+.segment:hover,.segment:focus-visible,.pastilla:hover,.pastilla:focus-visible,
+.btn:not(:disabled):hover,.btn:focus-visible,.veu-boto:hover,.veu-boto:focus-visible{
+  border-color:#000;outline:1px solid #000;outline-offset:0;border-radius:10px;
+  background:#E8E9ED;color:var(--etiqueta)}
+.segment[aria-selected="true"],.pastilla[aria-pressed="true"]{border-color:#000;outline:1px solid #000;
+  outline-offset:0;background:var(--superficie);color:var(--etiqueta);box-shadow:none}
+.segment[aria-selected="true"]:hover,.pastilla[aria-pressed="true"]:hover{background:#E8E9ED}
+.segment[aria-selected="true"]::before,.pastilla[aria-pressed="true"]::before{content:"";position:absolute;
+  top:-8px;left:-8px;width:18px;height:18px;border-radius:50%;z-index:1;
+  background:#000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+/* La pastilla «Exemple» ja no surt (decisió S5): l'exemple ja s'obre resolt. */
+.marca{display:none !important}
+@media (prefers-color-scheme: dark){
+  .segment:hover,.segment:focus-visible,.pastilla:hover,.pastilla:focus-visible,
+  .btn:not(:disabled):hover,.btn:focus-visible,.veu-boto:hover,.veu-boto:focus-visible,
+  .segment[aria-selected="true"],.pastilla[aria-pressed="true"]{border-color:#fff;outline-color:#fff}
+  .segment:hover,.segment:focus-visible,.pastilla:hover,.pastilla:focus-visible,
+  .btn:not(:disabled):hover,.btn:focus-visible,.veu-boto:hover,.veu-boto:focus-visible,
+  .segment[aria-selected="true"]:hover,.pastilla[aria-pressed="true"]:hover{background:var(--camp)}
+  .segment{border-color:var(--separador)}
+}

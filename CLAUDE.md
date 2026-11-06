@@ -34,18 +34,20 @@ repositori, si n'hi ha més avall, manen sobre aquestes quan diuen una altra cos
 
 - [`README.md`](README.md)
 
-**Navegació (no es trenca).** Sempre tres nivells: curs (portada `index.html`) → unitat
-(`unitat.html?ud=N`) → fitxa, quadern o caixa d'eines. Tot el del tercer nivell torna a la seva
-unitat («← unitat N»), i la unitat torna a la portada; no hi ha llistes planes que se saltin la
-unitat. Una pàgina nova de fitxa, targeta o quadern ha de portar aquest enllaç (els generadors ja
-el fan) i sortir a `dades/unitats.js`. Vegeu el README de l'arrel, «L'esquema de navegació».
+**El mapa del lloc (no es trenca).** Llegeix [`comu/docs/SITE-MAP.md`](comu/docs/SITE-MAP.md) abans de
+tocar cap pàgina: el mapa (Inici → curs → unitat `uN/` → fitxa, quadern o repàs; el professorat a
+part; les eines de l'alumnat, `eines.html?u=N`, un espai tancat), els noms, el model de dades, la
+closca comuna (`comu/css/web.css`, `comu/js/`), la barra de pantalla del paper i els errors que no
+s'han de repetir. Una pàgina nova ha de sortir a `dades/unitats.js`, i `comu/eines/mapa.py` (dins de
+cada `comprova.py`) ho vigila. El nom dels cursos només és a `comu/js/cursos.js`.
 
 Proves (des de l'arrel del repositori):
 
 ```
 python3 1eso/eines/comprova.py
 python3 4eso/eines/comprova.py
-python3 comu/eines/prova_portada.py   # la navegació, en un navegador (Playwright)
+python3 comu/eines/mapa.py            # el mapa del lloc (també dins de cada comprova.py)
+python3 comu/eines/prova_portada.py   # tot el mapa, en un navegador (Playwright)
 ```
 
 Si alguna comprovació falla, el workflow dels ZIP no desa res.

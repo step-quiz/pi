@@ -9,7 +9,7 @@
                                                 4eso/docx/examen-ud6-solucionari.docx
 
   D'on surt cada cosa:
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud6.html i del seu solucionari.
+  · Els apartats a), b), c) i d), dels exercicis de u6/fitxa.html i del seu solucionari.
     On la fitxa no en tenia prou, n'hi ha un de nou, i al solucionari porta la marca «nou».
   · Els gràfics són els de la fitxa, llegits dels seus marcadors <!--grafic:NOM-->: així
     l'examen ensenya exactament el que s'ha treballat a la fitxa.
@@ -34,7 +34,7 @@ const txt = s => dada(s, undefined, { esq: true });
 const FITXA = fs.readFileSync(path.join(__dirname, "..", "..", "fitxes", "ud6.html"), "utf8");
 function deFitxa(nom) {
   const m = FITXA.match(new RegExp(`<!--grafic:${nom}--><svg viewBox="0 0 ([\\d.]+) ([\\d.]+)"[^>]*>([\\s\\S]*?)</svg><!--/grafic-->`));
-  if (!m) throw new Error(`ud6.js: el gràfic ${nom} no és a fitxes/ud6.html`);
+  if (!m) throw new Error(`ud6.js: el gràfic ${nom} no és a u6/fitxa.html`);
   X.registra(nom, X.SVG(`0 0 ${m[1]} ${m[2]}`, +m[1], +m[2], m[3]));
   return [+m[1], +m[2]];
 }
@@ -149,7 +149,7 @@ const solucionari = privat => [
   ...sol.titol(6),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* sòlid, amb *AN* a la representació (criteris 5.1 i 2.1). Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i els gràfics de la fitxa (_fitxes/ud6.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (3e, 4e, 6f i 7e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i els gràfics de la fitxa (_u6/fitxa.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (3e, 4e, 6f i 7e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*La dispersió, com a idea visual:* «juntes» o «escampades». No es demana cap fórmula de dispersió.",
   ]),
 

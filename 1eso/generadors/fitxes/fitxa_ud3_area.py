@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3-area.html: mesurar l'àrea (unitat 3, la primera fitxa en ordre).
+"""Genera 1eso/u3/area.html: mesurar l'àrea (unitat 3, la primera fitxa en ordre).
 Adapta les activitats 2, 3, 4 i 5 de la situació «Com és de gran Gaza?»: què és més gran,
 el metre i el quilòmetre (amb l'excepció «1 km = 1.000 m», decisió del docent del 26/9/2026),
 l'àrea de rectangles i de figures irregulars amb quadrets sencers i mitjos."""

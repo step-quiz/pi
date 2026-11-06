@@ -2,7 +2,7 @@
 
     python3 generadors/gen_quadern.py 3        (des de 4eso/)
 
-Un bloc per cada exercici de la fitxa (fitxes/ud3.html), en el mateix ordre. A cada bloc,
+Un bloc per cada exercici de la fitxa (u3/fitxa.html), en el mateix ordre. A cada bloc,
 una activitat germana i una de repte. Cada activitat té 13 apartats: l'a), resolt, i
 12 per fer. El filtre en deixa 3 (petit), 6 (mitjà) o tots 12 (elevat), sempre els
 primers: per això els apartats van de menys a més (els de 1 : 100 abans que els de
@@ -18,7 +18,7 @@ from gen_quadern import act, taula, tria, taula_tria, ofertes, quadricula, plano
 from gen_quadern import num, eur, esc, nota
 
 NUM = 3
-TITOL = "Escales i proporcionalitat"
+TITOL = "Proporcionalitat i escales"   # el de dades/unitats.js (decisió V2)
 AVALUAR = ("Com a la fitxa, l'objectiu no és calcular bé: és saber en quin sentit va la conversió "
            "(del plànol a la realitat es multiplica, de la realitat al plànol es divideix) i decidir. "
            "Un error de divisió no hauria de fer baixar la valoració si la cadena és correcta. Les "

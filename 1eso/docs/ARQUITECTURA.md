@@ -1,5 +1,7 @@
 # Arquitectura de la caixa d'eines
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 Com està muntada la caixa d'eines d'aquesta carpeta i com ampliar-la sense trencar res. Les
 regles de què es veu a la pantalla, i per què, són a [`CRITERIS-DISSENY.md`](CRITERIS-DISSENY.md),
 apartat 3.
@@ -41,7 +43,7 @@ compartirien la memòria del navegador, i un codi de l'una es llegiria com a và
 
 | Fitxer | Què fa |
 |---|---|
-| `caixa-eines.html` | El marcatge de les 29 eines. Cap frase: només `data-text="1.2.titol"` |
+| `eines.html` | El marcatge de les 29 eines. Cap frase: només `data-text="1.2.titol"` |
 | `verifica.html` | Llegeix els codis de verificació, un o molts alhora |
 | `textos.html` | Totes les frases en una pàgina, per canviar-les i baixar el fitxer nou |
 | `dades/textos.js` | Totes les frases (`window.TEXTOS`) i què fa cadascuna (`window.TEXTOS_GUIA`) |

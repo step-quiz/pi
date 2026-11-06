@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud6-cercle.html: la circumferència (unitat 6, fitxa 5).
+"""Genera 1eso/u6/cercle.html: la circumferència (unitat 6, fitxa 5).
 
 Adapta l'activitat de la circumferència de la situació «Sentit espacial» (el llibre, UD7, activitat
 6). Només la idea, sense π = 3,14 (decisió del docent del 29/9/2026): el centre, el radi i el

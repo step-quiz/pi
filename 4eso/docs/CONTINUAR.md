@@ -1,5 +1,7 @@
 # Feina pendent
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 *(Abans es deia `handout.md`. Conserva la traça del que queda obert.)*
 
 **Per a:** una altra IA (o una altra persona) que reprengui aquest projecte.
@@ -20,7 +22,7 @@ dificultats de tipus cognitiu.
 > **no cal tornar a fer aquella feina.**
 >
 > L'única cosa que necessitava el docent, el graó de percentatge de la U2 (apartat 5 del
-> mapa), **ja és a la fitxa**: `fitxes/ud2.html` porta la barra amb l'escala de 0 a 100 %
+> mapa), **ja és a la fitxa**: `u2/fitxa.html` porta la barra amb l'escala de 0 a 100 %
 > (`BARRA_ESCALA`) entre la barra partida i el factor. Només falta que el docent el doni per
 > bo a l'aula.
 
@@ -171,10 +173,10 @@ Quan hi puguis accedir, no cal un resum del lloc. Cal respondre aquestes pregunt
 
 | Si trobes… | Va a parar a… |
 |---|---|
-| Un model visual millor per a percentatges | `fitxes/ud2.html` pàgines 1-2 i mòdul Doble recta |
-| Un model per a escales o raons | `fitxes/ud3.html` i mòdul Doble recta |
-| Una manera millor de presentar la mitjana ponderada | `fitxes/ud6.html` pàgina 4 (model d'àrea) |
-| Un model per a probabilitat | `fitxes/ud7.html` i mòdul Doble recta |
+| Un model visual millor per a percentatges | `u2/fitxa.html` pàgines 1-2 i mòdul Doble recta |
+| Un model per a escales o raons | `u3/fitxa.html` i mòdul Doble recta |
+| Una manera millor de presentar la mitjana ponderada | `u6/fitxa.html` pàgina 4 (model d'àrea) |
+| Un model per a probabilitat | `u7/fitxa.html` i mòdul Doble recta |
 | Un patró d'obertura silenciosa | totes les pàgines 1 de les fitxes |
 | Una progressió d'animació aprofitable | mòduls de l'app, que ja fan revelació pas a pas |
 
@@ -282,7 +284,7 @@ Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `cs
 
 ## 10d. 5/11/2026: el quadern d'activitats de la UD3
 
-- **Què és.** `quadern/ud3.html`: activitats per practicar després de la fitxa, un bloc per
+- **Què és.** `u3/quadern.html`: activitats per practicar després de la fitxa, un bloc per
   exercici de la fitxa. Cada bloc té una activitat germana i una de repte. El filtre tria
   quants apartats té cada activitat (a) resolt i 3, 6 o 12 per fer) i si hi ha les de repte.
   Es descriu al `README.md`, apartat «El quadern d'activitats». Des de la portada:
@@ -323,7 +325,7 @@ Tot queda tancat el 30/9/2026, per encàrrec del docent: les targetes, els repas
 | Bloc | Què s'ha fet |
 |---|---|
 | Targetes de consulta | `targetes/`: la calculadora (les cinc seqüències de tecles), percentatges i escales, i paràboles, dades i atzar. Un PDF per targeta, a doble cara |
-| Fitxes de repàs | `fitxes/udN-repas.html`, una per unitat: dibuix de la unitat, «Una de cada» i «Què he après?». Les fa `generadors/gen_repas.py` |
+| Fitxes de repàs | `uN/repas.html`, una per unitat: dibuix de la unitat, «Una de cada» i «Què he après?». Les fa `generadors/gen_repas.py` |
 | Exàmens | `generadors/examens/ud2.js` a `ud7.js`, amb el motor comú. Els apartats nous porten «nou» al solucionari |
 | Regla G | a les regles trencades de la U2 (5c), la U3 (6c) i la U7 (4c), la refutació és un dibuix: una recta de preus o l'arbre |
 | Caixa d'eines | dos mòduls nous: Aplanar (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de la U7, tasca 9) |
@@ -425,7 +427,7 @@ Res del contingut ha canviat en aquesta reorganització.
      un menú del qual no es pot estar segur sense l'aparell, i amb `E Mat/S Decimal` no cal.
 2. **Les gràfiques antigues de `gen_grafics.py`.** L'etiqueta de l'eix vertical sortia fora
    del dibuix i es llegia «ra (m)» en comptes de «altura (m)». Està corregit al generador i
-   les vuit gràfiques enganxades a `fitxes/ud5.html` s'han substituït per les noves. L'única
+   les vuit gràfiques enganxades a `u5/fitxa.html` s'han substituït per les noves. L'única
    que no s'ha pogut substituir és `PILOTA_GRAN` (la de la pàgina 1 de la U5): la versió que
    hi ha a la fitxa no coincideix amb la que genera l'script, segurament perquè es va
    retocar a mà. Si algun dia es regenera, mira-la abans.

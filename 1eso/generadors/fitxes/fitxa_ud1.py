@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera l'esborrany de 1eso/fitxes/ud1.html: rectangles i quadrats.
+"""Genera l'esborrany de 1eso/u1/fitxa.html: rectangles i quadrats.
 
 Els dibuixos es fan aquí perquè tots els quadrets tinguin la mateixa mida i el
 mateix aire, com a la caixa d'eines. El resultat és un HTML de paper normal.

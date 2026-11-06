@@ -136,14 +136,39 @@ def buit_curt():
     return '<u style="padding:0 1.1rem"></u>'
 
 
-# La unitat on neix cada targeta de consulta: ha de quadrar amb el camp unitat de
-# dades/unitats.js (eines/comprova.py ho mira).
-UNITAT_TARGETA = {"taules": 1, "fraccions": 3, "decimals": 5, "formes": 6, "patrons": 7}
+# On va cada pàgina (comu/docs/SITE-MAP.md, «Paper pages»). El nom del generador decideix el
+# lloc, no la carpeta des d'on es passa: udN.html → uN/fitxa.html, udN-NOM.html → uN/NOM.html
+# (el repàs, uN/repas.html) i una targeta NOM.html → targetes/NOM.html. Els PDF es continuen
+# dient pdf/udN-…, pdf/udN-NOM-… i pdf/targeta-NOM.pdf (generadors/gen_pdf.py).
+ARREL_CURS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # 1eso/
+
+
+def desti(nom):
+    """El camí, des de la carpeta del curs, de la pàgina que el generador anomena «nom»."""
+    m = re.fullmatch(r"ud(\d+)(?:-([\w]+))?", nom)
+    if m:
+        return f"u{m[1]}/{m[2] or 'fitxa'}.html"
+    return f"targetes/{nom}.html"
+
+
+# La barra de dalt, només a la pantalla. Tot el que és de pantalla va DINS d'aquest <nav>, perquè
+# l'empremta dels PDF (eines/paper.py, SENSE_PDF) el treu sencer: canviar la capçalera no fa vell
+# cap PDF. El full d'estil i l'script són els comuns de tots els cursos: comu/js/paper.js hi posa
+# la capçalera (Inici › curs › Unitat N › Fitxa) i els botons dels PDF (6/11/2026).
+def barra(cami):
+    unitat = re.match(r"u(\d+)/", cami)
+    torna = "index.html" if unitat else "../index.html"
+    text = f"Unitat {unitat[1]}" if unitat else "Les unitats"
+    return (f'<nav class="navega no-imprimir" aria-label="Navegació">'
+            f'<link rel="stylesheet" href="../../comu/css/web.css">'
+            f'<a href="{torna}">{text}</a>'
+            f'<script src="../../comu/js/paper.js"></script></nav>\n')
 
 
 def desa(html, sortida):
-    """Escriu l'HTML amb una capçalera que diu de quin generador surt: si algú l'edités a
-    mà, el canvi es perdria la pròxima vegada que es generés. eines/comprova.py la mira."""
+    """Escriu l'HTML al seu lloc (desti), amb una capçalera que diu de quin generador surt: si
+    algú l'edités a mà, el canvi es perdria la pròxima vegada que es generés. eines/comprova.py
+    la mira. «sortida» només en dona el nom: udN.html, udN-NOM.html o NOM.html."""
     generador = os.path.basename(sys.argv[0])
     avis = (f"<!-- Generat per 1eso/generadors/fitxes/{generador}. No l'editis a mà: "
             f"canvia el generador i torna'l a passar. -->\n")
@@ -151,27 +176,13 @@ def desa(html, sortida):
         html = "<!DOCTYPE html>\n" + avis + html[len("<!DOCTYPE html>\n"):]
     else:
         html = avis + html
-    # La barra de dalt, només a la pantalla: tornar a la unitat i baixar el PDF (30/9/2026).
-    # L'esquema és curs → unitat → fitxa, quadern o caixa (5/11/2026): una fitxa o una targeta
-    # torna sempre a la pàgina de la seva unitat, mai a una llista plana.
-    nom = os.path.basename(sortida)[:-5]
-    if nom.startswith("ud"):
-        unitat = int(re.match(r"ud(\d+)", nom).group(1))
-        pdfs = (f'<a class="pdf" href="../pdf/{nom}-alumnat.pdf" download>PDF de l\'alumnat</a>'
-                f'<a class="pdf" href="../pdf/{nom}-solucionari.pdf" download>PDF del solucionari</a>')
-        tornar = f'<a href="../unitat.html?ud={unitat}">← unitat {unitat}</a>'
-    else:
-        # Una targeta torna a la unitat on neix (dades/unitats.js, camp unitat). Si s'hi arriba
-        # des d'una altra unitat (?ud=N), comu/js/torna.js corregeix l'enllaç.
-        unitat = UNITAT_TARGETA[nom]
-        pdfs = f'<a class="pdf" href="../pdf/targeta-{nom}.pdf" download>PDF per imprimir</a>'
-        tornar = f'<a data-unitat href="../unitat.html?ud={unitat}">← unitat {unitat}</a>'
-        html = html.replace("</body>", '<script src="../../comu/js/torna.js"></script>\n</body>', 1)
-    barra = (f'<nav class="navega no-imprimir" aria-label="Navegació">'
-             f'{tornar}{pdfs}</nav>\n')
-    html = html.replace("<body>\n", "<body>\n" + barra, 1)
-    with open(sortida, "w", encoding="utf-8") as f:
+    cami = desti(os.path.basename(sortida)[:-5])
+    html = html.replace("<body>\n", "<body>\n" + barra(cami), 1)
+    on = os.path.join(ARREL_CURS, cami)
+    os.makedirs(os.path.dirname(on), exist_ok=True)
+    with open(on, "w", encoding="utf-8") as f:
         f.write(html)
+    print(cami)
 
 
 __all__ = [n for n in dir() if not n.startswith("__")]

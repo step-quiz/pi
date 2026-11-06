@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud4-repas.html: el repàs de la unitat 4 (fitxa 5), amb
+"""Genera 1eso/u4/repas.html: el repàs de la unitat 4 (fitxa 5), amb
 «Una de cada» (un apartat per cada fitxa de la unitat) i «Què he après?»."""
 import os
 import sys

@@ -1,11 +1,12 @@
 /* ============================================================================
-   quadern.js · el filtre del quadern d'activitats (quadern/udN.html)
+   quadern.js · el filtre del quadern d'activitats (uN/quadern.html)
    ----------------------------------------------------------------------------
    Dues marques, a les activitats i al solucionari:
      data-n="1|2|3"  a cada apartat (i a cada secció amb un dibuix): a partir de quina
-                     quantitat surt. Petit deixa l'a) i 3 apartats per fer, mitjà 6 i
-                     elevat 12. El nombre d'activitats no canvia.
-     data-repte      a les activitats de repte (.act i .sol-act): només amb «Amb repte».
+                     quantitat surt. Petita deixa l'a) i 3 apartats per fer, mitjana 6 i
+                     alta 12. El nombre d'activitats no canvia.
+     data-repte      a les activitats de repte (.act i .sol-act): només amb «Afegint
+                     exercicis diferents que suposen un repte».
    Els apartats que s'amaguen sempre són els últims, i les lletres queden seguides. Els
    números de les activitats són comptadors CSS (css/quadern.css), que se salten les
    activitats amagades.
@@ -46,12 +47,12 @@
     document.body.classList.toggle("amb-repte", ambRepte);
     document.querySelectorAll(".filtres [data-filtre]").forEach(grup => {
       grup.querySelectorAll("button").forEach(b => {
-        b.setAttribute("aria-pressed", String(b.dataset.valor === estat[grup.dataset.filtre]));
+        b.setAttribute("aria-checked", String(b.dataset.valor === estat[grup.dataset.filtre]));
       });
     });
     const r = document.getElementById("recompte");
-    if (r) r.textContent = "Surten " + vistes + " activitats" + (reptes ? " (" + reptes + " de repte)" : "") +
-      ", cada una amb l'apartat a) resolt i " + perFer + " per fer.";
+    if (r) r.textContent = vistes + " activitats" + (reptes ? " (" + reptes + " de repte)" : "") +
+      " · " + perFer + " apartats a cada una";
   }
 
   function imprimeix(nomesSol) {
@@ -75,13 +76,6 @@
     if (boto("imprimeix-sol")) boto("imprimeix-sol").addEventListener("click", () => imprimeix(true));
     // Ctrl+P sense botó: les activitats, mai el solucionari.
     window.addEventListener("afterprint", () => document.body.classList.remove("nomes-sol"));
-    const mostra = boto("mostra-sol");
-    if (mostra) mostra.addEventListener("click", () => {
-      const veu = document.body.classList.toggle("veu-sol");
-      mostra.setAttribute("aria-expanded", String(veu));
-      mostra.textContent = veu ? "Amaga el solucionari" : "Mostra el solucionari";
-      if (veu) document.getElementById("solucionari").scrollIntoView({ behavior: "smooth" });
-    });
     aplica();
   }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud4-multfrac.html: multiplicar fraccions (unitat 4, fitxa 2).
+"""Genera 1eso/u4/multfrac.html: multiplicar fraccions (unitat 4, fitxa 2).
 Adapta les activitats 4 i 5 de la situació «És gran l'ou del kiwi?». Només amb
 numerador 1 a cada fracció, i el resultat sempre amb denominador fins a 12
 (decisió ja presa a la unitat 3): dividir fraccions queda fora (no té una

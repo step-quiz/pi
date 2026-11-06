@@ -22,52 +22,52 @@ Doble clic a `index.html`. No cal servidor ni instal·lar res. Publicat, és a
 
 ---
 
-## La caixa d'eines
+## Les eines
 
-Les eines de pantalla de la unitat 1, amb el mateix dibuix que el paper: la quadrícula. S'obre
-amb doble clic a `caixa-eines.html`. Publicada, és a `https://pi.step-quiz.net/1eso/caixa-eines`.
+Les eines de pantalla, amb el mateix dibuix que el paper: la quadrícula. L'alumnat hi entra amb
+l'enllaç que el docent copia a la pàgina de cada unitat, per exemple
+`https://pi.step-quiz.net/1eso/eines?u=3`: només hi surten les eines de la unitat (camp `tasques`
+de `dades/unitats.js`) i, després d'una ratlla, les Taules, que són la targeta de les taules a la
+pantalla. La capçalera diu la unitat i no porta enlloc. Cada eina es carrega quan s'obre.
 
-La caixa sencera té 29 eines: a sobre de les pestanyes, «Unitat 1 … Unitat 7» deixa veure només
-les d'una unitat. Cada eina es carrega quan s'obre, i no totes d'entrada.
+Cada eina té un número fix. `?task=n` (una sola eina) i `?task=n.m` (un sol exercici) encara
+funcionen, però ja no s'enllacen enlloc: només els fan servir les proves.
 
-Per a l'alumnat es fa servir un enllaç que només ensenya una eina. Sempre hi surt també la
-pestanya Taules, que és la targeta de les taules a la pantalla:
-
-| Enllaç | Què obre |
+| Número (`?task=`) | Què obre |
 |---|---|
-| `caixa-eines?task=0` | Taules: 0.1 La taula · 0.2 Troba el resultat a la taula · 0.3 El número que falta |
-| `caixa-eines?task=1` | Rectangles: 1.1 Fes un rectangle · 1.2 El rectangle d'una multiplicació · 1.3 Gira el rectangle · 1.4 Parteix el rectangle |
-| `caixa-eines?task=2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat · 2.4 Entre quins dos nombres? (unitat 5) |
-| `caixa-eines?task=3` | Nombres: 3.1 Centenes, desenes i unitats · 3.2 Fes el nombre |
-| `caixa-eines?task=4` | Ordre: 4.1 Mira l'ordre · 4.2 Què es fa primer? |
-| `caixa-eines?task=5` | Múltiples (unitat 2): 5.1 La graella de 100 · 5.2 És múltiple? · 5.3 Els trucs · 5.4 Múltiple de 3? |
-| `caixa-eines?task=6` | Repartir (unitat 2): 6.1 Reparteix en files · 6.2 Sobren quadrets? |
-| `caixa-eines?task=7` | Divisors (unitat 2): 7.1 Els rectangles d'un nombre · 7.2 Troba els divisors |
-| `caixa-eines?task=8` | Primers (unitat 2): 8.1 El garbell d'Eratòstenes · 8.2 És primer? |
-| `caixa-eines?task=9` | Fraccions (unitat 3): 9.1 Fes la fracció · 9.2 Quina fracció és? |
-| `caixa-eines?task=10` | Equivalents (unitat 3): 10.1 Parteix els trossos · 10.2 Són equivalents? |
-| `caixa-eines?task=11` | Compara (unitat 3): 11.1 Compara dues fraccions · 11.2 Quina és més gran? |
-| `caixa-eines?task=12` | Sumes (unitat 3): 12.1 Suma i resta · 12.2 Quant és? |
-| `caixa-eines?task=13` | Àrea (unitat 3): 13.1 Compta l'àrea · 13.2 Quina àrea té? |
-| `caixa-eines?task=14` | Fracció d'un nombre (unitat 4): 14.1 Reparteix i pinta · 14.2 Quant és? |
-| `caixa-eines?task=15` | Multiplicar fraccions (unitat 4): 15.1 El tros de tros · 15.2 Quin tros és? |
-| `caixa-eines?task=16` | Percentatges (unitat 4): 16.1 Pinta el percentatge · 16.2 Quin percentatge és? |
-| `caixa-eines?task=17` | Dobles i triples (unitat 4): 17.1 El doble i el triple · 17.2 Quantes vegades hi cap? |
-| `caixa-eines?task=18` | Decimals (unitat 5): 18.1 Fes el decimal · 18.2 Quin decimal és? · 18.3 Quin és més gran? |
-| `caixa-eines?task=19` | Arrodonir (unitat 5): 19.1 El decimal a la recta · 19.2 Arrodoneix |
-| `caixa-eines?task=20` | Sumar decimals (unitat 5): 20.1 Suma i resta · 20.2 Quant és? |
-| `caixa-eines?task=21` | Fracció i decimal (unitat 5): 21.1 Pinta la fracció · 21.2 De fracció a decimal |
-| `caixa-eines?task=22` | Angles (unitat 6): 22.1 Obre l'angle · 22.2 Quin angle és? |
-| `caixa-eines?task=23` | Polígons (unitat 6): 23.1 El polígon al geoplà · 23.2 Com es diu? |
-| `caixa-eines?task=24` | Triangles (unitat 6): 24.1 Els tres angles · 24.2 Quin triangle és? |
-| `caixa-eines?task=25` | Perímetre (unitat 6): 25.1 Perímetre i àrea · 25.2 Quin és el perímetre? |
-| `caixa-eines?task=26` | Patrons (unitat 7): 26.1 El patró · 26.2 Quants en té la següent? |
-| `caixa-eines?task=27` | Símbols (unitat 7): 27.1 La paraula i el símbol · 27.2 Quin és el símbol? |
-| `caixa-eines?task=28` | Gràfics (unitat 7): 28.1 Llegeix el gràfic · 28.2 Quantes persones? |
+| `0` | Taules: 0.1 La taula · 0.2 Troba el resultat a la taula · 0.3 El número que falta |
+| `1` | Rectangles: 1.1 Fes un rectangle · 1.2 El rectangle d'una multiplicació · 1.3 Gira el rectangle · 1.4 Parteix el rectangle |
+| `2` | Quadrats: 2.1 El quadrat d'un nombre · 2.2 Quin dibuix és? · 2.3 El costat del quadrat · 2.4 Entre quins dos nombres? (unitat 5) |
+| `3` | Nombres: 3.1 Centenes, desenes i unitats · 3.2 Fes el nombre |
+| `4` | Ordre: 4.1 Mira l'ordre · 4.2 Què es fa primer? |
+| `5` | Múltiples (unitat 2): 5.1 La graella de 100 · 5.2 És múltiple? · 5.3 Els trucs · 5.4 Múltiple de 3? |
+| `6` | Repartir (unitat 2): 6.1 Reparteix en files · 6.2 Sobren quadrets? |
+| `7` | Divisors (unitat 2): 7.1 Els rectangles d'un nombre · 7.2 Troba els divisors |
+| `8` | Primers (unitat 2): 8.1 El garbell d'Eratòstenes · 8.2 És primer? |
+| `9` | Fraccions (unitat 3): 9.1 Fes la fracció · 9.2 Quina fracció és? |
+| `10` | Equivalents (unitat 3): 10.1 Parteix els trossos · 10.2 Són equivalents? |
+| `11` | Compara (unitat 3): 11.1 Compara dues fraccions · 11.2 Quina és més gran? |
+| `12` | Sumes (unitat 3): 12.1 Suma i resta · 12.2 Quant és? |
+| `13` | Àrea (unitat 3): 13.1 Compta l'àrea · 13.2 Quina àrea té? |
+| `14` | Fracció d'un nombre (unitat 4): 14.1 Reparteix i pinta · 14.2 Quant és? |
+| `15` | Multiplicar fraccions (unitat 4): 15.1 El tros de tros · 15.2 Quin tros és? |
+| `16` | Percentatges (unitat 4): 16.1 Pinta el percentatge · 16.2 Quin percentatge és? |
+| `17` | Dobles i triples (unitat 4): 17.1 El doble i el triple · 17.2 Quantes vegades hi cap? |
+| `18` | Decimals (unitat 5): 18.1 Fes el decimal · 18.2 Quin decimal és? · 18.3 Quin és més gran? |
+| `19` | Arrodonir (unitat 5): 19.1 El decimal a la recta · 19.2 Arrodoneix |
+| `20` | Sumar decimals (unitat 5): 20.1 Suma i resta · 20.2 Quant és? |
+| `21` | Fracció i decimal (unitat 5): 21.1 Pinta la fracció · 21.2 De fracció a decimal |
+| `22` | Angles (unitat 6): 22.1 Obre l'angle · 22.2 Quin angle és? |
+| `23` | Polígons (unitat 6): 23.1 El polígon al geoplà · 23.2 Com es diu? |
+| `24` | Triangles (unitat 6): 24.1 Els tres angles · 24.2 Quin triangle és? |
+| `25` | Perímetre (unitat 6): 25.1 Perímetre i àrea · 25.2 Quin és el perímetre? |
+| `26` | Patrons (unitat 7): 26.1 El patró · 26.2 Quants en té la següent? |
+| `27` | Símbols (unitat 7): 27.1 La paraula i el símbol · 27.2 Quin és el símbol? |
+| `28` | Gràfics (unitat 7): 28.1 Llegeix el gràfic · 28.2 Quantes persones? |
 
 Afegint el número de la subtasca s'hi va directament, i ja no es pot passar a cap altre
-exercici: `caixa-eines?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
-`caixa-eines?task=1`, l'eina sencera, amb les fletxes. Les tasques
+exercici: `eines.html?task=1.2` obre la 1.2 sense les fletxes de la barra. Amb
+`eines.html?task=1`, l'eina sencera, amb les fletxes. Les tasques
 tancades (0.2, 0.3, 1.2, 2.2, 3.2 i 4.2; de la unitat 2, 5.2, 5.4, 6.2, 7.2 i 8.2; i de la unitat 3,
 9.2, 10.2, 11.2, 12.2 i 13.2; de la unitat 4, 14.2, 15.2, 16.2 i 17.2; i de la unitat 5,
 2.4, 18.2, 18.3, 19.2, 20.2 i 21.2; de la unitat 6, 22.2, 23.2, 24.2 i 25.2; i de la unitat 7, 26.2, 27.2 i 28.2) acaben amb
@@ -100,16 +100,16 @@ Com està feta i com s'amplia: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 
 | | |
 |---|---|
-| `index.html` | La pàgina del professorat del curs (s'hi arriba des del peu de la portada de l'arrel): la caixa sencera, els enllaços `?task=n` i les eines per al docent |
-| `unitat.html` | La pàgina d'una unitat (`unitat.html?ud=N`): les fitxes amb els seus dos PDF, les targetes de consulta de la unitat, el quadern i la caixa d'eines amb només les tasques de la unitat (camp `tasques`), i plegat el detall per al docent (el nucli, el graó físic, el rol a l'aula ordinària, la fita, el camí mínim i les regles trencades). La fa `../comu/js/unitat.js`. Les fitxes, les targetes i la caixa tornen aquí («← unitat N») |
-| `caixa-eines.html` | La caixa d'eines. `verifica.html` llegeix els codis i `textos.html` canvia les frases |
+| `index.html` | La pàgina del curs: les seves unitats. La fa `../comu/js/curs.js` |
+| `u1/` … `u7/` | Una carpeta per unitat. `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): les fitxes numerades, el quadern d'activitats (o «no disponible») i el repàs, amb els PDF; les eines i la targeta de la unitat; i «Abans de la classe». A dins, les fitxes: `fitxa.html` la principal, `NOM.html` les altres, i `repas.html` |
+| `eines.html` | Les eines de l'alumnat (`eines.html?u=N`). `verifica.html` llegeix els codis i `textos.html` canvia les frases |
+| `professorat.html` | La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
 | `dades/textos.js` | Totes les frases de la caixa, i què fa cadascuna |
 | `js/` | La caixa: `nucli.js`, `codi.js`, `tasca.js`, `quadricula.js`, `app.js` i les 29 eines a `moduls/`, una per fitxer |
 | `targetes/` | Les targetes de consulta: la de les taules de multiplicar (unitat 1), la dels noms de les fraccions (unitat 3), la dels decimals i les arrels (unitat 5), la de les formes (unitat 6) i la dels patrons i els símbols (unitat 7) |
-| `fitxes/` | Les fitxes de cada unitat (`udN.html`, i `udN-nom.html` si en té més d'una). Ara hi ha les quatre de la unitat 1 (rectangles i quadrats; centenes, desenes i unitats; l'ordre de les operacions, i el repàs) les cinc de la unitat 2 (els múltiples, repartir en files, divisors i primers, la factorització, i el repàs) i les set de la unitat 3 (mesurar l'àrea, quants km², què és una fracció, els tipus i comparar, equivalents, sumar i restar, i el repàs), i les cinc de la unitat 4 (la fracció d'un nombre, multiplicar fraccions, els percentatges, dobles i triples, i el repàs) |
 | `pdf/` | Els PDF per imprimir, i `empremtes.json`, que diu de quina versió de cada font surten |
-| `dades/unitats.js` | Les set unitats i les targetes: el que llegeixen la portada i `unitat.html` |
-| `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (la portada i `unitat.html`) i `app.css` (la caixa) |
+| `dades/unitats.js` | Les set unitats i les targetes: el que llegeixen totes les pàgines del curs |
+| `css/` | `tokens.css` (colors i lletres), `fitxa.css` (tot el paper), `lloc.css` (`textos.html` i `verifica.html`) i `app.css` (les eines). La closca de pantalla és comuna: `../comu/css/web.css` |
 | `fonts/` | La lletra manuscrita, Caveat, i la seva llicència |
 | `eines/` | El test, la mesura de l'A4, `paper.py` (que comparteixen amb el generador) i els dos tests de la caixa |
 | `generadors/gen_pdf.py` | Fa els PDF |
@@ -156,7 +156,7 @@ python3 1eso/eines/auditoria.py                     # accessibilitat i lletra al
 `<div class="full targeta">` i el peu `Targeta de … · cara N`. Una línia a `window.TARGETES`
 de `dades/unitats.js`. Després, `gen_pdf.py` i `comprova.py`.
 
-**Una fitxa:** `fitxes/udN.html`, amb el rètol del graó físic (`.previ`), l'obertura «Què hi
+**Una fitxa:** `uN/fitxa.html`, amb el rètol del graó físic (`.previ`), l'obertura «Què hi
 veus?», les pàgines de la unitat, «A la vida de cada dia» (`.full.vida`) i el solucionari
 (`.full.sol`). A `dades/unitats.js`, a la llista `fitxes` de la unitat, amb el camí i el títol.
 Una unitat en pot tenir més d'una, en l'ordre de classe: la segona i les següents es diuen

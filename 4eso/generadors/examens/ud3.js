@@ -9,7 +9,7 @@
                                                 4eso/docx/examen-ud3-solucionari.docx
 
   D'on surt cada cosa:
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud3.html i del seu solucionari.
+  · Els apartats a), b), c) i d), dels exercicis de u3/fitxa.html i del seu solucionari.
     On la fitxa no en tenia prou, n'hi ha un de nou, i al solucionari porta la marca «nou».
   · Sense la pregunta oberta de la fitxa (5e, encerclar al plànol) ni els dibuixos: el plànol
     i la doble recta del mapa són a la fitxa, i l'examen en fa servir només les mides.
@@ -119,7 +119,7 @@ const solucionari = privat => [
   ...sol.titol(3),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS* al criteri 1.1, amb *AN* a la part d'escales. Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud3.html_) i del seu solucionari. Sense la pregunta oberta de la fitxa (5e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_u3/fitxa.html_) i del seu solucionari. Sense la pregunta oberta de la fitxa (5e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Dues valoracions separades:* puntua per separat si la *decisió* és correcta i si el *càlcul* és correcte. Un error aritmètic no hauria de fer baixar la valoració de la decisió.",
   ]),
 

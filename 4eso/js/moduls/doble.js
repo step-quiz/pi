@@ -13,24 +13,28 @@
 
      L'EXPRESSIÓ AMB NÚMEROS ESTÀ AMAGADA FINS QUE ES MOU EL PUNT.
      És a posta: el símbol ha d'emergir del dibuix, no aparèixer al seu costat.
-     El cas d'exemple s'obre ja revelat, com la resta d'eines. */
+     El cas d'exemple s'obre ja revelat, com la resta d'eines.
+
+     UNITATS (6/11/2026, decisió E1). Cada exemple diu de quines unitats és. Amb eines.html?u=N
+     només surten els de la unitat N; si n'hi ha un de sol, ni tan sols la fila de botons
+     (des de la U3, només «Escala 1 : 200»). Sense ?u, tots. */
   const DOBLES = [
-    { et: "Percentatges", model: true,
+    { et: "Percentatges", model: true, unitats: [2],
       nomA: "euros",      maxA: 300, unA: " €",  decA: 2,
       nomB: "per cent",   maxB: 100, unB: " %",  decB: 0,
       passos: 20, marques: 5, inici: 16,                 // 16/20 = 80 %
       simbolic: (a, b) => "300 × " + num(b / 100, 2) + " = " + num(a, 2) + " €" },
-    { et: "Escala 1 : 200",
+    { et: "Escala 1 : 200", unitats: [3],
       nomA: "cm al plànol", maxA: 10, unA: " cm", decA: 1,
       nomB: "m de veritat", maxB: 20, unB: " m",  decB: 1,
       passos: 20, marques: 5, inici: 8,                  // 4 cm → 8 m
       simbolic: (a, b) => num(a, 1) + " cm × 2 = " + num(b, 1) + " m" },
-    { et: "Probabilitat",
+    { et: "Probabilitat", unitats: [7],
       nomA: "casos que em van bé", maxA: 6,   unA: "",   decA: 0,
       nomB: "probabilitat",        maxB: 100, unB: " %", decB: 1,
       passos: 6, marques: 6, inici: 3,                   // 3 de 6 → 50 %
       simbolic: (a, b) => num(a, 0) + " ÷ 6 = " + num(b / 100, 3) + " → " + num(b, 1) + " %" },
-    { et: "Equació x + 3 = 7",
+    { et: "Equació x + 3 = 7", unitats: [4],
       nomA: "x",     minA: 0, maxA: 8,  unA: "", decA: 0,
       nomB: "x + 3", minB: 3, maxB: 11, unB: "", decB: 0,
       passos: 8, marques: 8, inici: 4,                   // x = 4 → x + 3 = 7
@@ -118,7 +122,12 @@
 
   function iniciaDoble() {
     if ($("#dr-pastilles").children.length) return;
-    pastilles($("#dr-pastilles"), DOBLES, d => {
+    const unitat = window.PI && window.PI.einesUnitat;
+    const daquesta = unitat ? DOBLES.filter(d => d.unitats.includes(unitat.num)) : [];
+    const casos = daquesta.length ? daquesta : DOBLES;
+    dr = casos[0]; drPas = dr.inici; drRevelat = true;
+    $("#dr-pastilles").hidden = casos.length < 2;
+    pastilles($("#dr-pastilles"), casos, d => {
       dr = d; drPas = d.inici; drRevelat = !!d.model;
       $("#dr-marca").hidden = !d.model;
       pintaDoble();

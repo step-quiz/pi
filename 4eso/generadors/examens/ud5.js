@@ -9,7 +9,7 @@
                                                 4eso/docx/examen-ud5-solucionari.docx
 
   D'on surt cada cosa:
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud5.html i del seu solucionari.
+  · Els apartats a), b), c) i d), dels exercicis de u5/fitxa.html i del seu solucionari.
     On la fitxa no en tenia prou, n'hi ha un de nou, i al solucionari porta la marca «nou».
   · Les gràfiques es dibuixen aquí amb la mateixa funció que generadors/gen_grafics.py
     (graf(), portada a JavaScript) i els mateixos paràmetres: són les de la fitxa. Les que
@@ -218,7 +218,7 @@ const solucionari = privat => [
   ...sol.titol(5),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AN*, i AE possible al criteri 5.1. És la unitat on més pot lluir.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i les gràfiques de la fitxa (_fitxes/ud5.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (6f, 7c i 8e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems i les gràfiques de la fitxa (_u5/fitxa.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (6f, 7c i 8e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*No cal calcular res:* tot l'examen és lectura de gràfiques. Si fa servir la calculadora, és per comprovar, no per resoldre.",
   ]),
 

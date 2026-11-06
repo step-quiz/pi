@@ -1,6 +1,6 @@
 """L'alçada de cada bloc .full, en cm, amb la geometria dels PDF (eines/paper.py).
 Com mesura.py, però amb Chromium en lloc de WeasyPrint: només per a esborranys.
-Per a entorns sense WeasyPrint (el de Claude): python3 eines/mesura_chromium.py fitxes/ud3.html"""
+Per a entorns sense WeasyPrint (el de Claude): python3 eines/mesura_chromium.py u3/fitxa.html"""
 import os, sys
 if os.path.isdir("/opt/pw-browsers"):
     os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")

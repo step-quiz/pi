@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud7-grafics.html: taules i gràfics de barres (unitat 7, fitxa 4).
+"""Genera 1eso/u7/grafics.html: taules i gràfics de barres (unitat 7, fitxa 4).
 
 Adapta l'activitat 5 de la situació «Llenguatge algebraic i patrons» (el llibre, UD8: «Interpretar
 gràfics i taules de la vida real»). Només barres i taules (decisió del docent del 29/9/2026): un

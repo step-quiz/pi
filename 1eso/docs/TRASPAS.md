@@ -1,5 +1,7 @@
 # Traspàs: com continuar la carpeta `1eso/` (unitats 5 a 7)
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 Escrit el 26 de setembre de 2026 per la IA que va fer les unitats 1, 2 i 3, i posat al dia el 28 de
 setembre de 2026 amb la unitat 4, perquè una altra conversa, que comença de zero, pugui fer les
 unitats 5, 6 i 7 amb el mateix mètode i la mateixa qualitat. Llegeix-lo sencer abans de tocar res. Després llegeix, per aquest ordre:
@@ -97,7 +99,7 @@ un altre, les fitxes en un o dos, i l'examen al final.
 
 ## 5. Com es fa cada peça
 
-### 5.1 La caixa d'eines (`caixa-eines.html`)
+### 5.1 La caixa d'eines (`eines.html`)
 
 - **Cada eina és un mòdul** de `js/moduls/`. El més recent i net és `area.js` (tasca 13): copia'n
   l'estructura. Una eina té una subtasca d'explorar (comptadors o pastilles, un dibuix, una lectura
@@ -111,7 +113,7 @@ un altre, les fitxes en un o dos, i l'examen al final.
   prefix ha d'acabar en `_` (`"13.1.fig_" + nom`), perquè el verificador sàpiga que es fa servir.
   Les claus s'alineen amb espais: per editar-les, fes servir expressions regulars, no text exacte.
 - **El marcatge**: una pestanya (`data-tasca="N" data-mod="nom"`), una `<section id="mod-nom">` amb la
-  subbarra i les subtasques (copia la de l'àrea), i el `<script>` al final de `caixa-eines.html` i de
+  subbarra i les subtasques (copia la de l'àrea), i el `<script>` al final de `eines.html` i de
   `verifica.html`, en l'ordre de les tasques. Afegeix la tasca a `dades/unitats.js` (`tasques`), a
   la portada `index.html` («Per al professorat», els enllaços agrupats per unitat), al `README.md`
   i a `ARQUITECTURA.md`.
@@ -128,7 +130,7 @@ un altre, les fitxes en un o dos, i l'examen al final.
 ### 5.2 Les fitxes de paper (`fitxes/`)
 
 - **Es fan amb generadors** de Python, a `generadors/fitxes/` (vegeu-ne el README). Cada un fa una
-  fitxa: `python3 1eso/generadors/fitxes/fitxa_ud3_area.py 1eso/fitxes/ud3-area.html`. Fes-ne un de
+  fitxa: `python3 1eso/generadors/fitxes/fitxa_ud3_area.py 1eso/u3/area.html`. Fes-ne un de
   nou copiant el més semblant. Les peces comunes són a `fitxa_ud1.py` (la classe `Dibuix`, `ms()` per
   a l'escrit a mà, `buit()` i `buit_curt()` per als forats, `ULL`, els colors), `peces_ud2.py`
   (`tria()`, `fes_pagina()`, `document()`, la graella de 100, els rectangles, l'arbre de factors) i
@@ -316,7 +318,7 @@ ningú no ho havia vist):
 **Trobat el 29/9/2026, en pujar les fitxes 5 i 6 de la unitat 5:** l'acció de `_uploads/`
 desempaqueta cada ZIP a sobre del repositori, i l'últim que s'aplica guanya. Els dos ZIP portaven
 `dades/unitats.js` i els documents; el de la fitxa 5, més vell, es va aplicar després del de la
-fitxa 6, i en va desfer els canvis (`fitxes/ud5-repas.html` no sortia a `dades/unitats.js`).
+fitxa 6, i en va desfer els canvis (`u5/repas.html` no sortia a `dades/unitats.js`).
 **Lliçó:** cada ZIP porta la versió al dia dels fitxers compartits (`dades/unitats.js`, els
 documents), i el docent en puja un i espera la marca verda abans de pujar-ne un altre. Si en queden
 dos per pujar, se'n fa un de sol.

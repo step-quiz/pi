@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3-equivalents.html: fraccions equivalents (unitat 3, fitxa 3).
+"""Genera 1eso/u3/equivalents.html: fraccions equivalents (unitat 3, fitxa 3).
 Adapta les activitats Fraccions 3, 5 i 6 del grup."""
 import os
 import sys

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud4-percentatges.html: els percentatges (unitat 4, fitxa 3).
+"""Genera 1eso/u4/percentatges.html: els percentatges (unitat 4, fitxa 3).
 Adapta l'activitat 7 de la situació «És gran l'ou del kiwi?»."""
 import os
 import sys

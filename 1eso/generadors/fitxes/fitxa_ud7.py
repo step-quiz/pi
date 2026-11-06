@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud7.html: patrons de quadrets (unitat 7, fitxa 1).
+"""Genera 1eso/u7/fitxa.html: patrons de quadrets (unitat 7, fitxa 1).
 
 Adapta les activitats 1 i 2 de la situació «Llenguatge algebraic i patrons» (el llibre, UD8:
 «Patrons a l'entorn» i «Patrons numèrics i geomètrics»). Un patró creix sempre igual: què hi ha de

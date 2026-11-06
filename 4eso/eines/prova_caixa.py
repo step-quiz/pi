@@ -3,7 +3,7 @@
 eines/prova_caixa.py · la caixa d'eines, provada de debò en un navegador
 =========================================================================
 
-Obre caixa-eines.html en Chromium i fa el que faria l'alumnat: obre cada
+Obre eines.html en Chromium i fa el que faria l'alumnat: obre cada
 pestanya, mou els punts, prova valors i acaba una tasca tancada. Després llegeix
 el codi a verifica.html. Si alguna cosa no respon com diu la documentació, ho
 diu i acaba amb error. Com a 1eso/eines/prova_caixa.py (30/9/2026).
@@ -39,7 +39,7 @@ except ImportError:
     sys.exit("Cal Playwright: pip install playwright && python3 -m playwright install chromium")
 
 ARREL = pathlib.Path(__file__).resolve().parent.parent
-CAIXA = (ARREL / "caixa-eines.html").as_uri()
+CAIXA = (ARREL / "eines.html").as_uri()
 VERIFICA = (ARREL / "verifica.html").as_uri()
 
 errors = []

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud6-triangles.html: els triangles (unitat 6, fitxa 3).
+"""Genera 1eso/u6/triangles.html: els triangles (unitat 6, fitxa 3).
 
 Adapta l'activitat 5 de la situació «Sentit espacial» (el llibre, UD6: «Triangles»). Els tres angles
 d'un triangle, junts, fan un angle pla: el grup ho fa retallant cartolines. Els triangles es diuen

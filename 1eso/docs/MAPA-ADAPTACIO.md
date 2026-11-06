@@ -1,5 +1,7 @@
 # Mapa d'adaptació
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 Com es passa de la programació del grup al material d'aquesta carpeta. Les regles concretes
 del paper són a [`CRITERIS-DISSENY.md`](CRITERIS-DISSENY.md); aquí hi ha el perquè i el pla.
 
@@ -541,20 +543,20 @@ sol tipus. Cada exercici té l'a) resolt i tres apartats per fer, de les fitxes;
   quadrat de 4 per 4 i dues regles: l'arrel és el costat, no la meitat, i si no és a la llista és
   entre dos nombres. Cap dibuix nou (regla B): els blocs de la unitat 1 i el quadrat de 100 de la
   unitat 4, pintat per columnes com a la caixa.
-- 29 de setembre de 2026: la fitxa 1, «Els decimals» (`fitxes/ud5.html`, de
+- 29 de setembre de 2026: la fitxa 1, «Els decimals» (`u5/fitxa.html`, de
   `generadors/fitxes/fitxa_ud5.py`). És la fitxa de centenes, desenes i unitats de la unitat 1 amb
   els mateixos blocs, ara amb el quadrat de 100 com a unitat. Set pàgines: el model (2,43), mira els
   blocs, escriu les xifres i pinta, què val el 7 (el llibre), marca el decimal (el zero que guarda
   el lloc), quin és més gran (la regla trencada, l'error de la Berta) i la vida (salts, alçades i
   ampolles, i ordenar 2,5, 2,05 i 2,55). El mateix dia, «quadrets sols» de la caixa (tasca 18) va
   passar a «quadrets solts», com a la unitat 1: la mateixa paraula per a la mateixa cosa.
-- 29 de setembre de 2026: la fitxa 2, «Arrodonir i truncar» (`fitxes/ud5-arrodonir.html`, de
+- 29 de setembre de 2026: la fitxa 2, «Arrodonir i truncar» (`u5/arrodonir.html`, de
   `generadors/fitxes/fitxa_ud5_arrodonir.py`). El pont entre els dos models: la recta de 3,4 a 3,5
   és una columna de 10 quadrets ajaguda, un quadret per centèsima (el graó físic és una tira de 10
   quadrets). Cinc pàgines: el model (3,47), marca el decimal a la recta, arrodoneix i trunca (5,86 i
   6,78, del llibre), la regla trencada (l'Oriol sempre arrodoneix avall; l'apartat c, on encerta, és
   a posta) i la vida (alçada, quilòmetres i quilos, i 0,96 → 1,0 per als nivells alts).
-- 29 de setembre de 2026: la fitxa 3, «Sumar i restar decimals» (`fitxes/ud5-sumes.html`, de
+- 29 de setembre de 2026: la fitxa 3, «Sumar i restar decimals» (`u5/sumes.html`, de
   `generadors/fitxes/fitxa_ud5_sumes.py`). Es sumen quadrats amb quadrats, columnes amb columnes i
   quadrets amb quadrets: la coma va sota la coma. L'operació en columna té una casella per xifra i la
   coma impresa; s'hi escriuen els dos nombres, amb el zero que iguala (3,2 és 3,20).
@@ -563,20 +565,20 @@ sol tipus. Cada exercici té l'a) resolt i tres apartats per fer, de les fitxes;
   bé a posta) i la vida amb euros i cèntims (un euro és un quadrat de 100 cèntims). Les operacions en
   columna i les de la Júlia van dins de `.revisa`: l'operació sencera va escrita a la frase del costat,
   i aquesta sí que es comprova.
-- 29 de setembre de 2026: la fitxa 4, «De la fracció al decimal» (`fitxes/ud5-fraccions.html`, de
+- 29 de setembre de 2026: la fitxa 4, «De la fracció al decimal» (`u5/fraccions.html`, de
   `generadors/fitxes/fitxa_ud5_fraccions.py`). El quadrat de 100 pintat per columnes, com a la caixa
   i a la targeta. Cinc pàgines: el model (1/4 = 0,25 = 25 %), pinta la fracció i escriu el decimal
   (1/2, 1/5, 3/4 i 3/10), del decimal a la fracció (0,3, 0,7, 0,5 i 0,25), la regla trencada (en Pol
   posa el de baix després de la coma; l'apartat d, 1/10 = 0,1, encerta a posta) i la vida amb
   fraccions d'euro en cèntims.
-- 29 de setembre de 2026: la fitxa 5, «Quadrats i arrels» (`fitxes/ud5-arrel.html`, de
+- 29 de setembre de 2026: la fitxa 5, «Quadrats i arrels» (`u5/arrel.html`, de
   `generadors/fitxes/fitxa_ud5_arrel.py`). L'arrel és el costat del quadrat, com a la unitat 1, i el
   dibuix de les no exactes és el d'allà. Sis pàgines: el model (√16 = 4, amb els quadrats de
   cartolina), compta el costat (9, 25, 36 i 49), l'arrel amb la targeta (√64, √81, √4, √100 i √49,
   del llibre), la regla trencada (en Joel diu que l'arrel és la meitat; amb el 4 encerta a posta),
   entre quins dos nombres (√13, √20, √50 i √90) i la vida (terrenys quadrats en m², i 30 rajoles que
   no fan un quadrat). «Fa» ha passat a «mesura» o «té» (regla I).
-- 29 de setembre de 2026: la fitxa 6, el repàs (`fitxes/ud5-repas.html`, de
+- 29 de setembre de 2026: la fitxa 6, el repàs (`u5/repas.html`, de
   `generadors/fitxes/fitxa_ud5_repas.py`). Com el repàs de la unitat 4: el carnet d'un nombre (fa el
   paper del mapa conceptual del grup: fracció, decimal, percentatge i quadrets de 100 del mateix
   nombre), «Una de cada» (un apartat per fitxa), «Què he après?» (vuit frases, amb la taula de on es
@@ -636,7 +638,7 @@ mural i les presentacions, que es fan amb el grup.
   (amb la cantonada), `geopla`, `triangle` (els angles numerats), `anglesJunts` (els tres angles
   fan un angle pla), `vora` (el perímetre) i els tipus d'angle i de triangle, calculats amb enters.
 - 29 de setembre de 2026 (pas 2): la targeta «Formes» (`targetes/formes.html`) i les fitxes 1 a 3
-  (`fitxes/ud6.html`, `ud6-poligons.html` i `ud6-triangles.html`). Les peces de dibuix són a
+  (`u6/fitxa.html`, `ud6-poligons.html` i `ud6-triangles.html`). Les peces de dibuix són a
   `generadors/fitxes/peces_geo.py`: l'angle amb la cantonada discontínua, les peces bàsiques, les
   rectes, el geoplà, els polígons regulars, el triangle amb ratlletes i angles numerats, els angles
   junts i el rellotge. La targeta porta també el perímetre i la circumferència, perquè serveixi per a

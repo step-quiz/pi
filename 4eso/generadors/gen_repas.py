@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fa les fitxes de repàs de cada unitat: fitxes/udN-repas.html.
+"""Fa les fitxes de repàs de cada unitat: uN/repas.html (el PDF: pdf/udN-repas-…).
 
     python3 generadors/gen_repas.py          (des de 4eso/)
 
@@ -204,7 +204,7 @@ DIBUIX = re.compile(r"<!--grafic:\w+-->.*?<!--/grafic-->|<svg\b.*?</svg>", re.S)
 
 def dibuixos(n, quins):
     """Els dibuixos de la pàgina 1 de la fitxa, sense l'ull de l'obertura."""
-    fitxa = open(os.path.join(ARREL, "fitxes", f"ud{n}.html"), encoding="utf-8").read()
+    fitxa = open(os.path.join(ARREL, f"u{n}", "fitxa.html"), encoding="utf-8").read()
     full1 = re.findall(r'<div class="full[^"]*">.*?\n</div>', fitxa, re.S)[0]
     tots = [d for d in DIBUIX.findall(full1) if 'class="ull"' not in d[:80]]
     return [tots[i] for i in quins]
@@ -236,7 +236,7 @@ def fitxa(n, u):
 </head>
 <body>
 
-<nav class="navega no-imprimir" aria-label="Navegació"><a href="../unitat.html?ud={n}">← unitat {n}</a><a class="pdf" href="../pdf/ud{n}-repas-alumnat.pdf" download>PDF de l'alumnat</a><a class="pdf" href="../pdf/ud{n}-repas-solucionari.pdf" download>PDF del solucionari</a></nav>
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat {n}</a><script src="../../comu/js/paper.js"></script></nav>
 
 <!-- ==================== FULL 1 ==================== -->
 <div class="full">
@@ -322,10 +322,10 @@ def fitxa(n, u):
 
 def main():
     for n, u in UNITATS.items():
-        desti = os.path.join(ARREL, "fitxes", f"ud{n}-repas.html")
+        desti = os.path.join(ARREL, f"u{n}", "repas.html")
         with open(desti, "w", encoding="utf-8") as f:
             f.write(fitxa(n, u))
-        print(f"  fitxes/ud{n}-repas.html: {len(u['una'])} apartats, {len(u['apres'])} frases")
+        print(f"  u{n}/repas.html: {len(u['una'])} apartats, {len(u['apres'])} frases")
 
 
 if __name__ == "__main__":

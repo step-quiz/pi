@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud5-arrel.html: quadrats perfectes i arrel quadrada (unitat 5, fitxa 5).
+"""Genera 1eso/u5/arrel.html: quadrats perfectes i arrel quadrada (unitat 5, fitxa 5).
 
 Adapta les activitats 1 («Què en sabem?», els quadrats de cartolina) i 5 («Quadrats perfectes i
 arrel quadrada») de la situació «Decimals i arrel quadrada». L'arrel és el costat del quadrat, com

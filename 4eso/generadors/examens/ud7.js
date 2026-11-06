@@ -9,7 +9,7 @@
                                                 4eso/docx/examen-ud7-solucionari.docx
 
   D'on surt cada cosa:
-  · Els apartats a), b), c) i d), dels exercicis de fitxes/ud7.html i del seu solucionari.
+  · Els apartats a), b), c) i d), dels exercicis de u7/fitxa.html i del seu solucionari.
     On la fitxa no en tenia prou, n'hi ha un de nou, i al solucionari porta la marca «nou».
   · L'arbre de les dues monedes és el de la fitxa, llegit del seu marcador <!--grafic:NOM-->.
   · Sense les preguntes obertes de la fitxa (5f, 6f i 7e).
@@ -33,7 +33,7 @@ const LL = ["b)", "c)", "d)"];
 
 const FITXA = fs.readFileSync(path.join(__dirname, "..", "..", "fitxes", "ud7.html"), "utf8");
 const m = FITXA.match(/<!--grafic:ARBRE_MONEDES--><svg viewBox="0 0 ([\d.]+) ([\d.]+)"[^>]*>([\s\S]*?)<\/svg><!--\/grafic-->/);
-cal(m, "l'arbre de les monedes no és a fitxes/ud7.html");
+cal(m, "l'arbre de les monedes no és a u7/fitxa.html");
 X.registra("arbre", X.SVG(`0 0 ${m[1]} ${m[2]}`, +m[1], +m[2], m[3]));
 const ARBRE_CM = 11;
 
@@ -134,7 +134,7 @@ const solucionari = privat => [
   ...sol.titol(7),
   ...sol.caixa([
     `*Adaptació:* ${privat.adaptacio}. Fita d'assoliment esperada: *AS*, amb *AN* al recompte (criteris 1.1 i 2.1). Calculadora disponible a tot l'examen.`,
-    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_fitxes/ud7.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (5f, 6f i 7e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
+    "*Com s'ha construït:* a cada exercici, l'apartat a) resolt com a model i tres apartats per fer, amb els ítems de la fitxa (_u7/fitxa.html_) i del seu solucionari. Sense les preguntes obertes de la fitxa (5f, 6f i 7e). Els apartats marcats «nou» no són a la fitxa; es van revisar el 30/9/2026 (el mateix tipus d'ítem que la fitxa, amb les xifres comprovades).",
     "*Els exercicis 5, 6 i 7* són el nucli de la unitat per a aquest alumnat: apostes, sortejos i jocs. Convé que els faci sencers encara que la resta hagi anat més just.",
   ]),
 

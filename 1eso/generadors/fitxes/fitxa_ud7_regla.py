@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud7-regla.html: la regla d'un patró (unitat 7, fitxa 2).
+"""Genera 1eso/u7/regla.html: la regla d'un patró (unitat 7, fitxa 2).
 
 Adapta l'activitat 4 de la situació «Llenguatge algebraic i patrons» (el llibre, UD8: «El terme
 general d'un patró»). La figura n té a · n + b quadrets: el que creix va davant de la n i el que és

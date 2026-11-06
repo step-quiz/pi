@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud2-repartir.html: repartir en files (unitat 2, fitxa 2).
+"""Genera 1eso/u2/repartir.html: repartir en files (unitat 2, fitxa 2).
 
 Adapta les activitats 2_2 (divisió entera) i 2_5 (pràctica de divisors) del grup.
 Fa servir les peces de dibuix de la primera fitxa de la unitat 1 (genfitxa.py).

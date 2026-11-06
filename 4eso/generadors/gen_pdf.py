@@ -7,10 +7,10 @@
 Cada fitxa és una sola pàgina HTML amb diversos blocs `.full`. L'últim és el
 solucionari (`.full.sol`). Aquest script parteix la fitxa en dos documents:
 
-    pdf/udN-alumnat.pdf       tots els .full menys el solucionari
-    pdf/udN-solucionari.pdf   només el solucionari
+    uN/fitxa.html → pdf/udN-alumnat.pdf       tots els .full menys el solucionari
+                    pdf/udN-solucionari.pdf   només el solucionari
 
-El mateix per a les fitxes de repàs (udN-repas.html → udN-repas-alumnat.pdf…), i cada
+El mateix per a les fitxes de repàs (uN/repas.html → udN-repas-alumnat.pdf…), i cada
 targeta de consulta (targetes/NOM.html) fa un sol PDF amb totes les cares:
 pdf/targeta-NOM.pdf.
 
@@ -33,7 +33,6 @@ except ImportError:
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ARREL, "eines"))
 from empremta import empremta  # noqa: E402  (només biblioteca estàndard)
-FITXES = os.path.join(ARREL, "fitxes")
 SORTIDA = os.path.join(ARREL, "pdf")
 
 # Carlito té les mètriques de Calibri i s'assembla a la font de sistema amb què
@@ -88,13 +87,23 @@ def escriu(cap, fulls, desti):
     return len(pagines.pages)
 
 
+def nom_pdf(cami):
+    """El nom del PDF d'una pàgina de paper: el de sempre, encara que la pàgina hagi canviat de
+    carpeta (6/11/2026). uN/fitxa.html → udN, uN/repas.html → udN-repas, uN/NOM.html → udN-NOM.
+    La mateixa regla que PI.pdfBase() a comu/js/web.js."""
+    m = re.search(r"u(\d+)[/\\]([\w-]+)\.html$", cami)
+    return f"ud{m[1]}" + ("" if m[2] == "fitxa" else f"-{m[2]}")
+
+
 def fonts():
-    """Les pàgines de paper, en ordre: cada fitxa (udN.html i, si en té, udN-repas.html) i
-    cada targeta de consulta (targetes/NOM.html). Torna (camí, nom del PDF, és targeta)."""
-    fitxes = sorted(glob.glob(os.path.join(FITXES, "ud*.html")),
-                    key=lambda f: (int(re.search(r"ud(\d+)", f)[1]), "-" in os.path.basename(f), f))
+    """Les pàgines de paper, en ordre: la fitxa de cada unitat (uN/fitxa.html) i el seu repàs
+    (uN/repas.html), i cada targeta de consulta (targetes/NOM.html). El quadern no fa PDF: s'imprimeix
+    des del navegador amb el filtre posat. Torna (camí, nom del PDF, és targeta)."""
+    fitxes = sorted((f for f in glob.glob(os.path.join(ARREL, "u[0-9]*", "*.html"))
+                     if os.path.basename(f) not in ("index.html", "quadern.html")),
+                    key=lambda f: (int(re.search(r"u(\d+)[/\\]", f)[1]), os.path.basename(f) != "fitxa.html", f))
     targetes = sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html")))
-    return ([(f, os.path.basename(f)[:-5], False) for f in fitxes]
+    return ([(f, nom_pdf(f), False) for f in fitxes]
             + [(f, "targeta-" + os.path.basename(f)[:-5], True) for f in targetes])
 
 

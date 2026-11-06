@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud6.html: punts, rectes i angles (unitat 6, fitxa 1).
+"""Genera 1eso/u6/fitxa.html: punts, rectes i angles (unitat 6, fitxa 1).
 
 Adapta les activitats 2 i 3 de la situació «Sentit espacial» (el llibre, UD6: «Les peces bàsiques
 de la geometria» i «Angles»). La cantonada d'un quadret, o d'un full, és l'angle recte: un angle agut

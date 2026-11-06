@@ -65,7 +65,10 @@ def llegeix(f):
         return h.read()
 
 
-FITXES = sorted(glob.glob(ruta('fitxes', '*.html')))
+# Les fitxes, a la carpeta de la seva unitat (uN/fitxa.html, uN/NOM.html i uN/repas.html) des del
+# 6/11/2026. index.html és la pàgina de la unitat, i el quadern, si n'hi ha, no és una fitxa.
+FITXES = sorted(f for f in glob.glob(ruta('u[0-9]*', '*.html'))
+                if os.path.basename(f) not in ('index.html', 'quadern.html'))
 TARGETES = sorted(glob.glob(ruta('targetes', '*.html')))
 PAPER = FITXES + TARGETES
 
@@ -461,7 +464,7 @@ css_fitxa = llegeix(ruta('css', 'fitxa.css'))
 comprova(not cromatics(css_fitxa), f"css/fitxa.css conté color: {cromatics(css_fitxa)}")
 print(f"  css/fitxa.css                cap color: {not cromatics(css_fitxa)}")
 if not FITXES:
-    print("  encara no hi ha cap fitxa a fitxes/")
+    print("  encara no hi ha cap fitxa a les carpetes uN/")
 
 for f in PAPER:
     nom = rel(f)
@@ -613,14 +616,14 @@ print("\nCAIXA D'EINES")
 # números de tasca surten als enllaços que el docent envia (caixa-eines?task=n):
 # un número ja enviat no es canvia mai.
 # --------------------------------------------------------------------------
-CAIXA = ruta('caixa-eines.html')
+CAIXA = ruta('eines.html')
 TEXTOS_JS = ruta('dades', 'textos.js')
 if not os.path.exists(CAIXA):
     print("  encara no n'hi ha")
 else:
     app = llegeix(CAIXA)
     e = Estructura(); e.feed(app)
-    comprova(not e.err and not e.pila, "caixa-eines.html: HTML mal tancat")
+    comprova(not e.err and not e.pila, "eines.html: HTML mal tancat")
 
     pestanyes = sorted(set(re.findall(r'data-mod="(\w+)"', app)))
     seccions = sorted(set(re.findall(r'<section id="mod-(\w+)"', app)))
@@ -639,10 +642,10 @@ else:
         propi = re.search(r'CE\.registra\("(\w+)"', codi)[1]
         cal = {defineix[n] for n in re.findall(r'CE\.(\w+)\(', codi) if n in defineix and defineix[n] != propi}
         comprova(cal <= set(cals.get(propi, '').split()),
-                 f"caixa-eines.html: la pestanya {propi} fa servir {sorted(cal)} i no ho diu a data-cal")
+                 f"eines.html: la pestanya {propi} fa servir {sorted(cal)} i no ho diu a data-cal")
     for mod, src in re.findall(r'data-mod="(\w+)" data-src="([^"]+)"', app):
         comprova(os.path.exists(ruta(src)) and f'CE.registra("{mod}"' in llegeix(ruta(src)),
-                 f"caixa-eines.html: la pestanya {mod} diu data-src=\"{src}\", que no registra «{mod}»")
+                 f"eines.html: la pestanya {mod} diu data-src=\"{src}\", que no registra «{mod}»")
     comprova(pestanyes == seccions == registrats,
              f"identificadors descompassats: pestanyes {pestanyes} · seccions {seccions} · registrats {registrats}")
     comprova(sorted(carregats) == sorted(os.path.basename(x)[:-3] for x in fitxers_mod),
@@ -654,14 +657,14 @@ else:
     darrer = app.rfind('src="js/app.js"')
     comprova(darrer > max(posicions), "js/app.js s'ha de carregar després dels scripts base")
     comprova(not re.search(r'<script src="js/moduls/', app),
-             "caixa-eines.html: els mòduls no es carreguen d'entrada, sinó quan s'obren (data-src)")
-    comprova('href="../favicon.svg"' in app, "caixa-eines.html: la icona és ../favicon.svg")
+             "eines.html: els mòduls no es carreguen d'entrada, sinó quan s'obren (data-src)")
+    comprova('href="../favicon.svg"' in app, "eines.html: la icona és ../favicon.svg")
     # Cada identificador, una sola vegada. Amb dos iguals, $("#x") troba el primer i un
     # mòdul dibuixa dins d'un altre: la tasca 15 escrivia a la taula de la tasca 0,
     # perquè totes dues feien servir tt- i tf- (trobat el 29/9/2026).
     ids = re.findall(r'\bid="([^"]+)"', app)
     repetits = sorted({i for i in ids if ids.count(i) > 1})
-    comprova(not repetits, f"caixa-eines.html: identificadors repetits {repetits}: cada eina ha de tenir el seu prefix")
+    comprova(not repetits, f"eines.html: identificadors repetits {repetits}: cada eina ha de tenir el seu prefix")
     pestanyes_html = re.findall(r'<button[^>]*class="segment"[^>]*>', app)
     numeros = [(re.search(r'data-tasca="([^"]*)"', b) or [None, None])[1] for b in pestanyes_html]
     mods = [(re.search(r'data-mod="(\w+)"', b) or [None, '?'])[1] for b in pestanyes_html]
@@ -803,7 +806,9 @@ print("\nPDF")
 # --------------------------------------------------------------------------
 esperats = {}
 for f in FITXES:
-    n = os.path.basename(f)[:-5]
+    # El nom de sempre: uN/fitxa.html → udN, uN/NOM.html → udN-NOM (generadors/gen_pdf.py).
+    m = re.search(r'u(\d+)[/\\]([\w-]+)\.html$', f)
+    n = f"ud{m[1]}" + ("" if m[2] == "fitxa" else f"-{m[2]}")
     esperats[f"{n}-alumnat.pdf"] = rel(f)
     esperats[f"{n}-solucionari.pdf"] = rel(f)
 for f in TARGETES:
@@ -1010,17 +1015,14 @@ PROHIBITS = [
     r"\bl'alumna\b", r"\buna alumna\b", r"\baquesta alumna\b",
     r"\bdos alumnes\b", r"\bdues alumnes\b",
 ]
-# El docent va decidir el 5/11/2026 que l'etiqueta del curs («1r ESO») surti a la pàgina del curs,
-# a la de cada unitat i a la caixa d'eines. Només en aquestes tres pàgines, i només aquesta forma.
-PAGINES_AMB_CURS = {os.path.abspath(ruta(x)) for x in ('index.html', 'unitat.html', 'caixa-eines.html')}
+# Des del 6/11/2026, el nom del curs és només a comu/js/cursos.js (fora d'aquesta carpeta), i les
+# pàgines el llegeixen d'allà. Aquí dins no surt enlloc.
 trobats = []
 for f in sorted(glob.glob(ruta('**', '*.*'), recursive=True)):
     if os.path.splitext(f)[1] not in ('.md', '.html', '.js', '.css', '.json', '.txt') or f.endswith('OFL.txt'):
         continue
     text = llegeix(f)
     for patro in PROHIBITS:
-        if os.path.abspath(f) in PAGINES_AMB_CURS and patro == r"\b1r\s+ESO\b":
-            continue
         for m in re.finditer(patro, text, re.I):
             trobats.append((rel(f), m.group(0)))
 comprova(not trobats, f"termes que trenquen l'anonimat: {trobats[:6]}")
@@ -1081,79 +1083,41 @@ for u in fitxes_dades:
     comprova(os.path.exists(ruta(u)), f"dades/unitats.js apunta a {u}, que no existeix")
 for f in FITXES:
     comprova(rel(f) in fitxes_dades, f"{rel(f)} no surt a dades/unitats.js")
-fitxers_t = re.findall(r'fitxer:\s*"([^"]+)"', dades)
-pdfs_t = re.findall(r'pdf:\s*"([^"]+)"', dades)
-for u in fitxers_t + pdfs_t:
+# Les targetes: el mateix model que a tots els cursos (nom → targetes/NOM.html i pdf/targeta-NOM.pdf).
+noms_t = re.findall(r'\bnom:\s*"([\w-]+)"', dades)
+fitxers_t = [f"targetes/{n}.html" for n in noms_t]
+for u in fitxers_t + [f"pdf/targeta-{n}.pdf" for n in noms_t]:
     comprova(os.path.exists(ruta(u)), f"dades/unitats.js apunta a {u}, que no existeix")
 for f in TARGETES:
     comprova(rel(f) in fitxers_t, f"{rel(f)} no surt a dades/unitats.js")
-# Les tasques de la caixa que diu cada unitat han d'existir a caixa-eines.html.
+# Les tasques de la caixa que diu cada unitat han d'existir a eines.html.
 tasques_dades = {int(n) for grup in re.findall(r'tasques:\s*\[([^\]]*)\]', dades)
                  for n in re.findall(r'\d+', grup)}
 if tasques_dades:
-    a_la_caixa = {int(n) for n in re.findall(r'data-tasca="(\d+)"', llegeix(ruta('caixa-eines.html')))} \
-        if os.path.exists(ruta('caixa-eines.html')) else set()
+    a_la_caixa = {int(n) for n in re.findall(r'data-tasca="(\d+)"', llegeix(ruta('eines.html')))} \
+        if os.path.exists(ruta('eines.html')) else set()
     comprova(tasques_dades <= a_la_caixa, f"dades/unitats.js cita tasques que la caixa no té: "
                                           f"{sorted(tasques_dades - a_la_caixa)}")
 print(f"  unitats: {len(nums)} · amb fitxa: {len(fitxes_dades)} · targetes: {len(fitxers_t)} · "
       f"tasques de la caixa citades: {len(tasques_dades)}")
 
 def UNITATS_DE_LA_TARGETA(nom):
-    m = re.search(r'id:\s*"%s",.*?\bunitat:\s*(\d+)' % re.escape(nom), dades, re.S)
-    return [int(m[1])] if m else []
+    m = re.search(r'nom:\s*"%s",.*?\bunitats:\s*\[([^\]]*)\]' % re.escape(nom), dades, re.S)
+    return [int(x) for x in re.findall(r'\d+', m[1])] if m else []
 
 
 # --------------------------------------------------------------------------
 print("\nNAVEGACIÓ")
-# L'esquema és sempre curs → unitat → fitxa, quadern o caixa d'eines (5/11/2026, per encàrrec
-# del docent). Tot el que és del tercer nivell torna a la pàgina de la seva unitat
-# (unitat.html?ud=N), mai a una llista plana, i la unitat torna a la portada. Per això:
-#   · cada fitxa (i cada quadern) té com a primer enllaç «← unitat N» (o «← la unitat», al
-#     quadern), i la N és la unitat que la declara a dades/unitats.js;
-#   · cada targeta de consulta torna a la unitat on neix i carrega comu/js/torna.js, que la fa
-#     tornar a la unitat d'on ve (?ud=N);
-#   · cap pàgina ni cap JS no enllaça fitxes.html ni quadern.html, que ja no existeixen.
+# El mapa del lloc (comu/docs/SITE-MAP.md), el mateix per a tots els cursos: Inici → curs →
+# unitat (uN/) → fitxa, quadern o repàs; el professorat a part; les eines de l'alumnat
+# (eines.html?u=N), un espai tancat. La prova és comuna: comu/eines/mapa.py.
 # --------------------------------------------------------------------------
-def _primer_enllac(text):
-    m = re.search(r'<nav class="navega[^>]*>\s*<a ([^>]*)>([^<]*)</a>', text)
-    return (m[1], m[2]) if m else ("", "")
-
-_unitat_de = {}
-for _bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
-    _n = re.search(r'^    num:\s*(\d+)', _bloc, re.M)
-    if not _n:
-        continue
-    for _f in re.findall(r'(?:fitxa|tancament|quadern):\s*"([^"]+)"', _bloc):
-        _unitat_de[_f] = int(_n[1])
-n_nav = 0
-for _f, _n in sorted(_unitat_de.items()):
-    if not os.path.exists(ruta(_f)):
-        continue
-    _attrs, _text = _primer_enllac(open(ruta(_f), encoding='utf-8').read())
-    _text_bo = _text in (f"← unitat {_n}", "← la unitat")
-    n_nav += 1
-    comprova(f'href="../unitat.html?ud={_n}"' in _attrs and _text_bo,
-             f"{_f}: el primer enllaç de dalt ha de tornar a la unitat {_n} (../unitat.html?ud={_n}), "
-             f"i és «{_text}» ({_attrs})")
-for _f in sorted(glob.glob(ruta('targetes', '*.html'))):
-    _nom = os.path.basename(_f)[:-5]
-    _t = open(_f, encoding='utf-8').read()
-    _attrs, _text = _primer_enllac(_t)
-    _units = UNITATS_DE_LA_TARGETA(_nom)
-    n_nav += 1
-    comprova(bool(_units) and 'data-unitat' in _attrs and f'href="../unitat.html?ud={_units[0]}"' in _attrs
-             and _text == f"← unitat {_units[0]}",
-             f"targetes/{_nom}.html: ha de tornar a la unitat {_units[:1]} (data-unitat, ../unitat.html?ud=N): "
-             f"«{_text}» ({_attrs})")
-    comprova('<script src="../../comu/js/torna.js"></script>' in _t,
-             f"targetes/{_nom}.html: falta comu/js/torna.js, que la fa tornar a la unitat d'on ve")
-_enllacos_morts = []
-for _f in glob.glob(os.path.join(ARREL, '**', '*.html'), recursive=True) + glob.glob(ruta('js', '*.js')):
-    if re.search(r"""(?:href\s*=|\.href\s*=)\s*["'](?:\.\./)?(?:fitxes|quadern)\.html""",
-                 open(_f, encoding='utf-8').read()):
-        _enllacos_morts.append(os.path.relpath(_f, REPO))
-comprova(not _enllacos_morts, f"enllaços a fitxes.html o quadern.html, que ja no hi són: {_enllacos_morts}")
-print(f"  pàgines que tornen a la seva unitat: {n_nav} · enllaços a pàgines planes: {len(_enllacos_morts)}")
+sys.path.insert(0, os.path.join(REPO, 'comu', 'eines'))
+import mapa   # noqa: E402  (només biblioteca estàndard)
+_mapa = mapa.comprova_curs(os.path.basename(ARREL))
+for _f in _mapa:
+    comprova(False, "mapa del lloc · " + _f)
+print(f"  mapa del lloc (comu/eines/mapa.py): {'correcte' if not _mapa else str(len(_mapa)) + ' problemes'}")
 
 # El camí mínim, l'estat, la regla trencada, la fita i el rol (grup 3, 30/9/2026).
 # El camí mínim són les pàgines de l'alumnat que són el nucli de cada fitxa: han
@@ -1182,47 +1146,13 @@ for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
                         if 'class="full sol"' not in b[:30]])
             comprova(all(1 <= x <= pags for x in minim) and minim == sorted(set(minim)),
                      f"dades/unitats.js: el camí mínim de {cami} ({minim}) no són pàgines de la fitxa (en té {pags})")
-        if not cami.endswith('-repas.html'):
+        if not cami.endswith('/repas.html'):
             comprova('trencada:' in f_obj, f"dades/unitats.js: {cami} no diu on és la regla trencada")
         total += len(minim)
     comprova(total <= 2 * sessions, f"dades/unitats.js: el camí mínim de la unitat {num} fa {total} pàgines "
                                     f"per a {sessions} sessions (el màxim són {2 * sessions})")
     n_minim += total
 print(f"  camí mínim: {n_minim} pàgines de l'alumnat, i cap unitat no passa de 2 per sessió")
-
-# Els enllaços per a l'alumnat de la portada (index.html, «Per al professorat»).
-# Fins al 29/9/2026 s'aturaven a la unitat 3, i ningú no ho veia: les tasques 14
-# a 28 no hi eren. Ara, sota «Unitat N» hi ha d'haver totes les tasques que
-# dades/unitats.js dona a la unitat N (menys la 0, que va a «Sempre»), i cada
-# enllaç ha de començar amb el nom de la pestanya de la caixa.
-portada = llegeix(ruta('index.html'))
-pestanyes = dict(re.findall(r'data-tasca="(\d+)"[^>]*>([^<]+)</button>', llegeix(ruta('caixa-eines.html'))))
-blocs_portada = re.split(r'<p class="enllacos-unitat">', portada)[1:]
-enllacos = {}                                     # «Sempre» o el número de la unitat → {tasca}
-for b in blocs_portada:
-    rotol = b[:b.index('</p>')]
-    clau = 'Sempre' if rotol.startswith('Sempre') else int((re.match(r'Unitat (\d+)', rotol) or [0, 0])[1])
-    llista = b[:b.index('</ul>')] if '</ul>' in b else b
-    for tasca, sub, nom in re.findall(r'href="caixa-eines\.html\?task=(\d+)(?:\.(\d+))?"><code>[^<]*</code></a>\s*([^<]+)</li>', llista):
-        enllacos.setdefault(clau, set()).add(int(tasca))
-        esperat = pestanyes.get(tasca, '?')
-        comprova(nom.strip().startswith(esperat),
-                 f"index.html: l'enllaç ?task={tasca}{'.' + sub if sub else ''} diu «{nom.strip()}», "
-                 f"i la pestanya de la caixa es diu «{esperat}»")
-comprova(enllacos.get('Sempre') == {0}, "index.html: a «Sempre» hi ha d'haver la tasca 0, i prou")
-for bloc in re.findall(r'^  \{\n(.*?)^  \},?$', dades, re.S | re.M):
-    num = re.search(r'^    num:\s*(\d+)', bloc, re.M)
-    grup = re.search(r'^    tasques:\s*\[([^\]]*)\]', bloc, re.M)
-    if not num:
-        continue
-    volgudes = {int(n) for n in re.findall(r'\d+', grup[1])} - {0} if grup else set()
-    hi_son = enllacos.get(int(num[1]), set())
-    comprova(volgudes <= hi_son, f"index.html: als enllaços de la unitat {num[1]} hi falten les tasques "
-                                 f"{sorted(volgudes - hi_son)}")
-    comprova(hi_son <= volgudes, f"index.html: als enllaços de la unitat {num[1]} hi ha tasques que "
-                                 f"dades/unitats.js no li dona: {sorted(hi_son - volgudes)}")
-print(f"  enllaços per a l'alumnat a la portada: {sum(len(v) for v in enllacos.values())}, "
-      f"en {len(enllacos)} grups")
 
 # --------------------------------------------------------------------------
 print()

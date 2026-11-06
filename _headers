@@ -7,23 +7,27 @@
   # Treu aquesta línia i robots.txt si algun dia es vol públic.
   X-Robots-Tag: noindex, nofollow
 
-# Els fitxers canvien poc però s'han de poder actualitzar el mateix dia. Els fulls d'estil i els
-# scripts es tornen a validar a cada visita (una resposta 304, gairebé gratis): així un canvi
-# de disseny es veu en recarregar, sense esperar l'hora de memòria (5/11/2026: no es veia).
-# Les fitxes i les targetes canvien menys i es queden una hora.
+# Els fulls d'estil, els scripts i les dades es tornen a validar a cada visita (una resposta 304,
+# gairebé gratis): així un canvi de disseny es veu en recarregar, sense esperar l'hora de memòria
+# (5/11/2026: no es veia). La closca comuna (comu/) i cada curs. Les targetes canvien poc i es
+# queden una hora. Un curs nou hi afegeix les seves quatre línies (comu/docs/SITE-MAP.md).
+/comu/css/*
+  Cache-Control: no-cache
+/comu/js/*
+  Cache-Control: no-cache
 /4eso/css/*
   Cache-Control: no-cache
 /4eso/js/*
   Cache-Control: no-cache
-/4eso/fitxes/*
-  Cache-Control: public, max-age=3600
+/4eso/dades/*
+  Cache-Control: no-cache
 /4eso/targetes/*
   Cache-Control: public, max-age=3600
 /1eso/css/*
   Cache-Control: no-cache
 /1eso/js/*
   Cache-Control: no-cache
-/1eso/fitxes/*
-  Cache-Control: public, max-age=3600
+/1eso/dades/*
+  Cache-Control: no-cache
 /1eso/targetes/*
   Cache-Control: public, max-age=3600

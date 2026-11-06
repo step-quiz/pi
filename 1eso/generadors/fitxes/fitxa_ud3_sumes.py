@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud3-sumes.html: sumar i restar fraccions (unitat 3, fitxa 4).
+"""Genera 1eso/u3/sumes.html: sumar i restar fraccions (unitat 3, fitxa 4).
 Adapta les activitats Fraccions 7, 8 i 9 del grup, sempre amb el mateix denominador, i hi
 afegeix el full que el docent va demanar el 26/9/2026: per què 1/2 + 1/4 no pot ser 2/6."""
 import os

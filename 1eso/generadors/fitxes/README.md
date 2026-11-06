@@ -1,13 +1,20 @@
 # Els generadors de les fitxes
 
-Cada fitxa de `fitxes/` i la targeta de les fraccions surten d'un script d'aquesta carpeta. Per
-refer-ne una, o fer-ne una de nova a partir de la més semblant:
+Cada fitxa de les carpetes `uN/`, el repàs de cada unitat i les targetes (menys la de les taules)
+surten d'un script d'aquesta carpeta. Per refer-ne una, o fer-ne una de nova a partir de la més
+semblant:
 
 ```bash
-python3 1eso/generadors/fitxes/fitxa_ud3_area.py 1eso/fitxes/ud3-area.html
-python3 1eso/eines/mesura_chromium.py 1eso/fitxes/ud3-area.html     # cada pàgina, en un A4?
-python3 1eso/eines/comprova.py                                     # l'estructura, la llengua i els càlculs
+python3 1eso/generadors/fitxes/fitxa_ud3_area.py                  # escriu 1eso/u3/area.html
+python3 1eso/eines/mesura_chromium.py 1eso/u3/area.html           # cada pàgina, en un A4?
+python3 1eso/eines/comprova.py                                    # l'estructura, la llengua i els càlculs
 ```
+
+Cada generador té un nom intern (el de la taula de sota) i `desa()`, a `peces_comunes.py`, el
+porta al seu lloc (6/11/2026): `udN.html` → `uN/fitxa.html`, `udN-NOM.html` → `uN/NOM.html`
+(`udN-repas.html` → `uN/repas.html`) i `NOM.html` → `targetes/NOM.html`. Els PDF es continuen dient
+`pdf/udN-…` i `pdf/udN-NOM-…`. A sobre de cada pàgina, `desa()` hi posa la barra de pantalla
+(`comu/docs/SITE-MAP.md`, «Paper pages»).
 
 | Generador | Fa | Generador | Fa |
 |---|---|---|---|

@@ -1,6 +1,6 @@
 import os
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud1-nombres.html: centenes, desenes i unitats.
+"""Genera 1eso/u1/nombres.html: centenes, desenes i unitats.
 
 És la segona fitxa de la unitat 1, i adapta l'activitat 1_7 del grup («El nom
 d'un nombre»). Fa servir les mateixes peces de dibuix que la primera fitxa

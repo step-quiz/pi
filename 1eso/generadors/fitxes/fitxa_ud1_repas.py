@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud1-repas.html: el repàs de la unitat 1 i «Què he après?».
+"""Genera 1eso/u1/repas.html: el repàs de la unitat 1 i «Què he après?».
 
 És la quarta fitxa de la unitat 1. Adapta les activitats 1_1 i 1_3 (el número que
 falta), 1_5 i 1_15 (el repàs: les multiplicacions mal fetes, una de cada) i 1_16

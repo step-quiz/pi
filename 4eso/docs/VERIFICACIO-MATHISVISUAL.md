@@ -1,5 +1,7 @@
 # Verificació de mathisvisual.com
 
+> **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
+
 **Tanca:** la feina pendent de l'apartat 4 del `handout.md` (avui `CONTINUAR.md`).
 **Fet per:** Claude, en una sessió **amb** accés a la web.
 **Data:** 4 de setembre de 2026.

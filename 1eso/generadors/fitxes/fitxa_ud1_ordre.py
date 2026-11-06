@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera 1eso/fitxes/ud1-ordre.html: l'ordre de les operacions.
+"""Genera 1eso/u1/ordre.html: l'ordre de les operacions.
 
 És la tercera fitxa de la unitat 1, i adapta l'activitat 1_14 del grup
 («Jerarquia»). Fa servir les peces de dibuix de la primera fitxa (genfitxa.py) i

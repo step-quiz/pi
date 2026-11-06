@@ -25,7 +25,6 @@ except ImportError:
     sys.exit("Falta WeasyPrint:  pip install weasyprint --break-system-packages")
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FITXES = os.path.join(ARREL, "fitxes")
 UTIL = 29.7 - 2.6          # A4 menys els marges d'1,3 cm de dalt i de baix
 
 ALTA = CSS(string='''
@@ -86,11 +85,12 @@ def mida(cap, full):
 def main():
     print(f"Alçada útil d'un A4: {UTIL:.1f} cm\n")
     vessen, justes, amples, total = [], [], [], 0
-    fonts = (sorted(glob.glob(os.path.join(FITXES, "ud*.html")),
-                    key=lambda f: (int(re.search(r"ud(\d+)", f)[1]), "-" in os.path.basename(f), f))
+    fonts = (sorted((f for f in glob.glob(os.path.join(ARREL, "u[0-9]*", "*.html"))
+                     if os.path.basename(f) not in ("index.html", "quadern.html")),
+                    key=lambda f: (int(re.search(r"u(\d+)", os.path.relpath(f, ARREL))[1]), os.path.basename(f) != "fitxa.html", f))
              + sorted(glob.glob(os.path.join(ARREL, "targetes", "*.html"))))
     for origen in fonts:
-        u = os.path.relpath(origen, ARREL)[:-5].replace("fitxes/", "")   # ud3, ud3-repas, targetes/…
+        u = os.path.relpath(origen, ARREL)[:-5]   # u3/fitxa, u3/repas, targetes/…
         html = open(origen, encoding="utf-8").read()
         cap = html[:html.index("<body>") + 6]
         for i, full in enumerate(re.findall(r'<div class="full[^"]*">.*?\n</div>', html, re.S), 1):

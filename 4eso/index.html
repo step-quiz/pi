@@ -3,75 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#F2F2F7">
-<meta name="description" content="Material de Matemàtiques Aplicades adaptat per a alumnat amb dificultats de tipus cognitiu: set fitxes imprimibles, fitxes de repàs, targetes de consulta i una caixa d'eines.">
+<meta name="theme-color" content="#F2F2F5">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<title>4t ESO · Aplicades · material adaptat aula de suport</title>
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/lloc.css">
+<title>Curs</title>
+<!-- La pàgina del curs: la capçalera, el nom del curs i les seves unitats (uN/index.html).
+     La fa ../comu/js/curs.js amb dades/unitats.js. El nom del curs només és a
+     ../comu/js/cursos.js. Mapa del lloc: ../comu/docs/SITE-MAP.md. -->
+<link rel="stylesheet" href="../comu/css/web.css">
 </head>
-<body>
-<div class="pagina">
-
-  <p class="tornar"><a href="../index.html">← inici</a></p>
-
-  <h1>4t ESO · Aplicades</h1>
-  <p class="subtitol">Material adaptat · alumnat amb dificultats de tipus cognitiu · 50 % a l'aula de suport i 50 % a l'aula ordinària</p>
-
-  <p class="entradeta">
-    Set fitxes imprimibles, amb una fitxa de repàs per unitat, un quadern d'activitats per practicar, tres targetes de consulta i una caixa d'eines digital. El principi de tot plegat:
-    aquest alumnat pot arribar a la <b>decisió</b> que demana el currículum, però no al
-      càlcul ni a la redacció del nivell del grup. Com que Matemàtiques Aplicades és la matèria de
-    decidir amb dades, la competència nuclear li és accessible si es descarrega el càlcul a
-    la calculadora i es basteix l'expressió amb frases model.
-  </p>
-
-  <!-- Les fitxes, el quadern i la caixa d'eines de cada unitat són a la pàgina de la unitat
-       (portada de l'arrel → unitat.html?ud=N): l'esquema és curs → unitat → fitxa, quadern
-       o caixa (5/11/2026). Aquí, la caixa sencera i tot el que és per al professorat. -->
-  <div class="tria">
-    <a class="tria-opcio" href="caixa-eines.html">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2"
-        stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 13h24v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
-        <path d="M11 13V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/>
-        <path d="M4 19h7M21 19h7"/>
-        <rect x="13" y="18.5" width="6" height="5" rx="1"/>
-      </svg>
-      <h2>Caixa d'eines</h2>
-      <p>Deu plantilles que fan l'aritmètica perquè es concentri en la decisió.</p>
-    </a>
-  </div>
-
-  <h2>Per al professorat</h2>
-  <div class="graella">
-    <a class="targeta" href="textos.html">
-      <h3>Canviar les frases</h3>
-      <p>Totes les frases que llegeix l'alumnat a la caixa d'eines, en camps
-         editables. Et dona el fitxer fet per substituir <code>dades/textos.js</code>.</p>
-    </a>
-    <a class="targeta" href="verifica.html">
-      <h3>Llegir codis de verificació</h3>
-      <p>Quan l'alumnat acaba una tasca de la caixa d'eines, surt un codi amb la
-         tasca, el dia i els resultats. Aquí es llegeix, un o molts alhora.</p>
-    </a>
-    <div class="targeta">
-      <h3>Documentació</h3>
-      <p>El mapa d'adaptació, els criteris de disseny i l'arquitectura són a la carpeta
-         <code>docs/</code>, en Markdown. Es llegeixen millor al repositori, que els
-         mostra ben formatats.</p>
-    </div>
-  </div>
-
-  <div class="nota">
-    <b>Abans d'imprimir res:</b> les fitxes són en blanc i negre a posta i s'han
-    d'imprimir en A4 amb els gràfics de fons activats. El plànol de la Unitat 3 està
-    dibuixat a escala 1:100 real: si s'imprimeix al 100 %, es pot mesurar amb regle.
-  </div>
-
-  <p class="peu">Projecte estàtic, sense dependències ni pas de compilació.
-    S'obre amb doble clic o es publica tal qual.</p>
-
-</div>
+<body class="w-pagina">
+<main class="w-web" id="w-web"><noscript><p><a href="../index.html">Inici</a></p></noscript></main>
+<script src="../comu/js/cursos.js"></script>
+<script src="../comu/js/web.js"></script>
+<script src="dades/unitats.js"></script>
+<script src="../comu/js/curs.js"></script>
 </body>
 </html>
