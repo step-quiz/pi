@@ -11,10 +11,12 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "fitxes"))
 from peces_fraccions import fr, fr_buit, tira, tira_talls, nom  # noqa: E402
+from peces_comunes import rect_sol  # noqa: E402
 
 from quadern import llista, ms  # noqa: E402
 
-__all__ = ["F", "fr", "nom", "fraccions_dibuix", "tira_svg", "talls_svg", "parella_tires"]
+__all__ = ["F", "fr", "nom", "fraccions_dibuix", "tira_svg", "talls_svg", "parella_tires", "rectangles",
+           "nom_nombre"]
 
 
 def F(n, d):
@@ -51,3 +53,49 @@ def fraccions_dibuix(apartats):
         return f'{lletra}{tira_svg(n, d)}<div class="resposta">{resp}</div>'
 
     return llista(apartats, alumnat, lambda it: f"{it[0]}/{it[1]}, {nom(*it)}")
+
+
+def rectangles(apartats, m=0.6):
+    """Cada apartat, un rectangle de quadrets (el de les fitxes de la unitat 1), i al costat la
+    multiplicació per escriure: files · quadrets de cada fila = total. Els apartats són (files,
+    quadrets a cada fila). L'a) ja va resolt."""
+    forat = '<span class="buit" style="min-width:1.4cm"></span>'
+
+    def alumnat(lletra, it, resolt):
+        f, c = it
+        svg = rect_sol(f, c, m, f"Un rectangle de {f} files de {c} quadrets").svg("")
+        if resolt:
+            resp = ms(f"{f} · {c} = {f * c}")
+        else:
+            resp = f"{forat} · {forat} = {forat}"
+        return f'{lletra}{svg}<div class="resposta" style="font-size:16pt">{resp}</div>'
+
+    return llista(apartats, alumnat, lambda it: f"{it[0]} · {it[1]} = {it[0] * it[1]}")
+
+
+U = ["", "u", "dos", "tres", "quatre", "cinc", "sis", "set", "vuit", "nou"]
+DEU = ["deu", "onze", "dotze", "tretze", "catorze", "quinze", "setze", "disset", "divuit", "dinou"]
+DESENES = ["", "", "vint", "trenta", "quaranta", "cinquanta", "seixanta", "setanta", "vuitanta", "noranta"]
+
+
+def nom_nombre(n):
+    """El nom d'un nombre de l'1 al 999, amb els guionets de la clau de la fitxa «Centenes, desenes i
+    unitats»: dos-cents quaranta-tres, cent vuit, vint-i-dos, setanta-u."""
+    assert 1 <= n <= 999, n
+    c, r = divmod(n, 100)
+    d, u = divmod(r, 10)
+    parts = []
+    if c:
+        parts.append("cent" if c == 1 else f"{U[c]}-cents")
+    if r:
+        if r < 10:
+            parts.append(U[u])
+        elif r < 20:
+            parts.append(DEU[u])
+        elif u == 0:
+            parts.append(DESENES[d])
+        elif d == 2:
+            parts.append(f"vint-i-{U[u]}")
+        else:
+            parts.append(f"{DESENES[d]}-{U[u]}")
+    return " ".join(parts)

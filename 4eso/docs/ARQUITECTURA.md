@@ -62,7 +62,7 @@ repositori, perquè són de tot el lloc, i el motor dels exàmens DOCX és a
 ├── fitxes/                 ud1.html … ud7.html, i udN-repas.html (les fa generadors/gen_repas.py)
 ├── uN/quadern.html          el quadern d'activitats amb filtre (el fa generadors/gen_quadern.py amb el
 │                           motor comú ../comu/generadors/quadern.py, a partir de generadors/quadern/udN.py;
-│                           de moment, la UD3 i la UD4). El full d'estil i el filtre són comuns des del
+│                           de moment, de la UD1 a la UD4). El full d'estil i el filtre són comuns des del
 │                           6/11/2026: ../comu/css/quadern.css i ../comu/js/quadern.js
 ├── targetes/               les tres targetes de consulta, a doble cara
 ├── generadors/             els scripts Python que dibuixen els SVG i fan els PDF,

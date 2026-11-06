@@ -2,8 +2,8 @@
 
 > **Des del 6/11/2026**, el mapa del lloc, la closca de pantalla (capçalera, botons, colors) i les seves regles són a [`comu/docs/SITE-MAP.md`](../../comu/docs/SITE-MAP.md). Aquest document parla del que és propi d'aquest curs; on parli de pàgines o enllaços d'abans (`fitxes/`, la caixa sencera, `?task=n`, «← unitat N»), mana el mapa.
 
-> **6/11/2026 · els quaderns d'activitats.** La UD2 i la UD3 ja en tenen (`u2/quadern.html`,
-> 8 blocs; `u3/quadern.html`, 9 blocs), fets amb el motor comú `comu/generadors/quadern.py` i el
+> **6/11/2026 · els quaderns d'activitats.** La UD1, la UD2 i la UD3 ja en tenen (`u1/quadern.html`, 8 blocs;
+> `u2/quadern.html`, 8 blocs; `u3/quadern.html`, 9 blocs), fets amb el motor comú `comu/generadors/quadern.py` i el
 > contingut de `generadors/quadern/udN.py`. Pendent: que el docent els revisi i els provi a l'aula;
 > després, els de les altres unitats (es copia `udN.py` i s'afegeix `quadern:` a `dades/unitats.js`).
 

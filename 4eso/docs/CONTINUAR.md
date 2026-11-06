@@ -252,6 +252,14 @@ Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `cs
   s'apliquen a cap bloc del PDF; per això `empremtes.json` s'ha tornat a calcular i els PDF no
   s'han refet.
 
+## 10g. 6/11/2026: els quaderns de la UD1 i la UD2
+
+- `u1/quadern.html` (`generadors/quadern/ud1.py`, 7 blocs) i `u2/quadern.html` (`ud2.py`, 7 blocs),
+  un bloc per exercici de la fitxa. La recta de la UD1 és a `generadors/quadern/peces.py`. Les regles
+  trencades (arrodonir no és tallar; al comptat no sempre guanya) surten entre els tres primers
+  apartats. Els imports de la UD2 es calculen amb `Decimal`, arrodonits al cèntim.
+- **Pendent:** que el docent revisi i provi a l'aula els quaderns de la UD1 a la UD4.
+
 ## 10f. 6/11/2026: els botons «PDF alumnat» i «PDF solucionari», el quadern de la UD4 i el motor comú
 
 - **Els botons del quadern.** «Imprimeix» i «Imprimeix el solucionari» ara són «PDF alumnat» i

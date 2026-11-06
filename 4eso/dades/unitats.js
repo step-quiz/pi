@@ -42,6 +42,7 @@ window.UNITATS = [
   {
     num: 1, titol: "Nombres reals des de l'estimació", fitxes: [{ fitxa: "u1/fitxa.html", titol: "Números que no s'acaben" }],
     repas: { fitxa: "u1/repas.html", titol: "Repàs · Nombres reals" },
+    quadern: "u1/quadern.html",
     dates: "14–30 de setembre", sessions: 6,
     objectiu: "Situar nombres a la recta i decidir quants decimals calen a cada situació.",
     material: "una cinta mètrica i un objecte llarg per mesurar",
@@ -52,6 +53,7 @@ window.UNITATS = [
   {
     num: 2, titol: "Percentatges i matemàtica financera", fitxes: [{ fitxa: "u2/fitxa.html", titol: "Què queda quan rebaixen?" }],
     repas: { fitxa: "u2/repas.html", titol: "Repàs · Percentatges" },
+    quadern: "u2/quadern.html",
     dates: "6 d'octubre – 3 de novembre", sessions: 15,
     objectiu: "Comparar dues maneres de pagar amb el factor multiplicador i decidir.",
     material: "monedes i bitllets de joguina",

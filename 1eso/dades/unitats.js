@@ -61,6 +61,7 @@ window.UNITATS = [
         trencada: "Ex. 4 · 2 + 3 · 4 no és 20: primer la multiplicació" }
     ],
     repas: { fitxa: "u1/repas.html", titol: "Repàs de la unitat i «Què he après?»", estat: "revisada", minim: [4, 5] },
+    quadern: "u1/quadern.html",
     tasques: [1, 2, 3, 4, 0]
   },
   {

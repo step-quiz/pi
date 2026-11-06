@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 1 · Quadern d'activitats</title>
+<!--
+  Quadern d'activitats · Unitat 1 (Nombres reals des de l'estimació)
+  NO S'EDITA A MÀ. El fa comu/generadors/quadern.py a partir de 4eso/generadors/quadern/ud1.py.
+
+  Activitats per practicar després de la fitxa, amb els mateixos criteris que la fitxa
+  (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
+  primer apartat de cada activitat resolt en lletra manuscrita.
+
+  El filtre de dalt (només a la pantalla) tria quants apartats té cada activitat i si
+  hi ha activitats de repte. «PDF alumnat» i «PDF solucionari» obren el diàleg d'imprimir
+  amb el filtre posat (A4, «Desa com a PDF», amb «Gràfics de fons» activat). Ctrl+P
+  imprimeix les activitats, mai el solucionari.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+<link rel="stylesheet" href="../../comu/css/quadern.css">
+<style>@page { @bottom-left { content: "Quadern d'activitats · Unitat 1" } }</style>
+</head>
+<body class="amb-repte">
+
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat 1</a><script src="../../comu/js/paper.js"></script></nav>
+
+<div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
+  <div class="grup">
+    <b class="et" id="et-n">Quantitat d'exercicis?</b>
+    <div class="botons" data-filtre="n" role="radiogroup" aria-labelledby="et-n">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Petita</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="2" aria-checked="true">Mitjana</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="3" aria-checked="false">Alta</button>
+    </div>
+  </div>
+  <div class="grup">
+    <b class="et" id="et-repte">Tipologia d'exercicis?</b>
+    <div class="botons" data-filtre="repte" role="radiogroup" aria-labelledby="et-repte">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Semblants als de la fitxa</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegint exercicis diferents que suposen un repte</button>
+    </div>
+  </div>
+  <p class="recompte" id="recompte" aria-live="polite"></p>
+  <div class="botons">
+    <button type="button" class="w-b w-pdf w-principal" id="pdf-alumnat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PDF alumnat</button>
+    <button type="button" class="w-b w-pdf" id="pdf-solucionari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>PDF solucionari</button>
+  </div>
+</div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5"><path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/></g>
+  </symbol>
+  <symbol id="i-llapis" viewBox="0 0 48 48">
+    <path d="M8 40l3-11L33 7l8 8-22 22z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 12l8 8M11 29l8 8" stroke="#000" stroke-width="3"/>
+  </symbol>
+  <symbol id="i-repte" viewBox="0 0 48 48">
+    <path d="M24 4l5.9 12.6 13.8 1.7-10.2 9.5 2.7 13.7L24 34.8l-12.2 6.7 2.7-13.7L4.3 18.3l13.8-1.7z"
+      fill="#fff" stroke="#000" stroke-width="3.2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main class="quadern alumnat">
+  <h1>Quadern d'activitats</h1>
+  <p class="subtitol-q">Unitat 1 · Nombres reals des de l'estimació</p>
+  <p class="nom">Nom: <span></span></p>
+  <p class="llegenda"><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg> Un pas més.</p>
+
+<section class="bloc">
+  <h2>Entre quins dos enters</h2>
+  <p class="mira">Com l'exercici 1 de la fitxa, a la pàgina 4.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu entre quins dos nombres enters cau cada nombre.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">Número</th><th style="width:34%">Surt</th><th style="width:18%">Entre</th><th style="width:18%">i</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">√10</td><td class="ms">3,1622776…</td><td class="ms">3</td><td class="ms">4</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">√3</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">√15</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">√40</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">√2</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">√50</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">√20</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">√60</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">√90</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">√12</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">√99</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">√72</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">√150</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Sense calculadora: busca els dos quadrats i escriu entre quins enters cau.</div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Els quadrats: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:14%">Número</th><th style="width:22%">El quadrat de sota</th><th style="width:22%">El de sobre</th><th style="width:15%">Entre</th><th style="width:15%">i</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">√20</td><td class="ms">16 = 4²</td><td class="ms">25 = 5²</td><td class="ms">4</td><td class="ms">5</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">√10</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">√30</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">√50</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">√5</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">√70</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">√40</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">√90</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">√13</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">√60</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">√99</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">√80</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">√3</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>On cau el número?</h2>
+  <p class="mira">Com l'exercici 2 de la fitxa, a la pàgina 4.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca amb una creu on cau cada nombre a la recta.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap ap-llista" data-n="1"><span class="apartat">a)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√7</b> = 2,6457513…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 2 al 3, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><path d="M83.7072 7.8l6.4 6.4M90.1072 7.8l-6.4 6.4" stroke="#3A3A3A" stroke-width="1.4" stroke-linecap="round" fill="none"/><line x1="86.9072" y1="13" x2="86.9072" y2="16" stroke="#3A3A3A" stroke-width=".8" stroke-dasharray="1 1"/></svg></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">b)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√5</b> = 2,2360679…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 2 al 3, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text></svg></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">c)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√30</b> = 5,4772255…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 5 al 6, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">5</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">6</text></svg></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">d)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√3</b> = 1,7320508…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 1 al 2, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">1</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text></svg></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">e)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√11</b> = 3,3166247…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 3 al 4, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text></svg></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">f)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√20</b> = 4,4721359…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 4 al 5, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">5</text></svg></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">g)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√2</b> = 1,4142135…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 1 al 2, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">1</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text></svg></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">h)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√45</b> = 6,7082039…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 6 al 7, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">6</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">7</text></svg></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">i)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√8</b> = 2,8284271…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 2 al 3, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text></svg></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">j)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√14</b> = 3,7416573…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 3 al 4, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text></svg></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">k)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√60</b> = 7,7459666…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 7 al 8, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">7</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">8</text></svg></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">l)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√18</b> = 4,2426406…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 4 al 5, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">5</text></svg></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">m)</span><div style="flex:1 1 auto;margin-top:.3rem"><b>√85</b> = 9,2195444…</div><div style="flex:0 0 100%"><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 9 al 10, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">9</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">10</text></svg></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara al revés: escriu el número que marca cada creu.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap ap-llista" data-n="1"><span class="apartat">a)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 2 al 3, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><path d="M78.4 7.8l6.4 6.4M84.8 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="81.6" y1="13" x2="81.6" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="ms">2,6</span></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">b)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 3 al 4, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text><path d="M55.2 7.8l6.4 6.4M61.6 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="58.4" y1="13" x2="58.4" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">c)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 1 al 2, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">1</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><path d="M101.6 7.8l6.4 6.4M108 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="104.8" y1="13" x2="104.8" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">d)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 5 al 6, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">5</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">6</text><path d="M66.8 7.8l6.4 6.4M73.2 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="70" y1="13" x2="70" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">e)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 0 al 1, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">0</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">1</text><path d="M43.6 7.8l6.4 6.4M50 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="46.8" y1="13" x2="46.8" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">f)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 4 al 5, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">5</text><path d="M90 7.8l6.4 6.4M96.4 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="93.2" y1="13" x2="93.2" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">g)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 7 al 8, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">7</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">8</text><path d="M32 7.8l6.4 6.4M38.4 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="35.2" y1="13" x2="35.2" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">h)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 2 al 3, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><path d="M26.2 7.8l6.4 6.4M32.6 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="29.4" y1="13" x2="29.4" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">i)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 6 al 7, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">6</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">7</text><path d="M107.4 7.8l6.4 6.4M113.8 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="110.6" y1="13" x2="110.6" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">j)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 1 al 2, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">1</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">2</text><path d="M14.6 7.8l6.4 6.4M21 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="17.8" y1="13" x2="17.8" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">k)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 8 al 9, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">8</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">9</text><path d="M61 7.8l6.4 6.4M67.4 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="64.2" y1="13" x2="64.2" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">l)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 3 al 4, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">3</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">4</text><path d="M119 7.8l6.4 6.4M125.4 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="122.2" y1="13" x2="122.2" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">m)</span><svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" aria-label="Recta del 9 al 10, partida en desenes"><line x1="6" y1="16" x2="134" y2="16" stroke="#000" stroke-width="1.2"/><line x1="12" y1="11.5" x2="12" y2="20.5" stroke="#000" stroke-width="1.1"/><line x1="23.6" y1="13.8" x2="23.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="35.2" y1="13.8" x2="35.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="46.8" y1="13.8" x2="46.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="58.4" y1="13.8" x2="58.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="70" y1="12.8" x2="70" y2="19.2" stroke="#000" stroke-width="1.1"/><line x1="81.6" y1="13.8" x2="81.6" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="93.2" y1="13.8" x2="93.2" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="104.8" y1="13.8" x2="104.8" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="116.4" y1="13.8" x2="116.4" y2="18.2" stroke="#000" stroke-width="0.7"/><line x1="128" y1="11.5" x2="128" y2="20.5" stroke="#000" stroke-width="1.1"/><text x="12" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">9</text><text x="128" y="26.5" text-anchor="middle" font-size="6" font-weight="700" fill="#000" font-family="system-ui">10</text><path d="M84.2 7.8l6.4 6.4M90.6 7.8l-6.4 6.4" stroke="#000" stroke-width="1.2" stroke-linecap="round" fill="none"/><line x1="87.4" y1="13" x2="87.4" y2="16" stroke="#000" stroke-width=".8" stroke-dasharray="1 1"/></svg><div class="resposta">La creu és al <span class="buit" style="min-width:3cm"></span></div></div>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Arrodonir</h2>
+  <p class="mira">Com l'exercici 3 de la fitxa, a la pàgina 5.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Arrodoneix cada nombre amb els decimals que et demanen.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:28%">Número</th><th style="width:20%">0 decimals</th><th style="width:20%">1 decimal</th><th style="width:20%">2 decimals</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">2,6457513…</td><td class="ms">3</td><td class="ms">2,6</td><td class="ms">2,65</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">1,7320508…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">1,7142857…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">3,1415926…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">1,4142135…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">4,1666666…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">4,3588989…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">0,6666666…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">6,9282032…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">1,8888888…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">9,9498743…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">7,1428571…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">10,9544511…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Talla i arrodoneix a 2 decimals. Marca si surt el mateix.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:28%">Número</th><th style="width:20%">Tallat</th><th style="width:20%">Arrodonit</th><th style="width:20%">El mateix?</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">2,6457513…</td><td class="ms">2,64</td><td class="ms">2,65</td><td class="ms">no</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">3,1622776…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">0,6666666…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">2,2360679…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">0,4444444…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">2,8284271…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">3,1415926…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">0,7142857…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3,6055512…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">0,1666666…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">7,0710678…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">2,3333333…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">4,1231056…</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Decimals que s'acaben</h2>
+  <p class="mira">Com l'exercici 4 de la fitxa, a la pàgina 5.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca el nombre que té xifres decimals que s'acaben.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√20</label><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>√49</label><label><span class="quadret"></span>√8</label><label><span class="quadret"></span>√3</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√6</label><label><span class="quadret"></span>√15</label><label><span class="quadret"></span>√64</label><label><span class="quadret"></span>√2</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√100</label><label><span class="quadret"></span>√50</label><label><span class="quadret"></span>√30</label><label><span class="quadret"></span>√7</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√5</label><label><span class="quadret"></span>√11</label><label><span class="quadret"></span>√13</label><label><span class="quadret"></span>√81</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√10</label><label><span class="quadret"></span>√36</label><label><span class="quadret"></span>√40</label><label><span class="quadret"></span>√27</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√12</label><label><span class="quadret"></span>√18</label><label><span class="quadret"></span>√24</label><label><span class="quadret"></span>√121</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√45</label><label><span class="quadret"></span>√144</label><label><span class="quadret"></span>√60</label><label><span class="quadret"></span>√90</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√400</label><label><span class="quadret"></span>√200</label><label><span class="quadret"></span>√80</label><label><span class="quadret"></span>√300</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√14</label><label><span class="quadret"></span>√21</label><label><span class="quadret"></span>√26</label><label><span class="quadret"></span>√169</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√75</label><label><span class="quadret"></span>√99</label><label><span class="quadret"></span>√225</label><label><span class="quadret"></span>√150</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√500</label><label><span class="quadret"></span>√900</label><label><span class="quadret"></span>√600</label><label><span class="quadret"></span>√700</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√31</label><label><span class="quadret"></span>√33</label><label><span class="quadret"></span>√35</label><label><span class="quadret"></span>√196</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> Quina arrel s'acaba?</div><div class="tria"><label><span class="quadret"></span>√1000</label><label><span class="quadret"></span>√2500</label><label><span class="quadret"></span>√3000</label><label><span class="quadret"></span>√2000</label></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Fes-ho amb la calculadora. S'acaba? Escriu què surt.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:26%">Número</th><th style="width:22%">S'acaba?</th><th style="width:40%">Surt</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">√49</td><td class="ms">sí</td><td class="ms">7</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">√50</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">1 ÷ 4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">1 ÷ 3</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">√81</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">√10</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">3 ÷ 4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">2 ÷ 3</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">π</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">√144</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">1 ÷ 8</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">5 ÷ 6</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">√2,25</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Quants decimals?</h2>
+  <p class="mira">Com l'exercici 5 de la fitxa, a la pàgina 6.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca com ho escriuries.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> Una cortina: 2,34567… m. Es mesura per centímetres.</div><div class="tria"><label><span class="quadret"></span>2,3 m</label><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2,35 m</label><label><span class="quadret"></span>2,346 m</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> Un tauler: 1,23456… m. Es mesura per mil·límetres.</div><div class="tria"><label><span class="quadret"></span>1,2 m</label><label><span class="quadret"></span>1,23 m</label><label><span class="quadret"></span>1,235 m</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> Una corda: 4,28571… m. Es mesura per metres sencers.</div><div class="tria"><label><span class="quadret"></span>4 m</label><label><span class="quadret"></span>4,3 m</label><label><span class="quadret"></span>4,29 m</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> Un cable: 3,16227… m. Es mesura per pams de 10 cm.</div><div class="tria"><label><span class="quadret"></span>3 m</label><label><span class="quadret"></span>3,2 m</label><label><span class="quadret"></span>3,16 m</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> Una tela: 1,69705… m. Es mesura per centímetres.</div><div class="tria"><label><span class="quadret"></span>1,7 m</label><label><span class="quadret"></span>1,70 m</label><label><span class="quadret"></span>1,697 m</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> Un llistó: 0,89442… m. Es mesura per mil·límetres.</div><div class="tria"><label><span class="quadret"></span>0,9 m</label><label><span class="quadret"></span>0,89 m</label><label><span class="quadret"></span>0,894 m</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> Una tanca: 12,64910… m. Es mesura per metres sencers.</div><div class="tria"><label><span class="quadret"></span>13 m</label><label><span class="quadret"></span>12,6 m</label><label><span class="quadret"></span>12,65 m</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> Una catifa: 2,44948… m. Es mesura per pams de 10 cm.</div><div class="tria"><label><span class="quadret"></span>2 m</label><label><span class="quadret"></span>2,4 m</label><label><span class="quadret"></span>2,45 m</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> Un tub: 1,41421… m. Es mesura per mil·límetres.</div><div class="tria"><label><span class="quadret"></span>1,4 m</label><label><span class="quadret"></span>1,41 m</label><label><span class="quadret"></span>1,414 m</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> Una cinta: 5,47722… m. Es mesura per centímetres.</div><div class="tria"><label><span class="quadret"></span>5 m</label><label><span class="quadret"></span>5,5 m</label><label><span class="quadret"></span>5,48 m</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> Una barra: 2,64575… m. Es mesura per pams de 10 cm.</div><div class="tria"><label><span class="quadret"></span>2,6 m</label><label><span class="quadret"></span>2,65 m</label><label><span class="quadret"></span>2,646 m</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> Un vidre: 0,70710… m. Es mesura per mil·límetres.</div><div class="tria"><label><span class="quadret"></span>0,7 m</label><label><span class="quadret"></span>0,71 m</label><label><span class="quadret"></span>0,707 m</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> Una mànega: 8,36660… m. Es mesura per metres sencers.</div><div class="tria"><label><span class="quadret"></span>8 m</label><label><span class="quadret"></span>8,4 m</label><label><span class="quadret"></span>8,37 m</label></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Escriu-ho amb els decimals que calen.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">Què és</th><th style="width:20%">Surt</th><th style="width:28%">Es mesura</th><th style="width:20%">Ho escric</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Una cortina</td><td class="ms">1,73205…</td><td class="ms">per centímetres</td><td class="ms">1,73 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Un tauler</td><td class="dada">2,23606…</td><td class="dada">per mil·límetres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Una corda</td><td class="dada">3,60555…</td><td class="dada">per metres sencers</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">Una tela</td><td class="dada">0,94868…</td><td class="dada">per pams de 10 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Un cable</td><td class="dada">4,47213…</td><td class="dada">per centímetres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Un llistó</td><td class="dada">1,11803…</td><td class="dada">per mil·límetres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Una tanca</td><td class="dada">9,48683…</td><td class="dada">per metres sencers</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Una catifa</td><td class="dada">2,82842…</td><td class="dada">per pams de 10 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Un tub</td><td class="dada">0,31622…</td><td class="dada">per mil·límetres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Una cinta</td><td class="dada">6,32455…</td><td class="dada">per centímetres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Una barra</td><td class="dada">3,87298…</td><td class="dada">per pams de 10 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">Una mànega</td><td class="dada">15,49190…</td><td class="dada">per metres sencers</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Un vidre</td><td class="dada">1,95959…</td><td class="dada">per mil·límetres</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Pagar de més</h2>
+  <p class="mira">Com l'exercici 6 de la fitxa, a la pàgina 7.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quants diners de més pagues si arrodoneixes cap amunt.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">La corda val 2,35 € el metre.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">Necessites</th><th style="width:18%">Costa</th><th style="width:17%">Compres</th><th style="width:18%">Pagues</th><th style="width:17%">De més</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">3,7 m</td><td class="ms">8,70 €</td><td class="ms">4 m</td><td class="ms">9,40 €</td><td class="ms">0,70 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">5,2 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">2,4 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">1,5 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="2">
+    <p class="nota-act">El cable val 1,80 € el metre.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">Necessites</th><th style="width:18%">Costa</th><th style="width:17%">Compres</th><th style="width:18%">Pagues</th><th style="width:17%">De més</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">4,5 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">2,2 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">6,8 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">La tela val 4,50 € el metre.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">Necessites</th><th style="width:18%">Costa</th><th style="width:17%">Compres</th><th style="width:18%">Pagues</th><th style="width:17%">De més</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">1,3 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3,6 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">2,9 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">0,4 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">7,1 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">5,5 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Es ven en rotlles sencers. Quants en compres i quants metres et sobren?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Els rotlles de cable són de 5 m i valen 9 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Necessites</th><th style="width:22%">Rotlles</th><th style="width:22%">Pagues</th><th style="width:22%">Et sobren</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">7 m</td><td class="ms">2</td><td class="ms">18,00 €</td><td class="ms">3 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">12 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">4,5 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">16 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="2">
+    <p class="nota-act">Els rotlles de tela són de 10 m i valen 15 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Necessites</th><th style="width:22%">Rotlles</th><th style="width:22%">Pagues</th><th style="width:22%">Et sobren</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">23 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">8 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">31 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Els rotlles de cinta són de 2,5 m i valen 4 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Necessites</th><th style="width:22%">Rotlles</th><th style="width:22%">Pagues</th><th style="width:22%">Et sobren</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">8,2 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">1,5 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">11 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">5 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>A la vida de cada dia · amunt o avall</h2>
+  <p class="mira">Com l'exercici 7 de la fitxa, a la pàgina 8.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Fes la divisió i decideix si has d'arrodonir cap amunt o cap avall.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Situació</th><th style="width:14%">Surt</th><th style="width:15%">Amunt o avall?</th><th style="width:15%">Resposta</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Necessites 7 L de pintura. Els pots són de 2 L.</td><td class="ms">3,5</td><td class="ms">amunt</td><td class="ms">4 pots</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Sou 22 persones. A cada cotxe hi caben 5.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Tens 11 €. Una entrada de cine val 3 €.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">Sou 30 alumnes. A cada taula hi caben 4.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Tens 20 €. Un llibre val 6 €.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Tens 50 m de corda. Cada comba necessita 3 m.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Has de portar 45 cadires. En una furgoneta n'hi caben 10.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Tens 2 L de suc. Cada got és de 0,3 L.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Hi ha 63 ous. Les capses són de 12.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Tens 15 €. Un pa val 1,20 €.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Sou 52 persones. Un autobús és de 25 places.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">Tens 7 m de tela. Cada coixí en necessita 0,8 m.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Has de llegir 130 pàgines. Cada dia en llegeixes 15.</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quants en calen i quantes places sobren.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:56%">Situació</th><th style="width:16%">En calen</th><th style="width:16%">Sobren</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Sou 22 persones. A cada cotxe hi caben 5.</td><td class="ms">5</td><td class="ms">3 places</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Sou 30 alumnes. A cada taula hi caben 4.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Sou 52 persones. Els autobusos són de 25.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">Hi ha 63 ous. Les capses són de 12.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Has de portar 45 cadires. En una furgoneta n'hi caben 10.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Sou 17 persones. Les barques són de 4.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Sou 40 persones. Les taules són de 6.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Hi ha 100 llibres. Cada caixa en porta 8.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Sou 75 persones. Un vagó és de 20 seients.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Sou 33 persones. Les tendes són de 4.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Hi ha 58 pomes. Les bosses són de 6.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">Sou 120 persones. Els autobusos són de 55.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Hi ha 26 ampolles. Les caixes són de 6.</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="quadern sol" id="solucionari">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 1 · Quadern d'activitats · full per al professorat</p>
+  <div class="abans">
+    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
+    per cada exercici de la fitxa (7 blocs), i la frase de sota del títol diu quin. Cada bloc té
+    una activitat com la de la fitxa i, si es tria «Afegint exercicis diferents que suposen un repte», una altra
+    una mica diferent, amb estrella. A dalt de la pàgina es tria la quantitat d'exercicis de cada activitat: a) resolt i
+    3 per fer (petita), 6 (mitjana) o 12 (alta). El nombre
+    d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre
+    amb els del quadern si s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el
+    filtre posat: <code>u1/quadern.html?n=1&amp;repte=1</code> (n: 1 petita, 2 mitjana,
+    3 alta).</p>
+  </div>
+  <p>Les de repte no tenen més text que les altres: fan el mateix camí al revés, hi afegeixen un
+  pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
+  <h3>Entre quins dos enters · com l'exercici 1 de la fitxa</h3>
+  <p>Primer la calculadora, després la decisió: el número enter de davant de la coma és el de sota, i el següent, el de sobre. <b>Error típic:</b> confondre el número de dins de l'arrel amb el resultat (√15 entre 14 i 16).</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Número</th><th>Surt</th><th>Entre</th><th>i</th></tr><tr class="ap" data-n="1"><td>a)</td><td>√10</td><td><b>3,1622776…</b></td><td><b>3</b></td><td><b>4</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>√3</td><td><b>1,7320508…</b></td><td><b>1</b></td><td><b>2</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>√15</td><td><b>3,8729833…</b></td><td><b>3</b></td><td><b>4</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>√40</td><td><b>6,3245553…</b></td><td><b>6</b></td><td><b>7</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>√2</td><td><b>1,4142135…</b></td><td><b>1</b></td><td><b>2</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>√50</td><td><b>7,0710678…</b></td><td><b>7</b></td><td><b>8</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>√20</td><td><b>4,4721359…</b></td><td><b>4</b></td><td><b>5</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>√60</td><td><b>7,7459666…</b></td><td><b>7</b></td><td><b>8</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>√90</td><td><b>9,4868329…</b></td><td><b>9</b></td><td><b>10</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>√12</td><td><b>3,4641016…</b></td><td><b>3</b></td><td><b>4</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>√99</td><td><b>9,9498743…</b></td><td><b>9</b></td><td><b>10</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>√72</td><td><b>8,4852813…</b></td><td><b>8</b></td><td><b>9</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>√150</td><td><b>12,2474487…</b></td><td><b>12</b></td><td><b>13</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Número</th><th>El quadrat de sota</th><th>El de sobre</th><th>Entre</th><th>i</th></tr><tr class="ap" data-n="1"><td>a)</td><td>√20</td><td><b>16 = 4²</b></td><td><b>25 = 5²</b></td><td><b>4</b></td><td><b>5</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>√10</td><td><b>9 = 3²</b></td><td><b>16 = 4²</b></td><td><b>3</b></td><td><b>4</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>√30</td><td><b>25 = 5²</b></td><td><b>36 = 6²</b></td><td><b>5</b></td><td><b>6</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>√50</td><td><b>49 = 7²</b></td><td><b>64 = 8²</b></td><td><b>7</b></td><td><b>8</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>√5</td><td><b>4 = 2²</b></td><td><b>9 = 3²</b></td><td><b>2</b></td><td><b>3</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>√70</td><td><b>64 = 8²</b></td><td><b>81 = 9²</b></td><td><b>8</b></td><td><b>9</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>√40</td><td><b>36 = 6²</b></td><td><b>49 = 7²</b></td><td><b>6</b></td><td><b>7</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>√90</td><td><b>81 = 9²</b></td><td><b>100 = 10²</b></td><td><b>9</b></td><td><b>10</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>√13</td><td><b>9 = 3²</b></td><td><b>16 = 4²</b></td><td><b>3</b></td><td><b>4</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>√60</td><td><b>49 = 7²</b></td><td><b>64 = 8²</b></td><td><b>7</b></td><td><b>8</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>√99</td><td><b>81 = 9²</b></td><td><b>100 = 10²</b></td><td><b>9</b></td><td><b>10</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>√80</td><td><b>64 = 8²</b></td><td><b>81 = 9²</b></td><td><b>8</b></td><td><b>9</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>√3</td><td><b>1 = 1²</b></td><td><b>4 = 2²</b></td><td><b>1</b></td><td><b>2</b></td></tr></table>    </div>
+  <p class="per-que">El camí sense calculadora, com el de 1r: √20 és entre √16 i √25, o sigui entre 4 i 5. Després la calculadora ho pot comprovar.</p></div>
+  <h3>On cau el número? · com l'exercici 2 de la fitxa</h3>
+  <p>La recta va d'un enter al següent i està partida en desenes: la primera xifra decimal diu quina ratlla. Es dona per bo qualsevol punt entre la desena de sota i la de sobre (√7 = 2,64…: entre el 2,6 i el 2,7).</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>√7 = 2,645…, entre 2,6 i 2,7</b></span><span class="ap" data-n="1"> · b) <b>√5 = 2,236…, entre 2,2 i 2,3</b></span><span class="ap" data-n="1"> · c) <b>√30 = 5,477…, entre 5,4 i 5,5</b></span><span class="ap" data-n="1"> · d) <b>√3 = 1,732…, entre 1,7 i 1,8</b></span><span class="ap" data-n="2"> · e) <b>√11 = 3,316…, entre 3,3 i 3,4</b></span><span class="ap" data-n="2"> · f) <b>√20 = 4,472…, entre 4,4 i 4,5</b></span><span class="ap" data-n="2"> · g) <b>√2 = 1,414…, entre 1,4 i 1,5</b></span><span class="ap" data-n="3"> · h) <b>√45 = 6,708…, entre 6,7 i 6,8</b></span><span class="ap" data-n="3"> · i) <b>√8 = 2,828…, entre 2,8 i 2,9</b></span><span class="ap" data-n="3"> · j) <b>√14 = 3,741…, entre 3,7 i 3,8</b></span><span class="ap" data-n="3"> · k) <b>√60 = 7,745…, entre 7,7 i 7,8</b></span><span class="ap" data-n="3"> · l) <b>√18 = 4,242…, entre 4,2 i 4,3</b></span><span class="ap" data-n="3"> · m) <b>√85 = 9,219…, entre 9,2 i 9,3</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>2,6</b></span><span class="ap" data-n="1"> · b) <b>3,4</b></span><span class="ap" data-n="1"> · c) <b>1,8</b></span><span class="ap" data-n="1"> · d) <b>5,5</b></span><span class="ap" data-n="2"> · e) <b>0,3</b></span><span class="ap" data-n="2"> · f) <b>4,7</b></span><span class="ap" data-n="2"> · g) <b>7,2</b></span><span class="ap" data-n="3"> · h) <b>2,15</b></span><span class="ap" data-n="3"> · i) <b>6,85</b></span><span class="ap" data-n="3"> · j) <b>1,05</b></span><span class="ap" data-n="3"> · k) <b>8,45</b></span><span class="ap" data-n="3"> · l) <b>3,95</b></span><span class="ap" data-n="3"> · m) <b>9,65</b></span></p>
+    </div>
+  <p class="per-que">El camí al revés: de la recta al número. Les dels apartats h, i, j, k, l i m cauen entre dues ratlles: es dona per bona qualsevol de les dues desenes, o el número del mig.</p></div>
+  <h3>Arrodonir · com l'exercici 3 de la fitxa</h3>
+  <p><b>La regla trencada de la unitat:</b> arrodonir no és tallar. Ja a l'apartat b (1,7320… a 0 decimals és 2, no 1) i a la c (1,7142… → 2) cal mirar la xifra següent. Si talla, recordeu-li que 2,646 és més a prop del 2,65 que del 2,64. Els zeros del final (1,70) es mantenen.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Número</th><th>0 decimals</th><th>1 decimal</th><th>2 decimals</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2,6457513…</td><td><b>3</b></td><td><b>2,6</b></td><td><b>2,65</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>1,7320508…</td><td><b>2</b></td><td><b>1,7</b></td><td><b>1,73</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>1,7142857…</td><td><b>2</b></td><td><b>1,7</b></td><td><b>1,71</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>3,1415926…</td><td><b>3</b></td><td><b>3,1</b></td><td><b>3,14</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>1,4142135…</td><td><b>1</b></td><td><b>1,4</b></td><td><b>1,41</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>4,1666666…</td><td><b>4</b></td><td><b>4,2</b></td><td><b>4,17</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>4,3588989…</td><td><b>4</b></td><td><b>4,4</b></td><td><b>4,36</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>0,6666666…</td><td><b>1</b></td><td><b>0,7</b></td><td><b>0,67</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>6,9282032…</td><td><b>7</b></td><td><b>6,9</b></td><td><b>6,93</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>1,8888888…</td><td><b>2</b></td><td><b>1,9</b></td><td><b>1,89</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>9,9498743…</td><td><b>10</b></td><td><b>9,9</b></td><td><b>9,95</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>7,1428571…</td><td><b>7</b></td><td><b>7,1</b></td><td><b>7,14</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>10,9544511…</td><td><b>11</b></td><td><b>11,0</b></td><td><b>10,95</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Número</th><th>Tallat</th><th>Arrodonit</th><th>El mateix?</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2,6457513…</td><td><b>2,64</b></td><td><b>2,65</b></td><td><b>no</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>3,1622776…</td><td><b>3,16</b></td><td><b>3,16</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>0,6666666…</td><td><b>0,66</b></td><td><b>0,67</b></td><td><b>no</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>2,2360679…</td><td><b>2,23</b></td><td><b>2,24</b></td><td><b>no</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>0,4444444…</td><td><b>0,44</b></td><td><b>0,44</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>2,8284271…</td><td><b>2,82</b></td><td><b>2,83</b></td><td><b>no</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>3,1415926…</td><td><b>3,14</b></td><td><b>3,14</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>0,7142857…</td><td><b>0,71</b></td><td><b>0,71</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3,6055512…</td><td><b>3,60</b></td><td><b>3,61</b></td><td><b>no</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>0,1666666…</td><td><b>0,16</b></td><td><b>0,17</b></td><td><b>no</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>7,0710678…</td><td><b>7,07</b></td><td><b>7,07</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>2,3333333…</td><td><b>2,33</b></td><td><b>2,33</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>4,1231056…</td><td><b>4,12</b></td><td><b>4,12</b></td><td><b>sí</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: les dues coses de costat. Surt el mateix quan la xifra següent és 0, 1, 2, 3 o 4; si és 5 o més, l'arrodonit és més gran. Que miri sempre la tercera xifra decimal.</p></div>
+  <h3>Decimals que s'acaben · com l'exercici 4 de la fitxa</h3>
+  <p>Només són exactes les arrels dels quadrats perfectes (1, 4, 9, 16, 25, 36, 49, 64, 81, 100…). Si en falla més d'un, val la pena repassar la llista de quadrats.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>√49</b></span><span class="ap" data-n="1"> · b) <b>√64</b></span><span class="ap" data-n="1"> · c) <b>√100</b></span><span class="ap" data-n="1"> · d) <b>√81</b></span><span class="ap" data-n="2"> · e) <b>√36</b></span><span class="ap" data-n="2"> · f) <b>√121</b></span><span class="ap" data-n="2"> · g) <b>√144</b></span><span class="ap" data-n="3"> · h) <b>√400</b></span><span class="ap" data-n="3"> · i) <b>√169</b></span><span class="ap" data-n="3"> · j) <b>√225</b></span><span class="ap" data-n="3"> · k) <b>√900</b></span><span class="ap" data-n="3"> · l) <b>√196</b></span><span class="ap" data-n="3"> · m) <b>√2500</b></span></p>
+    <p>Són els quadrats perfectes: √49 = 7 · √64 = 8 · √100 = 10 · √81 = 9 · √36 = 6 · √121 = 11 · √144 = 12 · √400 = 20 · √169 = 13 · √225 = 15 · √900 = 30 · √196 = 14 · √2500 = 50.</p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Número</th><th>S'acaba?</th><th>Surt</th></tr><tr class="ap" data-n="1"><td>a)</td><td>√49</td><td><b>sí</b></td><td><b>7</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>√50</td><td><b>no</b></td><td><b>7,0710678…</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>1 ÷ 4</td><td><b>sí</b></td><td><b>0,25</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>1 ÷ 3</td><td><b>no</b></td><td><b>0,3333333…</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>√81</td><td><b>sí</b></td><td><b>9</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>√10</td><td><b>no</b></td><td><b>3,1622776…</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>3 ÷ 4</td><td><b>sí</b></td><td><b>0,75</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>2 ÷ 3</td><td><b>no</b></td><td><b>0,6666666…</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>π</td><td><b>no</b></td><td><b>3,1415926…</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>√144</td><td><b>sí</b></td><td><b>12</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>1 ÷ 8</td><td><b>sí</b></td><td><b>0,125</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>5 ÷ 6</td><td><b>no</b></td><td><b>0,8333333…</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>√2,25</td><td><b>sí</b></td><td><b>1,5</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: també les divisions. 1 ÷ 4 s'acaba (0,25); 1 ÷ 3 no (0,333…). Si la calculadora omple la pantalla i l'última xifra no s'atura, no s'acaba.</p></div>
+  <h3>Quants decimals? · com l'exercici 5 de la fitxa</h3>
+  <p>Com la pàgina 3 de la fitxa: quants decimals depèn de com es mesura. En metres, la primera xifra decimal són els pams de 10 cm, la segona els centímetres i la tercera els mil·límetres.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>2,35 m</b></span><span class="ap" data-n="1"> · b) <b>1,235 m</b></span><span class="ap" data-n="1"> · c) <b>4 m</b></span><span class="ap" data-n="1"> · d) <b>3,2 m</b></span><span class="ap" data-n="2"> · e) <b>1,70 m</b></span><span class="ap" data-n="2"> · f) <b>0,894 m</b></span><span class="ap" data-n="2"> · g) <b>13 m</b></span><span class="ap" data-n="3"> · h) <b>2,4 m</b></span><span class="ap" data-n="3"> · i) <b>1,414 m</b></span><span class="ap" data-n="3"> · j) <b>5,48 m</b></span><span class="ap" data-n="3"> · k) <b>2,6 m</b></span><span class="ap" data-n="3"> · l) <b>0,707 m</b></span><span class="ap" data-n="3"> · m) <b>8 m</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Què és</th><th>Surt</th><th>Es mesura</th><th>Ho escric</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Una cortina</td><td>1,73205…</td><td>per centímetres</td><td><b>1,73 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Un tauler</td><td>2,23606…</td><td>per mil·límetres</td><td><b>2,236 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Una corda</td><td>3,60555…</td><td>per metres sencers</td><td><b>4 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Una tela</td><td>0,94868…</td><td>per pams de 10 cm</td><td><b>0,9 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Un cable</td><td>4,47213…</td><td>per centímetres</td><td><b>4,47 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Un llistó</td><td>1,11803…</td><td>per mil·límetres</td><td><b>1,118 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Una tanca</td><td>9,48683…</td><td>per metres sencers</td><td><b>9 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Una catifa</td><td>2,82842…</td><td>per pams de 10 cm</td><td><b>2,8 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Un tub</td><td>0,31622…</td><td>per mil·límetres</td><td><b>0,316 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Una cinta</td><td>6,32455…</td><td>per centímetres</td><td><b>6,32 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Una barra</td><td>3,87298…</td><td>per pams de 10 cm</td><td><b>3,9 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Una mànega</td><td>15,49190…</td><td>per metres sencers</td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Un vidre</td><td>1,95959…</td><td>per mil·límetres</td><td><b>1,960 m</b></td></tr></table>    </div>
+  <p class="per-que">Ara no hi ha opcions: ha d'arrodonir ell, i amb els zeros que calguin. <b>Error típic:</b> a «per mil·límetres», escriure 2,236 com a 2,24.</p></div>
+  <h3>Pagar de més · com l'exercici 6 de la fitxa</h3>
+  <p>Es compra per metres sencers, sempre cap amunt. El que es paga de més és la diferència entre el que pagues i el que costaria exactament. <b>Error típic:</b> arrodonir cap avall (3,7 m → 3 m) i quedar-se curt.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Necessites</th><th>Costa</th><th>Compres</th><th>Pagues</th><th>De més</th></tr><tr class="ap" data-n="1"><td>a)</td><td>3,7 m</td><td><b>8,70 €</b></td><td><b>4 m</b></td><td><b>9,40 €</b></td><td><b>0,70 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>5,2 m</td><td><b>12,22 €</b></td><td><b>6 m</b></td><td><b>14,10 €</b></td><td><b>1,88 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>2,4 m</td><td><b>5,64 €</b></td><td><b>3 m</b></td><td><b>7,05 €</b></td><td><b>1,41 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>1,5 m</td><td><b>3,53 €</b></td><td><b>2 m</b></td><td><b>4,70 €</b></td><td><b>1,17 €</b></td></tr></table>    </div>
+    <div class="seccio" data-n="2">
+<table><tr><th></th><th>Necessites</th><th>Costa</th><th>Compres</th><th>Pagues</th><th>De més</th></tr><tr class="ap" data-n="2"><td>e)</td><td>4,5 m</td><td><b>8,10 €</b></td><td><b>5 m</b></td><td><b>9,00 €</b></td><td><b>0,90 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>2,2 m</td><td><b>3,96 €</b></td><td><b>3 m</b></td><td><b>5,40 €</b></td><td><b>1,44 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>6,8 m</td><td><b>12,24 €</b></td><td><b>7 m</b></td><td><b>12,60 €</b></td><td><b>0,36 €</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Necessites</th><th>Costa</th><th>Compres</th><th>Pagues</th><th>De més</th></tr><tr class="ap" data-n="3"><td>h)</td><td>1,3 m</td><td><b>5,85 €</b></td><td><b>2 m</b></td><td><b>9,00 €</b></td><td><b>3,15 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3,6 m</td><td><b>16,20 €</b></td><td><b>4 m</b></td><td><b>18,00 €</b></td><td><b>1,80 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>2,9 m</td><td><b>13,05 €</b></td><td><b>3 m</b></td><td><b>13,50 €</b></td><td><b>0,45 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>0,4 m</td><td><b>1,80 €</b></td><td><b>1 m</b></td><td><b>4,50 €</b></td><td><b>2,70 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>7,1 m</td><td><b>31,95 €</b></td><td><b>8 m</b></td><td><b>36,00 €</b></td><td><b>4,05 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>5,5 m</td><td><b>24,75 €</b></td><td><b>6 m</b></td><td><b>27,00 €</b></td><td><b>2,25 €</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Necessites</th><th>Rotlles</th><th>Pagues</th><th>Et sobren</th></tr><tr class="ap" data-n="1"><td>a)</td><td>7 m</td><td><b>2</b></td><td><b>18,00 €</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>12 m</td><td><b>3</b></td><td><b>27,00 €</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>4,5 m</td><td><b>1</b></td><td><b>9,00 €</b></td><td><b>0,5 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>16 m</td><td><b>4</b></td><td><b>36,00 €</b></td><td><b>4 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="2">
+<table><tr><th></th><th>Necessites</th><th>Rotlles</th><th>Pagues</th><th>Et sobren</th></tr><tr class="ap" data-n="2"><td>e)</td><td>23 m</td><td><b>3</b></td><td><b>45,00 €</b></td><td><b>7 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>8 m</td><td><b>1</b></td><td><b>15,00 €</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>31 m</td><td><b>4</b></td><td><b>60,00 €</b></td><td><b>9 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Necessites</th><th>Rotlles</th><th>Pagues</th><th>Et sobren</th></tr><tr class="ap" data-n="3"><td>h)</td><td>6 m</td><td><b>3</b></td><td><b>12,00 €</b></td><td><b>1,5 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3 m</td><td><b>2</b></td><td><b>8,00 €</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>8,2 m</td><td><b>4</b></td><td><b>16,00 €</b></td><td><b>1,8 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>1,5 m</td><td><b>1</b></td><td><b>4,00 €</b></td><td><b>1 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>11 m</td><td><b>5</b></td><td><b>20,00 €</b></td><td><b>1,5 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>5 m</td><td><b>2</b></td><td><b>8,00 €</b></td><td><b>0 m</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: ja no es compra per metres sinó per rotlles. Primer cal dividir (7 ÷ 5 = 1,4) i arrodonir cap amunt (2 rotlles). Els que sobren són els que es poden guardar.</p></div>
+  <h3>A la vida de cada dia · amunt o avall · com l'exercici 7 de la fitxa</h3>
+  <p><b>La regla trencada:</b> no sempre s'arrodoneix cap amunt. Ja a l'apartat c (les entrades) cal anar cap avall: amb 11 € no arribes a la quarta. Si arrodoneix sempre amunt, que digui en veu alta si li arriben els diners.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Situació</th><th>Surt</th><th>Amunt o avall?</th><th>Resposta</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Necessites 7 L de pintura. Els pots són de 2 L.</td><td><b>3,5</b></td><td><b>amunt</b></td><td><b>4 pots</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Sou 22 persones. A cada cotxe hi caben 5.</td><td><b>4,4</b></td><td><b>amunt</b></td><td><b>5 cotxes</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Tens 11 €. Una entrada de cine val 3 €.</td><td><b>3,66…</b></td><td><b>avall</b></td><td><b>3 entrades</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Sou 30 alumnes. A cada taula hi caben 4.</td><td><b>7,5</b></td><td><b>amunt</b></td><td><b>8 taules</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Tens 20 €. Un llibre val 6 €.</td><td><b>3,33…</b></td><td><b>avall</b></td><td><b>3 llibres</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Tens 50 m de corda. Cada comba necessita 3 m.</td><td><b>16,66…</b></td><td><b>avall</b></td><td><b>16 combes</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Has de portar 45 cadires. En una furgoneta n'hi caben 10.</td><td><b>4,5</b></td><td><b>amunt</b></td><td><b>5 viatges</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Tens 2 L de suc. Cada got és de 0,3 L.</td><td><b>6,66…</b></td><td><b>avall</b></td><td><b>6 gots plens</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Hi ha 63 ous. Les capses són de 12.</td><td><b>5,25</b></td><td><b>amunt</b></td><td><b>6 capses</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Tens 15 €. Un pa val 1,20 €.</td><td><b>12,5</b></td><td><b>avall</b></td><td><b>12 pans</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Sou 52 persones. Un autobús és de 25 places.</td><td><b>2,08</b></td><td><b>amunt</b></td><td><b>3 autobusos</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Tens 7 m de tela. Cada coixí en necessita 0,8 m.</td><td><b>8,75</b></td><td><b>avall</b></td><td><b>8 coixins</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Has de llegir 130 pàgines. Cada dia en llegeixes 15.</td><td><b>8,66…</b></td><td><b>amunt</b></td><td><b>9 dies</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Situació</th><th>En calen</th><th>Sobren</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Sou 22 persones. A cada cotxe hi caben 5.</td><td><b>5</b></td><td><b>3 places</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Sou 30 alumnes. A cada taula hi caben 4.</td><td><b>8</b></td><td><b>2 places</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Sou 52 persones. Els autobusos són de 25.</td><td><b>3</b></td><td><b>23 places</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Hi ha 63 ous. Les capses són de 12.</td><td><b>6</b></td><td><b>9 llocs</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Has de portar 45 cadires. En una furgoneta n'hi caben 10.</td><td><b>5</b></td><td><b>5 llocs</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Sou 17 persones. Les barques són de 4.</td><td><b>5</b></td><td><b>3 places</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Sou 40 persones. Les taules són de 6.</td><td><b>7</b></td><td><b>2 places</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Hi ha 100 llibres. Cada caixa en porta 8.</td><td><b>13</b></td><td><b>4 llocs</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Sou 75 persones. Un vagó és de 20 seients.</td><td><b>4</b></td><td><b>5 seients</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Sou 33 persones. Les tendes són de 4.</td><td><b>9</b></td><td><b>3 llocs</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Hi ha 58 pomes. Les bosses són de 6.</td><td><b>10</b></td><td><b>2 llocs</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Sou 120 persones. Els autobusos són de 55.</td><td><b>3</b></td><td><b>45 places</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Hi ha 26 ampolles. Les caixes són de 6.</td><td><b>5</b></td><td><b>4 llocs</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: després d'arrodonir amunt, quant sobra. 22 ÷ 5 = 4,4 → 5 cotxes, i 5 × 5 = 25 places: en sobren 3.</p></div>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Com a la fitxa, el càlcul el fa la calculadora: el que s'avalua és la decisió. Entre quins enters cau un nombre, on és a la recta, quants decimals té sentit escriure i si cal arrodonir amunt o avall. L'error que importa és tallar en lloc d'arrodonir (bloc 3). Les activitats de repte compten per als nivells alts (AN, AE), no per al mínim.</p>
+</div>
+
+<script src="../../comu/js/quadern.js"></script>
+</body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 1 · Quadern d'activitats</title>
+<!--
+  Quadern d'activitats · Unitat 1 (Nombres naturals)
+  NO S'EDITA A MÀ. El fa comu/generadors/quadern.py a partir de 1eso/generadors/quadern/ud1.py.
+
+  Activitats per practicar després de la fitxa, amb els mateixos criteris que la fitxa
+  (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
+  primer apartat de cada activitat resolt en lletra manuscrita.
+
+  El filtre de dalt (només a la pantalla) tria quants apartats té cada activitat i si
+  hi ha activitats de repte. «PDF alumnat» i «PDF solucionari» obren el diàleg d'imprimir
+  amb el filtre posat (A4, «Desa com a PDF», amb «Gràfics de fons» activat). Ctrl+P
+  imprimeix les activitats, mai el solucionari.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+<link rel="stylesheet" href="../../comu/css/quadern.css">
+<style>@page { @bottom-left { content: "Quadern d'activitats · Unitat 1" } }</style>
+</head>
+<body class="amb-repte">
+
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat 1</a><script src="../../comu/js/paper.js"></script></nav>
+
+<div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
+  <div class="grup">
+    <b class="et" id="et-n">Quantitat d'exercicis?</b>
+    <div class="botons" data-filtre="n" role="radiogroup" aria-labelledby="et-n">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Petita</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="2" aria-checked="true">Mitjana</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="3" aria-checked="false">Alta</button>
+    </div>
+  </div>
+  <div class="grup">
+    <b class="et" id="et-repte">Tipologia d'exercicis?</b>
+    <div class="botons" data-filtre="repte" role="radiogroup" aria-labelledby="et-repte">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Semblants als de la fitxa</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegint exercicis diferents que suposen un repte</button>
+    </div>
+  </div>
+  <p class="recompte" id="recompte" aria-live="polite"></p>
+  <div class="botons">
+    <button type="button" class="w-b w-pdf w-principal" id="pdf-alumnat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PDF alumnat</button>
+    <button type="button" class="w-b w-pdf" id="pdf-solucionari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>PDF solucionari</button>
+  </div>
+</div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5"><path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/></g>
+  </symbol>
+  <symbol id="i-llapis" viewBox="0 0 48 48">
+    <path d="M8 40l3-11L33 7l8 8-22 22z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 12l8 8M11 29l8 8" stroke="#000" stroke-width="3"/>
+  </symbol>
+  <symbol id="i-repte" viewBox="0 0 48 48">
+    <path d="M24 4l5.9 12.6 13.8 1.7-10.2 9.5 2.7 13.7L24 34.8l-12.2 6.7 2.7-13.7L4.3 18.3l13.8-1.7z"
+      fill="#fff" stroke="#000" stroke-width="3.2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main class="quadern alumnat">
+  <h1>Quadern d'activitats</h1>
+  <p class="subtitol-q">Unitat 1 · Nombres naturals</p>
+  <p class="nom">Nom: <span></span></p>
+  <p class="llegenda"><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg> Un pas més.</p>
+
+<section class="bloc">
+  <h2>El rectangle de quadrets</h2>
+  <p class="mira">Com l'exercici 1 de la fitxa «Rectangles de quadrets», a la pàgina 2.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Mira cada rectangle. Escriu la multiplicació i quants quadrets hi ha.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap ap-llista" data-n="1"><span class="apartat">a)</span><svg viewBox="0 0 98.3 75.6" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 4 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="ms">3 · 4 = 12</span></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">b)</span><svg viewBox="0 0 120.9 52.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 2 files de 5 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">c)</span><svg viewBox="0 0 75.6 98.3" style="width:2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 4 files de 3 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="1"><span class="apartat">d)</span><svg viewBox="0 0 166.3 52.9" style="width:4.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 2 files de 7 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">e)</span><svg viewBox="0 0 52.9 120.9" style="width:1.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 5 files de 2 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">f)</span><svg viewBox="0 0 143.6 75.6" style="width:3.8cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 6 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="2"><span class="apartat">g)</span><svg viewBox="0 0 98.3 98.3" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 4 files de 4 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">h)</span><svg viewBox="0 0 211.7 52.9" style="width:5.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 2 files de 9 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="186.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="186.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">i)</span><svg viewBox="0 0 120.9 120.9" style="width:3.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 5 files de 5 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">j)</span><svg viewBox="0 0 189 75.6" style="width:5cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 8 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">k)</span><svg viewBox="0 0 98.3 143.6" style="width:2.6cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 6 files de 4 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="95.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="118.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="118.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="118.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="118.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">l)</span><svg viewBox="0 0 166.3 98.3" style="width:4.4cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 4 files de 7 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="72.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    <div class="ap ap-llista" data-n="3"><span class="apartat">m)</span><svg viewBox="0 0 234.3 75.6" style="width:6.2cm;max-width:100%;margin:0 auto;" role="img" aria-label="Un rectangle de 3 files de 10 quadrets">
+  <rect x="4.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="186.3" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="209" y="4.9" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="186.3" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="209" y="27.6" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="4.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="27.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="50.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="72.9" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="95.6" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="118.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="141" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="163.7" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="186.3" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+  <rect x="209" y="50.3" width="20.4" height="20.4" rx="2.9" fill="#D4D4D4" stroke="#000" stroke-width="1.6"/>
+</svg><div class="resposta" style="font-size:16pt"><span class="buit" style="min-width:1.4cm"></span> · <span class="buit" style="min-width:1.4cm"></span> = <span class="buit" style="min-width:1.4cm"></span></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Saps les files i el total. Quants quadrets hi ha a cada fila?</div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Busca-ho a la targeta de les taules.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">Files</th><th style="width:22%">Quadrets en total</th><th style="width:22%">Quadrets a cada fila</th><th style="width:26%">La multiplicació</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">3</td><td class="ms">15</td><td class="ms">5</td><td class="ms">3 · 5 = 15</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">2</td><td class="dada">8</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">4</td><td class="dada">12</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">5</td><td class="dada">10</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">2</td><td class="dada">14</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">3</td><td class="dada">18</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">4</td><td class="dada">20</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">5</td><td class="dada">30</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">6</td><td class="dada">24</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">3</td><td class="dada">27</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">7</td><td class="dada">28</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">8</td><td class="dada">40</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">9</td><td class="dada">36</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Partir pel 10</h2>
+  <p class="mira">Com l'exercici 5 de la fitxa «Rectangles de quadrets», a la pàgina 5.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Parteix pel 10. Després ajunta les dues parts.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">La multiplicació</th><th style="width:22%">La part de 10</th><th style="width:22%">La part petita</th><th style="width:26%">Ajunta-les</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">3 · 12</td><td class="ms">3 · 10 = 30</td><td class="ms">3 · 2 = 6</td><td class="ms">30 + 6 = 36</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">4 · 13</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">2 · 14</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">5 · 11</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">3 · 13</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">2 · 16</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">4 · 12</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">6 · 11</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3 · 15</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">2 · 18</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">5 · 13</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">4 · 14</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">3 · 17</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara la part gran és de 20, 30 o 40. Parteix i ajunta.</div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">3 · 20 és com 3 · 2, amb un 0 al final: 60.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:18%">La multiplicació</th><th style="width:22%">La part gran</th><th style="width:22%">La part petita</th><th style="width:26%">Ajunta-les</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">2 · 24</td><td class="ms">2 · 20 = 40</td><td class="ms">2 · 4 = 8</td><td class="ms">40 + 8 = 48</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">3 · 21</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">2 · 31</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">4 · 22</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">3 · 32</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">2 · 43</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">5 · 21</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">2 · 34</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3 · 23</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">4 · 21</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">2 · 42</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">3 · 31</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">5 · 41</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>El quadrat d'un nombre</h2>
+  <p class="mira">Com l'exercici 7 de la fitxa «Rectangles de quadrets», a la pàgina 7.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca el resultat de cada operació. Si dubtes, fes-ne el dibuix.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> 3² =</div><div class="tria"><label><span class="quadret"></span>6</label><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>9</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> 4² =</div><div class="tria"><label><span class="quadret"></span>8</label><label><span class="quadret"></span>16</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> 5 · 2 =</div><div class="tria"><label><span class="quadret"></span>10</label><label><span class="quadret"></span>25</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> 2² =</div><div class="tria"><label><span class="quadret"></span>4</label><label><span class="quadret"></span>6</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> 6² =</div><div class="tria"><label><span class="quadret"></span>12</label><label><span class="quadret"></span>36</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> 6 · 2 =</div><div class="tria"><label><span class="quadret"></span>12</label><label><span class="quadret"></span>36</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> 7² =</div><div class="tria"><label><span class="quadret"></span>14</label><label><span class="quadret"></span>49</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> 8² =</div><div class="tria"><label><span class="quadret"></span>16</label><label><span class="quadret"></span>64</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> 3 · 2 =</div><div class="tria"><label><span class="quadret"></span>6</label><label><span class="quadret"></span>9</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> 9² =</div><div class="tria"><label><span class="quadret"></span>18</label><label><span class="quadret"></span>81</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> 10² =</div><div class="tria"><label><span class="quadret"></span>20</label><label><span class="quadret"></span>100</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> 7 · 2 =</div><div class="tria"><label><span class="quadret"></span>14</label><label><span class="quadret"></span>49</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> 5² =</div><div class="tria"><label><span class="quadret"></span>10</label><label><span class="quadret"></span>25</label></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Fes un quadrat amb els quadrets. Quants quadrets té el costat?</div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Si no surt cap quadrat, escriu entre quins dos nombres és l'arrel.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:26%">Tens</th><th style="width:30%">El costat</th><th style="width:32%">L'arrel</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">16 quadrets</td><td class="ms">4 quadrets</td><td class="ms">√16 = 4</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">9 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">25 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">4 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">36 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">49 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">1 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">64 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">81 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">100 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">13 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">20 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">30 quadrets</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Centenes, desenes i unitats</h2>
+  <p class="mira">Com l'exercici 4 de la fitxa «Centenes, desenes i unitats», a la pàgina 5.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca el nombre que diu cada frase.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> 3 centenes, 0 desenes i 5 unitats</div><div class="tria"><label><span class="quadret"></span>35</label><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>305</label><label><span class="quadret"></span>350</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> 1 centena, 0 desenes i 8 unitats</div><div class="tria"><label><span class="quadret"></span>18</label><label><span class="quadret"></span>108</label><label><span class="quadret"></span>180</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> 5 centenes, 1 desena i 0 unitats</div><div class="tria"><label><span class="quadret"></span>51</label><label><span class="quadret"></span>501</label><label><span class="quadret"></span>510</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> 2 centenes, 0 desenes i 7 unitats</div><div class="tria"><label><span class="quadret"></span>27</label><label><span class="quadret"></span>207</label><label><span class="quadret"></span>270</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> 6 centenes, 4 desenes i 0 unitats</div><div class="tria"><label><span class="quadret"></span>64</label><label><span class="quadret"></span>604</label><label><span class="quadret"></span>640</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> 4 centenes, 0 desenes i 2 unitats</div><div class="tria"><label><span class="quadret"></span>42</label><label><span class="quadret"></span>402</label><label><span class="quadret"></span>420</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> 7 centenes, 3 desenes i 0 unitats</div><div class="tria"><label><span class="quadret"></span>73</label><label><span class="quadret"></span>703</label><label><span class="quadret"></span>730</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> 9 centenes, 0 desenes i 1 unitat</div><div class="tria"><label><span class="quadret"></span>91</label><label><span class="quadret"></span>901</label><label><span class="quadret"></span>910</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> 2 centenes, 5 desenes i 0 unitats</div><div class="tria"><label><span class="quadret"></span>25</label><label><span class="quadret"></span>205</label><label><span class="quadret"></span>250</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> 8 centenes, 0 desenes i 6 unitats</div><div class="tria"><label><span class="quadret"></span>86</label><label><span class="quadret"></span>806</label><label><span class="quadret"></span>860</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> 1 centena, 2 desenes i 0 unitats</div><div class="tria"><label><span class="quadret"></span>12</label><label><span class="quadret"></span>102</label><label><span class="quadret"></span>120</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> 6 centenes, 0 desenes i 9 unitats</div><div class="tria"><label><span class="quadret"></span>69</label><label><span class="quadret"></span>609</label><label><span class="quadret"></span>690</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> 3 centenes, 7 desenes i 0 unitats</div><div class="tria"><label><span class="quadret"></span>37</label><label><span class="quadret"></span>307</label><label><span class="quadret"></span>370</label></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Escriu quants quadrats de 100, columnes de 10 i quadrets solts té cada nombre.</div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Si no n'hi ha cap, escriu un 0.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Nombre</th><th style="width:22%">Quadrats de 100</th><th style="width:22%">Columnes de 10</th><th style="width:22%">Quadrets solts</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">243</td><td class="ms">2</td><td class="ms">4</td><td class="ms">3</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">305</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">124</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">36</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">510</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">708</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">99</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">400</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">61</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">830</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">107</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">999</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">20</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>El nom del nombre</h2>
+  <p class="mira">Com l'exercici 3 de la fitxa «Centenes, desenes i unitats», a la pàgina 4.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu el nom de cada nombre. Mira la clau de la fitxa.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Nombre</th><th style="width:66%">Es llegeix</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">243</td><td class="ms">dos-cents quaranta-tres</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">510</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">222</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">108</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">471</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">35</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">305</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">610</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">99</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">128</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">760</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">404</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">999</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara al revés: escriu el nombre amb xifres.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:66%">Es llegeix</th><th style="width:22%">El nombre</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">tres-cents cinc</td><td class="ms">305</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">dos-cents quaranta-tres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">cent cinquanta</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">divuit</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">set-cents dos</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">sis-cents vint-i-u</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">noranta</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">tres-cents trenta-tres</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">vuit-cents quaranta</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">cinc-cents disset</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">vint-i-sis</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">quatre-cents nou</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">cent onze</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Primer, la multiplicació</h2>
+  <p class="mira">Com l'exercici 1 de la fitxa «L'ordre de les operacions», a la pàgina 2.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Fes primer la multiplicació. Després fes la suma.</div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Sense parèntesis, primer es multiplica. Busca el punt.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:24%">L'operació</th><th style="width:32%">Primer, la multiplicació</th><th style="width:32%">Després, la suma</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">2 + 3 · 4</td><td class="ms">3 · 4 = 12</td><td class="ms">2 + 12 = 14</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">1 + 2 · 5</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">5 · 2 + 3</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">3 + 2 · 3</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">2 · 4 + 1</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">4 + 3 · 5</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">6 · 2 + 2</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">1 + 5 · 4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3 · 3 + 4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">7 + 2 · 6</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">2 · 6 + 5</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">5 + 4 · 3</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">4 · 4 + 6</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Està bé? Marca la resposta.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> 2 + 3 · 4 = 20</div><div class="tria"><label><span class="quadret"></span>Bé</label><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> 1 + 2 · 5 = 11</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> 3 + 2 · 3 = 15</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> 4 + 5 · 2 = 14</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> 5 + 2 · 4 = 28</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> 2 + 4 · 3 = 14</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> 6 + 3 · 2 = 12</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> 1 + 4 · 4 = 20</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> 3 + 5 · 2 = 13</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> 7 + 2 · 5 = 45</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> 2 + 6 · 3 = 20</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> 4 + 3 · 3 = 21</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> 5 + 4 · 2 = 13</div><div class="tria"><label><span class="quadret"></span>Bé</label><label><span class="quadret"></span>Malament</label></div></div>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Primer, el parèntesi</h2>
+  <p class="mira">Com l'exercici 2 de la fitxa «L'ordre de les operacions», a la pàgina 3.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Fes primer el parèntesi. Després fes la multiplicació.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:24%">L'operació</th><th style="width:32%">Primer, el parèntesi</th><th style="width:32%">Després, la multiplicació</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">(1 + 4) · 2</td><td class="ms">1 + 4 = 5</td><td class="ms">5 · 2 = 10</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">4 · (1 + 2)</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">(3 + 1) · 2</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">3 · (2 + 2)</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">(2 + 3) · 4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">5 · (4 + 1)</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">(3 + 3) · 2</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">3 · (1 + 6)</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">(5 + 2) · 4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">6 · (2 + 4)</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">(3 + 4) · 5</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">2 · (4 + 4)</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">(6 + 3) · 3</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Posa un parèntesi perquè doni el resultat que diu.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">L'operació</th><th style="width:44%">Amb el parèntesi</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">2 + 3 · 4 = 20</td><td class="ms">(2 + 3) · 4</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">1 + 2 · 5 = 15</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">3 + 2 · 3 = 15</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">4 + 1 · 2 = 10</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">1 + 4 · 3 = 15</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">2 + 2 · 5 = 20</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">5 + 1 · 4 = 24</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">3 + 3 · 2 = 12</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">1 + 5 · 6 = 36</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">6 + 2 · 3 = 24</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">2 + 7 · 2 = 18</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">4 + 4 · 5 = 40</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">3 + 6 · 4 = 36</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>A la vida de cada dia</h2>
+  <p class="mira">Com l'exercici 4 de la fitxa «L'ordre de les operacions», a la pàgina 5.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca el resultat bo. Mira si hi ha parèntesi.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> 2 + 3 · 4 =</div><div class="tria"><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>14</label><label><span class="quadret"></span>20</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> (1 + 2) · 5 =</div><div class="tria"><label><span class="quadret"></span>11</label><label><span class="quadret"></span>15</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> 1 + 2 · 5 =</div><div class="tria"><label><span class="quadret"></span>11</label><label><span class="quadret"></span>15</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> (3 + 1) · 4 =</div><div class="tria"><label><span class="quadret"></span>7</label><label><span class="quadret"></span>16</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> 2 + 4 · 3 =</div><div class="tria"><label><span class="quadret"></span>14</label><label><span class="quadret"></span>18</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> (4 + 2) · 2 =</div><div class="tria"><label><span class="quadret"></span>8</label><label><span class="quadret"></span>12</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> 3 + 2 · 5 =</div><div class="tria"><label><span class="quadret"></span>13</label><label><span class="quadret"></span>25</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> (2 + 2) · 6 =</div><div class="tria"><label><span class="quadret"></span>14</label><label><span class="quadret"></span>24</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> 5 + 3 · 2 =</div><div class="tria"><label><span class="quadret"></span>11</label><label><span class="quadret"></span>16</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> (1 + 3) · 7 =</div><div class="tria"><label><span class="quadret"></span>22</label><label><span class="quadret"></span>28</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> 4 + 4 · 3 =</div><div class="tria"><label><span class="quadret"></span>16</label><label><span class="quadret"></span>24</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> (6 + 2) · 3 =</div><div class="tria"><label><span class="quadret"></span>12</label><label><span class="quadret"></span>24</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> 3 + 5 · 2 =</div><div class="tria"><label><span class="quadret"></span>13</label><label><span class="quadret"></span>16</label></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Quants n'hi ha? Escriu l'operació.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:48%">Situació</th><th style="width:22%">L'operació</th><th style="width:18%">Quants n'hi ha</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">2 iogurts solts i 3 paquets de 4 iogurts.</td><td class="ms">2 + 3 · 4</td><td class="ms">14 iogurts</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">3 ous solts i 2 capses de 6 ous.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">2 bosses. A cada bossa, 3 pomes i 1 pera.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">1 llapis solt i 4 capses de 5 llapis.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">3 bosses. A cada bossa, 2 pomes i 2 peres.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">5 cromos solts i 2 sobres de 10 cromos.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">4 plats. A cada plat, 2 galetes i 3 maduixes.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">6 ampolles soltes i 3 caixes de 6 ampolles.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">2 taules. A cada taula, 4 nens i 2 nenes.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">3 cotxes. A cada cotxe, 1 adult i 3 nens.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">7 boles soltes i 5 capses de 4 boles.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">5 caixes. A cada caixa, 6 pomes i 4 peres.</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">9 llibres solts i 4 piles de 10 llibres.</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="quadern sol" id="solucionari">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 1 · Quadern d'activitats · full per al professorat</p>
+  <div class="abans">
+    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
+    per cada exercici de la fitxa (8 blocs), i la frase de sota del títol diu quin. Cada bloc té
+    una activitat com la de la fitxa i, si es tria «Afegint exercicis diferents que suposen un repte», una altra
+    una mica diferent, amb estrella. A dalt de la pàgina es tria la quantitat d'exercicis de cada activitat: a) resolt i
+    3 per fer (petita), 6 (mitjana) o 12 (alta). El nombre
+    d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre
+    amb els del quadern si s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el
+    filtre posat: <code>u1/quadern.html?n=1&amp;repte=1</code> (n: 1 petita, 2 mitjana,
+    3 alta).</p>
+  </div>
+  <p>Les de repte no tenen més text que les altres: fan el mateix camí al revés, hi afegeixen un
+  pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
+  <h3>El rectangle de quadrets · com l'exercici 1 de la fitxa «Rectangles de quadrets»</h3>
+  <p>Primer es diu, després s'escriu: «3 files de 4 quadrets», 3 · 4 = 12. Es dona per bo el rectangle girat (4 · 3), que té els mateixos quadrets. <b>Error típic:</b> comptar malament els quadrets de la fila: que els compti amb el dit.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>3 · 4 = 12</b></span><span class="ap" data-n="1"> · b) <b>2 · 5 = 10</b></span><span class="ap" data-n="1"> · c) <b>4 · 3 = 12</b></span><span class="ap" data-n="1"> · d) <b>2 · 7 = 14</b></span><span class="ap" data-n="2"> · e) <b>5 · 2 = 10</b></span><span class="ap" data-n="2"> · f) <b>3 · 6 = 18</b></span><span class="ap" data-n="2"> · g) <b>4 · 4 = 16</b></span><span class="ap" data-n="3"> · h) <b>2 · 9 = 18</b></span><span class="ap" data-n="3"> · i) <b>5 · 5 = 25</b></span><span class="ap" data-n="3"> · j) <b>3 · 8 = 24</b></span><span class="ap" data-n="3"> · k) <b>6 · 4 = 24</b></span><span class="ap" data-n="3"> · l) <b>4 · 7 = 28</b></span><span class="ap" data-n="3"> · m) <b>3 · 10 = 30</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Files</th><th>Quadrets en total</th><th>Quadrets a cada fila</th><th>La multiplicació</th></tr><tr class="ap" data-n="1"><td>a)</td><td>3</td><td>15</td><td><b>5</b></td><td><b>3 · 5 = 15</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>2</td><td>8</td><td><b>4</b></td><td><b>2 · 4 = 8</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>4</td><td>12</td><td><b>3</b></td><td><b>4 · 3 = 12</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>5</td><td>10</td><td><b>2</b></td><td><b>5 · 2 = 10</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>2</td><td>14</td><td><b>7</b></td><td><b>2 · 7 = 14</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>3</td><td>18</td><td><b>6</b></td><td><b>3 · 6 = 18</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>4</td><td>20</td><td><b>5</b></td><td><b>4 · 5 = 20</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>5</td><td>30</td><td><b>6</b></td><td><b>5 · 6 = 30</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>6</td><td>24</td><td><b>4</b></td><td><b>6 · 4 = 24</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>3</td><td>27</td><td><b>9</b></td><td><b>3 · 9 = 27</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>7</td><td>28</td><td><b>4</b></td><td><b>7 · 4 = 28</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>8</td><td>40</td><td><b>5</b></td><td><b>8 · 5 = 40</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>9</td><td>36</td><td><b>4</b></td><td><b>9 · 4 = 36</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: de les files i el total al rectangle. A la targeta es busca la taula de les files fins que surt el total (3 · 5 = 15). Amb miniblocs: fer les files i repartir-hi els quadrets.</p></div>
+  <h3>Partir pel 10 · com l'exercici 5 de la fitxa «Rectangles de quadrets»</h3>
+  <p>La targeta arriba fins al 10: el rectangle es parteix en la part de 10 i la part petita, i després s'ajunten. Les sumes es fan sense portar-ne. Si li costa, que tapi amb la mà la part de 10.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>La multiplicació</th><th>La part de 10</th><th>La part petita</th><th>Ajunta-les</th></tr><tr class="ap" data-n="1"><td>a)</td><td>3 · 12</td><td><b>3 · 10 = 30</b></td><td><b>3 · 2 = 6</b></td><td><b>30 + 6 = 36</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>4 · 13</td><td><b>4 · 10 = 40</b></td><td><b>4 · 3 = 12</b></td><td><b>40 + 12 = 52</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>2 · 14</td><td><b>2 · 10 = 20</b></td><td><b>2 · 4 = 8</b></td><td><b>20 + 8 = 28</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>5 · 11</td><td><b>5 · 10 = 50</b></td><td><b>5 · 1 = 5</b></td><td><b>50 + 5 = 55</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>3 · 13</td><td><b>3 · 10 = 30</b></td><td><b>3 · 3 = 9</b></td><td><b>30 + 9 = 39</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>2 · 16</td><td><b>2 · 10 = 20</b></td><td><b>2 · 6 = 12</b></td><td><b>20 + 12 = 32</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>4 · 12</td><td><b>4 · 10 = 40</b></td><td><b>4 · 2 = 8</b></td><td><b>40 + 8 = 48</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>6 · 11</td><td><b>6 · 10 = 60</b></td><td><b>6 · 1 = 6</b></td><td><b>60 + 6 = 66</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3 · 15</td><td><b>3 · 10 = 30</b></td><td><b>3 · 5 = 15</b></td><td><b>30 + 15 = 45</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>2 · 18</td><td><b>2 · 10 = 20</b></td><td><b>2 · 8 = 16</b></td><td><b>20 + 16 = 36</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>5 · 13</td><td><b>5 · 10 = 50</b></td><td><b>5 · 3 = 15</b></td><td><b>50 + 15 = 65</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>4 · 14</td><td><b>4 · 10 = 40</b></td><td><b>4 · 4 = 16</b></td><td><b>40 + 16 = 56</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>3 · 17</td><td><b>3 · 10 = 30</b></td><td><b>3 · 7 = 21</b></td><td><b>30 + 21 = 51</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>La multiplicació</th><th>La part gran</th><th>La part petita</th><th>Ajunta-les</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2 · 24</td><td><b>2 · 20 = 40</b></td><td><b>2 · 4 = 8</b></td><td><b>40 + 8 = 48</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>3 · 21</td><td><b>3 · 20 = 60</b></td><td><b>3 · 1 = 3</b></td><td><b>60 + 3 = 63</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>2 · 31</td><td><b>2 · 30 = 60</b></td><td><b>2 · 1 = 2</b></td><td><b>60 + 2 = 62</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>4 · 22</td><td><b>4 · 20 = 80</b></td><td><b>4 · 2 = 8</b></td><td><b>80 + 8 = 88</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>3 · 32</td><td><b>3 · 30 = 90</b></td><td><b>3 · 2 = 6</b></td><td><b>90 + 6 = 96</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>2 · 43</td><td><b>2 · 40 = 80</b></td><td><b>2 · 3 = 6</b></td><td><b>80 + 6 = 86</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>5 · 21</td><td><b>5 · 20 = 100</b></td><td><b>5 · 1 = 5</b></td><td><b>100 + 5 = 105</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>2 · 34</td><td><b>2 · 30 = 60</b></td><td><b>2 · 4 = 8</b></td><td><b>60 + 8 = 68</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3 · 23</td><td><b>3 · 20 = 60</b></td><td><b>3 · 3 = 9</b></td><td><b>60 + 9 = 69</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>4 · 21</td><td><b>4 · 20 = 80</b></td><td><b>4 · 1 = 4</b></td><td><b>80 + 4 = 84</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>2 · 42</td><td><b>2 · 40 = 80</b></td><td><b>2 · 2 = 4</b></td><td><b>80 + 4 = 84</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>3 · 31</td><td><b>3 · 30 = 90</b></td><td><b>3 · 1 = 3</b></td><td><b>90 + 3 = 93</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>5 · 41</td><td><b>5 · 40 = 200</b></td><td><b>5 · 1 = 5</b></td><td><b>200 + 5 = 205</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: la part gran ja no és de 10. 3 · 20 = 60 surt de 3 · 2 = 6 amb un zero, i és a la targeta. Totes les sumes es fan sense portar-ne.</p></div>
+  <h3>El quadrat d'un nombre · com l'exercici 7 de la fitxa «Rectangles de quadrets»</h3>
+  <p><b>La regla trencada de la fitxa:</b> 3² no és 3 · 2 = 6: és 3 · 3 = 9, un quadrat. Surt ja a l'a). La c (5 · 2) pregunta pel rectangle a posta: si sempre marca el número més gran, encara no mira el símbol. No l'expliqueu: que en compti els quadrets.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>9</b></span><span class="ap" data-n="1"> · b) <b>16</b></span><span class="ap" data-n="1"> · c) <b>10</b></span><span class="ap" data-n="1"> · d) <b>4</b></span><span class="ap" data-n="2"> · e) <b>36</b></span><span class="ap" data-n="2"> · f) <b>12</b></span><span class="ap" data-n="2"> · g) <b>49</b></span><span class="ap" data-n="3"> · h) <b>64</b></span><span class="ap" data-n="3"> · i) <b>6</b></span><span class="ap" data-n="3"> · j) <b>81</b></span><span class="ap" data-n="3"> · k) <b>100</b></span><span class="ap" data-n="3"> · l) <b>14</b></span><span class="ap" data-n="3"> · m) <b>25</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Tens</th><th>El costat</th><th>L'arrel</th></tr><tr class="ap" data-n="1"><td>a)</td><td>16 quadrets</td><td><b>4 quadrets</b></td><td><b>√16 = 4</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>9 quadrets</td><td><b>3 quadrets</b></td><td><b>√9 = 3</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>25 quadrets</td><td><b>5 quadrets</b></td><td><b>√25 = 5</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>4 quadrets</td><td><b>2 quadrets</b></td><td><b>√4 = 2</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>36 quadrets</td><td><b>6 quadrets</b></td><td><b>√36 = 6</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>49 quadrets</td><td><b>7 quadrets</b></td><td><b>√49 = 7</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>1 quadrets</td><td><b>1 quadrets</b></td><td><b>√1 = 1</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>64 quadrets</td><td><b>8 quadrets</b></td><td><b>√64 = 8</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>81 quadrets</td><td><b>9 quadrets</b></td><td><b>√81 = 9</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>100 quadrets</td><td><b>10 quadrets</b></td><td><b>√100 = 10</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>13 quadrets</td><td><b>no fa cap quadrat</b></td><td><b>entre 3 i 4</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>20 quadrets</td><td><b>no fa cap quadrat</b></td><td><b>entre 4 i 5</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>30 quadrets</td><td><b>no fa cap quadrat</b></td><td><b>entre 5 i 6</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: dels quadrets al costat, com l'exercici 8 de la fitxa. Els tres últims no fan cap quadrat (exercici 9, nivells alts): 13 és entre el quadrat de 3 per 3 (9) i el de 4 per 4 (16).</p></div>
+  <h3>Centenes, desenes i unitats · com l'exercici 4 de la fitxa «Centenes, desenes i unitats»</h3>
+  <p><b>La regla trencada de la fitxa:</b> el zero manté el lloc. «Tres-cents cinc» no és 35: és 305, 3 centenes, cap desena i 5 unitats. Les opcions són les confusions de debò: el zero que falta i el zero que canvia de lloc. No l'expliqueu: que ompli la taula de centenes, desenes i unitats.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>305</b></span><span class="ap" data-n="1"> · b) <b>108</b></span><span class="ap" data-n="1"> · c) <b>510</b></span><span class="ap" data-n="1"> · d) <b>207</b></span><span class="ap" data-n="2"> · e) <b>640</b></span><span class="ap" data-n="2"> · f) <b>402</b></span><span class="ap" data-n="2"> · g) <b>730</b></span><span class="ap" data-n="3"> · h) <b>901</b></span><span class="ap" data-n="3"> · i) <b>250</b></span><span class="ap" data-n="3"> · j) <b>806</b></span><span class="ap" data-n="3"> · k) <b>120</b></span><span class="ap" data-n="3"> · l) <b>609</b></span><span class="ap" data-n="3"> · m) <b>370</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Nombre</th><th>Quadrats de 100</th><th>Columnes de 10</th><th>Quadrets solts</th></tr><tr class="ap" data-n="1"><td>a)</td><td>243</td><td><b>2</b></td><td><b>4</b></td><td><b>3</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>305</td><td><b>3</b></td><td><b>0</b></td><td><b>5</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>124</td><td><b>1</b></td><td><b>2</b></td><td><b>4</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>36</td><td><b>0</b></td><td><b>3</b></td><td><b>6</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>510</td><td><b>5</b></td><td><b>1</b></td><td><b>0</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>708</td><td><b>7</b></td><td><b>0</b></td><td><b>8</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>99</td><td><b>0</b></td><td><b>9</b></td><td><b>9</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>400</td><td><b>4</b></td><td><b>0</b></td><td><b>0</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>61</td><td><b>0</b></td><td><b>6</b></td><td><b>1</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>830</td><td><b>8</b></td><td><b>3</b></td><td><b>0</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>107</td><td><b>1</b></td><td><b>0</b></td><td><b>7</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>999</td><td><b>9</b></td><td><b>9</b></td><td><b>9</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>20</td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: del nombre als blocs. Els zeros són els que costen (708: cap columna; 36: cap quadrat de 100). Si s'hi perd, que faci el nombre amb material de base 10.</p></div>
+  <h3>El nom del nombre · com l'exercici 3 de la fitxa «Centenes, desenes i unitats»</h3>
+  <p>Sempre amb la clau de la pàgina 4 de la fitxa al davant. El guionet va entre les desenes i les unitats (quaranta-tres) i entre les unitats i les centenes (dos-cents); del 21 al 29, amb una i (vint-i-dos). Es dona per bo «setanta-un» per «setanta-u».</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Nombre</th><th>Es llegeix</th></tr><tr class="ap" data-n="1"><td>a)</td><td>243</td><td><b>dos-cents quaranta-tres</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>510</td><td><b>cinc-cents deu</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>222</td><td><b>dos-cents vint-i-dos</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>108</td><td><b>cent vuit</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>471</td><td><b>quatre-cents setanta-u</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>35</td><td><b>trenta-cinc</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>305</td><td><b>tres-cents cinc</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>610</td><td><b>sis-cents deu</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>99</td><td><b>noranta-nou</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>128</td><td><b>cent vint-i-vuit</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>760</td><td><b>set-cents seixanta</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>404</td><td><b>quatre-cents quatre</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>999</td><td><b>nou-cents noranta-nou</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Es llegeix</th><th>El nombre</th></tr><tr class="ap" data-n="1"><td>a)</td><td>tres-cents cinc</td><td><b>305</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>dos-cents quaranta-tres</td><td><b>243</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>cent cinquanta</td><td><b>150</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>divuit</td><td><b>18</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>set-cents dos</td><td><b>702</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>sis-cents vint-i-u</td><td><b>621</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>noranta</td><td><b>90</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>tres-cents trenta-tres</td><td><b>333</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>vuit-cents quaranta</td><td><b>840</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>cinc-cents disset</td><td><b>517</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>vint-i-sis</td><td><b>26</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>quatre-cents nou</td><td><b>409</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>cent onze</td><td><b>111</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés, on surt la regla trencada: «tres-cents cinc» és 305, no 35. Si li costa, que ompli primer la taula de centenes, desenes i unitats.</p></div>
+  <h3>Primer, la multiplicació · com l'exercici 1 de la fitxa «L'ordre de les operacions»</h3>
+  <p>Es diu sempre igual: «Primer, la multiplicació. Després, la suma.» Que busqui el punt abans de fer res. A les que comencen per la multiplicació, fer-ho en ordre de lectura també surt bé; a les altres, no.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>L'operació</th><th>Primer, la multiplicació</th><th>Després, la suma</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2 + 3 · 4</td><td><b>3 · 4 = 12</b></td><td><b>2 + 12 = 14</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>1 + 2 · 5</td><td><b>2 · 5 = 10</b></td><td><b>1 + 10 = 11</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>5 · 2 + 3</td><td><b>5 · 2 = 10</b></td><td><b>10 + 3 = 13</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>3 + 2 · 3</td><td><b>2 · 3 = 6</b></td><td><b>3 + 6 = 9</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>2 · 4 + 1</td><td><b>2 · 4 = 8</b></td><td><b>8 + 1 = 9</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>4 + 3 · 5</td><td><b>3 · 5 = 15</b></td><td><b>4 + 15 = 19</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>6 · 2 + 2</td><td><b>6 · 2 = 12</b></td><td><b>12 + 2 = 14</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>1 + 5 · 4</td><td><b>5 · 4 = 20</b></td><td><b>1 + 20 = 21</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3 · 3 + 4</td><td><b>3 · 3 = 9</b></td><td><b>9 + 4 = 13</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>7 + 2 · 6</td><td><b>2 · 6 = 12</b></td><td><b>7 + 12 = 19</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>2 · 6 + 5</td><td><b>2 · 6 = 12</b></td><td><b>12 + 5 = 17</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>5 + 4 · 3</td><td><b>4 · 3 = 12</b></td><td><b>5 + 12 = 17</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>4 · 4 + 6</td><td><b>4 · 4 = 16</b></td><td><b>16 + 6 = 22</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>Malament</b></span><span class="ap" data-n="1"> · b) <b>Bé</b></span><span class="ap" data-n="1"> · c) <b>Malament</b></span><span class="ap" data-n="1"> · d) <b>Bé</b></span><span class="ap" data-n="2"> · e) <b>Malament</b></span><span class="ap" data-n="2"> · f) <b>Bé</b></span><span class="ap" data-n="2"> · g) <b>Bé</b></span><span class="ap" data-n="3"> · h) <b>Malament</b></span><span class="ap" data-n="3"> · i) <b>Bé</b></span><span class="ap" data-n="3"> · j) <b>Malament</b></span><span class="ap" data-n="3"> · k) <b>Bé</b></span><span class="ap" data-n="3"> · l) <b>Malament</b></span><span class="ap" data-n="3"> · m) <b>Bé</b></span></p>
+    <p>Les bones: 2 + 3 · 4 = 14 · 1 + 2 · 5 = 11 · 3 + 2 · 3 = 9 · 4 + 5 · 2 = 14 · 5 + 2 · 4 = 13 · 2 + 4 · 3 = 14 · 6 + 3 · 2 = 12 · 1 + 4 · 4 = 17 · 3 + 5 · 2 = 13 · 7 + 2 · 5 = 17 · 2 + 6 · 3 = 20 · 4 + 3 · 3 = 13 · 5 + 4 · 2 = 13.</p>
+    </div>
+  <p class="per-que"><b>La regla trencada de la fitxa:</b> fer-ho d'esquerra a dreta, com es llegeix (2 + 3 · 4 = 20). Les dolentes són exactament aquest error. Si diu que està bé, que faci el dibuix: 3 files de 4 i 2 quadrets solts.</p></div>
+  <h3>Primer, el parèntesi · com l'exercici 2 de la fitxa «L'ordre de les operacions»</h3>
+  <p>Amb parèntesi, primer es fa el parèntesi: «Primer, el parèntesi. Després, la multiplicació.» Totes les sumes es fan sense portar-ne, i les multiplicacions són de la targeta.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>L'operació</th><th>Primer, el parèntesi</th><th>Després, la multiplicació</th></tr><tr class="ap" data-n="1"><td>a)</td><td>(1 + 4) · 2</td><td><b>1 + 4 = 5</b></td><td><b>5 · 2 = 10</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>4 · (1 + 2)</td><td><b>1 + 2 = 3</b></td><td><b>4 · 3 = 12</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>(3 + 1) · 2</td><td><b>3 + 1 = 4</b></td><td><b>4 · 2 = 8</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>3 · (2 + 2)</td><td><b>2 + 2 = 4</b></td><td><b>3 · 4 = 12</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>(2 + 3) · 4</td><td><b>2 + 3 = 5</b></td><td><b>5 · 4 = 20</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>5 · (4 + 1)</td><td><b>4 + 1 = 5</b></td><td><b>5 · 5 = 25</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>(3 + 3) · 2</td><td><b>3 + 3 = 6</b></td><td><b>6 · 2 = 12</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>3 · (1 + 6)</td><td><b>1 + 6 = 7</b></td><td><b>3 · 7 = 21</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>(5 + 2) · 4</td><td><b>5 + 2 = 7</b></td><td><b>7 · 4 = 28</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>6 · (2 + 4)</td><td><b>2 + 4 = 6</b></td><td><b>6 · 6 = 36</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>(3 + 4) · 5</td><td><b>3 + 4 = 7</b></td><td><b>7 · 5 = 35</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>2 · (4 + 4)</td><td><b>4 + 4 = 8</b></td><td><b>2 · 8 = 16</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>(6 + 3) · 3</td><td><b>6 + 3 = 9</b></td><td><b>9 · 3 = 27</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>L'operació</th><th>Amb el parèntesi</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2 + 3 · 4 = 20</td><td><b>(2 + 3) · 4</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>1 + 2 · 5 = 15</td><td><b>(1 + 2) · 5</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>3 + 2 · 3 = 15</td><td><b>(3 + 2) · 3</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>4 + 1 · 2 = 10</td><td><b>(4 + 1) · 2</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>1 + 4 · 3 = 15</td><td><b>(1 + 4) · 3</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>2 + 2 · 5 = 20</td><td><b>(2 + 2) · 5</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>5 + 1 · 4 = 24</td><td><b>(5 + 1) · 4</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>3 + 3 · 2 = 12</td><td><b>(3 + 3) · 2</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>1 + 5 · 6 = 36</td><td><b>(1 + 5) · 6</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>6 + 2 · 3 = 24</td><td><b>(6 + 2) · 3</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>2 + 7 · 2 = 18</td><td><b>(2 + 7) · 2</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>4 + 4 · 5 = 40</td><td><b>(4 + 4) · 5</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>3 + 6 · 4 = 36</td><td><b>(3 + 6) · 4</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: de 20 al parèntesi. Sense parèntesi, 2 + 3 · 4 fa 14; perquè faci 20, primer s'ha de sumar: (2 + 3) · 4. Que ho comprovi fent els dos comptes.</p></div>
+  <h3>A la vida de cada dia · com l'exercici 4 de la fitxa «L'ordre de les operacions»</h3>
+  <p><b>La regla trencada de la fitxa:</b> sense parèntesi, primer es multiplica. A l'a) (2 + 3 · 4) la resposta de qui ho fa d'esquerra a dreta, 20, també hi és. La b demana el parèntesi a posta. Si s'equivoca, que en faci el dibuix i compti els quadrets.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>14</b></span><span class="ap" data-n="1"> · b) <b>15</b></span><span class="ap" data-n="1"> · c) <b>11</b></span><span class="ap" data-n="1"> · d) <b>16</b></span><span class="ap" data-n="2"> · e) <b>14</b></span><span class="ap" data-n="2"> · f) <b>12</b></span><span class="ap" data-n="2"> · g) <b>13</b></span><span class="ap" data-n="3"> · h) <b>24</b></span><span class="ap" data-n="3"> · i) <b>11</b></span><span class="ap" data-n="3"> · j) <b>28</b></span><span class="ap" data-n="3"> · k) <b>16</b></span><span class="ap" data-n="3"> · l) <b>24</b></span><span class="ap" data-n="3"> · m) <b>13</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Situació</th><th>L'operació</th><th>Quants n'hi ha</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2 iogurts solts i 3 paquets de 4 iogurts.</td><td><b>2 + 3 · 4</b></td><td><b>14 iogurts</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>3 ous solts i 2 capses de 6 ous.</td><td><b>3 + 2 · 6</b></td><td><b>15 ous</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>2 bosses. A cada bossa, 3 pomes i 1 pera.</td><td><b>2 · (3 + 1)</b></td><td><b>8 peces</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>1 llapis solt i 4 capses de 5 llapis.</td><td><b>1 + 4 · 5</b></td><td><b>21 llapis</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>3 bosses. A cada bossa, 2 pomes i 2 peres.</td><td><b>3 · (2 + 2)</b></td><td><b>12 peces</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>5 cromos solts i 2 sobres de 10 cromos.</td><td><b>5 + 2 · 10</b></td><td><b>25 cromos</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>4 plats. A cada plat, 2 galetes i 3 maduixes.</td><td><b>4 · (2 + 3)</b></td><td><b>20 peces</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>6 ampolles soltes i 3 caixes de 6 ampolles.</td><td><b>6 + 3 · 6</b></td><td><b>24 ampolles</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>2 taules. A cada taula, 4 nens i 2 nenes.</td><td><b>2 · (4 + 2)</b></td><td><b>12 persones</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>3 cotxes. A cada cotxe, 1 adult i 3 nens.</td><td><b>3 · (1 + 3)</b></td><td><b>12 persones</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>7 boles soltes i 5 capses de 4 boles.</td><td><b>7 + 5 · 4</b></td><td><b>27 boles</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>5 caixes. A cada caixa, 6 pomes i 4 peres.</td><td><b>5 · (6 + 4)</b></td><td><b>50 peces</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>9 llibres solts i 4 piles de 10 llibres.</td><td><b>9 + 4 · 10</b></td><td><b>49 llibres</b></td></tr></table>    </div>
+  <p class="per-que">Escriure l'operació d'una situació, com els exercicis 5 i 6 de la fitxa. Es donen per bones les operacions escrites en un altre ordre si surt el mateix (3 · 4 + 2). El que compta és que la multiplicació surti de les capses o de les bosses, i que el parèntesi hi sigui quan cal.</p></div>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Sempre amb la targeta al davant. El que s'avalua és dir el que es veu (files i quadrets a cada fila; quadrats de 100, columnes de 10 i quadrets solts) i seguir l'ordre bo, no la memòria: si consulta la targeta, està bé. Les activitats de repte compten per als nivells alts (AN, AE), no per al mínim.</p>
+</div>
+
+<script src="../../comu/js/quadern.js"></script>
+</body>
+</html>

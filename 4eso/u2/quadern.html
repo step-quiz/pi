@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 2 · Quadern d'activitats</title>
+<!--
+  Quadern d'activitats · Unitat 2 (Percentatges i matemàtica financera)
+  NO S'EDITA A MÀ. El fa comu/generadors/quadern.py a partir de 4eso/generadors/quadern/ud2.py.
+
+  Activitats per practicar després de la fitxa, amb els mateixos criteris que la fitxa
+  (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
+  primer apartat de cada activitat resolt en lletra manuscrita.
+
+  El filtre de dalt (només a la pantalla) tria quants apartats té cada activitat i si
+  hi ha activitats de repte. «PDF alumnat» i «PDF solucionari» obren el diàleg d'imprimir
+  amb el filtre posat (A4, «Desa com a PDF», amb «Gràfics de fons» activat). Ctrl+P
+  imprimeix les activitats, mai el solucionari.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+<link rel="stylesheet" href="../../comu/css/quadern.css">
+<style>@page { @bottom-left { content: "Quadern d'activitats · Unitat 2" } }</style>
+</head>
+<body class="amb-repte">
+
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat 2</a><script src="../../comu/js/paper.js"></script></nav>
+
+<div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
+  <div class="grup">
+    <b class="et" id="et-n">Quantitat d'exercicis?</b>
+    <div class="botons" data-filtre="n" role="radiogroup" aria-labelledby="et-n">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Petita</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="2" aria-checked="true">Mitjana</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="3" aria-checked="false">Alta</button>
+    </div>
+  </div>
+  <div class="grup">
+    <b class="et" id="et-repte">Tipologia d'exercicis?</b>
+    <div class="botons" data-filtre="repte" role="radiogroup" aria-labelledby="et-repte">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Semblants als de la fitxa</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegint exercicis diferents que suposen un repte</button>
+    </div>
+  </div>
+  <p class="recompte" id="recompte" aria-live="polite"></p>
+  <div class="botons">
+    <button type="button" class="w-b w-pdf w-principal" id="pdf-alumnat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PDF alumnat</button>
+    <button type="button" class="w-b w-pdf" id="pdf-solucionari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>PDF solucionari</button>
+  </div>
+</div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5"><path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/></g>
+  </symbol>
+  <symbol id="i-llapis" viewBox="0 0 48 48">
+    <path d="M8 40l3-11L33 7l8 8-22 22z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 12l8 8M11 29l8 8" stroke="#000" stroke-width="3"/>
+  </symbol>
+  <symbol id="i-repte" viewBox="0 0 48 48">
+    <path d="M24 4l5.9 12.6 13.8 1.7-10.2 9.5 2.7 13.7L24 34.8l-12.2 6.7 2.7-13.7L4.3 18.3l13.8-1.7z"
+      fill="#fff" stroke="#000" stroke-width="3.2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main class="quadern alumnat">
+  <h1>Quadern d'activitats</h1>
+  <p class="subtitol-q">Unitat 2 · Percentatges i matemàtica financera</p>
+  <p class="nom">Nom: <span></span></p>
+  <p class="llegenda"><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg> Un pas més.</p>
+
+<section class="bloc">
+  <h2>El factor de cada canvi</h2>
+  <p class="mira">Com l'exercici 1 de la fitxa, a la pàgina 4.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Escriu el factor que correspon a cada canvi de preu.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:28%">Canvi</th><th style="width:30%">Compte</th><th style="width:30%">Factor</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">− 20 %</td><td class="ms">1 − 0,20</td><td class="ms">× 0,8</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">− 50 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">− 5 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">− 30 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">+ 15 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">− 25 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">+ 4 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">− 15 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">+ 50 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">− 12 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">+ 100 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara al revés: escriu quin canvi de preu fa cada factor.</div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:28%">Factor</th><th style="width:30%">Puja o baixa?</th><th style="width:30%">Canvi</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">× 0,75</td><td class="ms">baixa</td><td class="ms">− 25 %</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">× 1,21</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">× 0,6</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">× 1,1</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">× 0,95</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">× 1,5</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">× 0,9</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">× 1,04</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">× 0,85</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">× 1,3</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">× 0,4</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">× 1,07</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">× 0,99</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Un sol canvi</h2>
+  <p class="mira">Com l'exercici 2 de la fitxa, a la pàgina 4.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula el preu final amb el factor.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Preu</th><th style="width:22%">Canvi</th><th style="width:22%">Factor</th><th style="width:22%">Preu final</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">300 €</td><td class="ms">− 20 %</td><td class="ms">× 0,8</td><td class="ms">240,00 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">80 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">45 €</td><td class="dada">− 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">120 €</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">60 €</td><td class="dada">− 25 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">250 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">90 €</td><td class="dada">− 50 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">15 €</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">400 €</td><td class="dada">− 15 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">35 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">1200 €</td><td class="dada">− 5 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">64 €</td><td class="dada">− 30 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">19,90 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara al revés: saps el preu final. Quant valia abans?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Per tornar enrere, divideix pel factor.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Preu final</th><th style="width:22%">Canvi</th><th style="width:22%">Factor</th><th style="width:22%">Abans valia</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">240 €</td><td class="ms">− 20 %</td><td class="ms">× 0,8</td><td class="ms">300,00 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">96,80 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">40,50 €</td><td class="dada">− 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">132 €</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">45 €</td><td class="dada">− 25 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">121 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">50 €</td><td class="dada">− 50 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">210 €</td><td class="dada">− 30 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">66 €</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">340 €</td><td class="dada">− 15 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">60,50 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">85,50 €</td><td class="dada">− 5 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">24,20 €</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Dos canvis seguits</h2>
+  <p class="mira">Com l'exercici 3 de la fitxa, a la pàgina 5.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula el preu final quan hi ha dos canvis seguits.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Preu</th><th style="width:16%">1r canvi</th><th style="width:16%">2n canvi</th><th style="width:24%">Els dos factors</th><th style="width:16%">Preu final</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">300 €</td><td class="ms">− 20 %</td><td class="ms">+ 21 %</td><td class="ms">× 0,8   × 1,21</td><td class="ms">290,40 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">200 €</td><td class="dada">− 30 %</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">50 €</td><td class="dada">+ 21 %</td><td class="dada">− 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">100 €</td><td class="dada">− 10 %</td><td class="dada">− 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">400 €</td><td class="dada">− 25 %</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">80 €</td><td class="dada">− 50 %</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">150 €</td><td class="dada">+ 10 %</td><td class="dada">− 20 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">60 €</td><td class="dada">− 15 %</td><td class="dada">+ 21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">500 €</td><td class="dada">+ 20 %</td><td class="dada">− 20 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">250 €</td><td class="dada">− 40 %</td><td class="dada">+ 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">90 €</td><td class="dada">+ 21 %</td><td class="dada">− 25 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">1000 €</td><td class="dada">− 5 %</td><td class="dada">− 10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">36 €</td><td class="dada">+ 50 %</td><td class="dada">− 50 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Multiplica els dos factors: fan un sol factor. Quin canvi és?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:24%">Els dos canvis</th><th style="width:24%">Els dos factors</th><th style="width:20%">Un sol factor</th><th style="width:20%">És un canvi de</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">− 20 % i + 21 %</td><td class="ms">× 0,8   × 1,21</td><td class="ms">× 0,968</td><td class="ms">− 3,2 %</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">− 10 % i − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">− 30 % i + 21 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">+ 10 % i − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">− 25 % i + 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">− 50 % i + 21 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">+ 20 % i − 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">− 15 % i + 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">− 5 % i + 21 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">+ 50 % i − 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">− 40 % i + 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">+ 21 % i − 21 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">− 10 % i − 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Pujar i baixar el mateix</h2>
+  <p class="mira">Com l'exercici 4 de la fitxa, a la pàgina 6.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Puja i després baixa el mateix percentatge. Quant hi perds?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Preu</th><th style="width:22%">Canvis</th><th style="width:18%">Després de pujar</th><th style="width:18%">Després de baixar</th><th style="width:14%">Hi perds</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">100 €</td><td class="ms">+ 10 % i − 10 %</td><td class="ms">110,00 €</td><td class="ms">99,00 €</td><td class="ms">1,00 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">200 €</td><td class="dada">+ 20 % i − 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">50 €</td><td class="dada">+ 50 % i − 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">80 €</td><td class="dada">+ 25 % i − 25 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">300 €</td><td class="dada">+ 10 % i − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">40 €</td><td class="dada">+ 30 % i − 30 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">120 €</td><td class="dada">+ 5 % i − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">500 €</td><td class="dada">+ 40 % i − 40 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">60 €</td><td class="dada">+ 15 % i − 15 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">90 €</td><td class="dada">+ 20 % i − 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">250 €</td><td class="dada">+ 50 % i − 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">1000 €</td><td class="dada">+ 1 % i − 1 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">75 €</td><td class="dada">+ 100 % i − 100 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Fes els dos canvis en un ordre i en l'altre. Surt el mateix?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Preu</th><th style="width:22%">Canvis</th><th style="width:18%">En aquest ordre</th><th style="width:18%">Al revés</th><th style="width:14%">El mateix?</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">100 €</td><td class="ms">− 20 % i + 21 %</td><td class="ms">96,80 €</td><td class="ms">96,80 €</td><td class="ms">sí</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">200 €</td><td class="dada">+ 10 % i − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">50 €</td><td class="dada">− 50 % i + 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">80 €</td><td class="dada">+ 25 % i − 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">300 €</td><td class="dada">− 15 % i + 21 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">40 €</td><td class="dada">+ 30 % i − 30 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">120 €</td><td class="dada">− 10 % i + 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">500 €</td><td class="dada">+ 40 % i − 25 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">60 €</td><td class="dada">+ 21 % i − 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">90 €</td><td class="dada">− 20 % i + 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">250 €</td><td class="dada">+ 10 % i + 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">1000 €</td><td class="dada">− 5 % i + 21 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">75 €</td><td class="dada">+ 100 % i − 50 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Al comptat o a terminis?</h2>
+  <p class="mira">Com l'exercici 5 de la fitxa, a la pàgina 7.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Fes els dos comptes i escriu quina manera de pagar surt més a compte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Al comptat, amb descompte</th><th style="width:22%">A terminis</th><th style="width:14%">Al comptat (€)</th><th style="width:18%">A terminis (€)</th><th style="width:12%">Guanya</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">300 €, − 15 %</td><td class="ms esq">12 quotes de 24 €</td><td class="ms">255,00 €</td><td class="ms">12 × 24 = 288,00 €</td><td class="ms">al comptat</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">240 €, − 10 %</td><td class="dada esq">6 quotes de 42 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">500 €, − 5 %</td><td class="dada esq">10 quotes de 46 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">800 €, − 10 %</td><td class="dada esq">12 quotes de 65 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">150 €, − 20 %</td><td class="dada esq">3 quotes de 45 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">60 €, − 5 %</td><td class="dada esq">4 quotes de 14 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">1000 €, − 15 %</td><td class="dada esq">24 quotes de 40 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">90 €, − 10 %</td><td class="dada esq">3 quotes de 28 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">400 €, − 5 %</td><td class="dada esq">8 quotes de 47 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">1200 €, − 20 %</td><td class="dada esq">10 quotes de 99 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">350 €, − 10 %</td><td class="dada esq">6 quotes de 52 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">75 €, − 5 %</td><td class="dada esq">5 quotes de 15 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">650 €, − 15 %</td><td class="dada esq">12 quotes de 45 €</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara els terminis tenen una entrada. Fes els dos comptes i decideix.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Al comptat, amb descompte</th><th style="width:22%">A terminis</th><th style="width:14%">Al comptat (€)</th><th style="width:18%">A terminis (€)</th><th style="width:12%">Guanya</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">300 €, − 15 %</td><td class="ms esq">10 quotes de 20 € i 50 € d'entrada</td><td class="ms">255,00 €</td><td class="ms">50 + 10 × 20 = 250,00 €</td><td class="ms">a terminis</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">500 €, − 10 %</td><td class="dada esq">12 quotes de 30 € i 100 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">240 €, − 5 %</td><td class="dada esq">6 quotes de 30 € i 50 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">800 €, − 20 %</td><td class="dada esq">10 quotes de 50 € i 100 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">150 €, − 10 %</td><td class="dada esq">4 quotes de 25 € i 30 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">1000 €, − 15 %</td><td class="dada esq">20 quotes de 34 € i 150 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">90 €, − 20 %</td><td class="dada esq">3 quotes de 20 € i 10 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">400 €, − 10 %</td><td class="dada esq">8 quotes de 36 € i 80 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">60 €, − 5 %</td><td class="dada esq">5 quotes de 10 € i 5 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">1200 €, − 10 %</td><td class="dada esq">12 quotes de 80 € i 100 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">350 €, − 15 %</td><td class="dada esq">6 quotes de 45 € i 40 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">720 €, − 5 %</td><td class="dada esq">10 quotes de 60 € i 50 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">2000 €, − 25 %</td><td class="dada esq">24 quotes de 55 € i 300 € d'entrada</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>L'IVA</h2>
+  <p class="mira">Com l'exercici 6 de la fitxa, a la pàgina 8.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula el preu amb IVA.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Sense IVA</th><th style="width:22%">IVA</th><th style="width:22%">Factor</th><th style="width:22%">Amb IVA</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">40 €</td><td class="ms">21 %</td><td class="ms">× 1,21</td><td class="ms">48,40 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">25 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">60 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">12 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">80 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">5 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">150 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">18 €</td><td class="dada">4 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">9,90 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">32 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">2,50 €</td><td class="dada">4 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">499 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">14,50 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara al revés: el tiquet diu el preu amb IVA. Quant val sense IVA?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Per treure l'IVA, divideix pel factor.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">Amb IVA</th><th style="width:22%">IVA</th><th style="width:22%">Factor</th><th style="width:22%">Sense IVA</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">48,40 €</td><td class="ms">21 %</td><td class="ms">× 1,21</td><td class="ms">40,00 €</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">30,25 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">13,20 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">72,60 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">5,20 €</td><td class="dada">4 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">121 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">22 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">181,50 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3,12 €</td><td class="dada">4 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">6,60 €</td><td class="dada">10 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">605 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">12,10 €</td><td class="dada">21 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">1,04 €</td><td class="dada">4 %</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>A la vida de cada dia</h2>
+  <p class="mira">Com l'exercici 7 de la fitxa, a la pàgina 9.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula què pagues a cada lloc i escriu on surt més barat.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:22%">A la botiga</th><th style="width:22%">Per internet</th><th style="width:15%">Botiga (€)</th><th style="width:15%">Internet (€)</th><th style="width:14%">Més barat</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">80 €, − 20 %</td><td class="ms esq">70 €, − 10 %</td><td class="ms">64,00 €</td><td class="ms">63,00 €</td><td class="ms">Internet</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">120 €, − 25 %</td><td class="dada esq">95 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">60 €, − 30 %</td><td class="dada esq">45 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">200 €, − 10 %</td><td class="dada esq">190 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">50 €, − 40 %</td><td class="dada esq">35 €, − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">300 €, − 15 %</td><td class="dada esq">270 €, − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">90 €, − 50 %</td><td class="dada esq">50 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">40 €, − 10 %</td><td class="dada esq">38 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">150 €, − 30 %</td><td class="dada esq">120 €, − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">75 €, − 20 %</td><td class="dada esq">62 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">500 €, − 20 %</td><td class="dada esq">450 €, − 10 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">30 €, − 50 %</td><td class="dada esq">20 €, − 20 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">1000 €, − 25 %</td><td class="dada esq">800 €, − 5 %</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">El gimnàs durant un mes: abonament amb descompte o entrada de dia?
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Abonament de 40 € amb un 25 % de descompte, o entrada de dia a 3 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Hi vas</th><th style="width:24%">Abonament (€)</th><th style="width:24%">Entrades (€)</th><th style="width:24%">Surt més a compte</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">12 dies</td><td class="ms">30,00 €</td><td class="ms">36,00 €</td><td class="ms">l'abonament</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">8 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">9 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">15 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="2">
+    <p class="nota-act">Abonament de 30 € amb un 10 % de descompte, o entrada de dia a 4 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Hi vas</th><th style="width:24%">Abonament (€)</th><th style="width:24%">Entrades (€)</th><th style="width:24%">Surt més a compte</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">6 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">9 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">5 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Abonament de 45 € amb un 20 % de descompte, o entrada de dia a 2,50 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Hi vas</th><th style="width:24%">Abonament (€)</th><th style="width:24%">Entrades (€)</th><th style="width:24%">Surt més a compte</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">15 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">12 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">20 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Abonament de 50 € amb un 30 % de descompte, o entrada de dia a 5 €.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Hi vas</th><th style="width:24%">Abonament (€)</th><th style="width:24%">Entrades (€)</th><th style="width:24%">Surt més a compte</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">8 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">5 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">6 dies</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="quadern sol" id="solucionari">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 2 · Quadern d'activitats · full per al professorat</p>
+  <div class="abans">
+    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
+    per cada exercici de la fitxa (7 blocs), i la frase de sota del títol diu quin. Cada bloc té
+    una activitat com la de la fitxa i, si es tria «Afegint exercicis diferents que suposen un repte», una altra
+    una mica diferent, amb estrella. A dalt de la pàgina es tria la quantitat d'exercicis de cada activitat: a) resolt i
+    3 per fer (petita), 6 (mitjana) o 12 (alta). El nombre
+    d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre
+    amb els del quadern si s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el
+    filtre posat: <code>u2/quadern.html?n=1&amp;repte=1</code> (n: 1 petita, 2 mitjana,
+    3 alta).</p>
+  </div>
+  <p>Les de repte no tenen més text que les altres: fan el mateix camí al revés, hi afegeixen un
+  pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
+  <h3>El factor de cada canvi · com l'exercici 1 de la fitxa</h3>
+  <p>Si baixa, 1 menys; si puja, 1 més. <b>Error típic:</b> escriure × 0,5 per a un − 5 % (confondre 0,05 amb 0,5). Que llegeixi el percentatge en veu alta: «cinc centèsimes».</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Canvi</th><th>Compte</th><th>Factor</th></tr><tr class="ap" data-n="1"><td>a)</td><td>− 20 %</td><td><b>1 − 0,20</b></td><td><b>× 0,8</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>+ 21 %</td><td><b>1 + 0,21</b></td><td><b>× 1,21</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>− 50 %</td><td><b>1 − 0,50</b></td><td><b>× 0,5</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>+ 10 %</td><td><b>1 + 0,10</b></td><td><b>× 1,1</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>− 5 %</td><td><b>1 − 0,05</b></td><td><b>× 0,95</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>− 30 %</td><td><b>1 − 0,30</b></td><td><b>× 0,7</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>+ 15 %</td><td><b>1 + 0,15</b></td><td><b>× 1,15</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>− 25 %</td><td><b>1 − 0,25</b></td><td><b>× 0,75</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>+ 4 %</td><td><b>1 + 0,04</b></td><td><b>× 1,04</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>− 15 %</td><td><b>1 − 0,15</b></td><td><b>× 0,85</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>+ 50 %</td><td><b>1 + 0,50</b></td><td><b>× 1,5</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>− 12 %</td><td><b>1 − 0,12</b></td><td><b>× 0,88</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>+ 100 %</td><td><b>1 + 1,00</b></td><td><b>× 2</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Factor</th><th>Puja o baixa?</th><th>Canvi</th></tr><tr class="ap" data-n="1"><td>a)</td><td>× 0,75</td><td><b>baixa</b></td><td><b>− 25 %</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>× 1,21</td><td><b>puja</b></td><td><b>+ 21 %</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>× 0,6</td><td><b>baixa</b></td><td><b>− 40 %</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>× 1,1</td><td><b>puja</b></td><td><b>+ 10 %</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>× 0,95</td><td><b>baixa</b></td><td><b>− 5 %</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>× 1,5</td><td><b>puja</b></td><td><b>+ 50 %</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>× 0,9</td><td><b>baixa</b></td><td><b>− 10 %</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>× 1,04</td><td><b>puja</b></td><td><b>+ 4 %</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>× 0,85</td><td><b>baixa</b></td><td><b>− 15 %</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>× 1,3</td><td><b>puja</b></td><td><b>+ 30 %</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>× 0,4</td><td><b>baixa</b></td><td><b>− 60 %</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>× 1,07</td><td><b>puja</b></td><td><b>+ 7 %</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>× 0,99</td><td><b>baixa</b></td><td><b>− 1 %</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: per sota d'1, baixa; per sobre, puja. El que falta per arribar a 1 (o el que en sobra) és el percentatge: × 0,75 → − 25 %. <b>Error típic:</b> × 1,04 → + 40 %.</p></div>
+  <h3>Un sol canvi · com l'exercici 2 de la fitxa</h3>
+  <p>El factor ja dona el preu final: no cal calcular el descompte i restar-lo. <b>Error típic:</b> multiplicar per 0,2 en lloc de 0,8 i quedar-se amb el descompte.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Preu</th><th>Canvi</th><th>Factor</th><th>Preu final</th></tr><tr class="ap" data-n="1"><td>a)</td><td>300 €</td><td>− 20 %</td><td><b>× 0,8</b></td><td><b>240,00 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>80 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>96,80 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>45 €</td><td>− 10 %</td><td><b>× 0,9</b></td><td><b>40,50 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>120 €</td><td>+ 10 %</td><td><b>× 1,1</b></td><td><b>132,00 €</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>60 €</td><td>− 25 %</td><td><b>× 0,75</b></td><td><b>45,00 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>250 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>302,50 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>90 €</td><td>− 50 %</td><td><b>× 0,5</b></td><td><b>45,00 €</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>15 €</td><td>+ 10 %</td><td><b>× 1,1</b></td><td><b>16,50 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>400 €</td><td>− 15 %</td><td><b>× 0,85</b></td><td><b>340,00 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>35 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>42,35 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>1200 €</td><td>− 5 %</td><td><b>× 0,95</b></td><td><b>1140,00 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>64 €</td><td>− 30 %</td><td><b>× 0,7</b></td><td><b>44,80 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>19,90 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>24,08 €</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Preu final</th><th>Canvi</th><th>Factor</th><th>Abans valia</th></tr><tr class="ap" data-n="1"><td>a)</td><td>240 €</td><td>− 20 %</td><td><b>× 0,8</b></td><td><b>300,00 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>96,80 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>80,00 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>40,50 €</td><td>− 10 %</td><td><b>× 0,9</b></td><td><b>45,00 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>132 €</td><td>+ 10 %</td><td><b>× 1,1</b></td><td><b>120,00 €</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>45 €</td><td>− 25 %</td><td><b>× 0,75</b></td><td><b>60,00 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>121 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>100,00 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>50 €</td><td>− 50 %</td><td><b>× 0,5</b></td><td><b>100,00 €</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>210 €</td><td>− 30 %</td><td><b>× 0,7</b></td><td><b>300,00 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>66 €</td><td>+ 10 %</td><td><b>× 1,1</b></td><td><b>60,00 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>340 €</td><td>− 15 %</td><td><b>× 0,85</b></td><td><b>400,00 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>60,50 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>50,00 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>85,50 €</td><td>− 5 %</td><td><b>× 0,95</b></td><td><b>90,00 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>24,20 €</td><td>+ 21 %</td><td><b>× 1,21</b></td><td><b>20,00 €</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: si per anar es multiplica pel factor, per tornar es divideix (240 ÷ 0,8 = 300). <b>Error típic:</b> sumar-hi el 20 % (240 + 48 = 288).</p></div>
+  <h3>Dos canvis seguits · com l'exercici 3 de la fitxa</h3>
+  <p>Multiplica pel primer factor i, al resultat, pel segon. <b>La trampa:</b> − 20 % i + 21 % no és + 1 %. Si suma els percentatges, que compari el seu resultat amb el de la calculadora.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Preu</th><th>1r canvi</th><th>2n canvi</th><th>Els dos factors</th><th>Preu final</th></tr><tr class="ap" data-n="1"><td>a)</td><td>300 €</td><td>− 20 %</td><td>+ 21 %</td><td><b>× 0,8   × 1,21</b></td><td><b>290,40 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>200 €</td><td>− 30 %</td><td>+ 21 %</td><td><b>× 0,7   × 1,21</b></td><td><b>169,40 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>50 €</td><td>+ 21 %</td><td>− 10 %</td><td><b>× 1,21   × 0,9</b></td><td><b>54,45 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>100 €</td><td>− 10 %</td><td>− 10 %</td><td><b>× 0,9   × 0,9</b></td><td><b>81,00 €</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>400 €</td><td>− 25 %</td><td>+ 10 %</td><td><b>× 0,75   × 1,1</b></td><td><b>330,00 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>80 €</td><td>− 50 %</td><td>+ 21 %</td><td><b>× 0,5   × 1,21</b></td><td><b>48,40 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>150 €</td><td>+ 10 %</td><td>− 20 %</td><td><b>× 1,1   × 0,8</b></td><td><b>132,00 €</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>60 €</td><td>− 15 %</td><td>+ 21 %</td><td><b>× 0,85   × 1,21</b></td><td><b>61,71 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>500 €</td><td>+ 20 %</td><td>− 20 %</td><td><b>× 1,2   × 0,8</b></td><td><b>480,00 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>250 €</td><td>− 40 %</td><td>+ 10 %</td><td><b>× 0,6   × 1,1</b></td><td><b>165,00 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>90 €</td><td>+ 21 %</td><td>− 25 %</td><td><b>× 1,21   × 0,75</b></td><td><b>81,68 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>1000 €</td><td>− 5 %</td><td>− 10 %</td><td><b>× 0,95   × 0,9</b></td><td><b>855,00 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>36 €</td><td>+ 50 %</td><td>− 50 %</td><td><b>× 1,5   × 0,5</b></td><td><b>27,00 €</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Els dos canvis</th><th>Els dos factors</th><th>Un sol factor</th><th>És un canvi de</th></tr><tr class="ap" data-n="1"><td>a)</td><td>− 20 % i + 21 %</td><td><b>× 0,8   × 1,21</b></td><td><b>× 0,968</b></td><td><b>− 3,2 %</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>− 10 % i − 10 %</td><td><b>× 0,9   × 0,9</b></td><td><b>× 0,81</b></td><td><b>− 19 %</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>− 30 % i + 21 %</td><td><b>× 0,7   × 1,21</b></td><td><b>× 0,847</b></td><td><b>− 15,3 %</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>+ 10 % i − 10 %</td><td><b>× 1,1   × 0,9</b></td><td><b>× 0,99</b></td><td><b>− 1 %</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>− 25 % i + 10 %</td><td><b>× 0,75   × 1,1</b></td><td><b>× 0,825</b></td><td><b>− 17,5 %</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>− 50 % i + 21 %</td><td><b>× 0,5   × 1,21</b></td><td><b>× 0,605</b></td><td><b>− 39,5 %</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>+ 20 % i − 20 %</td><td><b>× 1,2   × 0,8</b></td><td><b>× 0,96</b></td><td><b>− 4 %</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>− 15 % i + 10 %</td><td><b>× 0,85   × 1,1</b></td><td><b>× 0,935</b></td><td><b>− 6,5 %</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>− 5 % i + 21 %</td><td><b>× 0,95   × 1,21</b></td><td><b>× 1,1495</b></td><td><b>+ 14,95 %</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>+ 50 % i − 50 %</td><td><b>× 1,5   × 0,5</b></td><td><b>× 0,75</b></td><td><b>− 25 %</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>− 40 % i + 50 %</td><td><b>× 0,6   × 1,5</b></td><td><b>× 0,9</b></td><td><b>− 10 %</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>+ 21 % i − 21 %</td><td><b>× 1,21   × 0,79</b></td><td><b>× 0,9559</b></td><td><b>− 4,41 %</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>− 10 % i − 20 %</td><td><b>× 0,9   × 0,8</b></td><td><b>× 0,72</b></td><td><b>− 28 %</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: els dos factors multiplicats fan el factor de tot el camí (0,8 × 1,21 = 0,968, és a dir − 3,2 %). Mai no és la suma dels percentatges: − 20 % i + 21 % no és + 1 %.</p></div>
+  <h3>Pujar i baixar el mateix · com l'exercici 4 de la fitxa</h3>
+  <p>Pujar i baixar el mateix percentatge no torna mai al preu de sortida: el segon percentatge es fa sobre un preu diferent. Sempre en falta (la columna «Hi perds»).</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Preu</th><th>Canvis</th><th>Després de pujar</th><th>Després de baixar</th><th>Hi perds</th></tr><tr class="ap" data-n="1"><td>a)</td><td>100 €</td><td>+ 10 % i − 10 %</td><td><b>110,00 €</b></td><td><b>99,00 €</b></td><td><b>1,00 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>200 €</td><td>+ 20 % i − 20 %</td><td><b>240,00 €</b></td><td><b>192,00 €</b></td><td><b>8,00 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>50 €</td><td>+ 50 % i − 50 %</td><td><b>75,00 €</b></td><td><b>37,50 €</b></td><td><b>12,50 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>80 €</td><td>+ 25 % i − 25 %</td><td><b>100,00 €</b></td><td><b>75,00 €</b></td><td><b>5,00 €</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>300 €</td><td>+ 10 % i − 10 %</td><td><b>330,00 €</b></td><td><b>297,00 €</b></td><td><b>3,00 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>40 €</td><td>+ 30 % i − 30 %</td><td><b>52,00 €</b></td><td><b>36,40 €</b></td><td><b>3,60 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>120 €</td><td>+ 5 % i − 5 %</td><td><b>126,00 €</b></td><td><b>119,70 €</b></td><td><b>0,30 €</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>500 €</td><td>+ 40 % i − 40 %</td><td><b>700,00 €</b></td><td><b>420,00 €</b></td><td><b>80,00 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>60 €</td><td>+ 15 % i − 15 %</td><td><b>69,00 €</b></td><td><b>58,65 €</b></td><td><b>1,35 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>90 €</td><td>+ 20 % i − 20 %</td><td><b>108,00 €</b></td><td><b>86,40 €</b></td><td><b>3,60 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>250 €</td><td>+ 50 % i − 50 %</td><td><b>375,00 €</b></td><td><b>187,50 €</b></td><td><b>62,50 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>1000 €</td><td>+ 1 % i − 1 %</td><td><b>1010,00 €</b></td><td><b>999,90 €</b></td><td><b>0,10 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>75 €</td><td>+ 100 % i − 100 %</td><td><b>150,00 €</b></td><td><b>0,00 €</b></td><td><b>75,00 €</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Preu</th><th>Canvis</th><th>En aquest ordre</th><th>Al revés</th><th>El mateix?</th></tr><tr class="ap" data-n="1"><td>a)</td><td>100 €</td><td>− 20 % i + 21 %</td><td><b>96,80 €</b></td><td><b>96,80 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>200 €</td><td>+ 10 % i − 10 %</td><td><b>198,00 €</b></td><td><b>198,00 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>50 €</td><td>− 50 % i + 50 %</td><td><b>37,50 €</b></td><td><b>37,50 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>80 €</td><td>+ 25 % i − 20 %</td><td><b>80,00 €</b></td><td><b>80,00 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>300 €</td><td>− 15 % i + 21 %</td><td><b>308,55 €</b></td><td><b>308,55 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>40 €</td><td>+ 30 % i − 30 %</td><td><b>36,40 €</b></td><td><b>36,40 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>120 €</td><td>− 10 % i + 5 %</td><td><b>113,40 €</b></td><td><b>113,40 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>500 €</td><td>+ 40 % i − 25 %</td><td><b>525,00 €</b></td><td><b>525,00 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>60 €</td><td>+ 21 % i − 50 %</td><td><b>36,30 €</b></td><td><b>36,30 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>90 €</td><td>− 20 % i + 20 %</td><td><b>86,40 €</b></td><td><b>86,40 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>250 €</td><td>+ 10 % i + 10 %</td><td><b>302,50 €</b></td><td><b>302,50 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>1000 €</td><td>− 5 % i + 21 %</td><td><b>1149,50 €</b></td><td><b>1149,50 €</b></td><td><b>sí</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>75 €</td><td>+ 100 % i − 50 %</td><td><b>75,00 €</b></td><td><b>75,00 €</b></td><td><b>sí</b></td></tr></table>    </div>
+  <p class="per-que">Una decisió nova: l'ordre no canvia el resultat, perquè és la mateixa multiplicació (0,8 × 1,21 = 1,21 × 0,8). Si surt algun cèntim diferent és per l'arrodoniment del preu del mig.</p></div>
+  <h3>Al comptat o a terminis? · com l'exercici 5 de la fitxa</h3>
+  <p><b>La regla trencada de la unitat:</b> al comptat no sempre és més barat. Ja a l'apartat c (el portàtil) guanyen els terminis, perquè el descompte és petit. Si tria «al comptat» sense fer els dos comptes, és aquí on cal aturar-se.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Al comptat, amb descompte</th><th>A terminis</th><th>Al comptat (€)</th><th>A terminis (€)</th><th>Guanya</th></tr><tr class="ap" data-n="1"><td>a)</td><td>300 €, − 15 %</td><td>12 quotes de 24 €</td><td><b>255,00 €</b></td><td><b>12 × 24 = 288,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>240 €, − 10 %</td><td>6 quotes de 42 €</td><td><b>216,00 €</b></td><td><b>6 × 42 = 252,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>500 €, − 5 %</td><td>10 quotes de 46 €</td><td><b>475,00 €</b></td><td><b>10 × 46 = 460,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>800 €, − 10 %</td><td>12 quotes de 65 €</td><td><b>720,00 €</b></td><td><b>12 × 65 = 780,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>150 €, − 20 %</td><td>3 quotes de 45 €</td><td><b>120,00 €</b></td><td><b>3 × 45 = 135,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>60 €, − 5 %</td><td>4 quotes de 14 €</td><td><b>57,00 €</b></td><td><b>4 × 14 = 56,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>1000 €, − 15 %</td><td>24 quotes de 40 €</td><td><b>850,00 €</b></td><td><b>24 × 40 = 960,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>90 €, − 10 %</td><td>3 quotes de 28 €</td><td><b>81,00 €</b></td><td><b>3 × 28 = 84,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>400 €, − 5 %</td><td>8 quotes de 47 €</td><td><b>380,00 €</b></td><td><b>8 × 47 = 376,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>1200 €, − 20 %</td><td>10 quotes de 99 €</td><td><b>960,00 €</b></td><td><b>10 × 99 = 990,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>350 €, − 10 %</td><td>6 quotes de 52 €</td><td><b>315,00 €</b></td><td><b>6 × 52 = 312,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>75 €, − 5 %</td><td>5 quotes de 15 €</td><td><b>71,25 €</b></td><td><b>5 × 15 = 75,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>650 €, − 15 %</td><td>12 quotes de 45 €</td><td><b>552,50 €</b></td><td><b>12 × 45 = 540,00 €</b></td><td><b>a terminis</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Al comptat, amb descompte</th><th>A terminis</th><th>Al comptat (€)</th><th>A terminis (€)</th><th>Guanya</th></tr><tr class="ap" data-n="1"><td>a)</td><td>300 €, − 15 %</td><td>10 quotes de 20 € i 50 € d'entrada</td><td><b>255,00 €</b></td><td><b>50 + 10 × 20 = 250,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>500 €, − 10 %</td><td>12 quotes de 30 € i 100 € d'entrada</td><td><b>450,00 €</b></td><td><b>100 + 12 × 30 = 460,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>240 €, − 5 %</td><td>6 quotes de 30 € i 50 € d'entrada</td><td><b>228,00 €</b></td><td><b>50 + 6 × 30 = 230,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>800 €, − 20 %</td><td>10 quotes de 50 € i 100 € d'entrada</td><td><b>640,00 €</b></td><td><b>100 + 10 × 50 = 600,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>150 €, − 10 %</td><td>4 quotes de 25 € i 30 € d'entrada</td><td><b>135,00 €</b></td><td><b>30 + 4 × 25 = 130,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>1000 €, − 15 %</td><td>20 quotes de 34 € i 150 € d'entrada</td><td><b>850,00 €</b></td><td><b>150 + 20 × 34 = 830,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>90 €, − 20 %</td><td>3 quotes de 20 € i 10 € d'entrada</td><td><b>72,00 €</b></td><td><b>10 + 3 × 20 = 70,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>400 €, − 10 %</td><td>8 quotes de 36 € i 80 € d'entrada</td><td><b>360,00 €</b></td><td><b>80 + 8 × 36 = 368,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>60 €, − 5 %</td><td>5 quotes de 10 € i 5 € d'entrada</td><td><b>57,00 €</b></td><td><b>5 + 5 × 10 = 55,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>1200 €, − 10 %</td><td>12 quotes de 80 € i 100 € d'entrada</td><td><b>1080,00 €</b></td><td><b>100 + 12 × 80 = 1060,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>350 €, − 15 %</td><td>6 quotes de 45 € i 40 € d'entrada</td><td><b>297,50 €</b></td><td><b>40 + 6 × 45 = 310,00 €</b></td><td><b>al comptat</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>720 €, − 5 %</td><td>10 quotes de 60 € i 50 € d'entrada</td><td><b>684,00 €</b></td><td><b>50 + 10 × 60 = 650,00 €</b></td><td><b>a terminis</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>2000 €, − 25 %</td><td>24 quotes de 55 € i 300 € d'entrada</td><td><b>1500,00 €</b></td><td><b>300 + 24 × 55 = 1620,00 €</b></td><td><b>al comptat</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: l'entrada es paga a part, i s'ha de sumar a les quotes (50 + 10 × 20). <b>Error típic:</b> oblidar l'entrada.</p></div>
+  <h3>L'IVA · com l'exercici 6 de la fitxa</h3>
+  <p>L'IVA és un + %: el general és el 21 % (× 1,21), el reduït el 10 % (× 1,1) i el superreduït el 4 % (× 1,04), per al pa, la llet o els llibres. <b>Error típic:</b> × 1,4 per al 4 %.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Sense IVA</th><th>IVA</th><th>Factor</th><th>Amb IVA</th></tr><tr class="ap" data-n="1"><td>a)</td><td>40 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>48,40 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>25 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>30,25 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>60 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>72,60 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>12 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>13,20 €</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>80 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>96,80 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>5 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>5,50 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>150 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>181,50 €</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>18 €</td><td>4 %</td><td><b>× 1,04</b></td><td><b>18,72 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>9,90 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>11,98 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>32 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>35,20 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>2,50 €</td><td>4 %</td><td><b>× 1,04</b></td><td><b>2,60 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>499 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>603,79 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>14,50 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>15,95 €</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Amb IVA</th><th>IVA</th><th>Factor</th><th>Sense IVA</th></tr><tr class="ap" data-n="1"><td>a)</td><td>48,40 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>40,00 €</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>30,25 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>25,00 €</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>13,20 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>12,00 €</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>72,60 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>60,00 €</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>5,20 €</td><td>4 %</td><td><b>× 1,04</b></td><td><b>5,00 €</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>121 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>100,00 €</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>22 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>20,00 €</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>181,50 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>150,00 €</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3,12 €</td><td>4 %</td><td><b>× 1,04</b></td><td><b>3,00 €</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>6,60 €</td><td>10 %</td><td><b>× 1,1</b></td><td><b>6,00 €</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>605 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>500,00 €</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>12,10 €</td><td>21 %</td><td><b>× 1,21</b></td><td><b>10,00 €</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>1,04 €</td><td>4 %</td><td><b>× 1,04</b></td><td><b>1,00 €</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: dividir pel factor (48,40 ÷ 1,21 = 40). <b>Error típic:</b> restar el 21 % del preu amb IVA (48,40 × 0,79 = 38,24 €), que no torna als 40 €.</p></div>
+  <h3>A la vida de cada dia · com l'exercici 7 de la fitxa</h3>
+  <p>El descompte més gran no sempre guanya: depèn del preu de sortida. Ja a l'apartat a la botiga fa un 20 % i surt més cara que internet, amb un 10 %. Que faci sempre els dos comptes.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>A la botiga</th><th>Per internet</th><th>Botiga (€)</th><th>Internet (€)</th><th>Més barat</th></tr><tr class="ap" data-n="1"><td>a)</td><td>80 €, − 20 %</td><td>70 €, − 10 %</td><td><b>64,00 €</b></td><td><b>63,00 €</b></td><td><b>Internet</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>120 €, − 25 %</td><td>95 €, − 5 %</td><td><b>90,00 €</b></td><td><b>90,25 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>60 €, − 30 %</td><td>45 €, − 5 %</td><td><b>42,00 €</b></td><td><b>42,75 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>200 €, − 10 %</td><td>190 €, − 5 %</td><td><b>180,00 €</b></td><td><b>180,50 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>50 €, − 40 %</td><td>35 €, − 10 %</td><td><b>30,00 €</b></td><td><b>31,50 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>300 €, − 15 %</td><td>270 €, − 10 %</td><td><b>255,00 €</b></td><td><b>243,00 €</b></td><td><b>Internet</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>90 €, − 50 %</td><td>50 €, − 5 %</td><td><b>45,00 €</b></td><td><b>47,50 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>40 €, − 10 %</td><td>38 €, − 5 %</td><td><b>36,00 €</b></td><td><b>36,10 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>150 €, − 30 %</td><td>120 €, − 10 %</td><td><b>105,00 €</b></td><td><b>108,00 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>75 €, − 20 %</td><td>62 €, − 5 %</td><td><b>60,00 €</b></td><td><b>58,90 €</b></td><td><b>Internet</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>500 €, − 20 %</td><td>450 €, − 10 %</td><td><b>400,00 €</b></td><td><b>405,00 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>30 €, − 50 %</td><td>20 €, − 20 %</td><td><b>15,00 €</b></td><td><b>16,00 €</b></td><td><b>Botiga</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>1000 €, − 25 %</td><td>800 €, − 5 %</td><td><b>750,00 €</b></td><td><b>760,00 €</b></td><td><b>Botiga</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Hi vas</th><th>Abonament (€)</th><th>Entrades (€)</th><th>Surt més a compte</th></tr><tr class="ap" data-n="1"><td>a)</td><td>12 dies</td><td><b>30,00 €</b></td><td><b>36,00 €</b></td><td><b>l'abonament</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>8 dies</td><td><b>30,00 €</b></td><td><b>24,00 €</b></td><td><b>les entrades</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>9 dies</td><td><b>30,00 €</b></td><td><b>27,00 €</b></td><td><b>les entrades</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>15 dies</td><td><b>30,00 €</b></td><td><b>45,00 €</b></td><td><b>l'abonament</b></td></tr></table>    </div>
+    <div class="seccio" data-n="2">
+<table><tr><th></th><th>Hi vas</th><th>Abonament (€)</th><th>Entrades (€)</th><th>Surt més a compte</th></tr><tr class="ap" data-n="2"><td>e)</td><td>6 dies</td><td><b>27,00 €</b></td><td><b>24,00 €</b></td><td><b>les entrades</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>9 dies</td><td><b>27,00 €</b></td><td><b>36,00 €</b></td><td><b>l'abonament</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>5 dies</td><td><b>27,00 €</b></td><td><b>20,00 €</b></td><td><b>les entrades</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Hi vas</th><th>Abonament (€)</th><th>Entrades (€)</th><th>Surt més a compte</th></tr><tr class="ap" data-n="3"><td>h)</td><td>15 dies</td><td><b>36,00 €</b></td><td><b>37,50 €</b></td><td><b>l'abonament</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>12 dies</td><td><b>36,00 €</b></td><td><b>30,00 €</b></td><td><b>les entrades</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>20 dies</td><td><b>36,00 €</b></td><td><b>50,00 €</b></td><td><b>l'abonament</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Hi vas</th><th>Abonament (€)</th><th>Entrades (€)</th><th>Surt més a compte</th></tr><tr class="ap" data-n="3"><td>k)</td><td>8 dies</td><td><b>35,00 €</b></td><td><b>40,00 €</b></td><td><b>l'abonament</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>5 dies</td><td><b>35,00 €</b></td><td><b>25,00 €</b></td><td><b>les entrades</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>6 dies</td><td><b>35,00 €</b></td><td><b>30,00 €</b></td><td><b>les entrades</b></td></tr></table>    </div>
+  <p class="per-que">Una decisió nova: depèn de quants dies hi vas. Amb pocs dies guanyen les entrades; amb molts, l'abonament. Hi ha un nombre de dies a partir del qual canvia (amb 3 € i 30 €, a partir de 10).</p></div>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Com a la fitxa, el que s'avalua és el factor i la decisió: escriure el factor de cada canvi, fer servir una sola multiplicació i comparar dues maneres de pagar amb els dos comptes fets. Un error de calculadora no hauria de fer baixar la valoració si el factor és bo. Les activitats de repte compten per als nivells alts (AN, AE), no per al mínim.</p>
+</div>
+
+<script src="../../comu/js/quadern.js"></script>
+</body>
+</html>
