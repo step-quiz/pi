@@ -69,7 +69,10 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
   font-weight: 500; line-height: 1.25; cursor: pointer; text-align: left; text-decoration: none }
 .w-b svg { width: 20px; height: 20px; flex: none; color: var(--w-to) }
 .w-b.w-principal { font-weight: 600 }
-.w-b:hover, .w-b:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000; background: var(--w-h); outline: none }
+/* The black ring of hover and focus is drawn INSIDE the border (inset), never outside the box
+   (6/11/2026): an outer ring left a 1 px trail under some buttons in Chrome at 125 % zoom when
+   the mouse went away. Same look, nothing painted outside the element. */
+.w-b:hover, .w-b:focus-visible { border-color: #000; box-shadow: inset 0 0 0 1px #000; background: var(--w-h); outline: none }
 .w-nav  { --w-to: var(--w-nav);  --w-h: var(--w-nav-h) }
 .w-mat  { --w-to: var(--w-mat);  --w-h: var(--w-mat-h) }
 .w-pdf  { --w-to: var(--w-pdf);  --w-h: var(--w-pdf-h) }
@@ -80,7 +83,7 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
 
 /* Selected: the background does not change; a thick black border and a tick in the
    top-left corner (decision of 6/11/2026: never a black background). */
-.w-b[aria-selected="true"], .w-b[aria-checked="true"] { border-color: #000; box-shadow: 0 0 0 1px #000 }
+.w-b[aria-selected="true"], .w-b[aria-checked="true"] { border-color: #000; box-shadow: inset 0 0 0 1px #000 }
 .w-b[aria-selected="true"]::before, .w-b[aria-checked="true"]::before,
 .w-tick::before {
   content: ""; position: absolute; top: -8px; left: -8px; width: 18px; height: 18px; border-radius: 50%;
@@ -103,7 +106,7 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
 .w-cami .w-sep { color: var(--w-violeta-text); padding: 0 .15rem }
 .w-cami a { min-height: 40px; display: inline-flex; align-items: center; padding: 0 .55rem; border-radius: 8px;
   border: 1px solid transparent; color: var(--w-violeta-text) }
-.w-cami a:hover, .w-cami a:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000; background: var(--w-nav-h);
+.w-cami a:hover, .w-cami a:focus-visible { border-color: #000; box-shadow: inset 0 0 0 1px #000; background: var(--w-nav-h);
   color: var(--w-tinta); outline: none }
 .w-cami .w-aqui { padding: 0 .55rem; color: var(--w-violeta-fort) }
 
@@ -166,13 +169,20 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
   .w-carta.w-tota .w-fitxes-llista .w-accions { width: auto }
   .w-carta.w-tota .w-fitxes-llista .w-accions .w-b { flex: 0 0 calc(((100cqw - 1.8rem) / 3 - 2rem - 3px) * .75) }
 }
-.w-u .w-carta { border: 1.5px solid #8E929C }
+.w-u .w-carta { border: 1.8px solid #8E929C }
+.w-u .w-carta .w-b { border-width: 1.15px }
+.w-u .w-titol { font-size: 1.8rem }
 .w-u .w-carta.w-apagada { border-style: dashed }
 .w-u .w-carta .w-b { --w-h: var(--w-eina-h); overflow-wrap: anywhere }
 .w-u .w-carta .w-b[data-w-copia] { --w-h: var(--w-nav-h) }
+.w-u .w-carta .w-b.w-pdf { --w-h: var(--w-pdf-h) }   /* PDF buttons keep their brown (as on the paper pages) */
 .w-u .w-carta-cap { min-height: 28px }
 .w-u .w-carta-cap .w-pas { font-size: 1rem }
 details.w-abans { padding: 0 }
+/* As wide as one card, under the grid (it is the grid's last item, always in column 1). */
+.w-cartes > details.w-abans { grid-column: 1; margin-top: .5rem; align-self: start }
+.w-cartes > details.w-abans > dl { grid-template-columns: 1fr; gap: .1rem }
+.w-cartes > details.w-abans > dl dd { margin-bottom: .55rem }
 details.w-abans > summary { list-style: none; display: flex; align-items: center; gap: .6rem; min-height: 52px;
   padding: .6rem 1.1rem; border-radius: var(--w-r); border: 1px solid transparent; cursor: pointer }
 details.w-abans > summary::-webkit-details-marker { display: none }
@@ -181,7 +191,7 @@ details.w-abans > summary::before { content: ""; width: .5rem; height: .5rem; fl
   transition: transform .2s ease }
 details.w-abans[open] > summary::before { transform: rotate(45deg) }
 details.w-abans > summary:hover, details.w-abans > summary:focus-visible { border-color: #000;
-  box-shadow: 0 0 0 1px #000; background: var(--w-nav-h); outline: none }
+  box-shadow: inset 0 0 0 1px #000; background: var(--w-nav-h); outline: none }
 details.w-abans > summary h2 { margin: 0 }
 details.w-abans > dl { padding: .2rem 1.1rem 1rem }
 
@@ -216,14 +226,14 @@ nav.navega *, nav.navega *::before, nav.navega *::after { box-sizing: border-box
 nav.navega a { text-decoration: none; transition: none; transform: none }
 nav.navega .w-cami a { font: inherit; color: var(--w-violeta-text); background: transparent;
   border: 1px solid transparent; box-shadow: none; padding: 0 .55rem; min-height: 40px; border-radius: 8px }
-nav.navega .w-cami a:hover, nav.navega .w-cami a:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000;
+nav.navega .w-cami a:hover, nav.navega .w-cami a:focus-visible { border-color: #000; box-shadow: inset 0 0 0 1px #000;
   background: var(--w-nav-h); color: var(--w-tinta) }
 nav.navega a.w-b { font: inherit; font-size: .95rem; font-weight: 500; color: var(--w-tinta);
   background: var(--w-superficie); border: 1px solid var(--w-linia); box-shadow: none;
   padding: .55rem 1rem; min-height: 48px; border-radius: 10px }
 nav.navega a.w-b.w-principal { font-weight: 600 }
 nav.navega a.w-b.w-prof { background: var(--w-prof) }
-nav.navega a.w-b:hover, nav.navega a.w-b:focus-visible { border-color: #000; box-shadow: 0 0 0 1px #000; background: var(--w-h) }
+nav.navega a.w-b:hover, nav.navega a.w-b:focus-visible { border-color: #000; box-shadow: inset 0 0 0 1px #000; background: var(--w-h) }
 nav.navega a.w-b.w-prof:hover, nav.navega a.w-b.w-prof:focus-visible { background: var(--w-prof-h) }
 @media print { nav.navega { display: none } }
 

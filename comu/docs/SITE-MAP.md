@@ -44,9 +44,12 @@ so that the double click works. Every link is relative; the only absolute paths 
                                                     3 Repàs · 4 Eines · 5 Targetes (missing cards are
                                                     skipped, numbers close up); then «Abans de la
                                                     classe», a <details> folded on every load.
-                                                    Column 60rem; card border 1.5px #8E929C; every card
-                                                    button hovers pale blue (--w-eina-h), «Copia
-                                                    l'enllaç» grey (--w-nav-h). Decision of 6/11/2026.
+                                                    «Abans de la classe» is the grid's last item, as
+                                                    wide as one card. Column 60rem; title 1.8rem; card
+                                                    border 1.8px #8E929C, button border 1.15px; card
+                                                    buttons hover pale blue (--w-eina-h), PDF buttons
+                                                    brown (--w-pdf-h), «Copia l'enllaç» grey
+                                                    (--w-nav-h). Decision of 6/11/2026.
 /CURS/uN/fitxa             CURS/uN/fitxa.html       main sheet of the unit (paper)
 /CURS/uN/NOM               CURS/uN/NOM.html         other sheets of the unit (1eso/ has up to six per unit)
 /CURS/uN/repas             CURS/uN/repas.html       review sheet (paper)

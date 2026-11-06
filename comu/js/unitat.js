@@ -124,7 +124,7 @@
     const cartes = cartaFitxes(u) + cartaQuadern(u) + cartaRepas(u) + cartaEines(u) + cartaTargetes(u);
     web.innerHTML =
       PI.capcalera([["Inici", "../../index.html"], [curs.nom, "../index.html"], ["Unitat " + u.num, ""]], { professorat: "../professorat.html" }) +
-      '<h1 class="w-titol">Unitat ' + u.num + " · " + PI.esc(u.titol) + '</h1><div class="w-cartes">' + cartes + "</div>" + abans(u);
+      '<h1 class="w-titol">Unitat ' + u.num + " · " + PI.esc(u.titol) + '</h1><div class="w-cartes">' + cartes + abans(u) + "</div>";
 
     web.addEventListener("click", ev => {
       const b = ev.target.closest("[data-w-copia]");
