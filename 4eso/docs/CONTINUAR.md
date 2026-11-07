@@ -252,6 +252,21 @@ Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `cs
   s'apliquen a cap bloc del PDF; per això `empremtes.json` s'ha tornat a calcular i els PDF no
   s'han refet.
 
+## 10i. 7/11/2026: la lectura en veu alta tornava a començar (arreglat)
+
+- **El bug (vídeo del docent, eina «Recta»).** La veu deia primer el títol de la targeta, que és
+  amagat (h2.repetit, perquè la barra ja el diu) i queda, invisible, damunt de la consigna. La franja
+  groga pintava la consigna mentre la veu deia el títol, i quan començava la consigna de debò, la
+  franja tornava a començar: semblava que la lectura saltava enrere. Passava a totes les eines amb el
+  títol a la barra, dels dos cursos.
+- **L'arreglo** (comu/js/veu.js): el títol amagat es continua dient, però es marca a la barra
+  (.sub-rotul), on es veu; si no hi ha barra, es diu sense franja.
+- **La prova nova**, comu/eines/prova_veu.py: una veu catalana falsa llegeix la primera targeta de
+  cada eina i, paraula a paraula, mira que la franja groga sigui damunt del que es diu. Amb el codi
+  d'abans fallava a 17 eines; ara, 38 targetes correctes.
+- **La barra del filtre dels quaderns:** cada categoria dins d'un requadre, i «Tipologia
+  d'exercicis?» arraconada a la dreta (al mòbil, una sota l'altra).
+
 ## 10h. 7/11/2026: la barra del filtre dels quaderns, més curta
 
 - «Quantitat d'exercicis?» i «Tipologia d'exercicis?» a la mateixa línia (al mòbil, una sota

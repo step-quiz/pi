@@ -19,7 +19,8 @@ QUÈ COMPROVA
   · Que el solucionari amaga exactament les mateixes entrades, perquè els números
     coincideixin, i que el comptador dels números se salta les activitats amagades.
   · Que l'adreça (?n=1&repte=1) obre el filtre posat, i que els botons l'hi escriuen.
-  · La barra: «Quantitat» i «Tipologia» a la mateixa línia, «Només com la fitxa» i «Afegir-hi
+  · La barra: «Quantitat» i «Tipologia» a la mateixa línia, cada una en un requadre i la
+    segona arraconada a la dreta, «Només com la fitxa» i «Afegir-hi
     reptes», sense recompte (7/11/2026).
   · Els botons «PDF alumnat» i «PDF solucionari», com a les altres pàgines de paper: obren
     el diàleg d'imprimir (aquí, window.print fals) amb el títol que serà el nom del fitxer.
@@ -119,9 +120,14 @@ def main():
             # curts i cap recompte.
             barra = pag.evaluate("""() => ({
               tops: [...document.querySelectorAll('.filtres .grup')].map(g => Math.round(g.getBoundingClientRect().top)),
+              dreta: Math.round(document.querySelector('.filtres .grups').getBoundingClientRect().right -
+                                [...document.querySelectorAll('.filtres .grup')].pop().getBoundingClientRect().right),
+              vora: getComputedStyle(document.querySelector('.filtres .grup')).borderTopStyle,
               textos: [...document.querySelectorAll('[data-filtre="repte"] button')].map(b => b.textContent.trim()),
               recompte: !!document.getElementById('recompte')})""")
             comprova(len(set(barra["tops"])) == 1, f"{nom}: «Quantitat» i «Tipologia» no són a la mateixa línia")
+            comprova(abs(barra["dreta"]) <= 1, f"{nom}: «Tipologia» no és arraconada a la dreta ({barra['dreta']} px)")
+            comprova(barra["vora"] == "solid", f"{nom}: cada categoria ha d'anar dins d'un requadre")
             comprova(barra["textos"] == ["Només com la fitxa", "Afegir-hi reptes"],
                      f"{nom}: els botons de la tipologia diuen {barra['textos']}")
             comprova(not barra["recompte"], f"{nom}: encara hi ha el recompte d'activitats i apartats")

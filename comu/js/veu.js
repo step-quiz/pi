@@ -35,7 +35,13 @@
      · Buttons, drawings, the «Exemple» labels and the «Inici» and «Final» of the
        progress rail are not read: only «Pas 2 de 5». A card title hidden because
        the bar already says it (class .repetit, see comu/js/tasca.js) is clipped,
-       not removed, so it is still read.
+       not removed, so it is still read. But it is MARKED ON THE BAR, where it is
+       seen (7/11/2026): the clipped title lies, invisible, on top of the
+       instruction, and the yellow band of the title was painted over the
+       instruction while the voice said the title; then the instruction started
+       and the band started again from its first word. It looked as if the reading
+       jumped back. Now its words are taken from the bar title (.sub-rotul, without
+       the number «1.1»), and if there is no bar, the title is said with no band.
      · Inputs and drop-downs (6/11/2026). If something is written or chosen, it is
        said in line, as if it were text: «El nombre √7 és entre 2 i 3» is said
        «El nombre l'arrel quadrada de 7 és entre 2 i 3». If they are empty (or the
@@ -114,6 +120,16 @@
   const visible = n => n.checkVisibility ? n.checkVisibility({ visibilityProperty: true })
                                          : n.getClientRects().length > 0;
 
+  const net = s => s.replace(/\s+/g, " ").trim();
+
+  /** The bar title that shows a clipped card title (.repetit): the visible .sub-rotul
+      with the same name. Null if there is none on screen. */
+  function rotulDe(h) {
+    const nom = net(h.textContent);
+    return Array.from(document.querySelectorAll(".sub-rotul"))
+      .find(r => visible(r) && net(r.dataset.nom ? r.dataset.nom.replace(/<[^>]+>/g, "") : "") === nom) || null;
+  }
+
   function blocs(targeta) {
     const llista = [];
     const del = new Map();
@@ -123,6 +139,21 @@
     }
     (function recorre(n) {
       for (const f of n.childNodes) {
+        // The clipped title: said, but marked on the bar title, where it is seen. Its words
+        // are the bar's text nodes, without the number in bold («1.1»).
+        if (f.nodeType === 1 && f.matches("h2.repetit")) {
+          const r = rotulDe(f);
+          if (r) {
+            const camina = m => { for (const x of m.childNodes) {
+              if (x.nodeType === 3) { if (x.data.trim()) afegeix(f, { node: x }); }
+              else if (x.nodeType === 1 && x.tagName !== "B" && !x.matches(NO_ES_LLEGEIX)) camina(x);
+            } };
+            camina(r);
+          } else {
+            for (const x of f.childNodes) if (x.nodeType === 3 && x.data.trim()) afegeix(f, { node: x, senseMarca: true });
+          }
+          continue;
+        }
         if (f.nodeType === 3) {
           if (f.data.trim()) afegeix(f.parentElement.closest(BLOC) || targeta, { node: f });
         } else if (f.nodeType === 1) {
@@ -184,7 +215,7 @@
         posa(diu(m[0]), r);
       }
     });
-    return { el: b.el, text, trossos };
+    return { el: b.el, text, trossos, senseMarca: b.peces.some(p => p.senseMarca) };
   }
 
   /* -------------------------------------------------------- the mark ---- */
@@ -310,7 +341,7 @@
       if (v) u.voice = v;
       u.rate = VELOCITAT; u.pitch = TO; u.volume = 1;
       u.onboundary = e => {
-        if (meva !== sessio || (e.name && e.name !== "word")) return;
+        if (meva !== sessio || bloc.senseMarca || (e.name && e.name !== "word")) return;
         const k = bloc.trossos.findIndex(x => e.charIndex < x.fi);
         if (k >= 0) omple(bloc, k, temps(bloc.text.slice(bloc.trossos[k].ini, bloc.trossos[k].fi)));
       };

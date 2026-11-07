@@ -19,6 +19,7 @@ closca de pantalla i les seves regles són a [`docs/SITE-MAP.md`](docs/SITE-MAP.
 | `js/veu.js` | La lectura en veu alta de cada targeta de les eines. El botó només surt amb una veu catalana. Des del 6/11/2026 |
 | `generadors/quadern.py` | El motor dels quaderns d'activitats de tots els cursos: les peces i la pàgina, amb els botons «PDF alumnat» i «PDF solucionari». El contingut és a `CURS/generadors/quadern/udN.py`; es passa amb `python3 CURS/generadors/gen_quadern.py [N]` |
 | `eines/quaderns.py` | Les regles dels quaderns (B/N, apartats, solucionari, botons, que surtin del generador). La criden els `comprova.py` dels cursos |
+| `eines/prova_veu.py` | Prova la lectura en veu alta de les eines dels dos cursos amb una veu falsa: la franja groga, paraula a paraula, ha de ser damunt del que es diu |
 | `eines/prova_quadern.py` | Prova el filtre i els botons de tots els quaderns en un navegador |
 | `eines/unitat.html` | La pàgina d'unitat de referència: tots els `CURS/uN/index.html` en són una còpia exacta |
 | `eines/mapa.py` | La prova del mapa del lloc. La criden els `comprova.py` dels cursos |

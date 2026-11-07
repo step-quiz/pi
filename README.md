@@ -183,6 +183,7 @@ Les proves que obren un navegador (Playwright) es passen a mà, abans de lliurar
 python3 1eso/eines/prova_caixa.py      # les eines de 1eso/, de punta a punta
 python3 4eso/eines/prova_caixa.py      # les eines de 4eso/
 python3 comu/eines/prova_quadern.py    # el filtre dels quaderns d'activitats de tots els cursos
+python3 comu/eines/prova_veu.py        # la lectura en veu alta de les eines (la franja groga)
 python3 comu/eines/prova_portada.py    # tot el mapa, clicat en un navegador: portada, cursos, unitats, paper i eines
 python3 1eso/eines/auditoria.py        # contrast, dianes i lletra al paper
 python3 4eso/eines/auditoria.py
