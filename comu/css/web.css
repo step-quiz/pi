@@ -155,8 +155,9 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
 .w-fitxes-llista li:last-child { border-bottom: 0; padding-bottom: 0 }
 .w-fitxes-llista .w-fn { font-weight: 500 }
 .w-fitxes-llista .w-fn span { color: var(--w-gris); font-weight: 600; margin-right: .35rem }
-.w-carta .w-fitxes-llista .w-accions { display: flex; width: 75% }
-.w-carta .w-fitxes-llista .w-accions .w-b { flex: 1 1 0; width: auto }
+/* On a narrow screen (a phone), each fitxa's three buttons go one under the other, like every other
+   card. Side by side they only fit on a wide page (the container query below). Until 7/11/2026 they
+   were always side by side, and on a phone «PDF solucionari» broke letter by letter. */
 /* The unit page (decision of 6/11/2026): a narrower column (15 % more margin each side on a
    laptop), one grid of three equal cards, a visible border, no icon in the card heading, the
    same pale blue on every hover in the cards («Copia l'enllaç», grey), «Abans de la classe» folded. */
@@ -166,7 +167,7 @@ body.w-pagina { margin: 0; background: var(--w-fons); color: var(--w-tinta);
 /* Several fitxes take a whole row: their buttons are as wide as a button of a column card. */
 .w-cartes { container-type: inline-size }
 @container (min-width: 46.8rem) {
-  .w-carta.w-tota .w-fitxes-llista .w-accions { width: auto }
+  .w-carta.w-tota .w-fitxes-llista .w-accions { display: flex; width: auto }
   .w-carta.w-tota .w-fitxes-llista .w-accions .w-b { flex: 0 0 calc(((100cqw - 1.8rem) / 3 - 2rem - 3px) * .75) }
 }
 .w-u .w-carta { border: 1.8px solid #8E929C }
