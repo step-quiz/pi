@@ -504,6 +504,7 @@ def genera(curs, num_u):
 <nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat {u.NUM}</a><script src="../../comu/js/paper.js"></script></nav>
 
 <div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
+  <div class="grups">
   <div class="grup">
     <b class="et" id="et-n">Quantitat d'exercicis?</b>
     <div class="botons" data-filtre="n" role="radiogroup" aria-labelledby="et-n">
@@ -515,11 +516,11 @@ def genera(curs, num_u):
   <div class="grup">
     <b class="et" id="et-repte">Tipologia d'exercicis?</b>
     <div class="botons" data-filtre="repte" role="radiogroup" aria-labelledby="et-repte">
-      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Semblants als de la fitxa</button>
-      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegint exercicis diferents que suposen un repte</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Només com la fitxa</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegir-hi reptes</button>
     </div>
   </div>
-  <p class="recompte" id="recompte" aria-live="polite"></p>
+  </div>
   <div class="botons">
     <button type="button" class="w-b w-pdf w-principal" id="pdf-alumnat">{ICONA_PDF}PDF alumnat</button>
     <button type="button" class="w-b w-pdf" id="pdf-solucionari">{ICONA_SOL}PDF solucionari</button>
@@ -542,7 +543,7 @@ def genera(curs, num_u):
   <div class="abans">
     <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
     per cada exercici de la fitxa ({nb} blocs), i la frase de sota del títol diu quin. Cada bloc té
-    una activitat com la de la fitxa i, si es tria «Afegint exercicis diferents que suposen un repte», una altra
+    una activitat com la de la fitxa i, si es tria «Afegir-hi reptes», una altra
     una mica diferent, amb estrella. A dalt de la pàgina es tria la quantitat d'exercicis de cada activitat: a) resolt i
     {PER_FER[1]} per fer (petita), {PER_FER[2]} (mitjana) o {PER_FER[3]} (alta). El nombre
     d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre

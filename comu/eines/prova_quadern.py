@@ -19,6 +19,8 @@ QUÈ COMPROVA
   · Que el solucionari amaga exactament les mateixes entrades, perquè els números
     coincideixin, i que el comptador dels números se salta les activitats amagades.
   · Que l'adreça (?n=1&repte=1) obre el filtre posat, i que els botons l'hi escriuen.
+  · La barra: «Quantitat» i «Tipologia» a la mateixa línia, «Només com la fitxa» i «Afegir-hi
+    reptes», sense recompte (7/11/2026).
   · Els botons «PDF alumnat» i «PDF solucionari», com a les altres pàgines de paper: obren
     el diàleg d'imprimir (aquí, window.print fals) amb el títol que serà el nom del fitxer.
   · A la impressió: el quadern no porta el solucionari, i «PDF solucionari» només porta el
@@ -64,7 +66,6 @@ ESTAT = r"""() => {
     comptador: getComputedStyle(document.querySelector('.alumnat')).counterReset +
       ' · ' + [...new Set(acts.map(e => getComputedStyle(e).counterIncrement))].join() +
       ' · ' + [...new Set([...document.querySelectorAll('.act[hidden]')].map(e => getComputedStyle(e).display))].join(),
-    text: document.getElementById('recompte').textContent,
     premuts: [...document.querySelectorAll('.filtres [aria-checked="true"]')].map(b => b.closest('[data-filtre]').dataset.filtre + '=' + b.dataset.valor),
   };
 }"""
@@ -96,8 +97,6 @@ def main():
                     dolentes = [l for l in e["lletres"] if l != bones]
                     comprova(not dolentes, f"{nom} n={n} repte={r}: apartats {dolentes[:2]} (han de ser {bones})")
                     comprova(e["lletresSol"] == e["lletres"], f"{nom} n={n} repte={r}: el solucionari no té els mateixos apartats")
-                    comprova(e["text"].startswith(f"{len(e['acts'])} activitats") and f"· {bones and len(bones) - 1} apartats a cada una" in e["text"],
-                             f"{nom}: el recompte diu «{e['text']}»")
                     comprova(sorted(e["premuts"]) == sorted([f"n={n}", f"repte={r}"]),
                              f"{nom}: l'adreça ?n={n}&repte={r} no marca els botons ({e['premuts']})")
             comprova(quants[1, 0] == quants[2, 0] == quants[3, 0], f"{nom}: el nombre d'activitats canvia amb la quantitat ({quants})")
@@ -106,7 +105,7 @@ def main():
             # Els botons: canvien el filtre i l'escriuen a l'adreça.
             pag.goto(url)
             comprova(sorted(pag.evaluate(ESTAT)["premuts"]) == ["n=2", "repte=0"],
-                     f"{nom}: sense paràmetres s'ha d'obrir a «Mitjana» i «Semblants als de la fitxa»")
+                     f"{nom}: sense paràmetres s'ha d'obrir a «Mitjana» i «Només com la fitxa»")
             pag.click('[data-filtre="n"] button[data-valor="3"]')
             pag.click('[data-filtre="repte"] button[data-valor="1"]')
             comprova(len(pag.evaluate(ESTAT)["acts"]) == quants[3, 1], f"{nom}: els botons no canvien el filtre")
@@ -115,6 +114,17 @@ def main():
             # Pantalla: el solucionari no es veu mai; només s'imprimeix (decisió S4, 6/11/2026).
             comprova(not pag.is_visible("#solucionari"), f"{nom}: el solucionari es veu a la pantalla")
             comprova(pag.query_selector("#mostra-sol") is None, f"{nom}: «Mostra el solucionari» ja no hi ha de ser")
+
+            # La barra del filtre (7/11/2026): les dues preguntes a la mateixa línia, els textos
+            # curts i cap recompte.
+            barra = pag.evaluate("""() => ({
+              tops: [...document.querySelectorAll('.filtres .grup')].map(g => Math.round(g.getBoundingClientRect().top)),
+              textos: [...document.querySelectorAll('[data-filtre="repte"] button')].map(b => b.textContent.trim()),
+              recompte: !!document.getElementById('recompte')})""")
+            comprova(len(set(barra["tops"])) == 1, f"{nom}: «Quantitat» i «Tipologia» no són a la mateixa línia")
+            comprova(barra["textos"] == ["Només com la fitxa", "Afegir-hi reptes"],
+                     f"{nom}: els botons de la tipologia diuen {barra['textos']}")
+            comprova(not barra["recompte"], f"{nom}: encara hi ha el recompte d'activitats i apartats")
 
             # Els botons dels PDF: el mateix text que a les altres pàgines de paper. Obren el
             # diàleg d'imprimir (aquí, fals) amb el títol que el navegador proposarà com a nom.

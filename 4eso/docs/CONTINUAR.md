@@ -252,6 +252,16 @@ Canvis de pantalla encarregats pel docent, als dos cursos (`css/tokens.css`, `cs
   s'apliquen a cap bloc del PDF; per això `empremtes.json` s'ha tornat a calcular i els PDF no
   s'han refet.
 
+## 10h. 7/11/2026: la barra del filtre dels quaderns, més curta
+
+- «Quantitat d'exercicis?» i «Tipologia d'exercicis?» a la mateixa línia (al mòbil, una sota
+  l'altra); «Només com la fitxa» i «Afegir-hi reptes» en lloc dels textos llargs; fora el
+  recompte «N activitats · N apartats a cada una». Tot al motor comú (comu/generadors/quadern.py,
+  comu/css/quadern.css, comu/js/quadern.js): val per a tots els quaderns. La prova del navegador
+  (comu/eines/prova_quadern.py) ho comprova.
+- Pàgina de la unitat, al mòbil: els tres botons de cada fitxa (quan n'hi ha diverses) van un sota
+  l'altre; de costat només a l'ordinador (comu/css/web.css).
+
 ## 10g. 6/11/2026: els quaderns de la UD1 i la UD2
 
 - `u1/quadern.html` (`generadors/quadern/ud1.py`, 7 blocs) i `u2/quadern.html` (`ud2.py`, 7 blocs),

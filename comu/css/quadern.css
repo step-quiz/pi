@@ -134,8 +134,8 @@ svg.planol, svg.real-cm { max-width: 100%; margin: .3rem auto .4rem }
    ratolí i el tick del que està triat. Aquí només hi ha la disposició (6/11/2026). */
 .filtres .et { display: block; font-weight: 600; margin-bottom: .45rem }
 .filtres .botons { display: flex; flex-wrap: wrap; gap: .54rem }
-.recompte { margin: 0; color: var(--gris-2); font-variant-numeric: tabular-nums }
-.recompte:empty { display: none }
+/* Les dues preguntes, a la mateixa línia; si no hi caben (un mòbil), una sota l'altra (7/11/2026). */
+.filtres .grups { display: flex; flex-wrap: wrap; gap: 1.08rem 2.2rem }
 
 /* ---------------------------------------------------------- impressió -- */
 

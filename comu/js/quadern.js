@@ -5,8 +5,8 @@
      data-n="1|2|3"  a cada apartat (i a cada secció amb un dibuix): a partir de quina
                      quantitat surt. Petita deixa l'a) i 3 apartats per fer, mitjana 6 i
                      alta 12. El nombre d'activitats no canvia.
-     data-repte      a les activitats de repte (.act i .sol-act): només amb «Afegint
-                     exercicis diferents que suposen un repte».
+     data-repte      a les activitats de repte (.act i .sol-act): només amb «Afegir-hi
+                     reptes».
    Els apartats que s'amaguen sempre són els últims, i les lletres queden seguides. Els
    números de les activitats són comptadors CSS (comu/css/quadern.css), que se salten les
    activitats amagades.
@@ -47,19 +47,12 @@
     const n = Number(estat.n), ambRepte = estat.repte === "1";
     document.querySelectorAll("[data-n]").forEach(el => { el.hidden = Number(el.dataset.n) > n; });
     document.querySelectorAll(".act[data-repte], .sol-act[data-repte]").forEach(el => { el.hidden = !ambRepte; });
-    const vistes = document.querySelectorAll(".act:not([hidden])").length;
-    const reptes = document.querySelectorAll(".act[data-repte]:not([hidden])").length;
-    const primera = document.querySelector(".act");
-    const perFer = primera ? primera.querySelectorAll(".ap:not([hidden])").length - 1 : 0;
     document.body.classList.toggle("amb-repte", ambRepte);
     document.querySelectorAll(".filtres [data-filtre]").forEach(grup => {
       grup.querySelectorAll("button").forEach(b => {
         b.setAttribute("aria-checked", String(b.dataset.valor === estat[grup.dataset.filtre]));
       });
     });
-    const r = document.getElementById("recompte");
-    if (r) r.textContent = vistes + " activitats" + (reptes ? " (" + reptes + " de repte)" : "") +
-      " · " + perFer + " apartats a cada una";
   }
 
   let titol = null;
