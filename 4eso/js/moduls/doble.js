@@ -4,8 +4,8 @@
   "use strict";
   const { $, $$, num, fix, euros, el, icona, pastilles, memoria } = CE;
 
-  /* Un sol dibuix per a quatre unitats: percentatges (U2), escales (U3),
-     probabilitat (U7) i, si la balança de la U4 no agafa, equacions (x i x + 3).
+  /* Un sol dibuix per a cinc unitats: percentatges (U2), escales (U3),
+     probabilitat (U7), ombra i alçada (U8, el mateix cas que l'exercici 3 de la fitxa) i, si la balança de la U4 no agafa, equacions (x i x + 3).
      Dues magnituds que van juntes, alineades, i el punt es mou a totes dues alhora.
      És el model que torna al llarg del curs (docs/CRITERIS-DISSENY.md, regla 10).
      minA i minB (0 si no hi són): on comença cada recta. Amb l'equació, la de baix
@@ -34,6 +34,11 @@
       nomB: "probabilitat",        maxB: 100, unB: " %", decB: 1,
       passos: 6, marques: 6, inici: 3,                   // 3 de 6 → 50 %
       simbolic: (a, b) => num(a, 0) + " ÷ 6 = " + num(b / 100, 3) + " → " + num(b, 1) + " %" },
+    { et: "Ombra i alçada", unitats: [8],
+      nomA: "metres d'ombra", maxA: 12, unA: " m", decA: 1,
+      nomB: "metres d'alçada", maxB: 8, unB: " m", decB: 1,
+      passos: 12, marques: 4, inici: 3,                  // el pal: 3 m d'ombra → 2 m d'alçada
+      simbolic: (a, b) => num(a, 1) + " × 2 ÷ 3 = " + num(b, 1) + " m d'alçada" },
     { et: "Equació x + 3 = 7", unitats: [4],
       nomA: "x",     minA: 0, maxA: 8,  unA: "", decA: 0,
       nomB: "x + 3", minB: 3, maxB: 11, unB: "", decB: 0,

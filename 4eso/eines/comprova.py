@@ -96,7 +96,8 @@ for f in FITXES:
     if re.fullmatch(r'u\d+/fitxa\.html', nom):
         # La pàgina de la vida de cada dia: un context real i una segona situació
         # amb la mateixa decisió, perquè el que s'aprèn no es quedi lligat a un cas.
-        # Una per fitxa; la u8 en té dues, una per part (Semblança i Pitàgores, separades del tot).
+        # Una per fitxa; la u8 en té dues, una per part (Semblança i Pitàgores, dues sessions):
+        # excepció documentada a docs/CRITERIS-DISSENY.md, regla 9.
         n_vida = 2 if nom == 'u8/fitxa.html' else 1
         comprova(s.count('class="full vida"') == n_vida, f"{nom}: falta la pàgina «A la vida de cada dia»")
     else:

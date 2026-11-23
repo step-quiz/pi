@@ -109,20 +109,21 @@ window.UNITATS = [
     dates: "13 de maig – 10 de juny", sessions: 10,
     objectiu: "Comptar amb arbre, calcular amb Laplace i entendre per què la casa guanya.",
     material: "un dau i una moneda",
-    trencada: "",
+    trencada: "Ex. 4c · una cara i una creu val el doble que dues cares",
     moduls: ["doble", "atzar"], tasques: [2, 9, 0], llibre: "llibre · unitat 9",
     repas_main: "full 12 · espais_mostrals, laplace", evitar: "probabilitat_composta, condicionada"
   },
   {
     /* U8 · afegida després de les 7 SA de la programació: adapta la UD4 del llibre (activitats 4.1–4.4).
-       No té data a la programació; dates i sessions són una proposta que el docent pot canviar.
-       Encara no té repàs, quadern, eina pròpia ni blocs de repas-main triats. */
+       No té data a la programació; les dates són una proposta que el docent pot canviar.
+       Dues sessions: Part 1 · Semblança i Part 2 · Pitàgores. A les eines, la doble recta amb
+       l'exemple «Ombra i alçada». Encara no té repàs, quadern ni blocs de repas-main triats. */
     num: 8, titol: "Mesura indirecta", fitxes: [{ fitxa: "u8/fitxa.html", titol: "Com fa d'alt, si no hi arribo?" }],
-    dates: "per decidir", sessions: 4,
+    dates: "per decidir", sessions: 2,
     objectiu: "Mesurar una altura amb l'ombra d'un pal i una distància amb Pitàgores, i triar quin camí cal.",
     material: "una escombra i una cinta mètrica, al pati amb sol",
-    trencada: "Ex. 4 · l'ombra del pal ha de ser de la mateixa hora que la de l'arbre: amb l'altra surt 4 m i no 12 m",
-    moduls: [], tasques: [0], llibre: "llibre · unitat 4",
+    trencada: "Ex. 4 · les ombres no es resten: l'arbre no fa 12 − 3 = 9 m més que el pal; l'ombra del pal hi cap 4 vegades, i l'alçada també",
+    moduls: ["doble"], tasques: [2, 0], llibre: "llibre · unitat 4",
     repas_main: "pendent de triar", evitar: ""
   }
 ];
