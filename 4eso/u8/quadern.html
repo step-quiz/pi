@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 8 · Quadern d'activitats</title>
+<!--
+  Quadern d'activitats · Unitat 8 (Mesura indirecta)
+  NO S'EDITA A MÀ. El fa comu/generadors/quadern.py a partir de 4eso/generadors/quadern/ud8.py.
+
+  Activitats per practicar després de la fitxa, amb els mateixos criteris que la fitxa
+  (docs/CRITERIS-DISSENY.md): blanc i negre, cap paràgraf, 14 pt cap amunt i el
+  primer apartat de cada activitat resolt en lletra manuscrita.
+
+  El filtre de dalt (només a la pantalla) tria quants apartats té cada activitat i si
+  hi ha activitats de repte. «PDF alumnat» i «PDF solucionari» obren el diàleg d'imprimir
+  amb el filtre posat (A4, «Desa com a PDF», amb «Gràfics de fons» activat). Ctrl+P
+  imprimeix les activitats, mai el solucionari.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+<link rel="stylesheet" href="../../comu/css/quadern.css">
+<style>@page { @bottom-left { content: "Quadern d'activitats · Unitat 8" } }</style>
+</head>
+<body class="amb-repte">
+
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat 8</a><script src="../../comu/js/paper.js"></script></nav>
+
+<div class="filtres no-imprimir" role="region" aria-label="Tria les activitats">
+  <div class="grups">
+  <div class="grup">
+    <b class="et" id="et-n">Quantitat d'exercicis?</b>
+    <div class="botons" data-filtre="n" role="radiogroup" aria-labelledby="et-n">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Petita</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="2" aria-checked="true">Mitjana</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="3" aria-checked="false">Alta</button>
+    </div>
+  </div>
+  <div class="grup">
+    <b class="et" id="et-repte">Tipologia d'exercicis?</b>
+    <div class="botons" data-filtre="repte" role="radiogroup" aria-labelledby="et-repte">
+      <button type="button" class="w-b w-nav" role="radio" data-valor="0" aria-checked="true">Només com la fitxa</button>
+      <button type="button" class="w-b w-nav" role="radio" data-valor="1" aria-checked="false">Afegir-hi reptes</button>
+    </div>
+  </div>
+  </div>
+  <div class="botons">
+    <button type="button" class="w-b w-pdf w-principal" id="pdf-alumnat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PDF alumnat</button>
+    <button type="button" class="w-b w-pdf" id="pdf-solucionari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M9 13l2 2 4-4"/></svg>PDF solucionari</button>
+  </div>
+</div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5"><path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/></g>
+  </symbol>
+  <symbol id="i-llapis" viewBox="0 0 48 48">
+    <path d="M8 40l3-11L33 7l8 8-22 22z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 12l8 8M11 29l8 8" stroke="#000" stroke-width="3"/>
+  </symbol>
+  <symbol id="i-repte" viewBox="0 0 48 48">
+    <path d="M24 4l5.9 12.6 13.8 1.7-10.2 9.5 2.7 13.7L24 34.8l-12.2 6.7 2.7-13.7L4.3 18.3l13.8-1.7z"
+      fill="#fff" stroke="#000" stroke-width="3.2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<main class="quadern alumnat">
+  <h1>Quadern d'activitats</h1>
+  <p class="subtitol-q">Unitat 8 · Mesura indirecta</p>
+  <p class="nom">Nom: <span></span></p>
+  <p class="llegenda"><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg> Un pas més.</p>
+
+<section class="bloc">
+  <h2>La taula i el producte en creu</h2>
+  <p class="mira">Com l'exercici 1 de la fitxa, a la pàgina 4.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Troba l'alçada de cada objecte amb el producte en creu.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Objecte</th><th style="width:20%">Pal (ombra · alçada)</th><th style="width:12%">Ombra</th><th style="width:26%">Resolem</th><th style="width:14%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">Arbre</td><td class="ms">3 m · 2 m</td><td class="ms">12 m</td><td class="ms">3 · x = 2 · 12 = 24</td><td class="ms">8 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">Fanal</td><td class="dada">2 m · 1 m</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">Edifici</td><td class="dada">4 m · 3 m</td><td class="dada">12 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">Campanar</td><td class="dada">5 m · 2 m</td><td class="dada">20 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">Porteria</td><td class="dada">2 m · 1 m</td><td class="dada">4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">Tanca</td><td class="dada">3 m · 1 m</td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">Grua</td><td class="dada">4 m · 1 m</td><td class="dada">40 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">Torre</td><td class="dada">3 m · 2 m</td><td class="dada">18 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">Antena</td><td class="dada">5 m · 3 m</td><td class="dada">25 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">Xemeneia</td><td class="dada">2 m · 3 m</td><td class="dada">8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">Font</td><td class="dada">4 m · 5 m</td><td class="dada">4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">Palmera</td><td class="dada">6 m · 4 m</td><td class="dada">15 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">Cartell</td><td class="dada">5 m · 4 m</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Ara la x és l'alçada del pal: troba-la amb el producte en creu.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:30%">Objecte (ombra · alçada)</th><th style="width:14%">Ombra del pal</th><th style="width:28%">Resolem</th><th style="width:16%">Alçada del pal</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Arbre: 12 m · 8 m</td><td class="ms">3 m</td><td class="ms">12 · x = 8 · 3 = 24</td><td class="ms">2 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Edifici: 20 m · 15 m</td><td class="dada">2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Fanal: 10 m · 5 m</td><td class="dada">4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">Torre: 18 m · 12 m</td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Campanar: 30 m · 20 m</td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Grua: 40 m · 10 m</td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Antena: 25 m · 15 m</td><td class="dada">5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Palmera: 15 m · 10 m</td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Xemeneia: 8 m · 12 m</td><td class="dada">2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Cartell: 10 m · 8 m</td><td class="dada">5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Porteria: 4 m · 2 m</td><td class="dada">2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">Tanca: 6 m · 2 m</td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Font: 4 m · 5 m</td><td class="dada">4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Amb la calculadora</h2>
+  <p class="mira">Com l'exercici 2 de la fitxa, a la pàgina 6.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Troba l'alçada de cada objecte amb la calculadora.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:16%">Objecte</th><th style="width:20%">Pal (ombra · alçada)</th><th style="width:12%">Ombra</th><th style="width:26%">Resolem</th><th style="width:14%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">Torre</td><td class="ms">4 m · 3 m</td><td class="ms">36 m</td><td class="ms">4 · x = 3 · 36 = 108</td><td class="ms">27 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">Porteria</td><td class="dada">2 m · 1,5 m</td><td class="dada">3,2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">Cartell</td><td class="dada">3 m · 2 m</td><td class="dada">4,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">Xemeneia</td><td class="dada">1,5 m · 1 m</td><td class="dada">24 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">Fanal</td><td class="dada">2 m · 1,5 m</td><td class="dada">8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">Arbre</td><td class="dada">1,2 m · 0,8 m</td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">Cistella</td><td class="dada">2 m · 1,6 m</td><td class="dada">3,75 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">Edifici</td><td class="dada">2,5 m · 1 m</td><td class="dada">30 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">Pi</td><td class="dada">0,8 m · 1,2 m</td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">Torre</td><td class="dada">1,5 m · 2 m</td><td class="dada">13,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">Antena</td><td class="dada">2 m · 1,5 m</td><td class="dada">5,2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">Grua</td><td class="dada">3 m · 1,8 m</td><td class="dada">25 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">Palmera</td><td class="dada">1,6 m · 1,2 m</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula l'alçada de cada edifici i quants pisos de 3 m té.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">Edifici</th><th style="width:20%">Pal (ombra · alçada)</th><th style="width:14%">Ombra</th><th style="width:14%">Alçada</th><th style="width:20%">Pisos</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">Institut</td><td class="ms">2 m · 1,5 m</td><td class="ms">20 m</td><td class="ms">15 m</td><td class="ms">15 ÷ 3 = 5</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">Biblioteca</td><td class="dada">4 m · 3 m</td><td class="dada">16 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">Hotel</td><td class="dada">3 m · 2 m</td><td class="dada">27 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">Casa</td><td class="dada">2 m · 1 m</td><td class="dada">12 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">Escola</td><td class="dada">5 m · 3 m</td><td class="dada">15 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">Hospital</td><td class="dada">1,5 m · 1 m</td><td class="dada">31,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">Ajuntament</td><td class="dada">2 m · 1,5 m</td><td class="dada">32 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">Oficines</td><td class="dada">4 m · 3 m</td><td class="dada">36 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">Torre de pisos</td><td class="dada">3 m · 2 m</td><td class="dada">45 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">Mercat</td><td class="dada">2,5 m · 1,5 m</td><td class="dada">15 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">Museu</td><td class="dada">1 m · 1,2 m</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">Estació</td><td class="dada">2 m · 3 m</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">Teatre</td><td class="dada">0,5 m · 0,6 m</td><td class="dada">15 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>La doble recta</h2>
+  <p class="mira">Com l'exercici 3 de la fitxa, a la pàgina 8.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Baixa la vertical i escriu l'alçada que va amb cada ombra.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Un pal de 2 m fa una ombra de 3 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><text x="396.4" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">9</text><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><text x="469.2" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">12</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">15</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Ombra</th><th style="width:44%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">6 m</td><td class="ms">4 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">9 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">12 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">15 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="2">
+    <p class="nota-act">Un pal d'1 m fa una ombra de 2 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="60.7" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="238.7" y1="46" x2="238.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="299.3" y1="46" x2="299.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="360.0" y1="46" x2="360.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="420.7" y1="46" x2="420.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="481.3" y1="46" x2="481.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="39" x2="238.7" y2="53" stroke="#000" stroke-width="2"/><text x="238.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="299.3" y1="39" x2="299.3" y2="53" stroke="#000" stroke-width="2"/><text x="299.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="360.0" y1="39" x2="360.0" y2="53" stroke="#000" stroke-width="2"/><text x="360.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="420.7" y1="39" x2="420.7" y2="53" stroke="#000" stroke-width="2"/><text x="420.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">8</text><line x1="481.3" y1="39" x2="481.3" y2="53" stroke="#000" stroke-width="2"/><text x="481.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">10</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">12</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="89" x2="238.7" y2="103" stroke="#000" stroke-width="2"/><text x="238.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="299.3" y1="89" x2="299.3" y2="103" stroke="#000" stroke-width="2"/><text x="299.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="360.0" y1="89" x2="360.0" y2="103" stroke="#000" stroke-width="2"/><line x1="420.7" y1="89" x2="420.7" y2="103" stroke="#000" stroke-width="2"/><line x1="481.3" y1="89" x2="481.3" y2="103" stroke="#000" stroke-width="2"/><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Ombra</th><th style="width:44%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">8 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">12 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Un pal de 3 m fa una ombra de 4 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">8</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><text x="396.4" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">12</text><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><text x="469.2" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">16</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">20</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Ombra</th><th style="width:44%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">8 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">12 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">20 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Un pal de 2 m fa una ombra de 5 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">10</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><text x="396.4" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">15</text><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><text x="469.2" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">20</text><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><text x="542.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">25</text><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Ombra</th><th style="width:44%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">10 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">15 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">25 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Puja la vertical i escriu l'ombra que va amb cada alçada.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Un pal de 2 m fa una ombra de 3 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><text x="396.4" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><text x="469.2" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">8</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">10</text></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Alçada</th><th style="width:44%">Ombra</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">4 m</td><td class="ms">6 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">8 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">5 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">10 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="2">
+    <p class="nota-act">Un pal d'1 m fa una ombra de 2 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="60.7" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="238.7" y1="46" x2="238.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="299.3" y1="46" x2="299.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="360.0" y1="46" x2="360.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="420.7" y1="46" x2="420.7" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="481.3" y1="46" x2="481.3" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="39" x2="238.7" y2="53" stroke="#000" stroke-width="2"/><text x="238.7" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="299.3" y1="39" x2="299.3" y2="53" stroke="#000" stroke-width="2"/><text x="299.3" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="360.0" y1="39" x2="360.0" y2="53" stroke="#000" stroke-width="2"/><line x1="420.7" y1="39" x2="420.7" y2="53" stroke="#000" stroke-width="2"/><line x1="481.3" y1="39" x2="481.3" y2="53" stroke="#000" stroke-width="2"/><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="238.7" y1="89" x2="238.7" y2="103" stroke="#000" stroke-width="2"/><text x="238.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">1</text><line x1="299.3" y1="89" x2="299.3" y2="103" stroke="#000" stroke-width="2"/><text x="299.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="360.0" y1="89" x2="360.0" y2="103" stroke="#000" stroke-width="2"/><text x="360.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="420.7" y1="89" x2="420.7" y2="103" stroke="#000" stroke-width="2"/><text x="420.7" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="481.3" y1="89" x2="481.3" y2="103" stroke="#000" stroke-width="2"/><text x="481.3" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Alçada</th><th style="width:44%">Ombra</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">3 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">5 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">2,5 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Un pal de 3 m fa una ombra de 4 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">8</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><text x="396.4" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">9</text><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><text x="469.2" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">12</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">15</text></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Alçada</th><th style="width:44%">Ombra</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">12 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">4,5 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">Un pal de 2 m fa una ombra de 5 m.</p>
+    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/><rect x="178.0" y="46" width="72.8" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178.0" y1="46" x2="178.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="250.8" y1="46" x2="250.8" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="323.6" y1="46" x2="323.6" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="396.4" y1="46" x2="396.4" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="469.2" y1="46" x2="469.2" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542.0" y1="46" x2="542.0" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="39" x2="178.0" y2="53" stroke="#000" stroke-width="2"/><text x="178.0" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="39" x2="250.8" y2="53" stroke="#000" stroke-width="2"/><text x="250.8" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">5</text><line x1="323.6" y1="39" x2="323.6" y2="53" stroke="#000" stroke-width="2"/><text x="323.6" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">10</text><line x1="396.4" y1="39" x2="396.4" y2="53" stroke="#000" stroke-width="2"/><line x1="469.2" y1="39" x2="469.2" y2="53" stroke="#000" stroke-width="2"/><line x1="542.0" y1="39" x2="542.0" y2="53" stroke="#000" stroke-width="2"/><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178.0" y1="89" x2="178.0" y2="103" stroke="#000" stroke-width="2"/><text x="178.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="250.8" y1="89" x2="250.8" y2="103" stroke="#000" stroke-width="2"/><text x="250.8" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="323.6" y1="89" x2="323.6" y2="103" stroke="#000" stroke-width="2"/><text x="323.6" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="396.4" y1="89" x2="396.4" y2="103" stroke="#000" stroke-width="2"/><text x="396.4" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="469.2" y1="89" x2="469.2" y2="103" stroke="#000" stroke-width="2"/><text x="469.2" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">8</text><line x1="542.0" y1="89" x2="542.0" y2="103" stroke="#000" stroke-width="2"/><text x="542.0" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">10</text></svg></div>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Alçada</th><th style="width:44%">Ombra</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">3 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">9 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Les ombres no es resten</h2>
+  <p class="mira">Com l'exercici 4 de la fitxa, a la pàgina 9.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Compta quantes vegades hi cap l'ombra del pal i calcula l'alçada de l'objecte.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:24%">Ombres (pal · objecte)</th><th style="width:20%">Hi cap</th><th style="width:18%">Alçada del pal</th><th style="width:26%">Alçada de l'objecte</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">3 m · 12 m</td><td class="ms">12 ÷ 3 = 4</td><td class="ms">2 m</td><td class="ms">2 · 4 = 8 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">2 m · 10 m</td><td class="omplir"></td><td class="dada">1 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">4 m · 12 m</td><td class="omplir"></td><td class="dada">3 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">5 m · 20 m</td><td class="omplir"></td><td class="dada">2 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">2 m · 8 m</td><td class="omplir"></td><td class="dada">1,5 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">3 m · 15 m</td><td class="omplir"></td><td class="dada">1 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">2 m · 14 m</td><td class="omplir"></td><td class="dada">1 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">4 m · 20 m</td><td class="omplir"></td><td class="dada">1,5 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">3 m · 9 m</td><td class="omplir"></td><td class="dada">2 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">5 m · 30 m</td><td class="omplir"></td><td class="dada">1 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">2 m · 12 m</td><td class="omplir"></td><td class="dada">2 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">6 m · 24 m</td><td class="omplir"></td><td class="dada">1,5 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">1 m · 8 m</td><td class="omplir"></td><td class="dada">1,2 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Marca si té raó qui ho diu.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> Pal de 2 m amb 3 m d'ombra; l'arbre fa 12 m d'ombra. «L'arbre fa 12 − 3 = 9 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> Pal de 2 m amb 3 m d'ombra; l'arbre fa 12 m d'ombra. «L'arbre fa 2 · 4 = 8 m.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> Pal de 1 m amb 2 m d'ombra; l'arbre fa 10 m d'ombra. «L'arbre fa 10 − 2 = 8 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> Pal de 3 m amb 4 m d'ombra; l'arbre fa 12 m d'ombra. «L'arbre fa 3 · 3 = 9 m.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> Pal de 2 m amb 5 m d'ombra; l'arbre fa 20 m d'ombra. «L'arbre fa 20 − 5 = 15 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> Pal de 1 m amb 3 m d'ombra; l'arbre fa 15 m d'ombra. «L'arbre fa 1 · 5 = 5 m.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> Pal de 1,5 m amb 2 m d'ombra; l'arbre fa 8 m d'ombra. «L'arbre fa 8 − 2 = 6 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> Pal de 1 m amb 2 m d'ombra; l'arbre fa 14 m d'ombra. «L'arbre fa 1 · 7 = 7 m.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> Pal de 2 m amb 3 m d'ombra; l'arbre fa 9 m d'ombra. «L'arbre fa 9 − 3 = 6 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> Pal de 2 m amb 4 m d'ombra; l'arbre fa 16 m d'ombra. «L'arbre fa 2 · 4 = 8 m.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> Pal de 1 m amb 5 m d'ombra; l'arbre fa 30 m d'ombra. «L'arbre fa 30 − 5 = 25 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> Pal de 1,5 m amb 6 m d'ombra; l'arbre fa 24 m d'ombra. «L'arbre fa 1,5 · 4 = 6 m.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> Pal de 2 m amb 2 m d'ombra; l'arbre fa 12 m d'ombra. «L'arbre fa 12 − 2 = 10 m més que el pal.»</div><div class="tria"><label><span class="quadret"></span>Té raó</label><label><span class="quadret"></span>No té raó</label></div></div>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>A la vida de cada dia · l'escombra</h2>
+  <p class="mira">Com l'exercici 5 de la fitxa, a la pàgina 10.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula l'alçada de cada cosa del pati amb l'ombra de l'escombra.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">A les 10 h, l'escombra (1,5 m) fa una ombra de 2 m.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">Què és</th><th style="width:14%">Ombra</th><th style="width:36%">Resolem</th><th style="width:18%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">Edifici</td><td class="ms">20 m</td><td class="ms">2 · x = 1,5 · 20 = 30</td><td class="ms">15 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">Porteria</td><td class="dada">3,2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">Arbre</td><td class="dada">8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">Fanal</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="2">
+    <p class="nota-act">A les 12 h, l'escombra fa una ombra d'1 m.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">Què és</th><th style="width:14%">Ombra</th><th style="width:36%">Resolem</th><th style="width:18%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">Edifici</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">Porteria</td><td class="dada">1,6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">Arbre</td><td class="dada">4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">A les 17 h, l'escombra fa una ombra de 3 m.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">Què és</th><th style="width:14%">Ombra</th><th style="width:36%">Resolem</th><th style="width:18%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">Edifici</td><td class="dada">30 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">Arbre</td><td class="dada">12 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">Cistella</td><td class="dada">6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="seccio" data-n="3">
+    <p class="nota-act">A les 13 h, l'escombra fa una ombra de 0,5 m.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">Què és</th><th style="width:14%">Ombra</th><th style="width:36%">Resolem</th><th style="width:18%">Alçada</th></tr></thead>
+      <tbody>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">Edifici</td><td class="dada">5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">Fanal</td><td class="dada">2,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">Porteria</td><td class="dada">0,8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quina ombra fa cada cosa al costat del fanal.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Un fanal de 6 m fa una ombra de 9 m.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:24%">Què és</th><th style="width:14%">Alçada</th><th style="width:34%">Resolem</th><th style="width:16%">Ombra</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">La teva amiga</td><td class="ms">1,6 m</td><td class="ms">6 · x = 9 · 1,6 = 14,4</td><td class="ms">2,4 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Un gos</td><td class="dada">0,4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Una bicicleta</td><td class="dada">1 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">Un nen</td><td class="dada">1,2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">La porteria</td><td class="dada">2,4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Un arbre</td><td class="dada">8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">La tanca</td><td class="dada">2 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">La cistella</td><td class="dada">3 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Una furgoneta</td><td class="dada">2,6 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">L'escombra</td><td class="dada">1,5 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Un cartell</td><td class="dada">4 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">El professor</td><td class="dada">1,8 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Una palmera</td><td class="dada">10 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Pitàgores amb la taula</h2>
+  <p class="mira">Com l'exercici 6 de la fitxa, a la pàgina 12.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula el costat llarg a amb a² = b² + c².
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">b i c</th><th style="width:26%">b² + c²</th><th style="width:20%">a²</th><th style="width:22%">a</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">3 i 4</td><td class="ms">9 + 16</td><td class="ms">25</td><td class="ms">5</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">6 i 8</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">5 i 12</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">9 i 12</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">12 i 16</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">8 i 15</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">15 i 20</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">7 i 24</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">10 i 24</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">20 i 21</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">12 i 35</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">9 i 40</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">16 i 30</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula el costat llarg a i arrodoneix-lo a les dècimes.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:20%">b i c</th><th style="width:24%">b² + c²</th><th style="width:18%">a²</th><th style="width:26%">a</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">2 i 3</td><td class="ms">4 + 9</td><td class="ms">13</td><td class="ms">√13 ≈ 3,6</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">1 i 2</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">1 i 3</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">2 i 4</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">3 i 5</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">4 i 5</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">2 i 5</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">3 i 7</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">5 i 6</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">4 i 7</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">6 i 7</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">1 i 5</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">5 i 8</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Els casos</h2>
+  <p class="mira">Com l'exercici 7 de la fitxa, a la pàgina 12.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula a, el costat llarg, de cada cas.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:44%">Cas</th><th style="width:26%">b i c</th><th style="width:18%">a</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Cable d'una tirolina</td><td class="ms">8 m i 15 m</td><td class="ms">17 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Cable d'una antena</td><td class="dada">15 m i 20 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Diagonal d'una pantalla</td><td class="dada">30 cm i 40 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">Rampa del pàrquing</td><td class="dada">7 m i 24 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Diagonal d'un mòbil</td><td class="dada">6 cm i 8 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Diagonal d'un camp</td><td class="dada">30 m i 40 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Cable d'un pal de la llum</td><td class="dada">9 m i 12 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Diagonal d'una tauleta</td><td class="dada">12 cm i 16 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Corda d'una tenda</td><td class="dada">1,2 m i 1,6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Diagonal d'una rajola</td><td class="dada">15 cm i 20 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Cable d'un fanal</td><td class="dada">5 m i 12 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">Diagonal d'un llibre</td><td class="dada">21 cm i 28 cm</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Tobogan</td><td class="dada">2,4 m i 3,2 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Troba b i c a cada frase i calcula el costat llarg a.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:46%">Cas</th><th style="width:14%">b</th><th style="width:14%">c</th><th style="width:14%">a</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Una tirolina: una torre de 12 m, fins a 35 m del peu</td><td class="ms">12 m</td><td class="ms">35 m</td><td class="ms">37 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Una antena de 16 m, amb un cable clavat a 12 m del peu</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Una rampa que puja 0,7 m en 2,4 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">La diagonal d'un camp de 60 m per 80 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Una pantalla de 36 cm per 48 cm</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">Un pal de 6 m, amb un cable clavat a 8 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Una tirolina: una torre de 9 m, fins a 40 m del peu</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Un mòbil de 9 cm per 12 cm</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Una rampa que puja 1,5 m en 2 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Una finestra de 0,9 m per 1,2 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Un solar de 20 m per 21 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">Un pal de 15 m, amb un cable clavat a 8 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Una tauleta de 18 cm per 24 cm</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>Ombra o triangle?</h2>
+  <p class="mira">Com l'exercici 8 de la fitxa, a la pàgina 13.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Marca el camí per calcular-ho: ombra o triangle.</div></div>
+    <div class="seccio" data-n="1">
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">a)</span> L'alçada d'un arbre, un dia de sol.</div><div class="tria"><label style="border-width:3px;border-color:var(--tinta)"><span class="quadret"><svg viewBox="0 0 24 24" style="position:absolute;left:-3px;top:-6px;width:26px;height:26px"><path d="M4 13l5 6L21 3" fill="none" stroke="#3A3A3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">b)</span> El cable d'una tirolina, d'una torre de 12 m fins a 35 m.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">c)</span> L'alçada d'un fanal, amb una escombra al costat.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="1"><div class="text"><span class="apartat">d)</span> La diagonal d'un camp de 40 m per 30 m.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">e)</span> L'alçada del campanar del poble, al migdia.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">f)</span> La diagonal d'una pantalla de 30 cm per 40 cm.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="2"><div class="text"><span class="apartat">g)</span> L'alçada d'una grua, amb un pal d'1 m al costat.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">h)</span> Una rampa que puja 2 m en 5 m: quant fa de llarg?</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">i)</span> L'alçada de l'institut, amb la teva ombra.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">j)</span> El cable d'una antena de 15 m, clavat a 20 m.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">k)</span> L'alçada d'una palmera, a la tarda.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">l)</span> La diagonal d'una bassa que pots vorejar.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    <div class="ap tria-linia" data-n="3"><div class="text"><span class="apartat">m)</span> L'alçada d'una xemeneia, amb un pal i el sol.</div><div class="tria"><label><span class="quadret"></span>Ombra</label><label><span class="quadret"></span>Triangle</label></div></div>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Tria el camí i calcula-ho.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:56%">Què vull saber</th><th style="width:16%">Camí</th><th style="width:16%">Resultat</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms esq">Arbre: pal de 2 m amb 3 m d'ombra; l'arbre fa 12 m d'ombra</td><td class="ms">Ombra</td><td class="ms">8 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada esq">Tirolina: torre de 12 m, fins a 35 m del peu</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada esq">Fanal: escombra d'1,5 m amb 2 m d'ombra; el fanal fa 8 m d'ombra</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada esq">La diagonal d'un camp de 40 m per 30 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada esq">Campanar: pal d'1 m amb 2 m d'ombra; el campanar fa 40 m d'ombra</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada esq">La diagonal d'una pantalla de 30 cm per 40 cm</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada esq">Grua: pal d'1 m amb 0,5 m d'ombra; la grua fa 15 m d'ombra</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada esq">Una rampa que puja 7 m en 24 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada esq">Institut: tu fas 1,6 m i 2 m d'ombra; l'institut fa 15 m d'ombra</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada esq">Una antena de 15 m, amb un cable clavat a 20 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada esq">Palmera: pal de 2 m amb 4 m d'ombra; la palmera fa 18 m d'ombra</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada esq">La diagonal d'una bassa de 10 m per 24 m</td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada esq">Xemeneia: pal de 3 m amb 2 m d'ombra; la xemeneia fa 10 m d'ombra</td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>A la vida de cada dia · les diagonals</h2>
+  <p class="mira">Com l'exercici 9 de la fitxa, a la pàgina 14.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula la diagonal a de cada lloc.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:13%">Lloc</th><th style="width:27%">Costats</th><th style="width:18%">b² + c²</th><th style="width:13%">a²</th><th style="width:17%">a</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">Bassa</td><td class="ms">6 m per 8 m</td><td class="ms">36 + 64</td><td class="ms">100</td><td class="ms">10 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">Bassa</td><td class="dada">10 m per 24 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">Camp</td><td class="dada">30 m per 40 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">Pati</td><td class="dada">12 m per 16 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">Piscina</td><td class="dada">9 m per 12 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">Hort</td><td class="dada">5 m per 12 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">Pista</td><td class="dada">20 m per 21 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">Jardí</td><td class="dada">8 m per 15 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">Plaça</td><td class="dada">24 m per 32 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">Terrassa</td><td class="dada">3 m per 4 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">Parc</td><td class="dada">60 m per 80 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">Solar</td><td class="dada">7 m per 24 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">Bassa</td><td class="dada">15 m per 20 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula la diagonal del forat i digues si el tauler hi passa de biaix.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <p class="nota-act">Un tauler prim hi passa de biaix si és més curt que la diagonal del forat.</p>
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:30%">Forat</th><th style="width:20%">Diagonal</th><th style="width:18%">Tauler</th><th style="width:20%">Hi passa?</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">1,2 m per 1,6 m</td><td class="ms">2 m</td><td class="ms">1,8 m</td><td class="ms">Sí</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">0,6 m per 0,8 m</td><td class="omplir"></td><td class="dada">1,2 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">1,5 m per 2 m</td><td class="omplir"></td><td class="dada">2,4 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">0,9 m per 1,2 m</td><td class="omplir"></td><td class="dada">1,6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">1,8 m per 2,4 m</td><td class="omplir"></td><td class="dada">2,8 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">0,7 m per 2,4 m</td><td class="omplir"></td><td class="dada">2,6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">1 m per 2,4 m</td><td class="omplir"></td><td class="dada">2,8 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">0,5 m per 1,2 m</td><td class="omplir"></td><td class="dada">1,2 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">2 m per 2,1 m</td><td class="omplir"></td><td class="dada">3 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">0,8 m per 1,5 m</td><td class="omplir"></td><td class="dada">1,6 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">1,2 m per 3,5 m</td><td class="omplir"></td><td class="dada">3,8 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">0,9 m per 4 m</td><td class="omplir"></td><td class="dada">4 m</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">1,6 m per 3 m</td><td class="omplir"></td><td class="dada">3,5 m</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+<section class="bloc">
+  <h2>A la vida de cada dia · la drecera</h2>
+  <p class="mira">Com l'exercici 10 de la fitxa, a la pàgina 14.</p>
+  <div class="exercici act">
+    <div class="tasca"><div class="n"></div>
+      <div class="q">Calcula quants metres t'estalvies anant per la diagonal del pati.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:26%">Pati</th><th style="width:22%">Per les parets</th><th style="width:16%">En diagonal</th><th style="width:24%">T'estalvies</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">12 m per 16 m</td><td class="ms">12 + 16 = 28 m</td><td class="ms">20 m</td><td class="ms">28 − 20 = 8 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">6 m per 8 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">9 m per 12 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">5 m per 12 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">8 m per 15 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">15 m per 20 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">7 m per 24 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">20 m per 21 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">30 m per 40 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">10 m per 24 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">24 m per 32 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">12 m per 35 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">9 m per 40 m</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="exercici act" data-repte>
+    <div class="tasca"><div class="n"></div><svg class="estrella" role="img" aria-label="Un pas més"><use href="#i-repte"/></svg>
+      <div class="q">Calcula quants metres t'estalvies en tota una setmana.
+        <svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <div class="seccio" data-n="1">
+    <table>
+      <thead><tr><th style="width:10%"></th><th style="width:26%">Pati</th><th style="width:18%">En un viatge</th><th style="width:14%">Viatges</th><th style="width:30%">En una setmana</th></tr></thead>
+      <tbody>
+        <tr class="ap resolt" data-n="1"><td class="ms">a)</td><td class="ms">12 m per 16 m</td><td class="ms">8 m</td><td class="ms">10</td><td class="ms">8 · 10 = 80 m</td></tr>
+        <tr class="ap" data-n="1"><td><b>b)</b></td><td class="dada">6 m per 8 m</td><td class="omplir"></td><td class="dada">10</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>c)</b></td><td class="dada">9 m per 12 m</td><td class="omplir"></td><td class="dada">4</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="1"><td><b>d)</b></td><td class="dada">5 m per 12 m</td><td class="omplir"></td><td class="dada">6</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>e)</b></td><td class="dada">8 m per 15 m</td><td class="omplir"></td><td class="dada">2</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>f)</b></td><td class="dada">15 m per 20 m</td><td class="omplir"></td><td class="dada">4</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="2"><td><b>g)</b></td><td class="dada">7 m per 24 m</td><td class="omplir"></td><td class="dada">10</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>h)</b></td><td class="dada">20 m per 21 m</td><td class="omplir"></td><td class="dada">2</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>i)</b></td><td class="dada">30 m per 40 m</td><td class="omplir"></td><td class="dada">6</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>j)</b></td><td class="dada">10 m per 24 m</td><td class="omplir"></td><td class="dada">4</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>k)</b></td><td class="dada">24 m per 32 m</td><td class="omplir"></td><td class="dada">2</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>l)</b></td><td class="dada">12 m per 35 m</td><td class="omplir"></td><td class="dada">6</td><td class="omplir"></td></tr>
+        <tr class="ap" data-n="3"><td><b>m)</b></td><td class="dada">9 m per 40 m</td><td class="omplir"></td><td class="dada">10</td><td class="omplir"></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="quadern sol" id="solucionari">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 8 · Quadern d'activitats · full per al professorat</p>
+  <div class="abans">
+    <p style="margin:0"><b>Com es fa servir.</b> El quadern és per després de la fitxa: hi ha un bloc
+    per cada exercici de la fitxa (10 blocs), i la frase de sota del títol diu quin. Cada bloc té
+    una activitat com la de la fitxa i, si es tria «Afegir-hi reptes», una altra
+    una mica diferent, amb estrella. A dalt de la pàgina es tria la quantitat d'exercicis de cada activitat: a) resolt i
+    3 per fer (petita), 6 (mitjana) o 12 (alta). El nombre
+    d'activitats no canvia. Les lletres i els números d'aquest solucionari coincideixen sempre
+    amb els del quadern si s'imprimeixen amb el mateix filtre. Es pot enviar un enllaç amb el
+    filtre posat: <code>u8/quadern.html?n=1&amp;repte=1</code> (n: 1 petita, 2 mitjana,
+    3 alta).</p>
+  </div>
+  <p>Les de repte no tenen més text que les altres: fan el mateix camí al revés, hi afegeixen un
+  pas o demanen una decisió nova. Totes tenen el primer apartat resolt, com la fitxa.</p>
+  <h3>La taula i el producte en creu · com l'exercici 1 de la fitxa</h3>
+  <p>La taula sempre és Ombra | Alçada, amb el pal a dalt i l'objecte a baix. <b>Error típic:</b> multiplicar els dos números de la mateixa fila. Les diagonals de la pàgina 3 de la fitxa ho recorden: ombra del pal amb x, ombra de l'objecte amb l'alçada del pal.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Objecte</th><th>Pal (ombra · alçada)</th><th>Ombra</th><th>Resolem</th><th>Alçada</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Arbre</td><td>3 m · 2 m</td><td>12 m</td><td><b>3 · x = 2 · 12 = 24</b></td><td><b>8 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Fanal</td><td>2 m · 1 m</td><td>10 m</td><td><b>2 · x = 1 · 10 = 10</b></td><td><b>5 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Edifici</td><td>4 m · 3 m</td><td>12 m</td><td><b>4 · x = 3 · 12 = 36</b></td><td><b>9 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Campanar</td><td>5 m · 2 m</td><td>20 m</td><td><b>5 · x = 2 · 20 = 40</b></td><td><b>8 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Porteria</td><td>2 m · 1 m</td><td>4 m</td><td><b>2 · x = 1 · 4 = 4</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Tanca</td><td>3 m · 1 m</td><td>6 m</td><td><b>3 · x = 1 · 6 = 6</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Grua</td><td>4 m · 1 m</td><td>40 m</td><td><b>4 · x = 1 · 40 = 40</b></td><td><b>10 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Torre</td><td>3 m · 2 m</td><td>18 m</td><td><b>3 · x = 2 · 18 = 36</b></td><td><b>12 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Antena</td><td>5 m · 3 m</td><td>25 m</td><td><b>5 · x = 3 · 25 = 75</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Xemeneia</td><td>2 m · 3 m</td><td>8 m</td><td><b>2 · x = 3 · 8 = 24</b></td><td><b>12 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Font</td><td>4 m · 5 m</td><td>4 m</td><td><b>4 · x = 5 · 4 = 20</b></td><td><b>5 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Palmera</td><td>6 m · 4 m</td><td>15 m</td><td><b>6 · x = 4 · 15 = 60</b></td><td><b>10 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Cartell</td><td>5 m · 4 m</td><td>10 m</td><td><b>5 · x = 4 · 10 = 40</b></td><td><b>8 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Objecte (ombra · alçada)</th><th>Ombra del pal</th><th>Resolem</th><th>Alçada del pal</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Arbre: 12 m · 8 m</td><td>3 m</td><td><b>12 · x = 8 · 3 = 24</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Edifici: 20 m · 15 m</td><td>2 m</td><td><b>20 · x = 15 · 2 = 30</b></td><td><b>1,5 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Fanal: 10 m · 5 m</td><td>4 m</td><td><b>10 · x = 5 · 4 = 20</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Torre: 18 m · 12 m</td><td>3 m</td><td><b>18 · x = 12 · 3 = 36</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Campanar: 30 m · 20 m</td><td>3 m</td><td><b>30 · x = 20 · 3 = 60</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Grua: 40 m · 10 m</td><td>6 m</td><td><b>40 · x = 10 · 6 = 60</b></td><td><b>1,5 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Antena: 25 m · 15 m</td><td>5 m</td><td><b>25 · x = 15 · 5 = 75</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Palmera: 15 m · 10 m</td><td>3 m</td><td><b>15 · x = 10 · 3 = 30</b></td><td><b>2 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Xemeneia: 8 m · 12 m</td><td>2 m</td><td><b>8 · x = 12 · 2 = 24</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Cartell: 10 m · 8 m</td><td>5 m</td><td><b>10 · x = 8 · 5 = 40</b></td><td><b>4 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Porteria: 4 m · 2 m</td><td>2 m</td><td><b>4 · x = 2 · 2 = 4</b></td><td><b>1 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Tanca: 6 m · 2 m</td><td>3 m</td><td><b>6 · x = 2 · 3 = 6</b></td><td><b>1 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Font: 4 m · 5 m</td><td>4 m</td><td><b>4 · x = 5 · 4 = 20</b></td><td><b>5 m</b></td></tr></table>    </div>
+  <p class="per-que">La mateixa taula, amb la x a l'altra fila. Qui ha après «la x sempre va a baix» s'hi encalla: cal omplir la taula amb el que diu cada fila.</p></div>
+  <h3>Amb la calculadora · com l'exercici 2 de la fitxa</h3>
+  <p>Els mateixos passos, amb decimals: la calculadora fa el compte. <b>Error típic:</b> escriure 1,5 · x = 24 i dividir 1,5 entre 24. El número que va sol (el de la x) és el que divideix.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Objecte</th><th>Pal (ombra · alçada)</th><th>Ombra</th><th>Resolem</th><th>Alçada</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Torre</td><td>4 m · 3 m</td><td>36 m</td><td><b>4 · x = 3 · 36 = 108</b></td><td><b>27 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Porteria</td><td>2 m · 1,5 m</td><td>3,2 m</td><td><b>2 · x = 1,5 · 3,2 = 4,8</b></td><td><b>2,4 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Cartell</td><td>3 m · 2 m</td><td>4,5 m</td><td><b>3 · x = 2 · 4,5 = 9</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Xemeneia</td><td>1,5 m · 1 m</td><td>24 m</td><td><b>1,5 · x = 1 · 24 = 24</b></td><td><b>16 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Fanal</td><td>2 m · 1,5 m</td><td>8 m</td><td><b>2 · x = 1,5 · 8 = 12</b></td><td><b>6 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Arbre</td><td>1,2 m · 0,8 m</td><td>6 m</td><td><b>1,2 · x = 0,8 · 6 = 4,8</b></td><td><b>4 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Cistella</td><td>2 m · 1,6 m</td><td>3,75 m</td><td><b>2 · x = 1,6 · 3,75 = 6</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Edifici</td><td>2,5 m · 1 m</td><td>30 m</td><td><b>2,5 · x = 1 · 30 = 30</b></td><td><b>12 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Pi</td><td>0,8 m · 1,2 m</td><td>6 m</td><td><b>0,8 · x = 1,2 · 6 = 7,2</b></td><td><b>9 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Torre</td><td>1,5 m · 2 m</td><td>13,5 m</td><td><b>1,5 · x = 2 · 13,5 = 27</b></td><td><b>18 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Antena</td><td>2 m · 1,5 m</td><td>5,2 m</td><td><b>2 · x = 1,5 · 5,2 = 7,8</b></td><td><b>3,9 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Grua</td><td>3 m · 1,8 m</td><td>25 m</td><td><b>3 · x = 1,8 · 25 = 45</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Palmera</td><td>1,6 m · 1,2 m</td><td>10 m</td><td><b>1,6 · x = 1,2 · 10 = 12</b></td><td><b>7,5 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Edifici</th><th>Pal (ombra · alçada)</th><th>Ombra</th><th>Alçada</th><th>Pisos</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Institut</td><td>2 m · 1,5 m</td><td>20 m</td><td><b>15 m</b></td><td><b>15 ÷ 3 = 5</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Biblioteca</td><td>4 m · 3 m</td><td>16 m</td><td><b>12 m</b></td><td><b>12 ÷ 3 = 4</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Hotel</td><td>3 m · 2 m</td><td>27 m</td><td><b>18 m</b></td><td><b>18 ÷ 3 = 6</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Casa</td><td>2 m · 1 m</td><td>12 m</td><td><b>6 m</b></td><td><b>6 ÷ 3 = 2</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Escola</td><td>5 m · 3 m</td><td>15 m</td><td><b>9 m</b></td><td><b>9 ÷ 3 = 3</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Hospital</td><td>1,5 m · 1 m</td><td>31,5 m</td><td><b>21 m</b></td><td><b>21 ÷ 3 = 7</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Ajuntament</td><td>2 m · 1,5 m</td><td>32 m</td><td><b>24 m</b></td><td><b>24 ÷ 3 = 8</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Oficines</td><td>4 m · 3 m</td><td>36 m</td><td><b>27 m</b></td><td><b>27 ÷ 3 = 9</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Torre de pisos</td><td>3 m · 2 m</td><td>45 m</td><td><b>30 m</b></td><td><b>30 ÷ 3 = 10</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Mercat</td><td>2,5 m · 1,5 m</td><td>15 m</td><td><b>9 m</b></td><td><b>9 ÷ 3 = 3</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Museu</td><td>1 m · 1,2 m</td><td>10 m</td><td><b>12 m</b></td><td><b>12 ÷ 3 = 4</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Estació</td><td>2 m · 3 m</td><td>10 m</td><td><b>15 m</b></td><td><b>15 ÷ 3 = 5</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Teatre</td><td>0,5 m · 0,6 m</td><td>15 m</td><td><b>18 m</b></td><td><b>18 ÷ 3 = 6</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: després de l'alçada, dividir entre 3. Si l'alçada surt malament, els pisos també, però el pas de dividir pot ser bo: mireu-los per separat.</p></div>
+  <h3>La doble recta · com l'exercici 3 de la fitxa</h3>
+  <p>No cal calcular: es baixa la vertical i es continua la recta de baix de pas en pas. És la mateixa doble recta de la Unitat 3 i de les eines («Ombra i alçada»).</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Ombra</th><th>Alçada</th></tr><tr class="ap" data-n="1"><td>a)</td><td>6 m</td><td><b>4 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>9 m</td><td><b>6 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>12 m</td><td><b>8 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>15 m</td><td><b>10 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="2">
+<table><tr><th></th><th>Ombra</th><th>Alçada</th></tr><tr class="ap" data-n="2"><td>e)</td><td>6 m</td><td><b>3 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>8 m</td><td><b>4 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>12 m</td><td><b>6 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Ombra</th><th>Alçada</th></tr><tr class="ap" data-n="3"><td>h)</td><td>8 m</td><td><b>6 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>12 m</td><td><b>9 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>20 m</td><td><b>15 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Ombra</th><th>Alçada</th></tr><tr class="ap" data-n="3"><td>k)</td><td>10 m</td><td><b>4 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>15 m</td><td><b>6 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>25 m</td><td><b>10 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Alçada</th><th>Ombra</th></tr><tr class="ap" data-n="1"><td>a)</td><td>4 m</td><td><b>6 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>8 m</td><td><b>12 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>5 m</td><td><b>7,5 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>10 m</td><td><b>15 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="2">
+<table><tr><th></th><th>Alçada</th><th>Ombra</th></tr><tr class="ap" data-n="2"><td>e)</td><td>3 m</td><td><b>6 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>5 m</td><td><b>10 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>2,5 m</td><td><b>5 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Alçada</th><th>Ombra</th></tr><tr class="ap" data-n="3"><td>h)</td><td>6 m</td><td><b>8 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>12 m</td><td><b>16 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>4,5 m</td><td><b>6 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Alçada</th><th>Ombra</th></tr><tr class="ap" data-n="3"><td>k)</td><td>6 m</td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>3 m</td><td><b>7,5 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>9 m</td><td><b>22,5 m</b></td></tr></table>    </div>
+  <p class="per-que">El camí al revés: de baix a dalt. Les alçades que no cauen en una marca (5 m, 2,5 m, 4,5 m, 3 m) donen una ombra a mig camí entre dues marques.</p></div>
+  <h3>Les ombres no es resten · com l'exercici 4 de la fitxa</h3>
+  <p><b>La regla trencada de la unitat.</b> L'ombra del pal hi cap unes quantes vegades, i l'alçada també: es multiplica, no es resta. Si dubta, que dibuixi l'ombra partida en trossos iguals, com a la pàgina 9 de la fitxa.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Ombres (pal · objecte)</th><th>Hi cap</th><th>Alçada del pal</th><th>Alçada de l'objecte</th></tr><tr class="ap" data-n="1"><td>a)</td><td>3 m · 12 m</td><td><b>12 ÷ 3 = 4</b></td><td>2 m</td><td><b>2 · 4 = 8 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>2 m · 10 m</td><td><b>10 ÷ 2 = 5</b></td><td>1 m</td><td><b>1 · 5 = 5 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>4 m · 12 m</td><td><b>12 ÷ 4 = 3</b></td><td>3 m</td><td><b>3 · 3 = 9 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>5 m · 20 m</td><td><b>20 ÷ 5 = 4</b></td><td>2 m</td><td><b>2 · 4 = 8 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>2 m · 8 m</td><td><b>8 ÷ 2 = 4</b></td><td>1,5 m</td><td><b>1,5 · 4 = 6 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>3 m · 15 m</td><td><b>15 ÷ 3 = 5</b></td><td>1 m</td><td><b>1 · 5 = 5 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>2 m · 14 m</td><td><b>14 ÷ 2 = 7</b></td><td>1 m</td><td><b>1 · 7 = 7 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>4 m · 20 m</td><td><b>20 ÷ 4 = 5</b></td><td>1,5 m</td><td><b>1,5 · 5 = 7,5 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>3 m · 9 m</td><td><b>9 ÷ 3 = 3</b></td><td>2 m</td><td><b>2 · 3 = 6 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>5 m · 30 m</td><td><b>30 ÷ 5 = 6</b></td><td>1 m</td><td><b>1 · 6 = 6 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>2 m · 12 m</td><td><b>12 ÷ 2 = 6</b></td><td>2 m</td><td><b>2 · 6 = 12 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>6 m · 24 m</td><td><b>24 ÷ 6 = 4</b></td><td>1,5 m</td><td><b>1,5 · 4 = 6 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>1 m · 8 m</td><td><b>8 ÷ 1 = 8</b></td><td>1,2 m</td><td><b>1,2 · 8 = 9,6 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>No té raó</b></span><span class="ap" data-n="1"> · b) <b>Té raó</b></span><span class="ap" data-n="1"> · c) <b>No té raó</b></span><span class="ap" data-n="1"> · d) <b>Té raó</b></span><span class="ap" data-n="2"> · e) <b>No té raó</b></span><span class="ap" data-n="2"> · f) <b>Té raó</b></span><span class="ap" data-n="2"> · g) <b>No té raó</b></span><span class="ap" data-n="3"> · h) <b>Té raó</b></span><span class="ap" data-n="3"> · i) <b>No té raó</b></span><span class="ap" data-n="3"> · j) <b>Té raó</b></span><span class="ap" data-n="3"> · k) <b>No té raó</b></span><span class="ap" data-n="3"> · l) <b>Té raó</b></span><span class="ap" data-n="3"> · m) <b>No té raó</b></span></p>
+    </div>
+  <p class="per-que">Les afirmacions que resten les ombres no tenen mai raó; les que multipliquen, sí. Barrejades, i sense cap pista a l'enunciat.</p></div>
+  <h3>A la vida de cada dia · l'escombra · com l'exercici 5 de la fitxa</h3>
+  <p>Al migdia les ombres són curtes i a la tarda són llargues, però l'edifici fa sempre 15 m: si a la mateixa activitat li surten alçades diferents per al mateix objecte, hi ha un error. <b>Error típic:</b> posar l'alçada de l'escombra (1,5) a la columna de l'ombra.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Què és</th><th>Ombra</th><th>Resolem</th><th>Alçada</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Edifici</td><td>20 m</td><td><b>2 · x = 1,5 · 20 = 30</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Porteria</td><td>3,2 m</td><td><b>2 · x = 1,5 · 3,2 = 4,8</b></td><td><b>2,4 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Arbre</td><td>8 m</td><td><b>2 · x = 1,5 · 8 = 12</b></td><td><b>6 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Fanal</td><td>10 m</td><td><b>2 · x = 1,5 · 10 = 15</b></td><td><b>7,5 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="2">
+<table><tr><th></th><th>Què és</th><th>Ombra</th><th>Resolem</th><th>Alçada</th></tr><tr class="ap" data-n="2"><td>e)</td><td>Edifici</td><td>10 m</td><td><b>1 · x = 1,5 · 10 = 15</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Porteria</td><td>1,6 m</td><td><b>1 · x = 1,5 · 1,6 = 2,4</b></td><td><b>2,4 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Arbre</td><td>4 m</td><td><b>1 · x = 1,5 · 4 = 6</b></td><td><b>6 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Què és</th><th>Ombra</th><th>Resolem</th><th>Alçada</th></tr><tr class="ap" data-n="3"><td>h)</td><td>Edifici</td><td>30 m</td><td><b>3 · x = 1,5 · 30 = 45</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Arbre</td><td>12 m</td><td><b>3 · x = 1,5 · 12 = 18</b></td><td><b>6 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Cistella</td><td>6 m</td><td><b>3 · x = 1,5 · 6 = 9</b></td><td><b>3 m</b></td></tr></table>    </div>
+    <div class="seccio" data-n="3">
+<table><tr><th></th><th>Què és</th><th>Ombra</th><th>Resolem</th><th>Alçada</th></tr><tr class="ap" data-n="3"><td>k)</td><td>Edifici</td><td>5 m</td><td><b>0,5 · x = 1,5 · 5 = 7,5</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Fanal</td><td>2,5 m</td><td><b>0,5 · x = 1,5 · 2,5 = 3,75</b></td><td><b>7,5 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Porteria</td><td>0,8 m</td><td><b>0,5 · x = 1,5 · 0,8 = 1,2</b></td><td><b>2,4 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Què és</th><th>Alçada</th><th>Resolem</th><th>Ombra</th></tr><tr class="ap" data-n="1"><td>a)</td><td>La teva amiga</td><td>1,6 m</td><td><b>6 · x = 9 · 1,6 = 14,4</b></td><td><b>2,4 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Un gos</td><td>0,4 m</td><td><b>6 · x = 9 · 0,4 = 3,6</b></td><td><b>0,6 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Una bicicleta</td><td>1 m</td><td><b>6 · x = 9 · 1 = 9</b></td><td><b>1,5 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Un nen</td><td>1,2 m</td><td><b>6 · x = 9 · 1,2 = 10,8</b></td><td><b>1,8 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>La porteria</td><td>2,4 m</td><td><b>6 · x = 9 · 2,4 = 21,6</b></td><td><b>3,6 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Un arbre</td><td>8 m</td><td><b>6 · x = 9 · 8 = 72</b></td><td><b>12 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>La tanca</td><td>2 m</td><td><b>6 · x = 9 · 2 = 18</b></td><td><b>3 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>La cistella</td><td>3 m</td><td><b>6 · x = 9 · 3 = 27</b></td><td><b>4,5 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Una furgoneta</td><td>2,6 m</td><td><b>6 · x = 9 · 2,6 = 23,4</b></td><td><b>3,9 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>L'escombra</td><td>1,5 m</td><td><b>6 · x = 9 · 1,5 = 13,5</b></td><td><b>2,25 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Un cartell</td><td>4 m</td><td><b>6 · x = 9 · 4 = 36</b></td><td><b>6 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>El professor</td><td>1,8 m</td><td><b>6 · x = 9 · 1,8 = 16,2</b></td><td><b>2,7 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Una palmera</td><td>10 m</td><td><b>6 · x = 9 · 10 = 90</b></td><td><b>15 m</b></td></tr></table>    </div>
+  <p class="per-que"><b>Això és el que mostra si ho ha entès:</b> la x és a la columna de l'ombra, no a la de l'alçada, com a l'exercici 5b de la fitxa. Totes les ombres fan una vegada i mitja l'alçada, perquè 9 és una vegada i mitja 6.</p></div>
+  <h3>Pitàgores amb la taula · com l'exercici 6 de la fitxa</h3>
+  <p>Sempre a² = b² + c², amb <b>a</b> el costat llarg. <b>Error típic:</b> parar a a² i dir que a = 25. Cal l'arrel (tecla √ de la calculadora).</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>b i c</th><th>b² + c²</th><th>a²</th><th>a</th></tr><tr class="ap" data-n="1"><td>a)</td><td>3 i 4</td><td><b>9 + 16</b></td><td><b>25</b></td><td><b>5</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>6 i 8</td><td><b>36 + 64</b></td><td><b>100</b></td><td><b>10</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>5 i 12</td><td><b>25 + 144</b></td><td><b>169</b></td><td><b>13</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>9 i 12</td><td><b>81 + 144</b></td><td><b>225</b></td><td><b>15</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>12 i 16</td><td><b>144 + 256</b></td><td><b>400</b></td><td><b>20</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>8 i 15</td><td><b>64 + 225</b></td><td><b>289</b></td><td><b>17</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>15 i 20</td><td><b>225 + 400</b></td><td><b>625</b></td><td><b>25</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>7 i 24</td><td><b>49 + 576</b></td><td><b>625</b></td><td><b>25</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>10 i 24</td><td><b>100 + 576</b></td><td><b>676</b></td><td><b>26</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>20 i 21</td><td><b>400 + 441</b></td><td><b>841</b></td><td><b>29</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>12 i 35</td><td><b>144 + 1 225</b></td><td><b>1 369</b></td><td><b>37</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>9 i 40</td><td><b>81 + 1 600</b></td><td><b>1 681</b></td><td><b>41</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>16 i 30</td><td><b>256 + 900</b></td><td><b>1 156</b></td><td><b>34</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>b i c</th><th>b² + c²</th><th>a²</th><th>a</th></tr><tr class="ap" data-n="1"><td>a)</td><td>2 i 3</td><td><b>4 + 9</b></td><td><b>13</b></td><td><b>√13 ≈ 3,6</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>1 i 2</td><td><b>1 + 4</b></td><td><b>5</b></td><td><b>√5 ≈ 2,2</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>1 i 3</td><td><b>1 + 9</b></td><td><b>10</b></td><td><b>√10 ≈ 3,2</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>2 i 4</td><td><b>4 + 16</b></td><td><b>20</b></td><td><b>√20 ≈ 4,5</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>3 i 5</td><td><b>9 + 25</b></td><td><b>34</b></td><td><b>√34 ≈ 5,8</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>4 i 5</td><td><b>16 + 25</b></td><td><b>41</b></td><td><b>√41 ≈ 6,4</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>2 i 5</td><td><b>4 + 25</b></td><td><b>29</b></td><td><b>√29 ≈ 5,4</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>3 i 7</td><td><b>9 + 49</b></td><td><b>58</b></td><td><b>√58 ≈ 7,6</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>5 i 6</td><td><b>25 + 36</b></td><td><b>61</b></td><td><b>√61 ≈ 7,8</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>4 i 7</td><td><b>16 + 49</b></td><td><b>65</b></td><td><b>√65 ≈ 8,1</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>6 i 7</td><td><b>36 + 49</b></td><td><b>85</b></td><td><b>√85 ≈ 9,2</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>1 i 5</td><td><b>1 + 25</b></td><td><b>26</b></td><td><b>√26 ≈ 5,1</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>5 i 8</td><td><b>25 + 64</b></td><td><b>89</b></td><td><b>√89 ≈ 9,4</b></td></tr></table>    </div>
+  <p class="per-que">Ara l'arrel no és exacta: la calculadora dona molts decimals i se'n deixa un. Accepteu també el resultat amb dos decimals.</p></div>
+  <h3>Els casos · com l'exercici 7 de la fitxa</h3>
+  <p>Pitàgores només quan els dos costats curts es coneixen de debò: es mesuren a terra o ja se saben (l'alçada d'una torre és als plànols). Mai per trobar una alçada que no es pot mesurar.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Cas</th><th>b i c</th><th>a</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Cable d'una tirolina</td><td>8 m i 15 m</td><td><b>17 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Cable d'una antena</td><td>15 m i 20 m</td><td><b>25 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Diagonal d'una pantalla</td><td>30 cm i 40 cm</td><td><b>50 cm</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Rampa del pàrquing</td><td>7 m i 24 m</td><td><b>25 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Diagonal d'un mòbil</td><td>6 cm i 8 cm</td><td><b>10 cm</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Diagonal d'un camp</td><td>30 m i 40 m</td><td><b>50 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Cable d'un pal de la llum</td><td>9 m i 12 m</td><td><b>15 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Diagonal d'una tauleta</td><td>12 cm i 16 cm</td><td><b>20 cm</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Corda d'una tenda</td><td>1,2 m i 1,6 m</td><td><b>2 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Diagonal d'una rajola</td><td>15 cm i 20 cm</td><td><b>25 cm</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Cable d'un fanal</td><td>5 m i 12 m</td><td><b>13 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Diagonal d'un llibre</td><td>21 cm i 28 cm</td><td><b>35 cm</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Tobogan</td><td>2,4 m i 3,2 m</td><td><b>4 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Cas</th><th>b</th><th>c</th><th>a</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Una tirolina: una torre de 12 m, fins a 35 m del peu</td><td><b>12 m</b></td><td><b>35 m</b></td><td><b>37 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Una antena de 16 m, amb un cable clavat a 12 m del peu</td><td><b>12 m</b></td><td><b>16 m</b></td><td><b>20 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Una rampa que puja 0,7 m en 2,4 m</td><td><b>0,7 m</b></td><td><b>2,4 m</b></td><td><b>2,5 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>La diagonal d'un camp de 60 m per 80 m</td><td><b>60 m</b></td><td><b>80 m</b></td><td><b>100 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Una pantalla de 36 cm per 48 cm</td><td><b>36 cm</b></td><td><b>48 cm</b></td><td><b>60 cm</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Un pal de 6 m, amb un cable clavat a 8 m</td><td><b>6 m</b></td><td><b>8 m</b></td><td><b>10 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Una tirolina: una torre de 9 m, fins a 40 m del peu</td><td><b>9 m</b></td><td><b>40 m</b></td><td><b>41 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Un mòbil de 9 cm per 12 cm</td><td><b>9 cm</b></td><td><b>12 cm</b></td><td><b>15 cm</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Una rampa que puja 1,5 m en 2 m</td><td><b>1,5 m</b></td><td><b>2 m</b></td><td><b>2,5 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Una finestra de 0,9 m per 1,2 m</td><td><b>0,9 m</b></td><td><b>1,2 m</b></td><td><b>1,5 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Un solar de 20 m per 21 m</td><td><b>20 m</b></td><td><b>21 m</b></td><td><b>29 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Un pal de 15 m, amb un cable clavat a 8 m</td><td><b>8 m</b></td><td><b>15 m</b></td><td><b>17 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Una tauleta de 18 cm per 24 cm</td><td><b>18 cm</b></td><td><b>24 cm</b></td><td><b>30 cm</b></td></tr></table>    </div>
+  <p class="per-que">Els números no surten ordenats en una taula: s'han de treure de la frase. L'ordre de b i c no importa.</p></div>
+  <h3>Ombra o triangle? · com l'exercici 8 de la fitxa</h3>
+  <p>Una alçada que no es pot mesurar, amb sol o amb un pal al costat → ombra. Un angle recte amb dos costats que es coneixen → triangle. L'error que delata és fer servir Pitàgores per a una alçada.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+    <p><span class="ap" data-n="1">a) <b>Ombra</b></span><span class="ap" data-n="1"> · b) <b>Triangle</b></span><span class="ap" data-n="1"> · c) <b>Ombra</b></span><span class="ap" data-n="1"> · d) <b>Triangle</b></span><span class="ap" data-n="2"> · e) <b>Ombra</b></span><span class="ap" data-n="2"> · f) <b>Triangle</b></span><span class="ap" data-n="2"> · g) <b>Ombra</b></span><span class="ap" data-n="3"> · h) <b>Triangle</b></span><span class="ap" data-n="3"> · i) <b>Ombra</b></span><span class="ap" data-n="3"> · j) <b>Triangle</b></span><span class="ap" data-n="3"> · k) <b>Ombra</b></span><span class="ap" data-n="3"> · l) <b>Triangle</b></span><span class="ap" data-n="3"> · m) <b>Ombra</b></span></p>
+    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Què vull saber</th><th>Camí</th><th>Resultat</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Arbre: pal de 2 m amb 3 m d'ombra; l'arbre fa 12 m d'ombra</td><td><b>Ombra</b></td><td><b>8 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Tirolina: torre de 12 m, fins a 35 m del peu</td><td><b>Triangle</b></td><td><b>37 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Fanal: escombra d'1,5 m amb 2 m d'ombra; el fanal fa 8 m d'ombra</td><td><b>Ombra</b></td><td><b>6 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>La diagonal d'un camp de 40 m per 30 m</td><td><b>Triangle</b></td><td><b>50 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Campanar: pal d'1 m amb 2 m d'ombra; el campanar fa 40 m d'ombra</td><td><b>Ombra</b></td><td><b>20 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>La diagonal d'una pantalla de 30 cm per 40 cm</td><td><b>Triangle</b></td><td><b>50 cm</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Grua: pal d'1 m amb 0,5 m d'ombra; la grua fa 15 m d'ombra</td><td><b>Ombra</b></td><td><b>30 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Una rampa que puja 7 m en 24 m</td><td><b>Triangle</b></td><td><b>25 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Institut: tu fas 1,6 m i 2 m d'ombra; l'institut fa 15 m d'ombra</td><td><b>Ombra</b></td><td><b>12 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Una antena de 15 m, amb un cable clavat a 20 m</td><td><b>Triangle</b></td><td><b>25 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Palmera: pal de 2 m amb 4 m d'ombra; la palmera fa 18 m d'ombra</td><td><b>Ombra</b></td><td><b>9 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>La diagonal d'una bassa de 10 m per 24 m</td><td><b>Triangle</b></td><td><b>26 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Xemeneia: pal de 3 m amb 2 m d'ombra; la xemeneia fa 10 m d'ombra</td><td><b>Ombra</b></td><td><b>15 m</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més que la fitxa: a més de triar, calcular. Si tria bé i calcula malament, el que falla és el compte, no la decisió.</p></div>
+  <h3>A la vida de cada dia · les diagonals · com l'exercici 9 de la fitxa</h3>
+  <p>La diagonal d'un rectangle és el costat llarg del triangle que fan dos costats seguits. Els costats es poden mesurar caminant; la diagonal, no sempre.</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Lloc</th><th>Costats</th><th>b² + c²</th><th>a²</th><th>a</th></tr><tr class="ap" data-n="1"><td>a)</td><td>Bassa</td><td>6 m per 8 m</td><td><b>36 + 64</b></td><td><b>100</b></td><td><b>10 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>Bassa</td><td>10 m per 24 m</td><td><b>100 + 576</b></td><td><b>676</b></td><td><b>26 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>Camp</td><td>30 m per 40 m</td><td><b>900 + 1 600</b></td><td><b>2 500</b></td><td><b>50 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>Pati</td><td>12 m per 16 m</td><td><b>144 + 256</b></td><td><b>400</b></td><td><b>20 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>Piscina</td><td>9 m per 12 m</td><td><b>81 + 144</b></td><td><b>225</b></td><td><b>15 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>Hort</td><td>5 m per 12 m</td><td><b>25 + 144</b></td><td><b>169</b></td><td><b>13 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>Pista</td><td>20 m per 21 m</td><td><b>400 + 441</b></td><td><b>841</b></td><td><b>29 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>Jardí</td><td>8 m per 15 m</td><td><b>64 + 225</b></td><td><b>289</b></td><td><b>17 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>Plaça</td><td>24 m per 32 m</td><td><b>576 + 1 024</b></td><td><b>1 600</b></td><td><b>40 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>Terrassa</td><td>3 m per 4 m</td><td><b>9 + 16</b></td><td><b>25</b></td><td><b>5 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>Parc</td><td>60 m per 80 m</td><td><b>3 600 + 6 400</b></td><td><b>10 000</b></td><td><b>100 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>Solar</td><td>7 m per 24 m</td><td><b>49 + 576</b></td><td><b>625</b></td><td><b>25 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>Bassa</td><td>15 m per 20 m</td><td><b>225 + 400</b></td><td><b>625</b></td><td><b>25 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Forat</th><th>Diagonal</th><th>Tauler</th><th>Hi passa?</th></tr><tr class="ap" data-n="1"><td>a)</td><td>1,2 m per 1,6 m</td><td><b>2 m</b></td><td>1,8 m</td><td><b>Sí</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>0,6 m per 0,8 m</td><td><b>1 m</b></td><td>1,2 m</td><td><b>No</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>1,5 m per 2 m</td><td><b>2,5 m</b></td><td>2,4 m</td><td><b>Sí</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>0,9 m per 1,2 m</td><td><b>1,5 m</b></td><td>1,6 m</td><td><b>No</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>1,8 m per 2,4 m</td><td><b>3 m</b></td><td>2,8 m</td><td><b>Sí</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>0,7 m per 2,4 m</td><td><b>2,5 m</b></td><td>2,6 m</td><td><b>No</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>1 m per 2,4 m</td><td><b>2,6 m</b></td><td>2,8 m</td><td><b>No</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>0,5 m per 1,2 m</td><td><b>1,3 m</b></td><td>1,2 m</td><td><b>Sí</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>2 m per 2,1 m</td><td><b>2,9 m</b></td><td>3 m</td><td><b>No</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>0,8 m per 1,5 m</td><td><b>1,7 m</b></td><td>1,6 m</td><td><b>Sí</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>1,2 m per 3,5 m</td><td><b>3,7 m</b></td><td>3,8 m</td><td><b>No</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>0,9 m per 4 m</td><td><b>4,1 m</b></td><td>4 m</td><td><b>Sí</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>1,6 m per 3 m</td><td><b>3,4 m</b></td><td>3,5 m</td><td><b>No</b></td></tr></table>    </div>
+  <p class="per-que">Una decisió nova: comparar la diagonal amb el tauler. Hi passa quan el tauler és més curt que la diagonal. Hi ha tant «Sí» com «No», barrejats.</p></div>
+  <h3>A la vida de cada dia · la drecera · com l'exercici 10 de la fitxa</h3>
+  <p><b>Això és el que mostra si ho ha entès:</b> la resposta no és la diagonal sola, sinó comparar-la amb el camí per les parets (b + c).</p>
+  <div class="sol-act">
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Pati</th><th>Per les parets</th><th>En diagonal</th><th>T'estalvies</th></tr><tr class="ap" data-n="1"><td>a)</td><td>12 m per 16 m</td><td><b>12 + 16 = 28 m</b></td><td><b>20 m</b></td><td><b>28 − 20 = 8 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>6 m per 8 m</td><td><b>6 + 8 = 14 m</b></td><td><b>10 m</b></td><td><b>14 − 10 = 4 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>9 m per 12 m</td><td><b>9 + 12 = 21 m</b></td><td><b>15 m</b></td><td><b>21 − 15 = 6 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>5 m per 12 m</td><td><b>5 + 12 = 17 m</b></td><td><b>13 m</b></td><td><b>17 − 13 = 4 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>8 m per 15 m</td><td><b>8 + 15 = 23 m</b></td><td><b>17 m</b></td><td><b>23 − 17 = 6 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>15 m per 20 m</td><td><b>15 + 20 = 35 m</b></td><td><b>25 m</b></td><td><b>35 − 25 = 10 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>7 m per 24 m</td><td><b>7 + 24 = 31 m</b></td><td><b>25 m</b></td><td><b>31 − 25 = 6 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>20 m per 21 m</td><td><b>20 + 21 = 41 m</b></td><td><b>29 m</b></td><td><b>41 − 29 = 12 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>30 m per 40 m</td><td><b>30 + 40 = 70 m</b></td><td><b>50 m</b></td><td><b>70 − 50 = 20 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>10 m per 24 m</td><td><b>10 + 24 = 34 m</b></td><td><b>26 m</b></td><td><b>34 − 26 = 8 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>24 m per 32 m</td><td><b>24 + 32 = 56 m</b></td><td><b>40 m</b></td><td><b>56 − 40 = 16 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>12 m per 35 m</td><td><b>12 + 35 = 47 m</b></td><td><b>37 m</b></td><td><b>47 − 37 = 10 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>9 m per 40 m</td><td><b>9 + 40 = 49 m</b></td><td><b>41 m</b></td><td><b>49 − 41 = 8 m</b></td></tr></table>    </div>
+  </div>
+  <div class="sol-act" data-repte><p class="repte-sol">Repte</p>
+    <div class="seccio" data-n="1">
+<table><tr><th></th><th>Pati</th><th>En un viatge</th><th>Viatges</th><th>En una setmana</th></tr><tr class="ap" data-n="1"><td>a)</td><td>12 m per 16 m</td><td><b>8 m</b></td><td>10</td><td><b>8 · 10 = 80 m</b></td></tr><tr class="ap" data-n="1"><td>b)</td><td>6 m per 8 m</td><td><b>4 m</b></td><td>10</td><td><b>4 · 10 = 40 m</b></td></tr><tr class="ap" data-n="1"><td>c)</td><td>9 m per 12 m</td><td><b>6 m</b></td><td>4</td><td><b>6 · 4 = 24 m</b></td></tr><tr class="ap" data-n="1"><td>d)</td><td>5 m per 12 m</td><td><b>4 m</b></td><td>6</td><td><b>4 · 6 = 24 m</b></td></tr><tr class="ap" data-n="2"><td>e)</td><td>8 m per 15 m</td><td><b>6 m</b></td><td>2</td><td><b>6 · 2 = 12 m</b></td></tr><tr class="ap" data-n="2"><td>f)</td><td>15 m per 20 m</td><td><b>10 m</b></td><td>4</td><td><b>10 · 4 = 40 m</b></td></tr><tr class="ap" data-n="2"><td>g)</td><td>7 m per 24 m</td><td><b>6 m</b></td><td>10</td><td><b>6 · 10 = 60 m</b></td></tr><tr class="ap" data-n="3"><td>h)</td><td>20 m per 21 m</td><td><b>12 m</b></td><td>2</td><td><b>12 · 2 = 24 m</b></td></tr><tr class="ap" data-n="3"><td>i)</td><td>30 m per 40 m</td><td><b>20 m</b></td><td>6</td><td><b>20 · 6 = 120 m</b></td></tr><tr class="ap" data-n="3"><td>j)</td><td>10 m per 24 m</td><td><b>8 m</b></td><td>4</td><td><b>8 · 4 = 32 m</b></td></tr><tr class="ap" data-n="3"><td>k)</td><td>24 m per 32 m</td><td><b>16 m</b></td><td>2</td><td><b>16 · 2 = 32 m</b></td></tr><tr class="ap" data-n="3"><td>l)</td><td>12 m per 35 m</td><td><b>10 m</b></td><td>6</td><td><b>10 · 6 = 60 m</b></td></tr><tr class="ap" data-n="3"><td>m)</td><td>9 m per 40 m</td><td><b>8 m</b></td><td>10</td><td><b>8 · 10 = 80 m</b></td></tr></table>    </div>
+  <p class="per-que">Un pas més: l'estalvi d'un viatge (parets − diagonal) multiplicat pels viatges de la setmana.</p></div>
+
+  <h3>Què mirar per avaluar</h3>
+  <p>Com a la fitxa, l'objectiu no és calcular bé: és plantejar bé la taula (on va cada ombra i cada alçada) i triar el camí, ombra o triangle. Un error de calculadora no hauria de fer baixar la valoració si el plantejament és correcte. Les activitats de repte compten per als nivells alts (AN, AE), no per al mínim.</p>
+</div>
+
+<script src="../../comu/js/quadern.js"></script>
+</body>
+</html>
