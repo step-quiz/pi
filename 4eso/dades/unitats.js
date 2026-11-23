@@ -117,8 +117,10 @@ window.UNITATS = [
     /* U8 · afegida després de les 7 SA de la programació: adapta la UD4 del llibre (activitats 4.1–4.4).
        No té data a la programació; les dates són una proposta que el docent pot canviar.
        Dues sessions: Part 1 · Semblança i Part 2 · Pitàgores. A les eines, la doble recta amb
-       l'exemple «Ombra i alçada». Encara no té repàs, quadern ni blocs de repas-main triats. */
+       l'exemple «Ombra i alçada». Quadern d'activitats i repàs des del 23/11/2026. Encara no té blocs de repas-main triats. */
     num: 8, titol: "Mesura indirecta", fitxes: [{ fitxa: "u8/fitxa.html", titol: "Com fa d'alt, si no hi arribo?" }],
+    repas: { fitxa: "u8/repas.html", titol: "Repàs · Mesura indirecta" },
+    quadern: "u8/quadern.html",
     dates: "per decidir", sessions: 2,
     objectiu: "Mesurar una altura amb l'ombra d'un pal i una distància amb Pitàgores, i triar quin camí cal.",
     material: "una escombra i una cinta mètrica, al pati amb sol",

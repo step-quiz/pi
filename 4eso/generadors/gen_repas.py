@@ -197,6 +197,29 @@ UNITATS = {
       ("Calculo què passa en un joc de fira.", "pago 120 €, cobro 80 €", 5),
       ("Descobreixo un missatge que enganya.", "«ara toca negre»", 6),
     ]),
+  8: dict(
+    titol="Mesura indirecta", material="una escombra i una cinta mètrica, al pati amb sol",
+    dibuix=[0], diu="El pal i l'arbre, a la mateixa hora: els dos triangles tenen la mateixa forma.",
+    recorda="Les ombres no es resten: es mira quantes vegades hi cap.",
+    trencada="c",
+    una=[
+      ("La taula i el producte en creu.", f"Pal 3 | 2 · arbre 12 | x → 3 · x = 2 · 12 → x = {ms('8 m')}", "8 m", 1),
+      ("La doble recta: de 2 en 2.", f"Pal de 2 m, ombra 3 m. Ombra 9 m → alçada {B} m", "6 m", 3),
+      ("Les ombres no es resten.", f"Pal de 2 m, ombra 3 m. Arbre: ombra 15 m. Hi cap {B} vegades: fa {B} m", "15 ÷ 3 = 5. 2 · 5 = 10 m", 4),
+      ("Ara la x és l'ombra.", f"Fanal de 6 m, ombra 9 m. Tu fas 1,6 m. La teva ombra: {B} m", "6 · x = 9 · 1,6 = 14,4 → 2,4 m", 5),
+      ("Pitàgores: el costat llarg.", f"Pal de 6 m, cable clavat a 8 m: a² = 6² + 8² → a = {B} m", "36 + 64 = 100 → 10 m", 7),
+      ("Ombra o triangle?", f"L'alçada d'un campanar, al migdia: {B}", "ombra", 8),
+      ("La drecera del pati.", f"Pati de 9 m per 12 m. Parets: 21 m. Diagonal: {B} m. Estalvi: {B} m", "15 m. 6 m", 10),
+    ],
+    apres=[
+      ("Faig la taula Ombra | Alçada.", "pal 3 | 2 · arbre 12 | x", 1),
+      ("Calculo l'alçada amb el producte en creu.", "3 · x = 2 · 12 → x = 8", 1),
+      ("Llegeixo la doble recta.", "ombra 6 m → alçada 4 m", 3),
+      ("Sé que les ombres no es resten.", "hi cap 4 vegades: 2 · 4 = 8 m", 4),
+      ("Calculo una ombra.", "fanal 9 | 6 · tu x | 1,6", 5),
+      ("Calculo el costat llarg amb Pitàgores.", "a² = 3² + 4² → a = 5", 6),
+      ("Trio ombra o triangle.", "una alçada amb sol: ombra", 8),
+    ]),
 }
 
 DIBUIX = re.compile(r"<!--grafic:\w+-->.*?<!--/grafic-->|<svg\b.*?</svg>", re.S)

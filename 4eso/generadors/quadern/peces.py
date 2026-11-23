@@ -124,3 +124,30 @@ def recta(a, creu=None, ma=False):
                  f'<line x1="{c:g}" y1="{y - 3:g}" x2="{c:g}" y2="{y:g}" stroke="{col}" stroke-width=".8" stroke-dasharray="1 1"/>')
     return (f'<svg viewBox="0 0 140 30" style="width:13cm;max-width:100%" role="img" '
             f'aria-label="Recta del {a} al {a + 1}, partida en desenes">{"".join(o)}</svg>')
+
+
+# ------------------------------------------------- la doble recta de les ombres (UD8) --
+
+def doble_ombra(po, pa, n, amaga="baix", visibles=2):
+    """La doble recta de la fitxa de la UD8 (exercici 3): a dalt els metres d'ombra (0, po, 2·po…),
+    a baix els d'alçada (0, pa, 2·pa…), n trams. Els rètols de la recta `amaga` només surten fins al
+    tram `visibles`: la resta s'ha de trobar seguint la recta. El primer tram, ombrejat (el pal)."""
+    from quadern import num, GRIS, FONS
+    x0, x1, yd, yb = 178, 542, 46, 96
+    def px(k): return x0 + k / n * (x1 - x0)
+    o = [f'<rect x="{px(0):.1f}" y="{yd}" width="{px(1) - px(0):.1f}" height="{yb - yd}" fill="{FONS}"/>',
+         f'<text x="{x0 - 14}" y="{yd + 6}" text-anchor="end" font-size="20" fill="{GRIS}" {TIP}>ombra (m)</text>',
+         f'<text x="{x0 - 14}" y="{yb + 6}" text-anchor="end" font-size="20" fill="{GRIS}" {TIP}>alçada (m)</text>']
+    for k in range(n + 1):
+        o.append(f'<line x1="{px(k):.1f}" y1="{yd}" x2="{px(k):.1f}" y2="{yb}" stroke="#D4D4D4" stroke-width="1"/>')
+    for y, pas, quina in ((yd, po, "dalt"), (yb, pa, "baix")):
+        o.append(f'<line x1="{x0}" y1="{y}" x2="{x1}" y2="{y}" stroke="{NEG}" stroke-width="2.5"/>')
+        for k in range(n + 1):
+            dy = -14 if y == yd else 26
+            o.append(f'<line x1="{px(k):.1f}" y1="{y - 7}" x2="{px(k):.1f}" y2="{y + 7}" stroke="{NEG}" stroke-width="2"/>')
+            if quina != amaga or k <= visibles:
+                o.append(f'<text x="{px(k):.1f}" y="{y + dy}" text-anchor="middle" font-size="20" fill="{NEG}" '
+                         f'{TIP}>{num(k * pas)}</text>')
+    return (f'    <div class="figura neta"><svg viewBox="0 0 560 124" role="img" aria-label="Doble recta: '
+            f'metres d\'ombra i metres d\'alçada"><rect x="0" y="0" width="560" height="124" fill="#fff"/>'
+            f'{"".join(o)}</svg></div>\n')

@@ -8,7 +8,7 @@ part de les hores a l'**aula de suport** i l'altra a l'aula ordinària, en l'iti
 d'**Aplicades**.
 
 Set fitxes imprimibles, amb una fitxa de repàs per unitat, un quadern d'activitats per
-practicar (de moment, els de la UD1 a la UD4), tres targetes de consulta, una caixa d'eines digital i
+practicar (de moment, els de la UD1 a la UD4 i el de la UD8), tres targetes de consulta, una caixa d'eines digital i
 la documentació que explica per què tot és com és.
 
 ---
@@ -29,7 +29,7 @@ GitHub → Cloudflare Pages → `step-quiz.net`, amb **tots els camps del formul
 | | |
 |---|---|
 | `index.html` | la pàgina del curs: les seves unitats. La fa `../comu/js/curs.js` |
-| `u1/` … `u8/` | una carpeta per unitat (la `u8/`, «Mesura indirecta», només té la fitxa, en dues parts i dues sessions; a les eines, la doble recta amb l'exemple «Ombra i alçada»; sense repàs ni quadern). `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF · 4 Eines · 5 Targetes; i «Abans de la classe», plegat. `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. De la `u1/` a la `u4/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` (el motor és comú: `../comu/generadors/quadern.py`) a partir de `generadors/quadern/udN.py` |
+| `u1/` … `u8/` | una carpeta per unitat (la `u8/`, «Mesura indirecta», té la fitxa en dues parts i dues sessions, el quadern i el repàs; a les eines, la doble recta amb l'exemple «Ombra i alçada»). `index.html`, la pàgina de la unitat, per al docent (una còpia de `../comu/eines/unitat.html`, que fa `../comu/js/unitat.js`): 1 Fitxa · 2 Quadern d'activitats · 3 Repàs, amb els PDF · 4 Eines · 5 Targetes; i «Abans de la classe», plegat. `fitxa.html`, la fitxa imprimible, en blanc i negre. `repas.html`, la fitxa de repàs: el dibuix de la unitat, «Una de cada» i «Què he après?»; no s'edita a mà, la fa `generadors/gen_repas.py`. De la `u1/` a la `u4/` i a la `u8/`, `quadern.html`, el quadern d'activitats, amb el filtre de quantitat i de tipologia; no s'edita a mà, el fa `generadors/gen_quadern.py` (el motor és comú: `../comu/generadors/quadern.py`) a partir de `generadors/quadern/udN.py` |
 | `eines.html` | les eines de l'alumnat, amb deu mòduls. S'obre amb `eines.html?u=N`: només les eines de la unitat N, i cap enllaç cap a la resta del web |
 | `professorat.html` | **tancada des del 6/11/2026** (s'obre amb `?obert`; vegeu `../comu/docs/SITE-MAP.md`). La pàgina del professorat: canviar les frases, llegir els codis i les notes generals |
 | `verifica.html` | pàgina per llegir els codis de verificació que donen les eines |
@@ -209,7 +209,9 @@ s'acaben, quants decimals, pagar de més i amunt o avall), a la **UD2** (7 blocs
 canvi, dos canvis, pujar i baixar, al comptat o a terminis, l'IVA i a la vida de cada dia), a la
 **UD3** (8 blocs) i a la **UD4** (7 blocs: la balança, comprovar, l'arrel
 quadrada, el costat d'un quadrat, quina solució té sentit, comprovar una equació de 2n grau i
-a la vida de cada dia).
+a la vida de cada dia) i a la **UD8** (10 blocs, un per exercici de la fitxa: la taula i el producte
+en creu, amb la calculadora, la doble recta, les ombres no es resten, l'escombra, Pitàgores amb la
+taula, els casos, ombra o triangle, les diagonals i la drecera).
 
 El filtre queda a l'adreça, i es pot enviar un enllaç amb el filtre posat:
 `u3/quadern.html?n=1&repte=1` (`n`: 1 quantitat petita, 2 mitjana, 3 alta; `repte`: 0 o 1).
@@ -233,7 +235,7 @@ Per fer el quadern d'una altra unitat, es copia `generadors/quadern/ud3.py` (o `
 `../comu/generadors/quadern.py`, amb les peces (taules, opcions per marcar, apartats lliures,
 ofertes, plànols, doble recta, línies per mesurar, quadrícula); el full d'estil i el filtre són
 `../comu/css/quadern.css` i `../comu/js/quadern.js`. Les peces només d'aquest curs (la balança
-de la UD4) són a `generadors/quadern/peces.py`.
+de la UD4, la recta de la UD1 i la doble recta de les ombres de la UD8) són a `generadors/quadern/peces.py`.
 
 ---
 

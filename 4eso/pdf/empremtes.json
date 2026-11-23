@@ -120,11 +120,19 @@
   "font": "u7/fitxa.html"
  },
  "ud8-alumnat.pdf": {
-  "empremta": "cc068487dd5f9ba1d2de5843dc05f690310bc60d833bc2461f50ecd1d513575a",
+  "empremta": "9ab5f85bf84bb84f9ea8063ac721fbc7707cb2692f7e2267c79e1519e1c809d6",
   "font": "u8/fitxa.html"
  },
+ "ud8-repas-alumnat.pdf": {
+  "empremta": "d47d0e9f743211b31f448c3a6fba501885aab48e49709aab7d583d5079888424",
+  "font": "u8/repas.html"
+ },
+ "ud8-repas-solucionari.pdf": {
+  "empremta": "d47d0e9f743211b31f448c3a6fba501885aab48e49709aab7d583d5079888424",
+  "font": "u8/repas.html"
+ },
  "ud8-solucionari.pdf": {
-  "empremta": "cc068487dd5f9ba1d2de5843dc05f690310bc60d833bc2461f50ecd1d513575a",
+  "empremta": "9ab5f85bf84bb84f9ea8063ac721fbc7707cb2692f7e2267c79e1519e1c809d6",
   "font": "u8/fitxa.html"
  }
 }
