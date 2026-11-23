@@ -107,6 +107,7 @@ d'avaluació més valuosa de la fitxa.
 | 5 | «el vèrtex és el punt més alt i sempre hi ha dos talls» | Ex. 2 · vèrtex **mínim** i **cap tall** |
 | 6 | «els gràfics diuen la veritat» | Ex. 6 · l'eix que comença a **90 i no a 0** |
 | 7 | «totes les combinacions són igual de probables» | Ex. 4c · **una cara i una creu** val el doble |
+| 8 | «la diferència d'ombres és la diferència d'alçades» | Ex. 4 · les ombres **no es resten**: hi cap 4 vegades |
 
 Si mai cal escurçar una fitxa, aquest exercici és l'últim que s'ha de treure.
 
@@ -116,7 +117,8 @@ l'error. Per això:
 
 1. **La refutació surt d'un dibuix, dins del mateix exercici**, no d'un raonament. A la U2 i
    la U3, una recta on es marquen els dos preus: el que queda a l'esquerra és el més barat. A
-   la U7, l'arbre de les dues monedes: «una cara i una creu» surt en dues branques.
+   la U7, l'arbre de les dues monedes: «una cara i una creu» surt en dues branques. A la U8, el
+   dibuix de la pàgina 1 partit en 4 ombres i 4 alçades del pal.
 2. **La pàgina acaba amb la forma bona a la vista**, en un avís gruixut («Al comptat no sempre
    és més barat»).
 3. **A l'avaluació compta per als nivells alts** (AN, AE), no per al mínim. Els solucionaris
@@ -152,10 +154,16 @@ unitat, la primera situació encara li surt bé; la segona, no. Exemples:
 | 5 | el cable d'un pont | vèrtex mínim i **cap** punt de tall, sense avisar |
 | 6 | el camí a l'institut | aquí la mitjana **sí** que explica les dades |
 | 7 | la ruleta d'un joc de mòbil | el mateix compte quan no hi ha diners a la vista |
+| 8 | l'ombra de l'amiga sota el fanal | la incògnita és l'**ombra**, no l'alçada |
 
 Cada solucionari ho diu explícitament, amb l'epígraf **«Això és el que mostra si ho ha
 entès»**, i el criteri d'avaluació d'aquests exercicis és el **6.1**, connectar el món real
 amb les matemàtiques, no el de calcular.
+
+**Excepció: la U8** té dues pàgines «A la vida de cada dia», una al final de cada part (Semblança i
+Pitàgores, dues sessions separades). `eines/comprova.py` n'hi espera dues només en aquesta fitxa
+(decisió del 23/11/2026). La de la Part 1 porta la segona situació; a la de la Part 2, la drecera del
+pati fa aquest paper (comparar la diagonal amb el camí per les parets).
 
 La pàgina va **abans** de «Com ho dic» i **després** de tots els exercicis: primer es fa la
 feina, després es diu. I segueix les vuit regles anteriors sense excepció, també la del
@@ -176,6 +184,7 @@ lliga.
 | 3 | cm del plànol i metres de veritat | Pàgina 1 i «A la vida de cada dia» · Doble recta, «Escala 1 : 200» |
 | 4 | x i x + 3: on la de baix val 7, la de dalt val 4 | Doble recta, «Equació x + 3 = 7» (el pont si la balança no agafa) |
 | 7 | casos que van bé i probabilitat | Pàgina 3 (la barra amb l'escala) · Doble recta, «Probabilitat» |
+| 8 | metres d'ombra i metres d'alçada | Exercici 3 · Doble recta, «Ombra i alçada» |
 
 La recta sola també torna: a la U2 i la U3 desmunta la regla trencada (el preu que queda a
 l'esquerra és el més barat). **Quan una unitat nova necessiti un dibuix, primer es mira si
