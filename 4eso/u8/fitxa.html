@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unitat 8 · Mesura indirecta</title>
+<!--
+  Fitxa adaptada · Matemàtiques Aplicades · Unitat 8 (Mesura indirecta)
+  Per a alumnat amb dificultats de tipus cognitiu (el detall és al fitxer privat del docent).
+
+  ADAPTACIÓ DE LA UD4 DEL LLIBRE («Mesura indirecta», 4.1–4.4). Aquesta unitat no és a la
+  programació de les 7 SA: és la 8a i s'ordena al calendari quan el docent ho decideixi.
+
+  MATEIXOS CRITERIS QUE LES FITXES DE LES UNITATS 1 A 7
+  1. El dibuix explica, les paraules només etiqueten. Cap paràgraf.
+  2. Impressió en BLANC I NEGRE. Cap color: només grisos, gruix i tipus de traç.
+  3. Cos de 14 pt cap amunt i molt d'aire.
+  4. A cada exercici, el primer apartat ja resolt en lletra manuscrita.
+
+  PER QUÈ AQUESTA UNITAT LI ÉS FAVORABLE
+  Sortir al pati i mesurar una ombra és físic i visual, que és el canal fort. El pas que costa és
+  la divisió, i per això tot va amb la cadena de sempre: mesura → ÷ o × → mesura, amb la calculadora.
+  Semblança amb la taula de proporcionalitat directa (ombra | alçada) i el producte en creu;
+  Pitàgores directe, a² = b² + c², sempre amb la hipotenusa a com a incògnita i calculadora.
+
+  DUES SESSIONS, NO UNA (regla «un sol pas nou per sessió»)
+  Part 1 · Semblança (pàgines 1–9, exercicis 1–4). Part 2 · Pitàgores (pàgines 10–12, exercicis 5–8). Separades del tot.
+  Cada part té la seva pàgina «A la vida de cada dia» .
+
+  Dibuixos a escala: pàgina 1 (1 m = 22 px) i exercici 6 (1 m = 17 px):
+  els raigs de sol dels triangles són paral·lels de debò.
+
+  Imprimir: Ctrl+P, A4, amb «Gràfics de fons» ACTIVAT.
+  Si no vols donar el solucionari, no imprimeixis l'última pàgina.
+-->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fitxa.css">
+</head>
+<body>
+
+<nav class="navega no-imprimir" aria-label="Navegació"><link rel="stylesheet" href="../../comu/css/web.css"><a href="index.html">Unitat 8</a><script src="../../comu/js/paper.js"></script></nav>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 48 48">
+    <rect x="7" y="3" width="34" height="42" rx="6" fill="#000"/>
+    <rect x="12" y="8" width="24" height="12" rx="3" fill="#E4E4E4"/>
+    <g fill="#B0B0B0"><circle cx="16" cy="27" r="3"/><circle cx="24" cy="27" r="3"/><circle cx="32" cy="27" r="3"/>
+    <circle cx="16" cy="36" r="3"/><circle cx="24" cy="36" r="3"/><circle cx="32" cy="36" r="3"/></g>
+  </symbol>
+  <symbol id="i-regle" viewBox="0 0 48 48">
+    <rect x="3" y="16" width="42" height="16" rx="2" fill="#F2F2F2" stroke="#000" stroke-width="3"/>
+    <g stroke="#000" stroke-width="2.5">
+      <path d="M10 16v6M17 16v9M24 16v6M31 16v9M38 16v6"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ==================== FULL 1 ==================== -->
+<div class="full">
+  <div class="previ">Cinc minuts abans, a l'aula de suport: <b>una escombra i una cinta mètrica, al pati amb sol</b></div>
+  <h1>Com fa d'alt, si no hi arribo?</h1>
+  <div style="font-size:14pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:3px solid #000;padding-bottom:.2rem;margin:.2rem 0 .7rem">Part 1 · Semblança</div>
+  <p class="nom">Nom: <span></span></p>
+  <div class="obertura"><svg class="ull" viewBox="0 0 48 48" aria-hidden="true"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="#000"/></svg><div class="q">Què hi veus? <span class="com">Digues-ho o assenyala-ho.</span></div></div>
+
+  <div class="avis gruixut" style="margin-top:1.5rem">
+    <div style="font-size:14pt;color:var(--gris-2);margin-bottom:.5rem">El pal i l'arbre, a la mateixa hora</div>
+    <svg viewBox="0 0 620 282" class="centrat" style="max-width:none" role="img" aria-label="Un pal de 2 metres amb ombra de 3 metres i un arbre amb ombra de 12 metres"><circle cx="40" cy="38" r="13" fill="#fff" stroke="#000" stroke-width="3"/><line x1="60" y1="38" x2="69" y2="38" stroke="#000" stroke-width="3"/><line x1="54.1421" y1="52.1421" x2="60.5061" y2="58.5061" stroke="#000" stroke-width="3"/><line x1="40" y1="58" x2="40" y2="67" stroke="#000" stroke-width="3"/><line x1="25.8579" y1="52.1421" x2="19.4939" y2="58.5061" stroke="#000" stroke-width="3"/><line x1="20" y1="38" x2="11" y2="38" stroke="#000" stroke-width="3"/><line x1="25.8579" y1="23.8579" x2="19.4939" y2="17.4939" stroke="#000" stroke-width="3"/><line x1="40" y1="18" x2="40" y2="9" stroke="#000" stroke-width="3"/><line x1="54.1421" y1="23.8579" x2="60.5061" y2="17.4939" stroke="#000" stroke-width="3"/><polygon points="44,180 44,224 110,224" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><polygon points="196,48 196,224 460,224" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><line x1="44" y1="180" x2="110" y2="224" stroke="#000" stroke-width="3" stroke-dasharray="9 6"/><line x1="196" y1="48" x2="460" y2="224" stroke="#000" stroke-width="3" stroke-dasharray="9 6"/><line x1="8" y1="224" x2="612" y2="224" stroke="#000" stroke-width="3"/><rect x="44" y="220" width="66" height="8" fill="#5E5E5E"/><rect x="196" y="220" width="264" height="8" fill="#5E5E5E"/><line x1="44" y1="224" x2="44" y2="180" stroke="#000" stroke-width="7"/><line x1="196" y1="224" x2="196" y2="84" stroke="#000" stroke-width="9"/><circle cx="196" cy="78" r="32" fill="#E4E4E4" stroke="#000" stroke-width="3"/><text x="34" y="210" text-anchor="end" font-size="22" font-weight="800" fill="#000" font-family="system-ui">2 m</text><text x="44" y="168" text-anchor="middle" font-size="22" fill="#5E5E5E" font-family="system-ui">pal</text><text x="240" y="70" text-anchor="start" font-size="22" fill="#5E5E5E" font-family="system-ui">arbre</text><line x1="150" y1="48" x2="150" y2="224" stroke="#000" stroke-width="3"/><line x1="143" y1="48" x2="157" y2="48" stroke="#000" stroke-width="3"/><line x1="143" y1="224" x2="157" y2="224" stroke="#000" stroke-width="3"/><text x="138" y="150" text-anchor="end" font-size="40" font-weight="800" fill="#000" font-family="system-ui">?</text><line x1="44" y1="246" x2="110" y2="246" stroke="#000" stroke-width="3"/><line x1="44" y1="239" x2="44" y2="253" stroke="#000" stroke-width="3"/><line x1="110" y1="239" x2="110" y2="253" stroke="#000" stroke-width="3"/><text x="77" y="274" text-anchor="middle" font-size="22" font-weight="800" fill="#000" font-family="system-ui">ombra 3 m</text><line x1="196" y1="246" x2="460" y2="246" stroke="#000" stroke-width="3"/><line x1="196" y1="239" x2="196" y2="253" stroke="#000" stroke-width="3"/><line x1="460" y1="239" x2="460" y2="253" stroke="#000" stroke-width="3"/><text x="328" y="274" text-anchor="middle" font-size="22" font-weight="800" fill="#000" font-family="system-ui">ombra 12 m</text></svg>
+  </div>
+
+  <div class="avis" style="margin-top:1.4rem;text-align:center;font-size:17pt;font-weight:700">
+    A la mateixa hora, el pal i l'arbre fan el mateix dibuix.
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 1</div>
+</div>
+
+<!-- ==================== FULL 2 ==================== -->
+<div class="full">
+  <div style="font-size:14pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:3px solid #000;padding-bottom:.2rem;margin:.2rem 0 .7rem">Part 1 · Semblança</div>
+  <h2>Taula de proporcionalitat directa</h2>
+  <p style="font-size:14pt;color:var(--gris-2);margin:0 0 .4rem">
+    Pal de 2 m amb ombra de 3 m. L'arbre fa una ombra de 12 m.</p>
+
+  <table style="margin-top:1rem">
+    <tr><th style="width:30%"></th><th style="width:35%">Ombra</th><th style="width:35%">Alçada</th></tr>
+    <tr><td class="dada">Pal</td><td class="dada">3 m</td><td class="dada">2 m</td></tr>
+    <tr><td class="dada">Arbre</td><td class="dada">12 m</td><td class="dada"><b>x</b></td></tr>
+  </table>
+
+  <div class="avis puntejat" style="margin-top:1.4rem">
+    Més ombra, més alçada: és <b>proporcionalitat directa</b>.
+  </div>
+
+  <div class="avis gruixut" style="margin-top:1.2rem;text-align:center">
+    <div style="font-size:14pt;color:var(--gris-2);margin-bottom:.4rem">Es compleix la proporció</div>
+    <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:30pt;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">3</span><span style="display:block;padding:0 .35rem">12</span></span> <span style="font-size:30pt;font-weight:700"> = </span> <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:30pt;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">2</span><span style="display:block;padding:0 .35rem">x</span></span>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 2</div>
+</div>
+
+<!-- ==================== FULL 3 ==================== -->
+<div class="full">
+  <div style="font-size:14pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:3px solid #000;padding-bottom:.2rem;margin:.2rem 0 .7rem">Part 1 · Semblança</div>
+  <h2>Multipliquem en creu</h2>
+  <p style="font-size:14pt;color:var(--gris-2);margin:0 0 .4rem">
+    Els dos productes en creu són iguals.
+    <svg class="ico" style="margin-left:.4rem;vertical-align:middle"><use href="#i-calc"/></svg></p>
+
+  <svg viewBox="0 0 480 204" class="centrat" style="max-width:11cm" role="img" aria-label="Proporció 3 entre 12 igual a 2 entre x, amb el producte en creu"><text x="120" y="74" text-anchor="middle" font-size="44" font-weight="800" fill="#000" font-family="system-ui">3</text><line x1="82" y1="92" x2="158" y2="92" stroke="#000" stroke-width="4"/><text x="120" y="150" text-anchor="middle" font-size="44" font-weight="800" fill="#000" font-family="system-ui">12</text><text x="360" y="74" text-anchor="middle" font-size="44" font-weight="800" fill="#000" font-family="system-ui">2</text><line x1="322" y1="92" x2="398" y2="92" stroke="#000" stroke-width="4"/><text x="360" y="150" text-anchor="middle" font-size="44" font-weight="800" fill="#000" font-family="system-ui">x</text><text x="240" y="108" text-anchor="middle" font-size="44" font-weight="800" fill="#5E5E5E" font-family="system-ui">=</text><line x1="150" y1="76" x2="328" y2="138" stroke="#5E5E5E" stroke-width="3" stroke-dasharray="9 6"/><line x1="150" y1="138" x2="328" y2="76" stroke="#5E5E5E" stroke-width="3" stroke-dasharray="9 6"/><polygon points="150,76 162.4,88.9 167.6,73.7" fill="#5E5E5E"/><polygon points="328,76 312,76 320,88" fill="#5E5E5E"/><text x="240" y="38" text-anchor="middle" font-size="26" font-weight="800" fill="#000" font-family="system-ui">3 · x</text><text x="240" y="188" text-anchor="middle" font-size="26" font-weight="800" fill="#000" font-family="system-ui">12 · 2</text></svg>
+
+  <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;margin-top:1rem">
+    <span class="baula">3 · x = 2 · 12</span>
+    <span class="baula">3 · x = 24</span>
+    <span class="baula">x = <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">24</span><span style="display:block;padding:0 .35rem">3</span></span></span>
+    <span class="baula gris">x = 8</span>
+  </div>
+
+  <div class="avis gruixut" style="margin-top:1.2rem;font-size:17pt;font-weight:700;text-align:center">
+    R) L'arbre fa 8 metres d'alçada.
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 3</div>
+</div>
+
+<!-- ==================== FULL 4 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">1</div>
+      <div class="q">Troba l'alçada x de cada objecte. Multiplica en creu.<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">a)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">3 m</td><td class="dada">2 m</td></tr>
+            <tr><td class="dada">Arbre</td><td class="dada">12 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="ms"><span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">3</span><span style="display:block;padding:0 .35rem">12</span></span><span style="font-size:1.25em;font-weight:700"> = </span><span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">2</span><span style="display:block;padding:0 .35rem">x</span></span></td></tr>
+            <tr><td class="dada">Resolem</td><td class="ms">3 · x = 2 · 12<br>3 · x = 24</td></tr>
+            <tr><td class="dada">Aïllem</td><td class="ms">x = <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">24</span><span style="display:block;padding:0 .35rem">3</span></span> = 8</td></tr>
+            <tr><td class="dada">Responem</td><td class="ms">L'alçada de l'arbre és 8 m.</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">b)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">2 m</td><td class="dada">1 m</td></tr>
+            <tr><td class="dada">Fanal</td><td class="dada">10 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="omplir"></td></tr>
+            <tr><td class="dada">Resolem</td><td class="omplir" style="height:2.1cm"></td></tr>
+            <tr><td class="dada">Aïllem</td><td class="omplir" style="height:1.7cm"></td></tr>
+            <tr><td class="dada">Responem</td><td class="omplir" style="height:1.7cm"></td></tr>
+          </table>
+        </div>
+      </div>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 4</div>
+</div>
+
+<!-- ==================== FULL 5 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <p style="font-size:14pt;color:var(--gris-2);margin:0">Exercici 1, continuació.</p>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">c)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">4 m</td><td class="dada">3 m</td></tr>
+            <tr><td class="dada">Edifici</td><td class="dada">12 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="omplir"></td></tr>
+            <tr><td class="dada">Resolem</td><td class="omplir" style="height:2.1cm"></td></tr>
+            <tr><td class="dada">Aïllem</td><td class="omplir" style="height:1.7cm"></td></tr>
+            <tr><td class="dada">Responem</td><td class="omplir" style="height:1.7cm"></td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">d)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">5 m</td><td class="dada">2 m</td></tr>
+            <tr><td class="dada">Campanar</td><td class="dada">20 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="omplir"></td></tr>
+            <tr><td class="dada">Resolem</td><td class="omplir" style="height:2.1cm"></td></tr>
+            <tr><td class="dada">Aïllem</td><td class="omplir" style="height:1.7cm"></td></tr>
+            <tr><td class="dada">Responem</td><td class="omplir" style="height:1.7cm"></td></tr>
+          </table>
+        </div>
+      </div>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 5</div>
+</div>
+
+<!-- ==================== FULL 6 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">2</div>
+      <div class="q">Troba l'alçada x de cada objecte amb la calculadora.<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">a)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">4 m</td><td class="dada">3 m</td></tr>
+            <tr><td class="dada">Torre</td><td class="dada">36 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="ms"><span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">4</span><span style="display:block;padding:0 .35rem">36</span></span><span style="font-size:1.25em;font-weight:700"> = </span><span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">3</span><span style="display:block;padding:0 .35rem">x</span></span></td></tr>
+            <tr><td class="dada">Resolem</td><td class="ms">4 · x = 3 · 36<br>4 · x = 108</td></tr>
+            <tr><td class="dada">Aïllem</td><td class="ms">x = <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">108</span><span style="display:block;padding:0 .35rem">4</span></span> = 27</td></tr>
+            <tr><td class="dada">Responem</td><td class="ms">L'alçada de la torre és 27 m.</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">b)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">2 m</td><td class="dada">1,5 m</td></tr>
+            <tr><td class="dada">Porteria</td><td class="dada">3,2 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="omplir"></td></tr>
+            <tr><td class="dada">Resolem</td><td class="omplir" style="height:2.1cm"></td></tr>
+            <tr><td class="dada">Aïllem</td><td class="omplir" style="height:1.7cm"></td></tr>
+            <tr><td class="dada">Responem</td><td class="omplir" style="height:1.7cm"></td></tr>
+          </table>
+        </div>
+      </div>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 6</div>
+</div>
+
+<!-- ==================== FULL 7 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <p style="font-size:14pt;color:var(--gris-2);margin:0">Exercici 2, continuació.</p>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">c)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">3 m</td><td class="dada">2 m</td></tr>
+            <tr><td class="dada">Cartell</td><td class="dada">4,5 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="omplir"></td></tr>
+            <tr><td class="dada">Resolem</td><td class="omplir" style="height:2.1cm"></td></tr>
+            <tr><td class="dada">Aïllem</td><td class="omplir" style="height:1.7cm"></td></tr>
+            <tr><td class="dada">Responem</td><td class="omplir" style="height:1.7cm"></td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">d)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">1,5 m</td><td class="dada">1 m</td></tr>
+            <tr><td class="dada">Xemeneia</td><td class="dada">24 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="omplir"></td></tr>
+            <tr><td class="dada">Resolem</td><td class="omplir" style="height:2.1cm"></td></tr>
+            <tr><td class="dada">Aïllem</td><td class="omplir" style="height:1.7cm"></td></tr>
+            <tr><td class="dada">Responem</td><td class="omplir" style="height:1.7cm"></td></tr>
+          </table>
+        </div>
+      </div>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 7</div>
+</div>
+
+<!-- ==================== FULL 6 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">3</div>
+      <div class="q">Baixa la vertical i escriu l'alçada que va amb cada ombra.<svg class="ico" style="margin-left:.4rem"><use href="#i-regle"/></svg></div></div>
+    <p style="margin:.2rem 0 .3rem;font-size:14pt;color:var(--gris-2)">Un pal de 2 m fa una ombra de 3 m.</p>
+    <svg viewBox="0 0 560 130" class="centrat"  role="img" aria-label="Doble recta: metres d'ombra i metres d'alçada"><rect x="178" y="46" width="91" height="50" fill="#F2F2F2"/><text x="164" y="52" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">ombra (m)</text><text x="164" y="102" text-anchor="end" font-size="20" fill="#5E5E5E" font-family="system-ui">alçada (m)</text><line x1="178" y1="46" x2="178" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="269" y1="46" x2="269" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="360" y1="46" x2="360" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="451" y1="46" x2="451" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="542" y1="46" x2="542" y2="96" stroke="#D4D4D4" stroke-width="1"/><line x1="178" y1="46" x2="542" y2="46" stroke="#000" stroke-width="2.5"/><line x1="178" y1="96" x2="542" y2="96" stroke="#000" stroke-width="2.5"/><line x1="178" y1="39" x2="178" y2="53" stroke="#000" stroke-width="2"/><text x="178" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="178" y1="89" x2="178" y2="103" stroke="#000" stroke-width="2"/><text x="178" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">0</text><line x1="269" y1="39" x2="269" y2="53" stroke="#000" stroke-width="2"/><text x="269" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">3</text><line x1="269" y1="89" x2="269" y2="103" stroke="#000" stroke-width="2"/><text x="269" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">2</text><line x1="360" y1="39" x2="360" y2="53" stroke="#000" stroke-width="2"/><text x="360" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="360" y1="89" x2="360" y2="103" stroke="#000" stroke-width="2"/><text x="360" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">4</text><line x1="451" y1="39" x2="451" y2="53" stroke="#000" stroke-width="2"/><text x="451" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">9</text><line x1="451" y1="89" x2="451" y2="103" stroke="#000" stroke-width="2"/><text x="451" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">6</text><line x1="542" y1="39" x2="542" y2="53" stroke="#000" stroke-width="2"/><text x="542" y="32" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">12</text><line x1="542" y1="89" x2="542" y2="103" stroke="#000" stroke-width="2"/><text x="542" y="122" text-anchor="middle" font-size="20" fill="#000" font-family="system-ui">8</text></svg>
+    <table>
+      <tr><th style="width:10%"></th><th style="width:45%">Ombra</th><th style="width:45%">Alçada</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">6 m</td><td class="ms">4 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">9 m</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">12 m</td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">3 m</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 8</div>
+</div>
+
+<!-- ==================== FULL 7: A LA VIDA DE CADA DIA (semblança) ====================
+     Vegeu docs/CRITERIS-DISSENY.md, regla 9. -->
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">4</div>
+      <div class="q">Calcula l'alçada de l'edifici de l'institut.<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p style="margin:.2rem 0 .3rem;font-size:14pt;color:var(--gris-2)">L'escombra fa 1,5 m i la seva ombra, 2 m. L'ombra de l'edifici fa 20 m.</p>
+      <div style="display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem">
+        <div style="flex:0 0 38%">
+          <div style="font-size:15pt;margin-bottom:.2rem"><span class="apartat">a)</span></div>
+          <table>
+            <tr><th style="width:36%"></th><th style="width:32%">Ombra</th><th style="width:32%">Alçada</th></tr>
+            <tr><td class="dada">Pal</td><td class="dada">2 m</td><td class="dada">1,5 m</td></tr>
+            <tr><td class="dada">Edifici</td><td class="dada">20 m</td><td class="dada"><b>x</b></td></tr>
+          </table>
+        </div>
+        <div style="flex:1">
+          <table>
+            <tr><td class="dada" style="width:26%">Equació</td><td class="ms"><span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">2</span><span style="display:block;padding:0 .35rem">20</span></span><span style="font-size:1.25em;font-weight:700"> = </span><span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">1,5</span><span style="display:block;padding:0 .35rem">x</span></span></td></tr>
+            <tr><td class="dada">Resolem</td><td class="ms">2 · x = 1,5 · 20<br>2 · x = 30</td></tr>
+            <tr><td class="dada">Aïllem</td><td class="ms">x = <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1.2em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">30</span><span style="display:block;padding:0 .35rem">2</span></span> = 15</td></tr>
+            <tr><td class="dada">Responem</td><td class="ms">L'alçada de l'edifici és 15 m.</td></tr>
+          </table>
+        </div>
+      </div>
+    <table style="margin-top:.8rem"><tr><td class="dada" style="width:60%"><b>b)</b> Un pis fa 3 m. Quants pisos té?</td><td class="omplir"></td></tr></table>
+  </div>
+
+  <div class="pag">Unitat 8 · Semblança · pàgina 9</div>
+</div>
+
+<!-- ==================== FULL 8 · PART 2 · SEGONA SESSIÓ ==================== -->
+<div class="full">
+  <div style="font-size:14pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:3px solid #000;padding-bottom:.2rem;margin:.2rem 0 .7rem">Part 2 · Pitàgores</div>
+  <h2>Quan no hi ha ombra</h2>
+  <p style="font-size:14pt;color:var(--gris-2);margin:0 0 .4rem">
+    Un triangle amb un angle recte. Els catets fan 3 m i 4 m.
+    <svg class="ico" style="margin-left:.4rem;vertical-align:middle"><use href="#i-calc"/></svg></p>
+
+  <svg viewBox="0 0 480 262" class="centrat" style="max-width:11cm" role="img" aria-label="Triangle rectangle amb els catets b i c i el costat llarg a"><polygon points="70,210 410,210 70,50" fill="#F2F2F2" stroke="#000" stroke-width="4" stroke-linejoin="round"/><line x1="94" y1="210" x2="94" y2="186" stroke="#000" stroke-width="3"/><line x1="70" y1="186" x2="94" y2="186" stroke="#000" stroke-width="3"/><text x="240" y="248" text-anchor="middle" font-size="34" font-weight="800" fill="#000" font-family="system-ui">b</text><text x="40" y="140" text-anchor="middle" font-size="34" font-weight="800" fill="#000" font-family="system-ui">c</text><text x="262" y="118" text-anchor="middle" font-size="34" font-weight="800" fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round" font-family="system-ui">a</text><text x="262" y="118" text-anchor="middle" font-size="34" font-weight="800" fill="#000" font-family="system-ui">a</text></svg>
+
+  <div class="avis gruixut" style="margin-top:1rem;text-align:center;font-size:22pt;font-weight:700">
+    <div style="font-size:14pt;color:var(--gris-2);margin-bottom:.3rem;font-weight:400">Teorema de Pitàgores</div>
+    a² = b² + c²
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start;margin-top:1rem">
+    <span class="baula">a² = 3² + 4²</span>
+    <span class="baula">a² = 9 + 16</span>
+    <span class="baula">a² = 25</span>
+    <span class="baula gris">a = √25 = 5</span>
+  </div>
+
+  <div class="avis puntejat" style="margin-top:1rem">
+    <b>a</b> és el costat llarg, el que és davant l'angle recte.
+  </div>
+
+  <div class="pag">Unitat 8 · Pitàgores · pàgina 10</div>
+</div>
+
+<!-- ==================== FULL 10 ==================== -->
+<div class="full">
+  <div class="exercici">
+    <div class="tasca"><div class="n">5</div>
+      <div class="q">Calcula el costat llarg a. Fes servir a² = b² + c².<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:8%"></th><th style="width:20%">b i c</th><th style="width:28%">b² + c²</th><th style="width:20%">a²</th><th style="width:24%">a</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">3 i 4</td><td class="ms">9 + 16</td><td class="ms">25</td><td class="ms">5</td></tr>
+      <tr><td><b>b)</b></td><td class="dada">6 i 8</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada">5 i 12</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+      <tr><td><b>d)</b></td><td class="dada">9 i 12</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">6</div>
+      <div class="q">Calcula a, el costat llarg.<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <svg viewBox="0 0 620 232" class="centrat" style="max-width:none" role="img" aria-label="Un pal de 8 metres, 15 metres fins al terra i un cable que els uneix"><polygon points="90,54 90,190 345,190" fill="#F2F2F2" stroke="#000" stroke-width="3" stroke-linejoin="round"/><line x1="90" y1="54" x2="345" y2="190" stroke="#000" stroke-width="4" stroke-dasharray="10 6"/><line x1="90" y1="190" x2="90" y2="54" stroke="#000" stroke-width="8"/><line x1="8" y1="190" x2="612" y2="190" stroke="#000" stroke-width="3"/><line x1="104" y1="190" x2="104" y2="176" stroke="#000" stroke-width="2.5"/><line x1="90" y1="176" x2="104" y2="176" stroke="#000" stroke-width="2.5"/><text x="78" y="130" text-anchor="end" font-size="22" font-weight="800" fill="#000" font-family="system-ui">8 m</text><text x="217.5" y="220" text-anchor="middle" font-size="22" font-weight="800" fill="#000" font-family="system-ui">15 m</text><text x="232.8" y="104.4" text-anchor="middle" font-size="36" font-weight="800" fill="#000" font-family="system-ui">a</text><text x="385" y="156" text-anchor="start" font-size="22" fill="#5E5E5E" font-family="system-ui">cable</text></svg>
+    <table>
+      <tr><th style="width:8%"></th><th style="width:44%">Cas</th><th style="width:24%">b i c</th><th style="width:24%">a</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms">Cable d'una tirolina</td><td class="ms">8 m i 15 m</td><td class="ms">17 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">Cable d'una antena</td><td class="dada">15 m i 20 m</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Diagonal d'una pantalla</td><td class="dada">30 cm i 40 cm</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 8 · Pitàgores · pàgina 11</div>
+</div>
+
+<!-- ==================== FULL 11: A LA VIDA DE CADA DIA (Pitàgores) ====================
+     Vegeu docs/CRITERIS-DISSENY.md, regla 9. -->
+<div class="full vida">
+  <h2>A la vida de cada dia</h2>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">7</div>
+      <div class="q">Calcula la diagonal a d'una bassa de 10 m per 24 m.<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <table>
+      <tr><th style="width:8%"></th><th style="width:26%">b i c</th><th style="width:22%">b² + c²</th><th style="width:22%">a²</th><th style="width:22%">a</th></tr>
+      <tr><td><b>a)</b></td><td class="dada">10 i 24</td><td class="omplir"></td><td class="omplir"></td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="exercici">
+    <div class="tasca"><div class="n">8</div>
+      <div class="q">Quant s'estalvia anant per la diagonal del pati?<svg class="ico" style="margin-left:.4rem"><use href="#i-calc"/></svg></div></div>
+    <p style="margin:.2rem 0 .3rem;font-size:14pt;color:var(--gris-2)">Un pati fa 12 m per 16 m. Pots anar per les dues parets o en diagonal.</p>
+    <table>
+      <tr><th style="width:8%"></th><th style="width:62%">Pregunta</th><th style="width:30%">Resposta</th></tr>
+      <tr class="resolt"><td class="ms">a)</td><td class="ms esq">Per les dues parets: 12 + 16</td><td class="ms">28 m</td></tr>
+      <tr><td><b>b)</b></td><td class="dada esq">En diagonal: <b>a² = 12² + 16²</b>. Quant val a?</td><td class="omplir"></td></tr>
+      <tr><td><b>c)</b></td><td class="dada esq">Quants metres t'estalvies?</td><td class="omplir"></td></tr>
+    </table>
+  </div>
+
+  <div class="pag">Unitat 8 · Pitàgores · pàgina 12</div>
+</div>
+
+<!-- ==================== FULL 12: SOLUCIONARI ==================== -->
+<div class="full sol">
+  <h1 style="font-size:19pt">Solucionari</h1>
+  <p style="color:var(--gris-2);margin-top:.15rem">Unitat 8 · full per al professorat</p>
+
+  <div class="abans">
+    <b>Dues parts separades, dues sessions.</b> Part 1 · Semblança: pàgines 1–9 i exercicis 1–4. Part 2 · Pitàgores:
+    pàgines 10–12 i exercicis 5–8. No es barregen mai: cada part té la seva pàgina «A la vida de cada dia» . Fer-les seguides el mateix dia són dues novetats.
+  </div>
+
+  <div class="abans">
+    <b>Mètode.</b> Semblança: taula Ombra | Alçada amb dues files (pal i objecte), fila «Equació» (3/12 = 2/x), fila «Resolem» (producte en creu,
+    3·x = 2·12, 3·x = 24), fila «Aïllem» (x = 24/3 = 8) i fila «Responem» (frase amb la unitat). Pitàgores: sempre <b>a² = b² + c²</b>, amb <b>a</b> la hipotenusa (davant l'angle
+    recte) com a incògnita, i la calculadora. Cap exercici demana un catet.
+  </div>
+
+  <h3>PART 1 · SEMBLANÇA</h3>
+
+  <h3>1. Taula de proporcionalitat i producte en creu</h3>
+  <table>
+    <tr><th></th><th>Objecte</th><th>Pal (ombra, alçada)</th><th>Ombra objecte</th><th>Resolem</th><th>x</th></tr>
+    <tr><td>a)</td><td>Arbre</td><td>3 m, 2 m</td><td>12 m</td><td>3 · x = 2 · 12 = 24</td><td>8 m</td></tr>
+    <tr><td>b)</td><td>Fanal</td><td>2 m, 1 m</td><td>10 m</td><td>2 · x = 1 · 10 = 10</td><td>5 m</td></tr>
+    <tr><td>c)</td><td>Edifici</td><td>4 m, 3 m</td><td>12 m</td><td>4 · x = 3 · 12 = 36</td><td>9 m</td></tr>
+    <tr><td>d)</td><td>Campanar</td><td>5 m, 2 m</td><td>20 m</td><td>5 · x = 2 · 20 = 40</td><td>8 m</td></tr>
+  </table>
+  <p><b>Error típic:</b> posar els nombres a la taula en l'ordre equivocat (l'ombra de l'objecte a la columna Alçada) o
+  multiplicar els dos de la mateixa fila. Les diagonals del dibuix de la pàgina 3 ajuden: ombra del pal amb x, ombra de
+  l'objecte amb l'alçada del pal.</p>
+
+  <h3>2. Amb la calculadora</h3>
+  <table>
+    <tr><th></th><th>Objecte</th><th>Pal</th><th>Ombra</th><th>Resolem</th><th>x</th></tr>
+    <tr><td>a)</td><td>Torre</td><td>4 m, 3 m</td><td>36 m</td><td>4 · x = 3 · 36 = 108</td><td>27 m</td></tr>
+    <tr><td>b)</td><td>Porteria</td><td>2 m, 1,5 m</td><td>3,2 m</td><td>2 · x = 1,5 · 3,2 = 4,8</td><td>2,4 m</td></tr>
+    <tr><td>c)</td><td>Cartell</td><td>3 m, 2 m</td><td>4,5 m</td><td>3 · x = 2 · 4,5 = 9</td><td>3 m</td></tr>
+    <tr><td>d)</td><td>Xemeneia</td><td>1,5 m, 1 m</td><td>24 m</td><td>1,5 · x = 1 · 24 = 24</td><td>16 m</td></tr>
+  </table>
+
+  <h3>3. La doble recta</h3>
+  <table>
+    <tr><th></th><th>Ombra</th><th>Alçada</th></tr>
+    <tr><td>a)</td><td>6 m</td><td>4 m</td></tr>
+    <tr><td>b)</td><td>9 m</td><td>6 m</td></tr>
+    <tr><td>c)</td><td>12 m</td><td>8 m</td></tr>
+    <tr><td>d)</td><td>3 m</td><td>2 m</td></tr>
+  </table>
+  <p>No cal calcular: es llegeix baixant la vertical. És la mateixa doble recta de la Unitat 3, ara amb ombra i alçada.</p>
+
+  <h3>4. A la vida de cada dia · l'edifici</h3>
+  <p>a) 2 · x = 1,5 · 20 = 30 → x = <span style="display:inline-block;text-align:center;vertical-align:middle;font-size:1em;font-weight:700;margin:0 .25rem"><span style="display:block;border-bottom:3px solid #000;padding:0 .35rem">30</span><span style="display:block;padding:0 .35rem">2</span></span> = <b>15 m</b> &nbsp;·&nbsp; b) 15 ÷ 3 = <b>5 pisos</b></p>
+  <p><b>Error típic:</b> posar l'alçada de l'escombra (1,5) a la columna de l'ombra. La taula és Ombra | Alçada: pal 2 | 1,5 i edifici 20 | x.</p>
+
+  <h3>PART 2 · PITÀGORES</h3>
+
+  <h3>5. Pitàgores amb la taula</h3>
+  <table>
+    <tr><th></th><th>b i c</th><th>b² + c²</th><th>a²</th><th>a</th></tr>
+    <tr><td>a)</td><td>3 i 4</td><td>9 + 16</td><td>25</td><td>5</td></tr>
+    <tr><td>b)</td><td>6 i 8</td><td>36 + 64</td><td>100</td><td>10</td></tr>
+    <tr><td>c)</td><td>5 i 12</td><td>25 + 144</td><td>169</td><td>13</td></tr>
+    <tr><td>d)</td><td>9 i 12</td><td>81 + 144</td><td>225</td><td>15</td></tr>
+  </table>
+  <p><b>Error típic:</b> parar a a² i dir que a = 25. Cal l'arrel (tecla √ de la calculadora).</p>
+
+  <h3>6. Els tres casos</h3>
+  <table>
+    <tr><th></th><th>Cas</th><th>b i c</th><th>Compte</th><th>a</th></tr>
+    <tr><td>a)</td><td>Tirolina</td><td>8 i 15</td><td>64 + 225 = 289</td><td>17 m</td></tr>
+    <tr><td>b)</td><td>Antena</td><td>15 i 20</td><td>225 + 400 = 625</td><td>25 m</td></tr>
+    <tr><td>c)</td><td>Pantalla</td><td>30 i 40</td><td>900 + 1 600 = 2 500</td><td>50 cm</td></tr>
+  </table>
+  <p>Pitàgores només es fa servir quan <b>dos costats es poden mesurar de debò</b> (la distància fins al peu del pal,
+  l'alçada del pal).</p>
+
+  <h3>7. A la vida de cada dia · la bassa</h3>
+  <p>a) b² + c² = 100 + 576 &nbsp;·&nbsp; a² = 676 &nbsp;·&nbsp; a = √676 = <b>26 m</b></p>
+
+  <h3>8. A la vida de cada dia · la drecera del pati</h3>
+  <p>a) 12 + 16 = 28 m &nbsp;·&nbsp; b) a² = 144 + 256 = 400 → a = <b>20 m</b> &nbsp;·&nbsp; c) 28 − 20 = <b>8 m</b></p>
+  <p><b>Això és el que mostra si ho ha entès:</b> aquí la resposta no és la hipotenusa sola, sinó compararla amb el camí
+  per les parets. Si fa b) bé però no sap què fer amb el resultat, el que falla és el context, no el compte.</p>
+
+  <h3>El graó físic, abans de la pàgina 1</h3>
+  <p>Cinc minuts al pati amb sol. Mesureu l'ombra d'una escombra dreta i l'ombra d'una porteria o d'un arbre, les dues
+  a la mateixa hora. Dibuixeu-les a escala al full quadriculat i comproveu que els dos triangles tenen la mateixa forma.
+  Si fa núvol, una llanterna a ras de terra fa les mateixes ombres.</p>
+
+  <h3>Què mirar per avaluar</h3>
+  <ul>
+    <li>Exercicis 1, 2, 5 i 6 → criteri <b>1.1</b>, resoldre situacions reals de mesura.</li>
+    <li>Exercici 3 → criteri <b>5.1</b>, reconèixer la relació proporcional entre ombra i alçada.</li>
+    <li>Exercicis 4, 7 i 8 → criteri <b>6.1</b>, aplicar la mesura indirecta a la vida de cada dia.</li>
+  </ul>
+  <p>L'objectiu <b>no és calcular bé</b>: és plantejar bé la taula. Un error de càlcul no hauria de fer baixar la
+  valoració si el plantejament és correcte.</p>
+
+  <h3>Enllaç amb la resta del material</h3>
+  <p>Aquesta fitxa adapta les activitats 4.1 a 4.4 de la <b>unitat 4 del llibre</b>. No n'adapta, de moment, el producte
+  «Els mesuradors» ni l'estudi.</p>
+  <p>Base prèvia a l'aula de suport si cal: <i>2eso-ud5-4</i>, <i>2eso-ud5-5</i> i tota la <i>3eso-ud3</i>. Aquesta unitat
+  encara no té repàs, quadern ni eina pròpia, ni blocs de <i>repas-main</i> triats.</p>
+</div>
+
+</body>
+</html>

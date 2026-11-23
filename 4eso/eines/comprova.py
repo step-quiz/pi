@@ -96,7 +96,9 @@ for f in FITXES:
     if re.fullmatch(r'u\d+/fitxa\.html', nom):
         # La pàgina de la vida de cada dia: un context real i una segona situació
         # amb la mateixa decisió, perquè el que s'aprèn no es quedi lligat a un cas.
-        comprova(s.count('class="full vida"') == 1, f"{nom}: falta la pàgina «A la vida de cada dia»")
+        # Una per fitxa; la u8 en té dues, una per part (Semblança i Pitàgores, separades del tot).
+        n_vida = 2 if nom == 'u8/fitxa.html' else 1
+        comprova(s.count('class="full vida"') == n_vida, f"{nom}: falta la pàgina «A la vida de cada dia»")
     else:
         # La fitxa de repàs (uN/repas.html): un exercici de cada tipus de la unitat
         # i l'autoavaluació en frases que l'alumnat pot marcar.

@@ -118,5 +118,13 @@
  "ud7-solucionari.pdf": {
   "empremta": "c688fc39c1b2aecadd9c104dd08cc730014838afda4ea3009783b458e9efc75a",
   "font": "u7/fitxa.html"
+ },
+ "ud8-alumnat.pdf": {
+  "empremta": "3d48a0a777415272cd08e388dc75080f5ad23c28a98a926f59b0411b229cff9b",
+  "font": "u8/fitxa.html"
+ },
+ "ud8-solucionari.pdf": {
+  "empremta": "3d48a0a777415272cd08e388dc75080f5ad23c28a98a926f59b0411b229cff9b",
+  "font": "u8/fitxa.html"
  }
 }

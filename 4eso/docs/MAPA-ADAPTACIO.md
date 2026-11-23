@@ -492,7 +492,7 @@ convé que els faci sencers encara que la resta hagi anat més just.
 
 ### Dues unitats del llibre sense fitxa de programació
 
-- **UD4 «Mesura indirecta»** (`llibre · unitat 4`) — semblança, ombres i Pitàgores. Si la fas,
+- **UD4 «Mesura indirecta»** (`llibre · unitat 4`) — **feta com a U8 (23/11/2026)**: `u8/fitxa.html`, adaptació de les activitats 4.1–4.4 (ombres i semblança com a «quantes vegades hi cap», i Pitàgores, en dues sessions). Té els PDF, però encara no repàs, quadern, eina pròpia ni blocs de `repas-main`; no és a la programació de les 7 SA i no té data. Descripció original: semblança, ombres i Pitàgores. Si la fas,
   **és la segona millor unitat del curs per a aquest alumnat**: sortir a mesurar l'institut
   amb ombres i triangles és 100 % visual i manipulatiu. Base directa a `2eso-ud5-4`,
   `2eso-ud5-5` i tota la `3eso-ud3`.
