@@ -19,10 +19,13 @@ Si el gràfic és d'un generador, posa_grafics.py el torna a posar al dia a tote
 Fet el 30/9/2026 i revisat el mateix dia, per encàrrec del docent. Després de canviar res:
 python3 eines/mesura.py, generadors/gen_pdf.py i eines/comprova.py.
 """
-import os, re
+import os, re, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ARREL = os.path.dirname(AQUI)
+sys.path.insert(0, os.path.join(ARREL, "..", "comu", "generadors"))
+from tipografia import lliga  # noqa: E402
+LLIGATS = {3}
 
 # Els blancs per escriure i la lletra manuscrita del model.
 B = "<u></u>"
@@ -91,7 +94,7 @@ UNITATS = {
     una=[
       ("Primer, quant val 1.", f"3 entrades costen 21 €. 1 entrada val {ms('21 ÷ 3 = 7 €')}", "7 €", 1),
       ("El preu d'1 litre.", f"Oli: 1 L a 4,50 € o 3 L a 12,90 €. 1 L del gran: {B} €. Guanya: {B}", "12,90 ÷ 3 = 4,30 €. Guanya el gran.", 2),
-      ("La proporció i el producte en creu.", f"5 kg costen 10 €. Quant costen 3 kg? x / 3 = 10 / 5 → 5 · x = {B} → x = {B} €", "5 · x = 30 → x = 30 ÷ 5 = 6 €", 3),
+      ("La proporció i el producte en creu.", f"5 kg costen 10 €. Quant costen 3 kg? x / 3 = 10 / 5 → 5 · x = {B} → x = {B} €", "5 · x = 30 → x = 30/5 = 6 €", 3),
       ("La inversa, a ull.", f"2 pintors pinten la casa en 8 dies. 4 pintors la pinten en {B} dies.", "el doble de pintors, la meitat: 4 dies", 4),
       ("Directa o inversa?", f"Si hi ha més amics per inflar els globus, triguen menys temps: {B}", "inversa", 5),
       ("Del plànol a la realitat: multiplica.", f"1 : 100. Al plànol, 7 cm. De veritat: {B} m", "700 cm = 7 m", 10),
@@ -347,8 +350,13 @@ def fitxa(n, u):
 def main():
     for n, u in UNITATS.items():
         desti = os.path.join(ARREL, f"u{n}", "repas.html")
+        h = fitxa(n, u)
+        # Un número no queda sol a final de línia (../comu/generadors/tipografia.py). De moment, només a
+        # la U3 (24/11/2026): a les altres canviaria el repàs i caldria refer-ne els PDF.
+        if n in LLIGATS:
+            h = lliga(h)
         with open(desti, "w", encoding="utf-8") as f:
-            f.write(fitxa(n, u))
+            f.write(h)
         print(f"  u{n}/repas.html: {len(u['una'])} apartats, {len(u['apres'])} frases")
 
 

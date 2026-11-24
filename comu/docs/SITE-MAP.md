@@ -216,6 +216,9 @@ the tab title from the data.
   stylesheet and (in `1eso/`) `eines/paper.py`. **Editing any of them makes every PDF of the
   course old**; PDFs can only be rebuilt with WeasyPrint (`pip install weasyprint`, then
   `python3 CURS/generadors/gen_pdf.py`), which is possible in a Codespace.
+- **No number alone at the end of a line**: `comu/generadors/tipografia.py` (`lliga`) binds a number to
+  the word or symbol after it with U+00A0 («21 €», «5 entrades», «1 : 100»). The workbook engine applies
+  it to every workbook; `4eso/generadors/gen_repas.py` and `4eso/u3/fitxa.html` too (24/11/2026).
 - Generated pages are never edited by hand: `1eso/generadors/fitxes/*.py` (each writes its own
   destination, see `desa()` in `peces_comunes.py`), `4eso/generadors/gen_repas.py`,
   `CURS/generadors/gen_quadern.py` (the workbooks; the engine is shared since 6/11/2026:

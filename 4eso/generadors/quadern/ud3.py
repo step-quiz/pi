@@ -55,7 +55,7 @@ def n_eu(x):
 
 
 CAP1 = ["Què sabem", "Quant val 1", "Pregunta", "Resposta"]
-A1 = [30, 22, 16, 20]
+A1 = [28, 20, 20, 20]
 
 B1 = [(3, "entrades", 21, 5), (4, "iogurts", 2, 10), (5, "llibretes", 7.50, 4), (2, "pizzes", 16, 3),
       (6, "ous", 1.80, 12), (10, "llapis", 4, 3), (4, "cafès", 6, 7), (3, "barres de pa", 3.60, 5),
@@ -163,12 +163,22 @@ bloc2 = dict(
 
 # ------------------------------------------------- 3 · la proporció i el producte en creu --
 
+def frac(dalt, baix):
+    """Una fracció dibuixada, com a la fitxa: el numerador damunt d'una ratlla."""
+    return ('<span style="display:inline-block;text-align:center;vertical-align:middle;margin:0 .15rem">'
+            f'<span style="display:block;border-bottom:2px solid #000;padding:0 .25rem">{dalt}</span>'
+            f'<span style="display:block;padding:0 .25rem">{baix}</span></span>')
+
+
 def creu(sabem, a, b, c, ua, ub, resposta):
-    """x / c = a / b → b · x = c · a → x = (c · a) ÷ b. ua: la unitat de la x (i de a); ub: la de b i c."""
+    """x / c = a / b → b · x = c · a → x = (c · a) / b, com a la fitxa (24/11/2026): cada pas en una
+    línia, i la divisió escrita com una fracció. ua: la unitat de la x (i de a); ub: la de b i c."""
     k = c * a
     x = exacte(k / b)
-    return [sabem, f"x/{num(c)}&nbsp;=&nbsp;{num(a)}/{num(b)}", f"{num(b)} · x = {num(c)} · {num(a)} = {num(k)}",
-            f"x = {num(k)} ÷ {num(b)} = {num(x)} {ua}" if resposta is None else resposta.format(x=num(x))]
+    prop = f"{frac('x', num(c))} = {frac(num(a), num(b))}"
+    pas = f"{num(b)} · x = {num(c)} · {num(a)}<br>{num(b)} · x = {num(k)}"
+    xx = f"x = {frac(num(k), num(b))}<br>x = {num(x)} {ua}"
+    return [sabem, (prop, prop, prop), (pas, pas, pas), (xx, xx, xx)]
 
 
 B3 = [creu("4 kg de taronges costen 6 €. Quant costen 10 kg?", 6, 4, 10, "€", "kg", None),
