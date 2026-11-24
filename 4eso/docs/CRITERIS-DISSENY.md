@@ -160,9 +160,12 @@ Cada solucionari ho diu explícitament, amb l'epígraf **«Això és el que most
 entès»**, i el criteri d'avaluació d'aquests exercicis és el **6.1**, connectar el món real
 amb les matemàtiques, no el de calcular.
 
-**Excepció: la U8** té dues pàgines «A la vida de cada dia», una al final de cada part (Semblança i
-Pitàgores, dues sessions separades). `eines/comprova.py` n'hi espera dues només en aquesta fitxa
-(decisió del 23/11/2026). La de la Part 1 porta la segona situació; a la de la Part 2, la drecera del
+**Excepció: la U3 i la U8** tenen dues pàgines «A la vida de cada dia», una al final de cada part.
+A la U8, Semblança i Pitàgores, dues sessions separades (decisió del 23/11/2026). A la U3,
+Proporcionalitat i Escales i plànols (decisió del 24/11/2026): la de la Part 1 porta les creps i els
+globus (directa i inversa a la mateixa festa); la de la Part 2, el mapa del barri, amb l'apartat d) al
+revés (dels metres al mapa). `eines/comprova.py` n'hi espera dues només en aquestes dues fitxes.
+A la U8, La de la Part 1 porta la segona situació; a la de la Part 2, la drecera del
 pati fa aquest paper (comparar la diagonal amb el camí per les parets).
 
 La pàgina va **abans** de «Com ho dic» i **després** de tots els exercicis: primer es fa la
@@ -181,7 +184,7 @@ lliga.
 | Unitat | Què lliga | On és |
 |---|---|---|
 | 2 | euros i per cent: 240 € i 80 % cauen al mateix lloc | Pàgina 1 de la fitxa · Doble recta, «Percentatges» |
-| 3 | persones i grams de farina: 4 persones, 200 g | «A la vida de cada dia» (ex. 10) · Doble recta, «Escala 1 : 200» (cm del plànol i metres) |
+| 3 | persones i grams de farina (Part 1) · cm del mapa i metres (Part 2) | Les dues «A la vida de cada dia» (ex. 7 i 12) · Doble recta, «Escala 1 : 200» |
 | 4 | x i x + 3: on la de baix val 7, la de dalt val 4 | Doble recta, «Equació x + 3 = 7» (el pont si la balança no agafa) |
 | 7 | casos que van bé i probabilitat | Pàgina 3 (la barra amb l'escala) · Doble recta, «Probabilitat» |
 | 8 | metres d'ombra i metres d'alçada | Exercici 3 · Doble recta, «Ombra i alçada» |

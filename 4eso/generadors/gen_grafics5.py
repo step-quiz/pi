@@ -2,10 +2,11 @@
 
     cd generadors && python3 gen_grafics5.py
 
-  DOBLE_RECEPTA  U3 — la doble recta que lliga les persones amb els grams de
+  DOBLE_MAPA / DOBLE_RECEPTA  U3 — la doble recta que lliga les persones amb els grams de
               farina d'una recepta (4 persones, 200 g). És el mateix objecte que la
               doble recta de la U2 i de les eines: el que canvia són les unitats, no
-              el dibuix. Fins al 24/11/2026 era DOBLE_MAPA (cm del mapa i metres).
+              el dibuix. A la Part 2 de la mateixa fitxa hi ha DOBLE_MAPA, la del
+              mapa del barri (1 cm, 50 m).
   DOFI        U5 — un salt de dofí: s'obre cap avall, vèrtex (2 , 3), talla
               l'aigua al 0 i al 4.
   CABLE       U5 — el cable d'un pont penjant: s'obre cap amunt, vèrtex (4 , 2)
@@ -59,6 +60,7 @@ def doble_recta(n=6, per_un=50, et_dalt="al mapa (cm)", et_baix="de veritat (m)"
             f'{cos}</svg>')
 
 
+G["DOBLE_MAPA"] = doble_recta()      # U3, Part 2: 1 cm del mapa són 50 m
 G["DOBLE_RECEPTA"] = doble_recta(8, 50, "persones", "farina (g)",
                                   "Doble recta: persones i grams de farina de la recepta")
 

@@ -234,19 +234,23 @@ Encàrrec del docent: la UD3 estava massa centrada en escales i plànols i era m
 Es manté una part d'escales, però el centre passa a ser la proporcionalitat, seguint la UD3 del
 llibre del curs (repositori `llibre`, activitats 3.1, 3.2 i 3.4).
 
-- **Fitxa** (`u3/fitxa.html`, ara «El doble o la meitat?», 16 pàgines): directa amb quant val 1
+- **Fitxa** (`u3/fitxa.html`, ara «El doble o la meitat?», 17 pàgines), **en dues parts** (franja a dalt
+  de cada pàgina, com la U8): Part 1 · Proporcionalitat (exercicis 1-8) i Part 2 · Escales i plànols
+  (exercicis 9-12), cadascuna amb la seva pàgina «A la vida de cada dia». Directa amb quant val 1
   (reducció a la unitat), les ofertes (es manté l'exercici i la regla trencada, ara **ex. 2c**) i la
   proporció x / c = a / b amb el producte en creu (b · x = c · a; es calcula c · a i es divideix per b),
   amb el mateix format de taula que la U8. Inversa **a ull, sense equacions** (el doble de persones
   triguen la meitat; el triple, un terç). Exercicis de decidir directa o inversa. Escales: quant val
-  1 cm, del plànol a la realitat i el plànol del pis (fora: de la realitat al plànol i el mapa).
-  «A la vida de cada dia»: les creps (directa, amb la doble recta persones | grams) i els globus de la
-  mateixa festa (inversa). El graó físic és ara un pack de 6 iogurts i monedes de joguina.
+  1 cm, del plànol a la realitat i el plànol del pis (fora: el camí de la realitat al plànol, que només
+  torna a l'apartat 12d). «A la vida de cada dia» de la Part 1: les creps (directa, amb la doble recta
+  persones | grams) i els globus de la mateixa festa (inversa); de la Part 2: el mapa del barri.
+  `comprova.py` hi espera dues pàgines «A la vida de cada dia», com a la U8. El graó físic és ara un pack de 6 iogurts i monedes de joguina.
 - **Frases completes**, correcció del docent: «Per fer un pastís per a més persones, necessites més
   ous», no «més persones, més ous». La frase massa curta perd el sentit.
-- **Quadern** (`generadors/quadern/ud3.py`): 11 blocs, un per exercici de la fitxa nova.
+- **Quadern** (`generadors/quadern/ud3.py`): 12 blocs, un per exercici de la fitxa nova, en el seu ordre.
 - **Repàs** (`gen_repas.py`): «Repàs · Proporcionalitat», set apartats que segueixen la fitxa nova.
-- **Gràfic:** `DOBLE_MAPA` és ara `DOBLE_RECEPTA` (`gen_grafics5.py`, funció `doble_recta`).
+- **Gràfics:** `DOBLE_RECEPTA` (Part 1) i `DOBLE_MAPA` (Part 2), amb la mateixa funció `doble_recta`
+  de `gen_grafics5.py`. Amb la lletra DejaVu Sans dels PDF, la pàgina 12 hi cap justa (0,3 cm).
 - **Eines:** `gen_pdf.py 3` refà només els PDF d'una unitat i deixa les altres entrades de
   `pdf/empremtes.json` com eren; `eines/mesura.py` tornava a fallar (`FITXES` ja no existia).
 - **Pendent:** l'examen de la UD3 (`generadors/examens/ud3.js`) encara segueix la fitxa d'abans

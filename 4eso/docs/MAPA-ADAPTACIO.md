@@ -333,7 +333,10 @@ va trobar massa abstracta. Ara el centre és la proporcionalitat, amb contextos 
 **Base prèvia (aula de suport):** `2eso-ud2-1`, `2eso-ud2-2`, `2eso-ud2-4`, `2eso-ud5-3`,
 `2eso-ud5-12`.
 
-**A la fitxa (refeta el 24/11/2026, a partir de la UD3 del llibre):**
+**A la fitxa (refeta el 24/11/2026, a partir de la UD3 del llibre),** en dues parts, amb una franja a
+dalt de cada pàgina, com la U8: **Part 1 · Proporcionalitat** (pàgines 1-12, exercicis 1-8) i
+**Part 2 · Escales i plànols** (pàgines 13-16, exercicis 9-12). Cada part acaba amb la seva pàgina «A la
+vida de cada dia» (les creps i els globus; el mapa del barri), i «Com ho dic» tanca les dues.
 - **Directa, tres eines de més concreta a més simbòlica.** Quant val 1 (pàgina 2 i exercici 1),
   el preu d'1 per comparar ofertes (exercici 2, la regla trencada) i la proporció x / c = a / b
   amb el producte en creu (pàgina 5 i exercici 3): b · x = c · a, es calcula c · a i es divideix
@@ -342,9 +345,10 @@ va trobar massa abstracta. Ara el centre és la proporcionalitat, amb contextos 
   meitat; el triple, un terç; la meitat, el doble. Els números surten sempre exactes.
 - **Directa o inversa** (exercicis 5 i 6): primer es decideix, després es calcula. La pregunta
   «la resposta ha de ser més gran o més petita?» és l'antídot de l'error típic.
-- **Escales, només del plànol a la realitat** (pàgines 12-14): quant val 1 cm, quant fa de
-  veritat i un **plànol dibuixat a escala 1:100 real** que pot mesurar amb regle si s'imprimeix
-  al 100 %. El camí de la realitat al plànol ja no hi és.
+- **Escales, del plànol a la realitat** (pàgines 13-16): quant val 1 cm, quant fa de veritat, un
+  **plànol dibuixat a escala 1:100 real** que pot mesurar amb regle si s'imprimeix al 100 %, i el
+  mapa del barri amb la doble recta. El camí de la realitat al plànol només hi surt una vegada, a
+  l'apartat 12d, llegint la doble recta de baix a dalt.
 
 **Frases completes.** «Per fer un pastís per a més persones, necessites més ous» s'entén millor
 que «més persones, més ous» (correcció del docent, 24/11/2026): la frase curta perd el sentit.

@@ -12,8 +12,9 @@ Refet el 24/11/2026, amb la fitxa: el centre ja no són les escales sinó la pro
     hi ha apartats on guanya el format petit, ja entre els tres primers) i la proporció
     x / c = a / b amb el producte en creu (b · x = c · a, es calcula c · a i es divideix per b).
   · Blocs 4-6, la inversa a ull (el doble, el triple, la meitat; cap equació) i distingir-les.
-  · Blocs 7-9, les escales: només del plànol a la realitat.
-  · Blocs 10-11, a la vida de cada dia: les creps (directa) i els globus (inversa).
+  · Blocs 7-8, a la vida de cada dia de la Part 1: les creps (directa) i els globus (inversa).
+  · Blocs 9-12, la Part 2, escales i plànols: només del plànol a la realitat, i el mapa del barri.
+Com la fitxa (24/11/2026), en dues parts: primer tota la proporcionalitat, després les escales.
 Les frases són completes: «Per fer una truita per a més persones, necessites més ous», no
 «més persones, més ous» (correcció del docent, 24/11/2026).
 
@@ -21,7 +22,7 @@ Els números es calculen aquí, no s'escriuen a mà: així el solucionari no es 
 """
 from fractions import Fraction
 
-from quadern import act, taula, tria, taula_tria, ofertes, planol, doble_recta
+from quadern import act, taula, tria, taula_tria, ofertes, planol, doble_recta, linies
 from quadern import num, eur, esc, nota
 
 NUM = 3
@@ -384,12 +385,12 @@ bloc6 = dict(
     ])
 
 
-# ------------------------------------------------- 7 · quant val 1 cm del plànol --
+# ------------------------------------------------- 9 · quant val 1 cm del plànol --
 
 bloc7 = dict(
-    titol="Quant val 1 cm del plànol", mira=(7, 13),
+    titol="Quant val 1 cm del plànol", mira=(9, 14),
     nota_sol="<b>Error típic:</b> amb escales com 1 : 50 o 1 : 20, dir que 50 cm són 5 m. Si passa, "
-             "torneu a la taula de la pàgina 12 de la fitxa: 100 cm = 1 m.",
+             "torneu a la taula de la pàgina 13 de la fitxa: 100 cm = 1 m.",
     acts=[
         act("Escriu quant val un centímetre del plànol a cada escala.", [
             taula(["Escala", "1 cm són… (cm)", "és a dir (m)"],
@@ -408,16 +409,10 @@ bloc7 = dict(
     ])
 
 
-# ------------------------------------------------- 8 · del plànol a la realitat --
-
-def mapa(per_cm, *recorreguts):
-    return [[r, f"{num(c)} cm", f"{num(c * per_cm)} m"] for r, c in recorreguts]
-
-CAP7 = ["Recorregut", "Al mapa", "De veritat"]
-A7 = [52, 18, 18]
+# ------------------------------------------------- 10 · del plànol a la realitat --
 
 bloc8 = dict(
-    titol="Del plànol a la realitat", mira=(8, 13),
+    titol="Del plànol a la realitat", mira=(10, 14),
     nota_sol="Sempre la mateixa cadena: <i>× l'escala</i> i després <i>÷ 100</i>. <b>Error típic:</b> "
              "oblidar el segon pas i deixar el resultat en centímetres (600 m en lloc de 6 m).",
     acts=[
@@ -427,27 +422,26 @@ bloc8 = dict(
                    for e, c in ((100, 4), (100, 7), (100, 3.5), (50, 6), (200, 3), (200, 5), (50, 10),
                                 (500, 3), (100, 8.5), (200, 4.5), (300, 2), (50, 9), (1000, 4))],
                   omplir=(2, 3), amples=A4)], ico="calc"),
-        act("Calcula les distàncies de veritat al mapa.", [
-            taula(CAP7, mapa(100, ("De casa a l'escola", 4), ("De casa al parc", 3), ("De casa a la piscina", 7),
-                             ("De casa a la biblioteca", 2.5)), omplir=(2,), amples=A7, esq=(0,),
-                  abans=nota("Al mapa del barri, 1 cm són 100 m de veritat.") + doble_recta(5, 100)),
-            taula(CAP7, mapa(20, ("Fins a la font", 3), ("Fins als gronxadors", 5), ("Fins al bar", 8)),
-                  omplir=(2,), amples=A7, esq=(0,),
-                  abans=nota("Al mapa del parc, 1 cm són 20 m de veritat.") + doble_recta(6, 20)),
-            taula(CAP7, mapa(50, ("De casa al mercat", 4), ("De casa a la farmàcia", 2), ("De casa a l'estació", 10)),
-                  omplir=(2,), amples=A7, esq=(0,),
-                  abans=nota("Al mapa del poble, 1 cm són 50 m de veritat.") + doble_recta(6, 50)),
-            taula(CAP7, mapa(200, ("Del poble al riu", 3), ("Del poble a l'ermita", 5), ("Del poble al càmping", 1.5)),
-                  omplir=(2,), amples=A7, esq=(0,),
-                  abans=nota("Al mapa de la comarca, 1 cm són 200 m de veritat.") + doble_recta(5, 200)),
-        ], ico="regle", repte=True,
-            nota_sol="Un mapa en lloc d'un plànol, amb la doble recta: 1 cm del mapa són tants metres de veritat. "
-                     "Es multiplica pels metres d'1 cm. Els apartats que surten de la recta s'han de continuar "
-                     "fora del dibuix; si la vol allargar amb el regle, deixeu-l'hi fer."),
+        act("Mesura cada línia amb el regle i calcula quant fa de veritat.", [
+            taula(["Línia", "Mesura", "De veritat"],
+                  [[l, f"{num(c)} cm", f"{num(c)} m"] for l, c in zip("ABCD", (4, 6, 2.5, 8))],
+                  omplir=(1, 2), amples=A3, abans=nota("Plànol a escala 1 : 100.") + linies([4, 6, 2.5, 8])),
+            taula(["Línia", "Mesura", "De veritat"],
+                  [[l, f"{num(c)} cm", f"{num(c)} m"] for l, c in zip("EFG", (5, 3.5, 7))],
+                  omplir=(1, 2), amples=A3, abans=linies([5, 3.5, 7], primera=4)),
+            taula(["Línia", "Mesura", "De veritat"],
+                  [[l, f"{num(c)} cm", f"{num(c)} m"] for l, c in zip("HIJKLM", (9, 1.5, 4.5, 6.5, 10, 3))],
+                  omplir=(1, 2), amples=A3, abans=linies([9, 1.5, 4.5, 6.5, 10, 3], primera=7),
+                  sol_nota="Les línies són de mida real si s'imprimeix al 100 %, sense «ajustar a la "
+                           "pàgina». Si la impressora escala el full, accepteu la mesura que surti i mireu "
+                           "només la conversió.")],
+            ico="regle", repte=True,
+            nota_sol="La dada no la dona el paper: l'ha de mesurar. És el graó físic de la unitat (la cinta "
+                     "mètrica) portat al quadern. A 1 : 100, els centímetres que mesura són els metres."),
     ])
 
 
-# ------------------------------------------------- 9 · el plànol --
+# ------------------------------------------------- 11 · el plànol --
 
 def mides(espais, factor):
     """[nom, «w × h cm», «W × H m»] per a cada espai d'un plànol, amb el factor de l'escala."""
@@ -473,7 +467,7 @@ def superficies(espais):
 CAP5R = ["Espai", "Al plànol", "De veritat", "Superfície"]
 
 bloc9 = dict(
-    titol="El plànol", mira=(9, 14),
+    titol="El plànol", mira=(11, 15),
     nota_sol="A 1 : 100, els centímetres del plànol són els metres de veritat: el número no canvia. A les "
              "escales 1 : 200 i 1 : 50 (només a elevat) sí que canvia, i és on es veu si ha entès la cadena. "
              "Els plànols a 1 : 100 són de mida real si s'imprimeix al 100 %; el de 1 : 200 està dibuixat "
@@ -510,7 +504,7 @@ bloc9 = dict(
     ])
 
 
-# ------------------------------------------------- 10 · a la vida de cada dia · les creps --
+# ------------------------------------------------- 7 · a la vida de cada dia · les creps --
 
 CAP10 = ["Pregunta", "Resposta"]
 A10 = [62, 26]
@@ -525,7 +519,7 @@ def preguntes(*files, context, sol_nota="", recta=None):
                  abans=nota(context) + dib, sol_nota=sol_nota)
 
 bloc10 = dict(
-    titol="A la vida de cada dia · les creps", mira=(10, 15),
+    titol="A la vida de cada dia · les creps", mira=(7, 12),
     nota_sol="Sempre el mateix pas: quant val 1 (una persona) dividint, i després multiplicar. Les preguntes "
              "que van al revés («amb 10 ous, per a quantes persones?»), com els 350 g de la fitxa, són les que "
              "mostren si ho ha entès.",
@@ -574,13 +568,13 @@ bloc10 = dict(
     ])
 
 
-# ------------------------------------------------- 11 · a la vida de cada dia · els globus --
+# ------------------------------------------------- 8 · a la vida de cada dia · els globus --
 
 def amics(context, *files, sol_nota=""):
     return preguntes(*files, context=context, sol_nota=sol_nota)
 
 bloc11 = dict(
-    titol="A la vida de cada dia · els globus", mira=(11, 15),
+    titol="A la vida de cada dia · els globus", mira=(8, 12),
     nota_sol="La inversa a ull, en el context de la festa. Com a la fitxa, totes comencen per «més amics», però "
              "aquí el temps baixa: el doble d'amics triguen la meitat.",
     acts=[
@@ -626,4 +620,52 @@ bloc11 = dict(
     ])
 
 
-BLOCS = [bloc1, bloc2, bloc3, bloc4, bloc5, bloc6, bloc7, bloc8, bloc9, bloc10, bloc11]
+# ------------------------------------------------- 12 · a la vida de cada dia · el mapa --
+
+def mapa(per_cm, *recorreguts):
+    return [[r, f"{num(c)} cm", f"{num(c * per_cm)} m"] for r, c in recorreguts]
+
+CAP7 = ["Recorregut", "Al mapa", "De veritat"]
+A7 = [52, 18, 18]
+def al_mapa(per_cm, *metres):
+    return [[f"{num(m)} m", f"{num(m)} ÷ {num(per_cm)}", f"{num(m / per_cm)} cm"] for m in metres]
+
+CAP7R = ["De veritat", "Compte", "Al mapa"]
+
+bloc12 = dict(
+    titol="A la vida de cada dia · el mapa", mira=(12, 16),
+    nota_sol="La doble recta només arriba fins a uns quants centímetres: els apartats que en surten s'han "
+             "de continuar fora del dibuix, multiplicant. Si la vol allargar amb el regle, deixeu-l'hi fer.",
+    acts=[
+        act("Calcula les distàncies de veritat al mapa.", [
+            taula(CAP7, mapa(100, ("De casa a l'escola", 4), ("De casa al parc", 3), ("De casa a la piscina", 7),
+                             ("De casa a la biblioteca", 2.5)), omplir=(2,), amples=A7, esq=(0,),
+                  abans=nota("Al mapa del barri, 1 cm són 100 m de veritat.") + doble_recta(5, 100)),
+            taula(CAP7, mapa(20, ("Fins a la font", 3), ("Fins als gronxadors", 5), ("Fins al bar", 8)),
+                  omplir=(2,), amples=A7, esq=(0,),
+                  abans=nota("Al mapa del parc, 1 cm són 20 m de veritat.") + doble_recta(6, 20)),
+            taula(CAP7, mapa(50, ("De casa al mercat", 4), ("De casa a la farmàcia", 2), ("De casa a l'estació", 10)),
+                  omplir=(2,), amples=A7, esq=(0,),
+                  abans=nota("Al mapa del poble, 1 cm són 50 m de veritat.") + doble_recta(6, 50)),
+            taula(CAP7, mapa(200, ("Del poble al riu", 3), ("Del poble a l'ermita", 5), ("Del poble al càmping", 1.5)),
+                  omplir=(2,), amples=A7, esq=(0,),
+                  abans=nota("Al mapa de la comarca, 1 cm són 200 m de veritat.") + doble_recta(5, 200)),
+        ], ico="regle"),
+        act("Calcula quants centímetres fa cada distància al mapa.", [
+            taula(CAP7R, al_mapa(50, 150, 250, 400, 75), omplir=(1, 2), amples=A3,
+                  abans=nota("Al mapa, 1 cm són 50 m de veritat.") + doble_recta(6, 50)),
+            taula(CAP7R, al_mapa(100, 300, 650, 1000), omplir=(1, 2), amples=A3,
+                  abans=nota("En un altre mapa, 1 cm són 100 m de veritat.")),
+            taula(CAP7R, al_mapa(20, 60, 100, 30), omplir=(1, 2), amples=A3,
+                  abans=nota("Al mapa del parc, 1 cm són 20 m de veritat.")),
+            taula(CAP7R, al_mapa(200, 800, 1200, 300), omplir=(1, 2), amples=A3,
+                  abans=nota("Al mapa de la comarca, 1 cm són 200 m de veritat.")),
+        ], ico="calc", repte=True,
+            nota_sol="El camí al revés: dels metres al mapa es divideix. A la doble recta, és llegir de baix a "
+                     "dalt. Els que surten amb decimals (75 m → 1,5 cm, 650 m → 6,5 cm) cauen entre dues "
+                     "marques."),
+    ])
+
+
+# El mateix ordre que la fitxa: Part 1 (blocs dels exercicis 1-8) i Part 2 (9-12).
+BLOCS = [bloc1, bloc2, bloc3, bloc4, bloc5, bloc6, bloc10, bloc11, bloc7, bloc8, bloc9, bloc12]
