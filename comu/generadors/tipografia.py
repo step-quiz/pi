@@ -8,7 +8,8 @@ en dues línies («21» a dalt i «€» a sota), i «I 5 entrades?» també. La
 
   · un número va lligat a la paraula o al símbol que el segueix: «21 €», «5 entrades», «4 kg»;
   · una escala no es parteix: «1 : 100»;
-  · un signe que en separa dos (×, ÷, ·, =, +, −) va lligat al número de després: «7 × 5», «4 · x»;
+  · un signe que en separa dos (×, ÷, ·, =, +, −) va lligat al número de després, i una multiplicació
+    o una divisió curta no es parteix mai: «7 × 5», «4 · x»;
   · una paraula d'una sola lletra va lligada al número que la segueix: «I 5 entrades?», «x 10».
 
 Només es toca el text que es veu: no els atributs, els comentaris, els <script>, els <style> ni els
@@ -22,12 +23,14 @@ _PROTEGIT = re.compile(r"(<!--.*?-->|<script\b.*?</script>|<style\b.*?</style>|<
 _NUM_PARAULA = re.compile(r"(\d) (?=[A-Za-zÀ-ÿ€%²³])")
 _ESCALA = re.compile(r"(\d) : (\d)")
 _SIGNE = re.compile(r" ([×÷·=+−]) (?=[\dx(])")
+_PRODUCTE = re.compile(r"([\dx])[ \u00a0]([×÷·])[ \u00a0](?=[\dx(])")
 _LLETRA = re.compile(r"(?<![\wÀ-ÿ'’])([A-Za-zÀ-ÿ]) (?=\d)")
 
 
 def _text(t):
     t = _ESCALA.sub(lambda m: f"{m[1]}{NBSP}:{NBSP}{m[2]}", t)
     t = _NUM_PARAULA.sub(lambda m: m[1] + NBSP, t)
+    t = _PRODUCTE.sub(lambda m: f"{m[1]}{NBSP}{m[2]}{NBSP}", t)
     t = _SIGNE.sub(lambda m: f" {m[1]}{NBSP}", t)
     t = _LLETRA.sub(lambda m: m[1] + NBSP, t)
     return t

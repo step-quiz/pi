@@ -58,7 +58,7 @@ window.UNITATS = [
   },
   {
     num: 3, titol: "Proporcionalitat i escales", fitxes: [{ fitxa: "u3/fitxa.html", titol: "El doble o la meitat?" }],
-    repas: { fitxa: "u3/repas.html", titol: "Repàs · Proporcionalitat" },
+    repas: { fitxa: "u3/repas.html", titol: "Repàs · Proporcionalitat i escales" },
     quadern: "u3/quadern.html",
     dates: "12–27 de gener", sessions: 7,
     objectiu: "Resoldre la directa amb quant val 1 i amb la proporció en creu, fer la inversa a ull i llegir una escala.",

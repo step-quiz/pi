@@ -248,7 +248,10 @@ llibre del curs (repositori `llibre`, activitats 3.1, 3.2 i 3.4).
 - **Frases completes**, correcció del docent: «Per fer un pastís per a més persones, necessites més
   ous», no «més persones, més ous». La frase massa curta perd el sentit.
 - **Quadern** (`generadors/quadern/ud3.py`): 12 blocs, un per exercici de la fitxa nova, en el seu ordre.
-- **Repàs** (`gen_repas.py`): «Repàs · Proporcionalitat», set apartats que segueixen la fitxa nova.
+- **Repàs** (`gen_repas.py`): «Repàs · Proporcionalitat i escales», en dues parts com la fitxa (camp
+  `parts`, nou al generador): dues pàgines «Una de cada» de la Part 1 (la directa; la inversa i decidir)
+  i una de la Part 2 (escales, plànols i el mapa, també al revés), 17 apartats en total, i una pàgina
+  «Què he après?» per part. Abans en tenia 7, i cap de mapes (observació del docent, 24/11/2026).
 - **Gràfics:** `DOBLE_RECEPTA` (Part 1) i `DOBLE_MAPA` (Part 2), amb la mateixa funció `doble_recta`
   de `gen_grafics5.py`. Amb la lletra DejaVu Sans dels PDF, la pàgina 12 hi cap justa (0,3 cm).
 - **Eines:** `gen_pdf.py 3` refà només els PDF d'una unitat i deixa les altres entrades de
