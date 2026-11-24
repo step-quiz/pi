@@ -94,8 +94,8 @@ UNITATS = {
       ("La proporció i el producte en creu.", f"5 kg costen 10 €. Quant costen 3 kg? x / 3 = 10 / 5 → 5 · x = {B} → x = {B} €", "5 · x = 30 → x = 30 ÷ 5 = 6 €", 3),
       ("La inversa, a ull.", f"2 pintors pinten la casa en 8 dies. 4 pintors la pinten en {B} dies.", "el doble de pintors, la meitat: 4 dies", 4),
       ("Directa o inversa?", f"Si hi ha més amics per inflar els globus, triguen menys temps: {B}", "inversa", 5),
-      ("Del plànol a la realitat: multiplica.", f"1 : 100. Al plànol, 7 cm. De veritat: {B} m", "700 cm = 7 m", 8),
-      ("Les mides d'un plànol 1 : 100.", f"Al plànol, 6 × 3 cm. De veritat: {B} × {B} m", "6 × 3 m (18 m²)", 9),
+      ("Del plànol a la realitat: multiplica.", f"1 : 100. Al plànol, 7 cm. De veritat: {B} m", "700 cm = 7 m", 10),
+      ("Les mides d'un plànol 1 : 100.", f"Al plànol, 6 × 3 cm. De veritat: {B} × {B} m", "6 × 3 m (18 m²)", 11),
     ],
     apres=[
       ("Calculo quant val 1.", "3 entrades costen 21 € → 1 entrada val 7 €", 1),
@@ -103,8 +103,8 @@ UNITATS = {
       ("Escric la proporció i multiplico en creu.", "x / 10 = 6 / 4 → 4 · x = 60 → x = 15", 3),
       ("Faig la inversa a ull.", "el doble de pintors triguen la meitat del temps", 4),
       ("Distingeixo directa d'inversa.", "el doble i el doble · el doble i la meitat", 5),
-      ("Passo del plànol a la realitat.", "1 : 100, 6 cm → 6 m", 8),
-      ("Trobo les mides de veritat d'un plànol.", "5 × 4 cm → 5 × 4 m", 9),
+      ("Passo del plànol a la realitat.", "1 : 100, 6 cm → 6 m", 10),
+      ("Trobo les mides de veritat d'un plànol.", "5 × 4 cm → 5 × 4 m", 11),
     ]),
   4: dict(
     titol="Equacions", material="una bossa opaca i fitxes iguals",
