@@ -101,7 +101,7 @@ One name per thing, everywhere (pages, PDFs, docs):
 | **Professorat** | the teacher page and button | |
 
 - The **unit title** comes from `dades/unitats.js` everywhere (header, tab title, workbook). A
-  sheet keeps its own name («El món, fet petit») as the sheet title.
+  sheet keeps its own name («El doble o la meitat?») as the sheet title.
 - The **course names** live in ONE file, `comu/js/cursos.js`, and are inserted at run time. The
   anonymity check forbids them anywhere else (§9).
 
@@ -113,8 +113,8 @@ describes the units.
 ```js
 window.UNITATS = [{
   num: 3, titol: "Proporcionalitat i escales",
-  fitxes: [{ fitxa: "u3/fitxa.html", titol: "El món, fet petit" }],   // class order; first is uN/fitxa.html
-  repas:  { fitxa: "u3/repas.html", titol: "Repàs · Escales" },
+  fitxes: [{ fitxa: "u3/fitxa.html", titol: "El doble o la meitat?" }],   // class order; first is uN/fitxa.html
+  repas:  { fitxa: "u3/repas.html", titol: "Repàs · Proporcionalitat" },
   quadern: "u3/quadern.html",          // optional
   tasques: [0, 2, 4, 7],               // the tabs of eines.html shown for this unit (data-tasca)
   material: "…", objectiu: "…",        // «Abans de la classe»: material, objectiu or nucli, trencada

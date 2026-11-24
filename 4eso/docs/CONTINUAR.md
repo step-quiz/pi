@@ -193,7 +193,7 @@ generadors/gen_grafics.py    → paràboles de la U5
 generadors/gen_grafics2.py   → diagrames de punts, barres i arbres de la U6 i la U7
 generadors/gen_grafics3.py   → barres de percentatge de la U2 i model d'àrea de la U6
 generadors/gen_grafics4.py   → doble recta de la U2, repartiment de la U6, barra d'atzar de la U7
-generadors/gen_grafics5.py   → doble recta del mapa (U3) i les dues paràboles de la vida (U5)
+generadors/gen_grafics5.py   → doble recta de la recepta (U3) i les dues paràboles de la vida (U5)
 generadors/posa_grafics.py   → els executa tots i posa cada gràfic a la seva fitxa
 ```
 
@@ -227,6 +227,30 @@ què**, però no toquis l'ordre de les pàgines conceptuals d'una fitxa ja valid
 dir-l'hi: aquesta sí que la va voler aprovar.
 
 ---
+
+## 10j. 24/11/2026: la UD3 refeta (més proporcionalitat, menys escales)
+
+Encàrrec del docent: la UD3 estava massa centrada en escales i plànols i era massa abstracta.
+Es manté una part d'escales, però el centre passa a ser la proporcionalitat, seguint la UD3 del
+llibre del curs (repositori `llibre`, activitats 3.1, 3.2 i 3.4).
+
+- **Fitxa** (`u3/fitxa.html`, ara «El doble o la meitat?», 16 pàgines): directa amb quant val 1
+  (reducció a la unitat), les ofertes (es manté l'exercici i la regla trencada, ara **ex. 2c**) i la
+  proporció x / c = a / b amb el producte en creu (b · x = c · a; es calcula c · a i es divideix per b),
+  amb el mateix format de taula que la U8. Inversa **a ull, sense equacions** (el doble de persones
+  triguen la meitat; el triple, un terç). Exercicis de decidir directa o inversa. Escales: quant val
+  1 cm, del plànol a la realitat i el plànol del pis (fora: de la realitat al plànol i el mapa).
+  «A la vida de cada dia»: les creps (directa, amb la doble recta persones | grams) i els globus de la
+  mateixa festa (inversa). El graó físic és ara un pack de 6 iogurts i monedes de joguina.
+- **Frases completes**, correcció del docent: «Per fer un pastís per a més persones, necessites més
+  ous», no «més persones, més ous». La frase massa curta perd el sentit.
+- **Quadern** (`generadors/quadern/ud3.py`): 11 blocs, un per exercici de la fitxa nova.
+- **Repàs** (`gen_repas.py`): «Repàs · Proporcionalitat», set apartats que segueixen la fitxa nova.
+- **Gràfic:** `DOBLE_MAPA` és ara `DOBLE_RECEPTA` (`gen_grafics5.py`, funció `doble_recta`).
+- **Eines:** `gen_pdf.py 3` refà només els PDF d'una unitat i deixa les altres entrades de
+  `pdf/empremtes.json` com eren; `eines/mesura.py` tornava a fallar (`FITXES` ja no existia).
+- **Pendent:** l'examen de la UD3 (`generadors/examens/ud3.js`) encara segueix la fitxa d'abans
+  (escales, realitat → plànol, mapa). Cal refer-lo quan el docent ho demani.
 
 ## 10f. 5/11/2026: la interfície de la unitat i els botons
 
@@ -370,7 +394,7 @@ Tot queda tancat el 30/9/2026, per encàrrec del docent: les targetes, els repas
 | Targetes de consulta | `targetes/`: la calculadora (les cinc seqüències de tecles), percentatges i escales, i paràboles, dades i atzar. Un PDF per targeta, a doble cara |
 | Fitxes de repàs | `uN/repas.html`, una per unitat: dibuix de la unitat, «Una de cada» i «Què he après?». Les fa `generadors/gen_repas.py` |
 | Exàmens | `generadors/examens/ud2.js` a `ud7.js`, amb el motor comú. Els apartats nous porten «nou» al solucionari |
-| Regla G | a les regles trencades de la U2 (5c), la U3 (6c) i la U7 (4c), la refutació és un dibuix: una recta de preus o l'arbre |
+| Regla G | a les regles trencades de la U2 (5c), la U3 (2c; fins al 24/11/2026, 6c) i la U7 (4c), la refutació és un dibuix: una recta de preus o l'arbre |
 | Caixa d'eines | dos mòduls nous: Aplanar (la mitjana de la U6, tasca 8) i Probabilitat (la barra del dau de la U7, tasca 9) |
 | La doble recta | declarada model del curs (`CRITERIS-DISSENY.md`, regla 10) i amb el cas «Equació x + 3 = 7» per a la U4 |
 

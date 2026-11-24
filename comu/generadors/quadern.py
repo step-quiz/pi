@@ -344,10 +344,13 @@ def planol(espais, zoom=1, mides=True, aria="Plànol"):
             f'    </svg>\n')
 
 
-def doble_recta(cm, per_cm, unitat="m", dalt="al mapa (cm)", w=560, h=124):
-    """La doble recta de la fitxa (gen_grafics5.doble_mapa), amb l'escala que calgui:
-    a dalt els cm del mapa, a baix el que valen de veritat. El primer tram, ombrejat."""
-    baix = f"de veritat ({unitat})"
+def doble_recta(cm, per_cm, unitat="m", dalt="al mapa (cm)", w=560, h=124, baix=None, aria=None):
+    """La doble recta de la fitxa (gen_grafics5.doble_recta), amb l'escala que calgui:
+    a dalt els cm del mapa, a baix el que valen de veritat. El primer tram, ombrejat.
+    Amb `baix` i `aria`, serveix per a dues magnituds qualssevol (persones i grams, a la
+    UD3 de 4eso/, 24/11/2026)."""
+    baix = baix or f"de veritat ({unitat})"
+    aria = aria or f"Doble recta: centímetres del mapa i {unitat} de veritat"
     x0, x1, yd, yb = 178, 542, 46, 96
     def px(k): return x0 + k / cm * (x1 - x0)
     o = [f'<rect x="{px(0):.1f}" y="{yd}" width="{px(1) - px(0):.1f}" height="{yb - yd}" fill="{FONS}"/>',
@@ -361,8 +364,8 @@ def doble_recta(cm, per_cm, unitat="m", dalt="al mapa (cm)", w=560, h=124):
             dy = -14 if y == yd else 26
             o.append(f'<line x1="{px(k):.1f}" y1="{y - 7}" x2="{px(k):.1f}" y2="{y + 7}" stroke="{NEG}" stroke-width="2"/>')
             o.append(f'<text x="{px(k):.1f}" y="{y + dy}" text-anchor="middle" font-size="20" fill="{NEG}" {TIP}>{et}</text>')
-    return (f'    <div class="figura neta"><svg viewBox="0 0 {w} {h}" role="img" aria-label="Doble recta: '
-            f'centímetres del mapa i {unitat} de veritat"><rect x="0" y="0" width="{w}" height="{h}" fill="#fff"/>'
+    return (f'    <div class="figura neta"><svg viewBox="0 0 {w} {h}" role="img" aria-label="{aria}">'
+            f'<rect x="0" y="0" width="{w}" height="{h}" fill="#fff"/>'
             f'{"".join(o)}</svg></div>\n')
 
 

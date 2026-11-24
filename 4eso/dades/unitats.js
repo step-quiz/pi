@@ -57,13 +57,13 @@ window.UNITATS = [
     moduls: ["doble", "factor", "calc"], tasques: [2, 3, 0], llibre: "llibre · unitat 2"
   },
   {
-    num: 3, titol: "Proporcionalitat i escales", fitxes: [{ fitxa: "u3/fitxa.html", titol: "El món, fet petit" }],
-    repas: { fitxa: "u3/repas.html", titol: "Repàs · Escales" },
+    num: 3, titol: "Proporcionalitat i escales", fitxes: [{ fitxa: "u3/fitxa.html", titol: "El doble o la meitat?" }],
+    repas: { fitxa: "u3/repas.html", titol: "Repàs · Proporcionalitat" },
     quadern: "u3/quadern.html",
     dates: "12–27 de gener", sessions: 7,
-    objectiu: "Llegir una escala, passar de plànol a realitat i distingir directa d'inversa.",
-    material: "una cinta mètrica i un full quadriculat",
-    trencada: "Ex. 6c · guanya l'ampolla petita, no la garrafa",
+    objectiu: "Resoldre la directa amb quant val 1 i amb la proporció en creu, fer la inversa a ull i llegir una escala.",
+    material: "un pack de 6 iogurts i monedes de joguina",
+    trencada: "Ex. 2c · guanya l'ampolla petita, no la garrafa",
     moduls: ["doble", "escala"], tasques: [2, 4, 0], llibre: "llibre · unitat 3"
   },
   {
@@ -125,7 +125,7 @@ window.UNITATS = [
    la capçalera diu la unitat d'on ve; sense ?u, la primera de la llista. */
 window.TARGETES = [
   { nom: "percentatges", titol: "Percentatges i escales", unitats: [2, 3],
-    descripcio: "La taula del factor, dos canvis seguits, la cadena de l'escala i el preu d'1." },
+    descripcio: "La taula del factor, dos canvis seguits, la cadena de l'escala, la proporció en creu, directa o inversa i el preu d'1." },
   { nom: "grafiques",    titol: "Paràboles, dades i atzar", unitats: [5, 6, 7],
     descripcio: "Les parts de la paràbola, mitjana, mediana i moda, i la probabilitat en dos passos." }
 ];

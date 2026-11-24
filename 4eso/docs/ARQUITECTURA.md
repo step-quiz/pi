@@ -426,7 +426,7 @@ toca. Cada script **imprimeix les seves pròpies comprovacions numèriques** en 
 | `gen_grafics2.py` | diagrames de punts, barres i arbres de la U6 i la U7 |
 | `gen_grafics3.py` | barres de percentatge de la U2 i model d'àrea de la U6 |
 | `gen_grafics4.py` | doble recta de la U2, repartiment de la U6, barra de la U7 |
-| `gen_grafics5.py` | doble recta del mapa (U3) i les dues paràboles de «A la vida de cada dia» (U5) |
+| `gen_grafics5.py` | doble recta de la recepta (U3: persones i grams) i les dues paràboles de «A la vida de cada dia» (U5) |
 | `posa_grafics.py` | executa els cinc `gen_grafics*.py` i posa cada gràfic a la seva fitxa |
 | `gen_repas.py` | les set fitxes de repàs (`uN/repas.html`): el dibuix de la pàgina 1 de la fitxa, «Una de cada» i «Què he après?» |
 | `gen_pdf.py` | els PDF de totes les fitxes (alumnat i solucionari) i de les targetes (un per targeta, amb les dues cares) |

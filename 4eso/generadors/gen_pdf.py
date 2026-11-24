@@ -2,7 +2,9 @@
 """Genera els PDF de cada unitat: un per a l'alumnat i un per al professorat.
 
     pip install weasyprint --break-system-packages
-    python3 generadors/gen_pdf.py
+    python3 generadors/gen_pdf.py          tots els PDF
+    python3 generadors/gen_pdf.py 3        només els de la unitat 3 (fitxa i repàs)
+    python3 generadors/gen_pdf.py 3 percentatges   els de la unitat 3 i la targeta percentatges
 
 Cada fitxa és una sola pàgina HTML amb diversos blocs `.full`. L'últim és el
 solucionari (`.full.sol`). Aquest script parteix la fitxa en dos documents:
@@ -109,11 +111,20 @@ def fonts():
             + [(f, "targeta-" + os.path.basename(f)[:-5], True) for f in targetes])
 
 
-def main():
+def main(unitats=(), targetes=()):
+    """Sense arguments, refà tots els PDF. Amb números d'unitat, només els d'aquelles unitats, i a
+    pdf/empremtes.json només canvien les seves entrades (24/11/2026): així una unitat nova no reescriu
+    els PDF de les altres, que surten una mica diferents si l'ordinador té unes altres lletres."""
     os.makedirs(SORTIDA, exist_ok=True)
     problemes = []
     empremtes = {}
-    for origen, nom, targeta in fonts():
+    llista = fonts()
+    if unitats or targetes:
+        llista = [(o, n, t) for o, n, t in llista
+                  if (t and n[len("targeta-"):] in targetes) or (not t and int(re.match(r"ud(\d+)", n)[1]) in unitats)]
+        with open(os.path.join(SORTIDA, "empremtes.json"), encoding="utf-8") as f:
+            empremtes = json.load(f)
+    for origen, nom, targeta in llista:
         e = {"font": os.path.relpath(origen, ARREL), "empremta": empremta(os.path.relpath(origen, ARREL))}
         cap, alumnat, sol = blocs(open(origen, encoding="utf-8").read())
         if targeta:
@@ -155,4 +166,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(tuple(int(a) for a in sys.argv[1:] if a.isdigit()), tuple(a for a in sys.argv[1:] if not a.isdigit()))

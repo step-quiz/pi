@@ -2,9 +2,10 @@
 
     cd generadors && python3 gen_grafics5.py
 
-  DOBLE_MAPA  U3 — la doble recta que lliga els centímetres del mapa amb els
-              metres del carrer. És el mateix objecte que la doble recta de la
-              U2 i de la U3: el que canvia són les unitats, no el dibuix.
+  DOBLE_RECEPTA  U3 — la doble recta que lliga les persones amb els grams de
+              farina d'una recepta (4 persones, 200 g). És el mateix objecte que la
+              doble recta de la U2 i de les eines: el que canvia són les unitats, no
+              el dibuix. Fins al 24/11/2026 era DOBLE_MAPA (cm del mapa i metres).
   DOFI        U5 — un salt de dofí: s'obre cap avall, vèrtex (2 , 3), talla
               l'aigua al 0 i al 4.
   CABLE       U5 — el cable d'un pont penjant: s'obre cap amunt, vèrtex (4 , 2)
@@ -23,23 +24,25 @@ TIP = 'font-family="system-ui"'
 G = {}
 
 
-def doble_mapa(cm=6, m_per_cm=50, w=560, h=124):
-    """Dues regles alineades: a dalt els cm del mapa, a baix els metres.
+def doble_recta(n=6, per_un=50, et_dalt="al mapa (cm)", et_baix="de veritat (m)",
+                aria="Doble recta: centímetres del mapa i metres del carrer", w=560, h=124):
+    """Dues regles alineades: a dalt una magnitud (n marques), a baix l'altra (per_un cada marca).
     Els noms de les dues regles van a l'esquerra, fora de la zona dels números:
     a sobre xocaven amb el 0 i amb l'1."""
     # x0 de 178: amb la lletra a 20, «de veritat (m)» no hi cabia a l'esquerra (29/9/2026)
     x0, x1, dalt, baix = 178, 542, 46, 96
+    cm = n
     def px(k): return x0 + k / cm * (x1 - x0)
     o = [f'<text x="{x0 - 14}" y="{dalt + 6}" text-anchor="end" font-size="20" fill="{GRIS}" '
-         f'{TIP}>al mapa (cm)</text>',
+         f'{TIP}>{et_dalt}</text>',
          f'<text x="{x0 - 14}" y="{baix + 6}" text-anchor="end" font-size="20" fill="{GRIS}" '
-         f'{TIP}>de veritat (m)</text>']
+         f'{TIP}>{et_baix}</text>']
     # les verticals que lliguen les dues regles
     for k in range(cm + 1):
         o.append(f'<line x1="{px(k):.1f}" y1="{dalt}" x2="{px(k):.1f}" y2="{baix}" '
                  f'stroke="{CLAR}" stroke-width="1"/>')
     for y, valors, dec in ((dalt, [str(k) for k in range(cm + 1)], 0),
-                           (baix, [str(k * m_per_cm) for k in range(cm + 1)], 0)):
+                           (baix, [str(k * per_un) for k in range(cm + 1)], 0)):
         o.append(f'<line x1="{x0}" y1="{y}" x2="{x1}" y2="{y}" stroke="{NEG}" stroke-width="2.5"/>')
         for k, et in enumerate(valors):
             o.append(f'<line x1="{px(k):.1f}" y1="{y - 7}" x2="{px(k):.1f}" y2="{y + 7}" '
@@ -52,12 +55,12 @@ def doble_mapa(cm=6, m_per_cm=50, w=560, h=124):
     o.insert(0, f'<rect x="{px(0):.1f}" y="{dalt}" width="{px(1) - px(0):.1f}" '
                 f'height="{baix - dalt}" fill="#F2F2F2"/>')
     cos = "".join(o)
-    return (f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="Doble recta: centímetres del '
-            f'mapa i metres del carrer"><rect x="0" y="0" width="{w}" height="{h}" fill="#fff"/>'
+    return (f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{aria}"><rect x="0" y="0" width="{w}" height="{h}" fill="#fff"/>'
             f'{cos}</svg>')
 
 
-G["DOBLE_MAPA"] = doble_mapa()
+G["DOBLE_RECEPTA"] = doble_recta(8, 50, "persones", "farina (g)",
+                                  "Doble recta: persones i grams de farina de la recepta")
 
 # dofí: h = -0,75x² + 3x   vèrtex (2 , 3)   talls 0 i 4
 # Van de costat a la fitxa (9 cm cadascun): lletra més gran que la de les de sola.
@@ -83,5 +86,5 @@ print("  dofí  · el vèrtex i els talls cauen en marques senceres de la graell
       f"{'SÍ' if (2, 3) == (2, 3) else 'NO'}")
 print("  cable · el cable no toca el riu, que és la línia de baix: "
       f"{'SÍ' if 0.25 * 16 - 2 * 4 + 6 > 0 else 'NO'}")
-print("  mapa  · 6 cm al mapa són "
-      f"{6 * 50} m de veritat, que és l'apartat a de l'exercici 7")
+print("  creps · 4 persones són "
+      f"{4 * 50} g de farina, que és la recepta de l'exercici 10")
