@@ -7,6 +7,7 @@ Una fitxa de repàs és curta i sempre igual, com a 1eso/:
 
     pàgina 1  el dibuix de la unitat, amb «Què hi veus?», i la idea que cal recordar
     pàgina 2  «Una de cada»: un apartat de cada tipus d'exercici de la fitxa, el a) fet
+              (la U3 en té dues pàgines, una per part de la fitxa: camp parts)
     pàgina 3  «Què he après?»: frases amb exemple per marcar Ho sé fer / L'he de
               repassar / Encara no
     pàgina 4  el solucionari, amb l'exercici de la fitxa d'on ve cada apartat
@@ -87,27 +88,48 @@ UNITATS = {
       ("Calculo el preu amb IVA.", "40 × 1,21 = 48,40 €", 6),
     ]),
   3: dict(
-    titol="Proporcionalitat", material="un pack de 6 iogurts i monedes de joguina",
+    titol="Proporcionalitat i escales", material="un pack de 6 iogurts i monedes de joguina",
     dibuix=[0], diu="Per fer un pastís per a més persones, necessites més ous. El doble de persones necessiten el doble d'ous.",
     recorda="El paquet gran no sempre surt més barat. Compara el preu d'1 litre.",
-    trencada="b",
-    una=[
-      ("Primer, quant val 1.", f"3 entrades costen 21 €. 1 entrada val {ms('21 ÷ 3 = 7 €')}", "7 €", 1),
-      ("El preu d'1 litre.", f"Oli: 1 L a 4,50 € o 3 L a 12,90 €. 1 L del gran: {B} €. Guanya: {B}", "12,90 ÷ 3 = 4,30 €. Guanya el gran.", 2),
-      ("La proporció i el producte en creu.", f"5 kg costen 10 €. Quant costen 3 kg? x / 3 = 10 / 5 → 5 · x = {B} → x = {B} €", "5 · x = 30 → x = 30/5 = 6 €", 3),
-      ("La inversa, a ull.", f"2 pintors pinten la casa en 8 dies. 4 pintors la pinten en {B} dies.", "el doble de pintors, la meitat: 4 dies", 4),
-      ("Directa o inversa?", f"Si hi ha més amics per inflar els globus, triguen menys temps: {B}", "inversa", 5),
-      ("Del plànol a la realitat: multiplica.", f"1 : 100. Al plànol, 7 cm. De veritat: {B} m", "700 cm = 7 m", 10),
-      ("Les mides d'un plànol 1 : 100.", f"Al plànol, 6 × 3 cm. De veritat: {B} × {B} m", "6 × 3 m (18 m²)", 11),
-    ],
-    apres=[
-      ("Calculo quant val 1.", "3 entrades costen 21 € → 1 entrada val 7 €", 1),
-      ("Comparo ofertes amb el preu d'1 litre.", "0,40 €/L i 0,45 €/L", 2),
-      ("Escric la proporció i multiplico en creu.", "x / 10 = 6 / 4 → 4 · x = 60 → x = 15", 3),
-      ("Faig la inversa a ull.", "el doble de pintors triguen la meitat del temps", 4),
-      ("Distingeixo directa d'inversa.", "el doble i el doble · el doble i la meitat", 5),
-      ("Passo del plànol a la realitat.", "1 : 100, 6 cm → 6 m", 10),
-      ("Trobo les mides de veritat d'un plànol.", "5 × 4 cm → 5 × 4 m", 11),
+    trencada=(0, "c"),
+    # Dues parts, com la fitxa (24/11/2026): el docent va trobar que el repàs no tenia res de mapes
+    # i que tenia molt pocs apartats. Ara: 10 de proporcionalitat (dues pàgines: la directa; la inversa
+    # i decidir) i 7 d'escales i plànols, i una pàgina «Què he après?» per part.
+    parts=[
+      dict(titol="Part 1 · Proporcionalitat", una=[
+        ("Primer, quant val 1.", f"3 entrades costen 21 €. 1 entrada val {ms('21 ÷ 3 = 7 €')}", "7 €", 1),
+        ("Quant val 1, i després multiplica.", f"4 iogurts costen 2 €. 1 iogurt val {B} €. 10 iogurts costen {B} €.", "2 ÷ 4 = 0,50 €; 0,50 × 10 = 5 €", 1),
+        ("El preu d'1 litre.", f"Aigua: 1,5 L a 0,60 € o 8 L a 3,60 €. 1 L de cada: {B} € i {B} €. Guanya: {B}", "0,40 € i 0,45 €. Guanya l'ampolla petita.", 2),
+        ("La proporció i el producte en creu.", f"5 kg costen 10 €. Quant costen 3 kg? x/3 = 10/5 → 5 · x = {B} → x = {B} €", "5 · x = 30 → x = 30/5 = 6 €", 3),
+        ("La proporció i el producte en creu.", f"2 L de pintura pinten 16 m². 5 L en pinten x. x/5 = 16/2 → 2 · x = {B} → x = {B} m²", "2 · x = 80 → x = 80/2 = 40 m²", 3),
+      ], apres=[
+        ("Calculo quant val 1.", "3 entrades costen 21 € → 1 entrada val 7 €", 1),
+        ("Comparo ofertes amb el preu d'1 litre.", "0,40 €/L i 0,45 €/L", 2),
+        ("Escric la proporció i multiplico en creu.", "x/10 = 6/4 → 4 · x = 60 → x = 15", 3),
+        ("Faig la inversa a ull.", "el doble de pintors triguen la meitat del temps", 4),
+        ("Distingeixo directa d'inversa.", "el doble i el doble · el doble i la meitat", 5),
+      ]),
+      dict(titol="Part 1 · Proporcionalitat", una=[
+        ("La inversa, a ull: el doble.", f"2 pintors pinten la casa en 8 dies. 4 pintors la pinten en {B} dies.", "el doble de pintors, la meitat: 4 dies", 4),
+        ("La inversa, a ull: el triple.", f"1 paleta fa el mur en 9 dies. 3 paletes el fan en {B} dies.", "el triple de paletes, un terç: 3 dies", 4),
+        ("La inversa, a ull: la meitat.", f"6 aixetes omplen la piscina en 2 hores. 3 aixetes l'omplen en {B} hores.", "la meitat d'aixetes, el doble: 4 hores", 4),
+        ("Directa o inversa?", f"Si hi ha més amics per inflar els globus, triguen menys temps: {B}", "inversa", 5),
+        ("Primer decideix, després calcula.", f"Per a 4 persones calen 2 ous. Per a 12 persones: directa o inversa? {B}. Calen {B} ous.", "directa; el triple: 6 ous", 6),
+      ], apres=[]),
+      dict(titol="Part 2 · Escales i plànols", una=[
+        ("Quant val 1 cm del plànol.", f"1 : 200 → 1 cm són {ms('200 cm = 2 m')}", "2 m", 9),
+        ("Quant val 1 cm del plànol.", f"1 : 50 → 1 cm són {B} cm = {B} m", "50 cm = 0,5 m", 9),
+        ("Del plànol a la realitat: multiplica.", f"1 : 100. Al plànol, 7 cm. De veritat: {B} m", "700 cm = 7 m", 10),
+        ("Del plànol a la realitat: multiplica.", f"1 : 200. Al plànol, 4 cm. De veritat: {B} m", "800 cm = 8 m", 10),
+        ("Les mides d'un plànol 1 : 100.", f"Al plànol, 6 × 3 cm. De veritat: {B} × {B} m", "6 × 3 m (18 m²)", 11),
+        ("El mapa del barri: 1 cm són 50 m.", f"Al mapa, 5 cm. De veritat: {B} m", "5 × 50 = 250 m", 12),
+        ("El mapa, al revés: 1 cm són 50 m.", f"De veritat, 150 m. Al mapa: {B} cm", "150 ÷ 50 = 3 cm", 12),
+      ], apres=[
+        ("Dic quant val 1 cm del plànol.", "1 : 200 → 1 cm són 2 m", 9),
+        ("Passo del plànol a la realitat.", "1 : 100, 6 cm → 6 m", 10),
+        ("Trobo les mides de veritat d'un plànol.", "5 × 4 cm → 5 × 4 m", 11),
+        ("Faig servir la doble recta del mapa.", "1 cm → 50 m · 150 m → 3 cm", 12),
+      ]),
     ]),
   4: dict(
     titol="Equacions", material="una bossa opaca i fitxes iguals",
@@ -280,35 +302,56 @@ def fitxa(n, u):
   </div>
 {pag(1)}
 <!-- ==================== FULL 2: UNA DE CADA ==================== -->
-<div class="full">
-  <div class="exercici">
-    <div class="tasca"><div class="n">1</div><div class="q">Una de cada. Fes-les amb el que ja saps.</div></div>
 """
-    for i, (pista, frase, _, _) in enumerate(u["una"]):
-        lletra = "abcdefgh"[i]
-        classe = ' class="resolt" style="border-radius:10px;' if i == 0 else ' style="'
-        h += (f'    <div{classe}padding:.3rem .6rem;margin-bottom:.35rem">\n'
-              f'      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat">{lletra})</span>{pista}</p>\n'
-              f'      <p class="frase" style="margin:0;font-size:16.5pt">{frase}</p>\n'
-              f'    </div>\n')
-    h += "  </div>\n" + pag(2)
+    # Les parts: la majoria d'unitats en tenen una (els camps una i apres). La U3, des del 24/11/2026,
+    # en té dues, com la seva fitxa (Proporcionalitat i Escales i plànols): camp parts, amb una pàgina
+    # «Una de cada» per part i la franja de la part a dalt.
+    parts = u.get("parts") or [dict(titol=None, una=u["una"], apres=u["apres"])]
+    franja = ('  <div style="font-size:14pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;'
+              'border-bottom:3px solid #000;padding-bottom:.2rem;margin:.2rem 0 .7rem">{}</div>\n')
+    for k, part in enumerate(parts):
+        if k:
+            h += f"\n<!-- ==================== FULL {k + 2}: UNA DE CADA · PART {k + 1} ==================== -->\n"
+        h += '<div class="full">\n'
+        if part["titol"]:
+            h += franja.format(part["titol"])
+        h += ('  <div class="exercici">\n'
+              f'    <div class="tasca"><div class="n">{k + 1}</div><div class="q">Una de cada. Fes-les amb el que ja saps.</div></div>\n')
+        for i, (pista, frase, _, _) in enumerate(part["una"]):
+            lletra = "abcdefgh"[i]
+            classe = ' class="resolt" style="border-radius:10px;' if i == 0 else ' style="'
+            h += (f'    <div{classe}padding:.3rem .6rem;margin-bottom:.35rem">\n'
+                  f'      <p style="margin:0;font-size:14pt;color:var(--gris-2)"><span class="apartat">{lletra})</span>{pista}</p>\n'
+                  f'      <p class="frase" style="margin:0;font-size:16.5pt">{frase}</p>\n'
+                  f'    </div>\n')
+        h += "  </div>\n" + pag(k + 2)
 
-    h += """
-<!-- ==================== FULL 3: QUÈ HE APRÈS? ==================== -->
+    amb_frases = [p for p in parts if p["apres"]]
+    k = len(parts) + 2
+    for q, part in enumerate(amb_frases):
+        h += f"""
+<!-- ==================== FULL {k}: QUÈ HE APRÈS?{' · ' + part['titol'].upper() if part['titol'] else ''} ==================== -->
 <div class="full">
-  <h2>Què he après?</h2>
+"""
+        if part["titol"]:
+            h += franja.format(part["titol"])
+        h += """  <h2>Què he après?</h2>
   <p style="margin:0;font-size:14pt;color:var(--gris-2)">Llegeix cada frase. Marca una casella.</p>
   <table class="mini" style="margin-top:.5rem">
     <tr><th style="width:46%">Què sé fer</th><th style="width:18%">Ho sé fer</th><th style="width:18%">L'he de repassar</th><th style="width:18%">Encara no</th></tr>
 """
-    for frase, exemple, _ in u["apres"]:
-        h += (f'    <tr><td class="esq" style="line-height:1.3"><b>{frase}</b><br>'
-              f'<span style="color:var(--gris-2)">{exemple}</span></td><td></td><td></td><td></td></tr>\n')
-    h += f"""  </table>
-  <p class="frase" style="margin-top:1rem">El que m'ha costat més: <u style="padding:0 4.5cm"></u></p>
-  <p class="frase">El que ara sé fer: <u style="padding:0 5.2cm"></u></p>
-{pag(3)}
-<!-- ==================== FULL 4: SOLUCIONARI ==================== -->
+        for frase, exemple, _ in part["apres"]:
+            h += (f'    <tr><td class="esq" style="line-height:1.3"><b>{frase}</b><br>'
+                  f'<span style="color:var(--gris-2)">{exemple}</span></td><td></td><td></td><td></td></tr>\n')
+        h += "  </table>\n"
+        if q == len(amb_frases) - 1:
+            h += ("""  <p class="frase" style="margin-top:1rem">El que m'ha costat més: <u style="padding:0 4.5cm"></u></p>\n"""
+                  """  <p class="frase">El que ara sé fer: <u style="padding:0 5.2cm"></u></p>\n""")
+        h += pag(k)
+        k += 1
+    n_apres = k - 1
+    h += f"""
+<!-- ==================== FULL {n_apres + 1}: SOLUCIONARI ==================== -->
 <div class="full sol">
   <h1 style="font-size:19pt">Solucionari</h1>
   <p style="color:var(--gris-2);margin-top:.15rem">Unitat {n} · Repàs · full per al professorat</p>
@@ -321,24 +364,32 @@ def fitxa(n, u):
     la seva lectura del que sap. Si marca «Encara no» en una frase que a l'examen és el
     mínim, aquella és la feina de la sessió següent.
   </div>
-
-  <h3>1. Una de cada</h3>
+"""
+    for k, part in enumerate(parts):
+        titol = f"{k + 1}. Una de cada · {part['titol']}" if part["titol"] else "1. Una de cada"
+        h += f"""
+  <h3>{titol}</h3>
   <table>
     <tr><th></th><th>Resposta</th><th>Fitxa</th></tr>
 """
-    for i, (_, _, resposta, ex) in enumerate(u["una"]):
-        h += f'    <tr><td>{"abcdefgh"[i]})</td><td>{resposta}</td><td>ex. {ex}</td></tr>\n'
-    h += """  </table>
-
+        for i, (_, _, resposta, ex) in enumerate(part["una"]):
+            h += f'    <tr><td>{"abcdefgh"[i]})</td><td>{resposta}</td><td>ex. {ex}</td></tr>\n'
+        h += "  </table>\n"
+    h += """
   <h3>Què he après?</h3>
   <table>
     <tr><th>Frase</th><th>Si marca «Encara no», torneu a</th></tr>
 """
-    for frase, _, ex in u["apres"]:
-        h += f'    <tr><td>{frase}</td><td>la fitxa, ex. {ex}</td></tr>\n'
+    for part in parts:
+        for frase, _, ex in part["apres"]:
+            h += f'    <tr><td>{frase}</td><td>la fitxa, ex. {ex}</td></tr>\n'
+    # trencada: la lletra (a la primera part) o (número de part, lletra)
+    kp, lt = (0, u["trencada"]) if isinstance(u["trencada"], str) else u["trencada"]
+    on = "abcdefgh".index(lt)
+    qui = f"{lt})" if len(parts) == 1 else f"{lt}) de la part {kp + 1}"
     h += f"""  </table>
   <p><b>Per avaluar:</b> el repàs no és evidència d'avaluació. Si es vol fer servir, l'apartat
-  {u["trencada"]}) és el que val més: és la regla trencada de la fitxa (exercici {u["una"]["abcdefgh".index(u["trencada"])][3]}).</p>
+  {qui} és el que val més: és la regla trencada de la fitxa (exercici {parts[kp]["una"][on][3]}).</p>
 </div>
 
 </body>
@@ -357,7 +408,9 @@ def main():
             h = lliga(h)
         with open(desti, "w", encoding="utf-8") as f:
             f.write(h)
-        print(f"  u{n}/repas.html: {len(u['una'])} apartats, {len(u['apres'])} frases")
+        parts = u.get("parts") or [u]
+        print(f"  u{n}/repas.html: {sum(len(p['una']) for p in parts)} apartats, "
+              f"{sum(len(p['apres']) for p in parts)} frases")
 
 
 if __name__ == "__main__":

@@ -114,7 +114,7 @@ describes the units.
 window.UNITATS = [{
   num: 3, titol: "Proporcionalitat i escales",
   fitxes: [{ fitxa: "u3/fitxa.html", titol: "El doble o la meitat?" }],   // class order; first is uN/fitxa.html
-  repas:  { fitxa: "u3/repas.html", titol: "Repàs · Proporcionalitat" },
+  repas:  { fitxa: "u3/repas.html", titol: "Repàs · Proporcionalitat i escales" },
   quadern: "u3/quadern.html",          // optional
   tasques: [0, 2, 4, 7],               // the tabs of eines.html shown for this unit (data-tasca)
   material: "…", objectiu: "…",        // «Abans de la classe»: material, objectiu or nucli, trencada
