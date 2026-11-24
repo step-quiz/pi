@@ -153,6 +153,14 @@ Els PDF són al dia (30/9/2026): els catorze de les unitats, els catorze de les 
 repàs i els tres de les targetes. `gen_pdf.py` s'atura si un PDF amb text manuscrit no
 porta la lletra Caveat a dins.
 
+**La lletra dels PDF és DejaVu Sans.** Les fitxes demanen `system-ui`, i cada ordinador hi posa
+la que té. Si l'ordinador on es fan els PDF té la lletra Inter (els contenidors de Claude Code
+la tenen), en surt Inter i els PDF ja no s'assemblen als altres. Allà cal amagar-la abans de
+`gen_pdf.py`, amb un `fonts.conf` que inclogui `/etc/fonts/fonts.conf` i rebutgi
+(`<selectfont><rejectfont>`) `/usr/share/fonts/opentype/inter/*` i
+`/usr/share/fonts/truetype/liberation*/*`, i `FONTCONFIG_FILE=` apuntant-hi. Es comprova amb
+`pdffonts pdf/ud1-alumnat.pdf`: hi ha de sortir DejaVu-Sans (24/11/2026).
+
 **Les fitxes de repàs no s'editen a mà.** Es canvien a `generadors/gen_repas.py` i es
 tornen a fer amb `python3 generadors/gen_repas.py`. El dibuix de la seva pàgina 1 surt de la
 pàgina 1 de la fitxa de la unitat: si aquesta canvia, cal tornar a passar `gen_repas.py`.

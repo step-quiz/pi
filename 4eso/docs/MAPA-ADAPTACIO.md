@@ -65,7 +65,7 @@ on no s'assabenta.
 | **1. Anticipació** | aula de suport | Abans que el grup comenci: **cinc minuts de material físic**, després el vocabulari, l'esquema visual i **un exemple resolt sencer**. Les pàgines de concepte de cada fitxa serveixen exactament per a això. |
 | **2. Participació** | Aula ordinària | L'activitat del grup. Aquí no s'adapta la tasca, s'adapta el **rol** dins la parella. |
 | **3. Pràctica guiada** | Aula ordinària | Els exercicis de la fitxa. Calculadora sempre sobre la taula. |
-| **4. Consolidació** | aula de suport | Caixa d'eines i, molt selectivament, `repas-main`. La frase model de la unitat. |
+| **4. Consolidació** | aula de suport | Caixa d'eines. La frase model de la unitat. |
 
 Amb 4 hores setmanals són 2 sessions de suport i 2 d'aula. **La sessió d'anticipació ha
 de caure abans de la sessió d'aula on s'introdueix el saber nou**; val la pena
@@ -268,10 +268,6 @@ la barra de la pàgina 3. Un arbre interactiu seria l'addició següent si es ve
 (`uN/repas.html`) amb «Una de cada» i «Què he après?», i hi ha tres targetes de
 consulta (`targetes/`) per tenir a la taula, com a `1eso/`.
 
-**Avís permanent sobre `repas-main`.** Està calibrat per a alumnat que entra a
-batxillerat. **No li passis ni el diagnòstic inicial ni l'itinerari automàtic**: el
-situarien en fals. Només els blocs concrets que s'indiquen a cada unitat.
-
 ---
 
 ## 7. Mapa unitat per unitat
@@ -292,7 +288,6 @@ quants decimals calen a cada situació.
 
 **Base prèvia (aula de suport):** `1eso-ud5-2`, `1eso-ud5-5` (decimals i quadrats perfectes),
 `2eso-ud1-2` (la recta de terra), `1eso-ud5-6` (el mapa dels nombres).
-**`repas-main`:** full 1, blocs `decimals` i `fraccions`, només els primers ítems.
 
 **A la fitxa:** el mapa dels nombres, √2 que no s'acaba contra √9 que sí, i els tres
 usos amb pictograma (ho dic / ho compro / ho tallo) que després reapareixen a l'app.
@@ -311,8 +306,6 @@ curs i ja la tenies dissenyada per a tothom**: converteix tot el treball de perc
 en una sola multiplicació i elimina el pas on es perd qui té el càlcul com a coll d'ampolla.
 
 **Base prèvia (aula de suport):** `1eso-ud4-7`, `2eso-ud2-3`, `2eso-ud2-5`.
-**`repas-main`:** full 6, blocs `percentatges` i `factor_multiplicador`; `encadenats`
-només si els anteriors van rodats.
 
 **A la fitxa:** la pàgina 1 parteix la barra de 300 € i en fa sortir «de cada 100, en
 queden 80»; el factor 0,8 apareix a la pàgina 2 com a conclusió, no com a recepta. Després
@@ -339,7 +332,6 @@ va trobar massa abstracta. Ara el centre és la proporcionalitat, amb contextos 
 
 **Base prèvia (aula de suport):** `2eso-ud2-1`, `2eso-ud2-2`, `2eso-ud2-4`, `2eso-ud5-3`,
 `2eso-ud5-12`.
-**`repas-main`:** full 6, `directa_inversa`; full 8, blocs `escales` i `escales_calcul`.
 
 **A la fitxa (refeta el 24/11/2026, a partir de la UD3 del llibre):**
 - **Directa, tres eines de més concreta a més simbòlica.** Quant val 1 (pàgina 2 i exercici 1),
@@ -392,8 +384,6 @@ Estrenar-ne un de nou al febrer és el que convé evitar, no la balança en si.
 
 **Base prèvia (aula de suport, i amb temps):** `2eso-ud4-1` (la balança), `2eso-ud4-3` (solució i
 comprovació), `2eso-ud4-7`.
-**`repas-main`:** full 5, bloc `primer_grau` **únicament**. No obris `formula_general`
-ni `factoritzacio`.
 
 **A la fitxa:** balances dibuixades, comprovació en columnes, x² = k amb l'arrel, i
 l'exercici 6 que toca una equació de 2n grau completa **entrant-hi per la comprovació**,
@@ -415,7 +405,6 @@ prioritza «la lectura i la interpretació gràfica per sobre de l'estudi analí
 significa cada element en el fenomen.
 
 **Base prèvia (aula de suport):** `2eso-ud3-2`, `2eso-ud3-3`, `3eso-ud6-2`.
-**`repas-main`:** full 10, `funcions_quadratiques`, només ítems de lectura de gràfica.
 
 **A la fitxa:** set exercicis, gairebé tots de lectura pura. L'exercici 5 fa validar
 lectures amb els dos errors més freqüents de la unitat: el vèrtex amb les coordenades
@@ -456,8 +445,6 @@ entre tres, que és l'error típic. La taula de càlcul ve després.
 **Base prèvia (aula de suport):** la unitat `2eso-ud6` **sencera**, «Dades que parlen». És de les
 poques vegades que una unitat de 2n cobreix gairebé tot el nucli de la del nivell del grup: no la
 fragmentis.
-**`repas-main`:** full 11, blocs `frequencies`, `grafics` i `centralitzacio`. El bloc
-`dispersio` **no**: és de nivell de batxillerat.
 
 **A la fitxa:** dues jugadores amb la mateixa mitjana i dispersió diferent, i
 l'exercici del gràfic enganyós amb l'eix truncat, que és **el més valuós de la fitxa fora
@@ -478,8 +465,6 @@ percentatge, format que ja domina des de la U2.
 
 **Base prèvia (aula de suport):** `3eso-ud2-2` (el llenguatge de l'atzar), `3eso-ud2-3` (comptar
 sense oblidar-se de res), `3eso-ud2-5` (Laplace).
-**`repas-main`:** full 12, blocs `espais_mostrals` i `laplace`. No `probabilitat_composta`
-ni `condicionada`.
 
 **A la fitxa, la probabilitat s'amida abans de calcular-se.** A la pàgina 3, abans de la
 taula que compta casos, hi ha la barra partida en sis trossos iguals amb el 5 marcat i
@@ -504,7 +489,7 @@ convé que els faci sencers encara que la resta hagi anat més just.
 
 ### Dues unitats del llibre sense fitxa de programació
 
-- **UD4 «Mesura indirecta»** (`llibre · unitat 4`) — **feta com a U8 (23/11/2026)**: `u8/fitxa.html`, adaptació de les activitats 4.1–4.4 (ombres i semblança com a «quantes vegades hi cap», i Pitàgores, en dues sessions; la regla trencada és «les ombres no es resten» i l'exercici 8 tria entre ombra i triangle). Té els PDF, el quadern d'activitats (`generadors/quadern/ud8.py`, un bloc per exercici), el repàs (`generadors/gen_repas.py`) i, a les eines, la doble recta amb «Ombra i alçada»; encara no té blocs de `repas-main` triats. Queden fora, per decisió del 23/11/2026, el mirall, el riu amb estaques, la foto amb referència, el marge d'error i el producte «Els mesuradors»; la notació és a² = b² + c²; no és a la programació de les 7 SA i no té data. Descripció original: semblança, ombres i Pitàgores. Si la fas,
+- **UD4 «Mesura indirecta»** (`llibre · unitat 4`) — **feta com a U8 (23/11/2026)**: `u8/fitxa.html`, adaptació de les activitats 4.1–4.4 (ombres i semblança com a «quantes vegades hi cap», i Pitàgores, en dues sessions; la regla trencada és «les ombres no es resten» i l'exercici 8 tria entre ombra i triangle). Té els PDF, el quadern d'activitats (`generadors/quadern/ud8.py`, un bloc per exercici), el repàs (`generadors/gen_repas.py`) i, a les eines, la doble recta amb «Ombra i alçada». Queden fora, per decisió del 23/11/2026, el mirall, el riu amb estaques, la foto amb referència, el marge d'error i el producte «Els mesuradors»; la notació és a² = b² + c²; no és a la programació de les 7 SA i no té data. Descripció original: semblança, ombres i Pitàgores. Si la fas,
   **és la segona millor unitat del curs per a aquest alumnat**: sortir a mesurar l'institut
   amb ombres i triangles és 100 % visual i manipulatiu. Base directa a `2eso-ud5-4`,
   `2eso-ud5-5` i tota la `3eso-ud3`.
@@ -530,7 +515,7 @@ d'aquestes.**
 2. **El format de l'evidència.** Valen exactament igual que un examen escrit: explicació
    oral registrada en el moment, assenyalar sobre una gràfica o un plànol, ordenar
    targetes, triar la frase correcta entre tres, la captura del GeoGebra o del full de
-   càlcul que ha construït, i el codi de verificació de `repas-main`.
+   càlcul que ha construït, i el codi de verificació de les eines.
 
 **Dues valoracions separades al cap.** En qualsevol tasca, mira per separat si la
 **decisió** és correcta i si el **càlcul** és correcte. Quan l'objectiu és decidir, només

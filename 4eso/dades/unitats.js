@@ -15,8 +15,7 @@
      fitxes     les fitxes de la unitat, en l'ordre de classe: fitxa (el camí, uN/fitxa.html)
                 i titol (el nom propi de la fitxa, el del seu <h1>)
      repas      la fitxa de repàs («Una de cada» i «Què he après?»): fitxa (uN/repas.html) i
-                titol. Per al final de la unitat o per abans de l'examen. No és el camp
-                «repas_main», que parla dels blocs de repas-main
+                titol. Per al final de la unitat o per abans de l'examen
      quadern    el quadern d'activitats per practicar després de la fitxa (uN/quadern.html),
                 amb el filtre de quantitat i de tipologia. Opcional: si no hi és, la pàgina
                 de la unitat diu «Quadern d'activitats no disponible». El fa
@@ -34,8 +33,6 @@
                 no hi ha pestanyes. Des del 6/11/2026 (menys llocs on clicar), la Calculadora (0)
                 només hi és a les unitats on la fitxa la fa servir, i Com ho dic (7), enlloc
      llibre     unitat corresponent del llibre digital
-     repas_main blocs de repas-main que se li poden obrir
-     evitar     el que NO se li ha d'obrir (buit si no hi ha res)
    ========================================================================== */
 
 window.UNITATS = [
@@ -47,8 +44,7 @@ window.UNITATS = [
     objectiu: "Situar nombres a la recta i decidir quants decimals calen a cada situació.",
     material: "una cinta mètrica i un objecte llarg per mesurar",
     trencada: "Ex. 3 · arrodonir no és tallar: 2,64 es converteix en 2,65",
-    moduls: ["recta"], tasques: [1, 0], llibre: "llibre · unitat 1",
-    repas_main: "full 1 · decimals, fraccions", evitar: ""
+    moduls: ["recta"], tasques: [1, 0], llibre: "llibre · unitat 1"
   },
   {
     num: 2, titol: "Percentatges i matemàtica financera", fitxes: [{ fitxa: "u2/fitxa.html", titol: "Què queda quan rebaixen?" }],
@@ -58,8 +54,7 @@ window.UNITATS = [
     objectiu: "Comparar dues maneres de pagar amb el factor multiplicador i decidir.",
     material: "monedes i bitllets de joguina",
     trencada: "Ex. 5c · el portàtil surt més barat a terminis, no al comptat",
-    moduls: ["doble", "factor", "calc"], tasques: [2, 3, 0], llibre: "llibre · unitat 2",
-    repas_main: "full 6 · percentatges, factor_multiplicador", evitar: ""
+    moduls: ["doble", "factor", "calc"], tasques: [2, 3, 0], llibre: "llibre · unitat 2"
   },
   {
     num: 3, titol: "Proporcionalitat i escales", fitxes: [{ fitxa: "u3/fitxa.html", titol: "El doble o la meitat?" }],
@@ -69,8 +64,7 @@ window.UNITATS = [
     objectiu: "Resoldre la directa amb quant val 1 i amb la proporció en creu, fer la inversa a ull i llegir una escala.",
     material: "un pack de 6 iogurts i monedes de joguina",
     trencada: "Ex. 2c · guanya l'ampolla petita, no la garrafa",
-    moduls: ["doble", "escala"], tasques: [2, 4, 0], llibre: "llibre · unitat 3",
-    repas_main: "full 6 · directa_inversa · full 8 · escales, escales_calcul", evitar: ""
+    moduls: ["doble", "escala"], tasques: [2, 4, 0], llibre: "llibre · unitat 3"
   },
   {
     num: 4, titol: "Equacions de 2n grau", fitxes: [{ fitxa: "u4/fitxa.html", titol: "Quin número ho fa funcionar?" }],
@@ -80,8 +74,7 @@ window.UNITATS = [
     objectiu: "Comprovar solucions i decidir quina té sentit. No s'aïlla la incògnita.",
     material: "una bossa opaca i fitxes iguals",
     trencada: "Ex. 5d · al congelador la solució bona és −3, no 3",
-    moduls: ["equacio"], tasques: [6, 0], llibre: "llibre · unitat 5",
-    repas_main: "full 5 · primer_grau", evitar: "formula_general, factoritzacio"
+    moduls: ["equacio"], tasques: [6, 0], llibre: "llibre · unitat 5"
   },
   {
     num: 5, titol: "La paràbola", fitxes: [{ fitxa: "u5/fitxa.html", titol: "On és el punt més alt?" }],
@@ -90,8 +83,7 @@ window.UNITATS = [
     objectiu: "Llegir vèrtex, talls i eix, i dir què volen dir en el fenomen.",
     material: "una pilota i espai per llançar-la",
     trencada: "Ex. 2 · el vèrtex és un mínim i no hi ha cap punt de tall",
-    moduls: ["parabola"], tasques: [5], llibre: "llibre · unitat 6",
-    repas_main: "full 10 · funcions_quadratiques, només lectura de gràfica", evitar: ""
+    moduls: ["parabola"], tasques: [5], llibre: "llibre · unitat 6"
   },
   {
     num: 6, titol: "Estadística amb dades reals", fitxes: [{ fitxa: "u6/fitxa.html", titol: "La mitjana no ho explica tot" }],
@@ -100,8 +92,7 @@ window.UNITATS = [
     objectiu: "Fer taula i gràfic amb el full de càlcul i dir si les dades estan escampades.",
     material: "fitxes o taps per fer munts",
     trencada: "Ex. 6 · el gràfic que comença a 90 i no a 0",
-    moduls: ["mitjana"], tasques: [8, 0], llibre: "llibre · unitat 8",
-    repas_main: "full 11 · frequencies, grafics, centralitzacio", evitar: "dispersio"
+    moduls: ["mitjana"], tasques: [8, 0], llibre: "llibre · unitat 8"
   },
   {
     num: 7, titol: "Atzar i decisions", fitxes: [{ fitxa: "u7/fitxa.html", titol: "Em convé jugar?" }],
@@ -110,14 +101,13 @@ window.UNITATS = [
     objectiu: "Comptar amb arbre, calcular amb Laplace i entendre per què la casa guanya.",
     material: "un dau i una moneda",
     trencada: "Ex. 4c · una cara i una creu val el doble que dues cares",
-    moduls: ["doble", "atzar"], tasques: [2, 9, 0], llibre: "llibre · unitat 9",
-    repas_main: "full 12 · espais_mostrals, laplace", evitar: "probabilitat_composta, condicionada"
+    moduls: ["doble", "atzar"], tasques: [2, 9, 0], llibre: "llibre · unitat 9"
   },
   {
     /* U8 · afegida després de les 7 SA de la programació: adapta la UD4 del llibre (activitats 4.1–4.4).
        No té data a la programació; les dates són una proposta que el docent pot canviar.
        Dues sessions: Part 1 · Semblança i Part 2 · Pitàgores. A les eines, la doble recta amb
-       l'exemple «Ombra i alçada». Quadern d'activitats i repàs des del 23/11/2026. Encara no té blocs de repas-main triats. */
+       l'exemple «Ombra i alçada». Quadern d'activitats i repàs des del 23/11/2026. */
     num: 8, titol: "Mesura indirecta", fitxes: [{ fitxa: "u8/fitxa.html", titol: "Com fa d'alt, si no hi arribo?" }],
     repas: { fitxa: "u8/repas.html", titol: "Repàs · Mesura indirecta" },
     quadern: "u8/quadern.html",
@@ -125,8 +115,7 @@ window.UNITATS = [
     objectiu: "Mesurar una altura amb l'ombra d'un pal i una distància amb Pitàgores, i triar quin camí cal.",
     material: "una escombra i una cinta mètrica, al pati amb sol",
     trencada: "Ex. 4 · les ombres no es resten: l'arbre no fa 12 − 3 = 9 m més que el pal; l'ombra del pal hi cap 4 vegades, i l'alçada també",
-    moduls: ["doble"], tasques: [2, 0], llibre: "llibre · unitat 4",
-    repas_main: "pendent de triar", evitar: ""
+    moduls: ["doble"], tasques: [2, 0], llibre: "llibre · unitat 4"
   }
 ];
 
