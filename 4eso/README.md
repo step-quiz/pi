@@ -189,8 +189,8 @@ docent, 5/11/2026):
 
 | UD3 | Petit | Mitjà | Elevat |
 |---|---|---|---|
-| Com les de la fitxa (8 activitats) | 6 pàgines | 10 pàgines | 15 pàgines |
-| Amb repte (16 activitats) | 10 pàgines | 17 pàgines | 31 pàgines |
+| Com les de la fitxa (11 activitats) | 10 pàgines | 14 pàgines | 25 pàgines |
+| Amb repte (22 activitats) | 19 pàgines | 28 pàgines | 50 pàgines |
 
 Els apartats van de menys a més dins de cada activitat (per exemple, els de 1 : 100 abans
 que els de 1 : 50), perquè els que s'amaguen són sempre els últims.
@@ -207,7 +207,9 @@ pàgina surt al peu.
 Hi ha quadern a la **UD1** (7 blocs: entre quins enters, la recta, arrodonir, decimals que
 s'acaben, quants decimals, pagar de més i amunt o avall), a la **UD2** (7 blocs: el factor, un
 canvi, dos canvis, pujar i baixar, al comptat o a terminis, l'IVA i a la vida de cada dia), a la
-**UD3** (8 blocs) i a la **UD4** (7 blocs: la balança, comprovar, l'arrel
+**UD3** (11 blocs, refets el 24/11/2026: quant val 1, les ofertes, la proporció i el producte en
+creu, la inversa a ull, directa o inversa, decideix i calcula, quant val 1 cm, del plànol a la realitat,
+el plànol, les creps i els globus) i a la **UD4** (7 blocs: la balança, comprovar, l'arrel
 quadrada, el costat d'un quadrat, quina solució té sentit, comprovar una equació de 2n grau i
 a la vida de cada dia) i a la **UD8** (10 blocs, un per exercici de la fitxa: la taula i el producte
 en creu, amb la calculadora, la doble recta, les ombres no es resten, l'escombra, Pitàgores amb la

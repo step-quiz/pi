@@ -222,7 +222,7 @@ i sol ser l'evidència d'avaluació més valuosa de la fitxa.
 |---|---|---|
 | 1 | «Arrodonir és tallar» | Ex. 3: 2,64 s'arrodoneix a **2,65** |
 | 2 | «Al comptat sempre és millor» | Ex. 5c: el portàtil surt millor **a terminis** |
-| 3 | «Com més gran el paquet, més barat» | Ex. 6c: guanya **l'ampolla petita** |
+| 3 | «Com més gran el paquet, més barat» | Ex. 2c: guanya **l'ampolla petita** |
 | 4 | «El negatiu no val mai» | Ex. 5d: al congelador la bona és **−3 °C** |
 | 5 | «El vèrtex és el punt més alt i sempre hi ha dos talls» | Ex. 2: vèrtex **mínim** i **cap tall** |
 | 6 | «Els gràfics diuen la veritat» | Ex. 6: l'eix que comença a **90 i no a 0** |
@@ -329,24 +329,36 @@ Per durada, és on més evidència pots recollir.
 ### U3 · Proporcionalitat i escales
 **12–27 gener · 7 sessions · llibre `llibre · unitat 3`**
 
-**Objectiu nuclear:** llegir una escala, passar de plànol a realitat i decidir si una
-situació és de proporcionalitat directa o inversa.
+**Objectiu nuclear:** resoldre la proporcionalitat directa amb dues eines (quant val 1 i la
+proporció amb el producte en creu), fer la inversa a ull (el doble de persones triguen la
+meitat; el triple, un terç) i llegir una escala, del plànol a la realitat.
 
-**Encaix:** molt bo. Plànols i escales són geometria visual pura.
+**Encaix:** bo. Fins al 24/11/2026 la fitxa era gairebé tota d'escales i plànols, i el docent la
+va trobar massa abstracta. Ara el centre és la proporcionalitat, amb contextos de cada dia
+(entrades, receptes, pintors, aixetes), i les escales hi queden com a aplicació.
 
 **Base prèvia (aula de suport):** `2eso-ud2-1`, `2eso-ud2-2`, `2eso-ud2-4`, `2eso-ud5-3`,
 `2eso-ud5-12`.
-**`repas-main`:** full 8, blocs `escales` i `escales_calcul`; full 6, `directa_inversa`.
+**`repas-main`:** full 6, `directa_inversa`; full 8, blocs `escales` i `escales_calcul`.
 
-**A la fitxa:** la cadena de tres baules sempre igual, les taules amb fletxes per a
-directa/inversa, i un **plànol dibuixat a escala 1:100 real** que pot mesurar amb regle
-si s'imprimeix al 100 %. L'exercici 6 treballa el preu unitari, que la programació demana
-com a lectura crítica d'ofertes.
+**A la fitxa (refeta el 24/11/2026, a partir de la UD3 del llibre):**
+- **Directa, tres eines de més concreta a més simbòlica.** Quant val 1 (pàgina 2 i exercici 1),
+  el preu d'1 per comparar ofertes (exercici 2, la regla trencada) i la proporció x / c = a / b
+  amb el producte en creu (pàgina 5 i exercici 3): b · x = c · a, es calcula c · a i es divideix
+  per b. És la mateixa taula i el mateix producte en creu que la U8 farà servir a la semblança.
+- **Inversa, a ull i sense equacions** (pàgina 8 i exercici 4): el doble de pintors triguen la
+  meitat; el triple, un terç; la meitat, el doble. Els números surten sempre exactes.
+- **Directa o inversa** (exercicis 5 i 6): primer es decideix, després es calcula. La pregunta
+  «la resposta ha de ser més gran o més petita?» és l'antídot de l'error típic.
+- **Escales, només del plànol a la realitat** (pàgines 12-14): quant val 1 cm, quant fa de
+  veritat i un **plànol dibuixat a escala 1:100 real** que pot mesurar amb regle si s'imprimeix
+  al 100 %. El camí de la realitat al plànol ja no hi és.
 
-**Truc útil:** per a directa/inversa, fer-li dir en veu alta «més… i més…» o «més… i
-menys…». La paraula *menys* ja li dona la resposta sense raonament abstracte.
+**Frases completes.** «Per fer un pastís per a més persones, necessites més ous» s'entén millor
+que «més persones, més ous» (correcció del docent, 24/11/2026): la frase curta perd el sentit.
+Per decidir si és directa o inversa, que es pregunti què passa amb el doble.
 
-**El «per unitat» ja és un pas propi.** L'exercici 6 ajuntava dues coses diferents en una
+**El «per unitat» ja és un pas propi.** L'exercici 6 (avui, el 2) ajuntava dues coses diferents en una
 sola consigna: arribar a **quant costa 1** i **fer servir aquest 1 per comparar**. Ara la
 consigna són dues frases («Primer baixa a una unitat. Després compara.») i hi ha una cadena
 de tres baules a sobre: *preu ÷ quantitat → preu d'1 → compara*. Baixar a la unitat és el

@@ -4,7 +4,7 @@
   "font": "targetes/grafiques.html"
  },
  "targeta-percentatges.pdf": {
-  "empremta": "c6958ae665d3a3b41bfaa36b410f264425499e7a5e9bb765945b94e452a6e33f",
+  "empremta": "04f2d0b9a6f8c2663aa81c4f59b84c806e7e572c0a0f4c8eb9219f08c7f64e06",
   "font": "targetes/percentatges.html"
  },
  "ud1-alumnat.pdf": {
@@ -40,23 +40,23 @@
   "font": "u2/fitxa.html"
  },
  "ud3-alumnat.pdf": {
-  "empremta": "e162dde66ea231271aba356cccd8762a2a3cdbd1396c23bc3588e8eee3077090",
+  "empremta": "0e0383c18829f13b4cffbcb4fb0b9c969118b118e9aa984b3465fe28e5078532",
   "font": "u3/fitxa.html"
  },
  "ud3-repas-alumnat.pdf": {
-  "empremta": "9be6eba919639e2cb22123fa942424f3329aedc9cf969c0ffc42248864a0e3cb",
+  "empremta": "f4b46d8e651dfedbe5ed7c5d2d6c214fc4066e2eab379fd9631363cc5c0c7a30",
   "font": "u3/repas.html"
  },
  "ud3-repas-solucionari.pdf": {
-  "empremta": "9be6eba919639e2cb22123fa942424f3329aedc9cf969c0ffc42248864a0e3cb",
+  "empremta": "f4b46d8e651dfedbe5ed7c5d2d6c214fc4066e2eab379fd9631363cc5c0c7a30",
   "font": "u3/repas.html"
  },
  "ud3-solucionari.pdf": {
-  "empremta": "e162dde66ea231271aba356cccd8762a2a3cdbd1396c23bc3588e8eee3077090",
+  "empremta": "0e0383c18829f13b4cffbcb4fb0b9c969118b118e9aa984b3465fe28e5078532",
   "font": "u3/fitxa.html"
  },
  "ud4-alumnat.pdf": {
-  "empremta": "293f25dc71345cc9655eb70f0d8c04107c1566113a8685a4f31e860cbe8ec4cb",
+  "empremta": "8d64034f4bd20ece93158a2fba3f476ccf2dc6e3d56979c061f3a0a130bbf723",
   "font": "u4/fitxa.html"
  },
  "ud4-repas-alumnat.pdf": {
@@ -68,7 +68,7 @@
   "font": "u4/repas.html"
  },
  "ud4-solucionari.pdf": {
-  "empremta": "293f25dc71345cc9655eb70f0d8c04107c1566113a8685a4f31e860cbe8ec4cb",
+  "empremta": "8d64034f4bd20ece93158a2fba3f476ccf2dc6e3d56979c061f3a0a130bbf723",
   "font": "u4/fitxa.html"
  },
  "ud5-alumnat.pdf": {

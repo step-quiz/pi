@@ -192,7 +192,7 @@ G["REPARTIMENT"], mitj = repartiment(DADES_U6)
 G["BARRA_PROB"], pct = barra_prob()
 # U2 5c: el portàtil (al comptat 475 €, a terminis 460 €)
 G["RECTA_PORTATIL"] = recta_marcar(440, 500, 10, "€")
-# U3 6c: l'aigua (l'ampolla, 0,40 € el litre; la garrafa, 0,45 € el litre)
+# U3 2c (abans 6c): l'aigua (l'ampolla, 0,40 € el litre; la garrafa, 0,45 € el litre)
 G["RECTA_AIGUA"] = recta_marcar(0.30, 0.50, 0.05, "€", decimals=2)
 
 with open("grafics4.json", "w", encoding="utf-8") as f:

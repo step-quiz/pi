@@ -102,7 +102,7 @@ d'avaluació més valuosa de la fitxa.
 |---|---|---|
 | 1 | «arrodonir és tallar» | Ex. 3 · 2,64 s'arrodoneix a **2,65** |
 | 2 | «al comptat sempre és millor» | Ex. 5c · el portàtil surt millor **a terminis** |
-| 3 | «com més gran el paquet, més barat» | Ex. 6c · guanya **l'ampolla petita** |
+| 3 | «com més gran el paquet, més barat» | Ex. 2c · guanya **l'ampolla petita** |
 | 4 | «el negatiu no val mai» | Ex. 5d · al congelador la bona és **−3 °C** |
 | 5 | «el vèrtex és el punt més alt i sempre hi ha dos talls» | Ex. 2 · vèrtex **mínim** i **cap tall** |
 | 6 | «els gràfics diuen la veritat» | Ex. 6 · l'eix que comença a **90 i no a 0** |
@@ -149,7 +149,7 @@ unitat, la primera situació encara li surt bé; la segona, no. Exemples:
 |---|---|---|
 | 1 | 11 € i entrades de 3 € | arrodonir **cap avall**, després de tota una unitat cap amunt |
 | 2 | l'abonament del gimnàs | el factor fora d'una botiga, barrejat amb quotes |
-| 3 | «amb 350 g, per a quantes persones?» | la proporció al revés |
+| 3 | els globus de la festa: més amics, **menys** temps | la **inversa** amb el mateix «més amics» que les creps (directa) |
 | 4 | la planta d'un pàrquing | el **negatiu** és la solució que té sentit |
 | 5 | el cable d'un pont | vèrtex mínim i **cap** punt de tall, sense avisar |
 | 6 | el camí a l'institut | aquí la mitjana **sí** que explica les dades |
@@ -181,7 +181,7 @@ lliga.
 | Unitat | Què lliga | On és |
 |---|---|---|
 | 2 | euros i per cent: 240 € i 80 % cauen al mateix lloc | Pàgina 1 de la fitxa · Doble recta, «Percentatges» |
-| 3 | cm del plànol i metres de veritat | Pàgina 1 i «A la vida de cada dia» · Doble recta, «Escala 1 : 200» |
+| 3 | persones i grams de farina: 4 persones, 200 g | «A la vida de cada dia» (ex. 10) · Doble recta, «Escala 1 : 200» (cm del plànol i metres) |
 | 4 | x i x + 3: on la de baix val 7, la de dalt val 4 | Doble recta, «Equació x + 3 = 7» (el pont si la balança no agafa) |
 | 7 | casos que van bé i probabilitat | Pàgina 3 (la barra amb l'escala) · Doble recta, «Probabilitat» |
 | 8 | metres d'ombra i metres d'alçada | Exercici 3 · Doble recta, «Ombra i alçada» |

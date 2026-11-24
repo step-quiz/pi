@@ -55,10 +55,10 @@ def visible(caixa):
         return False
 
 
-def mida(cap, full):
+def mida(cap, full, carpeta):
     """L'alçada del contingut (cm), quant surt pel marge dret (cm) i els textos que
     surten de la capsa de la seva opció (<label>)."""
-    doc = HTML(string=cap + full + "</body></html>", base_url=FITXES + "/").render(stylesheets=[ALTA])
+    doc = HTML(string=cap + full + "</body></html>", base_url=carpeta + "/").render(stylesheets=[ALTA])
     limit = MARGE_DRET_CM / 2.54 * 96
     r = {"fons": 0.0, "dreta": 0.0, "capses": set()}
 
@@ -97,7 +97,7 @@ def main():
             if 'class="full sol"' in full:
                 continue
             total += 1
-            h, dreta, capses = mida(cap, full)
+            h, dreta, capses = mida(cap, full, os.path.dirname(origen))
             if dreta > 0.5:
                 amples.append(f"{u} pàgina {i}: surt {dreta:.1f} cm pel marge dret")
             elif dreta > 0.3:
