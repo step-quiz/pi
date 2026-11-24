@@ -41,8 +41,7 @@ decidir amb dades, la competència nuclear li és accessible si es descarrega el
 la calculadora i es basteix l'expressió amb frases model.
 
 **El docent** té el seu propi ecosistema: un llibre digital amb activitats en PDF de 1r a
-secundària, un banc d'exercicis autocorrectius (`repas-main`) i les programacions didàctiques
-en full de càlcul. El material adaptat s'hi recolza en comptes de substituir-lo.
+secundària i les programacions didàctiques en full de càlcul. El material adaptat s'hi recolza en comptes de substituir-lo.
 
 ---
 

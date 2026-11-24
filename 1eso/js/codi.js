@@ -9,7 +9,6 @@
    L'alumnat acaba una tasca a la caixa d'eines i el docent n'ha de poder tenir
    l'evidència sense servidor, sense comptes i sense guardar cap nom. El codi
    porta a dins la tasca, el dia i els resultats, i verifica.html el llegeix.
-   És el mateix format d'evidència que ja fa servir repas-main.
 
    COM ÉS
    Nou caràcters en tres grups de tres: «K7Q-M2X-9RT». L'alfabet és el Base32
