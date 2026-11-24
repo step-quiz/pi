@@ -55,6 +55,9 @@ torna a fer cada quadern i avisa si el fitxer no és el que surt del generador.
 """
 import glob, importlib.util, os, re, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from tipografia import lliga  # noqa: E402  (un número no queda mai sol a final de línia)
+
 AQUI = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(AQUI))
 CURSOS = ("1eso", "4eso")
@@ -456,6 +459,10 @@ def mira(b):
 
 
 def genera(curs, num_u):
+    return lliga(_genera(curs, num_u))
+
+
+def _genera(curs, num_u):
     u = carrega(curs, num_u)
     comprova_unitat(u)
     alumnat, sol = [], []

@@ -253,6 +253,13 @@ llibre del curs (repositori `llibre`, activitats 3.1, 3.2 i 3.4).
   de `gen_grafics5.py`. Amb la lletra DejaVu Sans dels PDF, la pàgina 12 hi cap justa (0,3 cm).
 - **Eines:** `gen_pdf.py 3` refà només els PDF d'una unitat i deixa les altres entrades de
   `pdf/empremtes.json` com eren; `eines/mesura.py` tornava a fallar (`FITXES` ja no existia).
+- **Un número no queda mai sol a final de línia** (`comu/generadors/tipografia.py`, funció `lliga`):
+  «21 €», «5 entrades», «1 : 100» i «I 5» porten un espai que no es parteix. Ho fa el motor dels
+  quaderns (tots els cursos), `gen_repas.py` (de moment només a la U3, per no refer els PDF de les
+  altres) i, a la U3, la fitxa i la targeta dels percentatges. Les altres fitxes encara no.
+- **La proporció, pas a pas i en línies separades** (correcció del docent): «4 · x = 10 · 6» i a sota
+  «4 · x = 60»; després «x = 60/4», escrit com una fracció, i a sota «x = 15 €». Igual a la fitxa
+  (pàgina 5 i exercici 3), al quadern, al solucionari i a la targeta.
 - **Pendent:** l'examen de la UD3 (`generadors/examens/ud3.js`) encara segueix la fitxa d'abans
   (escales, realitat → plànol, mapa). Cal refer-lo quan el docent ho demani.
 
